@@ -241,6 +241,7 @@ def _reset_sample_content(payload: dict, meta: dict, na: str) -> None:
     for key in org:
         if key != "name":
             org[key] = meta.get(key) or na
+    org["name"] = meta.get("organization") or na
     payload["assessment"]["name"] = (
         meta.get("assessment_name") or "AI Maturity Assessment")
     sources = meta.get("evidence_sources")

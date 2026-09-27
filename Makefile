@@ -6,15 +6,17 @@
 PY ?= python3
 KIT := $(CURDIR)
 
-.PHONY: help init test scores smoke smoke-cross validate-docs build-kits install-deps pipeline clean-saida
+.PHONY: help init import workbook test scores smoke smoke-cross validate-docs build-kits install-deps pipeline clean-saida
 
 help:
 	@echo "AI Maturity Assessment kit"
 	@echo ""
 	@echo "Targets:"
 	@echo "  make init          Create respostas.json from respostas.json.example (keeps an existing file)"
+	@echo "  make import        Import a Microsoft Forms export (XLSX=respostas-forms.xlsx) into respostas.json"
 	@echo "  make scores        Compute saida/scores.json, gaps.json and recomendacoes.json (deterministic)"
-	@echo "  make test          Unit and golden tests for the scoring engine"
+	@echo "  make workbook      Fill the auditable workbook saida/pontuacao-preenchida-<DATE>.xlsx"
+	@echo "  make test          Unit and golden tests (engine, importer, workbook)"
 	@echo "  make smoke         End-to-end smoke test (assessment only, no PDFs)"
 	@echo "  make smoke-cross   Smoke test including cross-survey enrichment"
 	@echo "  make validate-docs Validate JSON content, language coverage and package sources"
@@ -31,11 +33,19 @@ init:
 	@test -f respostas.json || cp respostas.json.example respostas.json
 	@echo "respostas.json ready (an existing file is kept). Run /wizard-implementacao for implementation-guide-inputs.json."
 
+XLSX ?= respostas-forms.xlsx
+
+import:
+	@$(PY) scripts/import_forms_excel.py $(XLSX)
+
 scores:
 	@$(PY) scripts/assessment_engine.py all
 
+workbook:
+	@$(PY) scripts/fill_workbook.py
+
 test:
-	@$(PY) -m unittest scripts/test_assessment_engine.py
+	@$(PY) -m unittest discover -s scripts -p 'test_*.py'
 
 smoke:
 	@$(PY) scripts/smoke_test.py

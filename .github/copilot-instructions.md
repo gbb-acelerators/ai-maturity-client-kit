@@ -24,6 +24,7 @@ Contains:
 | `framework.json` | Immutable — 3 pillars × ~28 capabilities × 158 questions + weights + `cap → strategies[]` mapping + S1–S7 + technologies |
 | `respostas.json` | **Client input** — fills `level` (0–4) and `evidence` per question. Not tracked in git: create it with `make init` (copies `respostas.json.example`) or `/importar-respostas-excel` |
 | `scripts/assessment_engine.py` | Deterministic scoring engine behind `/calcular-scores`, `/gap-analysis`, `/recomendar-estrategias` (`python3 scripts/assessment_engine.py all`); golden tests in `scripts/test_assessment_engine.py` |
+| `scripts/import_forms_excel.py` / `scripts/fill_workbook.py` | Deterministic importer (`/importar-respostas-excel`) and auditable workbook filler (`/preencher-planilha`); tests in `scripts/test_*.py` (`make test`) |
 | `respostas-forms.xlsx` (optional) | Multi-respondent Excel from Microsoft Forms / SharePoint |
 | `implementation-guide-inputs.json` (optional) | Output of `/wizard-implementacao` — populates Part 4 of the PDF |
 | `referencia/pontuacao-e-calculo.xlsx` | Auditable workbook template; populated by `preencher-planilha` skill |
@@ -180,7 +181,7 @@ Rerunning with the same inputs should preserve the same computed values. Timesta
 Run before opening a PR that touches the pipeline:
 
 ```bash
-make test         # scoring engine unit + golden tests
+make test         # engine, importer and workbook tests
 make smoke        # assessment pipeline without full PDF dependency checks
 make smoke-cross  # assessment + developer survey + learning survey enrichment
 ```
