@@ -1,6 +1,6 @@
 # `referencia/exemplo-saida/en/`
 
-📖 **Navegação:** [🏠 Índice](../../../README.md) · [« Exemplo-saída](../README.md)
+📖 **Navegação:** [🏠 Index](../../../../README.md) · [« Example folder](../../README.md)
 
 Versão **em inglês** dos 5 PDFs de referência gerados a partir de `respostas.json.example` (Cliente Exemplo S.A., locale forçado para `en`).
 
