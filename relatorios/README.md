@@ -45,10 +45,10 @@ relatorios/
    2. OVERWRITES only the fields we have data for:
       • organization, scores, capabilities, gap_analysis
       • implementation_guide_inputs (if the wizard ran)
-   3. KEEPS placeholders for narrative the client did not fill in:
-      • capabilities[].scoring_rationale, h1_initiatives
-      • risks_per_pillar, success_metrics_per_pillar
-      • Steering Committee, RACI (if the wizard did not run)
+   3. RESETS sample (Acme) facts; builds capabilities from
+      framework.json, evidence and rationale from respostas.json,
+      and Part 4 from implementation-guide-inputs.json. Generic
+      recommendations (risks, technologies, next steps) remain.
    4. Writes saida/payload.json (debug/customization)
    5. Invokes render_reports.py
                   ↓

@@ -45,10 +45,10 @@ relatorios/
    2. SOBRESCREVE só campos que temos dados:
       • organization, scores, capabilities, gap_analysis
       • implementation_guide_inputs (se wizard rodou)
-   3. MANTÉM placeholders para narrativa que cliente não preencheu:
-      • capabilities[].scoring_rationale, h1_initiatives
-      • risks_per_pillar, success_metrics_per_pillar
-      • Steering Committee, RACI (se wizard não rodou)
+   3. REMOVE fatos do exemplo (Acme); monta capabilities do
+      framework.json, evidências e justificativa do respostas.json,
+      e a Parte 4 do implementation-guide-inputs.json. Recomendações
+      genéricas (riscos, tecnologias, próximos passos) permanecem.
    4. Escreve saida/payload.json (debug/customização)
    5. Invoca render_reports.py
                   ↓

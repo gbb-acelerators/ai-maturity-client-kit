@@ -129,9 +129,8 @@ for name in expected:
    Threshold: OK (46/158 answered)
 
 ⚠️ Personalization:
-   Some narrative sections (RACI matrix, technology stack details,
-   risk register, and success metrics per pillar) use professional
-   placeholders from sample_payload.json. To personalize:
+   Sections without client data show "Not specified" or a wizard
+   placeholder (never sample facts). To fill them:
 
    1. Run /wizard-implementacao for Part 4 (Implementation Guide)
    2. OR edit saida/payload.json directly and re-render:
@@ -157,8 +156,8 @@ for name in expected:
 /gerar-relatorio
 
 # 2. Edit saida/payload.json manually:
-#    - capabilities[].scoring_rationale (replace sample text)
-#    - capabilities[].h1_initiatives (replace with client-specific actions)
+#    - capabilities[].scoring_rationale (generated from scores + evidence)
+#    - capabilities[].h1_initiatives (empty by default; add client actions)
 #    - technology_resources_per_pillar (customize tools)
 #    - risks_per_pillar (real risks identified)
 #    - success_metrics_per_pillar (real KPIs being tracked)
@@ -199,23 +198,22 @@ The branding is consistent with the chrome bar shown in the kit's interactive HT
 - macOS may need: `brew install cairo pango gdk-pixbuf libffi`.
 - Outputs in `saida/` only.
 
-## What the script does NOT do (yet)
+## Where each PDF field comes from
 
-The current implementation **preserves placeholder data** from `sample_payload.json` for fields we don't have structured client data for:
-- `executive_steering_committee` (5 names of Acme leaders)
-- `tpo.program_manager` and `members`
-- `raci_matrix` (5 activities)
-- `communication_plan` / `training_plan`
-- `adkar_notes` (long narrative)
-- `quick_wins_w1_4` / `w5_8` / `w9_12`
-- `risks_per_pillar`
-- `success_metrics_per_pillar`
-- `next_steps_per_pillar` (text)
-- Per-capability `scoring_rationale`, `h1_initiatives`, `evidence_collected`, `h2_key_enabler`, etc.
+| Field | Source |
+|---|---|
+| Capabilities (names, weights, PE flag, audience, KPIs) | `framework.json` |
+| Scores, labels, targets, gaps | `saida/scores.json` + `respostas.json::target_overrides` |
+| `evidence_collected`, `h1_state_evidence` | `respostas.json` evidence text per question |
+| `scoring_rationale` | Generated: weighted mean, answered count, evidence count |
+| PE readiness level and path | Rubric in `score_justification.html.j2` applied to `pe_score` |
+| Organization profile (industry, size, cloud, tools) | Optional keys in `respostas.json::metadata` (`industry`, `number_of_developers`, `number_of_applications`, `primary_cloud_provider`, `current_devops_tools`, `assessment_scope`, `key_business_drivers`, `timeline_for_transformation`); otherwise "Not specified" |
+| Key evidence sources | Optional `respostas.json::metadata.evidence_sources` (`{"documents": [...], "dashboards": [...], "interviews": [...], "metrics": [...]}`) |
+| Steering committee, TPO, RACI, communication, training, ADKAR, quick wins | `implementation-guide-inputs.json` (Markdown lists and tables are converted); otherwise a wizard placeholder |
+| Success-metric "current" values | "Not specified" until the client measures them |
+| Horizons, technologies, risks, next steps per pillar | Generic kit recommendations from `sample_payload.json` (edit `saida/payload.json` to tailor) |
 
-**Workaround:** the wizard data flows in via `implementation-guide-inputs.json` for the steering/RACI/comms/training/ADKAR/quick wins. For the rest, the client edits `saida/payload.json` and re-renders.
-
-**Future improvement:** a `/personalizar-narrativa` skill could prompt the client through each capability's narrative fields, replacing sample placeholders one by one.
+Sample facts about the demo organization (Acme) never reach a client PDF. `make smoke` fails if they do.
 
 ## Reference example
 
@@ -228,6 +226,7 @@ The folder `referencia/exemplo-saida/` contains 5 PDFs generated from `respostas
 | `weasyprint not found` | `pip install --user --break-system-packages weasyprint` |
 | `cairo / pango missing` (Mac) | `brew install cairo pango gdk-pixbuf libffi` |
 | `StrictUndefined: 'X' is undefined` (rare) | Sample payload missing a field — open issue or add to sample |
-| PDF still shows "Acme Insurance" | `respostas.json::metadata.organization` is empty — fix and re-run |
-| PDF still has "James Carter" in Part 4 | Run `/wizard-implementacao` to replace steering committee placeholders |
+| PDF shows "Not specified" in the organization profile | Add the optional profile keys to `respostas.json::metadata` and re-run |
+| Part 4 shows wizard placeholders | Run `/wizard-implementacao` to create `implementation-guide-inputs.json` |
+| PDFs show the Acme demo | `saida/scores.json` is missing: run `python3 scripts/assessment_engine.py all` first |
 | Wrong language | Set `respostas.json::metadata.language` (`en`, `pt-BR`, or `es`) and re-run |

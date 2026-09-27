@@ -167,11 +167,11 @@ If it exists, continue to `/gerar-relatorio`.
 
 If it does not exist but `saida/plano-capacitacao-*.md` exists, recommend `/wizard-implementacao` Mode D first because it auto-fills 6 of 9 inputs from the Learning Survey.
 
-If neither exists, explain that Part 4 will use sample placeholders unless the user runs the wizard:
+If neither exists, explain that Part 4 will show wizard placeholders (no sample data) unless the user runs the wizard:
 
 ```
 ⚠️ I'm about to generate the 5 PDFs. Part 4 (Implementation Guide) will use
-   generic placeholders for Steering Committee, RACI, Quick Wins, and so on.
+   "to be completed" placeholders for Steering Committee, RACI, Quick Wins, and so on.
 
    To personalize it with YOUR data, you can run the wizard FIRST (~30 min).
 
@@ -338,7 +338,7 @@ Recommended sequence:
 | Overall score is 0.0 | Probably no capability was answered; ask which qids have `level != null` |
 | Client wants a different PDF language | Edit `respostas.json::metadata.language` (`en`, `pt-BR`, or `es`) and run `/gerar-relatorio` (no need to rerun everything) |
 | Client wants survey reports in Portuguese | Rerun `/insights-developer-survey` or `/plano-capacitacao` with `--lang pt-br` |
-| Client complains the PDF shows "Acme Insurance" or "James Carter" | These are sample placeholders for fields without data; suggest `/wizard-implementacao` for Part 4 or a manual edit of `saida/payload.json` for narratives |
+| Client sees "Not specified" or wizard placeholders in the PDF | Those fields have no client data yet: add the optional profile keys to `respostas.json::metadata`, run `/wizard-implementacao` for Part 4, or edit `saida/payload.json` and re-render. If the PDF shows the Acme demo, `saida/scores.json` is missing: run `python3 scripts/assessment_engine.py all` |
 
 ## Hard constraints
 

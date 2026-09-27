@@ -14,9 +14,11 @@ only the fields we have real client data for:
   - gap_analysis[] (rebuilt from gaps.json, structure mirrors sample)
   - implementation_guide_inputs (from implementation-guide-inputs.json if exists)
 
-Fields we DON'T have client data for (h1_initiatives, scoring_rationale,
-risks, technology recommendations, etc.) keep the rich sample placeholders —
-client can edit saida/payload.json and re-render to personalize them.
+Capabilities, names, weights, targets, evidence, and the scoring rationale
+come from framework.json and the client files. Sample facts about the demo
+organization (Acme) are reset, so a client PDF never states them. Generic
+kit recommendations (horizons, technologies, risks, next steps) remain and
+can be edited in saida/payload.json before re-rendering.
 
 Usage:
     python3 build_payload_and_render.py
@@ -70,6 +72,34 @@ DEFAULT_ACTIONS = {
 }
 
 
+RATIONALE = {
+    "en": {
+        "score": "Weighted mean of {answered} of {total} questions: "
+                 "{score} ({label}).",
+        "evidence": "Evidence was provided for {n} question(s), listed above.",
+        "no_evidence": "No evidence was provided, so treat this score as "
+                       "self-reported.",
+        "none": "No questions in this capability were answered.",
+    },
+    "es": {
+        "score": "Media ponderada de {answered} de {total} preguntas: "
+                 "{score} ({label}).",
+        "evidence": "Se aportó evidencia en {n} pregunta(s), listada arriba.",
+        "no_evidence": "No se aportó evidencia; trate este score como "
+                       "autodeclarado.",
+        "none": "No se respondió ninguna pregunta de esta capacidad.",
+    },
+    "pt-br": {
+        "score": "Média ponderada de {answered} de {total} perguntas: "
+                 "{score} ({label}).",
+        "evidence": "Houve evidência em {n} pergunta(s), listada acima.",
+        "no_evidence": "Nenhuma evidência foi informada; trate este score "
+                       "como autodeclarado.",
+        "none": "Nenhuma pergunta desta capability foi respondida.",
+    },
+}
+
+
 def load_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -109,20 +139,26 @@ def build_payload(kit: Path) -> dict:
 
     respostas, scores, gaps = _load_client_pipeline_data(kit)
     meta = respostas.get("metadata", {})
+    framework = load_json(kit / "framework.json")
 
     _apply_locale(payload, meta)
+    na = _not_specified(kit, _locale(payload))
+    _reset_sample_content(payload, meta, na)
+    payload["capabilities"] = _client_capabilities(
+        framework, respostas, _locale(payload), na)
     _apply_organization(payload, meta)
     _apply_assessment(payload, scores, meta)
-    _apply_overall_scores(payload, scores)
-    _apply_pillar_scores(payload, scores)
-    _apply_pe_readiness(payload, scores)
     _apply_capability_scores(payload, scores, respostas)
+    _apply_overall_scores(payload, scores)
+    _apply_pillar_scores(payload, scores, framework)
+    _apply_pe_readiness(payload, scores)
     _apply_gap_analysis(payload, gaps, kit)
-    _merge_implementation_guide_inputs(payload, kit / "implementation-guide-inputs.json")
+    _merge_implementation_guide_inputs(
+        payload, kit / "implementation-guide-inputs.json")
     _attach_cross_survey(payload, kit)
+    _strip_private_keys(payload)
 
     return payload
-
 
 def _merge_branding(payload: dict) -> None:
     """Merge paulasilva-ms branding while preserving sample-only fields."""
@@ -187,6 +223,106 @@ def _apply_organization(payload: dict, meta: dict) -> None:
         org["primary_contact_role"] = meta["respondent_role"]
 
 
+def _not_specified(kit: Path, locale: str) -> str:
+    path = kit / "relatorios" / "i18n" / f"{locale}.json"
+    try:
+        return load_json(path).get("label.not_specified", "—")
+    except (OSError, ValueError):
+        return "—"
+
+
+def _reset_sample_content(payload: dict, meta: dict, na: str) -> None:
+    """Drop sample (Acme) facts so client PDFs only show client data.
+
+    Generic recommendations (horizons, technologies, risks, next steps)
+    stay; any field that states a fact about the organization is reset.
+    """
+    org = payload["organization"]
+    for key in org:
+        if key != "name":
+            org[key] = meta.get(key) or na
+    payload["assessment"]["name"] = (
+        meta.get("assessment_name") or "AI Maturity Assessment")
+    sources = meta.get("evidence_sources")
+    payload["key_evidence_sources"] = (
+        sources if isinstance(sources, dict) else {})
+    for pillar_metrics in payload.get(
+            "success_metrics_per_pillar", {}).values():
+        for metrics in pillar_metrics.values():
+            for metric in metrics:
+                metric["current"] = na
+    for pillar in payload["scores"]["pillars"]:
+        pillar["current_state_metrics"] = []
+    pe = payload["scores"]["pe_readiness"]
+    pe["three_horizons_verdict"] = None
+    pe["agentic_platform_engineering"] = {
+        "destination_label": "Agentic Platform Engineering",
+        "recommended_path": None,
+        "recommended_path_label": None,
+        "recommended_idp": None,
+        "rationale": None,
+    }
+    payload["gap_analysis"] = []
+    payload["implementation_guide_inputs"] = {}
+
+
+def _capability_code(cap_id: str) -> str:
+    pillar, cap = cap_id.split("-")
+    return f"{pillar[1:]}.{cap[1:]}"
+
+
+def _client_capabilities(
+    framework: dict, respostas: dict, locale: str, na: str
+) -> list[dict]:
+    """Build capability entries from framework.json (not the sample)."""
+    responses = respostas.get("responses") or {}
+    tmpl = RATIONALE.get(locale, RATIONALE[DEFAULT_LOCALE])
+    caps = []
+    for pillar in framework.get("pillars", []):
+        for cap in pillar.get("capabilities", []):
+            questions = cap.get("questions", [])
+            evidence = []
+            for q in questions:
+                entry = responses.get(q["id"]) or {}
+                text = str(entry.get("evidence") or "").strip()
+                if text:
+                    evidence.append(f"{q['id']}: {text[:280]}")
+            audience = sorted({
+                a for q in questions for a in q.get("audience", [])
+            }) or ["all"]
+            kpis = []
+            for q in questions:
+                kpi = q.get("kpi")
+                if kpi and kpi not in kpis:
+                    kpis.append(kpi)
+            is_pe = any(q.get("pe") for q in questions)
+            name = cap.get("name_pt_br") if locale == "pt-br" else None
+            caps.append({
+                "id": cap["id"],
+                "code": _capability_code(cap["id"]),
+                "name": name or cap.get("name", cap["id"]),
+                "pillar_id": pillar["id"],
+                "is_pe_indicator": is_pe,
+                "weight": float(cap.get("weight", 1.0)),
+                "pe_weight": 1.0 if is_pe else 0.0,
+                "audience": audience,
+                "evidence_collected": evidence[:6],
+                "h1_state_evidence": evidence[:3],
+                "evidence_count": len(evidence),
+                "question_count": len(questions),
+                "scoring_rationale": "",
+                "h1_initiatives": [],
+                "h2_key_enabler": None,
+                "h3_target_label": None,
+                "h1_success_metrics": [
+                    {"metric": k, "current": na, "h1_target": na}
+                    for k in kpis[:3]
+                ],
+                "_rationale": tmpl,
+            })
+    return caps
+
+
 def _apply_assessment(payload: dict, scores: dict, meta: dict) -> None:
     assess = payload["assessment"]
     assess["id"] = scores.get("metadata", {}).get("respondent", assess.get("id", "—"))
@@ -197,45 +333,115 @@ def _apply_assessment(payload: dict, scores: dict, meta: dict) -> None:
     )
 
 
+def _weighted_target(caps: list[dict]) -> float:
+    answered = [c for c in caps if c.get("_answered")]
+    total = sum(c["weight"] for c in answered)
+    if not total:
+        return DEFAULT_TARGET
+    return sum(c["target_score"] * c["weight"] for c in answered) / total
+
+
 def _apply_overall_scores(payload: dict, scores: dict) -> None:
     overall_score = scores["overall"]["score"]
-    payload["scores"]["overall"]["weighted_avg"] = round(overall_score, 2)
-    payload["scores"]["overall"]["level_label"] = label_from_score(
+    overall = payload["scores"]["overall"]
+    target = _weighted_target(payload["capabilities"])
+    overall["target"] = round(target, 2)
+    if overall_score is None:
+        overall["weighted_avg"] = 0.0
+        overall["level_label"] = label_from_score(None, _locale(payload))
+        overall["gap"] = 0
+        return
+    overall["weighted_avg"] = round(overall_score, 2)
+    overall["level_label"] = label_from_score(
         overall_score, _locale(payload))
-    target_overall = payload["scores"]["overall"].get("target", 3.0)
-    payload["scores"]["overall"]["gap"] = max(0, round(target_overall - overall_score, 2))
+    overall["gap"] = max(0, round(target - overall_score, 2))
 
 
-def _apply_pillar_scores(payload: dict, scores: dict) -> None:
+def _apply_pillar_scores(
+    payload: dict, scores: dict, framework: dict
+) -> None:
+    locale = _locale(payload)
+    names = {
+        p["id"]: (p.get("name_pt_br") if locale == "pt-br" else None)
+        or p.get("name", p["id"])
+        for p in framework.get("pillars", [])
+    }
     sample_pillars_by_id = {p["id"]: p for p in payload["scores"]["pillars"]}
     for p_client in scores.get("pillars", []):
         pid = p_client["id"]
         sample_p = sample_pillars_by_id.get(pid)
         if not sample_p:
             continue
+        caps = [c for c in payload["capabilities"] if c["pillar_id"] == pid]
+        scored = [c for c in caps if c.get("_answered")]
+        weights = sum(c["weight"] for c in scored)
+        wsum = sum(c["_score"] * c["weight"] for c in scored)
+        target = _weighted_target(caps)
+        sample_p["name"] = names.get(pid, sample_p.get("name"))
         sample_p["weighted_avg"] = round(p_client["score"], 2)
-        sample_p["level_label"] = label_from_score(
-            p_client["score"], _locale(payload))
-        target = sample_p.get("target", 3.0)
+        sample_p["level_label"] = label_from_score(p_client["score"], locale)
+        sample_p["target"] = round(target, 2)
         sample_p["gap"] = max(0, round(target - p_client["score"], 2))
+        sample_p["capabilities_count"] = len(caps)
+        sample_p["weights_sum"] = weights
+        sample_p["weighted_sum_calc"] = round(wsum, 2)
+
+
+def _pe_level(score: float) -> tuple[str, str]:
+    # Mirrors the PE rubric table in score_justification.html.j2.
+    if score < 1.0:
+        return "NOT READY", "build_foundation_first"
+    if score < 2.0:
+        return "LOW", "build_foundation_first"
+    if score < 3.0:
+        return "MEDIUM", "open_horizons"
+    return "HIGH", "either"
 
 
 def _apply_pe_readiness(payload: dict, scores: dict) -> None:
     pe_score = scores["overall"].get("pe_score")
-    if pe_score is not None:
-        payload["scores"]["pe_readiness"]["weighted_score"] = round(pe_score, 2)
-        payload["scores"]["pe_readiness"]["level"] = label_from_score(
-            pe_score, _locale(payload))
+    pe = payload["scores"]["pe_readiness"]
+    if pe_score is None:
+        pe["weighted_score"] = None
+        pe["level"] = None
+        return
+    level, path = _pe_level(pe_score)
+    pe["weighted_score"] = round(pe_score, 2)
+    pe["level"] = level
+    pe["agentic_platform_engineering"]["recommended_path"] = path
 
 
-def _apply_capability_scores(payload: dict, scores: dict, respostas: dict) -> None:
+def _apply_capability_scores(
+    payload: dict, scores: dict, respostas: dict
+) -> None:
     target_overrides = respostas.get("target_overrides", {})
-    sample_caps_by_id = {c.get("id") or c.get("code"): c for c in payload["capabilities"]}
+    by_id = {c["id"]: c for c in payload["capabilities"]}
     for c_client in scores.get("capabilities", []):
-        sample_c = sample_caps_by_id.get(c_client["id"])
-        if sample_c:
+        cap = by_id.get(c_client["id"])
+        if cap:
             _apply_single_capability_score(
-                sample_c, c_client, target_overrides, _locale(payload))
+                cap, c_client, target_overrides, _locale(payload))
+    for cap in payload["capabilities"]:
+        tmpl = cap.pop("_rationale", None)
+        if tmpl and "current_score" in cap:
+            cap["scoring_rationale"] = _rationale(tmpl, cap)
+
+
+def _rationale(tmpl: dict, cap: dict) -> str:
+    if not cap.get("_answered"):
+        return tmpl["none"]
+    text = tmpl["score"].format(
+        answered=cap["answered"],
+        total=cap["question_count"],
+        score=f"{cap['_score']:.2f}",
+        label=cap["current_level_label"],
+    )
+    if cap["evidence_count"]:
+        return text + " " + tmpl["evidence"].format(n=cap["evidence_count"])
+    return text + " " + tmpl["no_evidence"]
+
+
+GAP_PRIORITY = {"P0": "CRITICAL", "P1": "HIGH", "P2": "MEDIUM", "P3": "LOW"}
 
 
 def _apply_single_capability_score(
@@ -246,18 +452,26 @@ def _apply_single_capability_score(
 ) -> None:
     cid = c_client["id"]
     score = c_client.get("score")
+    target = float(target_overrides.get(cid, DEFAULT_TARGET))
+    sample_c["_answered"] = score is not None
+    sample_c["_score"] = score if score is not None else 0.0
+    sample_c["answered"] = c_client.get("answered", 0)
     sample_c["current_score"] = round(score, 2) if score is not None else 0.0
     sample_c["current_level_label"] = label_from_score(score, locale)
-    target = target_overrides.get(cid, DEFAULT_TARGET)
-    sample_c["target_score"] = round(float(target), 2)
-    sample_c["target_level_label"] = label_from_score(float(target), locale)
+    sample_c["target_score"] = round(target, 2)
+    sample_c["target_level_label"] = label_from_score(target, locale)
+    base = score if score is not None else 0.0
+    sample_c["h1_target_score"] = round(min(target, base + 1.0), 1)
+    sample_c["h2_target_score"] = round(target, 1)
+    sample_c["h3_target_score"] = 4.0
     if score is None:
         sample_c["gap"] = 0
-        sample_c["gap_priority"] = "P3"
+        sample_c["gap_priority"] = "LOW"
         return
     sample_c["gap"] = max(0, round(target - score, 2))
-    ps = c_client.get("weight", 1.0) * (target - score)
-    sample_c["gap_priority"] = priority_from_ps(ps).split(" ")[0]
+    ps = sample_c["weight"] * max(0.0, target - score)
+    code = priority_from_ps(ps).split(" ")[0]
+    sample_c["gap_priority"] = GAP_PRIORITY[code]
 
 
 def _apply_gap_analysis(payload: dict, gaps: dict, kit: Path) -> None:
@@ -266,8 +480,7 @@ def _apply_gap_analysis(payload: dict, gaps: dict, kit: Path) -> None:
         _gap_payload_entry(payload, gap, names)
         for gap in gaps.get("gaps", [])
     ]
-    if new_gap_analysis:
-        payload["gap_analysis"] = new_gap_analysis
+    payload["gap_analysis"] = new_gap_analysis
 
 
 def _gap_payload_entry(
@@ -300,6 +513,85 @@ def _gap_payload_entry(
     }
 
 
+_ITEM_RE = re.compile(r"^\s*(?:[-*•]|\d+[.)])\s+(.+?)\s*$")
+_SEP_RE = re.compile(r"^:?-{2,}:?$")
+_PLACEHOLDER_MARKERS = ("preencher", "fill in", "completar", "rellenar")
+
+
+def _is_placeholder(text: str) -> bool:
+    text = text.strip().lower()
+    return text.startswith("(") and any(
+        m in text for m in _PLACEHOLDER_MARKERS)
+
+
+def _md_items(text: str) -> list[str]:
+    return [m.group(1) for line in text.splitlines()
+            if (m := _ITEM_RE.match(line)) and not line.lstrip()
+            .startswith("|")]
+
+
+def _md_rows(text: str) -> list[list[str]]:
+    rows = []
+    for line in text.splitlines():
+        line = line.strip()
+        if not line.startswith("|"):
+            continue
+        cells = [c.strip() for c in line.strip("|").split("|")]
+        if all(_SEP_RE.match(c) for c in cells if c):
+            continue
+        rows.append(cells)
+    return rows[1:]  # first row is the header
+
+
+def _split_pair(text: str) -> tuple[str, str]:
+    for sep in (" — ", " – ", ": ", " - "):
+        if sep in text:
+            left, right = text.split(sep, 1)
+            return left.strip(" *"), right.strip()
+    return text.strip(" *"), ""
+
+
+def _cells(row: list[str], keys: tuple[str, ...]) -> dict:
+    padded = row + [""] * (len(keys) - len(row))
+    return dict(zip(keys, padded))
+
+
+def _wizard_value(key: str, value):
+    """Convert wizard Markdown into the structures the templates render."""
+    if not isinstance(value, str):
+        return value or None
+    text = value.strip()
+    if not text or _is_placeholder(text):
+        return None
+    rows = _md_rows(text)
+    items = [i for i in _md_items(text) if not _is_placeholder(i)]
+    if key == "executive_steering_committee":
+        if rows:
+            return [_cells(r, ("name", "role")) for r in rows]
+        members = [dict(zip(("name", "role"), _split_pair(i)))
+                   for i in items]
+        return members or None
+    if key == "tpo":
+        people = [_split_pair(i)[0] for i in items]
+        if people:
+            return {"program_manager": people[0], "members": people[1:]}
+        return {"program_manager": text.splitlines()[0], "members": []}
+    table_keys = {
+        "raci_matrix": ("activity", "r", "a", "c", "i"),
+        "communication_plan": ("audience", "channel", "frequency", "owner"),
+        "training_plan": ("audience", "format", "cadence"),
+    }
+    if key in table_keys:
+        keys = table_keys[key]
+        if rows:
+            return [_cells(r, keys) for r in rows]
+        return [_cells([i], keys) for i in items] or None
+    if key.startswith("quick_wins"):
+        lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+        return items or [ln for ln in lines if not _is_placeholder(ln)]
+    return text
+
+
 def _merge_implementation_guide_inputs(payload: dict, ig_path: Path) -> None:
     if not ig_path.exists():
         return
@@ -310,11 +602,20 @@ def _merge_implementation_guide_inputs(payload: dict, ig_path: Path) -> None:
 
     current_ig = payload.get("implementation_guide_inputs", {})
     for key, value in wizard_inputs.items():
+        converted = _wizard_value(key, value)
+        if converted:
+            current_ig[key] = converted
         if isinstance(value, str) and value.strip():
             current_ig[f"{key}_raw_markdown"] = value
     payload["implementation_guide_inputs"] = current_ig
     print(f"✓ Merged implementation-guide-inputs.json "
           f"({ig.get('metadata', {}).get('completion_pct', 0)}% complete)")
+
+
+def _strip_private_keys(payload: dict) -> None:
+    for cap in payload.get("capabilities", []):
+        for key in [k for k in cap if k.startswith("_")]:
+            del cap[key]
 
 
 def _attach_cross_survey(payload: dict, kit: Path) -> None:

@@ -481,7 +481,7 @@ These are **identical** to the PDFs the web platform will generate once it is re
 - **Present:** open in fullscreen (`Cmd+Ctrl+F` in Mac Preview)
 - **Print:** clean branding, correct pagination, ready to print
 
-> 💡 **Before sharing:** check that Part 4 (`roadmap_part4.pdf`) has the names/data of YOUR organization. If it still shows "Maria Santos / James Carter / Acme", you forgot to run `/wizard-implementacao` to customize it.
+> 💡 **Before sharing:** check that Part 4 (`roadmap_part4.pdf`) has the names/data of YOUR organization. If it shows wizard placeholders ("Customize ... via the Implementation Guide Wizard"), run `/wizard-implementacao` to fill it.
 
 ### 6.2 The auditable spreadsheet (`saida/pontuacao-preenchida-*.xlsx`)
 
@@ -506,10 +506,10 @@ For integration with other tools (Power BI, Tableau, custom scripts):
 
 ### 6.4 Customize the PDFs' deep narrative
 
-Some PDF sections (e.g., `scoring_rationale` per capability, `risks_per_pillar`, details of `technology_resources_per_pillar`) use **professional placeholders** from `sample_payload.json` (Acme Insurance Group). To customize:
+Some PDF sections (e.g., `scoring_rationale` per capability, `risks_per_pillar`, details of `technology_resources_per_pillar`) come from the kit: the scoring rationale is generated from your scores and evidence, organization fields you did not provide show "Not specified", and risks, technologies, and next steps are generic kit recommendations. To tailor them:
 
 ```bash
-# Edit saida/payload.json replacing the placeholders with your data
+# Edit saida/payload.json with your data
 code saida/payload.json
 
 # Re-render only the PDFs (skips the merge step):
@@ -602,7 +602,7 @@ You will see the pipeline running with **3 respondents** being aggregated → it
 
 ## 🧙 Part 7B: Customize Part 4 of the PDF (Implementation Guide)
 
-> Part 4 of the roadmap (`roadmap_part4.pdf`) is the **consolidated Implementation Guide**: committees, RACI, communication plan, training, ADKAR, quick wins. By default it uses professional placeholders. To customize it with your real data, there are **3 paths**.
+> Part 4 of the roadmap (`roadmap_part4.pdf`) is the **consolidated Implementation Guide**: committees, RACI, communication plan, training, ADKAR, quick wins. Without the wizard it shows "to be completed" placeholders (never sample data). To customize it with your real data, there are **3 paths**.
 
 ### ⭐ Shortcut: Mode D (auto-fill from the Learning Survey)
 

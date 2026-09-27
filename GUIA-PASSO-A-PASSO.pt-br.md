@@ -477,7 +477,7 @@ Estes são **idênticos** aos PDFs que a plataforma web vai gerar quando ficar p
 - **Apresentar:** abrir em fullscreen (`Cmd+Ctrl+F` no Preview do Mac)
 - **Imprimir:** branding limpo, paginação correta — pronto para impressão
 
-> 💡 **Antes de compartilhar:** confira se a Parte 4 (`roadmap_part4.pdf`) tem os nomes/dados da SUA organização. Se ainda mostrar "Maria Santos / James Carter / Acme", você esqueceu de rodar `/wizard-implementacao` para personalizar.
+> 💡 **Antes de compartilhar:** confira se a Parte 4 (`roadmap_part4.pdf`) tem os nomes/dados da SUA organização. Se mostrar placeholders do wizard ("Customize ... via the Implementation Guide Wizard"), rode `/wizard-implementacao` para preencher.
 
 ### 6.2 A planilha auditável (`saida/pontuacao-preenchida-*.xlsx`)
 
@@ -502,10 +502,10 @@ Para integração com outras ferramentas (Power BI, Tableau, scripts custom):
 
 ### 6.4 Personalizar narrativa profunda dos PDFs
 
-Algumas seções dos PDFs (ex.: `scoring_rationale` por capability, `risks_per_pillar`, detalhes de `technology_resources_per_pillar`) usam **placeholders profissionais** do `sample_payload.json` (Acme Insurance Group). Para personalizar:
+Algumas seções dos PDFs (ex.: `scoring_rationale` por capability, `risks_per_pillar`, detalhes de `technology_resources_per_pillar`) vêm do kit: a justificativa de score é gerada a partir dos seus scores e evidências, campos da organização não informados aparecem como "Não especificado", e riscos, tecnologias e próximos passos são recomendações genéricas do kit. Para ajustar:
 
 ```bash
-# Edite saida/payload.json substituindo os placeholders pelos seus dados
+# Edite saida/payload.json com os seus dados
 code saida/payload.json
 
 # Re-renderize só os PDFs (pula a etapa de merge):
@@ -598,7 +598,7 @@ Você verá o pipeline rodando com **3 respondentes** sendo agregados → vai ge
 
 ## 🧙 Parte 7B — Personalizar a Parte 4 do PDF (Implementation Guide)
 
-> A Parte 4 do roadmap (`roadmap_part4.pdf`) é o **Guia de Implementação consolidado**: comitês, RACI, plano de comunicação, treinamento, ADKAR, quick wins. Por padrão usa placeholders profissionais. Para personalizar com seus dados reais, há **3 caminhos**.
+> A Parte 4 do roadmap (`roadmap_part4.pdf`) é o **Guia de Implementação consolidado**: comitês, RACI, plano de comunicação, treinamento, ADKAR, quick wins. Sem o wizard, mostra placeholders "a preencher" (nunca dados de exemplo). Para personalizar com seus dados reais, há **3 caminhos**.
 
 ### ⭐ Atalho: Mode D (auto-fill do Learning Survey)
 
