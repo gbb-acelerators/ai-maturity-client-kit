@@ -1,6 +1,6 @@
 # `referencia/branding/` — Identidade visual paulasilva-ms (Microsoft)
 
-Esta pasta contém os assets de branding aplicados aos artefatos visuais standalone deste kit (HTMLs interativos). Forka o design system canônico [paulasilva-ms v1.7.0](../../../../.github/skills/paulasilva-ms/).
+Esta pasta contém os assets de branding aplicados aos artefatos visuais standalone deste kit (HTMLs interativos). Forka o design system canônico paulasilva-ms v1.7.0.
 
 ## Arquivos
 
@@ -17,9 +17,9 @@ Esta pasta contém os assets de branding aplicados aos artefatos visuais standal
 Os seguintes arquivos carregam `tokens-paulasilva-ms.css` e mostram o chrome bar:
 
 - [`../calculadora-pontuacao.html`](../calculadora-pontuacao.html) — calculadora interativa
-- [`../../formularios/P1-produtividade-do-desenvolvedor.html`](../../formularios/P1-produtividade-do-desenvolvedor.html)
-- [`../../formularios/P2-ciclo-de-vida-devops.html`](../../formularios/P2-ciclo-de-vida-devops.html)
-- [`../../formularios/P3-plataforma-de-aplicações.html`](../../formularios/P3-plataforma-de-aplicações.html)
+- [`../../formularios/P1-produtividade-do-desenvolvedor.html`](../../formularios/v1/P1-produtividade-do-desenvolvedor.html)
+- [`../../formularios/P2-ciclo-de-vida-devops.html`](../../formularios/v1/P2-ciclo-de-vida-devops.html)
+- [`../../formularios/P3-plataforma-de-aplicações.html`](../../formularios/v1/P3-plataforma-de-aplicações.html)
 - [`../../wizard/implementation-guide-wizard.html`](../../wizard/implementation-guide-wizard.html)
 
 ### ❌ NÃO aplicado nos PDFs Jinja2
@@ -66,7 +66,7 @@ Sem LinkedIn, sem GitHub, sem website. Email apenas.
 
 Para showcase visual completo, deck patterns, simulações, layouts de playbook multi-página:
 
-- Caminho: [`/Users/paulasilva/Documents/ai-maturuty-client-platform/.github/skills/paulasilva-ms/`](../../../../.github/skills/paulasilva-ms/)
+- Caminho: `/Users/paulasilva/Documents/ai-maturuty-client-platform/.github/skills/paulasilva-ms/`
 - `assets/showcase.html` abre no browser e mostra todos os componentes
 - `references/components.md` documenta cards, badges, tables, buttons
 - `references/playbook.md` documenta pattern de playbook multi-página

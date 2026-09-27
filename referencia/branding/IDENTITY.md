@@ -2,7 +2,7 @@
 
 🌐 English · [Português (Brasil)](IDENTITY.pt-br.md)
 
-Identity applied to the visual artifacts of this kit. It forks the design system [paulasilva-ms](../../../../.github/skills/paulasilva-ms/) v1.7.0.
+Identity applied to the visual artifacts of this kit. It forks the design system paulasilva-ms v1.7.0.
 
 ## Canonical strings (use exactly)
 
@@ -92,9 +92,9 @@ Each color has `-50` (very light, background), `-100` (light), and `-700` (dark,
 
 1. The kit's interactive HTMLs already load `tokens-paulasilva-ms.css`:
    - [`../calculadora-pontuacao.html`](../calculadora-pontuacao.html)
-   - [`../../formularios/P1-produtividade-do-desenvolvedor.html`](../../formularios/P1-produtividade-do-desenvolvedor.html)
-   - [`../../formularios/P2-ciclo-de-vida-devops.html`](../../formularios/P2-ciclo-de-vida-devops.html)
-   - [`../../formularios/P3-plataforma-de-aplicações.html`](../../formularios/P3-plataforma-de-aplicações.html)
+   - [`../../formularios/P1-produtividade-do-desenvolvedor.html`](../../formularios/v1/P1-produtividade-do-desenvolvedor.html)
+   - [`../../formularios/P2-ciclo-de-vida-devops.html`](../../formularios/v1/P2-ciclo-de-vida-devops.html)
+   - [`../../formularios/P3-plataforma-de-aplicações.html`](../../formularios/v1/P3-plataforma-de-aplicações.html)
    - [`../../wizard/implementation-guide-wizard.html`](../../wizard/implementation-guide-wizard.html)
 
 2. The Jinja2 PDFs (`relatorios/templates/*.html.j2` + `_print.css`) **keep the official platform palette** (they were not changed). MS branding applies to the kit's standalone HTMLs, not to the production PDFs.
@@ -109,7 +109,7 @@ Each color has `-50` (very light, background), `-100` (light), and `-700` (dark,
 
 For the full detail of the design system (showcase, deck patterns, simulations, layouts), see the canonical skill:
 
-- [`/Users/paulasilva/Documents/ai-maturuty-client-platform/.github/skills/paulasilva-ms/`](../../../../.github/skills/paulasilva-ms/)
+- `/Users/paulasilva/Documents/ai-maturuty-client-platform/.github/skills/paulasilva-ms/`
 - `references/identity.md`: canonical strings + logo
 - `references/voice.md`: banned vocabulary + tone
 - `references/components.md`: components (cards, badges, tables)

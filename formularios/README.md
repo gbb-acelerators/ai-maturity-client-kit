@@ -1,43 +1,16 @@
-# `formularios/`: Visual HTMLs of the 158 questions (offline reference)
+# `formularios/`: assessment forms
 
-🌐 English · [Português (Brasil)](README.pt-br.md)
+Framework v2 is the default for new assessments.
 
-This folder contains **3 standalone HTML files** (one per pillar) with all 158 assessment questions formatted as they appear on the web platform. Useful for **visual reference** while filling in `respostas.json`, or for presenting and discussing the questions in workshops.
+| Asset | Purpose |
+| --- | --- |
+| [assessment-v2.html](assessment-v2.html) | Offline v2 form in PT-BR, EN, and ES. Exports `respostas.json`. |
+| [v1/](v1/) | Archived v1 visual forms for historical assessments. |
 
-## Files
+The v2 form follows [../coleta/AI-Maturity-Form-Questions_v2.md](../coleta/AI-Maturity-Form-Questions_v2.md): 5 profile questions (`R-Q1` to `R-Q5`) and 61 scored questions (`D#-Q#`) across 9 dimensions.
 
-| File | Pillar | Capabilities | Questions |
-|---|---|---|---|
-| **[P1-produtividade-do-desenvolvedor.html](P1-produtividade-do-desenvolvedor.html)** | P1: Developer Productivity (Produtividade do Desenvolvedor) | 9 | 53 |
-| **[P2-ciclo-de-vida-devops.html](P2-ciclo-de-vida-devops.html)** | P2: DevOps Lifecycle (Ciclo de Vida DevOps) | 10 | 59 |
-| **[P3-plataforma-de-aplicações.html](P3-plataforma-de-aplicações.html)** | P3: Application Platform (Plataforma de Aplicações) | 9 | 46 |
+v1 HTML files moved to [v1/](v1/):
 
-## How to use
-
-1. Double-click any `.html` file to open it in the browser (no server needed)
-2. Each question shows:
-   - **ID** (`P1-C1-Q1`, etc.): use it to map into `respostas.json`
-   - The question **text** in PT-BR
-   - **5 level options** (L0 to L4) with description and color
-   - Suggested **KPI** (in English, a universal technical term)
-   - **Context** (what it measures / why it matters)
-   - Expected **evidence** per level
-
-3. To fill in `respostas.json`:
-   - Find the question ID in the HTML
-   - Go to `respostas.json` (kit root) and search for that ID
-   - Set the `level` (0-4) and add `evidence` (descriptive text)
-
-## Important note
-
-These HTMLs are an **offline view**: they do not capture answers. For interactive collection (click and save), use:
-- **Microsoft Forms** (see `coleta/INSTRUCOES-FORMS.md`)
-- The **React Wizard** when the web platform is ready
-- **Manual editing** of `respostas.json` (structured JSON format)
-
-## Technical documentation of the questions
-
-For a detailed description of the 158 questions with KPI/context/evidence per level, see the MD files in [`../referencia/`](../referencia/):
-- `referencia/P1-produtividade-do-desenvolvedor.md`
-- `referencia/P2-ciclo-de-vida-devops.md`
-- `referencia/P3-plataforma-de-aplicações.md`
+- [v1/P1-produtividade-do-desenvolvedor.html](v1/P1-produtividade-do-desenvolvedor.html)
+- [v1/P2-ciclo-de-vida-devops.html](v1/P2-ciclo-de-vida-devops.html)
+- [v1/P3-plataforma-de-aplicações.html](v1/P3-plataforma-de-aplicações.html)

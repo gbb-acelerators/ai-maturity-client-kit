@@ -2,7 +2,7 @@
 
 🌐 English · [Português (Brasil)](INSTRUCOES-FORMS.pt-br.md)
 
-**`🅰️ ASSESSMENT`** · 📖 [🏠 Index](../README.md) · [« Step-by-step guide](../GUIA-PASSO-A-PASSO.md) · You are here · [» Survey-devs](../survey-devs/INSTRUCOES-FORMS-DEVS.md)
+**`🅰️ ASSESSMENT`** · 📖 [🏠 Index](../README.md) · [« Step-by-step guide](../../GUIA-PASSO-A-PASSO.md) · You are here · [» Survey-devs](../../survey-devs/INSTRUCOES-FORMS-DEVS.md)
 
 > [!TIP]
 > This guide shows **3 paths** to create and use Microsoft Forms with the 158 questions. Choose the one that best fits the available time and the team's technical profile.
@@ -281,8 +281,8 @@ Every time you import, the skill creates `respostas.json.backup-<timestamp>`. Ke
 
 - **Full list of the 158 questions formatted for Forms:** [`perguntas-para-forms.en.md`](perguntas-para-forms.en.md) (English labels) · canonical PT-BR: [`perguntas-para-forms.md`](perguntas-para-forms.md)
 - **Ready-made Excel template (3 mocked respondents):** [`template-export-forms.xlsx`](template-export-forms.xlsx)
-- **Import skill:** [`../.github/skills/importar-respostas-excel/SKILL.md`](../.github/skills/importar-respostas-excel/SKILL.md)
-- **Multi-respondent aggregation algorithm:** [`../referencia/pontuacao-e-calculo.md`](../referencia/pontuacao-e-calculo.md) section 6
+- **Import skill:** [`../.github/skills/importar-respostas-excel/SKILL.md`](../../.github/skills/importar-respostas-excel/SKILL.md)
+- **Multi-respondent aggregation algorithm:** [`../referencia/pontuacao-e-calculo.md`](../../referencia/pontuacao-e-calculo.md) section 6
 
 ---
 
@@ -312,7 +312,7 @@ Every time you import, the skill creates `respostas.json.backup-<timestamp>`. Ke
 
 | ← PREVIOUS | NEXT → |
 |:---|---:|
-| **[Step-by-step guide](../GUIA-PASSO-A-PASSO.md)** | **[Developer Survey (anonymous)](../survey-devs/INSTRUCOES-FORMS-DEVS.md)** |
+| **[Step-by-step guide](../../GUIA-PASSO-A-PASSO.md)** | **[Developer Survey (anonymous)](../../survey-devs/INSTRUCOES-FORMS-DEVS.md)** |
 | From zero to the executive PDF in 60-90 min. | 75 anonymous questions about Copilot, agents, governance, MCP / A2A. |
 
 ↑ [Back to the kit Index](../README.md)

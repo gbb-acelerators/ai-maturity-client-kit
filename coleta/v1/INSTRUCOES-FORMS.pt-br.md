@@ -1,6 +1,6 @@
 # Como criar o Microsoft Forms para o AI Maturity Assessment
 
-**`🅰️ ASSESSMENT`** · 📖 [🏠 Índice](../README.md) · [« Guia passo-a-passo](../GUIA-PASSO-A-PASSO.md) · Você está aqui · [» Survey-devs](../survey-devs/INSTRUCOES-FORMS-DEVS.md)
+**`🅰️ ASSESSMENT`** · 📖 [🏠 Índice](../README.md) · [« Guia passo-a-passo](../../GUIA-PASSO-A-PASSO.md) · Você está aqui · [» Survey-devs](../../survey-devs/INSTRUCOES-FORMS-DEVS.md)
 
 > [!TIP]
 > Este guia mostra **3 caminhos** para criar e usar o Microsoft Forms com as 158 questões. Escolha o que melhor se encaixa no tempo disponível e perfil técnico da equipe.
@@ -277,8 +277,8 @@ Toda vez que importar, a skill cria `respostas.json.backup-<timestamp>`. Guarde 
 
 - **Lista completa das 158 perguntas formatadas para Forms:** [`perguntas-para-forms.md`](perguntas-para-forms.md)
 - **Template Excel pronto (3 respondentes mockados):** [`template-export-forms.xlsx`](template-export-forms.xlsx)
-- **Skill de importação:** [`../.github/skills/importar-respostas-excel/SKILL.md`](../.github/skills/importar-respostas-excel/SKILL.md)
-- **Algoritmo de agregação multi-respondente:** [`../referencia/pontuacao-e-calculo.md`](../referencia/pontuacao-e-calculo.md) seção 6
+- **Skill de importação:** [`../.github/skills/importar-respostas-excel/SKILL.md`](../../.github/skills/importar-respostas-excel/SKILL.md)
+- **Algoritmo de agregação multi-respondente:** [`../referencia/pontuacao-e-calculo.md`](../../referencia/pontuacao-e-calculo.md) seção 6
 
 ---
 
@@ -308,7 +308,7 @@ Toda vez que importar, a skill cria `respostas.json.backup-<timestamp>`. Guarde 
 
 | ← ANTERIOR | PRÓXIMO → |
 |:---|---:|
-| **[Guia passo-a-passo](../GUIA-PASSO-A-PASSO.md)** | **[Developer Survey (anônimo)](../survey-devs/INSTRUCOES-FORMS-DEVS.md)** |
+| **[Guia passo-a-passo](../../GUIA-PASSO-A-PASSO.md)** | **[Developer Survey (anônimo)](../../survey-devs/INSTRUCOES-FORMS-DEVS.md)** |
 | Do zero ao PDF executivo em 60–90 min. | 75 perguntas anônimas sobre Copilot, agentes, governança, MCP / A2A. |
 
 ↑ [Voltar ao Índice do kit](../README.md)

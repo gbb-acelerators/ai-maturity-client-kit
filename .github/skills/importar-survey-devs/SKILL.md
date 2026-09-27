@@ -1,163 +1,20 @@
 ---
 name: importar-survey-devs
-description: Imports the Developer Survey results (Microsoft Forms export .xlsx) into structured JSON. The survey has 75 questions across 9 sections (Profile, Copilot adoption + modes, MS/GitHub tools, AI dev practices, Agent concepts, Markdown/Instructions, Usability, Security/Governance, Pain points). Different from /importar-respostas-excel which handles the maturity assessment. Use when user has respostas-survey-devs.xlsx and wants to analyze it, or asks "import developer survey", "import survey-devs", "importar survey de devs", "importar respostas do survey".
-argument-hint: "optional path to .xlsx (default: respostas-survey-devs.xlsx at root)"
+description: Imports Developer Survey Microsoft Forms exports using the existing survey-devs tooling. Use for "import survey-devs", "importar survey de devs", "developer survey import".
 ---
 
-# Skill: Import Developer Survey responses
+# Skill: Import Developer Survey
 
-## When to use
-- User collected responses for the **Developer Survey** (anonymous, individual, behavioral) via Microsoft Forms
-- File `respostas-survey-devs.xlsx` exists at workspace root (or path passed by user)
-- Output feeds `/insights-developer-survey` for aggregated reporting
+The Developer Survey is unchanged by framework v2. Use its existing scripts and question bank. Do not mix its dimensions into assessment scoring.
 
-## Inputs
-- **Excel**: `respostas-survey-devs.xlsx` at workspace root (default)
-- **`survey-devs/perguntas-para-forms-devs.md`**: reference for question schema (75 questions in 9 sections)
-- Optional: schema validator at `survey-devs/respostas-mock-devs.json` (sample structure)
+## Rule for dimension names
 
-## Expected output
-- **`survey-devs/respostas-devs.json`**: structured JSON with all respondents and answers
-- **`saida/import-survey-log-<DATE>.md`**: log of import (respondent count, parse warnings, missing questions)
-
-## Expected Excel format (Microsoft Forms anonymous export)
-
-```
-| A   | B          | C               | D     | E    | F                | G                |
-| ID  | Start time | Completion time | Email | Name | S1-Q1: <text>    | S1-Q2: <text>    |
-| 1   | timestamp  | timestamp       |       |      | "Backend Dev"    | "6-10 anos"      |
-| 2   | ...        | ...             |       |      | "SRE"            | "11-15 anos"     |
-```
-
-Headers MUST start with `S[1-9]-Q\d+:` pattern. Email/Name are typically empty (anonymous form). Answer values (for example `"6-10 anos"`) are canonical Forms option labels that the rubric matches verbatim; store them as exported, never translate them.
+When the Developer Survey appears beside the v2 assessment, call its dimensions `DS-D#` to avoid collision with assessment dimensions `D1` to `D9`.
 
 ## Procedure
 
-### 1. Locate Excel
+Run the repository script or Make target documented under [survey-devs/](../../../survey-devs/). Keep outputs in `saida/` and report respondent count, warnings, and next step.
 
-```python
-caminho = arg or "respostas-survey-devs.xlsx"
-if not (KIT / caminho).exists():
-    error: "File not found. See survey-devs/INSTRUCOES-FORMS-DEVS.md"
-```
+## Cross-reference to v2
 
-### 2. Parse headers
-
-```python
-import re, openpyxl
-qid_pattern = re.compile(r"^(S[1-9]-Q\d+):")
-wb = openpyxl.load_workbook(caminho)
-ws = wb.active
-
-col_to_qid = {}
-for col_idx, header_cell in enumerate(ws[1], start=1):
-    val = str(header_cell.value or "").strip()
-    m = qid_pattern.match(val)
-    if m:
-        col_to_qid[col_idx] = m.group(1)
-
-# Validate: should be ~75 questions
-if len(col_to_qid) < 50:
-    warn(f"Only {len(col_to_qid)} questions detected (expected ~75). Check the header format.")
-```
-
-### 3. Detect question types from `survey-devs/perguntas-para-forms-devs.md`
-
-Each question is `choice` (single value), `multi` (semicolon-separated), or `text` (long string). The skill should know the type of each qid to parse correctly. Hardcoded mapping or read from companion JSON.
-
-### 4. Collect responses per respondent
-
-```python
-respondents = []
-for row_idx in range(2, ws.max_row + 1):
-    row = ws[row_idx]
-    # Anonymous: skip if any qid column is filled
-    has_response = any(
-        row[col - 1].value for col in col_to_qid
-    )
-    if not has_response:
-        continue
-    
-    r = {"respondent_id": row_idx - 1, "responses": {}}
-    for col, qid in col_to_qid.items():
-        val = row[col - 1].value
-        if val is None:
-            continue
-        # Multi-answer Forms exports as "Option1; Option2; Option3"
-        # Skill stores raw — analysis splits later
-        r["responses"][qid] = {"value": str(val).strip()}
-    respondents.append(r)
-```
-
-### 5. Output `survey-devs/respostas-devs.json`
-
-```json
-{
-  "metadata": {
-    "source": "respostas-survey-devs.xlsx",
-    "imported_at": "2026-05-08T14:30:00Z",
-    "total_respondents": 12,
-    "total_questions_detected": 69,
-    "anonymous": true
-  },
-  "respondents": [
-    {
-      "respondent_id": 1,
-      "responses": {
-        "S1-Q1": {"value": "Desenvolvedor Backend"},
-        "S1-Q2": {"value": "6-10 anos"},
-        "S2-Q1": {"value": "Sim — Copilot Enterprise"},
-        "S2-Q3": {"value": "Ask (responder perguntas); Edit (edição inline); Agent (multi-arquivo, autônomo)"},
-        ...
-      }
-    }
-  ]
-}
-```
-
-### 6. Generate log `saida/import-survey-log-<DATE>.md`
-
-English by default; Portuguese when the user works in Portuguese.
-
-```markdown
-# Import log: Developer Survey ({DATE})
-
-## Summary
-- File: respostas-survey-devs.xlsx
-- Respondents: 12 (anonymous)
-- Questions detected: 69 / 69 (100%)
-- Output: survey-devs/respostas-devs.json
-
-## Coverage per section
-| Section | Answers | % |
-|---|---|---|
-| S1 (Profile) | 84/84 | 100% |
-| S2 (Copilot) | 105/108 | 97% |
-...
-
-## Alerts
-- (none) or a list of problems
-
-## Next
-Run `/insights-developer-survey` to generate the aggregated report.
-```
-
-## Report in chat (English by default, or the user's language)
-
-```
-✓ Survey imported → survey-devs/respostas-devs.json
-   12 anonymous respondents, 69 questions processed
-
-📊 Coverage: 95% (some questions skipped by respondents)
-⚠️ 0 alerts
-
-🎯 Next: /insights-developer-survey  → generates the consolidated report
-```
-
-## Constraints
-
-- **NEVER** modify `survey-devs/perguntas-para-forms-devs.md` or template Excel.
-- **NEVER** capture or store names/emails — survey is anonymous (Forms config).
-- If the Excel has Email/Name columns FILLED, warn the user (Forms anonymity not enforced) but proceed.
-- Output to `survey-devs/respostas-devs.json` (not `saida/`) — this is INPUT for the insights skill, not the final output.
-- Different from `/importar-respostas-excel` (assessment maturity Likert). Don't confuse the schemas.
+Use Developer Survey insights to contextualize v2 D2, D5, and D9. Do not recompute v2 scores from survey answers.

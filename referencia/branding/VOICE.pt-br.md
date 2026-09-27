@@ -46,7 +46,7 @@ Voz unificada do design system. Todo conteúdo escrito sob identidade Microsoft 
 | Executiva (board, VP) | Conciso, números primeiro, ações claras | "3 capabilities em P0. Ação imediata: investir 8 FTE em S7 (Security)." |
 | Tech Lead / Arquiteto | Trade-offs explícitos, citações técnicas | "Foundry Agent Service GA traz MCP nativo. Trade-off: vendor lock-in vs. integração rápida." |
 | Desenvolvedor | Concreto, código quando útil, jargão OK | "Custom agent em `.github/agents/*.agent.md`. Frontmatter `tools:`, `handoffs:`. Ver paulasilva-ms showcase." |
-| Cliente externo | Pedagógico, sem siglas internas | "AI Maturity Assessment é uma avaliação em 158 perguntas que mede 28 capabilities organizacionais." |
+| Cliente externo | Pedagógico, sem siglas internas | "AI Maturity Assessment é uma avaliação em 61 perguntas que mede 9 dimensões do ciclo de vida de software assistido por IA." |
 
 ## Padrões de citação
 

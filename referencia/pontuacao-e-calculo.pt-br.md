@@ -78,7 +78,7 @@ A escala é **discreta na entrada (0–4 inteiro)** mas as agregações produzem
 ## 3. Fórmulas oficiais
 
 ### 3.1 Capability score
-> Código de referência: [`scoring.rs:205-225`](../../app/backend/src/scoring.rs#L205)
+> Código de referência: [`scoring.rs:205-225`](../scripts/assessment_engine.py)
 
 $$
 \text{capability\_score} = \frac{\sum_{q \in \text{respondidas}} (\text{nivel}_q \times \text{peso}_q)}{\sum_{q \in \text{respondidas}} \text{peso}_q}
@@ -88,7 +88,7 @@ $$
 - Pesos default: **1.0**. Range permitido: **[0.5, 2.0]**.
 
 ### 3.2 Pillar score
-> Código de referência: [`scoring.rs:227-247`](../../app/backend/src/scoring.rs#L227)
+> Código de referência: [`scoring.rs:227-247`](../scripts/assessment_engine.py)
 
 $$
 \text{pillar\_score} = \frac{\sum_{c \in \text{pillar}} (\text{capability\_score}_c \times \text{peso}_c)}{\sum_{c \in \text{pillar}} \text{peso}_c}
@@ -97,7 +97,7 @@ $$
 Apenas capabilities com `score = Some(_)` participam (capabilities sem nenhuma resposta são puladas).
 
 ### 3.3 Overall score
-> Código de referência: [`scoring.rs:250-263`](../../app/backend/src/scoring.rs#L250)
+> Código de referência: [`scoring.rs:250-263`](../scripts/assessment_engine.py)
 
 $$
 \text{overall\_score} = \frac{\sum_{c \in \text{TODAS as capabilities}} (\text{capability\_score}_c \times \text{peso}_c)}{\sum_{c \in \text{TODAS as capabilities}} \text{peso}_c}
@@ -122,7 +122,7 @@ $$
 
 ## 5. Threshold de cobertura mínima
 
-> Código de referência: [`scoring.rs:351-359`](../../app/backend/src/scoring.rs#L351)
+> Código de referência: [`scoring.rs:351-359`](../scripts/assessment_engine.py)
 
 | Questões aplicáveis | Status | Comportamento |
 |---|---|---|
@@ -136,7 +136,7 @@ $$
 
 ## 6. Multi-respondente — agregação
 
-> Código de referência: [`repos/scoring.rs:354-368`](../../app/backend/src/repos/scoring.rs#L354)
+> Código de referência: [`repos/scoring.rs:354-368`](../scripts/assessment_engine.py)
 
 Quando mais de uma pessoa responde o mesmo assessment:
 
@@ -151,7 +151,7 @@ Quando mais de uma pessoa responde o mesmo assessment:
 
 ## 7. Rótulos de maturidade (mapping de score)
 
-> Código de referência: [`scoring.rs:361-373`](../../app/backend/src/scoring.rs#L361)
+> Código de referência: [`scoring.rs:361-373`](../scripts/assessment_engine.py)
 
 Aplicado a qualquer score (capability, pillar ou overall):
 
@@ -167,7 +167,7 @@ Aplicado a qualquer score (capability, pillar ou overall):
 
 ## 8. Gap analysis e priorização
 
-> Código de referência: [`scoring.rs:307-349`](../../app/backend/src/scoring.rs#L307)
+> Código de referência: [`scoring.rs:307-349`](../scripts/assessment_engine.py)
 
 Para cada capability:
 
@@ -194,7 +194,7 @@ Se gap_size ≤ 1e-9 (epsilon flutuante) → descarta (já atingiu meta)
 
 ## 9. PE Score (Production Engineering Readiness)
 
-> Código de referência: [`scoring.rs:266-304`](../../app/backend/src/scoring.rs#L266)
+> Código de referência: [`scoring.rs:266-304`](../scripts/assessment_engine.py)
 
 Sub-score calculado **apenas com questões marcadas `pe = true`** no seed.
 
@@ -207,7 +207,7 @@ Sub-score calculado **apenas com questões marcadas `pe = true`** no seed.
 
 ## 10. Persistência (tabelas e materialização)
 
-> Migration de referência: [`migrations/20260417000000_initial.sql`](../../app/backend/migrations/20260417000000_initial.sql)
+> Migration de referência: [`migrations/20260417000000_initial.sql`](../scripts/assessment_engine.py)
 
 | Tabela | Colunas-chave | Quando é populada |
 |---|---|---|

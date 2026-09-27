@@ -271,6 +271,6 @@ Developers are more likely to answer the next survey if they see that the previo
 | ← PREVIOUS | NEXT → |
 |:---|---:|
 | **[Main assessment collection](../coleta/INSTRUCOES-FORMS.md)** | **[Learning & Growth Survey](../survey-learning/INSTRUCOES-FORMS-LEARNING.md)** |
-| 3 paths to collect the 158 assessment questions via Forms / Excel. | 32 identified questions: capacitation plan with Champions and workshops. |
+| 3 paths to collect the 61 assessment questions (v2) via Forms / Excel. | 32 identified questions: capacitation plan with Champions and workshops. |
 
 ↑ [Back to the kit Index](../README.md)

@@ -30,7 +30,7 @@
     "pt-BR": {
       "htmlLang": "pt-BR",
       "title": "Kit AI Maturity Assessment · Paula Silva",
-      "description": "Kit auto-servico para conduzir o AI Maturity Assessment com GitHub Copilot. 3 surveys complementares, 5 PDFs production-quality, plano de capacitacao personalizado.",
+      "description": "Kit auto-servico para conduzir o AI Maturity Assessment v2 com GitHub Copilot. 61 perguntas, 9 dimensoes, 4 PDFs executivos e surveys complementares.",
       "brand": {
         "name": "Paula Silva",
         "role": "Global Developer Solutions Advisor",
@@ -38,7 +38,7 @@
       },
       "footer": {
         "aboutTitle": "AI Maturity Assessment Kit",
-        "aboutText": "Kit auto-servico para conduzir assessment de maturidade IA com GitHub Copilot, 3 surveys complementares e 5 PDFs executivos.",
+        "aboutText": "Kit auto-servico para conduzir assessment de maturidade IA com GitHub Copilot, assessment v2 + surveys complementares e 4 PDFs executivos v2.",
         "linksTitle": "Menu",
         "contactTitle": "Contato",
         "contactLabel": "LinkedIn",
@@ -52,7 +52,7 @@
       },
       "nav": {
         "pipeline": "Pipeline",
-        "surveys": "3 Surveys",
+        "surveys": "Assessment + surveys",
         "quickstart": "Quick start",
         "skills": "Skills",
         "faq": "FAQ",
@@ -63,7 +63,7 @@
         "titleBefore": "AI Maturity Assessment com",
         "titleAccent": "GitHub Copilot",
         "titleAfter": "",
-        "lede": "Conduza o assessment de maturidade IA da sua organizacao sem depender da plataforma web. 3 surveys complementares, pipeline orquestrado por skills custom, 5 PDFs executivos production-quality e plano de capacitacao com nomes e emails dos inscritos.",
+        "lede": "Conduza o assessment de maturidade IA da sua organizacao sem depender da plataforma web. assessment v2 + surveys complementares, pipeline orquestrado por skills custom, 4 PDFs executivos v2 production-quality e plano de capacitacao com nomes e emails dos inscritos.",
         "primaryCta": "Baixar o kit (.zip)",
         "secondaryCta": "Quick start em 3 passos",
         "cardTitle": "O que voce recebe",
@@ -71,8 +71,8 @@
           {
             "iconClass": "blue",
             "icon": "PDF",
-            "title": "5 PDFs executivos",
-            "subtitle": "Score + 3 roadmaps + Implementation Guide",
+            "title": "4 PDFs executivos v2",
+            "subtitle": "Summary + 3 grouped roadmaps",
             "metric": "~2 MB"
           },
           {
@@ -101,7 +101,7 @@
       "pipeline": {
         "eyebrow": "Como funciona",
         "title": "Pipeline em uma linha",
-        "lede": "Voce preenche um JSON ou Excel do Microsoft Forms. O agente concierge invoca as skills em ordem. Em aproximadamente 5 minutos voce tem os 5 PDFs production-quality prontos para apresentar.",
+        "lede": "Voce preenche um JSON ou Excel do Microsoft Forms. O agente concierge invoca as skills em ordem. Em aproximadamente 5 minutos voce tem os 4 v2 PDFs production-quality prontos para apresentar.",
         "steps": [
           {
             "kind": "in",
@@ -113,7 +113,7 @@
             "kind": "core",
             "num": "1",
             "name": "/calcular-scores",
-            "hint": "SUMPRODUCT 3 camadas"
+            "hint": "engine v2 deterministico"
           },
           {
             "kind": "core",
@@ -142,24 +142,24 @@
           {
             "kind": "out",
             "num": "OUTPUT",
-            "name": "5 PDFs · XLSX",
+            "name": "4 PDFs · XLSX",
             "hint": "production-quality"
           }
         ]
       },
       "surveys": {
         "eyebrow": "Escolha o escopo",
-        "title": "3 surveys complementares",
+        "title": "assessment v2 + surveys complementares",
         "lede": "Rode 1, 2 ou os 3 baseado no objetivo. Cada survey informa o proximo, e o agente concierge cruza os resultados automaticamente.",
         "cards": [
           {
             "variant": "a",
             "badge": "A ASSESSMENT",
             "title": "AI Maturity Assessment",
-            "subtitle": "Organizacional · leadership-driven · Likert L0 a L4",
+            "subtitle": "Organizational baseline · framework v2 · Likert L0 to L4",
             "meta": [
               {
-                "value": "158",
+                "value": "61",
                 "label": "perguntas"
               },
               {
@@ -167,15 +167,15 @@
                 "label": "coletar"
               },
               {
-                "value": "5 PDFs",
+                "value": "4 PDFs",
                 "label": "output"
               }
             ],
             "items": [
-              "3 pilares · 28 capabilities · 7 estrategias",
-              "Algoritmo SUMPRODUCT auditavel",
-              "Microsoft Forms para coleta multi-respondente",
-              "5 PDFs executivos para board / lideranca"
+              "9 dimensoes · 61 perguntas · estrategias S1-S7",
+              "Engine de scoring deterministico",
+              "Coleta por Microsoft Forms ou HTML offline",
+              "4 PDFs executivos para lideranca"
             ]
           },
           {
@@ -268,7 +268,7 @@
           },
           {
             "cmd": "/pipeline-completo",
-            "desc": "Orquestra do JSON aos 5 PDFs"
+            "desc": "Orquestra do JSON aos 4 PDFs"
           },
           {
             "cmd": "/ai-maturity-reports",
@@ -284,7 +284,7 @@
           },
           {
             "cmd": "/calcular-scores",
-            "desc": "SUMPRODUCT 3 camadas"
+            "desc": "engine v2 deterministico"
           },
           {
             "cmd": "/gap-analysis",
@@ -300,7 +300,7 @@
           },
           {
             "cmd": "/gerar-relatorio",
-            "desc": "5 PDFs WeasyPrint"
+            "desc": "4 PDFs WeasyPrint"
           },
           {
             "cmd": "/importar-survey-devs",
@@ -335,7 +335,7 @@
           },
           {
             "summary": "Copilot Free funciona ou preciso de Pro / Business / Enterprise?",
-            "answerHtml": "Skills custom funcionam no Free com limites de mensagens. Para o fluxo completo, com 158 perguntas, 5 PDFs e cross-survey, recomendamos <strong>Copilot Pro, Business ou Enterprise</strong>. Confirme com sua org se ha restricoes de skills custom em planos enterprise."
+            "answerHtml": "Skills custom funcionam no Free com limites de mensagens. Para o fluxo completo, com 61 perguntas, 4 PDFs e cross-survey, recomendamos <strong>Copilot Pro, Business ou Enterprise</strong>. Confirme com sua org se ha restricoes de skills custom em planos enterprise."
           },
           {
             "summary": "Tem dados de exemplo para testar sem preencher tudo?",
@@ -354,7 +354,7 @@
             "answerHtml": "O kit usa a identidade <strong>paulasilva-ms</strong>, com paleta Microsoft 4 cores. Para customizar, edite <code>relatorios/scripts/branding.py</code> com suas constantes e re-renderize. Os 5 templates Jinja2 em <code>relatorios/templates/</code> consomem essas variaveis automaticamente."
           },
           {
-            "summary": "Como funciona a integracao entre os 3 surveys?",
+            "summary": "Como funciona a integracao entre os assessment v2 + surveys?",
             "answerHtml": "Cada survey output alimenta o proximo: o <strong>Learning Survey</strong> gera um plano que o <strong>wizard auto-fill modo D</strong> usa para popular 6 dos 9 inputs do Implementation Guide. O <strong>Developer Survey</strong> calcula maturidade real por dimensao, cruzavel com a maturidade declarada da lideranca no PDF de Score Justification."
           }
         ]
@@ -368,10 +368,10 @@
         "panelItems": [
           {
             "label": "Framework completo",
-            "code": "158 perguntas"
+            "code": "61 perguntas"
           },
           {
-            "label": "3 surveys (Forms + JSON)",
+            "label": "assessment v2 + surveys (Forms + JSON)",
             "code": "75 + 32 q"
           },
           {
@@ -384,7 +384,7 @@
           },
           {
             "label": "Templates Jinja2",
-            "code": "5 PDFs"
+            "code": "4 PDFs"
           },
           {
             "label": "Branding paulasilva-ms",
@@ -430,7 +430,7 @@
       },
       "footer": {
         "aboutTitle": "AI Maturity Assessment Kit",
-        "aboutText": "Self-service kit for running an AI maturity assessment with GitHub Copilot, 3 complementary surveys, and 5 executive PDFs.",
+        "aboutText": "Self-service kit for running an AI maturity assessment with GitHub Copilot, 3 complementary surveys, and 4 executive PDFs.",
         "linksTitle": "Menu",
         "contactTitle": "Contact",
         "contactLabel": "LinkedIn",
@@ -444,7 +444,7 @@
       },
       "nav": {
         "pipeline": "Pipeline",
-        "surveys": "3 Surveys",
+        "surveys": "Assessment + surveys",
         "quickstart": "Quick start",
         "skills": "Skills",
         "faq": "FAQ",
@@ -463,8 +463,8 @@
           {
             "iconClass": "blue",
             "icon": "PDF",
-            "title": "5 executive PDFs",
-            "subtitle": "Score + 3 roadmaps + Implementation Guide",
+            "title": "4 executive PDFs",
+            "subtitle": "Summary + 3 grouped roadmaps",
             "metric": "~2 MB"
           },
           {
@@ -534,7 +534,7 @@
           {
             "kind": "out",
             "num": "OUTPUT",
-            "name": "5 PDFs · XLSX",
+            "name": "4 PDFs · XLSX",
             "hint": "production-quality"
           }
         ]
@@ -548,10 +548,10 @@
             "variant": "a",
             "badge": "A ASSESSMENT",
             "title": "AI Maturity Assessment",
-            "subtitle": "Organizational · leadership-driven · Likert L0 to L4",
+            "subtitle": "Organizational baseline · framework v2 · Likert L0 to L4",
             "meta": [
               {
-                "value": "158",
+                "value": "61",
                 "label": "questions"
               },
               {
@@ -559,15 +559,15 @@
                 "label": "collect"
               },
               {
-                "value": "5 PDFs",
+                "value": "4 PDFs",
                 "label": "output"
               }
             ],
             "items": [
-              "3 pillars · 28 capabilities · 7 strategies",
-              "Auditable SUMPRODUCT algorithm",
-              "Microsoft Forms for multi-respondent collection",
-              "5 executive PDFs for board / leadership"
+              "9 dimensions · 61 questions · S1-S7 strategies",
+              "Deterministic scoring engine",
+              "Microsoft Forms or offline HTML collection",
+              "4 executive PDFs for leadership"
             ]
           },
           {
@@ -660,7 +660,7 @@
           },
           {
             "cmd": "/pipeline-completo",
-            "desc": "Orchestrates JSON to 5 PDFs"
+            "desc": "Orchestrates JSON to 4 PDFs"
           },
           {
             "cmd": "/ai-maturity-reports",
@@ -692,7 +692,7 @@
           },
           {
             "cmd": "/gerar-relatorio",
-            "desc": "5 PDFs WeasyPrint"
+            "desc": "4 PDFs WeasyPrint"
           },
           {
             "cmd": "/importar-survey-devs",
@@ -727,7 +727,7 @@
           },
           {
             "summary": "Does Copilot Free work or do I need Pro / Business / Enterprise?",
-            "answerHtml": "Custom skills work on Free with message limits. For the full flow, with 158 questions, 5 PDFs, and cross-survey, we recommend <strong>Copilot Pro, Business, or Enterprise</strong>. Confirm with your org if there are restrictions on custom skills in enterprise plans."
+            "answerHtml": "Custom skills work on Free with message limits. For the full flow, with 61 questions, 4 PDFs, and cross-survey, we recommend <strong>Copilot Pro, Business, or Enterprise</strong>. Confirm with your org if there are restrictions on custom skills in enterprise plans."
           },
           {
             "summary": "Are there sample data to test without filling everything?",
@@ -746,7 +746,7 @@
             "answerHtml": "The kit uses the <strong>paulasilva-ms</strong> identity with the Microsoft 4-color palette. To customize, edit <code>relatorios/scripts/branding.py</code> with your constants and re-render. The 5 Jinja2 templates in <code>relatorios/templates/</code> consume these variables automatically."
           },
           {
-            "summary": "How do the 3 surveys integrate?",
+            "summary": "How do the assessment v2 + surveys integrate?",
             "answerHtml": "Each survey output feeds the next: the <strong>Learning Survey</strong> generates a plan that the <strong>wizard auto-fill mode D</strong> uses to populate 6 of the 9 Implementation Guide inputs. The <strong>Developer Survey</strong> computes real maturity per dimension, cross-checkable against leadership-declared maturity in the Score Justification PDF."
           }
         ]
@@ -760,10 +760,10 @@
         "panelItems": [
           {
             "label": "Complete framework",
-            "code": "158 questions"
+            "code": "61 questions"
           },
           {
-            "label": "3 surveys (Forms + JSON)",
+            "label": "assessment v2 + surveys (Forms + JSON)",
             "code": "75 + 32 q"
           },
           {
@@ -776,7 +776,7 @@
           },
           {
             "label": "Jinja2 templates",
-            "code": "5 PDFs"
+            "code": "4 PDFs"
           },
           {
             "label": "paulasilva-ms branding",
@@ -814,7 +814,7 @@
     "es": {
       "htmlLang": "es",
       "title": "Kit AI Maturity Assessment · Paula Silva",
-      "description": "Kit de autoservicio para ejecutar el AI Maturity Assessment con GitHub Copilot. 3 encuestas complementarias, 5 PDFs production-quality, plan de capacitacion personalizado.",
+      "description": "Kit de autoservicio para ejecutar el AI Maturity Assessment con GitHub Copilot. 3 encuestas complementarias, 4 v2 PDFs production-quality, plan de capacitacion personalizado.",
       "brand": {
         "name": "Paula Silva",
         "role": "Global Developer Solutions Advisor",
@@ -822,7 +822,7 @@
       },
       "footer": {
         "aboutTitle": "AI Maturity Assessment Kit",
-        "aboutText": "Kit de autoservicio para ejecutar una evaluacion de madurez en IA con GitHub Copilot, 3 encuestas complementarias y 5 PDFs ejecutivos.",
+        "aboutText": "Kit de autoservicio para ejecutar una evaluacion de madurez en IA con GitHub Copilot, 3 encuestas complementarias y 4 PDFs ejecutivos.",
         "linksTitle": "Menu",
         "contactTitle": "Contacto",
         "contactLabel": "LinkedIn",
@@ -847,7 +847,7 @@
         "titleBefore": "AI Maturity Assessment con",
         "titleAccent": "GitHub Copilot",
         "titleAfter": "",
-        "lede": "Realiza la evaluacion de madurez de IA de tu organizacion sin depender de una plataforma web. 3 encuestas complementarias, pipeline orquestado por skills custom, 5 PDFs ejecutivos production-quality y plan de capacitacion con nombres y emails de los inscritos.",
+        "lede": "Realiza la evaluacion de madurez de IA de tu organizacion sin depender de una plataforma web. 3 encuestas complementarias, pipeline orquestado por skills custom, 4 PDFs ejecutivos production-quality y plan de capacitacion con nombres y emails de los inscritos.",
         "primaryCta": "Descargar el kit (.zip)",
         "secondaryCta": "Inicio rapido en 3 pasos",
         "cardTitle": "Que recibes",
@@ -855,8 +855,8 @@
           {
             "iconClass": "blue",
             "icon": "PDF",
-            "title": "5 PDFs ejecutivos",
-            "subtitle": "Score + 3 roadmaps + Implementation Guide",
+            "title": "4 PDFs ejecutivos",
+            "subtitle": "Summary + 3 grouped roadmaps",
             "metric": "~2 MB"
           },
           {
@@ -885,7 +885,7 @@
       "pipeline": {
         "eyebrow": "Como funciona",
         "title": "Pipeline en una linea",
-        "lede": "Llenas un JSON o Excel de Microsoft Forms. El agente concierge invoca las skills en orden. En aproximadamente 5 minutos tienes los 5 PDFs production-quality listos para presentar.",
+        "lede": "Llenas un JSON o Excel de Microsoft Forms. El agente concierge invoca las skills en orden. En aproximadamente 5 minutos tienes los 4 v2 PDFs production-quality listos para presentar.",
         "steps": [
           {
             "kind": "in",
@@ -926,7 +926,7 @@
           {
             "kind": "out",
             "num": "OUTPUT",
-            "name": "5 PDFs · XLSX",
+            "name": "4 PDFs · XLSX",
             "hint": "production-quality"
           }
         ]
@@ -940,26 +940,26 @@
             "variant": "a",
             "badge": "A ASSESSMENT",
             "title": "AI Maturity Assessment",
-            "subtitle": "Organizacional · liderazgo · Likert L0 a L4",
+            "subtitle": "Organizational baseline · framework v2 · Likert L0 to L4",
             "meta": [
               {
-                "value": "158",
-                "label": "preguntas"
+                "value": "61",
+                "label": "questions"
               },
               {
                 "value": "60-90 min",
                 "label": "recolectar"
               },
               {
-                "value": "5 PDFs",
+                "value": "4 PDFs",
                 "label": "output"
               }
             ],
             "items": [
-              "3 pilares · 28 capabilities · 7 estrategias",
-              "Algoritmo SUMPRODUCT auditable",
-              "Microsoft Forms para recoleccion multi-respondente",
-              "5 PDFs ejecutivos para board / liderazgo"
+              "9 dimensions · 61 questions · S1-S7 strategies",
+              "Deterministic scoring engine",
+              "Microsoft Forms or offline HTML collection",
+              "4 executive PDFs for leadership"
             ]
           },
           {
@@ -1052,7 +1052,7 @@
           },
           {
             "cmd": "/pipeline-completo",
-            "desc": "Orquesta JSON a 5 PDFs"
+            "desc": "Orquesta JSON a 4 PDFs"
           },
           {
             "cmd": "/ai-maturity-reports",
@@ -1084,7 +1084,7 @@
           },
           {
             "cmd": "/gerar-relatorio",
-            "desc": "5 PDFs WeasyPrint"
+            "desc": "4 PDFs WeasyPrint"
           },
           {
             "cmd": "/importar-survey-devs",
@@ -1119,7 +1119,7 @@
           },
           {
             "summary": "Copilot Free funciona o necesito Pro / Business / Enterprise?",
-            "answerHtml": "Las skills custom funcionan en Free con limites de mensajes. Para el flujo completo, con 158 preguntas, 5 PDFs y cross-survey, recomendamos <strong>Copilot Pro, Business o Enterprise</strong>. Confirma con tu organizacion si hay restricciones a skills custom en planes enterprise."
+            "answerHtml": "Las skills custom funcionan en Free con limites de mensajes. Para el flujo completo, con 61 preguntas, 4 PDFs y cross-survey, recomendamos <strong>Copilot Pro, Business o Enterprise</strong>. Confirma con tu organizacion si hay restricciones a skills custom en planes enterprise."
           },
           {
             "summary": "Hay datos de ejemplo para probar sin llenar todo?",
@@ -1152,7 +1152,7 @@
         "panelItems": [
           {
             "label": "Framework completo",
-            "code": "158 preguntas"
+            "code": "61 preguntas"
           },
           {
             "label": "3 encuestas (Forms + JSON)",
@@ -1168,7 +1168,7 @@
           },
           {
             "label": "Templates Jinja2",
-            "code": "5 PDFs"
+            "code": "4 PDFs"
           },
           {
             "label": "Branding paulasilva-ms",

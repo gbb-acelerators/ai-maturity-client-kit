@@ -271,6 +271,6 @@ Devs respondem mais um próximo survey se virem que o anterior gerou ação. Ap�
 | ← ANTERIOR | PRÓXIMO → |
 |:---|---:|
 | **[Coleta do assessment principal](../coleta/INSTRUCOES-FORMS.pt-br.md)** | **[Learning & Growth Survey](../survey-learning/INSTRUCOES-FORMS-LEARNING.pt-br.md)** |
-| 3 caminhos para coletar as 158 perguntas do assessment via Forms / Excel. | 32 perguntas identificadas: plano de capacitação com Champions e workshops. |
+| 3 caminhos para coletar as 61 perguntas do assessment (v2) via Forms / Excel. | 32 perguntas identificadas: plano de capacitação com Champions e workshops. |
 
 ↑ [Voltar ao Índice do kit](../README.pt-br.md)

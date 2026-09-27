@@ -20,7 +20,7 @@ Esta pasta contém um **survey separado** do assessment principal — focado em 
 | **Anônimo?** | Não — identificado por organização | **Sim — Forms anônimo** | **Não — IDENTIFICADO (nome+email)** |
 | **Foco** | Maturidade organizacional (L0-L4) | Adoção e prática individual real | **O que querem APRENDER** |
 | **Escala** | Likert 5 pontos por capability | Choice/multi-choice/texto livre | Auto-percepção L0-L4 + multi |
-| **Quantidade** | 158 perguntas em 28 capabilities | **75 perguntas em 9 seções** | 32 perguntas em 7 seções |
+| **Quantidade** | 61 perguntas em 9 dimensões (v2) | **75 perguntas em 9 seções** | 32 perguntas em 7 seções |
 | **Tempo por respondente** | 60-90 min | **22-28 min** | 5-8 min |
 | **Multi-respondente** | Possível mas não default | **Essencial** (média ≥5, ideal ≥15) | **Essencial** (>50% do time) |
 | **Output** | Relatório executivo + 5 PDFs | Relatório de insights + maturidade calculada | Plano de capacitação + Champions |
@@ -145,7 +145,7 @@ Se você rodou ambos:
 
 ### Outras pastas do kit
 - **Survey complementar (identificado, capacitação):** [`../survey-learning/`](../survey-learning/README.pt-br.md) — Learning & Growth Survey (32 q, 5-8 min, IDENTIFICADO). Gera plano de capacitação personalizado com Champions Network e calendário de workshops. Use APÓS este Developer Survey para passar de "comportamento medido" para "plano de ação"
-- **Assessment principal (organizacional):** [`../README.md`](../README.pt-br.md) — 158 perguntas Likert L0-L4, leadership-driven, gera 5 PDFs production
+- **Assessment principal (organizacional):** [`../README.md`](../README.pt-br.md) : 61 perguntas L0-L4 em 9 dimensões (framework v2), gera 4 PDFs
 - **Coleta multi-respondente do assessment principal:** [`../coleta/INSTRUCOES-FORMS.md`](../coleta/INSTRUCOES-FORMS.pt-br.md)
 - **Wizard que consolida no PDF executivo:** [`../wizard/`](../wizard/) — alimenta Parte 4 do PDF com dados deste survey + do learning survey
 

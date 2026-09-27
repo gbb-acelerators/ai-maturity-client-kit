@@ -1,33 +1,19 @@
-# `scripts/`: Kit utilities
+# `scripts/`: deterministic kit utilities
 
-🌐 English · [Português (Brasil)](README.pt-br.md)
+These scripts are the source of truth for import, scoring, workbook generation, comparison, and validation. Do not compute assessment outputs by hand.
 
-📖 **Navigation:** [🏠 Index](../README.md)
+## Main commands
 
-Maintenance and validation helpers for the kit. The client does not run them in the normal flow; they are for contributors.
-
-## Contents
-
-| File | Purpose |
+| Command | Purpose |
 | --- | --- |
-| [`smoke_test.py`](smoke_test.py) | Automated end-to-end test: copies `respostas.json.example`, runs `build_payload_and_render.py --no-render`, validates the `payload.json` shape, and restores the workspace. Pure stdlib (no pytest). |
-| [`build_language_kits.py`](build_language_kits.py) | Builds the public PT-BR, EN, and ES ZIPs and validates that every asset referenced by the packages exists. The PT ZIP ships the `X.pt-br.md` / `X.pt-br.html` copies under their base names; no ZIP contains `*.pt-br.*` names. |
-| [`check_language_coverage.py`](check_language_coverage.py) | Reports multilingual coverage: required package files, translated doc pairs (`X.md` and `X.pt-br.md`, fails when the EN base is missing), and advisory gaps in the localized question banks. |
+| `python3 scripts/import_forms_excel.py respostas-forms.xlsx` | Import Microsoft Forms exports. Detects v2 by `R-Q#` and `D#-Q#` headers and preserves v1 import. |
+| `python3 scripts/assessment_engine.py all` | Dispatches v2 or v1 and writes `saida/scores.json`, `saida/gaps.json`, `saida/recomendacoes.json`. |
+| `python3 scripts/fill_workbook.py` | Dispatches to the v2 workbook generator or archived v1 workbook flow. |
+| `python3 scripts/compare_rounds.py BEFORE AFTER` | Compares v2 to v2, v1 to v1, or indicative v1 to v2 via `v1_lineage`. |
+| `python3 scripts/generate_v2_collection.py` | Generates v2 question banks, offline form, and import template. |
+| `python3 scripts/make_v2_mock.py` | Generates illustrative v2 mock responses and Forms export. |
+| `python3 scripts/validate_framework_v2.py` | Validates `framework.v2.json` against spec, schema, and translations. |
 
-## Usage
+## Make targets
 
-```bash
-make smoke          # assessment only
-make smoke-cross    # + cross-survey enrichment (developer + learning surveys)
-make validate-docs  # content.json + language coverage + package sources
-make build-kits     # dist/ai-maturity-kit-{pt,en,es}.zip
-
-# or directly:
-python3 scripts/smoke_test.py
-python3 scripts/smoke_test.py --with-cross-survey
-python3 scripts/check_language_coverage.py
-python3 scripts/build_language_kits.py --out dist --clean
-```
-
-> [!TIP]
-> Run `make smoke` before opening a PR that touches the pipeline (`relatorios/scripts/*.py` or any SKILL.md under `.github/skills/`).
+Use `make init`, `make init-v1`, `make import XLSX=...`, `make scores`, `make workbook`, `make pipeline`, `make validate-v2`, `make generate-v2`, `make mock-v2`, `make compare BEFORE=... [AFTER=...]`, and `make test`.

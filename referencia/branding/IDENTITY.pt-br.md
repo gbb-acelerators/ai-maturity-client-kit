@@ -1,6 +1,6 @@
 # Identidade visual paulasilva-ms (Microsoft)
 
-Identidade aplicada aos artefatos visuais deste kit. Forka o design system [paulasilva-ms](../../../../.github/skills/paulasilva-ms/) v1.7.0.
+Identidade aplicada aos artefatos visuais deste kit. Forka o design system paulasilva-ms v1.7.0.
 
 ## Strings canônicas (use exatamente)
 
@@ -90,9 +90,9 @@ Cada cor tem variantes `-50` (muito claro, fundo), `-100` (claro), `-700` (escur
 
 1. Os 4 HTMLs interativos do kit já carregam `tokens-paulasilva-ms.css`:
    - [`../calculadora-pontuacao.html`](../calculadora-pontuacao.html)
-   - [`../../formularios/P1-produtividade-do-desenvolvedor.html`](../../formularios/P1-produtividade-do-desenvolvedor.html)
-   - [`../../formularios/P2-ciclo-de-vida-devops.html`](../../formularios/P2-ciclo-de-vida-devops.html)
-   - [`../../formularios/P3-plataforma-de-aplicações.html`](../../formularios/P3-plataforma-de-aplicações.html)
+   - [`../../formularios/P1-produtividade-do-desenvolvedor.html`](../../formularios/v1/P1-produtividade-do-desenvolvedor.html)
+   - [`../../formularios/P2-ciclo-de-vida-devops.html`](../../formularios/v1/P2-ciclo-de-vida-devops.html)
+   - [`../../formularios/P3-plataforma-de-aplicações.html`](../../formularios/v1/P3-plataforma-de-aplicações.html)
    - [`../../wizard/implementation-guide-wizard.html`](../../wizard/implementation-guide-wizard.pt-br.html)
 
 2. Os PDFs Jinja2 (`relatorios/templates/*.html.j2` + `_print.css`) **mantêm a paleta oficial da plataforma** (não foram alterados). Branding MS aplica-se aos HTMLs standalone do kit, não aos PDFs production.
@@ -107,7 +107,7 @@ Cada cor tem variantes `-50` (muito claro, fundo), `-100` (claro), `-700` (escur
 
 Para detalhe completo do design system (showcase, deck patterns, simulações, layouts), veja a skill canônica:
 
-- [`/Users/paulasilva/Documents/ai-maturuty-client-platform/.github/skills/paulasilva-ms/`](../../../../.github/skills/paulasilva-ms/)
+- `/Users/paulasilva/Documents/ai-maturuty-client-platform/.github/skills/paulasilva-ms/`
 - `references/identity.md` — strings canônicas + logo
 - `references/voice.md` — vocabulário banido + tom
 - `references/components.md` — componentes (cards, badges, tables)

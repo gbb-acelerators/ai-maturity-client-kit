@@ -46,7 +46,7 @@ Unified voice of the design system. All content written under the Microsoft iden
 | Executive (board, VP) | Concise, numbers first, clear actions | "3 capabilities in P0. Immediate action: invest 8 FTE in S7 (Security)." |
 | Tech Lead / Architect | Explicit trade-offs, technical citations | "Foundry Agent Service GA brings native MCP. Trade-off: vendor lock-in vs. fast integration." |
 | Developer | Concrete, code when useful, jargon OK | "Custom agent in `.github/agents/*.agent.md`. Frontmatter `tools:`, `handoffs:`. See the paulasilva-ms showcase." |
-| External client | Pedagogical, no internal acronyms | "The AI Maturity Assessment is a 158-question evaluation that measures 28 organizational capabilities." |
+| External client | Pedagogical, no internal acronyms | "The AI Maturity Assessment is a 61-question evaluation that measures 9 dimensions of the AI-assisted software lifecycle." |
 
 ## Citation patterns
 

@@ -20,7 +20,7 @@ This folder contains a **survey separate** from the main assessment. It focuses 
 | **Anonymous?** | No, identified by organization | **Yes, anonymous Forms** | **No, IDENTIFIED (name+email)** |
 | **Focus** | Organizational maturity (L0-L4) | Real individual adoption and practice | **What they want to LEARN** |
 | **Scale** | 5-point Likert per capability | Choice/multi-choice/free text | Self-perception L0-L4 + multi |
-| **Size** | 158 questions across 28 capabilities | **75 questions in 9 sections** | 32 questions in 7 sections |
+| **Size** | 61 questions across 9 dimensions (v2) | **75 questions in 9 sections** | 32 questions in 7 sections |
 | **Time per respondent** | 60-90 min | **22-28 min** | 5-8 min |
 | **Multi-respondent** | Possible but not the default | **Essential** (average ≥5, ideal ≥15) | **Essential** (>50% of the team) |
 | **Output** | Executive report + 5 PDFs | Insights report + computed maturity | Capacitation plan + Champions |
@@ -145,7 +145,7 @@ If you ran both:
 
 ### Other kit folders
 - **Companion survey (identified, capacitation):** [`../survey-learning/`](../survey-learning/): Learning & Growth Survey (32 q, 5-8 min, IDENTIFIED). Generates a personalized capacitation plan with a Champions Network and a workshop calendar. Use it AFTER this Developer Survey to move from "measured behavior" to "action plan"
-- **Main assessment (organizational):** [`../README.md`](../README.md): 158 Likert L0-L4 questions, leadership-driven, generates 5 production PDFs
+- **Main assessment (organizational):** [`../README.md`](../README.md): 61 L0-L4 questions in 9 dimensions (framework v2), generates 4 PDFs
 - **Multi-respondent collection for the main assessment:** [`../coleta/INSTRUCOES-FORMS.md`](../coleta/INSTRUCOES-FORMS.md)
 - **Wizard that consolidates into the executive PDF:** [`../wizard/`](../wizard/): feeds Part 4 of the PDF with data from this survey + the learning survey
 
