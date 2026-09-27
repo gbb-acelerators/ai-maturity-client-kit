@@ -35,6 +35,15 @@ argument-hint: optional path of the .xlsx (default: respostas-forms.xlsx at root
 - **Question header** ALWAYS starts with `qid` in pattern `P[1-3]-C[1-9][0-9]?-Q[1-9][0-9]?:`
 - **Evidence header** is `Evidência (<qid>)` in the PT-BR form, `Evidence (<qid>)` in the EN form, or `Evidencia (<qid>)` in the ES form. Answer options are parsed by their `L0`..`L4` / `NA` prefix, so any form language works.
 
+## Implementation: invoke the official script
+
+```bash
+python3 scripts/import_forms_excel.py respostas-forms.xlsx
+# optional: --organization "Contoso" --lang pt-br --allow-partial
+```
+
+**DO NOT parse the Excel in chat.** The script implements the procedure below: it maps columns by question ID, parses `L0`..`L4`/`NA`, averages levels without rounding, prefixes evidence with the respondent name when there are several respondents, keeps `target_overrides` and `metadata.language`, backs up `respostas.json`, and writes `saida/import-log-<DATE>.md`. It stops (exit 2) when fewer than 60% of the framework questions are in the file. Report its output and alerts to the client; `make test` covers it.
+
 ## Procedure
 
 ### 1. Locate and validate Excel
@@ -214,7 +223,7 @@ Run `/pipeline-completo` to compute scores and generate the report.
 
 ## Constraints
 - **NEVER** modify `framework.json`.
-- **ALWAYS** backup `respostas.json` before overwriting (`.backup-<timestamp>`).
+- **ALWAYS** backup `respostas.json` before overwriting (`.backup-<timestamp>`); the script does this.
 - **NEVER** invent values: if the cell is empty or contains something unmappable, the result is `null`.
 - If the Excel doesn't have any header starting with `P[1-3]-C\d+-Q\d+:`, stop and instruct the user to verify the format (maybe it's not a Forms export).
 - Accept header variations: `P1-C1-Q1`, `P1-C1-Q1:`, `P1-C1-Q1 -`, `P1-C1-Q1 (...)` — always use regex.
