@@ -121,7 +121,7 @@ class ImportFormsExcelTest(unittest.TestCase):
             imp.run(_args(path, self.tmp))
 
     def test_template_export_matches_engine_expectations(self) -> None:
-        path = ROOT / "coleta" / "template-export-forms.xlsx"
+        path = ROOT / "coleta" / "v1" / "template-export-forms.xlsx"
         self.assertEqual(imp.run(_args(path, self.tmp)), 0)
         data = self._data()
         self.assertEqual(len(data["metadata"]["respondents"]), 3)
