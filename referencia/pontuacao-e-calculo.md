@@ -2,7 +2,9 @@
 
 🌐 English · [Português (Brasil)](pontuacao-e-calculo.pt-br.md)
 
-> **Technical reference document**: describes precisely how each answer becomes a score, how capabilities/pillars/overall are aggregated, threshold rules, multi-respondent handling, gap analysis, and the PE score. All formulas match 1:1 the Rust code in [`app/backend/src/scoring.rs`](../../app/backend/src/scoring.rs).
+> **Framework v1 (158 questions, 3 pillars).** For framework v2 (9 dimensions, 61 questions), see [framework-v2.md](framework-v2.md). v1 files still score with these rules.
+
+> **Technical reference document**: describes precisely how each answer becomes a score, how capabilities/pillars/overall are aggregated, threshold rules, multi-respondent handling, gap analysis, and the PE score. The kit implements these formulas in [`scripts/assessment_engine.py`](../scripts/assessment_engine.py) (golden tests in `scripts/test_assessment_engine.py`).
 
 **Algorithm version:** 1.0.0 · **Last code audit:** 2026-05-08
 

@@ -66,6 +66,8 @@ validate-docs:
 	@$(PY) -m json.tool docs/content.json >/dev/null
 	@$(PY) scripts/check_language_coverage.py
 	@$(PY) scripts/validate_framework_v2.py
+	@$(PY) scripts/generate_v2_collection.py --check
+	@$(PY) scripts/generate_v2_reference.py --check
 	@$(PY) scripts/build_language_kits.py --out dist-validate --clean >/dev/null
 	@rm -rf dist-validate
 	@echo "docs and package sources OK"
@@ -76,6 +78,7 @@ validate-v2:
 generate-v2:
 	@$(PY) scripts/spec_to_framework_v2.py
 	@$(PY) scripts/generate_v2_collection.py
+	@$(PY) scripts/generate_v2_reference.py
 	@$(PY) scripts/validate_framework_v2.py
 
 mock-v2:

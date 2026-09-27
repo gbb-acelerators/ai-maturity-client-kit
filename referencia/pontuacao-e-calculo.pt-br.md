@@ -2,7 +2,9 @@
 
 🌐 [English](pontuacao-e-calculo.md) · Português (Brasil)
 
-> **Documento técnico de referência** — descreve com precisão como cada resposta vira score, como capabilities/pillars/overall são agregados, regras de threshold, multi-respondente, gap analysis e PE score. Todas as fórmulas batem 1:1 com o código Rust em [`app/backend/src/scoring.rs`](../../app/backend/src/scoring.rs).
+> **Framework v1 (158 perguntas, 3 pilares).** Para o framework v2 (9 dimensões, 61 perguntas), veja [framework-v2.pt-br.md](framework-v2.pt-br.md). Arquivos v1 continuam pontuando com estas regras.
+
+> **Documento técnico de referência**: descreve com precisão como cada resposta vira score, como capabilities/pillars/overall são agregados, regras de threshold, multi-respondente, gap analysis e PE score. O kit implementa estas fórmulas em [`scripts/assessment_engine.py`](../scripts/assessment_engine.py) (testes golden em `scripts/test_assessment_engine.py`).
 
 **Versão do algoritmo:** 1.0.0 · **Última auditoria do código:** 2026-05-08
 
