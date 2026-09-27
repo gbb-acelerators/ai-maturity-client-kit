@@ -18,6 +18,10 @@
 
    > 5-8 min survey about your AI capacitation plan. IDENTIFIED (we need name + email to invite you to the right workshops). Output: personalized capacitation plan + cohorts + Champions Network.
 
+   Add this privacy notice below the subtitle (fill in the angle brackets with your privacy or legal team):
+
+   > **Privacy notice.** This survey collects your name, email, role, and squad to plan training, invite you to workshops, and build the Champions Network. Answers are not used for performance reviews. Controller and contact: `<team / email>`. Access: `<who can see individual answers>`. Retention: `<period>`, then deleted. You can ask to see, correct, or delete your answers at `<contact>`. By submitting, you agree to this use.
+
 4. **Settings**:
    - ☐ **Anonymous responses** (OFF, this survey is identified)
    - ☑ **Only people in my organization** (recommended)

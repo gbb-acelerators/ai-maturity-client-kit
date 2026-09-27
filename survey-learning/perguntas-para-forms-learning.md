@@ -17,6 +17,10 @@
    IDENTIFICADO (precisamos nome+email para te convidar para os workshops certos).
    Resultado: plano de capacitação personalizado + cohorts + Champions Network.
    ```
+   Adicione este aviso de privacidade abaixo do subtítulo (preencha os colchetes angulares com o time de privacidade ou jurídico):
+
+   > **Aviso de privacidade.** Este survey coleta seu nome, e-mail, cargo e squad para planejar capacitação, convidar você para workshops e montar a Champions Network. As respostas não são usadas em avaliação de desempenho. Controlador e contato: `<time / e-mail>`. Acesso: `<quem vê respostas individuais>`. Retenção: `<prazo>`, depois excluídas. Você pode pedir acesso, correção ou exclusão das suas respostas em `<contato>`. Ao enviar, você concorda com este uso.
+
 4. **Settings** (⚙️):
    - ☐ **Anonymous responses** (DESMARCADO — survey identificado)
    - ☑ **Only people in my organization** (recomendado)

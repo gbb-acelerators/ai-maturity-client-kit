@@ -223,6 +223,18 @@ Communicate before launching:
 
 > "Your answers will be used to: (1) build our capacitation roadmap, (2) invite you to the specific workshops you asked for, and (3) build the Champions Network. They will **NOT** be used for performance review, comparison between developers, or shared with external clients."
 
+### Privacy and data protection (LGPD / GDPR)
+
+This survey processes personal data (name, email, role, squad, self-assessment). Agree on the points below with your privacy or legal team before launch; this checklist is not legal advice.
+
+- **Purpose and legal basis:** document why the data is collected (training plan, invitations, Champions Network) and the legal basis your team chooses.
+- **Privacy notice:** include the notice from `perguntas-para-forms-learning.en.md` (step 3) in the form, with controller, access, retention, and contact filled in.
+- **Minimization:** collect only the identification questions in L1; do not add fields such as employee ID or manager.
+- **Storage and access:** keep `respostas-survey-learning.xlsx`, `survey-learning/respostas-learning.json`, and `saida/plano-capacitacao-*.md` on managed storage with restricted access. These paths are in `.gitignore`; never commit them.
+- **Leadership-only appendix:** the plan's respondent appendix contains names and emails. Share it only with the people who send invitations.
+- **Retention and deletion:** delete the Forms responses, the `.xlsx`, the JSON, and the plan appendix when the retention period ends.
+- **Individual requests:** name an owner for access, correction, and deletion requests.
+
 ### Relaunch cadence
 - **Every 6 months** or after major events (Copilot rollout, stack change, etc.)
 - **Compare evolution**: a developer who was L1 in D5 now self-rates L3? A natural Champion

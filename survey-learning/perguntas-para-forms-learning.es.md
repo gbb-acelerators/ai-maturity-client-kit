@@ -18,6 +18,10 @@
 
    > Encuesta de 5-8 min sobre tu plan de capacitación en IA. IDENTIFICADA (necesitamos nombre + email para invitarte a los workshops correctos). Resultado: plan de capacitación personalizado + cohorts + Champions Network.
 
+   Agrega este aviso de privacidad debajo del subtítulo (completa los corchetes angulares con tu equipo de privacidad o legal):
+
+   > **Aviso de privacidad.** Esta encuesta recopila tu nombre, email, rol y squad para planificar la capacitación, invitarte a workshops y armar la Champions Network. Las respuestas no se usan en evaluaciones de desempeño. Responsable y contacto: `<equipo / email>`. Acceso: `<quién ve las respuestas individuales>`. Retención: `<plazo>`, luego se eliminan. Puedes pedir acceso, corrección o eliminación de tus respuestas en `<contacto>`. Al enviar, aceptas este uso.
+
 4. **Settings**:
    - ☐ **Anonymous responses** (OFF, esta encuesta es identificada)
    - ☑ **Only people in my organization** (recomendado)

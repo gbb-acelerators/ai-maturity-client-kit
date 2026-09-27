@@ -223,6 +223,18 @@ Comunique antes de lançar:
 
 > "Suas respostas serão usadas para: (1) construir nosso roadmap de capacitação, (2) convidar você para workshops específicos que pediu, (3) formar Champions Network. **NÃO** serão usadas para performance review, comparação entre devs, ou compartilhadas com clientes externos."
 
+### Privacidade e proteção de dados (LGPD / GDPR)
+
+Este survey trata dados pessoais (nome, e-mail, cargo, squad, autoavaliação). Combine os pontos abaixo com o time de privacidade ou jurídico antes do lançamento; esta checklist não é aconselhamento jurídico.
+
+- **Finalidade e base legal:** documente por que os dados são coletados (plano de capacitação, convites, Champions Network) e a base legal escolhida pelo seu time.
+- **Aviso de privacidade:** inclua no formulário o aviso de `perguntas-para-forms-learning.md` (passo 3), com controlador, acesso, retenção e contato preenchidos.
+- **Minimização:** colete só as perguntas de identificação do L1; não acrescente campos como matrícula ou gestor.
+- **Armazenamento e acesso:** mantenha `respostas-survey-learning.xlsx`, `survey-learning/respostas-learning.json` e `saida/plano-capacitacao-*.md` em armazenamento gerenciado com acesso restrito. Esses caminhos estão no `.gitignore`; nunca faça commit deles.
+- **Apêndice só para liderança:** o apêndice de respondentes do plano tem nomes e e-mails. Compartilhe só com quem envia os convites.
+- **Retenção e exclusão:** exclua as respostas do Forms, o `.xlsx`, o JSON e o apêndice do plano ao fim do prazo de retenção.
+- **Pedidos individuais:** defina um responsável por pedidos de acesso, correção e exclusão.
+
 ### Cadência de relançamento
 - **A cada 6 meses** ou após eventos grandes (rollout Copilot, mudança de stack, etc.)
 - **Compare evoluções**: dev que estava L1 em D5 e agora se auto-avalia L3? Champion natural
