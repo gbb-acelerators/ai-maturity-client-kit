@@ -1,10 +1,10 @@
-<!-- paulasilva-ms identity: Paula Silva | Software Global Black Belt · paulasilva@microsoft.com -->
+<!-- paulasilva-ms identity: Paula Silva | Global Developer Solutions Advisor · paulasilva@microsoft.com -->
 <!-- paulasilva-ms Design System v1.7.0 -->
 
 # Developer Survey — Relatório de Insights
 
 **Data:** 2026-05-08  ·  **Respondentes:** 5 (anônimos)  ·  **Versão da rubrica:** 1.0
-**Autor:** Paula Silva | Software Global Black Belt  ·  **Contato:** paulasilva@microsoft.com
+**Autor:** Paula Silva | Global Developer Solutions Advisor  ·  **Contato:** paulasilva@microsoft.com
 
 ---
 
@@ -246,6 +246,6 @@ Se você rodou o assessment principal, compare:
 
 ---
 
-<sub>**Paula Silva** | Software Global Black Belt · paulasilva@microsoft.com</sub>  
+<sub>**Paula Silva** | Global Developer Solutions Advisor · paulasilva@microsoft.com</sub>  
 <sub>Building the future of software development with AI and Agentic DevOps</sub>  
 <sub>Identidade visual: paulasilva-ms Design System v1.7.0 · ver `referencia/branding/`</sub>

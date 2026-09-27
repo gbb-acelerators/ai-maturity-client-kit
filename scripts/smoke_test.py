@@ -27,6 +27,7 @@ from pathlib import Path
 KIT = Path(__file__).resolve().parent.parent
 SAIDA = KIT / "saida"
 EXEMPLOS = KIT / "referencia" / "exemplo-saida"
+EXEMPLOS_V1 = EXEMPLOS / "v1"
 
 # Files we will mutate; everything is restored on exit.
 SENTINEL_FILES = [
@@ -172,7 +173,7 @@ def assert_payload(with_cross: bool) -> None:
     if not isinstance(overall, (int, float)):
         raise SmokeError(f"scores.overall.weighted_avg is not numeric: {overall!r}")
     expected = json.loads(
-        (EXEMPLOS / "scores.json").read_text(encoding="utf-8")
+        (EXEMPLOS_V1 / "scores.json").read_text(encoding="utf-8")
     )["overall"]["score"]
     if overall != round(expected, 2):
         raise SmokeError(
@@ -215,6 +216,44 @@ def assert_payload(with_cross: bool) -> None:
         )
 
 
+def smoke_v2() -> None:
+    """Framework v2 on the illustrative mock, in a temporary kit."""
+    import tempfile
+
+    _info("Framework v2: engine + build_payload_and_render.py --no-render "
+          "on respostas.v2.json.example")
+    with tempfile.TemporaryDirectory() as tmp:
+        kit = Path(tmp)
+        out = kit / "saida"
+        shutil.copy2(KIT / "respostas.v2.json.example", kit / "respostas.json")
+        shutil.copy2(KIT / "framework.v2.json", kit / "framework.v2.json")
+        for cmd in (
+            [str(KIT / "scripts" / "assessment_engine.py"), "all",
+             "--respostas", str(kit / "respostas.json"), "--out", str(out)],
+            [str(KIT / "relatorios" / "scripts" /
+                 "build_payload_and_render.py"),
+             "--kit", str(kit), "--out", str(out), "--no-render"],
+        ):
+            res = subprocess.run([sys.executable, *cmd], capture_output=True,
+                                 text=True)
+            if res.returncode != 0:
+                raise SmokeError(f"{Path(cmd[0]).name} failed (v2):\n"
+                                 f"{res.stdout}{res.stderr}")
+        payload = json.loads((out / "payload_v2.json").read_text("utf-8"))
+        expected = json.loads(
+            (EXEMPLOS / "scores.json").read_text(encoding="utf-8"))
+        if payload["overall"]["score"] != expected["overall"]["score"]:
+            raise SmokeError(
+                f"v2 overall {payload['overall']['score']} differs from the "
+                f"v2 example ({expected['overall']['score']})")
+        if [g["id"] for g in payload["groups"]] != ["G1", "G2", "G3"]:
+            raise SmokeError("v2 payload must have report groups G1-G3")
+        if len(payload["dimensions"]) != 9:
+            raise SmokeError("v2 payload must have 9 dimensions")
+        _ok(f"v2 overall = {payload['overall']['score']} "
+            f"({payload['overall']['label']}), 9 dimensions, groups G1-G3")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument(
@@ -234,6 +273,7 @@ def main() -> int:
         run_engine()
         run_build()
         assert_payload(args.with_cross_survey)
+        smoke_v2()
         print()
         print(_color("32", "✓ SMOKE TEST PASSED"))
         return 0

@@ -18,7 +18,7 @@
     "name": "AI Maturity Assessment",
     "framework_version": "1.0.0",
     "completed_date": "2026-05-08",
-    "generated_date": "2026-09-26"
+    "generated_date": "2026-09-27"
   },
   "scores": {
     "overall": {
@@ -2588,8 +2588,8 @@
     "primary_color": "#00A4EF",
     "footer_text_template": "Confidential | {organization_name}",
     "author": "Paula Silva",
-    "role": "Software Global Black Belt",
-    "author_name": "Paula Silva | Software Global Black Belt",
+    "role": "Global Developer Solutions Advisor",
+    "author_name": "Paula Silva | Global Developer Solutions Advisor",
     "contact": "paulasilva@microsoft.com",
     "tagline": "Building the future of software development with AI and Agentic DevOps",
     "design_system": "paulasilva-ms Design System v1.7.0",
