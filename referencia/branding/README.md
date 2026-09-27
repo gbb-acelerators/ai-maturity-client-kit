@@ -33,7 +33,7 @@ Reason: the PDFs are production deliverables that must be identical to the futur
 ## Attribution (every new HTML in this kit must have it)
 
 ```
-Paula Silva | Software Global Black Belt
+Paula Silva | Global Developer Solutions Advisor
 paulasilva@microsoft.com
 ```
 
@@ -57,7 +57,7 @@ No LinkedIn, no GitHub, no website. Email only.
 <body>
   <div class="deck-brand">
     <!-- 22px logo SVG (copy from IDENTITY.md) -->
-    <span class="deck-brand__text">Paula Silva | Software Global Black Belt</span>
+    <span class="deck-brand__text">Paula Silva | Global Developer Solutions Advisor</span>
   </div>
   <!-- content here -->
 </body>

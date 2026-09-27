@@ -6,14 +6,14 @@ Identidade aplicada aos artefatos visuais deste kit. Forka o design system [paul
 
 ```text
 Author name:     Paula Silva
-Role (formal):   Software Global Black Belt
-Role (full):     Paula Silva, Software Global Black Belt
-Meta-bar form:   Paula Silva | Software Global Black Belt
+Role (formal):   Global Developer Solutions Advisor
+Role (full):     Paula Silva, Global Developer Solutions Advisor
+Meta-bar form:   Paula Silva | Global Developer Solutions Advisor
 Contact:         paulasilva@microsoft.com
 Tagline (EN):    Building the future of software development with AI and Agentic DevOps
 ```
 
-A função é **Software Global Black Belt** (não "GBB Americas", não "Microsoft Global Black Belt", não abreviado). Não tem organização, não tem região.
+A função é **Global Developer Solutions Advisor** (não "GBB Americas", não "Microsoft Global Black Belt", não abreviado). Não tem organização, não tem região.
 
 O contato é **email apenas**. Sem LinkedIn público, sem GitHub, sem website em material Microsoft.
 
@@ -49,7 +49,7 @@ Cada cor tem variantes `-50` (muito claro, fundo), `-100` (claro), `-700` (escur
 ```html
 <div class="deck-brand">
   <!-- 22px logo SVG aqui -->
-  <span class="deck-brand__text">Paula Silva | Software Global Black Belt</span>
+  <span class="deck-brand__text">Paula Silva | Global Developer Solutions Advisor</span>
 </div>
 ```
 

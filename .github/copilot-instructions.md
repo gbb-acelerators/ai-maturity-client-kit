@@ -49,14 +49,14 @@ Contains:
 
 ## Visual identity & branding (paulasilva-ms)
 
-This kit is signed under the **Microsoft identity** of Paula Silva, Software Global Black Belt. Visual artifacts (HTMLs) follow the [paulasilva-ms Design System](../../../../.github/skills/paulasilva-ms/) v1.7.0.
+This kit is signed under the **Microsoft identity** of Paula Silva, Global Developer Solutions Advisor. Visual artifacts (HTMLs) follow the [paulasilva-ms Design System](../../../../.github/skills/paulasilva-ms/) v1.7.0.
 
 **When generating new HTML or visual content for this kit:**
 - Load `referencia/branding/tokens-paulasilva-ms.css` (relative path)
 - Load Inter + JetBrains Mono fonts via Google Fonts CDN
 - Use MS 4-color palette tokens: `--c-blue-500` (#00A4EF), `--c-green-500` (#7FBA00), `--c-yellow-500` (#FFB900), `--c-red-500` (#F25022)
 - Add `<div class="deck-brand">` chrome bar with the 22px logo SVG
-- Sign with: **Paula Silva | Software Global Black Belt** + paulasilva@microsoft.com (single channel, no socials)
+- Sign with: **Paula Silva | Global Developer Solutions Advisor** + paulasilva@microsoft.com (single channel, no socials)
 - See `referencia/branding/IDENTITY.md` for canonical strings + logo SVG markup
 
 **Voice rules** (see `referencia/branding/VOICE.md`):

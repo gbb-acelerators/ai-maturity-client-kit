@@ -1,6 +1,6 @@
 <!-- paulasilva-ms identity -->
 <!--
-  Paula Silva, Software Global Black Belt
+  Paula Silva, Global Developer Solutions Advisor
   Building the future of software development with AI and Agentic DevOps
   Contact: LinkedIn https://linkedin.com/in/paulanunes
   Branding: paulasilva-ms Design System v1.7.0
@@ -375,6 +375,6 @@ You do not lose data: just upload the JSON when the app is available.
 
 ---
 
-<sub>**Paula Silva** | Software Global Black Belt · [LinkedIn](https://linkedin.com/in/paulanunes)</sub>
+<sub>**Paula Silva** | Global Developer Solutions Advisor · [LinkedIn](https://linkedin.com/in/paulanunes)</sub>
 <sub>Building the future of software development with AI and Agentic DevOps</sub>
 <sub>Visual identity: [paulasilva-ms Design System v1.7.0](referencia/branding/) · Microsoft 4-color palette applied to the interactive HTMLs and the 5 production-quality PDFs</sub>

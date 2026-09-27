@@ -11,9 +11,9 @@ See referencia/branding/IDENTITY.md and referencia/branding/VOICE.md.
 # ============================================================
 
 AUTHOR = "Paula Silva"
-ROLE = "Software Global Black Belt"
-ROLE_FULL = "Paula Silva, Software Global Black Belt"
-META_BAR = "Paula Silva | Software Global Black Belt"
+ROLE = "Global Developer Solutions Advisor"
+ROLE_FULL = "Paula Silva, Global Developer Solutions Advisor"
+META_BAR = "Paula Silva | Global Developer Solutions Advisor"
 CONTACT = "paulasilva@microsoft.com"
 TAGLINE = "Building the future of software development with AI and Agentic DevOps"
 

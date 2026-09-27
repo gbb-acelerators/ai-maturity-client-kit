@@ -8,14 +8,14 @@ Identity applied to the visual artifacts of this kit. It forks the design system
 
 ```text
 Author name:     Paula Silva
-Role (formal):   Software Global Black Belt
-Role (full):     Paula Silva, Software Global Black Belt
-Meta-bar form:   Paula Silva | Software Global Black Belt
+Role (formal):   Global Developer Solutions Advisor
+Role (full):     Paula Silva, Global Developer Solutions Advisor
+Meta-bar form:   Paula Silva | Global Developer Solutions Advisor
 Contact:         paulasilva@microsoft.com
 Tagline (EN):    Building the future of software development with AI and Agentic DevOps
 ```
 
-The role is **Software Global Black Belt** (not "GBB Americas", not "Microsoft Global Black Belt", not abbreviated). It has no organization and no region.
+The role is **Global Developer Solutions Advisor** (not "GBB Americas", not "Microsoft Global Black Belt", not abbreviated). It has no organization and no region.
 
 The contact is **email only**. No public LinkedIn, no GitHub, and no website in Microsoft material.
 
@@ -51,7 +51,7 @@ Each color has `-50` (very light, background), `-100` (light), and `-700` (dark,
 ```html
 <div class="deck-brand">
   <!-- 22px logo SVG here -->
-  <span class="deck-brand__text">Paula Silva | Software Global Black Belt</span>
+  <span class="deck-brand__text">Paula Silva | Global Developer Solutions Advisor</span>
 </div>
 ```
 

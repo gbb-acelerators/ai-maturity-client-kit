@@ -90,5 +90,5 @@ OUTPUT (5 PDFs + auditable XLSX)
 
 ---
 
-**Paula Silva** — Software Global Black Belt | [LinkedIn](https://linkedin.com/in/paulanunes)
+**Paula Silva** — Global Developer Solutions Advisor | [LinkedIn](https://linkedin.com/in/paulanunes)
 *Building the future of software development with AI and Agentic DevOps*

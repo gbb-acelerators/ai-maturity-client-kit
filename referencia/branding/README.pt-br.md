@@ -31,7 +31,7 @@ Razão: os PDFs são entregáveis production que precisam ser idênticos à futu
 ## Atribuição (todo HTML novo deste kit deve ter)
 
 ```
-Paula Silva | Software Global Black Belt
+Paula Silva | Global Developer Solutions Advisor
 paulasilva@microsoft.com
 ```
 
@@ -55,7 +55,7 @@ Sem LinkedIn, sem GitHub, sem website. Email apenas.
 <body>
   <div class="deck-brand">
     <!-- 22px logo SVG (copiar de IDENTITY.md) -->
-    <span class="deck-brand__text">Paula Silva | Software Global Black Belt</span>
+    <span class="deck-brand__text">Paula Silva | Global Developer Solutions Advisor</span>
   </div>
   <!-- conteúdo aqui -->
 </body>

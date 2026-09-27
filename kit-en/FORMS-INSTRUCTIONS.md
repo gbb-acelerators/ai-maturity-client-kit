@@ -125,4 +125,4 @@ If you want a fully translated question bank, contact Paula Silva on [LinkedIn](
 
 ---
 
-**Paula Silva** — Software Global Black Belt | [LinkedIn](https://linkedin.com/in/paulanunes)
+**Paula Silva** — Global Developer Solutions Advisor | [LinkedIn](https://linkedin.com/in/paulanunes)

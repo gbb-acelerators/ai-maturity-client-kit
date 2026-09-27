@@ -139,4 +139,4 @@ Contact Paula Silva on [LinkedIn](https://linkedin.com/in/paulanunes).
 
 ---
 
-**Paula Silva** — Software Global Black Belt | [LinkedIn](https://linkedin.com/in/paulanunes)
+**Paula Silva** — Global Developer Solutions Advisor | [LinkedIn](https://linkedin.com/in/paulanunes)

@@ -1,4 +1,4 @@
-<!-- paulasilva-ms identity: Paula Silva, Software Global Black Belt · LinkedIn https://linkedin.com/in/paulanunes -->
+<!-- paulasilva-ms identity: Paula Silva, Global Developer Solutions Advisor · LinkedIn https://linkedin.com/in/paulanunes -->
 
 # Guia Passo-a-Passo · Kit AI Maturity Assessment
 
@@ -1094,7 +1094,7 @@ Skills custom requerem **Copilot Pro/Business/Enterprise** com modo Agent. Alter
 
 ---
 
-<sub>**Paula Silva** | Software Global Black Belt · [LinkedIn](https://linkedin.com/in/paulanunes)</sub>
+<sub>**Paula Silva** | Global Developer Solutions Advisor · [LinkedIn](https://linkedin.com/in/paulanunes)</sub>
 <sub>Identidade visual paulasilva-ms aplicada nos HTMLs interativos (calculadora, formulários, wizard) e nos 5 PDFs production. Veja [referencia/branding/](referencia/branding/).</sub>
 /sub>
 ferencia/branding/).</sub>
