@@ -19,6 +19,14 @@ description: Maps gaps per capability to the 7 strategies S1-S7 and generates pr
 - `saida/recomendacoes.json` — grouped by strategy + ranking
 - Brief chat message (English by default, or the user's language): top 3 strategies by cumulative impact.
 
+## Implementation: invoke the official script
+
+```bash
+python3 scripts/assessment_engine.py recommendations
+```
+
+**DO NOT build recommendations in chat.** The script reads `saida/gaps.json`, applies the templates below, and writes `saida/recomendacoes.json`. `expected_outcome` is a neutral template (no invented metrics or timelines). You may explain the output to the client, but do not add numbers the data does not contain.
+
 ## Algorithm
 
 ### 1. Aggregate gaps per strategy
@@ -76,10 +84,12 @@ Use these templates based on the strategy. Write the English text by default; us
         {"name": "GitHub Copilot Enterprise", "purpose": "AI-assisted coding across development teams"}
       ],
       "first_action": "Roll out Copilot Enterprise to 2 pilot squads; measure adoption and DORA productivity for 8 weeks.",
-      "expected_outcome": "Raise capabilities P1-C1 and P1-C8 to L3 in about 2 quarters."
+      "expected_outcome": "Raise P1-C1, P1-C8 toward the target level; re-assess to confirm."
     }
   ],
-  "skipped_strategies": ["S1"]
+  "skipped_strategies": [
+    {"strategy_id": "S1", "strategy_name": "GitHub Migration", "reason": "no related gaps"}
+  ]
 }
 ```
 

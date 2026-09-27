@@ -18,6 +18,14 @@ description: Computes gap (target − current) per capability and priority P0-P3
 - `saida/gaps.json` — list ordered by priority (P0 first)
 - Brief chat message (English by default, or the user's language): top 5 P0/P1 gaps.
 
+## Implementation: invoke the official script
+
+```bash
+python3 scripts/assessment_engine.py gaps
+```
+
+**DO NOT compute gaps in chat.** The script recomputes unrounded capability scores from `respostas.json`, applies `target_overrides`, and writes `saida/gaps.json`. The algorithm below documents its behavior.
+
 ## Algorithm
 
 ```

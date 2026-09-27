@@ -18,6 +18,18 @@ description: Computes capability/pillar/overall scores from respostas.json apply
 - `saida/scores.json` — full structure (see schema below)
 - Brief chat message (English by default, or the user's language) with overall score + label + threshold.
 
+## Implementation: invoke the official script
+
+Run the deterministic engine. **DO NOT compute scores in chat**: the algorithm below documents what the script does.
+
+```bash
+python3 scripts/assessment_engine.py scores
+# or scores + gaps + recommendations in one go:
+python3 scripts/assessment_engine.py all
+```
+
+If the script reports invalid levels, show the listed question IDs to the client and stop. `make test` runs the golden tests that pin the engine to `referencia/exemplo-saida/`.
+
 ## Algorithm (follow EXACTLY — mirrors `referencia/pontuacao-e-calculo.md`)
 
 ### 1. Capability score

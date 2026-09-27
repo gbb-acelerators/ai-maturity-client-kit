@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """End-to-end smoke test for the AI Maturity Assessment kit.
 
-Runs `relatorios/scripts/build_payload_and_render.py --no-render` against the
+Runs `scripts/assessment_engine.py all` and then
+`relatorios/scripts/build_payload_and_render.py --no-render` against the
 bundled example data and asserts the resulting `saida/payload.json` has the
 expected shape (organization, scores, capabilities, gap_analysis, optional
 cross_survey_data when complementary survey artifacts are present).
@@ -30,6 +31,11 @@ EXEMPLOS = KIT / "referencia" / "exemplo-saida"
 # Files we will mutate; everything is restored on exit.
 SENTINEL_FILES = [
     KIT / "respostas.json",
+    KIT / "implementation-guide-inputs.json",
+    SAIDA / "scores.json",
+    SAIDA / "gaps.json",
+    SAIDA / "recomendacoes.json",
+    SAIDA / "payload.json",
 ]
 
 
@@ -73,10 +79,15 @@ def stage_example_inputs(with_cross: bool) -> dict[str, Path | None]:
     state: dict[str, Path | None] = {}
 
     for f in SENTINEL_FILES:
-        state[f"backup:{f.name}"] = _backup(f)
+        state[f"backup:{f.relative_to(KIT)}"] = _backup(f)
 
     shutil.copy2(KIT / "respostas.json.example", KIT / "respostas.json")
     _ok("Copied respostas.json.example → respostas.json")
+    shutil.copy2(
+        EXEMPLOS / "implementation-guide-inputs-EXEMPLO.json",
+        KIT / "implementation-guide-inputs.json",
+    )
+    _ok("Copied implementation-guide-inputs-EXEMPLO.json")
 
     staged: list[Path] = []
     if with_cross:
@@ -101,11 +112,26 @@ def cleanup(state: dict[str, Path | None]) -> None:
     print()
     _info("Cleaning up...")
     for f in SENTINEL_FILES:
-        _restore(f, state.get(f"backup:{f.name}"))
+        _restore(f, state.get(f"backup:{f.relative_to(KIT)}"))
     for staged in state.get("staged") or []:
         Path(staged).unlink(missing_ok=True)
-    (SAIDA / "payload.json").unlink(missing_ok=True)
     _ok("Workspace restored")
+
+
+def run_engine() -> None:
+    _info("Running assessment_engine.py all (scores, gaps, recommendations)")
+    result = subprocess.run(
+        [sys.executable, "scripts/assessment_engine.py", "all"],
+        cwd=str(KIT),
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0:
+        print(result.stdout)
+        print(result.stderr, file=sys.stderr)
+        raise SmokeError(f"engine exited with code {result.returncode}")
+    for line in result.stdout.splitlines():
+        print("   ", line)
 
 
 def run_build() -> None:
@@ -145,7 +171,29 @@ def assert_payload(with_cross: bool) -> None:
     overall = payload["scores"]["overall"].get("weighted_avg")
     if not isinstance(overall, (int, float)):
         raise SmokeError(f"scores.overall.weighted_avg is not numeric: {overall!r}")
-    _ok(f"scores.overall.weighted_avg = {overall}")
+    expected = json.loads(
+        (EXEMPLOS / "scores.json").read_text(encoding="utf-8")
+    )["overall"]["score"]
+    if overall != round(expected, 2):
+        raise SmokeError(
+            f"payload overall {overall} does not match the engine "
+            f"({expected}); client data was not merged"
+        )
+    org = payload["organization"].get("name")
+    if org != "Cliente Exemplo S.A.":
+        raise SmokeError(f"organization not taken from respostas: {org!r}")
+    _ok(f"scores.overall.weighted_avg = {overall} (client data, {org})")
+
+    text = payload_path.read_text(encoding="utf-8")
+    leaked = [s for s in ("Acme", "Maria Santos", "2,430") if s in text]
+    if leaked:
+        raise SmokeError(f"sample (demo) facts leaked into payload: {leaked}")
+    _ok("no sample (demo) organization facts in the client payload")
+    committee = payload["implementation_guide_inputs"].get(
+        "executive_steering_committee")
+    if not isinstance(committee, list) or not committee:
+        raise SmokeError("wizard steering committee was not converted")
+    _ok(f"wizard inputs converted (steering committee: {len(committee)})")
 
     pillars = payload["scores"].get("pillars") or []
     pillar_ids = {p.get("id") for p in pillars}
@@ -183,6 +231,7 @@ def main() -> int:
     state: dict[str, Path | None] = {}
     try:
         state = stage_example_inputs(args.with_cross_survey)
+        run_engine()
         run_build()
         assert_payload(args.with_cross_survey)
         print()
