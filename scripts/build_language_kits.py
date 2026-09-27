@@ -87,6 +87,8 @@ SHARED_CLIENT_ASSETS = [
     "coleta/perguntas-para-forms.es.md",
     "coleta/AI-Maturity-Form-Questions_v2.md",
     "coleta/v1",
+    "referencia/framework-v2.md",
+    "referencia/framework-v2.es.md",
     "survey-devs/perguntas-para-forms-devs.md",
     "survey-devs/perguntas-para-forms-devs.en.md",
     "survey-devs/perguntas-para-forms-devs.es.md",
