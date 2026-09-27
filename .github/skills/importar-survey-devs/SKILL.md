@@ -1,7 +1,7 @@
 ---
 name: importar-survey-devs
 description: Imports the Developer Survey results (Microsoft Forms export .xlsx) into structured JSON. The survey has 75 questions across 9 sections (Profile, Copilot adoption + modes, MS/GitHub tools, AI dev practices, Agent concepts, Markdown/Instructions, Usability, Security/Governance, Pain points). Different from /importar-respostas-excel which handles the maturity assessment. Use when user has respostas-survey-devs.xlsx and wants to analyze it, or asks "import developer survey", "import survey-devs", "importar survey de devs", "importar respostas do survey".
-argument-hint: optional path to .xlsx (default: respostas-survey-devs.xlsx at root)
+argument-hint: "optional path to .xlsx (default: respostas-survey-devs.xlsx at root)"
 ---
 
 # Skill: Import Developer Survey responses

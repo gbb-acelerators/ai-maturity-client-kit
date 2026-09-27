@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Report multilingual coverage for the AI Maturity client kit.
 
-Most groups are required: a missing file fails the check. The localized
-assessment question banks stay advisory, because packaging must keep working
-while human-reviewed EN/ES banks are prepared. The translated-docs group
+Every group is required: a missing file fails the check. The framework v2
+group also checks that framework.v2.json carries every text in EN, PT-BR
+and ES (see scripts/validate_framework_v2.py for the full check). The
+translated-docs group
 checks that every `X.pt-br.md` / `X.pt-br.html` has its English base file and
 vice versa for the docs that have a Portuguese copy.
 """
@@ -17,12 +18,9 @@ PT_BR_TAG = ".pt-br"
 TRANSLATED_DOC_PATTERNS = ["*.pt-br.md", "*.pt-br.html"]
 EXCLUDED_PARTS = {".git", "dist", "saida"}
 
-EXPECTED_LOCALIZED_QUESTION_BANKS = [
+REQUIRED_LOCALIZED_QUESTION_BANKS = [
     "coleta/perguntas-para-forms.en.md",
     "coleta/perguntas-para-forms.es.md",
-]
-
-REQUIRED_LOCALIZED_QUESTION_BANKS = [
     "survey-learning/perguntas-para-forms-learning.en.md",
     "survey-learning/perguntas-para-forms-learning.es.md",
     "survey-devs/perguntas-para-forms-devs.en.md",
@@ -44,11 +42,57 @@ REQUIRED_LANGUAGE_PACKAGE_DOCS = [
     "kit-es/INSTRUCCIONES-FORMS.md",
 ]
 
-REQUIRED_REFERENCE_OUTPUTS = [
-    "referencia/exemplo-saida/en/score_justification.pdf",
-    "referencia/exemplo-saida/es/score_justification.pdf",
-    "referencia/exemplo-saida/score_justification.pdf",
+REQUIRED_FRAMEWORK_V2 = [
+    "framework.v2.json",
+    "framework.v2.schema.json",
+    "framework/v2/config.json",
+    "framework/v2/i18n.pt-br.json",
+    "framework/v2/i18n.es.json",
+    "formularios/assessment-v2.html",
+    "coleta/INSTRUCOES-FORMS.md",
+    "coleta/INSTRUCOES-FORMS.pt-br.md",
 ]
+
+REQUIRED_REFERENCE_OUTPUTS = [
+    f"referencia/exemplo-saida/{sub}{name}.pdf"
+    for sub in ("", "en/", "es/")
+    for name in ("v2_assessment_summary", "v2_roadmap_g1",
+                 "v2_roadmap_g2", "v2_roadmap_g3")
+]
+
+
+def framework_v2_languages() -> int:
+    import json
+
+    print("\nframework.v2.json language parity")
+    path = ROOT / "framework.v2.json"
+    if not path.exists():
+        print("  MISS framework.v2.json")
+        return 1
+    missing: list[str] = []
+
+    def walk(node, where: str) -> None:
+        if isinstance(node, dict):
+            if "en" in node and set(node) <= {"en", "pt-br", "es"}:
+                for lang in ("pt-br", "es"):
+                    if not node.get(lang):
+                        missing.append(f"{where} [{lang}]")
+                return
+            for key, value in node.items():
+                walk(value, f"{where}.{key}" if where else key)
+        elif isinstance(node, list):
+            for idx, value in enumerate(node):
+                ident = value.get("id") if isinstance(value, dict) else None
+                walk(value, f"{where}[{ident or idx}]")
+
+    walk(json.loads(path.read_text(encoding="utf-8")), "")
+    for item in missing[:10]:
+        print(f"  MISS {item}")
+    if len(missing) > 10:
+        print(f"  ... {len(missing) - 10} more")
+    if not missing:
+        print("  OK every text has en, pt-br and es")
+    return len(missing)
 
 
 def exists(rel: str) -> bool:
@@ -122,29 +166,18 @@ def main() -> int:
         REQUIRED_LOCALIZED_QUESTION_BANKS,
     )
     required_missing += print_group(
+        "Framework v2 sources and collection assets",
+        REQUIRED_FRAMEWORK_V2,
+    )
+    required_missing += framework_v2_languages()
+    required_missing += print_group(
         "Reference PDF examples",
         REQUIRED_REFERENCE_OUTPUTS,
     )
     required_missing += print_translated_docs()
 
-    advisory_missing = print_group(
-        "Human-reviewed localized question banks (advisory)",
-        EXPECTED_LOCALIZED_QUESTION_BANKS,
-        advisory=True,
-    )
-
     print("\nSummary")
     print(f"  Required missing: {required_missing}")
-    print(f"  Advisory localized banks missing: {advisory_missing}")
-    if advisory_missing:
-        print(
-            "  Note: EN/ES packages remain executable because the canonical"
-            " PT-BR question banks are included."
-        )
-        print(
-            "        For full native-language Forms creation, add the"
-            " advisory localized banks above."
-        )
     return 1 if required_missing else 0
 
 

@@ -36,7 +36,7 @@ open wizard/implementation-guide-wizard.html
 - The stepper at the top shows progress (green ✓ when filled in)
 - At the end: click **💾 Download JSON** and move `implementation-guide-inputs.json` to the root
 
-A Portuguese (Brazil) version is available at [implementation-guide-wizard.pt-br.html](implementation-guide-wizard.pt-br.html).
+A Portuguese (Brazil) UI ships in the PT-BR package under the same file name (in the repository it is `implementation-guide-wizard.pt-br.html`).
 
 **Time:** 30-60 min to fill in all 9 in detail (15 min for a draft).
 
@@ -67,7 +67,7 @@ Select mode **C** when Copilot asks. It will:
 | File | Size | Purpose |
 |---|---|---|
 | **[implementation-guide-wizard.html](implementation-guide-wizard.html)** | ~22 KB | Mode A: standalone visual wizard (Tailwind + JavaScript, saves to localStorage) |
-| **[implementation-guide-wizard.pt-br.html](implementation-guide-wizard.pt-br.html)** | ~22 KB | Mode A, Portuguese (Brazil) UI |
+| `implementation-guide-wizard.pt-br.html` (repository only; the PT-BR package ships it as `implementation-guide-wizard.html`) | ~22 KB | Mode A, Portuguese (Brazil) UI |
 | **[implementation-guide-inputs.template.json](implementation-guide-inputs.template.json)** | ~12 KB | Mode B: JSON template with the 9 fields prefilled with instructions and examples |
 
 ## After filling in

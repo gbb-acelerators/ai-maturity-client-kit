@@ -1,6 +1,6 @@
 ---
 name: plano-capacitacao
-description: Generates a prioritized capacitation roadmap (plano de capacitação) from the Learning & Growth Survey responses. Reads survey-learning/respostas-learning.json (IDENTIFIED respondents with name+email) and produces saida/plano-capacitacao-<DATE>.md with: top 10 topics demanded, suggested cohorts per dimension D2-D8 (with attendee lists), Champions Network candidates, mentor↔mentee pairs, calendar of workshops, barriers to remove, capacitation roadmap, training plan. Use after /importar-survey-learning when user asks for "plano de capacitação", "training roadmap", "Champions Network", "workshops priorizados", "treinamento", "capacitation plan", "plano-capacitacao".
+description: "Generates a prioritized capacitation roadmap (plano de capacitação) from the Learning & Growth Survey responses. Reads survey-learning/respostas-learning.json (IDENTIFIED respondents with name+email) and produces saida/plano-capacitacao-<DATE>.md with: top 10 topics demanded, suggested cohorts per dimension D2-D8 (with attendee lists), Champions Network candidates, mentor↔mentee pairs, calendar of workshops, barriers to remove, capacitation roadmap, training plan. Use after /importar-survey-learning when user asks for \"plano de capacitação\", \"training roadmap\", \"Champions Network\", \"workshops priorizados\", \"treinamento\", \"capacitation plan\", \"plano-capacitacao\"."
 ---
 
 # Skill: Generate Capacitation Plan from Learning Survey

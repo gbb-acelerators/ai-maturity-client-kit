@@ -1,7 +1,7 @@
 ---
 name: importar-respostas-excel
 description: Converts an Excel exported from Microsoft Forms (or Google Forms / multi-respondent spreadsheet) into structured respostas.json for the AI Maturity Assessment, aggregating multiple respondents via mean per question. Use when the client collected responses via Forms and wants to run the pipeline. Trigger on "importar respostas", "import Forms", "converter Excel para JSON", "respostas-forms.xlsx", "Microsoft Forms para o assessment", "agregar respondentes", "import responses", "import Excel responses", "convert Excel to JSON", "aggregate respondents". Looks for respostas-forms.xlsx at workspace root or path passed by the user.
-argument-hint: optional path of the .xlsx (default: respostas-forms.xlsx at root)
+argument-hint: "optional path of the .xlsx (default: respostas-forms.xlsx at root)"
 ---
 
 # Skill: Import responses from Excel (Microsoft Forms)

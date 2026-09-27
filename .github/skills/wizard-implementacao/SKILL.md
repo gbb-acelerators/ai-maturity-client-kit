@@ -1,7 +1,7 @@
 ---
 name: wizard-implementacao
 description: Guides the client through the 9-step Implementation Guide Wizard (steering committee, TPO, RACI, comms plan, training plan, ADKAR, 3 quick-wins waves) by either pointing to the standalone HTML wizard OR conducting the conversation in chat. Output is implementation-guide-inputs.json that feeds Roadmap Part 4 PDF. Use when the user asks for "wizard", "implementation guide", "guia de implementação", "preencher parte 4", "TPO", "steering committee", "RACI", "ADKAR", "quick wins", "fill Part 4", "implementation wizard".
-argument-hint: optional "chat" to force conversation mode (default: offer both options)
+argument-hint: "optional \"chat\" to force conversation mode (default: offer both options)"
 ---
 
 # Skill: Implementation Guide Wizard

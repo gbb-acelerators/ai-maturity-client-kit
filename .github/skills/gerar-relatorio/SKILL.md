@@ -176,7 +176,7 @@ python3 relatorios/scripts/render_reports.py --payload saida/payload.json --out 
 
 The script automatically injects **paulasilva-ms branding** into the payload (replaces the sample's default branding block):
 
-- `payload.branding.name` = "Paula Silva | Software Global Black Belt"
+- `payload.branding.name` = "Paula Silva | Global Developer Solutions Advisor"
 - `payload.branding.contact` = "paulasilva@microsoft.com"
 - `payload.branding.tagline` = "Building the future of software development with AI and Agentic DevOps"
 - `payload.branding.palette` = MS 4-color (#00A4EF, #7FBA00, #FFB900, #F25022)

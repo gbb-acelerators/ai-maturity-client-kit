@@ -1,7 +1,7 @@
 ---
 name: importar-survey-learning
 description: Imports the Learning & Growth Survey results (Microsoft Forms export .xlsx, IDENTIFIED with name+email) into structured JSON. The survey has 32 questions across 7 sections (identification, self-perception of maturity, growth priorities, topics to learn, formats/cadence, champions, barriers/wishlist). Different from /importar-survey-devs (anonymous). Use when the user has respostas-survey-learning.xlsx and wants to generate the capacitation plan, or asks "importar survey de aprendizado", "importar Learning & Growth", "respostas-survey-learning.xlsx", "survey de treinamento", "survey-learning", "import learning survey", "import training survey", "learning & growth import".
-argument-hint: optional path to .xlsx (default: respostas-survey-learning.xlsx at root)
+argument-hint: "optional path to .xlsx (default: respostas-survey-learning.xlsx at root)"
 ---
 
 # Skill: Import Learning & Growth Survey responses

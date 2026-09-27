@@ -55,7 +55,11 @@ COPILOT_CUSTOMIZATION_ROOTS = [
 
 SHARED_RUNTIME_ROOTS = [
     "framework.json",
+    "framework.v2.json",
+    "framework.v2.schema.json",
+    "framework",
     "respostas.json.example",
+    "respostas.v2.json.example",
     "Makefile",
     "scripts",
     "relatorios/templates",
@@ -63,6 +67,7 @@ SHARED_RUNTIME_ROOTS = [
     "relatorios/i18n",
     "relatorios/sample_payload.json",
     "coleta/template-export-forms.xlsx",
+    "coleta/v1/template-export-forms.xlsx",
     "survey-devs/scripts",
     "survey-devs/respostas-mock-devs.json",
     "survey-devs/template-export-forms-devs.xlsx",
@@ -80,6 +85,8 @@ SHARED_CLIENT_ASSETS = [
     "coleta/perguntas-para-forms.md",
     "coleta/perguntas-para-forms.en.md",
     "coleta/perguntas-para-forms.es.md",
+    "coleta/AI-Maturity-Form-Questions_v2.md",
+    "coleta/v1",
     "survey-devs/perguntas-para-forms-devs.md",
     "survey-devs/perguntas-para-forms-devs.en.md",
     "survey-devs/perguntas-para-forms-devs.es.md",
@@ -364,41 +371,25 @@ def validate_packaging_sources() -> None:
 
 
 def add_reference_examples(zf: zipfile.ZipFile, lang: str) -> None:
-    # JSON examples are language-neutral structured outputs.
-    for source in [
-        "referencia/exemplo-saida/scores.json",
-        "referencia/exemplo-saida/gaps.json",
-        "referencia/exemplo-saida/recomendacoes.json",
-        "referencia/exemplo-saida/payload.json",
-        "referencia/exemplo-saida/maturidade-developer-survey-EXEMPLO.json",
-        "referencia/exemplo-saida/implementation-guide-inputs-EXEMPLO.json",
-    ]:
-        add_file(zf, source, lang=lang)
-
-    if lang == "pt":
-        example_dir = ROOT / "referencia/exemplo-saida"
-        for file_path in sorted(example_dir.glob("*.pdf")):
+    # The current (v2) example sits in referencia/exemplo-saida and the
+    # archived v1 example in its v1/ subfolder. JSON outputs are
+    # language-neutral; PDFs, workbooks and notes ship per language
+    # (PT at the folder root, EN and ES in en/ and es/).
+    for base in ("referencia/exemplo-saida", "referencia/exemplo-saida/v1"):
+        example_dir = ROOT / base
+        if not example_dir.is_dir():
+            continue
+        for file_path in sorted(example_dir.glob("*.json")):
             add_file(zf, normalized(file_path.relative_to(ROOT)), lang=lang)
-        add_file(
-            zf,
-            "referencia/exemplo-saida/pontuacao-preenchida-2026-05-08.xlsx",
-            lang=lang,
-        )
-        add_file(zf, "referencia/exemplo-saida/README.md", lang=lang)
-        add_file(
-            zf,
-            "referencia/exemplo-saida/insights-developer-survey-EXEMPLO.md",
-            lang=lang,
-        )
-        add_file(
-            zf,
-            "referencia/exemplo-saida/plano-capacitacao-EXEMPLO.md",
-            lang=lang,
-        )
-    elif lang == "en":
-        add_tree(zf, "referencia/exemplo-saida/en", lang=lang)
-    elif lang == "es":
-        add_tree(zf, "referencia/exemplo-saida/es", lang=lang)
+        if lang == "pt":
+            for pattern in ("*.pdf", "*.xlsx", "*.md"):
+                for file_path in sorted(example_dir.glob(pattern)):
+                    rel = normalized(file_path.relative_to(ROOT))
+                    if PT_BR_TAG in file_path.name:
+                        continue
+                    add_file(zf, rel, lang=lang)
+        elif (example_dir / lang).is_dir():
+            add_tree(zf, f"{base}/{lang}", lang=lang)
 
 
 def add_pt_documentation(zf: zipfile.ZipFile) -> None:

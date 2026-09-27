@@ -95,7 +95,7 @@ All 5 PDFs render with:
 - **Positive** = MS Green `#7FBA00`
 - **Warn** = MS Yellow `#FFB900`
 - **Critical** = MS Red `#F25022`
-- **Author block:** Paula Silva, Software Global Black Belt, paulasilva@microsoft.com
+- **Author block:** Paula Silva, Global Developer Solutions Advisor, paulasilva@microsoft.com
 - **Tagline:** "Building the future of software development with AI and Agentic DevOps"
 - **Fonts:** Inter (body), JetBrains Mono (code/labels)
 

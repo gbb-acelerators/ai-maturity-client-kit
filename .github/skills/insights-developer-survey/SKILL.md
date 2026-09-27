@@ -1,6 +1,6 @@
 ---
 name: insights-developer-survey
-description: Generates aggregated insights report from imported Developer Survey responses. Reads survey-devs/respostas-devs.json and produces saida/insights-developer-survey-<DATE>.md with: respondent demographics, Copilot adoption + mode usage, agent/MCP awareness, governance gaps, pain points (anonymized quotes), and prioritized recommendations linked to the maturity assessment capabilities (P1-C1, P1-C5, P1-C8, P2-C4, P3-C6). Use after /importar-survey-devs, or when the user asks for "developer survey insights", "survey report", "team AI maturity", "insights do survey", "relatório do survey de devs".
+description: "Generates aggregated insights report from imported Developer Survey responses. Reads survey-devs/respostas-devs.json and produces saida/insights-developer-survey-<DATE>.md with: respondent demographics, Copilot adoption + mode usage, agent/MCP awareness, governance gaps, pain points (anonymized quotes), and prioritized recommendations linked to the maturity assessment capabilities (P1-C1, P1-C5, P1-C8, P2-C4, P3-C6). Use after /importar-survey-devs, or when the user asks for \"developer survey insights\", \"survey report\", \"team AI maturity\", \"insights do survey\", \"relatório do survey de devs\"."
 ---
 
 # Skill: Generate Developer Survey Insights Report
