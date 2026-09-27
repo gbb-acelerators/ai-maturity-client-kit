@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-"""Deterministic scoring engine for the AI Maturity Assessment (v1).
+"""Deterministic scoring engine for the AI Maturity Assessment.
 
 Implements referencia/pontuacao-e-calculo.md: capability, pillar, and
 overall scores (SUMPRODUCT), coverage threshold, PE score, gap analysis,
-and strategy recommendations. The skills /calcular-scores, /gap-analysis,
+and strategy recommendations. When respostas.json declares
+metadata.framework_version 2.x, the v2 rules in scripts/engine_v2.py
+(section 8 of coleta/AI-Maturity-Form-Questions_v2.md) are used
+instead; files without framework_version are treated as v1. The skills /calcular-scores, /gap-analysis,
 and /recomendar-estrategias call this script instead of computing in chat.
 
 Usage:
@@ -402,9 +405,59 @@ def compute_recommendations(
     }
 
 
+def framework_major(respostas: dict) -> int:
+    raw = str(respostas.get("metadata", {}).get("framework_version")
+              or "1")
+    try:
+        return int(raw.split(".")[0])
+    except ValueError:
+        raise InputError(f"framework_version {raw!r} is not a version")
+
+
+def run_v2(step: str, respostas: dict, out_dir: Path) -> int:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import engine_v2 as v2
+
+    fw = load_json(ROOT / "framework.v2.json")
+    locale = locale_of(respostas)
+    try:
+        if step in ("scores", "all"):
+            scores = v2.compute_scores(fw, respostas, locale)
+            write_json(out_dir / "scores.json", scores)
+            o, t = scores["overall"], scores["threshold"]
+            f = scores["flags"]
+            print(f"✓ scores.json (v2): overall {o['score']} "
+                  f"({o['label']}), coverage {t['status']} "
+                  f"({t['answered']}/{t['applicable']}), "
+                  f"{scores['metadata']['respondents']} respondents")
+            if f["amplification_risk"]:
+                ids = [a["dimension_id"] for a in f["amplification_risk"]]
+                print(f"⚠️ Amplification risk: {ids}")
+            if t["status"] == "BLOCKED":
+                print("⚠️ Fewer than 25 questions answered: do not use "
+                      "the report for decisions.")
+        if step in ("gaps", "all"):
+            gaps = v2.compute_gaps(fw, respostas, locale)
+            write_json(out_dir / "gaps.json", gaps)
+            print(f"✓ gaps.json (v2): "
+                  f"{gaps['metadata']['total_dimensions_with_gap']} "
+                  f"dimensions with gap {gaps['summary']}")
+        if step in ("recommendations", "all"):
+            gaps = load_json(out_dir / "gaps.json")
+            recs = v2.compute_recommendations(fw, gaps, respostas, locale)
+            write_json(out_dir / "recomendacoes.json", recs)
+            top = [s["strategy_id"] for s in recs["ranked_strategies"][:3]]
+            print(f"✓ recomendacoes.json (v2): top strategies {top}")
+    except v2.InputErrorV2 as exc:
+        raise InputError(str(exc))
+    return 0
+
+
 def run(step: str, respostas_path: Path, out_dir: Path) -> int:
-    framework = load_json(ROOT / "framework.json")
     respostas = load_json(respostas_path)
+    if framework_major(respostas) >= 2:
+        return run_v2(step, respostas, out_dir)
+    framework = load_json(ROOT / "framework.json")
     rf = respostas.get("metadata", {}).get("framework_version")
     if rf and rf != framework.get("version"):
         print(f"⚠️ respostas.json targets framework {rf}, framework.json "

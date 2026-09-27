@@ -6,6 +6,11 @@ maps question columns by ID prefix, parses the L0-L4 / NA options,
 averages levels across respondents (no rounding), concatenates evidence,
 backs up the previous respostas.json, and writes an import log to saida/.
 
+The framework version is detected from the column IDs: `P#-C#-Q#`
+columns import as v1 (averaged responses), `D#-Q#` and `R-Q#` columns
+import as v2 (one entry per respondent with the profile answers, which
+the v2 engine needs for persona scores and flags).
+
 Usage:
     python3 scripts/import_forms_excel.py [respostas-forms.xlsx]
     python3 scripts/import_forms_excel.py FILE --organization "Contoso"
@@ -31,6 +36,8 @@ NA_WORDS = {"não sei", "no sé", "no se", "i do not know", "i don't know",
 NAME_HEADERS = {"name", "nome", "nombre"}
 EMAIL_HEADERS = {"email", "e-mail", "correo", "correo electrónico"}
 MIN_COVERAGE = 0.6
+V2_ID_RE = re.compile(r"^(?:D\d+|R)-Q\d+$")
+MULTI_SEPARATOR = ";"
 
 LOG_TEXT = {
     "en": {
@@ -124,7 +131,8 @@ def find_sheet(workbook):
             return ws
     raise FormsImportError(
         "No column header starts with a question ID such as "
-        "'P1-C1-Q1:'. Is this a Microsoft Forms export of the kit form?")
+        "'D1-Q1:' (v2) or 'P1-C1-Q1:' (v1). Is this a Microsoft Forms "
+        "export of the kit form?")
 
 
 def map_columns(ws, known: set[str]) -> dict:
@@ -168,11 +176,14 @@ def read_respondents(ws, cols: dict) -> tuple[list[dict], list[dict]]:
                 unknown.append({"row": row_no, "name": name, "qid": qid,
                                 "value": cell(idx)})
             evidence = str(cell(cols["e"].get(qid)) or "").strip()
-            if level is not None or evidence:
+            explicit = str(cell(idx) or "").strip() != ""
+            if level is not None or evidence or explicit:
                 answers[qid] = {"level": level, "evidence": evidence}
         if not answers and not name and not email:
             continue
         respondents.append({
+            "row": row,
+            "row_no": row_no,
             "name": name or f"Respondent {len(respondents) + 1}",
             "email": email,
             "answers": answers,
@@ -246,6 +257,138 @@ def write_log(path: Path, t: dict, info: dict) -> None:
     path.write_text("\n".join(lines), encoding="utf-8")
 
 
+def is_v2_sheet(ws) -> bool:
+    ids = [m.group(1) for c in ws[1]
+           if (m := QID_RE.match(str(c.value or "")))]
+    return bool(ids) and sum(bool(V2_ID_RE.match(i)) for i in ids) \
+        > len(ids) / 2
+
+
+def _norm(text: str) -> str:
+    return re.sub(r"\s+", " ", str(text).replace("\u2013", "-")
+                  .replace("\u2014", "-")).strip().lower()
+
+
+def profile_maps(fw: dict) -> dict[str, dict[str, str]]:
+    """Map option text in any language to the canonical English text."""
+    maps = {}
+    for p in fw["profile_questions"]:
+        canon = p["options"]["en"]
+        table = {}
+        for opts in p["options"].values():
+            for idx, text in enumerate(opts):
+                table[_norm(text)] = canon[idx]
+        maps[p["id"]] = table
+    return maps
+
+
+def read_profile(value, qid: str, multi: bool, maps: dict,
+                 unknown: list, row_no: int, name: str):
+    if value is None or str(value).strip() == "":
+        return [] if multi else None
+    parts = [x for x in str(value).split(MULTI_SEPARATOR) if x.strip()] \
+        if multi else [str(value)]
+    out = []
+    for part in parts:
+        canon = maps[qid].get(_norm(part))
+        if canon is None:
+            unknown.append({"row": row_no, "name": name, "qid": qid,
+                            "value": part.strip()})
+            canon = part.strip()
+        out.append(canon)
+    return out if multi else out[0]
+
+
+def run_v2(args, ws, xlsx: Path) -> int:
+    fw = json.loads((ROOT / "framework.v2.json").read_text("utf-8"))
+    qids = [q["id"] for d in fw["dimensions"] for q in d["questions"]]
+    pids = [p["id"] for p in fw["profile_questions"]]
+    multi = {p["id"]: p["multi"] for p in fw["profile_questions"]}
+    cols = map_columns(ws, set(qids) | set(pids))
+    pcols = {k: v for k, v in cols["q"].items() if k in pids}
+    cols["q"] = {k: v for k, v in cols["q"].items() if k in qids}
+    found = len(cols["q"])
+    if found < MIN_COVERAGE * len(qids) and not args.allow_partial:
+        raise FormsImportError(
+            f"Only {found} of {len(qids)} v2 questions were found in the "
+            f"file. Question titles must start with the ID (for example "
+            f"'D4-Q3: ...'), or pass --allow-partial.")
+    respondents, unknown = read_respondents(ws, cols)
+    if not respondents:
+        raise FormsImportError("The file has no respondent rows.")
+    maps = profile_maps(fw)
+    for idx, person in enumerate(respondents, start=1):
+        row = person["row"]
+        person["id"] = f"R{idx:02d}"
+        person["profile"] = {
+            pid: read_profile(row[col] if col < len(row) else None, pid,
+                              multi[pid], maps, unknown, person["row_no"],
+                              person["name"])
+            for pid, col in pcols.items()
+        }
+
+    target = Path(args.respostas)
+    old = json.loads(target.read_text("utf-8")) if target.exists() else {}
+    backup = None
+    if target.exists():
+        ts = datetime.datetime.now(datetime.timezone.utc).strftime(
+            "%Y%m%dT%H%M%S")
+        backup = target.with_name(f"{target.name}.backup-{ts}")
+        shutil.copy2(target, backup)
+    meta = old.get("metadata", {})
+    org = args.organization or meta.get("organization")
+    data = {
+        "metadata": {
+            "organization": org,
+            "assessment_date": datetime.date.today().isoformat(),
+            "language": meta.get("language", "en"),
+            "source": "microsoft-forms-import",
+            "framework_version": fw["version"],
+        },
+        "target_overrides": old.get("target_overrides", {})
+        if str(meta.get("framework_version", "")).startswith("2") else {},
+        "dimension_weights": old.get("dimension_weights", {}),
+        "respondents": [
+            {"id": r["id"], "name": r["name"], "email": r["email"],
+             "profile": r["profile"], "answers": r["answers"]}
+            for r in respondents
+        ],
+    }
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n",
+                      encoding="utf-8")
+    t = LOG_TEXT[log_locale(data["metadata"], args.lang)]
+    alerts = [t["unknown"].format(**u) for u in unknown]
+    answered = {q for r in respondents for q, a in r["answers"].items()
+                if a["level"] is not None}
+    if len(qids) - len(answered):
+        alerts.append(t["unanswered"].format(n=len(qids) - len(answered)))
+    if found < len(qids):
+        alerts.append(t["missing"].format(n=len(qids) - found))
+    if len(pcols) < len(pids):
+        alerts.append(t["missing"].format(n=len(pids) - len(pcols))
+                      + " (profile R-Q#)")
+    if cols["extra"]:
+        alerts.append(t["extra"].format(ids=", ".join(cols["extra"])))
+    if not org:
+        alerts.append(t["org"])
+    date = datetime.date.today().isoformat()
+    log_path = Path(args.log_dir) / f"import-log-{date}.md"
+    write_log(log_path, t, {
+        "date": date, "file": xlsx.name, "respondents": respondents,
+        "found": found, "total": len(qids), "answered": len(answered),
+        "backup": backup.name if backup else None, "alerts": alerts,
+    })
+    print(f"✓ {target.name} (v2 {fw['version']}): {len(respondents)} "
+          f"respondent(s), {len(answered)}/{len(qids)} questions answered")
+    if backup:
+        print(f"✓ Backup: {backup.name}")
+    print(f"✓ Log: {log_path}")
+    if alerts:
+        print(f"⚠️ {len(alerts)} alert(s), see the log")
+    return 0
+
+
 def run(args) -> int:
     try:
         import openpyxl
@@ -255,10 +398,12 @@ def run(args) -> int:
     xlsx = Path(args.xlsx)
     if not xlsx.exists():
         raise FormsImportError(f"File not found: {xlsx}")
-    framework = json.loads((ROOT / "framework.json").read_text("utf-8"))
-    qids = framework_qids(framework)
     ws = find_sheet(openpyxl.load_workbook(xlsx, read_only=False,
                                            data_only=True))
+    if is_v2_sheet(ws):
+        return run_v2(args, ws, xlsx)
+    framework = json.loads((ROOT / "framework.json").read_text("utf-8"))
+    qids = framework_qids(framework)
     cols = map_columns(ws, set(qids))
     found = len(cols["q"])
     if found < MIN_COVERAGE * len(qids) and not args.allow_partial:

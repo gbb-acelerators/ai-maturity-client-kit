@@ -1,0 +1,3667 @@
+{
+  "_comment": "Illustrative mock for framework v2. Synthetic data; not a real client. Regenerate with scripts/make_v2_mock.py.",
+  "metadata": {
+    "organization": "Contoso Engineering (illustrative mock)",
+    "assessment_date": "2026-09-27",
+    "language": "en",
+    "source": "illustrative-mock",
+    "framework_version": "2.0.1"
+  },
+  "target_overrides": {},
+  "dimension_weights": {},
+  "respondents": [
+    {
+      "id": "R01",
+      "name": "Respondent 01 (mock)",
+      "email": "",
+      "profile": {
+        "R-Q1": "Executive (CTO, VP, Director)",
+        "R-Q2": "The whole organization",
+        "R-Q3": [
+          "GitHub Copilot cloud agent / code review / CLI",
+          "Claude Code or Claude in other clients",
+          "GitHub Copilot in the IDE (completions, chat, agent mode)"
+        ],
+        "R-Q4": "More than 10",
+        "R-Q5": "Less than 20%"
+      },
+      "answers": {
+        "D1-Q1": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q2": {
+          "level": 3,
+          "evidence": "Illustrative mock: Policy link, onboarding checklist, control configuration."
+        },
+        "D1-Q3": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D1-Q4": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D1-Q5": {
+          "level": 4,
+          "evidence": "Illustrative mock: Autonomy matrix, repository rulesets, change records."
+        },
+        "D1-Q6": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q7": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D2-Q1": {
+          "level": 2,
+          "evidence": "Illustrative mock: Learning paths, completion rates, enablement gating rules."
+        },
+        "D2-Q2": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D2-Q3": {
+          "level": 3,
+          "evidence": "Illustrative mock: Sandbox subscriptions, experiment log, promotion records."
+        },
+        "D2-Q4": {
+          "level": 3,
+          "evidence": "Illustrative mock: Guidance pages, review checklists, before/after metrics."
+        },
+        "D2-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D2-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q1": {
+          "level": 2,
+          "evidence": "Illustrative mock: Issue templates, sample work items, quality checks."
+        },
+        "D3-Q2": {
+          "level": 3,
+          "evidence": "Illustrative mock: Spec files, plan reviews, PRs that reference specs."
+        },
+        "D3-Q3": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D3-Q4": {
+          "level": 3,
+          "evidence": "Illustrative mock: ADR repository, design review records."
+        },
+        "D3-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D3-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Upgrade runbooks, migration PRs, test results."
+        },
+        "D4-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q3": {
+          "level": 3,
+          "evidence": "Illustrative mock: Agent-authored PR counts, merge rate, time to merge, follow-up fixes."
+        },
+        "D4-Q4": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q5": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D4-Q6": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q7": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D4-Q8": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D5-Q1": {
+          "level": 2,
+          "evidence": "Illustrative mock: Repository rulesets, code review adoption metrics, suggestion outcomes."
+        },
+        "D5-Q2": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D5-Q3": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D5-Q4": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D5-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D5-Q6": {
+          "level": 3,
+          "evidence": "Illustrative mock: Review guidelines, survey results, defect analysis."
+        },
+        "D5-Q7": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D6-Q1": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D6-Q2": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D6-Q3": {
+          "level": 2,
+          "evidence": "Illustrative mock: Firewall configuration, red-team reports."
+        },
+        "D6-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D6-Q5": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q6": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q7": {
+          "level": null,
+          "evidence": ""
+        },
+        "D7-Q1": {
+          "level": null,
+          "evidence": ""
+        },
+        "D7-Q2": {
+          "level": 3,
+          "evidence": "Illustrative mock: Feature flag platform, rollout configuration, rollback records."
+        },
+        "D7-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q4": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D7-Q5": {
+          "level": 2,
+          "evidence": "Illustrative mock: IaC repositories, policy-as-code rules, drift reports."
+        },
+        "D7-Q6": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D8-Q1": {
+          "level": 2,
+          "evidence": "Illustrative mock: Repository inventory, configuration sources."
+        },
+        "D8-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q3": {
+          "level": 2,
+          "evidence": "Illustrative mock: Platform catalog, golden paths, satisfaction survey."
+        },
+        "D8-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q5": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Docs repositories, freshness checks."
+        },
+        "D8-Q7": {
+          "level": null,
+          "evidence": ""
+        },
+        "D9-Q1": {
+          "level": 3,
+          "evidence": "Illustrative mock: Usage dashboards, cohort trend reports."
+        },
+        "D9-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q3": {
+          "level": null,
+          "evidence": ""
+        },
+        "D9-Q4": {
+          "level": 2,
+          "evidence": "Illustrative mock: Survey instrument, participation rate, action log."
+        },
+        "D9-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q6": {
+          "level": 3,
+          "evidence": "Illustrative mock: Cost dashboards, budget alerts, retrospective notes."
+        },
+        "D9-Q7": {
+          "level": 2,
+          "evidence": "Illustrative mock: Business case, value reports."
+        }
+      }
+    },
+    {
+      "id": "R02",
+      "name": "Respondent 02 (mock)",
+      "email": "",
+      "profile": {
+        "R-Q1": "Executive (CTO, VP, Director)",
+        "R-Q2": "The whole organization",
+        "R-Q3": [
+          "Internal or self-hosted models"
+        ],
+        "R-Q4": "More than 10",
+        "R-Q5": "Less than 20%"
+      },
+      "answers": {
+        "D1-Q1": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q2": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D1-Q3": {
+          "level": null,
+          "evidence": ""
+        },
+        "D1-Q4": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D1-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q6": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D1-Q7": {
+          "level": 4,
+          "evidence": "Illustrative mock: Agent inventory, identity configuration (for example Microsoft Entra Agent ID), access reviews."
+        },
+        "D2-Q1": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D2-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: Champion list, session calendar, shared repository of examples."
+        },
+        "D2-Q3": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D2-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D2-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Onboarding playbook, time-to-first-PR data, skill check results."
+        },
+        "D3-Q1": {
+          "level": null,
+          "evidence": ""
+        },
+        "D3-Q2": {
+          "level": 3,
+          "evidence": "Illustrative mock: Spec files, plan reviews, PRs that reference specs."
+        },
+        "D3-Q3": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D3-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D3-Q6": {
+          "level": 3,
+          "evidence": "Illustrative mock: Upgrade runbooks, migration PRs, test results."
+        },
+        "D4-Q1": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D4-Q2": {
+          "level": 4,
+          "evidence": "Illustrative mock: Usage by feature/mode, team guidelines."
+        },
+        "D4-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q4": {
+          "level": 2,
+          "evidence": "Illustrative mock: Instruction files, coverage across repositories, change history, before/after agent PR metrics."
+        },
+        "D4-Q5": {
+          "level": 3,
+          "evidence": "Illustrative mock: Library repository, custom agent profiles, reuse metrics."
+        },
+        "D4-Q6": {
+          "level": 3,
+          "evidence": "Illustrative mock: Allowlist or registry policy, MCP configuration, review records."
+        },
+        "D4-Q7": {
+          "level": 3,
+          "evidence": "Illustrative mock: Connector configuration, retrieval evaluations."
+        },
+        "D4-Q8": {
+          "level": null,
+          "evidence": ""
+        },
+        "D5-Q1": {
+          "level": 3,
+          "evidence": "Illustrative mock: Repository rulesets, code review adoption metrics, suggestion outcomes."
+        },
+        "D5-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: Rulesets, branch protection, agent settings."
+        },
+        "D5-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q4": {
+          "level": 3,
+          "evidence": "Illustrative mock: PR size distribution, bot or ruleset configuration."
+        },
+        "D5-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D5-Q6": {
+          "level": null,
+          "evidence": ""
+        },
+        "D5-Q7": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D6-Q1": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: Autofix settings, remediation metrics."
+        },
+        "D6-Q3": {
+          "level": 3,
+          "evidence": "Illustrative mock: Firewall configuration, red-team reports."
+        },
+        "D6-Q4": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D6-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Threat model documents, security review records."
+        },
+        "D6-Q7": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D7-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q2": {
+          "level": null,
+          "evidence": ""
+        },
+        "D7-Q3": {
+          "level": 2,
+          "evidence": "Illustrative mock: Incident tooling configuration, incident timelines, time-to-restore data."
+        },
+        "D7-Q4": {
+          "level": 2,
+          "evidence": "Illustrative mock: Telemetry dashboards, alert rules."
+        },
+        "D7-Q5": {
+          "level": null,
+          "evidence": ""
+        },
+        "D7-Q6": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D8-Q1": {
+          "level": 2,
+          "evidence": "Illustrative mock: Repository inventory, configuration sources."
+        },
+        "D8-Q2": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q3": {
+          "level": 2,
+          "evidence": "Illustrative mock: Platform catalog, golden paths, satisfaction survey."
+        },
+        "D8-Q4": {
+          "level": null,
+          "evidence": ""
+        },
+        "D8-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Docs repositories, freshness checks."
+        },
+        "D8-Q7": {
+          "level": null,
+          "evidence": ""
+        },
+        "D9-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: DORA dashboards, baseline vs current comparison."
+        },
+        "D9-Q3": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D9-Q4": {
+          "level": 3,
+          "evidence": "Illustrative mock: Survey instrument, participation rate, action log."
+        },
+        "D9-Q5": {
+          "level": 3,
+          "evidence": "Illustrative mock: Study design, results, decision records."
+        },
+        "D9-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Cost dashboards, budget alerts, retrospective notes."
+        },
+        "D9-Q7": {
+          "level": 2,
+          "evidence": ""
+        }
+      }
+    },
+    {
+      "id": "R03",
+      "name": "Respondent 03 (mock)",
+      "email": "",
+      "profile": {
+        "R-Q1": "Executive (CTO, VP, Director)",
+        "R-Q2": "The whole organization",
+        "R-Q3": [
+          "GitHub Copilot in the IDE (completions, chat, agent mode)"
+        ],
+        "R-Q4": "More than 10",
+        "R-Q5": "Less than 20%"
+      },
+      "answers": {
+        "D1-Q1": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q2": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q3": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q4": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D1-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q6": {
+          "level": 3,
+          "evidence": "Illustrative mock: Framework mapping, risk register entries, audit reports."
+        },
+        "D1-Q7": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D2-Q1": {
+          "level": null,
+          "evidence": ""
+        },
+        "D2-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q3": {
+          "level": 3,
+          "evidence": "Illustrative mock: Sandbox subscriptions, experiment log, promotion records."
+        },
+        "D2-Q4": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D2-Q5": {
+          "level": 2,
+          "evidence": "Illustrative mock: Career framework, role descriptions."
+        },
+        "D2-Q6": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D3-Q1": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D3-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: Spec files, plan reviews, PRs that reference specs."
+        },
+        "D3-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q5": {
+          "level": 2,
+          "evidence": "Illustrative mock: Product briefs, feedback loop records, outcome dashboards."
+        },
+        "D3-Q6": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q1": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q2": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D4-Q3": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q4": {
+          "level": null,
+          "evidence": ""
+        },
+        "D4-Q5": {
+          "level": 3,
+          "evidence": "Illustrative mock: Library repository, custom agent profiles, reuse metrics."
+        },
+        "D4-Q6": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D4-Q7": {
+          "level": 4,
+          "evidence": "Illustrative mock: Connector configuration, retrieval evaluations."
+        },
+        "D4-Q8": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D5-Q1": {
+          "level": 2,
+          "evidence": "Illustrative mock: Repository rulesets, code review adoption metrics, suggestion outcomes."
+        },
+        "D5-Q2": {
+          "level": 3,
+          "evidence": "Illustrative mock: Rulesets, branch protection, agent settings."
+        },
+        "D5-Q3": {
+          "level": 2,
+          "evidence": "Illustrative mock: Rulesets, required checks, bypass lists."
+        },
+        "D5-Q4": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D5-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Review guidelines, survey results, defect analysis."
+        },
+        "D5-Q7": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D6-Q1": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D6-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D6-Q4": {
+          "level": 2,
+          "evidence": "Illustrative mock: Agent environment configuration, token scopes, access reviews."
+        },
+        "D6-Q5": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q6": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D6-Q7": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q2": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D7-Q3": {
+          "level": 2,
+          "evidence": "Illustrative mock: Incident tooling configuration, incident timelines, time-to-restore data."
+        },
+        "D7-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q5": {
+          "level": 2,
+          "evidence": "Illustrative mock: IaC repositories, policy-as-code rules, drift reports."
+        },
+        "D7-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: Commit frequency data, branch age."
+        },
+        "D8-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Docs repositories, freshness checks."
+        },
+        "D8-Q7": {
+          "level": 2,
+          "evidence": "Illustrative mock: Test suite inventory, pipeline durations, escaped-defect data."
+        },
+        "D9-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q2": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D9-Q3": {
+          "level": null,
+          "evidence": ""
+        },
+        "D9-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q7": {
+          "level": 2,
+          "evidence": "Illustrative mock: Business case, value reports."
+        }
+      }
+    },
+    {
+      "id": "R04",
+      "name": "Respondent 04 (mock)",
+      "email": "",
+      "profile": {
+        "R-Q1": "Engineering manager / tech lead",
+        "R-Q2": "Several teams in one business unit",
+        "R-Q3": [
+          "Claude Code or Claude in other clients",
+          "GitHub Copilot cloud agent / code review / CLI",
+          "GitHub Copilot in the IDE (completions, chat, agent mode)"
+        ],
+        "R-Q4": "6-10",
+        "R-Q5": "20-50%"
+      },
+      "answers": {
+        "D1-Q1": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D1-Q2": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q3": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q4": {
+          "level": 2,
+          "evidence": "Illustrative mock: Data processing records, exclusion settings, retention policy."
+        },
+        "D1-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D1-Q6": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q7": {
+          "level": 3,
+          "evidence": "Illustrative mock: Agent inventory, identity configuration (for example Microsoft Entra Agent ID), access reviews."
+        },
+        "D2-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q3": {
+          "level": 2,
+          "evidence": "Illustrative mock: Sandbox subscriptions, experiment log, promotion records."
+        },
+        "D2-Q4": {
+          "level": 2,
+          "evidence": "Illustrative mock: Guidance pages, review checklists, before/after metrics."
+        },
+        "D2-Q5": {
+          "level": 3,
+          "evidence": "Illustrative mock: Career framework, role descriptions."
+        },
+        "D2-Q6": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D3-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q2": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D3-Q3": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D3-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q5": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D3-Q6": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q1": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q2": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D4-Q3": {
+          "level": null,
+          "evidence": ""
+        },
+        "D4-Q4": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q6": {
+          "level": 3,
+          "evidence": "Illustrative mock: Allowlist or registry policy, MCP configuration, review records."
+        },
+        "D4-Q7": {
+          "level": 3,
+          "evidence": "Illustrative mock: Connector configuration, retrieval evaluations."
+        },
+        "D4-Q8": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D5-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q4": {
+          "level": 2,
+          "evidence": "Illustrative mock: PR size distribution, bot or ruleset configuration."
+        },
+        "D5-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Review guidelines, survey results, defect analysis."
+        },
+        "D5-Q7": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D6-Q1": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q2": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D6-Q3": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q4": {
+          "level": 3,
+          "evidence": "Illustrative mock: Agent environment configuration, token scopes, access reviews."
+        },
+        "D6-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D6-Q6": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q7": {
+          "level": 2,
+          "evidence": "Illustrative mock: Audit log configuration, sample investigation."
+        },
+        "D7-Q1": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D7-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: Feature flag platform, rollout configuration, rollback records."
+        },
+        "D7-Q3": {
+          "level": 3,
+          "evidence": "Illustrative mock: Incident tooling configuration, incident timelines, time-to-restore data."
+        },
+        "D7-Q4": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D7-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q1": {
+          "level": 1,
+          "evidence": "Illustrative mock: Repository inventory, configuration sources."
+        },
+        "D8-Q2": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q3": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q4": {
+          "level": 1,
+          "evidence": "Illustrative mock: Data catalog, quality dashboards."
+        },
+        "D8-Q5": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q6": {
+          "level": 1,
+          "evidence": "Illustrative mock: Docs repositories, freshness checks."
+        },
+        "D8-Q7": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q1": {
+          "level": 2,
+          "evidence": "Illustrative mock: Usage dashboards, cohort trend reports."
+        },
+        "D9-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: DORA dashboards, baseline vs current comparison."
+        },
+        "D9-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q4": {
+          "level": 1,
+          "evidence": "Illustrative mock: Survey instrument, participation rate, action log."
+        },
+        "D9-Q5": {
+          "level": 1,
+          "evidence": "Illustrative mock: Study design, results, decision records."
+        },
+        "D9-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Cost dashboards, budget alerts, retrospective notes."
+        },
+        "D9-Q7": {
+          "level": 1,
+          "evidence": ""
+        }
+      }
+    },
+    {
+      "id": "R05",
+      "name": "Respondent 05 (mock)",
+      "email": "",
+      "profile": {
+        "R-Q1": "Engineering manager / tech lead",
+        "R-Q2": "Several teams in one business unit",
+        "R-Q3": [
+          "Internal or self-hosted models",
+          "GitHub Copilot in the IDE (completions, chat, agent mode)",
+          "Claude Code or Claude in other clients"
+        ],
+        "R-Q4": "6-10",
+        "R-Q5": "20-50%"
+      },
+      "answers": {
+        "D1-Q1": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q2": {
+          "level": 3,
+          "evidence": "Illustrative mock: Policy link, onboarding checklist, control configuration."
+        },
+        "D1-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D1-Q4": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D1-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q6": {
+          "level": 3,
+          "evidence": "Illustrative mock: Framework mapping, risk register entries, audit reports."
+        },
+        "D1-Q7": {
+          "level": 2,
+          "evidence": "Illustrative mock: Agent inventory, identity configuration (for example Microsoft Entra Agent ID), access reviews."
+        },
+        "D2-Q1": {
+          "level": 2,
+          "evidence": "Illustrative mock: Learning paths, completion rates, enablement gating rules."
+        },
+        "D2-Q2": {
+          "level": 3,
+          "evidence": "Illustrative mock: Champion list, session calendar, shared repository of examples."
+        },
+        "D2-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q4": {
+          "level": 3,
+          "evidence": "Illustrative mock: Guidance pages, review checklists, before/after metrics."
+        },
+        "D2-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q4": {
+          "level": null,
+          "evidence": ""
+        },
+        "D3-Q5": {
+          "level": 2,
+          "evidence": "Illustrative mock: Product briefs, feedback loop records, outcome dashboards."
+        },
+        "D3-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Upgrade runbooks, migration PRs, test results."
+        },
+        "D4-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q3": {
+          "level": 4,
+          "evidence": "Illustrative mock: Agent-authored PR counts, merge rate, time to merge, follow-up fixes."
+        },
+        "D4-Q4": {
+          "level": 2,
+          "evidence": "Illustrative mock: Instruction files, coverage across repositories, change history, before/after agent PR metrics."
+        },
+        "D4-Q5": {
+          "level": 3,
+          "evidence": "Illustrative mock: Library repository, custom agent profiles, reuse metrics."
+        },
+        "D4-Q6": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D4-Q7": {
+          "level": null,
+          "evidence": ""
+        },
+        "D4-Q8": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q1": {
+          "level": 3,
+          "evidence": "Illustrative mock: Repository rulesets, code review adoption metrics, suggestion outcomes."
+        },
+        "D5-Q2": {
+          "level": 3,
+          "evidence": "Illustrative mock: Rulesets, branch protection, agent settings."
+        },
+        "D5-Q3": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D5-Q4": {
+          "level": 2,
+          "evidence": "Illustrative mock: PR size distribution, bot or ruleset configuration."
+        },
+        "D5-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D5-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q7": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D6-Q1": {
+          "level": 3,
+          "evidence": "Illustrative mock: Security coverage dashboard, remediation time."
+        },
+        "D6-Q2": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q3": {
+          "level": 2,
+          "evidence": "Illustrative mock: Firewall configuration, red-team reports."
+        },
+        "D6-Q4": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D6-Q5": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D6-Q7": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: Feature flag platform, rollout configuration, rollback records."
+        },
+        "D7-Q3": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D7-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q5": {
+          "level": 2,
+          "evidence": "Illustrative mock: IaC repositories, policy-as-code rules, drift reports."
+        },
+        "D7-Q6": {
+          "level": 1,
+          "evidence": "Illustrative mock: Automation catalog, approval logs."
+        },
+        "D8-Q1": {
+          "level": 2,
+          "evidence": "Illustrative mock: Repository inventory, configuration sources."
+        },
+        "D8-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q3": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q4": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q5": {
+          "level": 0,
+          "evidence": "Illustrative mock: Devcontainer files, environment start-up times."
+        },
+        "D8-Q6": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q7": {
+          "level": 1,
+          "evidence": "Illustrative mock: Test suite inventory, pipeline durations, escaped-defect data."
+        },
+        "D9-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: DORA dashboards, baseline vs current comparison."
+        },
+        "D9-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q4": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D9-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Cost dashboards, budget alerts, retrospective notes."
+        },
+        "D9-Q7": {
+          "level": 3,
+          "evidence": ""
+        }
+      }
+    },
+    {
+      "id": "R06",
+      "name": "Respondent 06 (mock)",
+      "email": "",
+      "profile": {
+        "R-Q1": "Software engineer / developer",
+        "R-Q2": "A single team",
+        "R-Q3": [
+          "GitHub Copilot cloud agent / code review / CLI",
+          "Claude Code or Claude in other clients",
+          "Internal or self-hosted models"
+        ],
+        "R-Q4": "2-5",
+        "R-Q5": "More than 80%"
+      },
+      "answers": {
+        "D1-Q1": {
+          "level": 3,
+          "evidence": "Illustrative mock: Strategy document, leadership communication, OKR entries."
+        },
+        "D1-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D1-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D1-Q4": {
+          "level": null,
+          "evidence": ""
+        },
+        "D1-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D1-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Framework mapping, risk register entries, audit reports."
+        },
+        "D1-Q7": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D2-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: Champion list, session calendar, shared repository of examples."
+        },
+        "D2-Q3": {
+          "level": 2,
+          "evidence": "Illustrative mock: Sandbox subscriptions, experiment log, promotion records."
+        },
+        "D2-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q6": {
+          "level": 1,
+          "evidence": "Illustrative mock: Onboarding playbook, time-to-first-PR data, skill check results."
+        },
+        "D3-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: Spec files, plan reviews, PRs that reference specs."
+        },
+        "D3-Q3": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D3-Q4": {
+          "level": 3,
+          "evidence": "Illustrative mock: ADR repository, design review records."
+        },
+        "D3-Q5": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D3-Q6": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D4-Q1": {
+          "level": 2,
+          "evidence": "Illustrative mock: Copilot usage metrics dashboard or API: adoption cohort distribution, daily/weekly active users."
+        },
+        "D4-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: Usage by feature/mode, team guidelines."
+        },
+        "D4-Q3": {
+          "level": null,
+          "evidence": ""
+        },
+        "D4-Q4": {
+          "level": 2,
+          "evidence": "Illustrative mock: Instruction files, coverage across repositories, change history, before/after agent PR metrics."
+        },
+        "D4-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q6": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q7": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q8": {
+          "level": 3,
+          "evidence": "Illustrative mock: Model guidance, policy settings, routing configuration."
+        },
+        "D5-Q1": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D5-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q4": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D5-Q5": {
+          "level": null,
+          "evidence": ""
+        },
+        "D5-Q6": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D5-Q7": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D6-Q1": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q2": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q3": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q4": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q5": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q6": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q7": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q1": {
+          "level": 1,
+          "evidence": "Illustrative mock: Pipeline repositories, failure-analysis usage, build metrics."
+        },
+        "D7-Q2": {
+          "level": 1,
+          "evidence": "Illustrative mock: Feature flag platform, rollout configuration, rollback records."
+        },
+        "D7-Q3": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D7-Q4": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D7-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q6": {
+          "level": 1,
+          "evidence": "Illustrative mock: Automation catalog, approval logs."
+        },
+        "D8-Q1": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q3": {
+          "level": 2,
+          "evidence": "Illustrative mock: Platform catalog, golden paths, satisfaction survey."
+        },
+        "D8-Q4": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q5": {
+          "level": 0,
+          "evidence": ""
+        },
+        "D8-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q7": {
+          "level": 0,
+          "evidence": ""
+        },
+        "D9-Q1": {
+          "level": 1,
+          "evidence": "Illustrative mock: Usage dashboards, cohort trend reports."
+        },
+        "D9-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q3": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D9-Q4": {
+          "level": 2,
+          "evidence": "Illustrative mock: Survey instrument, participation rate, action log."
+        },
+        "D9-Q5": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D9-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Cost dashboards, budget alerts, retrospective notes."
+        },
+        "D9-Q7": {
+          "level": 2,
+          "evidence": "Illustrative mock: Business case, value reports."
+        }
+      }
+    },
+    {
+      "id": "R07",
+      "name": "Respondent 07 (mock)",
+      "email": "",
+      "profile": {
+        "R-Q1": "Software engineer / developer",
+        "R-Q2": "A single team",
+        "R-Q3": [
+          "Claude Code or Claude in other clients"
+        ],
+        "R-Q4": "2-5",
+        "R-Q5": "More than 80%"
+      },
+      "answers": {
+        "D1-Q1": {
+          "level": 3,
+          "evidence": "Illustrative mock: Strategy document, leadership communication, OKR entries."
+        },
+        "D1-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D1-Q3": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D1-Q5": {
+          "level": 2,
+          "evidence": "Illustrative mock: Autonomy matrix, repository rulesets, change records."
+        },
+        "D1-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Framework mapping, risk register entries, audit reports."
+        },
+        "D1-Q7": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D2-Q1": {
+          "level": 1,
+          "evidence": "Illustrative mock: Learning paths, completion rates, enablement gating rules."
+        },
+        "D2-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q3": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D2-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q5": {
+          "level": 2,
+          "evidence": "Illustrative mock: Career framework, role descriptions."
+        },
+        "D2-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q1": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D3-Q2": {
+          "level": null,
+          "evidence": ""
+        },
+        "D3-Q3": {
+          "level": null,
+          "evidence": ""
+        },
+        "D3-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q6": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q1": {
+          "level": 2,
+          "evidence": "Illustrative mock: Copilot usage metrics dashboard or API: adoption cohort distribution, daily/weekly active users."
+        },
+        "D4-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: Usage by feature/mode, team guidelines."
+        },
+        "D4-Q3": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q6": {
+          "level": 3,
+          "evidence": "Illustrative mock: Allowlist or registry policy, MCP configuration, review records."
+        },
+        "D4-Q7": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q8": {
+          "level": 3,
+          "evidence": "Illustrative mock: Model guidance, policy settings, routing configuration."
+        },
+        "D5-Q1": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D5-Q2": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D5-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q4": {
+          "level": 1,
+          "evidence": "Illustrative mock: PR size distribution, bot or ruleset configuration."
+        },
+        "D5-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D5-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Review guidelines, survey results, defect analysis."
+        },
+        "D5-Q7": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D6-Q1": {
+          "level": 1,
+          "evidence": "Illustrative mock: Security coverage dashboard, remediation time."
+        },
+        "D6-Q2": {
+          "level": 1,
+          "evidence": "Illustrative mock: Autofix settings, remediation metrics."
+        },
+        "D6-Q3": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D6-Q5": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q6": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q7": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D7-Q1": {
+          "level": 1,
+          "evidence": "Illustrative mock: Pipeline repositories, failure-analysis usage, build metrics."
+        },
+        "D7-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: Feature flag platform, rollout configuration, rollback records."
+        },
+        "D7-Q3": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D7-Q4": {
+          "level": 1,
+          "evidence": "Illustrative mock: Telemetry dashboards, alert rules."
+        },
+        "D7-Q5": {
+          "level": 2,
+          "evidence": "Illustrative mock: IaC repositories, policy-as-code rules, drift reports."
+        },
+        "D7-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q1": {
+          "level": 0,
+          "evidence": "Illustrative mock: Repository inventory, configuration sources."
+        },
+        "D8-Q2": {
+          "level": 0,
+          "evidence": "Illustrative mock: Commit frequency data, branch age."
+        },
+        "D8-Q3": {
+          "level": 1,
+          "evidence": "Illustrative mock: Platform catalog, golden paths, satisfaction survey."
+        },
+        "D8-Q4": {
+          "level": 1,
+          "evidence": "Illustrative mock: Data catalog, quality dashboards."
+        },
+        "D8-Q5": {
+          "level": 0,
+          "evidence": ""
+        },
+        "D8-Q6": {
+          "level": 1,
+          "evidence": "Illustrative mock: Docs repositories, freshness checks."
+        },
+        "D8-Q7": {
+          "level": 2,
+          "evidence": "Illustrative mock: Test suite inventory, pipeline durations, escaped-defect data."
+        },
+        "D9-Q1": {
+          "level": 2,
+          "evidence": "Illustrative mock: Usage dashboards, cohort trend reports."
+        },
+        "D9-Q2": {
+          "level": 1,
+          "evidence": "Illustrative mock: DORA dashboards, baseline vs current comparison."
+        },
+        "D9-Q3": {
+          "level": 2,
+          "evidence": "Illustrative mock: PR lifecycle metrics, agent PR reports, follow-up fix analysis."
+        },
+        "D9-Q4": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D9-Q5": {
+          "level": 1,
+          "evidence": "Illustrative mock: Study design, results, decision records."
+        },
+        "D9-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q7": {
+          "level": null,
+          "evidence": ""
+        }
+      }
+    },
+    {
+      "id": "R08",
+      "name": "Respondent 08 (mock)",
+      "email": "",
+      "profile": {
+        "R-Q1": "Software engineer / developer",
+        "R-Q2": "A single team",
+        "R-Q3": [
+          "GitHub Copilot in the IDE (completions, chat, agent mode)"
+        ],
+        "R-Q4": "2-5",
+        "R-Q5": "More than 80%"
+      },
+      "answers": {
+        "D1-Q1": {
+          "level": 2,
+          "evidence": "Illustrative mock: Strategy document, leadership communication, OKR entries."
+        },
+        "D1-Q2": {
+          "level": 3,
+          "evidence": "Illustrative mock: Policy link, onboarding checklist, control configuration."
+        },
+        "D1-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D1-Q4": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D1-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D1-Q7": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D2-Q1": {
+          "level": 2,
+          "evidence": "Illustrative mock: Learning paths, completion rates, enablement gating rules."
+        },
+        "D2-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: Champion list, session calendar, shared repository of examples."
+        },
+        "D2-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q4": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D2-Q5": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D2-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Onboarding playbook, time-to-first-PR data, skill check results."
+        },
+        "D3-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: Spec files, plan reviews, PRs that reference specs."
+        },
+        "D3-Q3": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D3-Q4": {
+          "level": 1,
+          "evidence": "Illustrative mock: ADR repository, design review records."
+        },
+        "D3-Q5": {
+          "level": 1,
+          "evidence": "Illustrative mock: Product briefs, feedback loop records, outcome dashboards."
+        },
+        "D3-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Upgrade runbooks, migration PRs, test results."
+        },
+        "D4-Q1": {
+          "level": 3,
+          "evidence": "Illustrative mock: Copilot usage metrics dashboard or API: adoption cohort distribution, daily/weekly active users."
+        },
+        "D4-Q2": {
+          "level": 3,
+          "evidence": "Illustrative mock: Usage by feature/mode, team guidelines."
+        },
+        "D4-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q4": {
+          "level": 2,
+          "evidence": "Illustrative mock: Instruction files, coverage across repositories, change history, before/after agent PR metrics."
+        },
+        "D4-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q6": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q7": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q8": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D5-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q2": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D5-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D5-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q7": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D6-Q1": {
+          "level": 1,
+          "evidence": "Illustrative mock: Security coverage dashboard, remediation time."
+        },
+        "D6-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: Autofix settings, remediation metrics."
+        },
+        "D6-Q3": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q4": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D6-Q5": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D6-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D6-Q7": {
+          "level": null,
+          "evidence": ""
+        },
+        "D7-Q1": {
+          "level": 1,
+          "evidence": "Illustrative mock: Pipeline repositories, failure-analysis usage, build metrics."
+        },
+        "D7-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q4": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D7-Q5": {
+          "level": 1,
+          "evidence": "Illustrative mock: IaC repositories, policy-as-code rules, drift reports."
+        },
+        "D7-Q6": {
+          "level": 1,
+          "evidence": "Illustrative mock: Automation catalog, approval logs."
+        },
+        "D8-Q1": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q2": {
+          "level": null,
+          "evidence": ""
+        },
+        "D8-Q3": {
+          "level": 0,
+          "evidence": ""
+        },
+        "D8-Q4": {
+          "level": 1,
+          "evidence": "Illustrative mock: Data catalog, quality dashboards."
+        },
+        "D8-Q5": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q6": {
+          "level": 1,
+          "evidence": "Illustrative mock: Docs repositories, freshness checks."
+        },
+        "D8-Q7": {
+          "level": 0,
+          "evidence": "Illustrative mock: Test suite inventory, pipeline durations, escaped-defect data."
+        },
+        "D9-Q1": {
+          "level": 1,
+          "evidence": "Illustrative mock: Usage dashboards, cohort trend reports."
+        },
+        "D9-Q2": {
+          "level": null,
+          "evidence": ""
+        },
+        "D9-Q3": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D9-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q5": {
+          "level": 1,
+          "evidence": "Illustrative mock: Study design, results, decision records."
+        },
+        "D9-Q6": {
+          "level": 1,
+          "evidence": "Illustrative mock: Cost dashboards, budget alerts, retrospective notes."
+        },
+        "D9-Q7": {
+          "level": 1,
+          "evidence": "Illustrative mock: Business case, value reports."
+        }
+      }
+    },
+    {
+      "id": "R09",
+      "name": "Respondent 09 (mock)",
+      "email": "",
+      "profile": {
+        "R-Q1": "Software engineer / developer",
+        "R-Q2": "A single team",
+        "R-Q3": [
+          "GitHub Copilot cloud agent / code review / CLI",
+          "GitHub Copilot in the IDE (completions, chat, agent mode)"
+        ],
+        "R-Q4": "2-5",
+        "R-Q5": "More than 80%"
+      },
+      "answers": {
+        "D1-Q1": {
+          "level": null,
+          "evidence": ""
+        },
+        "D1-Q2": {
+          "level": 3,
+          "evidence": "Illustrative mock: Policy link, onboarding checklist, control configuration."
+        },
+        "D1-Q3": {
+          "level": null,
+          "evidence": ""
+        },
+        "D1-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D1-Q5": {
+          "level": 2,
+          "evidence": "Illustrative mock: Autonomy matrix, repository rulesets, change records."
+        },
+        "D1-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D1-Q7": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q1": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D2-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q3": {
+          "level": 1,
+          "evidence": "Illustrative mock: Sandbox subscriptions, experiment log, promotion records."
+        },
+        "D2-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q5": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D2-Q6": {
+          "level": 3,
+          "evidence": "Illustrative mock: Onboarding playbook, time-to-first-PR data, skill check results."
+        },
+        "D3-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q2": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D3-Q3": {
+          "level": 2,
+          "evidence": "Illustrative mock: Agent task guidelines, issue samples, success-rate data."
+        },
+        "D3-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D3-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Upgrade runbooks, migration PRs, test results."
+        },
+        "D4-Q1": {
+          "level": 3,
+          "evidence": "Illustrative mock: Copilot usage metrics dashboard or API: adoption cohort distribution, daily/weekly active users."
+        },
+        "D4-Q2": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q4": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q7": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q8": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q2": {
+          "level": 1,
+          "evidence": "Illustrative mock: Rulesets, branch protection, agent settings."
+        },
+        "D5-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q4": {
+          "level": null,
+          "evidence": ""
+        },
+        "D5-Q5": {
+          "level": 2,
+          "evidence": "Illustrative mock: Coverage reports, mutation-testing results, flaky-test dashboard."
+        },
+        "D5-Q6": {
+          "level": 1,
+          "evidence": "Illustrative mock: Review guidelines, survey results, defect analysis."
+        },
+        "D5-Q7": {
+          "level": 1,
+          "evidence": "Illustrative mock: Static analysis dashboards, churn reports, ownership files."
+        },
+        "D6-Q1": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q2": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D6-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D6-Q4": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q5": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q6": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D6-Q7": {
+          "level": 2,
+          "evidence": "Illustrative mock: Audit log configuration, sample investigation."
+        },
+        "D7-Q1": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D7-Q2": {
+          "level": 1,
+          "evidence": "Illustrative mock: Feature flag platform, rollout configuration, rollback records."
+        },
+        "D7-Q3": {
+          "level": 1,
+          "evidence": "Illustrative mock: Incident tooling configuration, incident timelines, time-to-restore data."
+        },
+        "D7-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q1": {
+          "level": 0,
+          "evidence": ""
+        },
+        "D8-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q3": {
+          "level": 0,
+          "evidence": ""
+        },
+        "D8-Q4": {
+          "level": 0,
+          "evidence": "Illustrative mock: Data catalog, quality dashboards."
+        },
+        "D8-Q5": {
+          "level": 0,
+          "evidence": ""
+        },
+        "D8-Q6": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q7": {
+          "level": 0,
+          "evidence": "Illustrative mock: Test suite inventory, pipeline durations, escaped-defect data."
+        },
+        "D9-Q1": {
+          "level": 1,
+          "evidence": "Illustrative mock: Usage dashboards, cohort trend reports."
+        },
+        "D9-Q2": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D9-Q3": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D9-Q4": {
+          "level": 1,
+          "evidence": "Illustrative mock: Survey instrument, participation rate, action log."
+        },
+        "D9-Q5": {
+          "level": 1,
+          "evidence": "Illustrative mock: Study design, results, decision records."
+        },
+        "D9-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q7": {
+          "level": 1,
+          "evidence": ""
+        }
+      }
+    },
+    {
+      "id": "R10",
+      "name": "Respondent 10 (mock)",
+      "email": "",
+      "profile": {
+        "R-Q1": "Software engineer / developer",
+        "R-Q2": "A single team",
+        "R-Q3": [
+          "GitHub Copilot cloud agent / code review / CLI",
+          "GitHub Copilot in the IDE (completions, chat, agent mode)"
+        ],
+        "R-Q4": "2-5",
+        "R-Q5": "More than 80%"
+      },
+      "answers": {
+        "D1-Q1": {
+          "level": 2,
+          "evidence": "Illustrative mock: Strategy document, leadership communication, OKR entries."
+        },
+        "D1-Q2": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q3": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q4": {
+          "level": 2,
+          "evidence": "Illustrative mock: Data processing records, exclusion settings, retention policy."
+        },
+        "D1-Q5": {
+          "level": null,
+          "evidence": ""
+        },
+        "D1-Q6": {
+          "level": 3,
+          "evidence": "Illustrative mock: Framework mapping, risk register entries, audit reports."
+        },
+        "D1-Q7": {
+          "level": 2,
+          "evidence": "Illustrative mock: Agent inventory, identity configuration (for example Microsoft Entra Agent ID), access reviews."
+        },
+        "D2-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: Champion list, session calendar, shared repository of examples."
+        },
+        "D2-Q3": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D2-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q5": {
+          "level": 1,
+          "evidence": "Illustrative mock: Career framework, role descriptions."
+        },
+        "D2-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Onboarding playbook, time-to-first-PR data, skill check results."
+        },
+        "D3-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q2": {
+          "level": 1,
+          "evidence": "Illustrative mock: Spec files, plan reviews, PRs that reference specs."
+        },
+        "D3-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q6": {
+          "level": 1,
+          "evidence": "Illustrative mock: Upgrade runbooks, migration PRs, test results."
+        },
+        "D4-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q3": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q7": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q8": {
+          "level": 2,
+          "evidence": "Illustrative mock: Model guidance, policy settings, routing configuration."
+        },
+        "D5-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: Rulesets, branch protection, agent settings."
+        },
+        "D5-Q3": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D5-Q4": {
+          "level": 1,
+          "evidence": "Illustrative mock: PR size distribution, bot or ruleset configuration."
+        },
+        "D5-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q6": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D5-Q7": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D6-Q1": {
+          "level": 2,
+          "evidence": "Illustrative mock: Security coverage dashboard, remediation time."
+        },
+        "D6-Q2": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q3": {
+          "level": 2,
+          "evidence": "Illustrative mock: Firewall configuration, red-team reports."
+        },
+        "D6-Q4": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q5": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q6": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q7": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q1": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D7-Q2": {
+          "level": null,
+          "evidence": ""
+        },
+        "D7-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q4": {
+          "level": 1,
+          "evidence": "Illustrative mock: Telemetry dashboards, alert rules."
+        },
+        "D7-Q5": {
+          "level": 2,
+          "evidence": "Illustrative mock: IaC repositories, policy-as-code rules, drift reports."
+        },
+        "D7-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q1": {
+          "level": 0,
+          "evidence": ""
+        },
+        "D8-Q2": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q4": {
+          "level": 0,
+          "evidence": "Illustrative mock: Data catalog, quality dashboards."
+        },
+        "D8-Q5": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q6": {
+          "level": 0,
+          "evidence": ""
+        },
+        "D8-Q7": {
+          "level": 0,
+          "evidence": "Illustrative mock: Test suite inventory, pipeline durations, escaped-defect data."
+        },
+        "D9-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: DORA dashboards, baseline vs current comparison."
+        },
+        "D9-Q3": {
+          "level": 1,
+          "evidence": "Illustrative mock: PR lifecycle metrics, agent PR reports, follow-up fix analysis."
+        },
+        "D9-Q4": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D9-Q5": {
+          "level": 2,
+          "evidence": "Illustrative mock: Study design, results, decision records."
+        },
+        "D9-Q6": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D9-Q7": {
+          "level": 1,
+          "evidence": ""
+        }
+      }
+    },
+    {
+      "id": "R11",
+      "name": "Respondent 11 (mock)",
+      "email": "",
+      "profile": {
+        "R-Q1": "Platform / DevOps / SRE engineer",
+        "R-Q2": "One business unit",
+        "R-Q3": [
+          "Internal or self-hosted models",
+          "GitHub Copilot in the IDE (completions, chat, agent mode)"
+        ],
+        "R-Q4": "6-10",
+        "R-Q5": "51-80%"
+      },
+      "answers": {
+        "D1-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D1-Q2": {
+          "level": 3,
+          "evidence": "Illustrative mock: Policy link, onboarding checklist, control configuration."
+        },
+        "D1-Q3": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q4": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D1-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q6": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q7": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q1": {
+          "level": 3,
+          "evidence": "Illustrative mock: Learning paths, completion rates, enablement gating rules."
+        },
+        "D2-Q2": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D2-Q3": {
+          "level": 3,
+          "evidence": "Illustrative mock: Sandbox subscriptions, experiment log, promotion records."
+        },
+        "D2-Q4": {
+          "level": 2,
+          "evidence": "Illustrative mock: Guidance pages, review checklists, before/after metrics."
+        },
+        "D2-Q5": {
+          "level": 3,
+          "evidence": "Illustrative mock: Career framework, role descriptions."
+        },
+        "D2-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q3": {
+          "level": 2,
+          "evidence": "Illustrative mock: Agent task guidelines, issue samples, success-rate data."
+        },
+        "D3-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Upgrade runbooks, migration PRs, test results."
+        },
+        "D4-Q1": {
+          "level": 3,
+          "evidence": "Illustrative mock: Copilot usage metrics dashboard or API: adoption cohort distribution, daily/weekly active users."
+        },
+        "D4-Q2": {
+          "level": 3,
+          "evidence": "Illustrative mock: Usage by feature/mode, team guidelines."
+        },
+        "D4-Q3": {
+          "level": 2,
+          "evidence": "Illustrative mock: Agent-authored PR counts, merge rate, time to merge, follow-up fixes."
+        },
+        "D4-Q4": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q6": {
+          "level": 3,
+          "evidence": "Illustrative mock: Allowlist or registry policy, MCP configuration, review records."
+        },
+        "D4-Q7": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q8": {
+          "level": 3,
+          "evidence": "Illustrative mock: Model guidance, policy settings, routing configuration."
+        },
+        "D5-Q1": {
+          "level": 1,
+          "evidence": "Illustrative mock: Repository rulesets, code review adoption metrics, suggestion outcomes."
+        },
+        "D5-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q3": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D5-Q4": {
+          "level": null,
+          "evidence": ""
+        },
+        "D5-Q5": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D5-Q6": {
+          "level": 1,
+          "evidence": "Illustrative mock: Review guidelines, survey results, defect analysis."
+        },
+        "D5-Q7": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D6-Q1": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q2": {
+          "level": 1,
+          "evidence": "Illustrative mock: Autofix settings, remediation metrics."
+        },
+        "D6-Q3": {
+          "level": 3,
+          "evidence": "Illustrative mock: Firewall configuration, red-team reports."
+        },
+        "D6-Q4": {
+          "level": 1,
+          "evidence": "Illustrative mock: Agent environment configuration, token scopes, access reviews."
+        },
+        "D6-Q5": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q6": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q7": {
+          "level": 3,
+          "evidence": "Illustrative mock: Audit log configuration, sample investigation."
+        },
+        "D7-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q2": {
+          "level": 1,
+          "evidence": "Illustrative mock: Feature flag platform, rollout configuration, rollback records."
+        },
+        "D7-Q3": {
+          "level": 2,
+          "evidence": "Illustrative mock: Incident tooling configuration, incident timelines, time-to-restore data."
+        },
+        "D7-Q4": {
+          "level": 2,
+          "evidence": "Illustrative mock: Telemetry dashboards, alert rules."
+        },
+        "D7-Q5": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D7-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Automation catalog, approval logs."
+        },
+        "D8-Q1": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q2": {
+          "level": 0,
+          "evidence": ""
+        },
+        "D8-Q3": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q4": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q5": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q6": {
+          "level": 1,
+          "evidence": "Illustrative mock: Docs repositories, freshness checks."
+        },
+        "D8-Q7": {
+          "level": 1,
+          "evidence": "Illustrative mock: Test suite inventory, pipeline durations, escaped-defect data."
+        },
+        "D9-Q1": {
+          "level": 2,
+          "evidence": "Illustrative mock: Usage dashboards, cohort trend reports."
+        },
+        "D9-Q2": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D9-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q4": {
+          "level": 1,
+          "evidence": "Illustrative mock: Survey instrument, participation rate, action log."
+        },
+        "D9-Q5": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D9-Q6": {
+          "level": 1,
+          "evidence": "Illustrative mock: Cost dashboards, budget alerts, retrospective notes."
+        },
+        "D9-Q7": {
+          "level": null,
+          "evidence": ""
+        }
+      }
+    },
+    {
+      "id": "R12",
+      "name": "Respondent 12 (mock)",
+      "email": "",
+      "profile": {
+        "R-Q1": "Platform / DevOps / SRE engineer",
+        "R-Q2": "One business unit",
+        "R-Q3": [
+          "Internal or self-hosted models"
+        ],
+        "R-Q4": "6-10",
+        "R-Q5": "51-80%"
+      },
+      "answers": {
+        "D1-Q1": {
+          "level": 3,
+          "evidence": "Illustrative mock: Strategy document, leadership communication, OKR entries."
+        },
+        "D1-Q2": {
+          "level": 3,
+          "evidence": "Illustrative mock: Policy link, onboarding checklist, control configuration."
+        },
+        "D1-Q3": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q4": {
+          "level": 2,
+          "evidence": "Illustrative mock: Data processing records, exclusion settings, retention policy."
+        },
+        "D1-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Framework mapping, risk register entries, audit reports."
+        },
+        "D1-Q7": {
+          "level": 3,
+          "evidence": "Illustrative mock: Agent inventory, identity configuration (for example Microsoft Entra Agent ID), access reviews."
+        },
+        "D2-Q1": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D2-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q3": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D2-Q4": {
+          "level": 2,
+          "evidence": "Illustrative mock: Guidance pages, review checklists, before/after metrics."
+        },
+        "D2-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q6": {
+          "level": null,
+          "evidence": ""
+        },
+        "D3-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q2": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D3-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q4": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D3-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: Usage by feature/mode, team guidelines."
+        },
+        "D4-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Allowlist or registry policy, MCP configuration, review records."
+        },
+        "D4-Q7": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q8": {
+          "level": 2,
+          "evidence": "Illustrative mock: Model guidance, policy settings, routing configuration."
+        },
+        "D5-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q3": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D5-Q4": {
+          "level": 3,
+          "evidence": "Illustrative mock: PR size distribution, bot or ruleset configuration."
+        },
+        "D5-Q5": {
+          "level": 2,
+          "evidence": "Illustrative mock: Coverage reports, mutation-testing results, flaky-test dashboard."
+        },
+        "D5-Q6": {
+          "level": 3,
+          "evidence": "Illustrative mock: Review guidelines, survey results, defect analysis."
+        },
+        "D5-Q7": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D6-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D6-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: Autofix settings, remediation metrics."
+        },
+        "D6-Q3": {
+          "level": 2,
+          "evidence": "Illustrative mock: Firewall configuration, red-team reports."
+        },
+        "D6-Q4": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q5": {
+          "level": 1,
+          "evidence": "Illustrative mock: Component review records, SBOM and attestation samples."
+        },
+        "D6-Q6": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D6-Q7": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D7-Q1": {
+          "level": 2,
+          "evidence": "Illustrative mock: Pipeline repositories, failure-analysis usage, build metrics."
+        },
+        "D7-Q2": {
+          "level": 1,
+          "evidence": "Illustrative mock: Feature flag platform, rollout configuration, rollback records."
+        },
+        "D7-Q3": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D7-Q4": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D7-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q6": {
+          "level": 1,
+          "evidence": "Illustrative mock: Automation catalog, approval logs."
+        },
+        "D8-Q1": {
+          "level": 0,
+          "evidence": "Illustrative mock: Repository inventory, configuration sources."
+        },
+        "D8-Q2": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q3": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q4": {
+          "level": 0,
+          "evidence": ""
+        },
+        "D8-Q5": {
+          "level": 2,
+          "evidence": "Illustrative mock: Devcontainer files, environment start-up times."
+        },
+        "D8-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Docs repositories, freshness checks."
+        },
+        "D8-Q7": {
+          "level": 0,
+          "evidence": "Illustrative mock: Test suite inventory, pipeline durations, escaped-defect data."
+        },
+        "D9-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q2": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D9-Q3": {
+          "level": 1,
+          "evidence": "Illustrative mock: PR lifecycle metrics, agent PR reports, follow-up fix analysis."
+        },
+        "D9-Q4": {
+          "level": 1,
+          "evidence": "Illustrative mock: Survey instrument, participation rate, action log."
+        },
+        "D9-Q5": {
+          "level": 2,
+          "evidence": "Illustrative mock: Study design, results, decision records."
+        },
+        "D9-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q7": {
+          "level": 1,
+          "evidence": "Illustrative mock: Business case, value reports."
+        }
+      }
+    },
+    {
+      "id": "R13",
+      "name": "Respondent 13 (mock)",
+      "email": "",
+      "profile": {
+        "R-Q1": "Security / AppSec",
+        "R-Q2": "The whole organization",
+        "R-Q3": [
+          "GitHub Copilot in the IDE (completions, chat, agent mode)",
+          "GitHub Copilot cloud agent / code review / CLI"
+        ],
+        "R-Q4": "More than 10",
+        "R-Q5": "51-80%"
+      },
+      "answers": {
+        "D1-Q1": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q2": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D1-Q3": {
+          "level": 2,
+          "evidence": "Illustrative mock: Copilot policy settings, tool catalog, model evaluation records."
+        },
+        "D1-Q4": {
+          "level": 3,
+          "evidence": "Illustrative mock: Data processing records, exclusion settings, retention policy."
+        },
+        "D1-Q5": {
+          "level": 2,
+          "evidence": "Illustrative mock: Autonomy matrix, repository rulesets, change records."
+        },
+        "D1-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D1-Q7": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q3": {
+          "level": 2,
+          "evidence": "Illustrative mock: Sandbox subscriptions, experiment log, promotion records."
+        },
+        "D2-Q4": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D2-Q5": {
+          "level": 3,
+          "evidence": "Illustrative mock: Career framework, role descriptions."
+        },
+        "D2-Q6": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D3-Q1": {
+          "level": 1,
+          "evidence": "Illustrative mock: Issue templates, sample work items, quality checks."
+        },
+        "D3-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q3": {
+          "level": 1,
+          "evidence": "Illustrative mock: Agent task guidelines, issue samples, success-rate data."
+        },
+        "D3-Q4": {
+          "level": 3,
+          "evidence": "Illustrative mock: ADR repository, design review records."
+        },
+        "D3-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q6": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D4-Q1": {
+          "level": null,
+          "evidence": ""
+        },
+        "D4-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D4-Q3": {
+          "level": 3,
+          "evidence": "Illustrative mock: Agent-authored PR counts, merge rate, time to merge, follow-up fixes."
+        },
+        "D4-Q4": {
+          "level": null,
+          "evidence": ""
+        },
+        "D4-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q6": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D4-Q7": {
+          "level": null,
+          "evidence": ""
+        },
+        "D4-Q8": {
+          "level": 3,
+          "evidence": "Illustrative mock: Model guidance, policy settings, routing configuration."
+        },
+        "D5-Q1": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D5-Q2": {
+          "level": 1,
+          "evidence": "Illustrative mock: Rulesets, branch protection, agent settings."
+        },
+        "D5-Q3": {
+          "level": 3,
+          "evidence": "Illustrative mock: Rulesets, required checks, bypass lists."
+        },
+        "D5-Q4": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D5-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q6": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D5-Q7": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D6-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D6-Q2": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D6-Q3": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q4": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q5": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q6": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D6-Q7": {
+          "level": 1,
+          "evidence": "Illustrative mock: Audit log configuration, sample investigation."
+        },
+        "D7-Q1": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D7-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q3": {
+          "level": 2,
+          "evidence": "Illustrative mock: Incident tooling configuration, incident timelines, time-to-restore data."
+        },
+        "D7-Q4": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D7-Q5": {
+          "level": 1,
+          "evidence": "Illustrative mock: IaC repositories, policy-as-code rules, drift reports."
+        },
+        "D7-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Automation catalog, approval logs."
+        },
+        "D8-Q1": {
+          "level": 1,
+          "evidence": "Illustrative mock: Repository inventory, configuration sources."
+        },
+        "D8-Q2": {
+          "level": 1,
+          "evidence": "Illustrative mock: Commit frequency data, branch age."
+        },
+        "D8-Q3": {
+          "level": 1,
+          "evidence": "Illustrative mock: Platform catalog, golden paths, satisfaction survey."
+        },
+        "D8-Q4": {
+          "level": 1,
+          "evidence": "Illustrative mock: Data catalog, quality dashboards."
+        },
+        "D8-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q6": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q7": {
+          "level": 0,
+          "evidence": "Illustrative mock: Test suite inventory, pipeline durations, escaped-defect data."
+        },
+        "D9-Q1": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D9-Q2": {
+          "level": 1,
+          "evidence": "Illustrative mock: DORA dashboards, baseline vs current comparison."
+        },
+        "D9-Q3": {
+          "level": 0,
+          "evidence": ""
+        },
+        "D9-Q4": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D9-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q6": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D9-Q7": {
+          "level": 1,
+          "evidence": ""
+        }
+      }
+    },
+    {
+      "id": "R14",
+      "name": "Respondent 14 (mock)",
+      "email": "",
+      "profile": {
+        "R-Q1": "Product / program manager",
+        "R-Q2": "One business unit",
+        "R-Q3": [
+          "GitHub Copilot in the IDE (completions, chat, agent mode)",
+          "Claude Code or Claude in other clients"
+        ],
+        "R-Q4": "2-5",
+        "R-Q5": "Less than 20%"
+      },
+      "answers": {
+        "D1-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D1-Q2": {
+          "level": 3,
+          "evidence": "Illustrative mock: Policy link, onboarding checklist, control configuration."
+        },
+        "D1-Q3": {
+          "level": 3,
+          "evidence": "Illustrative mock: Copilot policy settings, tool catalog, model evaluation records."
+        },
+        "D1-Q4": {
+          "level": 4,
+          "evidence": "Illustrative mock: Data processing records, exclusion settings, retention policy."
+        },
+        "D1-Q5": {
+          "level": 4,
+          "evidence": "Illustrative mock: Autonomy matrix, repository rulesets, change records."
+        },
+        "D1-Q6": {
+          "level": 4,
+          "evidence": "Illustrative mock: Framework mapping, risk register entries, audit reports."
+        },
+        "D1-Q7": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D2-Q1": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D2-Q2": {
+          "level": 3,
+          "evidence": "Illustrative mock: Champion list, session calendar, shared repository of examples."
+        },
+        "D2-Q3": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D2-Q4": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D2-Q5": {
+          "level": 3,
+          "evidence": "Illustrative mock: Career framework, role descriptions."
+        },
+        "D2-Q6": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D3-Q1": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D3-Q2": {
+          "level": null,
+          "evidence": ""
+        },
+        "D3-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D3-Q4": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D3-Q5": {
+          "level": 3,
+          "evidence": "Illustrative mock: Product briefs, feedback loop records, outcome dashboards."
+        },
+        "D3-Q6": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q1": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q2": {
+          "level": 2,
+          "evidence": "Illustrative mock: Usage by feature/mode, team guidelines."
+        },
+        "D4-Q3": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q4": {
+          "level": 4,
+          "evidence": "Illustrative mock: Instruction files, coverage across repositories, change history, before/after agent PR metrics."
+        },
+        "D4-Q5": {
+          "level": 3,
+          "evidence": "Illustrative mock: Library repository, custom agent profiles, reuse metrics."
+        },
+        "D4-Q6": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D4-Q7": {
+          "level": 4,
+          "evidence": ""
+        },
+        "D4-Q8": {
+          "level": 2,
+          "evidence": "Illustrative mock: Model guidance, policy settings, routing configuration."
+        },
+        "D5-Q1": {
+          "level": 3,
+          "evidence": "Illustrative mock: Repository rulesets, code review adoption metrics, suggestion outcomes."
+        },
+        "D5-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q3": {
+          "level": null,
+          "evidence": ""
+        },
+        "D5-Q4": {
+          "level": 2,
+          "evidence": "Illustrative mock: PR size distribution, bot or ruleset configuration."
+        },
+        "D5-Q5": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D5-Q6": {
+          "level": 2,
+          "evidence": "Illustrative mock: Review guidelines, survey results, defect analysis."
+        },
+        "D5-Q7": {
+          "level": 3,
+          "evidence": "Illustrative mock: Static analysis dashboards, churn reports, ownership files."
+        },
+        "D6-Q1": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q2": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D6-Q3": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q4": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q5": {
+          "level": null,
+          "evidence": ""
+        },
+        "D6-Q6": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D6-Q7": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q1": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D7-Q2": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D7-Q4": {
+          "level": 2,
+          "evidence": "Illustrative mock: Telemetry dashboards, alert rules."
+        },
+        "D7-Q5": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D7-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q1": {
+          "level": 2,
+          "evidence": "Illustrative mock: Repository inventory, configuration sources."
+        },
+        "D8-Q2": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q4": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q5": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D8-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D8-Q7": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D9-Q1": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q2": {
+          "level": 1,
+          "evidence": ""
+        },
+        "D9-Q3": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q4": {
+          "level": 3,
+          "evidence": ""
+        },
+        "D9-Q5": {
+          "level": 2,
+          "evidence": "Illustrative mock: Study design, results, decision records."
+        },
+        "D9-Q6": {
+          "level": 2,
+          "evidence": ""
+        },
+        "D9-Q7": {
+          "level": null,
+          "evidence": ""
+        }
+      }
+    }
+  ]
+}
