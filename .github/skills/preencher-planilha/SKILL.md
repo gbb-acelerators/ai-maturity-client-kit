@@ -19,11 +19,19 @@ argument-hint: optional path different from respostas.json
 - `saida/pontuacao-preenchida-<YYYY-MM-DD>.xlsx`
 - Brief chat message (English by default, or the user's language): how many questions answered, threshold status, relative link to generated file.
 
+## Implementation: invoke the official script
+
+```bash
+python3 scripts/fill_workbook.py
+```
+
+**DO NOT edit the workbook in chat.** The script copies the template, fills the three teaching sheets with framework weights and client targets, and adds full sheets for every question, capability, and pillar. Its formulas follow the official algorithm (only answered questions count), so the workbook matches `saida/scores.json`. Fractional levels from multi-respondent imports (for example 2.5) are valid.
+
 ## Procedure (follow in order)
 
 1. **Validate inputs**:
    - `respostas.json` exists and parses as JSON.
-   - For each `responses[qid]`, validate `level ∈ {null, 0, 1, 2, 3, 4}`. If invalid, stop and list problematic qids.
+   - For each `responses[qid]`, validate that `level` is `null` or a number in `[0, 4]` (decimals allowed). If invalid, stop and list problematic qids.
 
 2. **Compute coverage**:
    - `total_answered` = count of questions with `level != null`.
