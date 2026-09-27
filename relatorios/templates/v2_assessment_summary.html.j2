@@ -1,0 +1,111 @@
+{# Framework v2: assessment summary (overall result, flags, persona
+   heatmap, evidence coverage, backlog, strategies, references).
+   Every value comes from saida/scores.json, gaps.json and
+   recomendacoes.json via relatorios/scripts/build_report_v2.py. #}
+{% from "_v2_components.html.j2" import cover, num, ref_list %}
+<!DOCTYPE html>
+<html lang="{{ locale }}">
+<head>
+  <meta charset="utf-8">
+  <title>{{ t('v2.summary.title') }}: {{ organization.name or '' }}</title>
+  <link rel="stylesheet" href="_print.css">
+</head>
+<body>
+{{ cover(organization, assessment, branding, t('v2.summary.title'), t('v2.summary.subtitle')) }}
+
+<section class="section">
+  <h1>1. {{ t('v2.overall') }}</h1>
+  <div class="kpi-grid">
+    <div class="kpi-tile"><div class="kpi-tile__value">{{ num(overall.score) }}</div><div class="kpi-tile__label">{{ overall.label }}</div></div>
+    <div class="kpi-tile"><div class="kpi-tile__value">{{ threshold.answered }} / {{ threshold.applicable }}</div><div class="kpi-tile__label">{{ t('v2.coverage') }}: {{ threshold.status }}</div></div>
+    <div class="kpi-tile"><div class="kpi-tile__value">{{ assessment.respondents }}</div><div class="kpi-tile__label">{{ t('v2.respondents') }}</div></div>
+    <div class="kpi-tile"><div class="kpi-tile__value">{{ '-' if evidence.share is none else ((evidence.share * 100) | round | int) ~ '%' }}</div><div class="kpi-tile__label">{{ t('v2.evidence_coverage') }}</div></div>
+  </div>
+  {% if threshold.status == 'BLOCKED' %}<p class="inline-warning">{{ t('v2.blocked') }}</p>{% endif %}
+  <p class="text-muted">{{ t('v2.method', ok=scoring.coverage_ok_min, warn=scoring.coverage_warning_min) }}</p>
+
+  <h2>1.1 {{ t('v2.flags') }}</h2>
+  <ul class="v2-flags">
+    {% if flags.amplification_risk %}
+    <li class="critical"><b>{{ t('v2.flag.amplification') }}:</b> {% for a in flags.amplification_risk %}{{ a.dimension_id }} ({{ a.level }}){{ ', ' if not loop.last }}{% endfor %}. {{ t('v2.flag.amplification_why', overall=overall.level) }}</li>
+    {% else %}<li class="ok"><b>{{ t('v2.flag.amplification') }}:</b> {{ t('v2.flag.none') }}</li>{% endif %}
+    {% set pg = flags.perception_gap %}
+    {% if pg.status == 'insufficient_sample' %}
+    <li><b>{{ t('v2.flag.perception') }}:</b> {{ t('v2.flag.perception_insufficient', e=pg.executive_n, h=pg.hands_on_n, n=pg.min_n) }}</li>
+    {% elif pg.dimensions %}
+    <li class="critical"><b>{{ t('v2.flag.perception') }}:</b> {% for d in pg.dimensions %}{{ d.dimension_id }} ({{ num(d.executive_score) }} / {{ num(d.hands_on_score) }}){{ ', ' if not loop.last }}{% endfor %}. {{ t('v2.flag.perception_why') }}</li>
+    {% else %}<li class="ok"><b>{{ t('v2.flag.perception') }}:</b> {{ t('v2.flag.none') }}</li>{% endif %}
+    {% if flags.low_confidence %}
+    <li><b>{{ t('v2.flag.low_confidence') }}:</b> {{ flags.low_confidence | join(', ') }}. {{ t('v2.flag.low_confidence_why') }}</li>
+    {% endif %}
+    {% if flags.scope_caveat.flagged %}
+    <li><b>{{ t('v2.flag.scope') }}:</b> {{ t('v2.flag.scope_why', share=((flags.scope_caveat.single_team_share * 100) | round | int)) }}</li>
+    {% endif %}
+    {% if evidence.unverified_questions %}
+    <li><b>{{ t('v2.flag.unverified') }}:</b> {{ evidence.unverified_questions | join(', ') }}. {{ t('v2.flag.unverified_why') }}</li>
+    {% endif %}
+  </ul>
+</section>
+
+<section class="section">
+  <h1>2. {{ t('v2.dimensions') }}</h1>
+  <table class="v2-table">
+    <tr><th>ID</th><th>{{ t('v2.dimension') }}</th><th class="num">{{ t('v2.score') }}</th><th>{{ t('v2.level') }}</th><th class="num">{{ t('v2.answered') }}</th><th class="num">NA</th><th>{{ t('v2.priority') }}</th></tr>
+    {% for d in dimensions %}
+    <tr><td>{{ d.id }}</td><td>{{ d.name }}{% if d.low_confidence %} <span class="tag-unverified">{{ t('v2.low_conf_short') }}</span>{% endif %}</td>
+      <td class="num {{ d.heat }}">{{ num(d.score) }}</td><td>{{ d.label }}</td>
+      <td class="num">{{ d.answered }} / {{ d.applicable }}</td>
+      <td class="num">{{ '-' if d.na_share is none else ((d.na_share * 100) | round | int) ~ '%' }}</td>
+      <td>{{ d.gap.priority if d.gap else '-' }}</td></tr>
+    {% endfor %}
+  </table>
+
+  <h2>2.1 {{ t('v2.heatmap') }}</h2>
+  {% if personas %}
+  <table class="v2-table v2-heatmap">
+    <tr><th>{{ t('v2.dimension') }}</th><th>{{ t('v2.all') }}</th>{% for p in personas %}<th>{{ p.persona }}<br><span class="text-faint">n={{ p.n }}{% if p.low_sample %} · {{ t('v2.low_sample') }}{% endif %}</span></th>{% endfor %}</tr>
+    {% for row in heatmap %}
+    <tr><th>{{ row.id }}</th><td class="{{ row.overall_heat }}">{{ num(row.overall) }}</td>{% for c in row.cells %}<td class="{{ c.heat }}">{{ num(c.score) }}</td>{% endfor %}</tr>
+    {% endfor %}
+  </table>
+  <p class="text-faint">{{ t('v2.heatmap_note', n=scoring.persona_min_n) }}</p>
+  {% else %}<p class="text-muted">{{ t('v2.no_personas') }}</p>{% endif %}
+</section>
+
+<section class="section">
+  <h1>3. {{ t('v2.backlog') }}</h1>
+  <p class="text-muted">{{ t('v2.backlog_intro') }}</p>
+  <table class="v2-table">
+    <tr><th>ID</th><th>{{ t('v2.question') }}</th><th class="num">{{ t('v2.score') }}</th><th>{{ t('v2.l3_target') }}</th><th>{{ t('v2.basis') }}</th></tr>
+    {% for b in backlog %}
+    <tr><td>{{ b.question_id }}</td><td>{{ b.title }}</td><td class="num">{{ num(b.score) }}</td><td>{{ b.l3_anchor }}</td><td>{% for n in b.basis %}[{{ n }}]{% endfor %}</td></tr>
+    {% endfor %}
+  </table>
+
+  <h2>3.1 {{ t('v2.strategies') }}</h2>
+  <table class="v2-table">
+    <tr><th>#</th><th>{{ t('v2.strategy') }}</th><th class="num">{{ t('v2.cumulative') }}</th><th>{{ t('v2.priority') }}</th><th>{{ t('v2.horizon') }}</th><th>{{ t('v2.first_action') }}</th><th>{{ t('v2.basis') }}</th></tr>
+    {% for s in strategies %}
+    <tr><td>{{ s.rank }}</td><td>{{ s.strategy_id }} {{ s.strategy_name }}<br><span class="text-faint">{% for d in s.related_dimensions %}{{ d.id }}{{ ', ' if not loop.last }}{% endfor %}</span></td>
+      <td class="num">{{ num(s.cumulative_priority) }}</td><td>{{ s.max_priority }}</td><td>{{ s.horizon }}</td><td>{{ s.first_action }}</td><td>{% for n in s.references %}[{{ n }}]{% endfor %}</td></tr>
+    {% endfor %}
+  </table>
+  {% if skipped_strategies %}<p class="text-faint">{{ t('v2.skipped') }}: {% for s in skipped_strategies %}{{ s.strategy_id }} ({{ s.reason }}){{ ', ' if not loop.last }}{% endfor %}</p>{% endif %}
+</section>
+
+<section class="section">
+  <h1>4. {{ t('v2.method_title') }}</h1>
+  <table class="v2-table">
+    <tr><th>{{ t('v2.level') }}</th><th>{{ t('v2.band') }}</th></tr>
+    {% for b in level_bands %}<tr><td>{{ b.level }} {{ level_names[b.level] }}</td><td>{{ '[%.1f, %.1f%s' | format(b.min, b.max, ']' if loop.last else ')') }}</td></tr>{% endfor %}
+  </table>
+  <p class="text-muted">{{ t('v2.method_rules', target=scoring.default_target) }}</p>
+  <p class="text-muted">{{ t('v2.limitations') }}</p>
+</section>
+
+<section class="section">
+  <h1>5. {{ t('v2.references') }}</h1>
+  {{ ref_list(references) }}
+</section>
+</body>
+</html>

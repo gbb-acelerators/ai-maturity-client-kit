@@ -1,0 +1,60 @@
+{# Framework v2: roadmap for one report group of dimensions.
+   Context: payload from build_report_v2.py plus `group`. #}
+{% from "_v2_components.html.j2" import cover, num, ref_list %}
+<!DOCTYPE html>
+<html lang="{{ locale }}">
+<head>
+  <meta charset="utf-8">
+  <title>{{ t('v2.roadmap.title') }} {{ group.id }}: {{ group.name }}</title>
+  <link rel="stylesheet" href="_print.css">
+</head>
+<body>
+{{ cover(organization, assessment, branding, t('v2.roadmap.title') ~ ' ' ~ group.id, group.name) }}
+
+<section class="section">
+  <h1>{{ group.id }}: {{ group.name }}</h1>
+  <table class="v2-table">
+    <tr><th>ID</th><th>{{ t('v2.dimension') }}</th><th class="num">{{ t('v2.score') }}</th><th>{{ t('v2.level') }}</th><th class="num">{{ t('v2.target') }}</th><th class="num">{{ t('v2.gap') }}</th><th>{{ t('v2.priority') }}</th><th>{{ t('v2.horizon') }}</th></tr>
+    {% for d in group.dimensions %}
+    <tr><td>{{ d.id }}</td><td>{{ d.name }}</td><td class="num {{ d.heat }}">{{ num(d.score) }}</td><td>{{ d.label }}</td>
+      <td class="num">{{ num(d.gap.target_level) if d.gap else '-' }}</td><td class="num">{{ num(d.gap.gap_size) if d.gap else '-' }}</td>
+      <td>{{ d.gap.priority if d.gap else t('v2.at_target') }}</td><td>{{ d.gap.horizon_suggested if d.gap else '-' }}</td></tr>
+    {% endfor %}
+  </table>
+</section>
+
+{% for d in group.dimensions %}
+<section class="section v2-dim{{ ' break-before' if not loop.first }}">
+  <h2>{{ d.id }}: {{ d.name }}</h2>
+  <p class="text-muted">{{ d.why_it_matters }}</p>
+  {% if d.low_confidence %}<p class="inline-warning">{{ t('v2.flag.low_confidence') }}: {{ t('v2.flag.low_confidence_why') }}</p>{% endif %}
+
+  <h3>{{ t('v2.start_here') }}</h3>
+  {% for q in d.lowest %}
+  <p><b>{{ q.id }} {{ q.title }}</b> ({{ num(q.score) }}, {{ q.level }}){% if q.unverified %} <span class="tag-unverified">{{ t('v2.unverified') }}</span>{% endif %}</p>
+  <p class="v2-anchor"><b>{{ t('v2.l3_target') }}:</b> {{ q.l3 }}</p>
+  <p class="v2-anchor"><b>{{ t('v2.l4_next') }}:</b> {{ q.l4 }} <span class="text-faint">{% for n in q.basis %}[{{ n }}]{% endfor %}</span></p>
+  {% endfor %}
+
+  {% if d.strategies %}
+  <h3>{{ t('v2.strategies') }}</h3>
+  <ul>{% for s in d.strategies %}<li>{{ s.strategy_id }} {{ s.strategy_name }} ({{ s.max_priority }}, {{ s.horizon }})</li>{% endfor %}</ul>
+  {% endif %}
+
+  <h3>{{ t('v2.all_questions') }}</h3>
+  <table class="v2-table">
+    <tr><th>ID</th><th>{{ t('v2.question') }}</th><th class="num">{{ t('v2.score') }}</th><th class="num">n</th><th class="num">NA</th><th class="num">{{ t('v2.evidence') }}</th></tr>
+    {% for q in d.questions %}
+    <tr><td>{{ q.id }}</td><td>{{ q.title }}{% if q.unverified %} <span class="tag-unverified">{{ t('v2.unverified') }}</span>{% endif %}</td>
+      <td class="num {{ q.heat }}">{{ num(q.score) }}</td><td class="num">{{ q.n }}</td><td class="num">{{ q.na }}</td><td class="num">{{ q.evidence_n }}</td></tr>
+    {% endfor %}
+  </table>
+</section>
+{% endfor %}
+
+<section class="section">
+  <h2>{{ t('v2.references') }}</h2>
+  {{ ref_list(group.references) }}
+</section>
+</body>
+</html>

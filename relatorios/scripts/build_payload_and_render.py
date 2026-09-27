@@ -741,6 +741,17 @@ def main():
     print(f"Out:     {out_dir}")
     print()
 
+    respostas_path = kit / "respostas.json"
+    if respostas_path.exists():
+        meta = json.loads(respostas_path.read_text(encoding="utf-8")).get("metadata", {})
+        if str(meta.get("framework_version") or "1").split(".")[0] not in ("0", "1"):
+            import build_report_v2
+            argv = ["--kit", str(kit), "--out", str(out_dir)]
+            if args.no_render:
+                argv.append("--no-render")
+            sys.argv = [sys.argv[0], *argv]
+            return build_report_v2.main()
+
     # Build payload (merge sample + client data)
     payload = build_payload(kit)
     payload_path = out_dir / "payload.json"
