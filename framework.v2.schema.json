@@ -1,0 +1,402 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "framework.v2.schema.json",
+  "title": "AI Maturity framework v2",
+  "type": "object",
+  "required": [
+    "version",
+    "level_names",
+    "level_bands",
+    "scoring",
+    "options",
+    "strategies",
+    "report_groups",
+    "personas",
+    "profile_questions",
+    "dimensions",
+    "references",
+    "traceability"
+  ],
+  "$defs": {
+    "l10n": {
+      "type": "object",
+      "required": [
+        "en",
+        "pt-br",
+        "es"
+      ],
+      "properties": {
+        "en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pt-br": {
+          "type": "string",
+          "minLength": 1
+        },
+        "es": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "l10nlist": {
+      "type": "object",
+      "required": [
+        "en",
+        "pt-br",
+        "es"
+      ],
+      "properties": {
+        "en": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pt-br": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "es": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^2\\.[0-9]+\\.[0-9]+$"
+    },
+    "source": {
+      "type": "string"
+    },
+    "level_names": {
+      "type": "object",
+      "required": [
+        "en",
+        "pt-br",
+        "es"
+      ]
+    },
+    "level_bands": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "level",
+          "min",
+          "max"
+        ]
+      }
+    },
+    "coverage_bands": {
+      "type": "object"
+    },
+    "scoring": {
+      "type": "object",
+      "required": [
+        "default_target",
+        "dimension_weight_range",
+        "low_confidence_na_share",
+        "coverage_ok_min",
+        "coverage_warning_min",
+        "priority_cuts",
+        "persona_min_n",
+        "amplifier_dimensions"
+      ]
+    },
+    "options": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/l10nlist"
+        }
+      ]
+    },
+    "strategies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ]
+      }
+    },
+    "technologies_per_strategy": {
+      "type": "object"
+    },
+    "report_groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "dimensions",
+          "name"
+        ]
+      }
+    },
+    "personas": {
+      "type": "object"
+    },
+    "profile_questions": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "text",
+          "multi",
+          "options"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^R-Q[1-5]$"
+          },
+          "title": {
+            "$ref": "#/$defs/l10n"
+          },
+          "text": {
+            "$ref": "#/$defs/l10n"
+          },
+          "multi": {
+            "type": "boolean"
+          },
+          "options": {
+            "$ref": "#/$defs/l10nlist"
+          }
+        }
+      }
+    },
+    "dimensions": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "why_it_matters",
+          "weight",
+          "group",
+          "strategies",
+          "questions"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^D[1-9]$"
+          },
+          "name": {
+            "$ref": "#/$defs/l10n"
+          },
+          "why_it_matters": {
+            "$ref": "#/$defs/l10n"
+          },
+          "weight": {
+            "type": "number",
+            "minimum": 0.5,
+            "maximum": 2.0
+          },
+          "group": {
+            "type": "string"
+          },
+          "strategies": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^S[1-7]$"
+            }
+          },
+          "questions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "title",
+                "text",
+                "anchors",
+                "evidence_examples",
+                "basis",
+                "v1_lineage",
+                "weight",
+                "unit",
+                "audience",
+                "pe",
+                "kpi"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^D[1-9]-Q[0-9]+$"
+                },
+                "title": {
+                  "$ref": "#/$defs/l10n"
+                },
+                "text": {
+                  "$ref": "#/$defs/l10n"
+                },
+                "scope_note": {
+                  "$ref": "#/$defs/l10n"
+                },
+                "anchors": {
+                  "type": "object",
+                  "required": [
+                    "l3",
+                    "l4"
+                  ],
+                  "properties": {
+                    "l1_l2": {
+                      "$ref": "#/$defs/l10n"
+                    },
+                    "l3": {
+                      "$ref": "#/$defs/l10n"
+                    },
+                    "l4": {
+                      "$ref": "#/$defs/l10n"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "evidence_examples": {
+                  "$ref": "#/$defs/l10n"
+                },
+                "basis": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 58
+                  },
+                  "minItems": 1
+                },
+                "basis_text": {
+                  "type": "string"
+                },
+                "v1_lineage": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "partial"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "pattern": "^P[1-3]-C[0-9]+-Q[0-9]+$"
+                      },
+                      "partial": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                },
+                "weight": {
+                  "type": "number",
+                  "minimum": 0.5,
+                  "maximum": 2.0
+                },
+                "unit": {
+                  "enum": [
+                    "teams",
+                    "engineers",
+                    "repositories",
+                    "services",
+                    "organization"
+                  ]
+                },
+                "audience": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "minItems": 1
+                },
+                "pe": {
+                  "type": "boolean"
+                },
+                "kpi": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      }
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "n",
+          "text",
+          "url"
+        ]
+      }
+    },
+    "traceability": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^P[1-3]-C[0-9]+-Q[0-9]+$"
+      },
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "status",
+              "into"
+            ],
+            "properties": {
+              "status": {
+                "const": "consolidated"
+              },
+              "into": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "status",
+              "reason"
+            ],
+            "properties": {
+              "status": {
+                "const": "retired"
+              },
+              "reason": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

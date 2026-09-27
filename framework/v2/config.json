@@ -1,0 +1,567 @@
+{
+  "_comment": "Kit design choices for framework v2. Edit here, then run scripts/spec_to_framework_v2.py.",
+  "level_names": {
+    "en": {
+      "L0": "Not started",
+      "L1": "Exploring",
+      "L2": "Adopting",
+      "L3": "Scaling",
+      "L4": "AI-native"
+    },
+    "pt-br": {
+      "L0": "Não iniciado",
+      "L1": "Explorando",
+      "L2": "Adotando",
+      "L3": "Escalando",
+      "L4": "Nativo em IA"
+    },
+    "es": {
+      "L0": "No iniciado",
+      "L1": "Explorando",
+      "L2": "Adoptando",
+      "L3": "Escalando",
+      "L4": "Nativo en IA"
+    }
+  },
+  "level_bands": [
+    {
+      "level": "L0",
+      "min": 0.0,
+      "max": 0.8
+    },
+    {
+      "level": "L1",
+      "min": 0.8,
+      "max": 1.6
+    },
+    {
+      "level": "L2",
+      "min": 1.6,
+      "max": 2.4
+    },
+    {
+      "level": "L3",
+      "min": 2.4,
+      "max": 3.2
+    },
+    {
+      "level": "L4",
+      "min": 3.2,
+      "max": 4.0
+    }
+  ],
+  "coverage_bands": {
+    "L1": "more than 0% and up to 25%",
+    "L2": "26-50%",
+    "L3": "51-90%",
+    "L4": ">90%"
+  },
+  "scoring": {
+    "default_target": 3.0,
+    "dimension_weight_range": [
+      0.5,
+      2.0
+    ],
+    "low_confidence_na_share": 0.3,
+    "coverage_ok_min": 37,
+    "coverage_warning_min": 25,
+    "priority_cuts": {
+      "P0": 2.4,
+      "P1": 1.6,
+      "P2": 0.9
+    },
+    "strategy_min_cumulative": 0.9,
+    "persona_min_n": 3,
+    "amplifier_dimensions": [
+      "D5",
+      "D6",
+      "D8"
+    ],
+    "unverified_evidence_share": 0.5,
+    "single_team_scope_share": 0.5,
+    "backlog_size": 5
+  },
+  "personas": {
+    "role_question": "R-Q1",
+    "executive_options": [
+      "Executive (CTO, VP, Director)"
+    ],
+    "hands_on_question": "R-Q5",
+    "hands_on_options": [
+      "51-80%",
+      "More than 80%"
+    ]
+  },
+  "strategies": [
+    {
+      "id": "S1",
+      "name": "GitHub Migration",
+      "description": "Consolidate source control and collaboration on GitHub Enterprise."
+    },
+    {
+      "id": "S2",
+      "name": "Foundry + SRE",
+      "description": "Establish platform engineering and SRE practices with Azure Foundry."
+    },
+    {
+      "id": "S3",
+      "name": "App Modernization",
+      "description": "Modernize legacy applications to cloud-native architectures."
+    },
+    {
+      "id": "S4",
+      "name": "AI Applications",
+      "description": "Build AI-powered application features using Azure AI services."
+    },
+    {
+      "id": "S5",
+      "name": "GitHub Copilot Acceleration",
+      "description": "Accelerate developer productivity with GitHub Copilot and AI-assisted workflows."
+    },
+    {
+      "id": "S6",
+      "name": "Agentic Activation",
+      "description": "Enable autonomous AI agent capabilities in applications and workflows."
+    },
+    {
+      "id": "S7",
+      "name": "Security & Governance",
+      "description": "Strengthen security posture and governance across the development lifecycle."
+    }
+  ],
+  "technologies_per_strategy": {
+    "S1": [
+      {
+        "name": "GitHub Enterprise Cloud",
+        "purpose": "Unified source control and collaboration"
+      },
+      {
+        "name": "GitHub Actions",
+        "purpose": "CI/CD automation across repositories"
+      },
+      {
+        "name": "GitHub Advanced Security",
+        "purpose": "Code scanning and secret detection"
+      }
+    ],
+    "S2": [
+      {
+        "name": "Microsoft Foundry",
+        "purpose": "AI model management and deployment"
+      },
+      {
+        "name": "Azure Monitor",
+        "purpose": "End-to-end observability and alerting"
+      },
+      {
+        "name": "Grafana",
+        "purpose": "Operational dashboards and SLO tracking"
+      }
+    ],
+    "S3": [
+      {
+        "name": "Azure Container Apps",
+        "purpose": "Managed container hosting for modernized workloads"
+      },
+      {
+        "name": "Kubernetes",
+        "purpose": "Container orchestration for complex deployments"
+      },
+      {
+        "name": "Terraform",
+        "purpose": "Infrastructure as Code provisioning"
+      }
+    ],
+    "S4": [
+      {
+        "name": "Azure AI Services",
+        "purpose": "Pre-built AI models and cognitive services"
+      },
+      {
+        "name": "Azure OpenAI",
+        "purpose": "Large language model integration"
+      },
+      {
+        "name": "Prompt Flow",
+        "purpose": "AI workflow orchestration and testing"
+      }
+    ],
+    "S5": [
+      {
+        "name": "GitHub Copilot Enterprise",
+        "purpose": "AI-assisted coding across development teams"
+      },
+      {
+        "name": "GitHub Copilot Workspace",
+        "purpose": "AI-driven task planning and implementation"
+      }
+    ],
+    "S6": [
+      {
+        "name": "Semantic Kernel",
+        "purpose": "AI agent orchestration framework"
+      },
+      {
+        "name": "AutoGen",
+        "purpose": "Multi-agent conversation framework"
+      },
+      {
+        "name": "LangChain",
+        "purpose": "LLM application development framework"
+      }
+    ],
+    "S7": [
+      {
+        "name": "GitHub Advanced Security",
+        "purpose": "Supply chain and code security"
+      },
+      {
+        "name": "Microsoft Defender",
+        "purpose": "Cloud workload protection"
+      },
+      {
+        "name": "SBOM tools",
+        "purpose": "Software Bill of Materials generation and audit"
+      }
+    ]
+  },
+  "report_groups": [
+    {
+      "id": "G1",
+      "dimensions": [
+        "D1",
+        "D2",
+        "D9"
+      ],
+      "name": {
+        "en": "Direction, people and value",
+        "pt-br": "Direção, pessoas e valor",
+        "es": "Dirección, personas y valor"
+      }
+    },
+    {
+      "id": "G2",
+      "dimensions": [
+        "D3",
+        "D4",
+        "D5"
+      ],
+      "name": {
+        "en": "Plan, build and review",
+        "pt-br": "Planejar, construir e revisar",
+        "es": "Planificar, construir y revisar"
+      }
+    },
+    {
+      "id": "G3",
+      "dimensions": [
+        "D6",
+        "D7",
+        "D8"
+      ],
+      "name": {
+        "en": "Secure, deliver and foundations",
+        "pt-br": "Proteger, entregar e fundações",
+        "es": "Proteger, entregar y fundamentos"
+      }
+    }
+  ],
+  "kpi_by_unit": {
+    "teams": "% of teams meeting the L3 anchor",
+    "engineers": "% of engineers meeting the L3 anchor",
+    "repositories": "% of repositories meeting the L3 anchor",
+    "services": "% of services meeting the L3 anchor",
+    "organization": "Level of the organization-wide practice (governance and measurement)"
+  },
+  "pe_questions": [
+    "D4-Q6",
+    "D4-Q7",
+    "D7-Q1",
+    "D7-Q5",
+    "D7-Q6",
+    "D8-Q3",
+    "D8-Q5"
+  ],
+  "dimensions": {
+    "D1": {
+      "audience": [
+        "engineering-leader",
+        "architect",
+        "security"
+      ],
+      "strategies": [
+        "S7",
+        "S5",
+        "S6"
+      ],
+      "group": "G1",
+      "default_unit": "teams"
+    },
+    "D2": {
+      "audience": [
+        "engineering-leader",
+        "developer"
+      ],
+      "strategies": [
+        "S5"
+      ],
+      "group": "G1",
+      "default_unit": "teams"
+    },
+    "D3": {
+      "audience": [
+        "product-owner",
+        "architect",
+        "developer"
+      ],
+      "strategies": [
+        "S5",
+        "S3"
+      ],
+      "group": "G2",
+      "default_unit": "teams"
+    },
+    "D4": {
+      "audience": [
+        "developer",
+        "platform-engineer"
+      ],
+      "strategies": [
+        "S5",
+        "S6",
+        "S4"
+      ],
+      "group": "G2",
+      "default_unit": "teams"
+    },
+    "D5": {
+      "audience": [
+        "developer",
+        "qa-test"
+      ],
+      "strategies": [
+        "S5",
+        "S7"
+      ],
+      "group": "G2",
+      "default_unit": "teams"
+    },
+    "D6": {
+      "audience": [
+        "security",
+        "platform-engineer"
+      ],
+      "strategies": [
+        "S7",
+        "S6"
+      ],
+      "group": "G3",
+      "default_unit": "teams"
+    },
+    "D7": {
+      "audience": [
+        "devops",
+        "platform-engineer"
+      ],
+      "strategies": [
+        "S2",
+        "S6"
+      ],
+      "group": "G3",
+      "default_unit": "teams"
+    },
+    "D8": {
+      "audience": [
+        "platform-engineer",
+        "devops",
+        "developer"
+      ],
+      "strategies": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "group": "G3",
+      "default_unit": "teams"
+    },
+    "D9": {
+      "audience": [
+        "engineering-leader",
+        "product-owner"
+      ],
+      "strategies": [
+        "S5",
+        "S2"
+      ],
+      "group": "G1",
+      "default_unit": "teams"
+    }
+  },
+  "questions": {
+    "D1-Q1": {
+      "unit": "organization"
+    },
+    "D1-Q2": {
+      "unit": "organization"
+    },
+    "D1-Q3": {
+      "unit": "organization"
+    },
+    "D1-Q4": {
+      "unit": "organization"
+    },
+    "D1-Q5": {
+      "unit": "organization"
+    },
+    "D1-Q6": {
+      "unit": "organization"
+    },
+    "D1-Q7": {
+      "unit": "organization"
+    },
+    "D2-Q1": {
+      "unit": "engineers"
+    },
+    "D2-Q2": {
+      "unit": "teams"
+    },
+    "D2-Q3": {
+      "unit": "teams"
+    },
+    "D2-Q4": {
+      "unit": "engineers"
+    },
+    "D2-Q5": {
+      "unit": "organization"
+    },
+    "D2-Q6": {
+      "unit": "engineers"
+    },
+    "D4-Q1": {
+      "unit": "engineers"
+    },
+    "D4-Q2": {
+      "unit": "engineers"
+    },
+    "D4-Q3": {
+      "unit": "teams"
+    },
+    "D4-Q4": {
+      "unit": "repositories"
+    },
+    "D4-Q5": {
+      "unit": "teams"
+    },
+    "D4-Q6": {
+      "unit": "organization"
+    },
+    "D4-Q7": {
+      "unit": "teams"
+    },
+    "D4-Q8": {
+      "unit": "organization"
+    },
+    "D5-Q1": {
+      "unit": "repositories"
+    },
+    "D5-Q2": {
+      "unit": "repositories"
+    },
+    "D5-Q3": {
+      "unit": "repositories"
+    },
+    "D5-Q4": {
+      "unit": "teams"
+    },
+    "D5-Q5": {
+      "unit": "teams"
+    },
+    "D5-Q6": {
+      "unit": "teams"
+    },
+    "D5-Q7": {
+      "unit": "repositories"
+    },
+    "D6-Q1": {
+      "unit": "repositories"
+    },
+    "D6-Q2": {
+      "unit": "repositories"
+    },
+    "D6-Q3": {
+      "unit": "organization"
+    },
+    "D6-Q4": {
+      "unit": "organization"
+    },
+    "D6-Q5": {
+      "unit": "repositories"
+    },
+    "D6-Q6": {
+      "unit": "services"
+    },
+    "D6-Q7": {
+      "unit": "organization"
+    },
+    "D7-Q1": {
+      "unit": "repositories"
+    },
+    "D7-Q2": {
+      "unit": "services"
+    },
+    "D7-Q3": {
+      "unit": "services"
+    },
+    "D7-Q4": {
+      "unit": "organization"
+    },
+    "D7-Q5": {
+      "unit": "services"
+    },
+    "D7-Q6": {
+      "unit": "services"
+    },
+    "D8-Q1": {
+      "unit": "teams"
+    },
+    "D8-Q2": {
+      "unit": "teams"
+    },
+    "D8-Q3": {
+      "unit": "organization"
+    },
+    "D8-Q4": {
+      "unit": "organization"
+    },
+    "D8-Q5": {
+      "unit": "repositories"
+    },
+    "D8-Q6": {
+      "unit": "repositories"
+    },
+    "D8-Q7": {
+      "unit": "services"
+    },
+    "D9-Q1": {
+      "unit": "organization"
+    },
+    "D9-Q2": {
+      "unit": "services"
+    },
+    "D9-Q3": {
+      "unit": "organization"
+    },
+    "D9-Q4": {
+      "unit": "organization"
+    },
+    "D9-Q5": {
+      "unit": "organization"
+    },
+    "D9-Q6": {
+      "unit": "organization"
+    },
+    "D9-Q7": {
+      "unit": "organization"
+    }
+  }
+}
