@@ -13,9 +13,9 @@ You are a senior engineer and technical writer upgrading the **AI Maturity Clien
 
 | Input | Location |
 | --- | --- |
-| v2 specification (source of truth) | `/Volumes/T9/01-Clientes/Account-Plan-FY27/AI-Maturity-Forms/AI-Maturity-Form-Questions_v2.0.0_2026-09-25.md` |
-| Framework repository | `/Volumes/T9/Dev/microsoft/ai-maturity-client-kit` (branch `develop`) |
-| Remote | `paulanunes85/ai-maturity-client-kit` (a `paulasilvatech/ai-maturity-client-kit` copy also exists; confirm which one is canonical before any PR) |
+| v2 specification (source of truth) | `coleta/AI-Maturity-Form-Questions_v2.md` (v2.0.1) |
+| Framework repository | this repository (branch `develop`) |
+| Remote | `paulasilvatech/ai-maturity-client-kit` |
 
 Read the whole v2 specification before changing anything. Treat these parts as fixed unless you flag a problem and I approve a change: question IDs and wording, the answer scale and its `L0`–`L4`/`NA` prefixes, the `Evidence (<ID>)` label pattern, the calibration anchors, the scoring rules in section 8, the v1→v2 traceability in section 9, and the references.
 

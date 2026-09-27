@@ -1,17 +1,17 @@
-# AI-Assisted SDLC Maturity Assessment — Question Bank v2.0.0
+# AI-Assisted SDLC Maturity Assessment: Question Bank v2.0.1
 
 > Microsoft Forms question bank to assess how mature an organization is at using AI, and AI agents, across the software development lifecycle (SDLC).
-> This version replaces [AI-Maturity-Form-Questions.md](AI-Maturity-Form-Questions.md) (v1, 158 questions). The v1 file stays unchanged for historical comparison.
+> This version replaces the v1 question bank (158 questions), which stays available for historical comparison in [v1/perguntas-para-forms.md](v1/perguntas-para-forms.md) and in [framework.json](../framework.json). The machine-readable source for v2 is [framework.v2.json](../framework.v2.json), generated from this file by `scripts/spec_to_framework_v2.py`.
 
 | Field | Value |
 | --- | --- |
-| Version | 2.0.0 |
-| Date | 2026-09-25 |
-| Status | Draft for review |
-| Supersedes | `AI-Maturity-Form-Questions.md` (v1, 3 pillars, 28 capabilities, 158 questions) |
+| Version | 2.0.1 |
+| Date | 2026-09-27 |
+| Status | Approved for use in the kit |
+| Supersedes | v1 question bank (3 pillars, 28 capabilities, 158 questions) |
 | Scope | AI-assisted and agentic software engineering: plan, code, review, test, secure, deliver, operate, measure |
 | Structure | 1 respondent profile section (5 unscored questions) + 9 scored dimensions (61 questions) |
-| Answer scale | `L0`–`L4` + `NA` (same prefixes as v1, redefined anchors, no coverage gaps) |
+| Answer scale | `L0` to `L4` + `NA` (same prefixes as v1, redefined anchors, no coverage gaps) |
 | Evidence base | Microsoft, GitHub, Anthropic, Gartner, DORA, OWASP, NIST, and peer-reviewed or pre-print research including 14 pre-print studies from 2026 and the 2026 peer-reviewed publication of Cui et al. (see [References](#references)) |
 
 ## Contents
@@ -22,12 +22,13 @@
 - [3. Model design](#3-model-design)
 - [4. Answer scale](#4-answer-scale)
 - [5. How to build the form](#5-how-to-build-the-form)
-- [6. Section 0 — Respondent profile](#6-section-0--respondent-profile)
+- [6. Section 0: Respondent profile](#6-section-0-respondent-profile)
 - [7. Scored question bank](#7-scored-question-bank)
 - [8. Scoring and reporting](#8-scoring-and-reporting)
 - [9. Traceability from v1 to v2](#9-traceability-from-v1-to-v2)
 - [10. Import and tooling compatibility](#10-import-and-tooling-compatibility)
 - [11. Assumptions and limitations](#11-assumptions-and-limitations)
+- [Changelog](#changelog)
 - [References](#references)
 
 ---
@@ -37,7 +38,7 @@
 | # | v1 issue | v2 change |
 | --- | --- | --- |
 | 1 | Only about 23 of 158 questions were AI-specific; the rest measured generic DevOps adoption. | Every scored question now asks about AI use, AI governance, or a foundation that research shows amplifies AI outcomes (DORA AI Capabilities Model [1]). |
-| 2 | Scale gap: L2 = 25–50% and L3 = >75%, so 51–75% had no answer. | Contiguous coverage bands: ≤25%, 26–50%, 51–90%, >90% (see [section 4](#4-answer-scale)). |
+| 2 | Scale gap: L2 = 25-50% and L3 = >75%, so 51-75% had no answer. | Contiguous coverage bands: ≤25%, 26-50%, 51-90%, >90% (see [section 4](#4-answer-scale)). |
 | 3 | Each option mixed coverage with "has metrics", so answers were ambiguous. | Each level has one generic descriptor, and each question has its own L3/L4 calibration anchors. |
 | 4 | Duplicates (for example AI code review in P1-C1-Q2 and P1-C4-Q1; devcontainers in P1-C2-Q2, P1-C5-Q1 and P1-C9-Q1; SLSA in P2-C8-Q3 and P2-C10-Q3). | Consolidated into single questions; see [section 9](#9-traceability-from-v1-to-v2). |
 | 5 | Metrics phrased as practices ("deployment frequency been adopted"). | Metrics moved to D9 and phrased as "is it measured and used". |
@@ -68,7 +69,7 @@ Each row states a published finding and the design decision it drives. Gartner i
 | Anthropic Economic Index [23] | 79% of Claude Code conversations were "automation" vs 49% on Claude.ai; "Feedback Loop" patterns were 35.8% on Claude Code vs 21.3% on Claude.ai. | Agentic tools shift work from writing to directing and validating: D3 (specify) and D5 (review). |
 | Anthropic, Claude Code in practice [24] | "People make most of the planning decisions (what to do) and Claude makes most of the execution decisions (how to do it)." Debugging share fell by nearly half over seven months. | D3-Q2 (spec-first work) and D3-Q3 (task scoping for agents). |
 | Anthropic, context engineering [25] | "Context, therefore, must be treated as a finite resource with diminishing marginal returns." | D4-Q4, D4-Q5 and D2-Q4 (curated instructions, prompt/skill libraries, skills training). |
-| Gartner, Jun 2026 [32] | Predicts that by 2028 AI coding costs will overtake the average developer's salary. Recommends classifying tasks as developer-led, developer-with-agent or fully agent-led; model routing by task complexity; mandatory context engineering; token thresholds; token reviews in sprint retrospectives. | D1-Q5 (autonomy classification), D4-Q8 (model routing), D9-Q6 (AI FinOps). |
+| Gartner, Jun 2026 [32] | Predicts that by 2028 AI coding costs will overtake the average developer's salary. Recommends defining "levels of autonomy for each task" (this bank paraphrases them as developer-led, developer-with-agent and fully agent-led); model routing by task complexity; mandatory context engineering; token thresholds; token reviews in sprint retrospectives. | D1-Q5 (autonomy classification), D4-Q8 (model routing), D9-Q6 (AI FinOps). |
 | Gartner, May 2026 [31] | Predicts that by 2027 over 65% of engineering teams using agentic coding will treat IDEs as optional, "shifting control, governance, and validation to automated platforms". | Governance must live in the platform and pipeline (D5-Q3, D8-Q3), not only in the IDE. |
 | Gartner, Jul 2025 [29] | Predicts that by 2028, 90% of enterprise software engineers will use AI code assistants, up from less than 14% in early 2024. | Plan for near-universal access; maturity is about how, not whether. |
 | Gartner, Oct 2024 [30] | Through 2027, GenAI will require 80% of the engineering workforce to upskill; "AI-native software engineering" means engineers "primarily focus on steering AI agents toward the most relevant context and constraints". | D2 (enablement, skills and roles). |
@@ -83,8 +84,8 @@ Fourteen studies published on arXiv between January and September 2026. They are
 
 | Study | Data | Finding | Design implication |
 | --- | --- | --- | --- |
-| Denisov-Blanch et al., RAMP [47] | 441 repositories | Proposes RAMP (Repository AI Maturity Profile), a four-level maturity model based on AI configuration committed to the repository. Agents brought 28–38% more commits at every maturity level. Among agent-first repositories, those without committed AI configuration showed about twice the increase in cognitive complexity (+53% vs +27%) and 1.7x the increase in static-analysis warnings. 73.8% of AI configuration artifacts were committed once and never modified. The authors call the results observational and hypothesis-generating. | D4-Q4 and D4-Q5 ask for instructions that are kept up to date, not set once and forgotten. RAMP can serve as an objective cross-check of D4 self-assessment (see [section 8](#8-scoring-and-reporting)). |
-| Arabat and Sayagh [46] | 15,549 agentic PRs, 148 projects | Adding instruction files does not necessarily improve agent PRs: 27.7% of projects raised their merge rate by at least 20% and 26.35% saw it fall. Projects that improved had longer, well-structured instruction files. | D4-Q4 treats instruction files as engineered artifacts ("instructions as code") whose effect is measured. |
+| Denisov-Blanch et al., RAMP [47] | 441 repositories | Proposes RAMP (Repository AI Maturity Profile), a four-level maturity model based on AI configuration committed to the repository. Agents brought 28-38% more commits at every maturity level. Among agent-first repositories, those without committed AI configuration showed about twice the increase in cognitive complexity (+53% vs +27%) and 1.7x the increase in static-analysis warnings. 73.8% of AI configuration artifacts were committed once and never modified. The authors call the results observational and hypothesis-generating. | D4-Q4 and D4-Q5 ask for instructions that are kept up to date, not set once and forgotten. RAMP can serve as an objective cross-check of D4 self-assessment (see [section 8](#8-scoring-and-reporting)). |
+| Arabat and Sayagh [46] | 15,549 agentic PRs, 148 projects | Adding instruction files does not necessarily improve agent PRs: 27.7% of projects raised their merge rate by at least 20%, while 26.35% saw it decrease (the decrease is reported without a threshold). Projects that improved had longer, well-structured instruction files. | D4-Q4 treats instruction files as engineered artifacts ("instructions as code") whose effect is measured. |
 | Pinna et al. [49] | 7,156 PRs from five coding agents | Task type drives acceptance more than agent choice for most tasks: documentation 82.1% vs new features 66.1%. No single agent was best across all task types. | D1-Q5, D3-Q3 and D4-Q3 set delegation rules per task type; D1-Q3 evaluates tools per task type. |
 | Takerngsaksiri et al. [50] | 6,774 merged agent PRs vs 5,044 human PRs | Merged agent PRs attracted verified follow-up fixes at 1.62 times the odds of human PRs in the same repositories; 69.6% of those fixes came from the same agent. | D9-Q3 adds post-merge fix rate for agent PRs; D5-Q3 keeps equal quality gates. |
 | Sawada et al. [51] | 1,000+ files, about 3,200 changes, 100 repositories | AI-generated files were maintained less often than human code; humans did most of the maintenance that did happen. | D5-Q7 requires a named human owner and health monitoring for AI-generated code. |
@@ -102,7 +103,7 @@ Fourteen studies published on arXiv between January and September 2026. They are
 
 ## 3. Model design
 
-Nine dimensions. D3–D7 follow the SDLC flow; D1, D2 and D8 are enablers; D9 closes the loop with measurement.
+Nine dimensions. D3 to D7 follow the SDLC flow; D1, D2 and D8 are enablers; D9 closes the loop with measurement.
 
 ```mermaid
 flowchart LR
@@ -133,14 +134,16 @@ flowchart LR
 
 ## 4. Answer scale
 
-Use these six options, in this order, for every scored question (D1–D9). Keep the `L0`…`L4`/`NA` prefix at the start of each option: the importer maps prefixes to values 0–4 or null.
+Use these six options, in this order, for every scored question (D1 to D9). Keep the `L0`…`L4`/`NA` prefix at the start of each option: the importer maps prefixes to values 0-4 or null.
 
-- **L0 — Not started — No practice, or AI not permitted for this activity**
-- **L1 — Exploring — Individual or ad hoc use, no agreed guidance (≤25% of teams)**
-- **L2 — Adopting — Team-level practice with written guidance (26–50% of teams)**
-- **L3 — Scaling — Organization standard, governed and measured (51–90% of teams)**
-- **L4 — AI-native — Universal (>90%), continuously evaluated and improved, tied to outcomes**
-- **NA — I do not know / Not applicable**
+- **L0 - Not started: No practice yet, or AI not permitted for this activity**
+- **L1 - Exploring: Individual or ad hoc use, no agreed guidance (more than 0% and up to 25% of teams)**
+- **L2 - Adopting: Team-level practice with written guidance (26-50% of teams)**
+- **L3 - Scaling: Organization standard, governed and measured (51-90% of teams)**
+- **L4 - AI-native: Universal (>90%), continuously evaluated and improved, tied to outcomes**
+- **NA - I do not know / Not applicable**
+
+L0 versus NA: choose `L0` when the practice could apply but does not exist yet, including when AI is not permitted. Choose `NA` only when you do not know the answer, or when the activity does not exist in your scope (for example no infrastructure is managed by your teams).
 
 How to read the scale:
 
@@ -148,11 +151,16 @@ How to read the scale:
 | --- | --- | --- | --- | --- |
 | L0 | None | None or prohibited | None | No AI use |
 | L1 | ≤25% of teams | Informal | Anecdotal | Passive or occasional "Code first" users |
-| L2 | 26–50% | Written team guidance | Activity metrics (usage) | Most users "Code first" |
-| L3 | 51–90% | Organization policy, enforced by platform controls | Outcome metrics (delivery, quality) reviewed regularly | Many users "Agent first" |
+| L2 | 26-50% | Written team guidance | Activity metrics (usage) | Most users "Code first" |
+| L3 | 51-90% | Organization policy, enforced by platform controls | Outcome metrics (delivery, quality) reviewed regularly | Many users "Agent first" |
 | L4 | >90% | Policy as code, audited continuously | Controlled comparisons, cost and value tracked, practice tuned from data | "Multi-agent" use is normal and governed |
 
-If coverage and governance point to different levels, pick the **lower** one. Each question adds **L3 looks like** and **L4 looks like** anchors to calibrate answers.
+If coverage, governance, measurement and the agentic signal point to different levels, pick the **lowest** of them. Each question adds **L3 looks like** and **L4 looks like** anchors to calibrate answers.
+
+Read every question as "to what extent is this true?": the options measure how far the practice is in place, not yes or no. Two more rules keep answers comparable:
+
+- **Every part must be true.** Some questions name several conditions (for example "sponsored, with explicit goals, and communicated"). Answer at the highest level where **all** named conditions hold. A strategy that exists but is not communicated is not L3.
+- **Coverage unit.** Each question in [framework.v2.json](../framework.v2.json) has a `unit`. For `teams`, `repositories`, `services` or `engineers`, read the percentages against that unit. For `organization` questions (a single organization-wide practice such as a strategy or a policy), ignore the percentages and use the governance and measurement columns: L1 informal, L2 written, L3 enforced and measured, L4 continuously improved from data.
 
 ---
 
@@ -160,25 +168,26 @@ If coverage and governance point to different levels, pick the **lower** one. Ea
 
 1. Go to <https://forms.office.com> and create a blank form.
 2. Suggested title: `AI-Assisted SDLC Maturity Assessment v2 - <Organization Name>`.
-3. Add **10 sections** with `+ Add new` → `Section`: Section 0 (profile) and one per dimension (D1–D9).
-4. Section 0: add the five profile questions as **Choice** with the options listed in [section 6](#6-section-0--respondent-profile). They are not scored.
+3. Add **10 sections** with `+ Add new` → `Section`: Section 0 (profile) and one per dimension (D1 to D9).
+4. Section 0: add the five profile questions as **Choice** with the options listed in [section 6](#6-section-0-respondent-profile), each title starting with its ID (for example `R-Q1: Which option best describes your primary role?`). `R-Q3` allows multiple answers. They are not scored. Add the privacy notice from `coleta/INSTRUCOES-FORMS.md` to the form description.
 5. For each scored question, add two elements:
-   - **Choice** (single answer) with the question text in bold below and the six options from [section 4](#4-answer-scale).
+   - **Choice** (single answer). Start the title with the question ID and a colon, then the question text in bold below, for example `D4-Q3: Are well-scoped tasks delegated to a coding agent ...`. The importer finds each column by this ID, so the prefix is required. Use the six options from [section 4](#4-answer-scale).
    - **Long Text** (optional) labelled `Evidence (<ID>)`, for example `Evidence (D4-Q3)`, with the placeholder `Tool, % coverage, metric, time window, link`.
 6. Add the calibration anchors (**L3 looks like**, **L4 looks like**) to the question subtitle so respondents see them.
 7. `Settings` → `Anyone can respond` if sharing by link, or restrict to the organization.
-8. Share the link. Recommended: at least 3 respondents per persona (see profile question `R-Q1`) to reduce single-respondent bias.
-9. When responses are ready: `Responses` → `Open in Excel` and download the `.xlsx`.
+8. Optional, to reduce fatigue for non-technical roles: use `Branching` in Forms so that respondents who pick "Executive" or "Product / program manager" in `R-Q1` can skip D4 to D7. Their skipped questions count as not answered, not as `NA`.
+9. Share the link. Recommended: at least 3 respondents per persona (see profile question `R-Q1`) to reduce single-respondent bias.
+10. When responses are ready: `Responses` → `Open in Excel` and download the `.xlsx`, then run `make import XLSX=<file>`.
 
 Element count: 5 profile + 61 scored + 61 optional evidence fields = 127 elements (v1 had about 324).
 
 ---
 
-## 6. Section 0 — Respondent profile
+## 6. Section 0: Respondent profile
 
-Unscored. Used to segment results. Options are specific to each question (not the L0–L4 scale).
+Unscored. Used to segment results. Options are specific to each question (not the L0 to L4 scale).
 
-### Question `R-Q1` — Primary role
+### Question `R-Q1`: Primary role
 
 > **Which option best describes your primary role?**
 
@@ -192,7 +201,7 @@ Unscored. Used to segment results. Options are specific to each question (not th
 - Executive (CTO, VP, Director)
 - Other
 
-### Question `R-Q2` — Scope of your answers
+### Question `R-Q2`: Scope of your answers
 
 > **Which scope are your answers based on?**
 
@@ -201,7 +210,7 @@ Unscored. Used to segment results. Options are specific to each question (not th
 - One business unit
 - The whole organization
 
-### Question `R-Q3` — Primary AI coding tools
+### Question `R-Q3`: Primary AI coding tools
 
 > **Which AI tools do you use at least weekly for software work? (multiple answers)**
 
@@ -215,22 +224,22 @@ _Type: Choice (multiple answers)._
 - Internal or self-hosted models
 - None
 
-### Question `R-Q4` — Professional experience
+### Question `R-Q4`: Professional experience
 
 > **How many years of professional software experience do you have?**
 
 - Less than 2
-- 2–5
-- 6–10
+- 2-5
+- 6-10
 - More than 10
 
-### Question `R-Q5` — Hands-on time
+### Question `R-Q5`: Hands-on time
 
 > **In a typical week, how much of your time is hands-on building (code, configuration, tests)?**
 
 - Less than 20%
-- 20–50%
-- 51–80%
+- 20-50%
+- 51-80%
 - More than 80%
 
 ---
@@ -239,11 +248,11 @@ _Type: Choice (multiple answers)._
 
 Every scored question uses the six options from [section 4](#4-answer-scale) and is followed by an optional `Evidence (<ID>)` Long Text field. Bracketed numbers refer to [References](#references). **v1 lineage** lists the v1 question IDs that this question replaces or consolidates; `New` means no v1 equivalent.
 
-### D1 — AI Strategy, Policy and Governance
+### D1: AI Strategy, Policy and Governance
 
 _7 questions. Why it matters: DORA identifies a "clear and communicated AI stance" as an amplifier of AI benefits [1]; Microsoft CAF requires that "every agent must be observable, governed, and secure" [19]._
 
-#### `D1-Q1` — AI strategy for software engineering
+#### `D1-Q1`: AI strategy for software engineering
 
 > **Is there a documented AI strategy for software engineering that is sponsored by leadership, states explicit goals, and is communicated to every engineering team?**
 
@@ -253,7 +262,7 @@ _7 questions. Why it matters: DORA identifies a "clear and communicated AI stanc
 - **Basis:** [1], [2], [18]
 - **v1 lineage:** New
 
-#### `D1-Q2` — Acceptable-use policy
+#### `D1-Q2`: Acceptable-use policy
 
 > **Is it clear to engineers how they are and are not allowed to use AI at work, including which data can be shared with AI tools?**
 
@@ -263,7 +272,7 @@ _7 questions. Why it matters: DORA identifies a "clear and communicated AI stanc
 - **Basis:** [1], [2], [20], [21]
 - **v1 lineage:** P1-C1-Q5 (partial)
 
-#### `D1-Q3` — Approved tools and models
+#### `D1-Q3`: Approved tools and models
 
 > **Is there a maintained catalog of approved AI tools, features and models for software development, managed through enterprise or organization policies?**
 
@@ -273,7 +282,7 @@ _7 questions. Why it matters: DORA identifies a "clear and communicated AI stanc
 - **Basis:** [2], [15], [32]
 - **v1 lineage:** New
 
-#### `D1-Q4` — Data protection, IP and residency
+#### `D1-Q4`: Data protection, IP and residency
 
 > **Are data residency, retention, intellectual property and privacy requirements defined and applied to the AI tools and agents used in the SDLC?**
 
@@ -283,17 +292,18 @@ _7 questions. Why it matters: DORA identifies a "clear and communicated AI stanc
 - **Basis:** [19], [20]
 - **v1 lineage:** P1-C1-Q5 (partial)
 
-#### `D1-Q5` — Autonomy levels for AI work
+#### `D1-Q5`: Autonomy levels for AI work
 
 > **Has the organization defined which tasks are developer-led, developer-with-agent, or fully agent-led, and the controls required for each level?**
 
+- **Scope note:** Measures the policy that defines autonomy levels. How tasks are written for agents is D3-Q3; how often work is delegated is D4-Q3.
 - **L3 looks like:** A published matrix maps task types (for example dependency upgrades, test generation, feature work, production changes) to autonomy levels and required approvals.
 - **L4 looks like:** The matrix is enforced by platform rules (for example branch protection, required reviewers per path) and updated from incident and quality data.
 - **Evidence examples:** Autonomy matrix, repository rulesets, change records.
 - **Basis:** [32], [7], [26]
 - **v1 lineage:** New
 
-#### `D1-Q6` — Responsible AI and risk framework
+#### `D1-Q6`: Responsible AI and risk framework
 
 > **Is AI use in software engineering governed by a responsible AI standard and a recognized risk framework (for example Microsoft Responsible AI Standard, NIST AI RMF, ISO/IEC 42001)?**
 
@@ -303,7 +313,7 @@ _7 questions. Why it matters: DORA identifies a "clear and communicated AI stanc
 - **Basis:** [20], [21], [41], [42]
 - **v1 lineage:** P3-C3-Q5 (partial)
 
-#### `D1-Q7` — Agent registry and identity
+#### `D1-Q7`: Agent registry and identity
 
 > **Is every AI agent used in the SDLC (coding agents, review agents, custom agents, pipeline agents) registered with an owner, a purpose, a distinct identity and a defined access scope?**
 
@@ -313,11 +323,11 @@ _7 questions. Why it matters: DORA identifies a "clear and communicated AI stanc
 - **Basis:** [19], [39]
 - **v1 lineage:** P3-C5-Q4 (partial)
 
-### D2 — Enablement, Skills and Culture
+### D2: Enablement, Skills and Culture
 
 _6 questions. Why it matters: Gartner expects GenAI to require 80% of the engineering workforce to upskill through 2027 [30]; DORA asks about training, peer learning and support for experimentation [2]._
 
-#### `D2-Q1` — Structured AI training
+#### `D2-Q1`: Structured AI training
 
 > **Do engineers receive structured training on the approved AI tools and agent workflows, beyond the vendor's default onboarding?**
 
@@ -327,7 +337,7 @@ _6 questions. Why it matters: Gartner expects GenAI to require 80% of the engine
 - **Basis:** [2], [30], [48]
 - **v1 lineage:** P1-C5-Q4, P1-C3-Q6 (partial)
 
-#### `D2-Q2` — Peer learning and champions
+#### `D2-Q2`: Peer learning and champions
 
 > **Are there regular peer-learning formats (demos, brown bags, office hours) and a network of AI champions across teams?**
 
@@ -337,7 +347,7 @@ _6 questions. Why it matters: Gartner expects GenAI to require 80% of the engine
 - **Basis:** [2]
 - **v1 lineage:** P1-C6-Q6
 
-#### `D2-Q3` — Support for experimentation
+#### `D2-Q3`: Support for experimentation
 
 > **Does the organization give engineers time, sandboxes and budget to experiment safely with new AI tools and agent patterns?**
 
@@ -347,7 +357,7 @@ _6 questions. Why it matters: Gartner expects GenAI to require 80% of the engine
 - **Basis:** [2]
 - **v1 lineage:** New
 
-#### `D2-Q4` — Context-engineering skills
+#### `D2-Q4`: Context-engineering skills
 
 > **Are engineers trained to give AI tools the right context (clear task scoping, relevant files, constraints, examples) and to keep context lean?**
 
@@ -357,7 +367,7 @@ _6 questions. Why it matters: Gartner expects GenAI to require 80% of the engine
 - **Basis:** [25], [30], [32]
 - **v1 lineage:** New
 
-#### `D2-Q5` — Roles and career paths
+#### `D2-Q5`: Roles and career paths
 
 > **Have job descriptions, career frameworks and performance expectations been updated for AI-assisted and agentic engineering (for example directing agents, reviewing AI output, AI engineering)?**
 
@@ -367,21 +377,21 @@ _6 questions. Why it matters: Gartner expects GenAI to require 80% of the engine
 - **Basis:** [30]
 - **v1 lineage:** New
 
-#### `D2-Q6` — AI-assisted onboarding
+#### `D2-Q6`: AI-assisted onboarding
 
 > **Do new engineers use AI tools to understand codebases and become productive, with ramp-up time measured?**
 
 - **L3 looks like:** Onboarding includes AI-guided codebase tours and repository instructions; time to first merged PR is tracked; new engineers are checked on code reading and debugging, not only output.
 - **L4 looks like:** Ramp-up and skill metrics are compared across cohorts and used to improve onboarding material and instructions.
 - **Evidence examples:** Onboarding playbook, time-to-first-PR data, skill check results.
-- **Basis:** [33], [6], [48]
+- **Basis:** [6], [48]
 - **v1 lineage:** P1-C5-Q2, P1-C5-Q6, P1-C5-Q7
 
-### D3 — Plan, Specify and Design
+### D3: Plan, Specify and Design
 
 _6 questions. Why it matters: in agentic coding, "people make most of the planning decisions (what to do) and Claude makes most of the execution decisions (how to do it)" [24]; the quality of the task definition drives the quality of agent output [8], [27]._
 
-#### `D3-Q1` — AI in backlog refinement
+#### `D3-Q1`: AI in backlog refinement
 
 > **Is AI used to draft and refine issues or user stories, including acceptance criteria, with a human owner who approves them?**
 
@@ -391,7 +401,7 @@ _6 questions. Why it matters: in agentic coding, "people make most of the planni
 - **Basis:** [16], [17]
 - **v1 lineage:** New
 
-#### `D3-Q2` — Specification before implementation
+#### `D3-Q2`: Specification before implementation
 
 > **For non-trivial changes, is a written plan or specification produced and reviewed before an AI agent implements the change?**
 
@@ -401,17 +411,18 @@ _6 questions. Why it matters: in agentic coding, "people make most of the planni
 - **Basis:** [24], [27], [58]
 - **v1 lineage:** New
 
-#### `D3-Q3` — Task scoping for agents
+#### `D3-Q3`: Task scoping for agents
 
 > **Are tasks given to coding agents well scoped (small, with clear acceptance criteria and pointers to relevant code) before assignment?**
 
+- **Scope note:** Measures how tasks are scoped for agents. The autonomy policy is D1-Q5; delegation volume is D4-Q3.
 - **L3 looks like:** Teams follow written guidance for agent-ready issues; oversized tasks are split before assignment.
 - **L4 looks like:** Agent task success and rework rates are tracked per task type and used to refine the guidance.
 - **Evidence examples:** Agent task guidelines, issue samples, success-rate data.
 - **Basis:** [8], [1], [49]
 - **v1 lineage:** New
 
-#### `D3-Q4` — Architecture and design decisions
+#### `D3-Q4`: Architecture and design decisions
 
 > **Is AI used to support design work (option analysis, threat and failure modes, architecture decision records) while decisions stay with accountable humans?**
 
@@ -421,7 +432,7 @@ _6 questions. Why it matters: in agentic coding, "people make most of the planni
 - **Basis:** [26]
 - **v1 lineage:** P1-C3-Q5, P1-C6-Q5
 
-#### `D3-Q5` — User-centric focus
+#### `D3-Q5`: User-centric focus
 
 > **Is AI-assisted work tied to clear user outcomes and informed by user feedback?**
 
@@ -431,7 +442,7 @@ _6 questions. Why it matters: in agentic coding, "people make most of the planni
 - **Basis:** [1], [3]
 - **v1 lineage:** New
 
-#### `D3-Q6` — AI-assisted modernization
+#### `D3-Q6`: AI-assisted modernization
 
 > **Are AI tools and agents used to understand, upgrade and migrate legacy code (for example framework or runtime upgrades, cloud migration), with results verified by tests?**
 
@@ -441,22 +452,23 @@ _6 questions. Why it matters: in agentic coding, "people make most of the planni
 - **Basis:** [16], [17]
 - **v1 lineage:** New
 
-### D4 — Code and Context Engineering
+### D4: Code and Context Engineering
 
 _8 questions. Why it matters: GitHub measures adoption depth as a progression from "Code first" to "Agent first" to "Multi-agent" [6]; Anthropic describes context as "a finite resource with diminishing marginal returns" [25]._
 
-#### `D4-Q1` — Depth of AI use across surfaces
+#### `D4-Q1`: Depth of AI use across surfaces
 
 > **How deeply do engineers use AI across surfaces: completions and agent edits in the IDE, GitHub agent surfaces (cloud agent, code review, CLI), and several agents together?**
 
-- **L1–L2 look like:** Mostly completions and chat ("Code first").
+- **Scope note:** Measures how deeply AI is used. Whether that use is measured is D9-Q1.
+- **L1 to L2 look like:** Mostly completions and chat ("Code first").
 - **L3 looks like:** Many engineers regularly use at least one GitHub agent surface ("Agent first"), confirmed by usage metrics.
 - **L4 looks like:** Multi-agent use is normal ("Multi-agent"), with cohort distribution tracked monthly.
 - **Evidence examples:** Copilot usage metrics dashboard or API: adoption cohort distribution, daily/weekly active users.
 - **Basis:** [6]
 - **v1 lineage:** P1-C1-Q1
 
-#### `D4-Q2` — Agent mode for multi-file work
+#### `D4-Q2`: Agent mode for multi-file work
 
 > **Do engineers use IDE agent mode (or equivalent) for multi-file changes, and review every change before committing?**
 
@@ -466,17 +478,18 @@ _8 questions. Why it matters: GitHub measures adoption depth as a progression fr
 - **Basis:** [6], [27]
 - **v1 lineage:** P1-C1-Q1 (partial)
 
-#### `D4-Q3` — Coding agent delegation
+#### `D4-Q3`: Coding agent delegation
 
 > **Are coding agents (for example Copilot cloud agent) assigned issues and producing pull requests that are merged after human review?**
 
+- **Scope note:** Measures how much work is delegated to coding agents. The autonomy policy is D1-Q5; task scoping is D3-Q3.
 - **L3 looks like:** Most teams delegate suitable issues to a coding agent; the share of merged PRs that are agent-authored is tracked.
 - **L4 looks like:** Agent PR merge rate, rework and post-merge fix rate are tracked by task type; delegation rules (D1-Q5) are tuned from this data.
 - **Evidence examples:** Agent-authored PR counts, merge rate, time to merge, follow-up fixes.
 - **Basis:** [6], [7], [14], [49], [50]
 - **v1 lineage:** P3-C5-Q1 (partial)
 
-#### `D4-Q4` — Repository instructions
+#### `D4-Q4`: Repository instructions
 
 > **Do repositories contain versioned, reviewed custom instructions for AI tools (for example `.github/copilot-instructions.md`, `AGENTS.md`) describing build, test, conventions and constraints?**
 
@@ -486,7 +499,7 @@ _8 questions. Why it matters: GitHub measures adoption depth as a progression fr
 - **Basis:** [8], [25], [2], [46], [47]
 - **v1 lineage:** New
 
-#### `D4-Q5` — Reusable prompts, agents and skills
+#### `D4-Q5`: Reusable prompts, agents and skills
 
 > **Is there a curated, shared library of reusable prompt files, custom agents and skills, with owners and versioning?**
 
@@ -496,7 +509,7 @@ _8 questions. Why it matters: GitHub measures adoption depth as a progression fr
 - **Basis:** [11], [25], [47]
 - **v1 lineage:** New
 
-#### `D4-Q6` — MCP server governance
+#### `D4-Q6`: MCP server governance
 
 > **Are MCP servers and other agent tools governed through an allowlist or registry, with scoped tools and named owners?**
 
@@ -506,7 +519,7 @@ _8 questions. Why it matters: GitHub measures adoption depth as a progression fr
 - **Basis:** [9], [10], [38] (LLM03, LLM06)
 - **v1 lineage:** P3-C5-Q4
 
-#### `D4-Q7` — AI access to internal knowledge
+#### `D4-Q7`: AI access to internal knowledge
 
 > **Can AI tools and agents securely use internal sources (code, documentation, wikis, work items) as context, through approved connectors?**
 
@@ -516,7 +529,7 @@ _8 questions. Why it matters: GitHub measures adoption depth as a progression fr
 - **Basis:** [1], [2] (AI-accessible internal data)
 - **v1 lineage:** P1-C3-Q2, P1-C3-Q3
 
-#### `D4-Q8` — Model selection and routing
+#### `D4-Q8`: Model selection and routing
 
 > **Is model choice matched to task complexity (smaller models for routine work, frontier models for complex work), by guidance or automatic routing?**
 
@@ -526,11 +539,11 @@ _8 questions. Why it matters: GitHub measures adoption depth as a progression fr
 - **Basis:** [32]
 - **v1 lineage:** New
 
-### D5 — Review, Quality and Testing
+### D5: Review, Quality and Testing
 
 _7 questions. Why it matters: DORA links AI-driven change volume to instability unless strong control systems exist [3]; GitHub requires human review before agent PRs merge [7]; 46% of developers distrust AI output accuracy [37]._
 
-#### `D5-Q1` — AI-assisted code review
+#### `D5-Q1`: AI-assisted code review
 
 > **Is AI code review (for example Copilot code review) applied to pull requests, with a human reviewer still accountable for approval?**
 
@@ -540,57 +553,60 @@ _7 questions. Why it matters: DORA links AI-driven change volume to instability 
 - **Basis:** [6], [12], [54], [55]
 - **v1 lineage:** P1-C1-Q2, P1-C4-Q1
 
-#### `D5-Q2` — Human-in-the-loop for agent changes
+#### `D5-Q2`: Human-in-the-loop for agent changes
 
 > **Do agent-authored pull requests require independent human approval (not the requester), with workflow runs approved before they execute?**
 
 - **L3 looks like:** Default protections are kept: agent PRs need an independent approver; "Approve and run workflows" is not disabled without a documented risk decision.
 - **L4 looks like:** Approval requirements scale with risk (D1-Q5) and are audited; exceptions expire automatically.
 - **Evidence examples:** Rulesets, branch protection, agent settings.
-- **Basis:** [7], [14], [38] (LLM06), [53], [55], [56]
-- **v1 lineage:** P3-C5-Q5
+- **Basis:** [7], [14], [38] (LLM06), [53], [55] (counterpoint: [56])
+- **v1 lineage:** P3-C5-Q5, P2-C9-Q3
 
-#### `D5-Q3` — Same quality gates for AI and human code
+#### `D5-Q3`: Same quality gates for AI and human code
 
 > **Do AI-generated and agent-authored changes pass the same required checks (build, tests, linting, security scans, coverage) as human changes?**
 
-- **L3 looks like:** Required checks are enforced by rulesets on all protected branches, with no bypass for agent identities.
-- **L4 looks like:** Gates are policy as code, applied across all repositories and reviewed after incidents.
+- **L3 looks like:** Required checks are enforced by rulesets on the protected branches of most repositories, with no bypass for agent identities.
+- **L4 looks like:** Gates are policy as code, applied across all repositories (>90%) and reviewed after incidents.
 - **Evidence examples:** Rulesets, required checks, bypass lists.
 - **Basis:** [3], [7], [31], [50], [55]
 - **v1 lineage:** P1-C4-Q2, P1-C4-Q4
 
-#### `D5-Q4` — Small batches
+#### `D5-Q4`: Small batches
 
 > **Are changes kept small (limits on PR size, one concern per PR), including changes produced by agents?**
 
+- **Scope note:** Measures the size of AI-assisted changes. How often code is committed and how fast it is rolled back is D8-Q2.
 - **L3 looks like:** PR size guidance is enforced or monitored; oversized agent PRs are split before review.
 - **L4 looks like:** Batch size is tracked against change failure rate and review time and used to adjust limits.
 - **Evidence examples:** PR size distribution, bot or ruleset configuration.
 - **Basis:** [1], [2], [5], [53], [57]
 - **v1 lineage:** P1-C4-Q6
 
-#### `D5-Q5` — AI-assisted testing
+#### `D5-Q5`: AI-assisted testing
 
 > **Is AI used to generate and maintain tests, with test quality checked (for example coverage of changed code, mutation testing) rather than only test count?**
 
+- **Scope note:** Measures AI used to write and improve tests. Whether automated tests act as a gate is D8-Q7.
 - **L3 looks like:** Most teams use AI to write tests; coverage of changed lines is a required check.
 - **L4 looks like:** Test effectiveness (mutation score, escaped defects) is tracked; flaky tests are detected and quarantined automatically.
 - **Evidence examples:** Coverage reports, mutation-testing results, flaky-test dashboard.
 - **Basis:** [3]
 - **v1 lineage:** P1-C1-Q4, P2-C6-Q1, P2-C6-Q5, P2-C6-Q6, P2-C6-Q7
 
-#### `D5-Q6` — Verification culture and calibrated trust
+#### `D5-Q6`: Verification culture and calibrated trust
 
 > **Do engineers systematically verify AI output (run it, test it, read it) and is trust in AI output measured over time?**
 
+- **Scope note:** Measures review behaviour and trust calibration. How developer experience is surveyed is D9-Q4.
 - **L3 looks like:** Review guidelines explain what to check in AI output; trust in AI output is part of the developer survey.
 - **L4 looks like:** Trust and accuracy are compared with real defect data, and guidance is updated where they diverge.
 - **Evidence examples:** Review guidelines, survey results, defect analysis.
 - **Basis:** [3], [37], [35], [48], [52]
 - **v1 lineage:** New
 
-#### `D5-Q7` — Code health of AI-generated code
+#### `D5-Q7`: Code health of AI-generated code
 
 > **Is the long-term health of AI-generated code monitored (duplication, churn, complexity, maintainability)?**
 
@@ -600,11 +616,11 @@ _7 questions. Why it matters: DORA links AI-driven change volume to instability 
 - **Basis:** [2] (code quality outcome), [5], [47], [51]
 - **v1 lineage:** New
 
-### D6 — Security and AI Supply Chain
+### D6: Security and AI Supply Chain
 
 _7 questions. Why it matters: OWASP lists prompt injection (LLM01), supply chain (LLM03) and excessive agency (LLM06) among the top risks [38], and agent goal hijack (ASI01) first for agentic applications [39]; NIST SP 800-218A adds AI-specific practices to the SSDF [40]._
 
-#### `D6-Q1` — Baseline scanning on every repository
+#### `D6-Q1`: Baseline scanning on every repository
 
 > **Are code scanning (SAST), secret scanning with push protection, and dependency review applied to all repositories, including agent branches?**
 
@@ -614,7 +630,7 @@ _7 questions. Why it matters: OWASP lists prompt injection (LLM01), supply chain
 - **Basis:** [13], [40], [52]
 - **v1 lineage:** P1-C4-Q3, P2-C4-Q1, P2-C4-Q2, P2-C4-Q3, P2-C4-Q4, P2-C10-Q1
 
-#### `D6-Q2` — AI-assisted remediation
+#### `D6-Q2`: AI-assisted remediation
 
 > **Is AI-assisted remediation (for example autofix for code scanning) used to fix vulnerabilities, with fixes reviewed and tested before merge?**
 
@@ -624,7 +640,7 @@ _7 questions. Why it matters: OWASP lists prompt injection (LLM01), supply chain
 - **Basis:** [13], [57]
 - **v1 lineage:** New
 
-#### `D6-Q3` — Prompt injection defenses for agents
+#### `D6-Q3`: Prompt injection defenses for agents
 
 > **Are agents protected against prompt injection and goal hijack (untrusted content treated as data, hidden instructions filtered, network egress restricted)?**
 
@@ -634,7 +650,7 @@ _7 questions. Why it matters: OWASP lists prompt injection (LLM01), supply chain
 - **Basis:** [7], [38] (LLM01), [39] (ASI01)
 - **v1 lineage:** New
 
-#### `D6-Q4` — Least privilege for agents
+#### `D6-Q4`: Least privilege for agents
 
 > **Do agents run with least privilege (scoped tokens, no production secrets, restricted branches, sandboxed environments)?**
 
@@ -644,7 +660,7 @@ _7 questions. Why it matters: OWASP lists prompt injection (LLM01), supply chain
 - **Basis:** [7], [19], [38] (LLM06), [39]
 - **v1 lineage:** P3-C6-Q2, P3-C6-Q3 (partial)
 
-#### `D6-Q5` — AI supply chain
+#### `D6-Q5`: AI supply chain
 
 > **Are models, MCP servers, IDE extensions and agent tools vetted before use, with provenance and SBOMs for what you build and ship?**
 
@@ -654,7 +670,7 @@ _7 questions. Why it matters: OWASP lists prompt injection (LLM01), supply chain
 - **Basis:** [38] (LLM03), [40], [43], [52]
 - **v1 lineage:** P2-C8-Q2, P2-C8-Q3, P2-C10-Q2, P2-C10-Q3, P2-C10-Q5
 
-#### `D6-Q6` — Threat modeling for AI features and agents
+#### `D6-Q6`: Threat modeling for AI features and agents
 
 > **Are AI features and agentic workflows threat-modeled with AI-specific risks (OWASP LLM and Agentic Top 10, NIST SP 800-218A)?**
 
@@ -664,7 +680,7 @@ _7 questions. Why it matters: OWASP lists prompt injection (LLM01), supply chain
 - **Basis:** [38], [39], [40]
 - **v1 lineage:** P2-C4-Q6 (partial), P3-C3-Q5, P3-C5-Q3
 
-#### `D6-Q7` — Audit trail for agent actions
+#### `D6-Q7`: Audit trail for agent actions
 
 > **Are agent sessions and actions (prompts, tool calls, commits, approvals) logged, attributable to an identity, and retained according to policy?**
 
@@ -674,11 +690,11 @@ _7 questions. Why it matters: OWASP lists prompt injection (LLM01), supply chain
 - **Basis:** [19], [7]
 - **v1 lineage:** P3-C6-Q5 (partial)
 
-### D7 — Deliver and Operate
+### D7: Deliver and Operate
 
 _6 questions. Why it matters: more AI-generated change needs strong delivery safety nets [3], [5]; Microsoft recommends continuous observation of agent activity [19] and is extending agents to cloud operations [22]._
 
-#### `D7-Q1` — AI in CI/CD pipelines
+#### `D7-Q1`: AI in CI/CD pipelines
 
 > **Is AI used to author, maintain and troubleshoot CI/CD pipelines (for example explaining failed runs, proposing fixes), on top of pipeline-as-code?**
 
@@ -688,7 +704,7 @@ _6 questions. Why it matters: more AI-generated change needs strong delivery saf
 - **Basis:** [16], [17]
 - **v1 lineage:** P2-C1-Q1, P2-C1-Q2, P2-C1-Q3
 
-#### `D7-Q2` — Progressive delivery and rollback
+#### `D7-Q2`: Progressive delivery and rollback
 
 > **Can teams release AI-assisted changes safely through progressive delivery (feature flags, canary or blue/green) and automated rollback?**
 
@@ -698,7 +714,7 @@ _6 questions. Why it matters: more AI-generated change needs strong delivery saf
 - **Basis:** [3], [5]
 - **v1 lineage:** P2-C1-Q6, P2-C5-Q1, P2-C5-Q2, P2-C5-Q3, P2-C5-Q5
 
-#### `D7-Q3` — AI-assisted incident response
+#### `D7-Q3`: AI-assisted incident response
 
 > **Is AI used in incident response (alert correlation, summarization, root-cause hypotheses, post-incident review drafts) with humans in command?**
 
@@ -708,7 +724,7 @@ _6 questions. Why it matters: more AI-generated change needs strong delivery saf
 - **Basis:** [22]
 - **v1 lineage:** P2-C3-Q6, P2-C7-Q2, P2-C7-Q5
 
-#### `D7-Q4` — Observability of agents
+#### `D7-Q4`: Observability of agents
 
 > **Are AI agents in the SDLC observable (traces of runs and tool calls, latency, failures, cost), for example through OpenTelemetry?**
 
@@ -718,17 +734,17 @@ _6 questions. Why it matters: more AI-generated change needs strong delivery saf
 - **Basis:** [19], [32], [45]
 - **v1 lineage:** P2-C3-Q3, P3-C5-Q6
 
-#### `D7-Q5` — Infrastructure as code with guardrails
+#### `D7-Q5`: Infrastructure as code with guardrails
 
 > **Is AI used to write and review infrastructure as code, with policy-as-code guardrails that block non-compliant changes?**
 
 - **L3 looks like:** Most infrastructure is code; AI-generated IaC passes the same policy checks and plan reviews.
 - **L4 looks like:** Drift is detected and corrected through GitOps; policy violations by AI-generated IaC are tracked and trending down.
 - **Evidence examples:** IaC repositories, policy-as-code rules, drift reports.
-- **Basis:** [40], [3]
+- **Basis:** [3], [19]
 - **v1 lineage:** P2-C2-Q1, P2-C2-Q2, P2-C2-Q4, P2-C2-Q5, P2-C9-Q1
 
-#### `D7-Q6` — Agent-driven operational automation
+#### `D7-Q6`: Agent-driven operational automation
 
 > **Are operational tasks (runbooks, remediation, dependency and patch updates) automated by agents under defined approval rules?**
 
@@ -738,11 +754,11 @@ _6 questions. Why it matters: more AI-generated change needs strong delivery saf
 - **Basis:** [19], [22]
 - **v1 lineage:** P2-C7-Q7, P2-C10-Q4
 
-### D8 — Engineering Foundations (AI amplifiers)
+### D8: Engineering Foundations (AI amplifiers)
 
 _7 questions. Why it matters: DORA finds that these capabilities amplify the benefits of AI adoption, and that a high-quality internal platform correlates with the ability to unlock AI value [1], [3]._
 
-#### `D8-Q1` — Version control for everything
+#### `D8-Q1`: Version control for everything
 
 > **Are application code, configuration, build automation, system configuration and AI prompts/instructions all stored in version control?**
 
@@ -752,17 +768,18 @@ _7 questions. Why it matters: DORA finds that these capabilities amplify the ben
 - **Basis:** [1], [2]
 - **v1 lineage:** P1-C7-Q1 (partial)
 
-#### `D8-Q2` — Commit frequency and fast rollback
+#### `D8-Q2`: Commit frequency and fast rollback
 
 > **Do engineers commit small changes frequently and rely on fast undo/revert when experimenting with AI output?**
 
+- **Scope note:** Measures commit frequency and rollback speed. The size of AI-assisted changes is D5-Q4.
 - **L3 looks like:** Most engineers commit at least daily; reverting a change is routine and fast.
 - **L4 looks like:** Trunk-based development with short-lived branches is the norm; revert time is measured.
 - **Evidence examples:** Commit frequency data, branch age.
 - **Basis:** [2]
 - **v1 lineage:** P2-C1-Q4
 
-#### `D8-Q3` — Quality internal platform
+#### `D8-Q3`: Quality internal platform
 
 > **Is there an internal developer platform that is easy to use, abstracts infrastructure, and makes the secure and compliant path the default for humans and agents?**
 
@@ -772,7 +789,7 @@ _7 questions. Why it matters: DORA finds that these capabilities amplify the ben
 - **Basis:** [1], [2], [3], [31]
 - **v1 lineage:** P1-C2-Q1, P1-C2-Q3, P1-C2-Q4, P1-C2-Q5, P1-C2-Q6
 
-#### `D8-Q4` — Healthy data ecosystem
+#### `D8-Q4`: Healthy data ecosystem
 
 > **Can engineers and AI tools find and use reliable internal data (not siloed, good quality, answerable quickly)?**
 
@@ -782,7 +799,7 @@ _7 questions. Why it matters: DORA finds that these capabilities amplify the ben
 - **Basis:** [1], [2]
 - **v1 lineage:** P3-C4-Q1, P3-C4-Q2, P3-C4-Q3
 
-#### `D8-Q5` — Reproducible environments for humans and agents
+#### `D8-Q5`: Reproducible environments for humans and agents
 
 > **Are development environments reproducible (devcontainers, cloud workspaces, pinned toolchains) so that humans and agents build and test the same way?**
 
@@ -792,7 +809,7 @@ _7 questions. Why it matters: DORA finds that these capabilities amplify the ben
 - **Basis:** [8]
 - **v1 lineage:** P1-C2-Q2, P1-C5-Q1, P1-C9-Q1, P1-C9-Q2, P1-C9-Q3
 
-#### `D8-Q6` — Documentation as AI-ready context
+#### `D8-Q6`: Documentation as AI-ready context
 
 > **Is documentation kept as code, current and owned, so it can serve as reliable context for AI tools?**
 
@@ -802,31 +819,33 @@ _7 questions. Why it matters: DORA finds that these capabilities amplify the ben
 - **Basis:** [25], [2]
 - **v1 lineage:** P1-C3-Q1, P1-C3-Q4, P1-C7-Q1, P1-C7-Q2, P1-C7-Q3, P1-C7-Q4
 
-#### `D8-Q7` — Automated testing as a control system
+#### `D8-Q7`: Automated testing as a control system
 
 > **Is automated testing deep and fast enough to catch regressions from high volumes of AI-generated change (unit, integration, end-to-end, contract)?**
 
+- **Scope note:** Measures automated tests as a control system. AI used to write tests is D5-Q5.
 - **L3 looks like:** Most services have layered automated tests that run on every PR within agreed time budgets.
 - **L4 looks like:** Test suites are tuned from escaped-defect data; feedback time is tracked and improving.
 - **Evidence examples:** Test suite inventory, pipeline durations, escaped-defect data.
 - **Basis:** [3]
 - **v1 lineage:** P2-C6-Q2, P2-C6-Q3, P2-C6-Q4, P1-C8-Q3
 
-### D9 — Measurement, Value and AI FinOps
+### D9: Measurement, Value and AI FinOps
 
 _7 questions. Why it matters: controlled studies range from 55.8% faster [33] and 26.08% more completed tasks [34] to 19% slower with a strong perception gap [35], so organizations need their own objective measurement; Gartner predicts AI coding costs will overtake the average developer's salary by 2028 [32]._
 
-#### `D9-Q1` — Adoption depth metrics
+#### `D9-Q1`: Adoption depth metrics
 
 > **Is AI adoption tracked with telemetry beyond seat counts (active users, engagement by feature, adoption cohorts)?**
 
+- **Scope note:** Measures whether adoption is tracked. How deeply AI is used is D4-Q1.
 - **L3 looks like:** Usage metrics (for example the Copilot usage metrics API or dashboard) are reviewed monthly by engineering leadership.
 - **L4 looks like:** Cohort movement is a managed target; enablement actions are evaluated by their effect on cohorts.
 - **Evidence examples:** Usage dashboards, cohort trend reports.
 - **Basis:** [6]
 - **v1 lineage:** P1-C1-Q3
 
-#### `D9-Q2` — Delivery outcome metrics
+#### `D9-Q2`: Delivery outcome metrics
 
 > **Are software delivery metrics (lead time, deployment frequency, change failure rate, time to restore) tracked and compared before and after AI adoption?**
 
@@ -834,9 +853,9 @@ _7 questions. Why it matters: controlled studies range from 55.8% faster [33] an
 - **L4 looks like:** Delivery metrics are part of AI investment decisions; regressions trigger corrective action.
 - **Evidence examples:** DORA dashboards, baseline vs current comparison.
 - **Basis:** [2], [3], [5]
-- **v1 lineage:** P1-C8-Q1, P2-C1-Q5, P2-C5-Q6
+- **v1 lineage:** P1-C8-Q1, P2-C1-Q5, P2-C5-Q6, P2-C3-Q1
 
-#### `D9-Q3` — Pull request flow metrics
+#### `D9-Q3`: Pull request flow metrics
 
 > **Are PR throughput, time to merge and the share and merge rate of AI- or agent-authored PRs tracked?**
 
@@ -846,17 +865,18 @@ _7 questions. Why it matters: controlled studies range from 55.8% faster [33] an
 - **Basis:** [6], [34], [50]
 - **v1 lineage:** P1-C4-Q5, P1-C8-Q5
 
-#### `D9-Q4` — Developer experience and friction
+#### `D9-Q4`: Developer experience and friction
 
 > **Is developer experience measured regularly (perceived productivity, friction, trust in AI, satisfaction), using a recognized framework such as SPACE or the DORA outcome questions?**
 
+- **Scope note:** Measures the developer experience survey. Review behaviour and trust calibration is D5-Q6.
 - **L3 looks like:** A survey runs at least twice a year with good participation; results are shared and acted on.
-- **L4 looks like:** Survey results are combined with telemetry (D9-Q1–Q3) to find and remove friction.
+- **L4 looks like:** Survey results are combined with telemetry (D9-Q1 to Q3) to find and remove friction.
 - **Evidence examples:** Survey instrument, participation rate, action log.
 - **Basis:** [2], [44]
 - **v1 lineage:** P1-C8-Q2, P1-C8-Q4
 
-#### `D9-Q5` — Controlled measurement of impact
+#### `D9-Q5`: Controlled measurement of impact
 
 > **Is AI impact estimated with controlled or cohort-based comparisons (for example pilot vs control, adoption cohorts, before/after with a baseline) rather than only self-reported estimates?**
 
@@ -866,7 +886,7 @@ _7 questions. Why it matters: controlled studies range from 55.8% faster [33] an
 - **Basis:** [35], [34], [6]
 - **v1 lineage:** New
 
-#### `D9-Q6` — AI cost governance (AI FinOps)
+#### `D9-Q6`: AI cost governance (AI FinOps)
 
 > **Are AI costs (seats, premium requests, tokens, agent runs) budgeted, monitored per team and use case, with thresholds and regular reviews?**
 
@@ -876,37 +896,41 @@ _7 questions. Why it matters: controlled studies range from 55.8% faster [33] an
 - **Basis:** [32], [38] (LLM10), [45]
 - **v1 lineage:** P3-C9-Q1 (partial)
 
-#### `D9-Q7` — Business value linkage
+#### `D9-Q7`: Business value linkage
 
 > **Are AI engineering outcomes connected to business value (business case, ROI assumptions, OKRs) and reviewed with finance or business stakeholders?**
 
 - **L3 looks like:** A business case with explicit assumptions exists and is reviewed at least yearly.
-- **L4 looks like:** Value is reported on a fixed cadence with measured inputs from D9-Q1–Q6; investment is adjusted from results.
+- **L4 looks like:** Value is reported on a fixed cadence with measured inputs from D9-Q1 to Q6; investment is adjusted from results.
 - **Evidence examples:** Business case, value reports.
-- **Basis:** [28], [32]
+- **Basis:** [18], [32]
 - **v1 lineage:** P1-C8-Q6, P3-C9-Q5
 
 ---
 
 ## 8. Scoring and reporting
 
-The rules below are a proposed method. Thresholds and weights are design choices for this kit, not an industry standard; adjust them per engagement and record the change.
+The rules below are the method implemented by `scripts/assessment_engine.py` for v2. Thresholds and weights are design choices for this kit, not an industry standard; adjust them per engagement and record the change in `respostas.json` (`target_overrides`, `dimension_weights`).
 
 | Step | Rule |
 | --- | --- |
-| Answer value | `L0`=0, `L1`=1, `L2`=2, `L3`=3, `L4`=4, `NA`=null (excluded). |
-| Question score | Mean of respondent values, overall and per persona (`R-Q1`). |
-| Dimension score | Mean of its question scores. Flag **low confidence** if more than 30% of answers in the dimension are `NA`. |
-| Overall score | Mean of the nine dimension scores (equal weights). |
-| Level band | 0.00–0.79 = L0 · 0.80–1.59 = L1 · 1.60–2.39 = L2 · 2.40–3.19 = L3 · 3.20–4.00 = L4. |
-| Amplification risk flag | Flag when D5, D6 or D8 scores at least one full band below the overall score. DORA finds AI amplifies existing weaknesses [3], so weak foundations limit the value of higher adoption. |
-| Perception gap flag | Flag when executives (`R-Q1`) score a dimension at least one band above hands-on engineers. Self-reported impact can differ strongly from measured impact [35]. |
+| Answer value | `L0`=0, `L1`=1, `L2`=2, `L3`=3, `L4`=4, `NA`=null (excluded). A question a respondent skipped (for example through branching) is also excluded. |
+| Question score | Pooled mean of all respondent values for the question (each respondent counts once). Persona scores use the same rule within each `R-Q1` group. |
+| Dimension score | Mean of its answered question scores (question weights are 1.0). If every question in a dimension is unanswered or `NA`, the dimension has no score and is excluded from the overall score. Flag **low confidence** if more than 30% of the answers in the dimension are `NA`. |
+| Overall score | Weighted mean of the dimension scores that have a value. Dimension weights default to 1.0 (equal weights) and may be set between 0.5 and 2.0. |
+| Level band | Half-open intervals: L0 = [0.0, 0.8) · L1 = [0.8, 1.6) · L2 = [1.6, 2.4) · L3 = [2.4, 3.2) · L4 = [3.2, 4.0]. Scores are compared unrounded. These bands apply to v2 only; v1 reports keep their own bands. |
+| Coverage status | `OK` when at least 60% of the 61 questions have a score (37 or more), `WARNING` from 40% (25 to 36), `BLOCKED` below 25. A blocked result must not be used for decisions. |
+| Amplification risk flag | Flag when D5, D6 or D8 is in a band at least one full band below the band of the overall score. DORA finds AI amplifies existing weaknesses [3], so weak foundations limit the value of higher adoption. |
+| Perception gap flag | Executives are respondents who chose "Executive (CTO, VP, Director)" in `R-Q1`. Hands-on engineers are respondents who chose "51-80%" or "More than 80%" in `R-Q5`, excluding executives. Flag a dimension when the executive score is in a band at least one full band above the hands-on score. Evaluate only when each group has at least 3 respondents; otherwise report "insufficient sample". Self-reported impact can differ strongly from measured impact [35]. |
+| Scope caveat | Report the `R-Q2` mix. When more than half of the respondents answered for "A single team", state that results may not represent the whole organization. |
+| Gap and priority | Per dimension: `gap = target - score` (default target 3.0, override per dimension). `priority_score = weight × gap`. `P0` ≥ 2.4, `P1` ≥ 1.6, `P2` ≥ 0.9, else `P3`. |
+| Strategy mapping | Each dimension maps to kit strategies S1 to S7 (see `framework.v2.json`). A strategy is recommended when the sum of the priority scores of its dimensions is at least 0.9. |
 
 Recommended outputs:
 
-- Heatmap of dimensions (rows) by persona (columns).
+- Heatmap of dimensions (rows) by persona (columns), with the number of respondents per persona. Personas with fewer than 3 respondents are marked as low sample.
 - Top 5 lowest-scoring questions with their L3 anchors as the starting backlog.
-- Evidence coverage: share of answers with a filled `Evidence (<ID>)` field. Treat L3/L4 answers without evidence as unverified until confirmed.
+- Evidence coverage: share of answered (non-`NA`) answers with a filled `Evidence (<ID>)` field. A question scored in L3 or L4 where fewer than half of the answers carry evidence is listed as **unverified** until confirmed.
 - Repository cross-check for D4: scan repositories for committed AI configuration (instruction files, custom agents, orchestration) using the RAMP levels [47], and compare with the D4-Q4 and D4-Q5 answers.
 - Where available, compare D4 and D9 answers with telemetry (Copilot usage metrics [6], DORA metrics) before presenting results.
 
@@ -914,37 +938,37 @@ Recommended outputs:
 
 ## 9. Traceability from v1 to v2
 
-v1 had 158 questions. In v2, 97 of them are consolidated into the 61 scored questions (several v1 questions often map to one v2 question), and 61 are retired from the core assessment because they measure general DevOps or application-platform practices rather than AI use in the SDLC. Retired items can still run as an optional baseline module by reusing the v1 file.
+v1 had 158 questions. In v2, 99 of them are consolidated into the 61 scored questions (several v1 questions often map to one v2 question), and 59 are retired from the core assessment because they measure general DevOps or application-platform practices rather than AI use in the SDLC. Retired items can still run as an optional baseline module by reusing the v1 file.
 
 | v1 capability | Consolidated into (v2) | Retired from core (v1 IDs) |
 | --- | --- | --- |
-| P1-C1 AI Coding Assistants | D4-Q1, D4-Q2, D5-Q1, D9-Q1, D5-Q5, D1-Q2, D1-Q4 | — |
-| P1-C2 Developer Experience Platform | D8-Q3, D8-Q5 | — |
-| P1-C3 Knowledge Management | D8-Q6, D4-Q7, D3-Q4, D2-Q1 | — |
+| P1-C1 AI Coding Assistants | D4-Q1, D4-Q2, D5-Q1, D9-Q1, D5-Q5, D1-Q2, D1-Q4 | None |
+| P1-C2 Developer Experience Platform | D8-Q3, D8-Q5 | None |
+| P1-C3 Knowledge Management | D8-Q6, D4-Q7, D3-Q4, D2-Q1 | None |
 | P1-C4 Code Review Automation | D5-Q1, D5-Q3, D6-Q1, D9-Q3, D5-Q4 | Q7 (reviewer load balancing) |
 | P1-C5 Developer Onboarding and Training | D8-Q5, D2-Q6, D2-Q1 | Q3 (mentor pairing), Q5 (shadow on-call) |
 | P1-C6 Inner Source and Collaboration | D3-Q4, D2-Q2 | Q1, Q2, Q3, Q4 (generic inner-source practices) |
 | P1-C7 Documentation Automation | D8-Q6, D8-Q1 | Q5 (docs analytics) |
-| P1-C8 Developer Productivity Measurement | D9-Q2, D9-Q4, D8-Q7, D9-Q3, D9-Q7 | — |
+| P1-C8 Developer Productivity Measurement | D9-Q2, D9-Q4, D8-Q7, D9-Q3, D9-Q7 | None |
 | P1-C9 Environment and Workspace Automation | D8-Q5 | Q4 (on-demand test data), Q5 (workspace telemetry) |
-| P2-C1 CI/CD Pipeline Intelligence | D7-Q1, D8-Q2, D9-Q2, D7-Q2 | — |
+| P2-C1 CI/CD Pipeline Intelligence | D7-Q1, D8-Q2, D9-Q2, D7-Q2 | None |
 | P2-C2 Infrastructure as Code | D7-Q5 | Q3 (module library; see D8-Q3 golden paths), Q6 (ephemeral environments) |
-| P2-C3 Observability and Monitoring | D7-Q4, D7-Q3 | Q1, Q2, Q4, Q5 (general observability) |
+| P2-C3 Observability and Monitoring | D7-Q4, D7-Q3, D9-Q2 | Q2, Q4, Q5 (general observability) |
 | P2-C4 Security Integration (DevSecOps) | D6-Q1, D6-Q6 | Q5 (DAST) |
 | P2-C5 Release and Deployment Strategies | D7-Q2, D9-Q2 | Q4 (ChatOps) |
-| P2-C6 Test Automation | D5-Q5, D8-Q7 | — |
+| P2-C6 Test Automation | D5-Q5, D8-Q7 | None |
 | P2-C7 Incident Management and SRE | D7-Q3, D7-Q6 | Q1, Q3, Q4, Q6 (general SRE practices) |
 | P2-C8 Artifact and Package Management | D6-Q5 | Q1, Q4, Q5 (general artifact management) |
-| P2-C9 Change Management and GitOps | D7-Q5 | Q2, Q3, Q4, Q5 (general change management; agent approvals now in D5-Q2) |
-| P2-C10 Dependency and Supply Chain Security | D6-Q1, D6-Q5, D7-Q6 | — |
-| P3-C1 Cloud-Native Architecture | — | Q1–Q5 (application platform, not AI in SDLC) |
-| P3-C2 API Management | — | Q1–Q5 |
-| P3-C3 AI Application Development | D1-Q6, D6-Q6 | Q1–Q4 (building AI products; recommend a separate AI application/agent platform assessment) |
+| P2-C9 Change Management and GitOps | D7-Q5, D5-Q2 | Q2, Q4, Q5 (general change management) |
+| P2-C10 Dependency and Supply Chain Security | D6-Q1, D6-Q5, D7-Q6 | None |
+| P3-C1 Cloud-Native Architecture | None | Q1 to Q5 (application platform, not AI in SDLC) |
+| P3-C2 API Management | None | Q1 to Q5 |
+| P3-C3 AI Application Development | D1-Q6, D6-Q6 | Q1 to Q4 (building AI products; recommend a separate AI application/agent platform assessment) |
 | P3-C4 Data Platform and Lakehouse | D8-Q4 | Q4, Q5 |
 | P3-C5 Agentic Applications | D4-Q3, D4-Q6, D1-Q7, D5-Q2, D6-Q6, D7-Q4 | Q2 (orchestration framework choice) |
 | P3-C6 Identity and Access Management | D6-Q4, D6-Q7 | Q1 (SSO), Q4 (conditional access) |
-| P3-C7 Multi-Cloud and Portability | — | Q1–Q5 |
-| P3-C8 Performance and Scalability | — | Q1–Q5 |
+| P3-C7 Multi-Cloud and Portability | None | Q1 to Q5 |
+| P3-C8 Performance and Scalability | None | Q1 to Q5 |
 | P3-C9 FinOps and Cost Optimization | D9-Q6, D9-Q7 | Q2, Q3, Q4 (general cloud FinOps) |
 
 The per-question lineage is in the **v1 lineage** line of each v2 question.
@@ -955,12 +979,12 @@ The per-question lineage is in the **v1 lineage** line of each v2 question.
 
 | Item | v1 | v2 | Action needed |
 | --- | --- | --- | --- |
-| Option prefixes | `L0`–`L4`, `NA` | Unchanged | None. |
+| Option prefixes | `L0` to `L4`, `NA` | Unchanged | None. |
 | Question ID pattern | `P#-C#-Q#` | `D#-Q#` (scored), `R-Q#` (profile) | If `/importar-respostas-excel` matches the v1 pattern, extend it to accept `D#-Q#` and `R-Q#`. |
 | Evidence field label | `Evidence (<ID>)` | Unchanged pattern | None. |
-| Profile questions | None | `R-Q1`–`R-Q5`, not scored, `R-Q3` is multiple choice | Importer must store them as segment attributes and exclude them from scoring. |
-| Grouping | Pillar → capability | Dimension | Update `respostas.json` aggregation and downstream reports (`/pipeline-completo`) to group by `D1`–`D9`. |
-| Historical comparison | — | Section 9 table | Use the lineage lines to compare a v1 result with a v2 result per capability. |
+| Profile questions | None | `R-Q1` to `R-Q5`, not scored, `R-Q3` is multiple choice | Importer must store them as segment attributes and exclude them from scoring. |
+| Grouping | Pillar → capability | Dimension | Update `respostas.json` aggregation and downstream reports (`/pipeline-completo`) to group by `D1` to `D9`. |
+| Historical comparison | None | Section 9 table | Use the lineage lines to compare a v1 result with a v2 result per capability. |
 
 ---
 
@@ -968,19 +992,38 @@ The per-question lineage is in the **v1 lineage** line of each v2 question.
 
 - **Self-assessment bias.** Answers are perceptions. METR found experienced developers believed AI sped them up by 20% while they were 19% slower in that study [35]. Triangulate D4, D5 and D9 answers with telemetry and evidence.
 - **Study context.** The productivity studies cited differ in setting: a bounded lab task [33], large field experiments [34], and a 16-developer RCT on mature open-source repositories [35]. None should be used alone as a benchmark for a specific client.
-- **Forecasts are not facts.** Gartner items in this document are predictions [28]–[32].
+- **Forecasts are not facts.** Gartner items in this document are predictions [28] to [32].
 - **Design choices.** Coverage bands, level bands, equal weights and flags in sections 4 and 8 are proposals for this kit, not published standards.
 - **Product change rate.** Product names and features (for example Copilot cloud agent, code review, MCP policies) change often. Review product-specific wording and links every quarter.
-- **Scope.** v2 measures AI in the software development lifecycle. Maturity at building AI products and agent platforms (v1 P3-C3, most of P3-C5) needs a separate assessment.
+- **Scope.** v2 measures AI in the software development lifecycle. Maturity at building AI products and agent platforms (v1 P3-C3-Q1 to Q4 and P3-C5-Q2) needs a separate assessment.
 - **Pre-prints and open-source bias.** Most 2026 studies in [section 2.1](#21-2026-research-update) are arXiv pre-prints based on open-source repositories (AIDev dataset). Use them as directional evidence and re-check when peer-reviewed versions appear.
 - **Contested practices.** Research disagrees on the future of mandatory human code review [55], [56]. v2 scores human approval for agent PRs as the current default and lets organizations move to risk-based approval (D1-Q5) when evidence supports it.
+
+---
+
+## Changelog
+
+### 2.0.1 (2026-09-27)
+
+- Question titles in Forms must start with the question ID (`D4-Q3: ...`, `R-Q1: ...`) so the importer can find each column.
+- Level bands are half-open intervals with no gaps; the scoring section now defines pooled means, empty dimensions, dimension weights, coverage status, gap and priority, strategy mapping, the perception-gap groups (executives from `R-Q1`, hands-on engineers from `R-Q5`), a minimum of 3 respondents per group, and the `R-Q2` scope caveat.
+- The scale explains L0 versus NA, the "every part must be true" rule, the coverage unit of each question, and applies the "pick the lowest" rule to all four columns.
+- Scope notes separate overlapping questions (D4-Q1/D9-Q1, D5-Q4/D8-Q2, D5-Q5/D8-Q7, D5-Q6/D9-Q4, D1-Q5/D3-Q3/D4-Q3).
+- Traceability: P2-C3-Q1 (time to restore) is consolidated into D9-Q2 and P2-C9-Q3 (change approvals) into D5-Q2. The partition is now 99 consolidated and 59 retired.
+- Citations: removed [33] from D2-Q6, [28] from D9-Q7 (replaced by [18]) and [40] from D7-Q5 (replaced by [19]); [56] is marked as a counterpoint in D5-Q2; the Gartner [32] autonomy wording and the Arabat and Sayagh [46] result are quoted more precisely.
+- D5-Q3 anchors no longer require 100% coverage at L3.
+- Em dashes and en dashes removed, following the kit writing rules.
+
+### 2.0.0 (2026-09-25)
+
+- First v2 draft: 9 dimensions, 61 scored questions, 5 profile questions, 58 references.
 
 ---
 
 ## References
 
 1. DORA. _DORA AI Capabilities Model_. Google Cloud, 2025. <https://dora.dev/ai/capabilities-model/>
-2. DORA. _DORA AI Capabilities Model — Survey Questions_. Google Cloud, 2025. <https://dora.dev/ai/capabilities-model/questions/>
+2. DORA. _DORA AI Capabilities Model: Survey Questions_. Google Cloud, 2025. <https://dora.dev/ai/capabilities-model/questions/>
 3. Google Cloud. _Announcing the 2025 DORA Report: State of AI-Assisted Software Development_. 2025. <https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report>
 4. DORA. _State of AI-assisted Software Development 2025_. <https://dora.dev/research/2025/dora-report/>
 5. Google Cloud. _Announcing the 2024 DORA report_. 2024. <https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report>
@@ -996,9 +1039,9 @@ The per-question lineage is in the **v1 lineage** line of each v2 question.
 15. GitHub Docs. _Managing policies and features for GitHub Copilot in your organization_. <https://docs.github.com/copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization>
 16. Microsoft Azure Blog. _Agentic DevOps: Evolving software development with GitHub Copilot and Microsoft Azure_. 2025. <https://azure.microsoft.com/en-us/blog/agentic-devops-evolving-software-development-with-github-copilot-and-microsoft-azure/>
 17. Microsoft for Developers. _Agentic DevOps in action: Reimagining every phase of the developer lifecycle_. 2025. <https://developer.microsoft.com/blog/reimagining-every-phase-of-the-developer-lifecycle/>
-18. Microsoft Learn. _AI strategy — Cloud Adoption Framework_. <https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/strategy>
-19. Microsoft Learn. _Govern and secure AI agents — Cloud Adoption Framework_. <https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization>
-20. Microsoft Learn. _Responsible AI policies — Cloud Adoption Framework_. <https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/responsible-ai-policies>
+18. Microsoft Learn. _AI strategy: Cloud Adoption Framework_. <https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/strategy>
+19. Microsoft Learn. _Govern and secure AI agents: Cloud Adoption Framework_. <https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization>
+20. Microsoft Learn. _Responsible AI policies: Cloud Adoption Framework_. <https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/responsible-ai-policies>
 21. Microsoft. _Responsible AI: Principles and approach (Microsoft Responsible AI Standard)_. <https://www.microsoft.com/en-us/ai/principles-and-approach>
 22. Microsoft Azure Blog. _Announcing Azure Copilot agents and AI infrastructure innovations_. 2025. <https://azure.microsoft.com/en-us/blog/announcing-azure-copilot-agents-and-ai-infrastructure-innovations/>
 23. Anthropic. _Anthropic Economic Index: AI's impact on software development_. 2025-04-28. <https://www.anthropic.com/research/impact-software-development>
@@ -1015,13 +1058,13 @@ The per-question lineage is in the **v1 lineage** line of each v2 question.
 34. Cui, Z. K., Demirer, M., Jaffe, S., Musolff, L., Peng, S., Salz, T. _The Effects of Generative AI on High-Skilled Work: Evidence from Three Field Experiments with Software Developers_. Management Science, published online 2026-02-27. <https://doi.org/10.1287/mnsc.2025.00535> (pre-print: <https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4945566>)
 35. METR. _Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity_. 2025-07-10. <https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/> (paper: <https://arxiv.org/abs/2507.09089>)
 36. METR. _We are Changing our Developer Productivity Experiment Design_. 2026-02-24. <https://metr.org/blog/2026-02-24-uplift-update/>
-37. Stack Overflow. _2025 Developer Survey — AI_. <https://survey.stackoverflow.co/2025/ai>
+37. Stack Overflow. _2025 Developer Survey: AI_. <https://survey.stackoverflow.co/2025/ai>
 38. OWASP GenAI Security Project. _OWASP Top 10 for LLM Applications 2025_. <https://genai.owasp.org/llm-top-10/>
 39. OWASP GenAI Security Project. _OWASP Top 10 for Agentic Applications for 2026_. <https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/>
-40. NIST. _SP 800-218A: Secure Software Development Practices for Generative AI and Dual-Use Foundation Models — An SSDF Community Profile_. 2024-07. <https://csrc.nist.gov/pubs/sp/800/218/a/final>
+40. NIST. _SP 800-218A: Secure Software Development Practices for Generative AI and Dual-Use Foundation Models: An SSDF Community Profile_. 2024-07. <https://csrc.nist.gov/pubs/sp/800/218/a/final>
 41. NIST. _AI Risk Management Framework_. <https://www.nist.gov/itl/ai-risk-management-framework>
-42. ISO. _ISO/IEC 42001:2023 — Artificial intelligence — Management system_. <https://www.iso.org/standard/81230.html>
-43. OpenSSF. _SLSA — Supply-chain Levels for Software Artifacts_. <https://slsa.dev/>
+42. ISO. _ISO/IEC 42001:2023: Artificial intelligence: Management system_. <https://www.iso.org/standard/81230.html>
+43. OpenSSF. _SLSA: Supply-chain Levels for Software Artifacts_. <https://slsa.dev/>
 44. Forsgren, N., Storey, M.-A., Maddila, C., Zimmermann, T., Houck, B., Butler, J. _The SPACE of Developer Productivity_. ACM Queue, 2021. <https://queue.acm.org/detail.cfm?id=3454124>
 45. Liu, B., Qiu, H., Goiri, Í., Fonseca, R., Bianchini, R., Choukse, E. _Agentic Coding in the Wild: Characterizing GitHub Copilot Traces at Production Scale_. arXiv:2608.00101, 2026-07-30. <https://arxiv.org/abs/2608.00101>
 46. Arabat, A., Sayagh, M. _Toward Instructions-as-Code: Understanding the Impact of Instruction Files on Agentic Pull Requests_. arXiv:2606.13449, 2026-06-11. <https://arxiv.org/abs/2606.13449>
