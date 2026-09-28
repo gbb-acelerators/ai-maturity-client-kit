@@ -252,6 +252,16 @@ def smoke_v2() -> None:
             raise SmokeError("v2 payload must have 9 dimensions")
         _ok(f"v2 overall = {payload['overall']['score']} "
             f"({payload['overall']['label']}), 9 dimensions, groups G1-G3")
+        impl = payload.get("impl") or {}
+        placed = sum(len(ph["dimensions"]) for ph in impl.get("phases", []))
+        if placed != len(impl.get("with_gap", [])):
+            raise SmokeError("implementation guide must place every "
+                             "dimension with a gap in a phase")
+        if impl.get("wizard_present"):
+            raise SmokeError("no wizard inputs were staged, but the "
+                             "implementation guide found some")
+        _ok(f"v2 implementation guide: {len(impl['phases'])} phase(s), "
+            f"{placed} dimension(s), {len(impl['risks'])} risk(s)")
 
 
 def main() -> int:

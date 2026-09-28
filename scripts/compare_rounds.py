@@ -9,10 +9,13 @@
   a like-for-like trend.
 - v1 → v1: overall, pillar and question deltas.
 
-Writes saida/comparacao-rodadas.json and saida/comparacao-rodadas.md.
+Writes saida/comparacao-rodadas.json and saida/comparacao-rodadas.md;
+with --pdf also saida/comparacao-rodadas.pdf in the language of the AFTER
+round (or --lang).
 
 Usage:
     python3 scripts/compare_rounds.py BEFORE.json AFTER.json [--out DIR]
+        [--pdf] [--lang en|pt-br|es]
 """
 from __future__ import annotations
 
@@ -183,11 +186,48 @@ def to_markdown(result: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
+def render_pdf(result: dict, after: dict, out: Path,
+               lang: str | None) -> Path:
+    """Client-facing PDF of the comparison, with the v2 report style."""
+    sys.path.insert(0, str(ROOT / "relatorios" / "scripts"))
+    import branding
+    import build_report_v2 as rep
+
+    meta = after.get("metadata") or {}
+    locale = lang or rep.locale_of(meta)
+    if result["mode"] == "v1-v2":
+        fw = load(ROOT / "framework.v2.json")
+        names = {d["id"]: v2.tr(d["name"], locale) for d in fw["dimensions"]}
+        for u in result["units"]:
+            u["name"] = names.get(u["id"], u["name"])
+    people = after.get("respondents")
+    context = {
+        "result": result,
+        "locale": locale,
+        "organization": {"name": meta.get("organization") or None},
+        "assessment": {
+            "date": meta.get("assessment_date") or "-",
+            "generated": __import__("datetime").date.today().isoformat(),
+            "framework_version": meta.get("framework_version") or "1.x",
+            "respondents": len(people) if isinstance(people, list)
+            else "-",
+        },
+        "branding": {"author": branding.AUTHOR, "role": branding.ROLE,
+                     "contact": branding.CONTACT},
+    }
+    env = rep.make_env(locale)
+    return rep.render_pdf(env, "v2_round_comparison.html.j2", context, out,
+                          "comparacao-rodadas")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("before")
     ap.add_argument("after")
     ap.add_argument("--out", default=str(ROOT / "saida"))
+    ap.add_argument("--pdf", action="store_true",
+                    help="also render comparacao-rodadas.pdf")
+    ap.add_argument("--lang", choices=("en", "pt-br", "es"))
     args = ap.parse_args()
     before, after = load(Path(args.before)), load(Path(args.after))
     mb, ma = v1.framework_major(before), v1.framework_major(after)
@@ -209,6 +249,9 @@ def main() -> int:
     (out / "comparacao-rodadas.md").write_text(to_markdown(result),
                                                encoding="utf-8")
     print(f"✓ {out / 'comparacao-rodadas.md'} ({result['mode']})")
+    if args.pdf:
+        pdf = render_pdf(result, after, out, args.lang)
+        print(f"✓ {pdf}")
     return 0
 
 

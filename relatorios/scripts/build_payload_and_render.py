@@ -31,7 +31,6 @@ import argparse
 import copy
 import datetime
 import json
-import re
 import subprocess
 import sys
 from pathlib import Path
@@ -39,6 +38,7 @@ from pathlib import Path
 # Local imports
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import branding
+from wizard_inputs import wizard_value as _wizard_value  # noqa: E402
 
 DEFAULT_TARGET = 3.0
 DEFAULT_LOCALE = "en"
@@ -512,85 +512,6 @@ def _gap_payload_entry(
         "priority": gap["priority"].split(" ")[0],
         "recommended_actions": recommended_actions,
     }
-
-
-_ITEM_RE = re.compile(r"^\s*(?:[-*•]|\d+[.)])\s+(.+?)\s*$")
-_SEP_RE = re.compile(r"^:?-{2,}:?$")
-_PLACEHOLDER_MARKERS = ("preencher", "fill in", "completar", "rellenar")
-
-
-def _is_placeholder(text: str) -> bool:
-    text = text.strip().lower()
-    return text.startswith("(") and any(
-        m in text for m in _PLACEHOLDER_MARKERS)
-
-
-def _md_items(text: str) -> list[str]:
-    return [m.group(1) for line in text.splitlines()
-            if (m := _ITEM_RE.match(line)) and not line.lstrip()
-            .startswith("|")]
-
-
-def _md_rows(text: str) -> list[list[str]]:
-    rows = []
-    for line in text.splitlines():
-        line = line.strip()
-        if not line.startswith("|"):
-            continue
-        cells = [c.strip() for c in line.strip("|").split("|")]
-        if all(_SEP_RE.match(c) for c in cells if c):
-            continue
-        rows.append(cells)
-    return rows[1:]  # first row is the header
-
-
-def _split_pair(text: str) -> tuple[str, str]:
-    for sep in (" — ", " – ", ": ", " - "):
-        if sep in text:
-            left, right = text.split(sep, 1)
-            return left.strip(" *"), right.strip()
-    return text.strip(" *"), ""
-
-
-def _cells(row: list[str], keys: tuple[str, ...]) -> dict:
-    padded = row + [""] * (len(keys) - len(row))
-    return dict(zip(keys, padded))
-
-
-def _wizard_value(key: str, value):
-    """Convert wizard Markdown into the structures the templates render."""
-    if not isinstance(value, str):
-        return value or None
-    text = value.strip()
-    if not text or _is_placeholder(text):
-        return None
-    rows = _md_rows(text)
-    items = [i for i in _md_items(text) if not _is_placeholder(i)]
-    if key == "executive_steering_committee":
-        if rows:
-            return [_cells(r, ("name", "role")) for r in rows]
-        members = [dict(zip(("name", "role"), _split_pair(i)))
-                   for i in items]
-        return members or None
-    if key == "tpo":
-        people = [_split_pair(i)[0] for i in items]
-        if people:
-            return {"program_manager": people[0], "members": people[1:]}
-        return {"program_manager": text.splitlines()[0], "members": []}
-    table_keys = {
-        "raci_matrix": ("activity", "r", "a", "c", "i"),
-        "communication_plan": ("audience", "channel", "frequency", "owner"),
-        "training_plan": ("audience", "format", "cadence"),
-    }
-    if key in table_keys:
-        keys = table_keys[key]
-        if rows:
-            return [_cells(r, keys) for r in rows]
-        return [_cells([i], keys) for i in items] or None
-    if key.startswith("quick_wins"):
-        lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
-        return items or [ln for ln in lines if not _is_placeholder(ln)]
-    return text
 
 
 def _merge_implementation_guide_inputs(payload: dict, ig_path: Path) -> None:

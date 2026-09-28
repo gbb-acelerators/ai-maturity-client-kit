@@ -1,7 +1,9 @@
 {# Shared macros for the framework v2 reports. #}
 {% macro ms_logo() %}<svg class="ms-logo" viewBox="0 0 23 23" role="img" aria-label="Microsoft"><rect x="1" y="1" width="10" height="10" fill="#F25022"/><rect x="12" y="1" width="10" height="10" fill="#7FBA00"/><rect x="1" y="12" width="10" height="10" fill="#00A4EF"/><rect x="12" y="12" width="10" height="10" fill="#FFB900"/></svg>{% endmacro %}
 
-{% macro num(v) %}{{ '-' if v is none else '%.2f' | format(v) }}{% endmacro %}
+{% macro num(v) %}{{ fmt(v) }}{% endmacro %}
+
+{% macro to_fill() %}<span class="v2-to-fill">{{ t('v2.impl.to_fill') }}</span>{% endmacro %}
 
 {% macro cover(organization, assessment, branding, title, subtitle) %}
 <section class="cover">
@@ -24,7 +26,7 @@
 {% endmacro %}
 
 {% macro ref_list(refs) %}
-<ol class="v2-refs">
-{% for r in refs %}<li value="{{ r.n }}">{{ r.text }}</li>{% endfor %}
-</ol>
+<ul class="v2-refs">
+{% for r in refs %}<li><span class="v2-ref-n">[{{ r.n }}]</span> {{ r.text }}</li>{% endfor %}
+</ul>
 {% endmacro %}

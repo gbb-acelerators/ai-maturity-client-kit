@@ -35,6 +35,9 @@
     {% elif pg.dimensions %}
     <li class="critical"><b>{{ t('v2.flag.perception') }}:</b> {% for d in pg.dimensions %}{{ d.dimension_id }} ({{ num(d.executive_score) }} / {{ num(d.hands_on_score) }}){{ ', ' if not loop.last }}{% endfor %}. {{ t('v2.flag.perception_why') }}</li>
     {% else %}<li class="ok"><b>{{ t('v2.flag.perception') }}:</b> {{ t('v2.flag.none') }}</li>{% endif %}
+    {% if flags.respondent_divergence %}
+    <li><b>{{ t('v2.flag.divergence') }}:</b> {% for d in flags.respondent_divergence %}{{ d.dimension_id }} ({{ t('v2.sd') }} {{ num(d.sd) }}, {{ num(d.min) }} {{ t('v2.to') }} {{ num(d.max) }}){{ ', ' if not loop.last }}{% endfor %}. {{ t('v2.flag.divergence_why') }}</li>
+    {% endif %}
     {% if flags.low_confidence %}
     <li><b>{{ t('v2.flag.low_confidence') }}:</b> {{ flags.low_confidence | join(', ') }}. {{ t('v2.flag.low_confidence_why') }}</li>
     {% endif %}
@@ -70,6 +73,37 @@
   </table>
   <p class="text-faint">{{ t('v2.heatmap_note', n=scoring.persona_min_n) }}</p>
   {% else %}<p class="text-muted">{{ t('v2.no_personas') }}</p>{% endif %}
+
+  <h2>2.2 {{ t('v2.cross.title') }}</h2>
+  {% if not checks.repo and not checks.telemetry %}<p class="text-muted">{{ t('v2.cross.none') }}</p>{% endif %}
+  {% if checks.repo %}{% set r = checks.repo %}
+  <h3>{{ t('v2.cross.repo') }}</h3>
+  <p>{{ t('v2.cross.repo_text', n=r.repositories, l1=r.levels.L1, l2=r.levels.L2, l3=r.levels.L3, l4=r.levels.L4, share=((r.share_l2_or_higher * 100) | round | int), implied=r.d4q4.implied_level) }}
+  {% if r.instruction_files_checked %}{{ t('v2.cross.repo_once', once=r.instruction_files_committed_once, checked=r.instruction_files_checked) }}{% endif %}
+  {{ t('v2.cross.repo_l3', share=((r.share_l3_or_higher * 100) | round | int)) }}</p>
+  <p>{{ t('v2.cross.assessed', qid='D4-Q4', score=num(r.d4q4.score), level=(r.d4q4.level or '-')) }} {{ t('v2.cross.assessed', qid='D4-Q5', score=num(r.d4q5.score), level=(r.d4q5.level or '-')) }}
+  {% if r.d4q4.flag %}<span class="tag-unverified">{{ t('v2.cross.flag', qid='D4-Q4') }}</span>{% else %}<span class="text-muted">{{ t('v2.cross.ok') }}</span>{% endif %}</p>
+  {% endif %}
+  {% if checks.telemetry %}{% set m = checks.telemetry %}
+  <h3>{{ t('v2.cross.tel') }}</h3>
+  <p>{{ t('v2.cross.tel_text', day=(m.report_day or '-'), pop=m.population, code=(((m.shares.code_first_or_higher or 0) * 100) | round | int), agent=(((m.shares.agent_first_or_higher or 0) * 100) | round | int), multi=(((m.shares.multi_agent or 0) * 100) | round | int), implied=(m.d4q1.implied_level or '-')) }}
+  {% if m.shares.monthly_active_of_seats is not none %}{{ t('v2.cross.tel_seats', share=((m.shares.monthly_active_of_seats * 100) | round | int), seats=m.seats) }}{% endif %}
+  {{ t('v2.cross.tel_d9') }}</p>
+  <p>{{ t('v2.cross.assessed', qid='D4-Q1', score=num(m.d4q1.score), level=(m.d4q1.level or '-')) }} {{ t('v2.cross.assessed', qid='D9-Q1', score=num(m.d9q1.score), level=(m.d9q1.level or '-')) }}
+  {% if m.d4q1.flag %}<span class="tag-unverified">{{ t('v2.cross.flag', qid='D4-Q1') }}</span>{% else %}<span class="text-muted">{{ t('v2.cross.ok') }}</span>{% endif %}</p>
+  {% endif %}
+
+  {% if survey %}
+  <h2>2.3 {{ t('v2.survey.title') }}</h2>
+  <p class="text-muted">{{ t('v2.survey.intro', file=survey.source, n=(survey.respondents or '-')) }}</p>
+  <table class="v2-table wrap-first">
+    <tr><th>{{ t('v2.survey.dim') }}</th><th class="num">{{ t('v2.survey.team') }}</th><th>{{ t('v2.survey.related') }}</th></tr>
+    {% for r in survey.rows %}
+    <tr><td><b>{{ r.id }}</b> {{ r.name }}</td><td class="num">{{ num(r.score) }}{% if r.label %}<br><span class="text-faint">{{ r.label }}</span>{% endif %}</td>
+      <td>{% for q in r.questions %}{{ q.id }} ({{ num(q.score) }}){{ ', ' if not loop.last }}{% endfor %}</td></tr>
+    {% endfor %}
+  </table>
+  {% endif %}
 </section>
 
 <section class="section">
@@ -97,9 +131,9 @@
   <h1>4. {{ t('v2.method_title') }}</h1>
   <table class="v2-table">
     <tr><th>{{ t('v2.level') }}</th><th>{{ t('v2.band') }}</th></tr>
-    {% for b in level_bands %}<tr><td>{{ b.level }} {{ level_names[b.level] }}</td><td>{{ '[%.1f, %.1f%s' | format(b.min, b.max, ']' if loop.last else ')') }}</td></tr>{% endfor %}
+    {% for b in level_bands %}<tr><td>{{ b.level }} {{ level_names[b.level] }}</td><td>{{ interval(b.min, b.max, loop.last) }}</td></tr>{% endfor %}
   </table>
-  <p class="text-muted">{{ t('v2.method_rules', target=scoring.default_target) }}</p>
+  <p class="text-muted">{{ t('v2.method_rules', target=fmt(scoring.default_target, 1)) }}</p>
   <p class="text-muted">{{ t('v2.limitations') }}</p>
 </section>
 
