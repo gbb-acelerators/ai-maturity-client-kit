@@ -1,5 +1,7 @@
 # `relatorios/`: report rendering
 
+🌐 English · [Português (Brasil)](README.pt-br.md)
+
 The report dispatcher supports v2 by default and v1 for archived inputs.
 
 ## Run
@@ -8,7 +10,7 @@ The report dispatcher supports v2 by default and v1 for archived inputs.
 python3 relatorios/scripts/build_payload_and_render.py
 ```
 
-The script reads `respostas.json::metadata.framework_version` and dispatches automatically.
+The script reads `respostas.json::metadata.framework_version` and dispatches automatically. `make pipeline` runs scoring, workbook generation, payload building, and rendering.
 
 ## v2 outputs
 
@@ -17,6 +19,13 @@ The script reads `respostas.json::metadata.framework_version` and dispatches aut
 - `saida/v2_roadmap_g1.pdf`, D1, D2, D9.
 - `saida/v2_roadmap_g2.pdf`, D3, D4, D5.
 - `saida/v2_roadmap_g3.pdf`, D6, D7, D8.
+- `saida/v2_implementation_guide.pdf`.
+
+The summary includes section 2.2 Evidence cross-checks when `saida/repo-scan.json` or `saida/telemetria.json` exists, and Developer Survey context when `saida/maturidade-developer-survey-*.json` exists. The implementation guide uses `implementation-guide-inputs.json`; empty wizard fields render as `to fill with the client`.
+
+## Comparison reports
+
+`make compare BEFORE=old.json AFTER=respostas.json` calls `scripts/compare_rounds.py --pdf` and writes `saida/comparacao-rodadas.pdf`. It supports v2 to v2, v1 to v2 indicative baseline through v1 lineage, and v1 to v1.
 
 ## v1 archive
 
@@ -24,4 +33,4 @@ v1 inputs still render the archived 5 PDF set. Do not point new assessment docs 
 
 ## Localization
 
-PDF language comes from `respostas.json::metadata.language`: `en`, `pt-BR`, or `es`.
+PDF language comes from `respostas.json::metadata.language`: `en`, `pt-BR`, or `es`. PT-BR and ES PDFs use comma decimals.

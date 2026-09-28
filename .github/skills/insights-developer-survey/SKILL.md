@@ -5,7 +5,7 @@ description: Generates Developer Survey insights from imported survey outputs. U
 
 # Skill: Developer Survey insights
 
-The Developer Survey is unchanged. It is a companion signal for the v2 assessment, not a scoring input.
+The Developer Survey is a companion signal for v2. It is not a scoring input.
 
 ## Deterministic rule
 
@@ -13,16 +13,22 @@ Use the existing survey-devs scripts and generated JSON or Markdown artifacts. D
 
 ## Dimension naming
 
-When both models are in the same text, call Developer Survey dimensions `DS-D#`. Reserve `D1` to `D9` for the v2 assessment.
+Developer Survey dimensions are `DS-D2` to `DS-D8`. Reserve `D1` to `D9` for the v2 assessment.
 
-## Cross-reference to v2
+## Crosswalk to v2
 
-Use the insights to explain or challenge:
+Use the crosswalk from `framework.v2.json`:
 
-- v2 D2 Enablement, Skills and Culture.
-- v2 D5 Review, Quality and Testing.
-- v2 D9 Measurement, Value and AI FinOps.
+- `DS-D2`: D4-Q1, D4-Q2, D9-Q1.
+- `DS-D3`: D4-Q3, D4-Q6, D3-Q2, D6-Q1.
+- `DS-D4`: D3-Q2, D5-Q5, D2-Q6.
+- `DS-D5`: D2-Q4, D4-Q5.
+- `DS-D6`: D4-Q4, D4-Q5.
+- `DS-D7`: D2-Q2, D9-Q4.
+- `DS-D8`: D1-Q2, D6-Q1, D6-Q4, D6-Q5, D6-Q7.
+
+The insights report section 12 links to v2 questions, not v1 capabilities.
 
 ## Output
 
-Write or reference `saida/insights-developer-survey-<date>.md` and any maturity JSON produced by the survey scripts. In chat, summarize adoption, governance gaps, verification culture, and measurement signals.
+Write or reference `saida/insights-developer-survey-<date>.md` and `saida/maturidade-developer-survey-<date>.json`. Re-run `make pipeline` if the user wants Developer Survey context in the v2 summary PDF.

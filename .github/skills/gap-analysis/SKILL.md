@@ -13,27 +13,28 @@ Always use the deterministic engine. Do not calculate gaps manually.
 python3 scripts/assessment_engine.py all
 ```
 
-`make scores` is also acceptable because it runs the same engine target through the Makefile.
+`make scores` is also acceptable.
 
 ## v2 rules documented by the script
 
 - Gap is `target - score`.
 - Default target is `3.0`.
-- `target_overrides` can override per dimension, for example `{"D6": 3.5}`.
+- `target_overrides` can override per dimension.
 - Priority score is `dimension_weight x gap`.
 - Priority bands: P0 at `>= 2.4`, P1 at `>= 1.6`, P2 at `>= 0.9`, else P3.
-- Low confidence, amplification risk, perception gap, scope caveat, unverified L3/L4, persona summaries, and backlog items should be reported when present in `saida/gaps.json` or related engine output.
+- Band and priority comparisons ignore floating-point noise below `1e-9`.
+- Phases and horizons used by the implementation guide come from the engine: P0 first 30 days, P1 next quarter, P2 semester, P3 backlog.
+
+## Flags to report
+
+Report low confidence, amplification risk, perception gap, respondent divergence, scope caveat, unverified L3/L4, evidence cross-check warnings, persona summaries, and backlog items when present in `saida/gaps.json` or related output.
 
 ## v2 output
 
 - `saida/gaps.json`
-- Top gaps by dimension and by question.
-- Backlog: top 5 lowest questions with L3 anchors.
-
-## v1 behavior
-
-If the input is v1, the dispatcher keeps the archived capability gap flow based on `framework.json` and the 158 question model.
+- Top gaps by dimension and question.
+- Backlog questions with L3 anchors, evidence to collect, and KPI where present.
 
 ## Chat response
 
-Summarize the P0 to P3 distribution, the top 5 priorities, coverage status, and any flags. Include the next command: `python3 relatorios/scripts/build_payload_and_render.py` after recommendations are ready.
+Summarize the P0 to P3 distribution, top priorities, coverage status, and flags. Include the next command: `python3 relatorios/scripts/build_payload_and_render.py` after recommendations are ready.

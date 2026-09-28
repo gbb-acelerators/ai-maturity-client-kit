@@ -5,22 +5,36 @@ description: Generates a prioritized learning and capacitation plan from the Lea
 
 # Skill: Capacitation plan
 
-The Learning and Growth Survey is unchanged by framework v2. Use the existing survey-learning scripts and outputs.
+Use the existing survey-learning scripts and outputs. Do not derive cohorts, rankings, or mentor matches by hand when scripts exist.
 
-## Deterministic rule
+## Command
 
-Do not derive cohorts, rankings, or mentor matches by hand when scripts exist. Use the repository tooling documented under [survey-learning/](../../../survey-learning/).
+```bash
+python3 survey-learning/scripts/gerar_plano_capacitacao.py
+```
+
+Pass `--lang pt-br` for PT-BR. Survey scripts write EN or PT-BR only.
+
+## Dimension names
+
+Use `DS-D#` for Developer Survey dimensions in cohorts and cross-survey references. Do not use bare `D2` to `D8` for survey dimensions when v2 assessment dimensions are nearby.
 
 ## Cross-reference to v2
 
-Connect the plan to v2 without changing v2 scores:
+Connect the plan to v2 without changing scores:
 
 - D2: enablement, skills, culture.
 - D5: review, quality, testing, verification culture.
 - D9: measurement, value, AI FinOps.
 
-When the Developer Survey is also mentioned, label its dimensions `DS-D#` to avoid confusion with v2 dimensions.
+## Wizard Mode D
+
+After generating the plan, Mode D fills 7 of 11 implementation guide fields:
+
+```bash
+python3 wizard/scripts/auto_fill_from_plano.py --lang en
+```
 
 ## Output
 
-Reference `saida/plano-capacitacao-<date>.md`. Summarize top topics, cohorts, champions, mentor pairs, and 90 day plan when present in the generated artifact.
+Reference `saida/plano-capacitacao-<date>.md`. Summarize top topics, cohorts, Champions, mentor pairs, and 90-day plan when present.

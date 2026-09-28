@@ -24,6 +24,8 @@ For v2 inputs, the dispatcher calls `scripts/fill_workbook_v2.py` and writes:
 
 The workbook includes formulas and an engine cross-check column. It uses v2 IDs `D#-Q#`, profile IDs `R-Q1` to `R-Q5`, dimension weights, target overrides, and `NA` handling.
 
+Formula comparisons round to 9 decimal places with `ROUND(...,9)` so workbook boundaries match the engine tolerance.
+
 ## v1 behavior
 
 For v1 inputs, the dispatcher keeps the archived workbook flow and existing v1 output name.

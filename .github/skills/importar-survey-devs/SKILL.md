@@ -5,11 +5,11 @@ description: Imports Developer Survey Microsoft Forms exports using the existing
 
 # Skill: Import Developer Survey
 
-The Developer Survey is unchanged by framework v2. Use its existing scripts and question bank. Do not mix its dimensions into assessment scoring.
+Use existing survey-devs tooling. Do not mix its dimensions into assessment scoring.
 
 ## Rule for dimension names
 
-When the Developer Survey appears beside the v2 assessment, call its dimensions `DS-D#` to avoid collision with assessment dimensions `D1` to `D9`.
+Developer Survey outputs use `DS-D2` to `DS-D8`. Forms with older `D2` style text still parse. When the Developer Survey appears beside the v2 assessment, call its dimensions `DS-D#`.
 
 ## Procedure
 
@@ -17,4 +17,4 @@ Run the repository script or Make target documented under [survey-devs/](../../.
 
 ## Cross-reference to v2
 
-Use Developer Survey insights to contextualize v2 D2, D5, and D9. Do not recompute v2 scores from survey answers.
+Use Developer Survey insights to contextualize v2 questions through the crosswalk in `framework.v2.json`. Do not recompute v2 scores from survey answers.

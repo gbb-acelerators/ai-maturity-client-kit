@@ -4,34 +4,35 @@
 
 📖 **Navigation:** [🏠 Index](../../README.md) · [« Reports](../README.md)
 
-Jinja2 templates for the **5 PDFs** the client receives. **Do not modify** without coordination: they mirror the web platform templates exactly (`app/src/report-service/templates/`).
+Jinja2 templates for report PDFs. Coordinate changes because they affect every client who uses the kit.
 
 ## Contents
 
-| File | Renders | Approx. size |
-|---|---|---|
-| [`score_justification.html.j2`](score_justification.html.j2) | `score_justification.pdf`: executive justification + PE Readiness + recommended path | ~330 KB |
-| [`roadmap_part_pillar.html.j2`](roadmap_part_pillar.html.j2) | Rendered **3 times** (P1/P2/P3) → `roadmap_part_pillar_p{1,2,3}.pdf`: deep dive per pillar | ~410 KB each |
-| [`roadmap_part4.html.j2`](roadmap_part4.html.j2) | `roadmap_part4.pdf`: consolidated Implementation Guide (Steering Committee, RACI, ADKAR, Quick Wins) | ~510 KB |
-| [`_components.html.j2`](_components.html.j2) | Shared macros (cards, badges, score meters, gauges), included in the 3 templates above | — |
-| [`_print.css`](_print.css) | Print CSS with `@page` rules, MS 4-color palette via `:root`, Inter + JetBrains Mono typography | — |
+| File | Renders |
+| --- | --- |
+| [`v2_assessment_summary.html.j2`](v2_assessment_summary.html.j2) | `v2_assessment_summary.pdf`: executive summary, scoring, priorities, evidence cross-checks, and Developer Survey context when available. |
+| [`v2_roadmap_group.html.j2`](v2_roadmap_group.html.j2) | Group roadmap PDFs G1, G2, and G3. |
+| [`v2_implementation_guide.html.j2`](v2_implementation_guide.html.j2) | `v2_implementation_guide.pdf`: governance, dimension owners, RACI, phased plan, change management, risks, metrics, first 90 days, and references. |
+| [`v2_round_comparison.html.j2`](v2_round_comparison.html.j2) | `comparacao-rodadas.pdf` from `scripts/compare_rounds.py --pdf`. |
+| [`_v2_components.html.j2`](_v2_components.html.j2) | Shared v2 macros. |
+| [`_print.css`](_print.css) | Print CSS with the Microsoft four-square visual treatment. |
+| Legacy templates | Archived v1 report templates used only by v1 dispatch. |
 
 ## How to customize
 
 > [!CAUTION]
-> Editing the `.html.j2` files here **affects ALL clients** who use the kit. For per-client customization, edit `saida/payload.json` and re-render with `render_reports.py`.
+> Editing `.html.j2` files affects all clients who use the kit. For per-client customization, edit `implementation-guide-inputs.json` or rerun the wizard, then render again.
 
-If you really want to change a template:
-1. Work on a branch
-2. Run `make smoke` before committing
-3. Compare visually: `python3 relatorios/scripts/build_payload_and_render.py` vs the PDFs in `referencia/exemplo-saida/`
+If you change templates:
+
+1. Run `make smoke`.
+2. Run `make validate-docs`.
+3. Compare with outputs under [../../referencia/exemplo-saida/](../../referencia/exemplo-saida/).
 
 ## Key variables consumed
 
-Each template expects specific fields from `payload.json`. For the full schema, see:
-- [`../sample_payload.json`](../sample_payload.json): populated example
-- [`../scripts/build_payload_and_render.py`](../scripts/build_payload_and_render.py): code that builds the payload
+Each template expects fields from `payload_v2.json`. The implementation guide reads normalized wizard fields from `relatorios/scripts/wizard_inputs.py`; empty values render as `to fill with the client`.
 
 ## i18n
 
-Localizable strings live in [`../i18n/`](../i18n/) (`en.json`, `es.json`, `pt-br.json`). Templates read them via `{{ t('key') }}`.
+Localizable strings live in [../i18n/](../i18n/) (`en.json`, `es.json`, `pt-br.json`). Templates read them via `{{ t('key') }}`.

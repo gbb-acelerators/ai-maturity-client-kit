@@ -1,15 +1,25 @@
 # `formularios/`: assessment forms
 
+🌐 English · [Português (Brasil)](README.pt-br.md)
+
 Framework v2 is the default for new assessments.
 
 | Asset | Purpose |
 | --- | --- |
-| [assessment-v2.html](assessment-v2.html) | Offline v2 form in PT-BR, EN, and ES. Exports `respostas.json`. |
+| [assessment-v2.html](assessment-v2.html) | Generated offline v2 form in PT-BR, EN, and ES. It runs without internet, shows each question scope note, and exports one respondent per `respostas.json`. |
 | [v1/](v1/) | Archived v1 visual forms for historical assessments. |
+
+Use the offline flow when Microsoft Forms is unavailable or when a workshop needs local collection:
+
+```bash
+# Collect each exported respostas.json under exports/, then:
+make merge DIR=exports/
+make pipeline
+```
 
 The v2 form follows [../coleta/AI-Maturity-Form-Questions_v2.md](../coleta/AI-Maturity-Form-Questions_v2.md): 5 profile questions (`R-Q1` to `R-Q5`) and 61 scored questions (`D#-Q#`) across 9 dimensions.
 
-v1 HTML files moved to [v1/](v1/):
+Archived v1 HTML files live in [v1/](v1/), including:
 
 - [v1/P1-produtividade-do-desenvolvedor.html](v1/P1-produtividade-do-desenvolvedor.html)
 - [v1/P2-ciclo-de-vida-devops.html](v1/P2-ciclo-de-vida-devops.html)

@@ -15,11 +15,13 @@ python3 scripts/fill_workbook.py
 python3 relatorios/scripts/build_payload_and_render.py
 ```
 
-## v2 default
+## Optional inputs
 
-The pipeline uses v2 when `respostas.json::metadata.framework_version` starts with `2`.
+- Offline form exports: merge first with `python3 scripts/merge_offline_respostas.py <dir>`.
+- Evidence cross-checks: `make scan-repos REPOS=...` and `make telemetry METRICS=...`.
+- Wizard: place `implementation-guide-inputs.json` at the root before the final render.
 
-Expected v2 outputs:
+## v2 default outputs
 
 - `saida/scores.json`
 - `saida/gaps.json`
@@ -30,6 +32,7 @@ Expected v2 outputs:
 - `saida/v2_roadmap_g1.pdf`
 - `saida/v2_roadmap_g2.pdf`
 - `saida/v2_roadmap_g3.pdf`
+- `saida/v2_implementation_guide.pdf`
 
 ## v1 archive
 
@@ -37,8 +40,8 @@ The same scripts dispatch v1 inputs to the archived 158 question, 3 pillar flow 
 
 ## Companion surveys
 
-Developer Survey and Learning Survey outputs may enrich the narrative, but they do not change v2 scores. When both are discussed, call Developer Survey dimensions `DS-D#`.
+Developer Survey and Learning Survey outputs may enrich the narrative, but they do not change v2 scores. Use `DS-D#` for Developer Survey dimensions.
 
 ## Chat response
 
-Report framework, coverage, generated JSONs, workbook, PDFs, and warnings. If any command fails, show the failing command and the script error.
+Report framework, coverage, generated JSONs, workbook, PDFs, evidence status, and warnings. If any command fails, show the failing command and the script error.

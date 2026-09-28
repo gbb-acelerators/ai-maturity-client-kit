@@ -5,7 +5,11 @@ description: Imports Learning and Growth Survey Microsoft Forms exports using th
 
 # Skill: Import Learning and Growth Survey
 
-The Learning and Growth Survey is unchanged by framework v2. Use its existing scripts and question bank.
+Use existing survey-learning tooling. The Learning Survey is identified and supports the capacitation plan and implementation guide wizard.
+
+## Dimension names
+
+Learning Survey question labels use `L#-Q#`. When they reference Developer Survey dimensions, use `DS-D#`, for example `L2-Q1: DS-D2 Copilot Adoption ...`.
 
 ## Procedure
 
@@ -13,4 +17,4 @@ Run the repository script documented under [survey-learning/](../../../survey-le
 
 ## Cross-reference to v2
 
-Use learning demand and cohort data to enrich v2 D2 enablement, D5 review culture, and D9 value measurement. Do not change assessment scores from this survey.
+Use learning demand and cohort data to enrich v2 D2, D5, and D9 narrative. Do not change assessment scores from this survey.

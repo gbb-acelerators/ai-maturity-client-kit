@@ -1,77 +1,51 @@
-# `referencia/branding/`: paulasilva-ms visual identity (Microsoft)
+# `referencia/branding/`: visual identity
 
 🌐 English · [Português (Brasil)](README.pt-br.md)
 
-This folder contains the branding assets applied to the standalone visual artifacts of this kit (interactive HTMLs). It forks the canonical design system paulasilva-ms v1.7.0.
+This folder contains the branding assets applied to Microsoft-facing HTML helpers and PDFs in this kit.
 
 ## Files
 
 | File | What it is for |
-|---|---|
-| **[tokens-paulasilva-ms.css](tokens-paulasilva-ms.css)** | Canonical design tokens: Microsoft 4-color palette (#F25022, #7FBA00, #FFB900, #00A4EF), neutrals, dark mode, accent classes (.acc-blue, .acc-green, .acc-yellow, .acc-red), typography (Inter + JetBrains Mono) |
-| **[IDENTITY.md](IDENTITY.md)** | Canonical strings (name, role, contact), inline SVG logo, chrome bar, and mandatory patterns |
-| **[VOICE.md](VOICE.md)** | Voice pillars, banned vocabulary, punctuation rules, and tone per audience |
+| --- | --- |
+| [tokens-paulasilva-ms.css](tokens-paulasilva-ms.css) | Design tokens with the Microsoft palette, neutrals, typography, and utility classes. |
+| [IDENTITY.md](IDENTITY.md) | Canonical strings, official Microsoft four-square SVG, chrome bar, and forbidden patterns. |
+| [VOICE.md](VOICE.md) | Voice pillars, banned vocabulary, punctuation rules, and tone per audience. |
 
 ## Where the branding is applied
 
-### ✅ Applied to the kit's standalone HTMLs
+The official Microsoft four-square logo and `Paula Silva | Global Developer Solutions Advisor` appear in:
 
-The following files load `tokens-paulasilva-ms.css` and show the chrome bar:
+- [../calculadora-pontuacao.html](../calculadora-pontuacao.html), generated v2 calculator.
+- [../../formularios/assessment-v2.html](../../formularios/assessment-v2.html), generated v2 assessment form.
+- [../../wizard/implementation-guide-wizard.html](../../wizard/implementation-guide-wizard.html), generated implementation guide wizard.
+- [../v1/calculadora-pontuacao.html](../v1/calculadora-pontuacao.html), archived v1 calculator.
+- [../../formularios/v1/](../../formularios/v1/), archived v1 forms.
+- v2 PDFs rendered from [../../relatorios/templates/](../../relatorios/templates/), on the cover.
 
-- [`../calculadora-pontuacao.html`](../calculadora-pontuacao.html): interactive calculator
-- [`../../formularios/P1-produtividade-do-desenvolvedor.html`](../../formularios/v1/P1-produtividade-do-desenvolvedor.html)
-- [`../../formularios/P2-ciclo-de-vida-devops.html`](../../formularios/v1/P2-ciclo-de-vida-devops.html)
-- [`../../formularios/P3-plataforma-de-aplicações.html`](../../formularios/v1/P3-plataforma-de-aplicações.html)
-- [`../../wizard/implementation-guide-wizard.html`](../../wizard/implementation-guide-wizard.html)
+The personal `</>` logo is not used in Microsoft-facing material.
 
-### ❌ NOT applied to the Jinja2 PDFs
+## Attribution
 
-The 5 production-quality PDFs (`relatorios/templates/*.html.j2` + `_print.css`) **keep the official platform palette** (a faithful mirror of `app/src/report-service/templates/`). The paulasilva-ms branding applies to the kit's HTMLs, not to the PDFs.
-
-Reason: the PDFs are production deliverables that must be identical to the future web platform. Modifying their CSS would break that parity.
-
-## Attribution (every new HTML in this kit must have it)
-
-```
+```text
 Paula Silva | Global Developer Solutions Advisor
 paulasilva@microsoft.com
 ```
 
-No LinkedIn, no GitHub, no website. Email only.
+Email only. Do not add LinkedIn, GitHub, or a website.
 
-## How to create a new aligned HTML
+## Create a new aligned HTML
 
 ```html
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../referencia/branding/tokens-paulasilva-ms.css">
-  <style>
-    body { font-family: var(--font-sans); color: var(--ink); background: var(--bg); }
-    h1 { color: var(--accent-ink); }
-    .card { background: var(--paper); border: 1px solid var(--rule); }
-  </style>
-</head>
-<body>
-  <div class="deck-brand">
-    <!-- 22px logo SVG (copy from IDENTITY.md) -->
-    <span class="deck-brand__text">Paula Silva | Global Developer Solutions Advisor</span>
-  </div>
-  <!-- content here -->
-</body>
-</html>
+<div class="deck-brand">
+  <svg viewBox="0 0 23 23" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Microsoft" style="width:22px;height:22px;flex-shrink:0;">
+    <rect x="1" y="1" width="10" height="10" fill="#F25022"/>
+    <rect x="12" y="1" width="10" height="10" fill="#7FBA00"/>
+    <rect x="1" y="12" width="10" height="10" fill="#00A4EF"/>
+    <rect x="12" y="12" width="10" height="10" fill="#FFB900"/>
+  </svg>
+  <span class="deck-brand__text">Paula Silva | Global Developer Solutions Advisor</span>
+</div>
 ```
 
-## Full canonical skill
-
-For the full visual showcase, deck patterns, simulations, and multi-page playbook layouts:
-
-- Path: `/Users/paulasilva/Documents/ai-maturuty-client-platform/.github/skills/paulasilva-ms/`
-- `assets/showcase.html` opens in the browser and shows all components
-- `references/components.md` documents cards, badges, tables, and buttons
-- `references/playbook.md` documents the multi-page playbook pattern
-- `references/pdf-generation.md` documents deck → PDF via Playwright
-
-When you need to create a new deck, playbook, or formal Microsoft material outside this kit, invoke the `paulasilva-ms` skill in Copilot Chat.
+Load [tokens-paulasilva-ms.css](tokens-paulasilva-ms.css), use Inter and JetBrains Mono, and follow [VOICE.md](VOICE.md).

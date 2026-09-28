@@ -1,15 +1,25 @@
-# `formularios/`: formularios do assessment
+# `formularios/`: formulários do assessment
 
-O framework v2 e o padrao para novos assessments.
+🌐 [English](README.md) · Português (Brasil)
+
+O framework v2 é o padrão para novos assessments.
 
 | Ativo | Uso |
 | --- | --- |
-| [assessment-v2.html](assessment-v2.html) | Formulario offline v2 em PT-BR, EN e ES. Exporta `respostas.json`. |
-| [v1/](v1/) | Formularios visuais v1 arquivados para assessments historicos. |
+| [assessment-v2.html](assessment-v2.html) | Formulário offline v2 gerado em PT-BR, EN e ES. Ele roda sem internet, mostra a nota de escopo de cada pergunta e exporta um respondente por `respostas.json`. |
+| [v1/](v1/) | Formulários visuais v1 arquivados para assessments históricos. |
 
-O formulario v2 segue [../coleta/AI-Maturity-Form-Questions_v2.md](../coleta/AI-Maturity-Form-Questions_v2.md): 5 perguntas de perfil (`R-Q1` a `R-Q5`) e 61 perguntas pontuadas (`D#-Q#`) em 9 dimensoes.
+Use o fluxo offline quando o Microsoft Forms não estiver disponível ou quando um workshop precisar de coleta local:
 
-Os HTMLs v1 foram movidos para [v1/](v1/):
+```bash
+# Colete cada respostas.json exportado em exports/, depois:
+make merge DIR=exports/
+make pipeline
+```
+
+O formulário v2 segue [../coleta/AI-Maturity-Form-Questions_v2.md](../coleta/AI-Maturity-Form-Questions_v2.md): 5 perguntas de perfil (`R-Q1` a `R-Q5`) e 61 perguntas pontuadas (`D#-Q#`) em 9 dimensões.
+
+Arquivos HTML v1 arquivados ficam em [v1/](v1/), incluindo:
 
 - [v1/P1-produtividade-do-desenvolvedor.html](v1/P1-produtividade-do-desenvolvedor.html)
 - [v1/P2-ciclo-de-vida-devops.html](v1/P2-ciclo-de-vida-devops.html)

@@ -7,35 +7,28 @@ description: Computes v2 dimension and overall scores, or archived v1 scores, by
 
 Always invoke the deterministic engine. Do not compute scores in chat or Excel.
 
-## Inputs
-
-- `respostas.json` at the workspace root.
-- v2 inputs have `metadata.framework_version` such as `2.0.1` and use `respondents[].answers["D#-Q#"]`.
-- v1 inputs have no `metadata.framework_version`, or a `1.x` version, and use the archived `framework.json` flow.
-
 ## Command
 
 ```bash
 python3 scripts/assessment_engine.py all
 ```
 
-Use `all` so `scores.json`, `gaps.json`, and `recomendacoes.json` stay consistent. `make scores` is equivalent.
+`make scores` is equivalent. Use `all` so `scores.json`, `gaps.json`, and `recomendacoes.json` stay consistent.
 
 ## v2 scoring facts
 
 - Question score is the pooled mean of respondent values, excluding blank and `NA` (`level: null`).
-- Dimension score is the mean of its question scores.
+- Dimension score is the mean of answered question scores.
 - Overall score is the weighted mean of dimensions.
 - Default dimension weight is `1.0`; `dimension_weights` may set values from `0.5` to `2.0`.
-- Levels: L0 Not started, L1 Exploring, L2 Adopting, L3 Scaling, L4 AI-native.
 - Bands: L0 `[0,0.8)`, L1 `[0.8,1.6)`, L2 `[1.6,2.4)`, L3 `[2.4,3.2)`, L4 `[3.2,4.0]`.
 - Coverage: OK at 37 or more answered questions, WARNING at 25 to 36, BLOCKED below 25.
+- Priority thresholds and band comparisons ignore floating-point noise below `1e-9`.
+- Respondent divergence is flagged when at least 3 respondents have a dimension score and the standard deviation of their own dimension scores is 1.0 or more.
 
-## v2 model
+## Evidence cross-checks
 
-- 9 dimensions, 61 scored questions.
-- IDs: `D#-Q#`; profile IDs: `R-Q1` to `R-Q5`.
-- Dimensions: D1 Strategy and Governance, D2 Enablement and Culture, D3 Plan and Design, D4 Code and Context Engineering, D5 Review and Quality, D6 Security and AI Supply Chain, D7 Deliver and Operate, D8 Engineering Foundations, D9 Measurement and AI FinOps.
+If `saida/repo-scan.json` or `saida/telemetria.json` exists, report any evidence cap or warning surfaced by the engine. These files challenge answers but do not change scores.
 
 ## Output
 
@@ -44,4 +37,4 @@ Use `all` so `scores.json`, `gaps.json`, and `recomendacoes.json` stay consisten
 
 ## Chat response
 
-Report the framework detected, overall score and band, coverage status, key flags surfaced by the script, and next step. If the script lists invalid levels or schema issues, stop and show those IDs.
+Report framework detected, overall score and band, coverage status, respondent divergence, evidence warnings, and next step. If the script lists invalid levels or schema issues, stop and show those IDs.

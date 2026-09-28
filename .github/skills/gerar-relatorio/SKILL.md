@@ -31,10 +31,15 @@ Run `python3 scripts/assessment_engine.py all` first if any are missing.
 - `saida/v2_roadmap_g1.pdf`: D1, D2, D9.
 - `saida/v2_roadmap_g2.pdf`: D3, D4, D5.
 - `saida/v2_roadmap_g3.pdf`: D6, D7, D8.
+- `saida/v2_implementation_guide.pdf`: governance, RACI, dimension owners, phased plan, change management, risks, metrics, first 90 days, and references.
 
 ## v2 report content to preserve
 
-Surface coverage, bands, weighted dimension priorities, S1 to S7 recommendations, low confidence, amplification risk, perception gap, scope caveat, unverified L3/L4, persona summaries, and backlog top 5 questions when present.
+Surface coverage, bands, weighted priorities, S1 to S7 recommendations, low confidence, amplification risk, perception gap, respondent divergence, scope caveat, unverified L3/L4, persona summaries, backlog questions, Evidence cross-checks, and Developer Survey context when available.
+
+## Comparison PDF
+
+Use `make compare BEFORE=old.json AFTER=respostas.json` when the user asks for round comparison. It writes `saida/comparacao-rodadas.pdf` using the v2 styles.
 
 ## v1 behavior
 
@@ -42,4 +47,4 @@ v1 inputs still render the existing 5 PDF report set through the archived flow.
 
 ## Chat response
 
-List generated files, framework detected, locale from `metadata.language`, and any warnings printed by the script. If rendering dependencies are missing, install only the existing dependencies documented by the repo.
+List generated files, framework detected, locale, and warnings. If rendering dependencies are missing, install only existing dependencies documented by the repo.

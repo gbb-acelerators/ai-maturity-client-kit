@@ -1,13 +1,19 @@
-# `referencia/`: material de referencia
+# `referencia/`: material de referência
 
-O framework v2 e o modelo de referencia padrao. O material v1 continua arquivado.
+🌐 [English](README.md) · Português (Brasil)
+
+O framework v2 é o modelo de referência padrão. O material v1 continua arquivado.
 
 | Caminho | Uso |
 | --- | --- |
-| [exemplo-saida/](exemplo-saida/) | Exemplos v2 na raiz da pasta, com subpastas localizadas `en/` e `es/`. |
-| [v1/](v1/) | Referencias de pilares e exemplos v1 arquivados. |
-| [branding/](branding/) | Guia de marca e voz. |
+| [framework-v2.pt-br.md](framework-v2.pt-br.md) | Guia gerado do framework v2 com regras de pontuação, notas de escopo, crosswalk e referências. |
+| [dimensoes/](dimensoes/) | Páginas geradas por dimensão para D1 a D9 em EN, PT-BR e ES. |
+| [calculadora-pontuacao.html](calculadora-pontuacao.html) | Calculadora v2 trilingue gerada. Carregue `saida/scores.json`, ajuste pesos e metas, e veja nível, gap, prioridade, horizonte, risco de amplificação e estratégias. |
+| [v1/calculadora-pontuacao.html](v1/calculadora-pontuacao.html) | Calculadora v1 arquivada. |
+| [exemplo-saida/](exemplo-saida/) | Saídas ilustrativas v2, incluindo 5 PDFs, PDF de comparação, planilha, scan de repositórios, telemetria, surveys e entradas do wizard. |
+| [v1/](v1/) | Referências e exemplos v1 arquivados. |
+| [branding/](branding/) | Orientação de marca e voz. |
 
-A fonte de verdade da pontuacao v2 e o engine deterministico e [../coleta/AI-Maturity-Form-Questions_v2.md](../coleta/AI-Maturity-Form-Questions_v2.md). Nao use paginas de pilar v1 arquivadas para novos assessments.
+A fonte da verdade da pontuação v2 é o engine determinístico e [../coleta/AI-Maturity-Form-Questions_v2.md](../coleta/AI-Maturity-Form-Questions_v2.md). Não use páginas de pilar v1 arquivadas para novos assessments.
 
-As referencias v1 arquivadas estao em [v1/](v1/), incluindo as antigas paginas P1, P2 e P3.
+Use `make examples-v2` para regerar os exemplos ilustrativos. Use `make validate-docs` para checar helpers gerados e documentação dos pacotes.

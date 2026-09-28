@@ -1,22 +1,21 @@
 # `wizard/scripts/`
 
-📖 **Navegação:** [🏠 Índice](../../README.md) · [« Wizard](../README.md)
+🌐 [English](README.md) · Português (Brasil)
 
-Scripts que apoiam o Wizard de Implementation Guide.
+📖 **Navegação:** [🏠 Índice](../../README.pt-br.md) · [« Wizard](../README.pt-br.md)
+
+Scripts que dão suporte ao Wizard do Guia de Implementação.
 
 ## Conteúdo
 
-| Arquivo | Propósito |
-|---|---|
-| [`auto_fill_from_plano.py`](auto_fill_from_plano.py) | **Modo D** do wizard: lê `saida/plano-capacitacao-<DATE>.md` (output do Learning Survey) e gera `implementation-guide-inputs.json` na raiz, preenchendo automaticamente **6 dos 9 campos** (Champions, training_plan, calendário, ADKAR-knowledge, quick wins). |
+| Arquivo | Uso |
+| --- | --- |
+| [auto_fill_from_plano.py](auto_fill_from_plano.py) | Mode D do wizard. Lê o `saida/plano-capacitacao-*.md` mais recente e gera `implementation-guide-inputs.json` na raiz. Suporta `--lang en`, `--lang pt-br` e `--lang es`. Preenche 7 dos 11 campos a partir da saída do Learning Survey e marca o restante como itens a preencher. |
 
 ## Uso
 
 ```bash
-python3 wizard/scripts/auto_fill_from_plano.py
+python3 wizard/scripts/auto_fill_from_plano.py --lang pt-br
 ```
 
-Detecta automaticamente o último `plano-capacitacao-*.md` em `saida/`. Output: `implementation-guide-inputs.json` na raiz (67 % completo — você ainda precisa preencher TPO e RACI Matrix manualmente).
-
-> [!TIP]
-> Só faz sentido rodar se você já gerou o plano de capacitação via `/plano-capacitacao`. Se não, prefira o modo A (HTML wizard), B (editar JSON template) ou C (conduzir no chat) — todos descritos em [`../README.md`](../README.md).
+Rode depois de `/plano-capacitacao` ou depois de `python3 survey-learning/scripts/gerar_plano_capacitacao.py`. Depois rode `make pipeline` para atualizar os 5 PDFs v2.

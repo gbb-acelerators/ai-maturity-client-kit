@@ -1,14 +1,14 @@
 ---
 name: importar-respostas-excel
-description: Imports Microsoft Forms Excel exports into respostas.json by invoking scripts/import_forms_excel.py. Detects v2 exports by header IDs and preserves archived v1 import. Use for "importar Forms", "import Excel", "respostas-forms.xlsx".
-argument-hint: path to Microsoft Forms .xlsx export
+description: Imports Microsoft Forms Excel exports or offline HTML exports into respostas.json. Uses deterministic import and merge scripts. Use for "importar Forms", "import Excel", "respostas-forms.xlsx", "merge offline exports".
+argument-hint: path to Microsoft Forms .xlsx export or offline exports folder
 ---
 
-# Skill: Import Microsoft Forms responses
+# Skill: Import assessment responses
 
-Use the deterministic importer. Do not parse the spreadsheet manually.
+Use deterministic importers. Do not parse spreadsheets or JSON exports manually.
 
-## Command
+## Microsoft Forms command
 
 ```bash
 python3 scripts/import_forms_excel.py respostas-forms.xlsx
@@ -20,20 +20,23 @@ or:
 make import XLSX=respostas-forms.xlsx
 ```
 
-## v2 detection
+## Offline form merge command
 
-The importer detects v2 exports by question header IDs such as `D4-Q3:` and profile IDs `R-Q1` to `R-Q5`. It writes the v2 `respondents` format:
-
-```json
-{
-  "metadata": {"framework_version": "2.0.1"},
-  "respondents": [
-    {"id": "r1", "profile": {"R-Q1": "..."}, "answers": {"D1-Q1": {"level": 2, "evidence": "..."}}}
-  ]
-}
+```bash
+python3 scripts/merge_offline_respostas.py exports/
 ```
 
-`level: null` means `NA`. A missing answer key means not answered.
+or:
+
+```bash
+make merge DIR=exports/
+```
+
+The offline merge assigns unique IDs `R01`, `R02`, and so on, refuses v1 files, refuses mixed organizations unless explicitly allowed, and backs up an existing `respostas.json`.
+
+## v2 detection
+
+The importer detects v2 exports by question header IDs such as `D4-Q3:` and profile IDs `R-Q1` to `R-Q5`. `level: null` means `NA`. A missing answer key means not answered.
 
 ## v1 behavior
 
@@ -51,4 +54,4 @@ python3 relatorios/scripts/build_payload_and_render.py
 
 ## Chat response
 
-Report the detected framework, respondent count, output path, warnings, and next command. Stop if the importer reports unknown headers or invalid levels.
+Report the detected framework, respondent count, output path, warnings, and next command. Stop if the importer reports unknown headers, invalid levels, v1 files in offline merge, or mixed organizations.
