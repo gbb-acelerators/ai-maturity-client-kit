@@ -1,0 +1,2601 @@
+{
+  "deliverable": "score_justification",
+  "locale": "pt-br",
+  "organization": {
+    "name": "Cliente Exemplo S.A.",
+    "industry": "Não especificado",
+    "primary_contact_role": "Diretora de Engenharia",
+    "number_of_developers": "Não especificado",
+    "number_of_applications": "Não especificado",
+    "primary_cloud_provider": "Não especificado",
+    "current_devops_tools": "Não especificado",
+    "assessment_scope": "Não especificado",
+    "key_business_drivers": "Não especificado",
+    "timeline_for_transformation": "Não especificado"
+  },
+  "assessment": {
+    "id": "Maria Tech Leader (exemplo)",
+    "name": "AI Maturity Assessment",
+    "framework_version": "1.0.0",
+    "completed_date": "2026-05-08",
+    "generated_date": "2026-09-27"
+  },
+  "scores": {
+    "overall": {
+      "weighted_avg": 1.99,
+      "level_label": "L2 — Definido",
+      "target": 3.26,
+      "gap": 1.27
+    },
+    "pillars": [
+      {
+        "id": "P1",
+        "name": "Produtividade do Desenvolvedor",
+        "weighted_avg": 2.69,
+        "level_label": "L3 — Gerenciado",
+        "target": 3.36,
+        "gap": 0.67,
+        "weighted_sum_calc": 8.89,
+        "weights_sum": 3.3,
+        "capabilities_count": 9,
+        "current_state_metrics": []
+      },
+      {
+        "id": "P2",
+        "name": "Ciclo de Vida DevOps",
+        "weighted_avg": 1.52,
+        "level_label": "L2 — Definido",
+        "target": 3.13,
+        "gap": 1.61,
+        "weighted_sum_calc": 6.83,
+        "weights_sum": 4.5,
+        "capabilities_count": 10,
+        "current_state_metrics": []
+      },
+      {
+        "id": "P3",
+        "name": "Plataforma de Aplicações",
+        "weighted_avg": 1.92,
+        "level_label": "L2 — Definido",
+        "target": 3.32,
+        "gap": 1.41,
+        "weighted_sum_calc": 5.94,
+        "weights_sum": 3.1,
+        "capabilities_count": 9,
+        "current_state_metrics": []
+      }
+    ],
+    "pe_readiness": {
+      "weighted_score": 2.6,
+      "level": "MEDIUM",
+      "three_horizons_verdict": null,
+      "agentic_platform_engineering": {
+        "destination_label": "Agentic Platform Engineering",
+        "recommended_path": "open_horizons",
+        "recommended_path_label": null,
+        "recommended_idp": null,
+        "rationale": null
+      }
+    }
+  },
+  "capabilities": [
+    {
+      "id": "P1-C1",
+      "code": "1.1",
+      "name": "Assistentes de Codificação IA",
+      "pillar_id": "P1",
+      "is_pe_indicator": false,
+      "weight": 1.2,
+      "pe_weight": 0.0,
+      "audience": [
+        "data-ai",
+        "developer",
+        "engineering-leader",
+        "product-owner",
+        "qa-test",
+        "security"
+      ],
+      "evidence_collected": [
+        "P1-C1-Q1: Cobertura de 80%+ com métricas mostrando ganhos consistentes (~20% velocidade).",
+        "P1-C1-Q2: Programa maduro com ~85% cobertura, dashboards Grafana ativos e revisão trimestral.",
+        "P1-C1-Q3: Aproximadamente 45% de adoção, com workshops mensais e métricas iniciais.",
+        "P1-C1-Q4: Adoção universal (>95%) com fine-tuning customizado e ganhos medidos >35%.",
+        "P1-C1-Q5: Adoção em mais de 75% dos squads; biblioteca de templates compartilhada e métricas DORA monitoradas."
+      ],
+      "h1_state_evidence": [
+        "P1-C1-Q1: Cobertura de 80%+ com métricas mostrando ganhos consistentes (~20% velocidade).",
+        "P1-C1-Q2: Programa maduro com ~85% cobertura, dashboards Grafana ativos e revisão trimestral.",
+        "P1-C1-Q3: Aproximadamente 45% de adoção, com workshops mensais e métricas iniciais."
+      ],
+      "evidence_count": 5,
+      "question_count": 5,
+      "scoring_rationale": "Média ponderada de 5 de 5 perguntas: 3.04 (L3 — Gerenciado). Houve evidência em 5 pergunta(s), listada acima.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "% developers using AI completion",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% PRs with AI review",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "Productivity measurement maturity",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 5,
+      "current_score": 3.04,
+      "current_level_label": "L3 — Gerenciado",
+      "target_score": 4.0,
+      "target_level_label": "L4 — Otimizando",
+      "h1_target_score": 4.0,
+      "h2_target_score": 4.0,
+      "h3_target_score": 4.0,
+      "gap": 0.96,
+      "gap_priority": "MEDIUM"
+    },
+    {
+      "id": "P1-C2",
+      "code": "1.2",
+      "name": "Plataforma de Experiência do Desenvolvedor",
+      "pillar_id": "P1",
+      "is_pe_indicator": true,
+      "weight": 1.0,
+      "pe_weight": 1.0,
+      "audience": [
+        "architect",
+        "data-ai",
+        "developer",
+        "platform-engineer",
+        "security"
+      ],
+      "evidence_collected": [
+        "P1-C2-Q1: Implantação em 35% dos serviços; documentação publicada no Confluence interno.",
+        "P1-C2-Q2: Adoção em mais de 75% dos squads; biblioteca de templates compartilhada e métricas DORA monitoradas.",
+        "P1-C2-Q3: Implantação em 35% dos serviços; documentação publicada no Confluence interno.",
+        "P1-C2-Q4: Programa maduro com ~85% cobertura, dashboards Grafana ativos e revisão trimestral."
+      ],
+      "h1_state_evidence": [
+        "P1-C2-Q1: Implantação em 35% dos serviços; documentação publicada no Confluence interno.",
+        "P1-C2-Q2: Adoção em mais de 75% dos squads; biblioteca de templates compartilhada e métricas DORA monitoradas.",
+        "P1-C2-Q3: Implantação em 35% dos serviços; documentação publicada no Confluence interno."
+      ],
+      "evidence_count": 4,
+      "question_count": 6,
+      "scoring_rationale": "Média ponderada de 4 de 6 perguntas: 2.49 (L2 — Definido). Houve evidência em 4 pergunta(s), listada acima.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "Developer portal adoption %",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "Environment setup time (minutes)",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "Self-service catalog coverage",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 4,
+      "current_score": 2.49,
+      "current_level_label": "L2 — Definido",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 3.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0.51,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P1-C3",
+      "code": "1.3",
+      "name": "Gestão do Conhecimento",
+      "pillar_id": "P1",
+      "is_pe_indicator": false,
+      "weight": 0.8,
+      "pe_weight": 0.0,
+      "audience": [
+        "architect",
+        "data-ai",
+        "developer",
+        "engineering-leader"
+      ],
+      "evidence_collected": [],
+      "h1_state_evidence": [],
+      "evidence_count": 0,
+      "question_count": 6,
+      "scoring_rationale": "Nenhuma pergunta desta capability foi respondida.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "Knowledge retrieval success rate %",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% repos indexed",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "queries per developer/month",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 0,
+      "current_score": 0.0,
+      "current_level_label": "Sem resposta",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 1.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P1-C4",
+      "code": "1.4",
+      "name": "Automação de Revisão de Código",
+      "pillar_id": "P1",
+      "is_pe_indicator": false,
+      "weight": 1.1,
+      "pe_weight": 0.0,
+      "audience": [
+        "data-ai",
+        "developer"
+      ],
+      "evidence_collected": [
+        "P1-C4-Q1: Programa maduro com ~85% cobertura, dashboards Grafana ativos e revisão trimestral.",
+        "P1-C4-Q2: Cobertura de ~40% das equipes com diretrizes escritas e treinamento básico.",
+        "P1-C4-Q3: Cobertura de 80%+ com métricas mostrando ganhos consistentes (~20% velocidade).",
+        "P1-C4-Q4: Cobertura de ~40% das equipes com diretrizes escritas e treinamento básico."
+      ],
+      "h1_state_evidence": [
+        "P1-C4-Q1: Programa maduro com ~85% cobertura, dashboards Grafana ativos e revisão trimestral.",
+        "P1-C4-Q2: Cobertura de ~40% das equipes com diretrizes escritas e treinamento básico.",
+        "P1-C4-Q3: Cobertura de 80%+ com métricas mostrando ganhos consistentes (~20% velocidade)."
+      ],
+      "evidence_count": 4,
+      "question_count": 7,
+      "scoring_rationale": "Média ponderada de 4 de 7 perguntas: 2.50 (L3 — Gerenciado). Houve evidência em 4 pergunta(s), listada acima.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "% PRs AI-reviewed",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "lint violations per kLOC",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "critical findings per PR",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 4,
+      "current_score": 2.5,
+      "current_level_label": "L3 — Gerenciado",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 3.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0.5,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P1-C5",
+      "code": "1.5",
+      "name": "Onboarding e Treinamento de Desenvolvedores",
+      "pillar_id": "P1",
+      "is_pe_indicator": false,
+      "weight": 0.9,
+      "pe_weight": 0.0,
+      "audience": [
+        "developer",
+        "engineering-leader",
+        "qa-test"
+      ],
+      "evidence_collected": [],
+      "h1_state_evidence": [],
+      "evidence_count": 0,
+      "question_count": 7,
+      "scoring_rationale": "Nenhuma pergunta desta capability foi respondida.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "time-to-first-commit (hours)",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% new hires completing onboarding",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "mentor:mentee ratio",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 0,
+      "current_score": 0.0,
+      "current_level_label": "Sem resposta",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 1.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P1-C6",
+      "code": "1.6",
+      "name": "Inner Source e Colaboração",
+      "pillar_id": "P1",
+      "is_pe_indicator": false,
+      "weight": 0.9,
+      "pe_weight": 0.0,
+      "audience": [
+        "architect",
+        "developer",
+        "engineering-leader"
+      ],
+      "evidence_collected": [],
+      "h1_state_evidence": [],
+      "evidence_count": 0,
+      "question_count": 6,
+      "scoring_rationale": "Nenhuma pergunta desta capability foi respondida.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "% repos open to all devs",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% repos with CONTRIBUTING",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "cross-team PRs per month",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 0,
+      "current_score": 0.0,
+      "current_level_label": "Sem resposta",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 1.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P1-C7",
+      "code": "1.7",
+      "name": "Automação de Documentação",
+      "pillar_id": "P1",
+      "is_pe_indicator": false,
+      "weight": 0.8,
+      "pe_weight": 0.0,
+      "audience": [
+        "architect",
+        "developer",
+        "qa-test"
+      ],
+      "evidence_collected": [],
+      "h1_state_evidence": [],
+      "evidence_count": 0,
+      "question_count": 5,
+      "scoring_rationale": "Nenhuma pergunta desta capability foi respondida.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "% services with docs in repo",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% APIs with generated docs",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% PRs with AI doc suggestions",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 0,
+      "current_score": 0.0,
+      "current_level_label": "Sem resposta",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 1.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P1-C8",
+      "code": "1.8",
+      "name": "Medição de Produtividade do Desenvolvedor",
+      "pillar_id": "P1",
+      "is_pe_indicator": false,
+      "weight": 1.0,
+      "pe_weight": 0.0,
+      "audience": [
+        "engineering-leader",
+        "platform-engineer",
+        "qa-test"
+      ],
+      "evidence_collected": [],
+      "h1_state_evidence": [],
+      "evidence_count": 0,
+      "question_count": 6,
+      "scoring_rationale": "Nenhuma pergunta desta capability foi respondida.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "deploys/day, lead time, CFR, MTTR",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "DX survey NPS",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "p95 CI duration",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 0,
+      "current_score": 0.0,
+      "current_level_label": "Sem resposta",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 1.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P1-C9",
+      "code": "1.9",
+      "name": "Automação de Ambientes e Espaços de Trabalho",
+      "pillar_id": "P1",
+      "is_pe_indicator": false,
+      "weight": 0.9,
+      "pe_weight": 0.0,
+      "audience": [
+        "architect",
+        "developer",
+        "platform-engineer",
+        "qa-test"
+      ],
+      "evidence_collected": [],
+      "h1_state_evidence": [],
+      "evidence_count": 0,
+      "question_count": 5,
+      "scoring_rationale": "Nenhuma pergunta desta capability foi respondida.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "% repos with devcontainer",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% devs using cloud workspace",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "tools pinned per repo",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 0,
+      "current_score": 0.0,
+      "current_level_label": "Sem resposta",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 1.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P2-C1",
+      "code": "2.1",
+      "name": "Inteligência de Pipeline CI/CD",
+      "pillar_id": "P2",
+      "is_pe_indicator": true,
+      "weight": 1.2,
+      "pe_weight": 1.0,
+      "audience": [
+        "data-ai",
+        "devops",
+        "platform-engineer",
+        "product-owner",
+        "security"
+      ],
+      "evidence_collected": [
+        "P2-C1-Q1: Aproximadamente 45% de adoção, com workshops mensais e métricas iniciais.",
+        "P2-C1-Q2: Adoção em mais de 75% dos squads; biblioteca de templates compartilhada e métricas DORA monitoradas.",
+        "P2-C1-Q3: Implantação em 35% dos serviços; documentação publicada no Confluence interno.",
+        "P2-C1-Q4: Cobertura de ~40% das equipes com diretrizes escritas e treinamento básico.",
+        "P2-C1-Q5: Adoção em mais de 75% dos squads; biblioteca de templates compartilhada e métricas DORA monitoradas.",
+        "P2-C1-Q6: Cobertura de ~40% das equipes com diretrizes escritas e treinamento básico."
+      ],
+      "h1_state_evidence": [
+        "P2-C1-Q1: Aproximadamente 45% de adoção, com workshops mensais e métricas iniciais.",
+        "P2-C1-Q2: Adoção em mais de 75% dos squads; biblioteca de templates compartilhada e métricas DORA monitoradas.",
+        "P2-C1-Q3: Implantação em 35% dos serviços; documentação publicada no Confluence interno."
+      ],
+      "evidence_count": 6,
+      "question_count": 6,
+      "scoring_rationale": "Média ponderada de 6 de 6 perguntas: 2.33 (L2 — Definido). Houve evidência em 6 pergunta(s), listada acima.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "Deployment frequency per week",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% pipelines as code",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% cache hit ratio",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 6,
+      "current_score": 2.33,
+      "current_level_label": "L2 — Definido",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 3.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0.67,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P2-C2",
+      "code": "2.2",
+      "name": "Infraestrutura como Código",
+      "pillar_id": "P2",
+      "is_pe_indicator": true,
+      "weight": 1.1,
+      "pe_weight": 1.0,
+      "audience": [
+        "architect",
+        "devops",
+        "platform-engineer",
+        "qa-test",
+        "security"
+      ],
+      "evidence_collected": [],
+      "h1_state_evidence": [],
+      "evidence_count": 0,
+      "question_count": 6,
+      "scoring_rationale": "Nenhuma pergunta desta capability foi respondida.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "% infrastructure as code",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% infra as code",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% resources via modules",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 0,
+      "current_score": 0.0,
+      "current_level_label": "Sem resposta",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 1.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P2-C3",
+      "code": "2.3",
+      "name": "Observabilidade e Monitoramento",
+      "pillar_id": "P2",
+      "is_pe_indicator": true,
+      "weight": 1.0,
+      "pe_weight": 1.0,
+      "audience": [
+        "data-ai",
+        "devops",
+        "product-owner"
+      ],
+      "evidence_collected": [
+        "P2-C3-Q1: Programa maduro com ~85% cobertura, dashboards Grafana ativos e revisão trimestral.",
+        "P2-C3-Q2: Cobertura de ~40% das equipes com diretrizes escritas e treinamento básico.",
+        "P2-C3-Q3: Programa maduro com ~85% cobertura, dashboards Grafana ativos e revisão trimestral.",
+        "P2-C3-Q4: Cobertura de ~40% das equipes com diretrizes escritas e treinamento básico.",
+        "P2-C3-Q5: Cobertura de ~40% das equipes com diretrizes escritas e treinamento básico."
+      ],
+      "h1_state_evidence": [
+        "P2-C3-Q1: Programa maduro com ~85% cobertura, dashboards Grafana ativos e revisão trimestral.",
+        "P2-C3-Q2: Cobertura de ~40% das equipes com diretrizes escritas e treinamento básico.",
+        "P2-C3-Q3: Programa maduro com ~85% cobertura, dashboards Grafana ativos e revisão trimestral."
+      ],
+      "evidence_count": 5,
+      "question_count": 6,
+      "scoring_rationale": "Média ponderada de 5 de 6 perguntas: 2.40 (L2 — Definido). Houve evidência em 5 pergunta(s), listada acima.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "MTTR in minutes",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% services emitting structured logs",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% services instrumented",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 5,
+      "current_score": 2.4,
+      "current_level_label": "L2 — Definido",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 3.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0.6,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P2-C4",
+      "code": "2.4",
+      "name": "Integração de Segurança (DevSecOps)",
+      "pillar_id": "P2",
+      "is_pe_indicator": false,
+      "weight": 1.2,
+      "pe_weight": 0.0,
+      "audience": [
+        "devops",
+        "product-owner",
+        "qa-test",
+        "security"
+      ],
+      "evidence_collected": [
+        "P2-C4-Q1: Adoção esporádica por iniciativa de tech leads, sem KPIs definidos.",
+        "P2-C4-Q2: Sem prática estabelecida — nenhuma ferramenta ou política implementada.",
+        "P2-C4-Q3: Piloto isolado em 1 squad (~8% dos times); sem governança formal.",
+        "P2-C4-Q4: Programa em fase exploratória; menos de 15% de cobertura medida."
+      ],
+      "h1_state_evidence": [
+        "P2-C4-Q1: Adoção esporádica por iniciativa de tech leads, sem KPIs definidos.",
+        "P2-C4-Q2: Sem prática estabelecida — nenhuma ferramenta ou política implementada.",
+        "P2-C4-Q3: Piloto isolado em 1 squad (~8% dos times); sem governança formal."
+      ],
+      "evidence_count": 4,
+      "question_count": 6,
+      "scoring_rationale": "Média ponderada de 4 de 6 perguntas: 0.75 (L1 — Em Desenvolvimento). Houve evidência em 4 pergunta(s), listada acima.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "% vulnerabilities caught pre-prod",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% repos with SAST",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% repos with SCA",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 4,
+      "current_score": 0.75,
+      "current_level_label": "L1 — Em Desenvolvimento",
+      "target_score": 3.5,
+      "target_level_label": "L4 — Otimizando",
+      "h1_target_score": 1.8,
+      "h2_target_score": 3.5,
+      "h3_target_score": 4.0,
+      "gap": 2.75,
+      "gap_priority": "CRITICAL"
+    },
+    {
+      "id": "P2-C5",
+      "code": "2.5",
+      "name": "Estratégias de Release e Implantação",
+      "pillar_id": "P2",
+      "is_pe_indicator": false,
+      "weight": 1.1,
+      "pe_weight": 0.0,
+      "audience": [
+        "architect",
+        "devops",
+        "security"
+      ],
+      "evidence_collected": [],
+      "h1_state_evidence": [],
+      "evidence_count": 0,
+      "question_count": 6,
+      "scoring_rationale": "Nenhuma pergunta desta capability foi respondida.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "% services with canary",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "median rollback time",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "flags in active use",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 0,
+      "current_score": 0.0,
+      "current_level_label": "Sem resposta",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 1.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P2-C6",
+      "code": "2.6",
+      "name": "Automação de Testes",
+      "pillar_id": "P2",
+      "is_pe_indicator": false,
+      "weight": 1.1,
+      "pe_weight": 0.0,
+      "audience": [
+        "data-ai",
+        "developer",
+        "devops",
+        "qa-test"
+      ],
+      "evidence_collected": [],
+      "h1_state_evidence": [],
+      "evidence_count": 0,
+      "question_count": 7,
+      "scoring_rationale": "Nenhuma pergunta desta capability foi respondida.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "% repos >80% coverage",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "integration tests in CI",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "critical journeys automated",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 0,
+      "current_score": 0.0,
+      "current_level_label": "Sem resposta",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 1.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P2-C7",
+      "code": "2.7",
+      "name": "Gestão de Incidentes e SRE",
+      "pillar_id": "P2",
+      "is_pe_indicator": false,
+      "weight": 1.1,
+      "pe_weight": 0.0,
+      "audience": [
+        "data-ai",
+        "devops",
+        "engineering-leader",
+        "product-owner",
+        "security"
+      ],
+      "evidence_collected": [],
+      "h1_state_evidence": [],
+      "evidence_count": 0,
+      "question_count": 7,
+      "scoring_rationale": "Nenhuma pergunta desta capability foi respondida.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "% services with on-call",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% incidents with postmortem",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% services using error budgets",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 0,
+      "current_score": 0.0,
+      "current_level_label": "Sem resposta",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 1.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P2-C8",
+      "code": "2.8",
+      "name": "Gestão de Artefatos e Pacotes",
+      "pillar_id": "P2",
+      "is_pe_indicator": false,
+      "weight": 0.9,
+      "pe_weight": 0.0,
+      "audience": [
+        "devops",
+        "platform-engineer",
+        "security"
+      ],
+      "evidence_collected": [],
+      "h1_state_evidence": [],
+      "evidence_count": 0,
+      "question_count": 5,
+      "scoring_rationale": "Nenhuma pergunta desta capability foi respondida.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "% packages via registry",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% builds with SBOM",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% artifacts signed",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 0,
+      "current_score": 0.0,
+      "current_level_label": "Sem resposta",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 1.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P2-C9",
+      "code": "2.9",
+      "name": "Gestão de Mudanças e GitOps",
+      "pillar_id": "P2",
+      "is_pe_indicator": false,
+      "weight": 1.0,
+      "pe_weight": 0.0,
+      "audience": [
+        "devops",
+        "platform-engineer",
+        "security"
+      ],
+      "evidence_collected": [],
+      "h1_state_evidence": [],
+      "evidence_count": 0,
+      "question_count": 5,
+      "scoring_rationale": "Nenhuma pergunta desta capability foi respondida.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "% clusters on GitOps",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% changes ticketed automatically",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% approvals in PR",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 0,
+      "current_score": 0.0,
+      "current_level_label": "Sem resposta",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 1.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P2-C10",
+      "code": "2.10",
+      "name": "Segurança de Dependências e Cadeia de Suprimentos",
+      "pillar_id": "P2",
+      "is_pe_indicator": false,
+      "weight": 1.1,
+      "pe_weight": 0.0,
+      "audience": [
+        "devops",
+        "security"
+      ],
+      "evidence_collected": [
+        "P2-C10-Q1: Adoção esporádica por iniciativa de tech leads, sem KPIs definidos.",
+        "P2-C10-Q2: Programa em fase exploratória; menos de 15% de cobertura medida.",
+        "P2-C10-Q3: Sem prática estabelecida — nenhuma ferramenta ou política implementada."
+      ],
+      "h1_state_evidence": [
+        "P2-C10-Q1: Adoção esporádica por iniciativa de tech leads, sem KPIs definidos.",
+        "P2-C10-Q2: Programa em fase exploratória; menos de 15% de cobertura medida.",
+        "P2-C10-Q3: Sem prática estabelecida — nenhuma ferramenta ou política implementada."
+      ],
+      "evidence_count": 3,
+      "question_count": 5,
+      "scoring_rationale": "Média ponderada de 3 de 5 perguntas: 0.67 (L1 — Em Desenvolvimento). Houve evidência em 3 pergunta(s), listada acima.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "% repos auto-updated",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% deps from allow-listed source",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "SLSA level reached",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 3,
+      "current_score": 0.67,
+      "current_level_label": "L1 — Em Desenvolvimento",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 1.7,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 2.33,
+      "gap_priority": "CRITICAL"
+    },
+    {
+      "id": "P3-C1",
+      "code": "3.1",
+      "name": "Arquitetura Cloud-Native",
+      "pillar_id": "P3",
+      "is_pe_indicator": true,
+      "weight": 1.1,
+      "pe_weight": 1.0,
+      "audience": [
+        "architect",
+        "platform-engineer",
+        "product-owner"
+      ],
+      "evidence_collected": [
+        "P3-C1-Q1: Cobertura de 80%+ com métricas mostrando ganhos consistentes (~20% velocidade).",
+        "P3-C1-Q2: Cobertura de 80%+ com métricas mostrando ganhos consistentes (~20% velocidade).",
+        "P3-C1-Q3: Aproximadamente 45% de adoção, com workshops mensais e métricas iniciais.",
+        "P3-C1-Q4: Cobertura de ~40% das equipes com diretrizes escritas e treinamento básico.",
+        "P3-C1-Q5: Adoção em mais de 75% dos squads; biblioteca de templates compartilhada e métricas DORA monitoradas."
+      ],
+      "h1_state_evidence": [
+        "P3-C1-Q1: Cobertura de 80%+ com métricas mostrando ganhos consistentes (~20% velocidade).",
+        "P3-C1-Q2: Cobertura de 80%+ com métricas mostrando ganhos consistentes (~20% velocidade).",
+        "P3-C1-Q3: Aproximadamente 45% de adoção, com workshops mensais e métricas iniciais."
+      ],
+      "evidence_count": 5,
+      "question_count": 5,
+      "scoring_rationale": "Média ponderada de 5 de 5 perguntas: 2.60 (L3 — Gerenciado). Houve evidência em 5 pergunta(s), listada acima.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "% workloads containerized",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% services on mesh",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% flows async",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 5,
+      "current_score": 2.6,
+      "current_level_label": "L3 — Gerenciado",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 3.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0.4,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P3-C2",
+      "code": "3.2",
+      "name": "Gestão de APIs",
+      "pillar_id": "P3",
+      "is_pe_indicator": true,
+      "weight": 0.9,
+      "pe_weight": 1.0,
+      "audience": [
+        "architect",
+        "developer",
+        "engineering-leader",
+        "platform-engineer",
+        "qa-test",
+        "security"
+      ],
+      "evidence_collected": [],
+      "h1_state_evidence": [],
+      "evidence_count": 0,
+      "question_count": 5,
+      "scoring_rationale": "Nenhuma pergunta desta capability foi respondida.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "% APIs with OpenAPI spec",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% APIs behind gateway",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% APIs with spec",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 0,
+      "current_score": 0.0,
+      "current_level_label": "Sem resposta",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 1.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P3-C3",
+      "code": "3.3",
+      "name": "Desenvolvimento de Aplicações IA",
+      "pillar_id": "P3",
+      "is_pe_indicator": false,
+      "weight": 1.0,
+      "pe_weight": 0.0,
+      "audience": [
+        "architect",
+        "data-ai",
+        "developer",
+        "qa-test",
+        "security"
+      ],
+      "evidence_collected": [
+        "P3-C3-Q1: Aproximadamente 45% de adoção, com workshops mensais e métricas iniciais.",
+        "P3-C3-Q2: Implantação em 35% dos serviços; documentação publicada no Confluence interno.",
+        "P3-C3-Q3: Adoção em mais de 75% dos squads; biblioteca de templates compartilhada e métricas DORA monitoradas.",
+        "P3-C3-Q4: Aproximadamente 45% de adoção, com workshops mensais e métricas iniciais."
+      ],
+      "h1_state_evidence": [
+        "P3-C3-Q1: Aproximadamente 45% de adoção, com workshops mensais e métricas iniciais.",
+        "P3-C3-Q2: Implantação em 35% dos serviços; documentação publicada no Confluence interno.",
+        "P3-C3-Q3: Adoção em mais de 75% dos squads; biblioteca de templates compartilhada e métricas DORA monitoradas."
+      ],
+      "evidence_count": 4,
+      "question_count": 5,
+      "scoring_rationale": "Média ponderada de 4 de 5 perguntas: 2.25 (L2 — Definido). Houve evidência em 4 pergunta(s), listada acima.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "# AI features in production",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% AI apps on framework",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "evals per release",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 4,
+      "current_score": 2.25,
+      "current_level_label": "L2 — Definido",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 3.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0.75,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P3-C4",
+      "code": "3.4",
+      "name": "Plataforma de Dados e Lakehouse",
+      "pillar_id": "P3",
+      "is_pe_indicator": false,
+      "weight": 1.0,
+      "pe_weight": 0.0,
+      "audience": [
+        "architect",
+        "data-ai",
+        "qa-test"
+      ],
+      "evidence_collected": [],
+      "h1_state_evidence": [],
+      "evidence_count": 0,
+      "question_count": 5,
+      "scoring_rationale": "Nenhuma pergunta desta capability foi respondida.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "% data in platform",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% pipelines with contracts",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% datasets cataloged",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 0,
+      "current_score": 0.0,
+      "current_level_label": "Sem resposta",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 1.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P3-C5",
+      "code": "3.5",
+      "name": "Aplicações Agênticas",
+      "pillar_id": "P3",
+      "is_pe_indicator": false,
+      "weight": 1.0,
+      "pe_weight": 0.0,
+      "audience": [
+        "architect",
+        "data-ai",
+        "platform-engineer",
+        "product-owner",
+        "security"
+      ],
+      "evidence_collected": [
+        "P3-C5-Q1: Piloto isolado em 1 squad (~8% dos times); sem governança formal.",
+        "P3-C5-Q2: Adoção esporádica por iniciativa de tech leads, sem KPIs definidos.",
+        "P3-C5-Q3: Cobertura de ~40% das equipes com diretrizes escritas e treinamento básico.",
+        "P3-C5-Q4: Tópico não está no radar atual da liderança técnica.",
+        "P3-C5-Q5: Adoção esporádica por iniciativa de tech leads, sem KPIs definidos.",
+        "P3-C5-Q6: Sem prática estabelecida — nenhuma ferramenta ou política implementada."
+      ],
+      "h1_state_evidence": [
+        "P3-C5-Q1: Piloto isolado em 1 squad (~8% dos times); sem governança formal.",
+        "P3-C5-Q2: Adoção esporádica por iniciativa de tech leads, sem KPIs definidos.",
+        "P3-C5-Q3: Cobertura de ~40% das equipes com diretrizes escritas e treinamento básico."
+      ],
+      "evidence_count": 6,
+      "question_count": 6,
+      "scoring_rationale": "Média ponderada de 6 de 6 perguntas: 0.83 (L1 — Em Desenvolvimento). Houve evidência em 6 pergunta(s), listada acima.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "agents in production",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% agents on framework",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "eval scenarios per agent",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 6,
+      "current_score": 0.83,
+      "current_level_label": "L1 — Em Desenvolvimento",
+      "target_score": 4.0,
+      "target_level_label": "L4 — Otimizando",
+      "h1_target_score": 1.8,
+      "h2_target_score": 4.0,
+      "h3_target_score": 4.0,
+      "gap": 3.17,
+      "gap_priority": "CRITICAL"
+    },
+    {
+      "id": "P3-C6",
+      "code": "3.6",
+      "name": "Gestão de Identidades e Acessos",
+      "pillar_id": "P3",
+      "is_pe_indicator": false,
+      "weight": 1.1,
+      "pe_weight": 0.0,
+      "audience": [
+        "platform-engineer",
+        "security"
+      ],
+      "evidence_collected": [],
+      "h1_state_evidence": [],
+      "evidence_count": 0,
+      "question_count": 5,
+      "scoring_rationale": "Nenhuma pergunta desta capability foi respondida.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "% apps behind SSO",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% workloads using WI",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% access through JIT",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 0,
+      "current_score": 0.0,
+      "current_level_label": "Sem resposta",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 1.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P3-C7",
+      "code": "3.7",
+      "name": "Multi-Cloud e Portabilidade",
+      "pillar_id": "P3",
+      "is_pe_indicator": false,
+      "weight": 0.8,
+      "pe_weight": 0.0,
+      "audience": [
+        "architect",
+        "platform-engineer",
+        "product-owner",
+        "qa-test",
+        "security"
+      ],
+      "evidence_collected": [],
+      "h1_state_evidence": [],
+      "evidence_count": 0,
+      "question_count": 5,
+      "scoring_rationale": "Nenhuma pergunta desta capability foi respondida.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "% workloads portable",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% data on portable engines",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% services multi-region",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 0,
+      "current_score": 0.0,
+      "current_level_label": "Sem resposta",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 1.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P3-C8",
+      "code": "3.8",
+      "name": "Desempenho e Escalabilidade",
+      "pillar_id": "P3",
+      "is_pe_indicator": false,
+      "weight": 1.0,
+      "pe_weight": 0.0,
+      "audience": [
+        "architect",
+        "devops",
+        "product-owner",
+        "qa-test"
+      ],
+      "evidence_collected": [],
+      "h1_state_evidence": [],
+      "evidence_count": 0,
+      "question_count": 5,
+      "scoring_rationale": "Nenhuma pergunta desta capability foi respondida.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "% services with perf budget",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% services load-tested",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% services autoscaled",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 0,
+      "current_score": 0.0,
+      "current_level_label": "Sem resposta",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 1.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0,
+      "gap_priority": "LOW"
+    },
+    {
+      "id": "P3-C9",
+      "code": "3.9",
+      "name": "FinOps e Otimização de Custos",
+      "pillar_id": "P3",
+      "is_pe_indicator": false,
+      "weight": 0.9,
+      "pe_weight": 0.0,
+      "audience": [
+        "data-ai",
+        "engineering-leader",
+        "platform-engineer",
+        "product-owner"
+      ],
+      "evidence_collected": [],
+      "h1_state_evidence": [],
+      "evidence_count": 0,
+      "question_count": 5,
+      "scoring_rationale": "Nenhuma pergunta desta capability foi respondida.",
+      "h1_initiatives": [],
+      "h2_key_enabler": null,
+      "h3_target_label": null,
+      "h1_success_metrics": [
+        {
+          "metric": "% cost tagged to team",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "% eligible spend committed",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        },
+        {
+          "metric": "$/month saved by cleanup",
+          "current": "Não especificado",
+          "h1_target": "Não especificado"
+        }
+      ],
+      "answered": 0,
+      "current_score": 0.0,
+      "current_level_label": "Sem resposta",
+      "target_score": 3.0,
+      "target_level_label": "L3 — Gerenciado",
+      "h1_target_score": 1.0,
+      "h2_target_score": 3.0,
+      "h3_target_score": 4.0,
+      "gap": 0,
+      "gap_priority": "LOW"
+    }
+  ],
+  "horizons": [
+    {
+      "id": "H1",
+      "name": "Foundation",
+      "duration_label": "Months 0-6",
+      "target_overall_maturity": 2.5,
+      "focus": "Establishing AI-Assisted Development Foundation",
+      "narrative": "H1 establishes the foundational platform, governance, and adoption patterns required for transformation at scale.",
+      "key_initiatives": [
+        {
+          "title": "AI Coding Adoption Foundation",
+          "items": [
+            "Deploy enterprise-tier AI coding licenses to 100% of developers",
+            "Establish weekly adoption metrics dashboard",
+            "Launch champions program"
+          ]
+        },
+        {
+          "title": "Platform Foundation",
+          "items": [
+            "Define IDP target architecture",
+            "Deploy minimum-viable service catalog",
+            "Standardize dev containers"
+          ]
+        }
+      ],
+      "capability_targets": []
+    },
+    {
+      "id": "H2",
+      "name": "Scale",
+      "duration_label": "Months 6-18",
+      "target_overall_maturity": 3.0,
+      "focus": "Scaling Platform Engineering & Agentic Workflows",
+      "narrative": "H2 scales H1 successes across the engineering organization with full IDP adoption and broader agentic workflow integration.",
+      "key_initiatives": [
+        {
+          "title": "IDP General Availability",
+          "items": [
+            "Migrate all teams to IDP",
+            "Establish golden paths for top 10 use cases",
+            "Deploy AI-enhanced developer self-service"
+          ]
+        },
+        {
+          "title": "Agentic Workflows",
+          "items": [
+            "Roll out Agent Mode org-wide",
+            "Deploy AI-driven pipeline optimization",
+            "Implement AI test selection and prioritization"
+          ]
+        }
+      ],
+      "capability_targets": []
+    },
+    {
+      "id": "H3",
+      "name": "Transform",
+      "duration_label": "Months 18-36",
+      "target_overall_maturity": 4.0,
+      "focus": "Autonomous Operations and Self-Healing Systems",
+      "narrative": "H3 transforms operations into autonomous, self-healing systems with multi-agent coordination across the SDLC.",
+      "key_initiatives": [
+        {
+          "title": "Autonomous SDLC",
+          "items": [
+            "Deploy multi-agent coding workflows",
+            "Implement autonomous progressive delivery",
+            "Achieve self-healing infrastructure"
+          ]
+        },
+        {
+          "title": "Continuous Optimization",
+          "items": [
+            "AI-driven workload placement",
+            "Predictive incident prevention",
+            "Continuous compliance with AI verification"
+          ]
+        }
+      ],
+      "capability_targets": []
+    }
+  ],
+  "gap_analysis": [
+    {
+      "pillar_id": "P2",
+      "capability_code": "P2-C4",
+      "capability_name": "Integração de Segurança (DevSecOps)",
+      "current": 0.75,
+      "target": 3.5,
+      "gap": 2.75,
+      "priority": "P0",
+      "recommended_actions": {
+        "h1": "Definir baseline e estabelecer métricas de cobertura.",
+        "h2": "Expandir piloto para >50% das equipes; instrumentar OKRs.",
+        "h3": "Atingir cobertura universal e otimização contínua."
+      }
+    },
+    {
+      "pillar_id": "P3",
+      "capability_code": "P3-C5",
+      "capability_name": "Aplicações Agênticas",
+      "current": 0.83,
+      "target": 4.0,
+      "gap": 3.17,
+      "priority": "P0",
+      "recommended_actions": {
+        "h1": "Definir baseline e estabelecer métricas de cobertura.",
+        "h2": "Expandir piloto para >50% das equipes; instrumentar OKRs.",
+        "h3": "Atingir cobertura universal e otimização contínua."
+      }
+    },
+    {
+      "pillar_id": "P2",
+      "capability_code": "P2-C10",
+      "capability_name": "Segurança de Dependências e Cadeia de Suprimentos",
+      "current": 0.67,
+      "target": 3.0,
+      "gap": 2.33,
+      "priority": "P0",
+      "recommended_actions": {
+        "h1": "Definir baseline e estabelecer métricas de cobertura.",
+        "h2": "Expandir piloto para >50% das equipes; instrumentar OKRs.",
+        "h3": "Atingir cobertura universal e otimização contínua."
+      }
+    },
+    {
+      "pillar_id": "P1",
+      "capability_code": "P1-C1",
+      "capability_name": "Assistentes de Codificação IA",
+      "current": 3.04,
+      "target": 4.0,
+      "gap": 0.96,
+      "priority": "P2",
+      "recommended_actions": {
+        "h1": "Definir baseline e estabelecer métricas de cobertura.",
+        "h2": "Expandir piloto para >50% das equipes; instrumentar OKRs.",
+        "h3": "Atingir cobertura universal e otimização contínua."
+      }
+    },
+    {
+      "pillar_id": "P2",
+      "capability_code": "P2-C1",
+      "capability_name": "Inteligência de Pipeline CI/CD",
+      "current": 2.33,
+      "target": 3.0,
+      "gap": 0.67,
+      "priority": "P3",
+      "recommended_actions": {
+        "h1": "Definir baseline e estabelecer métricas de cobertura.",
+        "h2": "Expandir piloto para >50% das equipes; instrumentar OKRs.",
+        "h3": "Atingir cobertura universal e otimização contínua."
+      }
+    },
+    {
+      "pillar_id": "P3",
+      "capability_code": "P3-C3",
+      "capability_name": "Desenvolvimento de Aplicações IA",
+      "current": 2.25,
+      "target": 3.0,
+      "gap": 0.75,
+      "priority": "P3",
+      "recommended_actions": {
+        "h1": "Definir baseline e estabelecer métricas de cobertura.",
+        "h2": "Expandir piloto para >50% das equipes; instrumentar OKRs.",
+        "h3": "Atingir cobertura universal e otimização contínua."
+      }
+    },
+    {
+      "pillar_id": "P2",
+      "capability_code": "P2-C3",
+      "capability_name": "Observabilidade e Monitoramento",
+      "current": 2.4,
+      "target": 3.0,
+      "gap": 0.6,
+      "priority": "P3",
+      "recommended_actions": {
+        "h1": "Definir baseline e estabelecer métricas de cobertura.",
+        "h2": "Expandir piloto para >50% das equipes; instrumentar OKRs.",
+        "h3": "Atingir cobertura universal e otimização contínua."
+      }
+    },
+    {
+      "pillar_id": "P1",
+      "capability_code": "P1-C4",
+      "capability_name": "Automação de Revisão de Código",
+      "current": 2.5,
+      "target": 3.0,
+      "gap": 0.5,
+      "priority": "P3",
+      "recommended_actions": {
+        "h1": "Definir baseline e estabelecer métricas de cobertura.",
+        "h2": "Expandir piloto para >50% das equipes; instrumentar OKRs.",
+        "h3": "Atingir cobertura universal e otimização contínua."
+      }
+    },
+    {
+      "pillar_id": "P1",
+      "capability_code": "P1-C2",
+      "capability_name": "Plataforma de Experiência do Desenvolvedor",
+      "current": 2.49,
+      "target": 3.0,
+      "gap": 0.51,
+      "priority": "P3",
+      "recommended_actions": {
+        "h1": "Definir baseline e estabelecer métricas de cobertura.",
+        "h2": "Expandir piloto para >50% das equipes; instrumentar OKRs.",
+        "h3": "Atingir cobertura universal e otimização contínua."
+      }
+    },
+    {
+      "pillar_id": "P3",
+      "capability_code": "P3-C1",
+      "capability_name": "Arquitetura Cloud-Native",
+      "current": 2.6,
+      "target": 3.0,
+      "gap": 0.4,
+      "priority": "P3",
+      "recommended_actions": {
+        "h1": "Definir baseline e estabelecer métricas de cobertura.",
+        "h2": "Expandir piloto para >50% das equipes; instrumentar OKRs.",
+        "h3": "Atingir cobertura universal e otimização contínua."
+      }
+    }
+  ],
+  "three_horizons": {
+    "modernize_h1": [
+      {
+        "technology": "Enterprise AI Coding Platform",
+        "purpose": "AI-assisted coding for all developers",
+        "status": "Recommended",
+        "timeline": "Q1-Q2 2026: Deploy"
+      },
+      {
+        "technology": "Service Catalog (MVP)",
+        "purpose": "Foundation for IDP",
+        "status": "Recommended",
+        "timeline": "Q2 2026: Launch"
+      }
+    ],
+    "platformize_h2": [
+      {
+        "technology": "IDP General Availability",
+        "purpose": "Self-service across teams",
+        "status": "Recommended",
+        "timeline": "Q4 2026 - Q2 2027"
+      },
+      {
+        "technology": "Agent Mode Org-Wide",
+        "purpose": "Agentic coding workflows",
+        "status": "Recommended",
+        "timeline": "H2 2026 ramp"
+      }
+    ],
+    "transform_h3": [
+      {
+        "technology": "Multi-Agent SDLC",
+        "purpose": "Autonomous coding pipelines",
+        "status": "Future Phase",
+        "timeline": "2027-2028"
+      },
+      {
+        "technology": "Self-Healing Infrastructure",
+        "purpose": "Autonomous operations",
+        "status": "Future Phase",
+        "timeline": "2028+"
+      }
+    ]
+  },
+  "technology_resources_per_pillar": {
+    "P1": {
+      "focus_summary": "AI coding adoption + dev experience standardization",
+      "total_effort_tier": "L",
+      "technology_investments": [
+        {
+          "technology": "Enterprise AI Coding Platform",
+          "horizon": "H1",
+          "effort_tier": "M",
+          "purpose": "AI-assisted coding for 200+ developers"
+        },
+        {
+          "technology": "Cloud IDE Platform",
+          "horizon": "H1",
+          "effort_tier": "M",
+          "purpose": "Standardized dev environments"
+        },
+        {
+          "technology": "Agent Mode Rollout",
+          "horizon": "H2",
+          "effort_tier": "L",
+          "purpose": "Agentic coding org-wide"
+        },
+        {
+          "technology": "AI Test Generation Suite",
+          "horizon": "H2",
+          "effort_tier": "M",
+          "purpose": "Test automation augmentation"
+        },
+        {
+          "technology": "Multi-Agent Code Workflows",
+          "horizon": "H3",
+          "effort_tier": "L",
+          "purpose": "Autonomous coding flows"
+        }
+      ],
+      "team_skills": [
+        {
+          "role": "Developer Experience Lead",
+          "ftes": 1,
+          "horizon": "H1",
+          "focus": "Strategy & adoption"
+        },
+        {
+          "role": "Developer Experience Engineers",
+          "ftes": 4,
+          "horizon": "H1",
+          "focus": "Tool integration & training"
+        },
+        {
+          "role": "AI Adoption Champions",
+          "ftes": 10,
+          "horizon": "H1",
+          "focus": "Embedded change agents (part-time)"
+        },
+        {
+          "role": "Developer Experience Engineers",
+          "ftes": 6,
+          "horizon": "H2",
+          "focus": "Agent Mode rollout & support"
+        }
+      ],
+      "effort_summary": [
+        {
+          "horizon": "H1",
+          "duration": "0-6 months",
+          "effort_tier": "M",
+          "focus_areas": "Foundation, license rollout, basic adoption"
+        },
+        {
+          "horizon": "H2",
+          "duration": "6-18 months",
+          "effort_tier": "L",
+          "focus_areas": "Agent Mode scale, AI test gen"
+        },
+        {
+          "horizon": "H3",
+          "duration": "18-36 months",
+          "effort_tier": "L",
+          "focus_areas": "Multi-agent autonomous workflows"
+        }
+      ]
+    },
+    "P2": {
+      "focus_summary": "Pipeline maturity + observability + SRE practice",
+      "total_effort_tier": "L",
+      "technology_investments": [
+        {
+          "technology": "Progressive Delivery Platform",
+          "horizon": "H1",
+          "effort_tier": "M",
+          "purpose": "Canary + feature flags org-wide"
+        },
+        {
+          "technology": "AI Anomaly Detection",
+          "horizon": "H1",
+          "effort_tier": "M",
+          "purpose": "Observability augmentation"
+        },
+        {
+          "technology": "Chaos Engineering Tooling",
+          "horizon": "H2",
+          "effort_tier": "S",
+          "purpose": "Resilience validation"
+        },
+        {
+          "technology": "AI Pipeline Optimization",
+          "horizon": "H2",
+          "effort_tier": "M",
+          "purpose": "Build/test/deploy intelligence"
+        },
+        {
+          "technology": "Self-Healing Pipelines",
+          "horizon": "H3",
+          "effort_tier": "L",
+          "purpose": "Autonomous CI/CD"
+        }
+      ],
+      "team_skills": [
+        {
+          "role": "Platform Engineering Lead",
+          "ftes": 1,
+          "horizon": "H1",
+          "focus": "Pipeline strategy"
+        },
+        {
+          "role": "SRE Engineers",
+          "ftes": 4,
+          "horizon": "H1",
+          "focus": "SRE function buildout"
+        },
+        {
+          "role": "Security Engineers",
+          "ftes": 2,
+          "horizon": "H1",
+          "focus": "DevSecOps deepening"
+        },
+        {
+          "role": "Platform Engineers",
+          "ftes": 6,
+          "horizon": "H2",
+          "focus": "Observability & chaos engineering"
+        }
+      ],
+      "effort_summary": [
+        {
+          "horizon": "H1",
+          "duration": "0-6 months",
+          "effort_tier": "M",
+          "focus_areas": "Progressive delivery, SRE foundation"
+        },
+        {
+          "horizon": "H2",
+          "duration": "6-18 months",
+          "effort_tier": "L",
+          "focus_areas": "Chaos eng, AI pipelines"
+        },
+        {
+          "horizon": "H3",
+          "duration": "18-36 months",
+          "effort_tier": "L",
+          "focus_areas": "Self-healing operations"
+        }
+      ]
+    },
+    "P3": {
+      "focus_summary": "IDP buildout + cloud-native maturation + AI/ML platform GA",
+      "total_effort_tier": "XL",
+      "technology_investments": [
+        {
+          "technology": "Service Catalog & IDP MVP",
+          "horizon": "H1",
+          "effort_tier": "L",
+          "purpose": "Self-service foundation"
+        },
+        {
+          "technology": "Service Mesh",
+          "horizon": "H1",
+          "effort_tier": "M",
+          "purpose": "Multi-cluster routing"
+        },
+        {
+          "technology": "Feature Store GA",
+          "horizon": "H1",
+          "effort_tier": "M",
+          "purpose": "MLOps maturity"
+        },
+        {
+          "technology": "IDP General Availability",
+          "horizon": "H2",
+          "effort_tier": "XL",
+          "purpose": "Org-wide self-service"
+        },
+        {
+          "technology": "AI Workload Placement",
+          "horizon": "H2",
+          "effort_tier": "M",
+          "purpose": "Predictive scaling"
+        },
+        {
+          "technology": "Autonomous Platform Operations",
+          "horizon": "H3",
+          "effort_tier": "L",
+          "purpose": "Self-improving platform"
+        }
+      ],
+      "team_skills": [
+        {
+          "role": "Platform Engineering Lead",
+          "ftes": 1,
+          "horizon": "H1",
+          "focus": "IDP strategy & architecture"
+        },
+        {
+          "role": "Platform Engineers",
+          "ftes": 8,
+          "horizon": "H1",
+          "focus": "IDP buildout"
+        },
+        {
+          "role": "MLOps Engineers",
+          "ftes": 3,
+          "horizon": "H1",
+          "focus": "AI/ML platform maturation"
+        },
+        {
+          "role": "Platform Engineers",
+          "ftes": 12,
+          "horizon": "H2",
+          "focus": "IDP GA & scale operations"
+        }
+      ],
+      "effort_summary": [
+        {
+          "horizon": "H1",
+          "duration": "0-6 months",
+          "effort_tier": "L",
+          "focus_areas": "IDP MVP, service mesh, MLOps GA"
+        },
+        {
+          "horizon": "H2",
+          "duration": "6-18 months",
+          "effort_tier": "XL",
+          "focus_areas": "IDP GA, predictive operations"
+        },
+        {
+          "horizon": "H3",
+          "duration": "18-36 months",
+          "effort_tier": "L",
+          "focus_areas": "Autonomous platform, AI insights"
+        }
+      ]
+    }
+  },
+  "success_metrics_per_pillar": {
+    "P1": {
+      "productivity": [
+        {
+          "metric": "AI Coding Adoption Rate",
+          "current": "Não especificado",
+          "h1": "60%",
+          "h2": "85%",
+          "h3": ">95%"
+        },
+        {
+          "metric": "Suggestion Acceptance",
+          "current": "Não especificado",
+          "h1": "45%",
+          "h2": "55%",
+          "h3": ">60%"
+        },
+        {
+          "metric": "Time to First Commit",
+          "current": "Não especificado",
+          "h1": "2 weeks",
+          "h2": "<1 week",
+          "h3": "<3 days"
+        }
+      ],
+      "quality": [
+        {
+          "metric": "Test Coverage",
+          "current": "Não especificado",
+          "h1": "85%",
+          "h2": "90%",
+          "h3": ">95%"
+        },
+        {
+          "metric": "Mutation Score",
+          "current": "Não especificado",
+          "h1": "60%",
+          "h2": "75%",
+          "h3": ">85%"
+        }
+      ]
+    },
+    "P2": {
+      "dora_metrics": [
+        {
+          "metric": "Deployment Frequency",
+          "current": "Não especificado",
+          "h1": "Daily",
+          "h2": "Multi-daily",
+          "h3": "On-demand"
+        },
+        {
+          "metric": "Lead Time for Changes",
+          "current": "Não especificado",
+          "h1": "<1 day",
+          "h2": "<4 hours",
+          "h3": "<1 hour"
+        },
+        {
+          "metric": "Change Failure Rate",
+          "current": "Não especificado",
+          "h1": "10%",
+          "h2": "7%",
+          "h3": "<5%"
+        },
+        {
+          "metric": "MTTR (P95)",
+          "current": "Não especificado",
+          "h1": "4h",
+          "h2": "1h",
+          "h3": "<30 min"
+        }
+      ],
+      "operational_metrics": [
+        {
+          "metric": "SLO Coverage",
+          "current": "Não especificado",
+          "h1": "100%",
+          "h2": "100%",
+          "h3": "100%"
+        },
+        {
+          "metric": "Game Days/yr",
+          "current": "Não especificado",
+          "h1": "4",
+          "h2": "12",
+          "h3": "Continuous"
+        },
+        {
+          "metric": "Incident MTTR",
+          "current": "Não especificado",
+          "h1": "2h",
+          "h2": "30min",
+          "h3": "<10min auto"
+        }
+      ]
+    },
+    "P3": {
+      "platform_engineering": [
+        {
+          "metric": "Teams on IDP",
+          "current": "Não especificado",
+          "h1": "3",
+          "h2": "All",
+          "h3": "All + AI golden paths"
+        },
+        {
+          "metric": "Platform NPS",
+          "current": "Não especificado",
+          "h1": "+45",
+          "h2": "+55",
+          "h3": ">+60"
+        },
+        {
+          "metric": "Self-Service Time-to-Provision",
+          "current": "Não especificado",
+          "h1": "Hours",
+          "h2": "Minutes",
+          "h3": "Instant"
+        }
+      ],
+      "ai_platform": [
+        {
+          "metric": "Production Models",
+          "current": "Não especificado",
+          "h1": "15",
+          "h2": "40",
+          "h3": ">80"
+        },
+        {
+          "metric": "Model Drift Detection",
+          "current": "Não especificado",
+          "h1": "Automated",
+          "h2": "Predictive",
+          "h3": "Self-correcting"
+        }
+      ],
+      "resilience": [
+        {
+          "metric": "Uptime (P99)",
+          "current": "Não especificado",
+          "h1": "99.9%",
+          "h2": "99.95%",
+          "h3": "99.99%"
+        },
+        {
+          "metric": "Multi-Region Coverage",
+          "current": "Não especificado",
+          "h1": "60%",
+          "h2": "85%",
+          "h3": "100%"
+        }
+      ]
+    }
+  },
+  "risks_per_pillar": {
+    "P1": [
+      {
+        "risk": "Developer adoption resistance",
+        "impact": "High",
+        "probability": "Medium",
+        "mitigation": "Change management, hands-on training, champions program, executive visibility"
+      },
+      {
+        "risk": "AI suggestion quality variance",
+        "impact": "Medium",
+        "probability": "Medium",
+        "mitigation": "Quality monitoring, model tuning, feedback loops"
+      },
+      {
+        "risk": "Skills gap in AI tooling",
+        "impact": "Medium",
+        "probability": "High",
+        "mitigation": "Structured training, pair programming with AI, continuous learning paths"
+      }
+    ],
+    "P2": [
+      {
+        "risk": "Pipeline disruption during transition",
+        "impact": "High",
+        "probability": "Low",
+        "mitigation": "Staged rollout, parallel pipelines, automated rollback"
+      },
+      {
+        "risk": "Security regression with AI tooling",
+        "impact": "High",
+        "probability": "Low",
+        "mitigation": "AI-aware security scanning, mandatory review, audit trails"
+      },
+      {
+        "risk": "Tool sprawl",
+        "impact": "Medium",
+        "probability": "Medium",
+        "mitigation": "Standardize on validated tool catalog, sunset legacy tools per quarter"
+      }
+    ],
+    "P3": [
+      {
+        "risk": "IDP adoption stalls",
+        "impact": "High",
+        "probability": "Medium",
+        "mitigation": "Pilot teams as internal champions, golden paths for top use cases, exec sponsorship"
+      },
+      {
+        "risk": "Legacy modernization complexity",
+        "impact": "High",
+        "probability": "High",
+        "mitigation": "Strangler fig pattern, dedicated modernization team, phased decommission"
+      },
+      {
+        "risk": "Cost overrun on platform investments",
+        "impact": "Medium",
+        "probability": "Medium",
+        "mitigation": "Quarterly FinOps reviews, effort tier gating, pilot before scale"
+      }
+    ],
+    "cross_cutting": [
+      {
+        "risk": "Insufficient executive sponsorship",
+        "impact": "High",
+        "probability": "Low",
+        "mitigation": "Steering committee monthly cadence, OKR alignment, business-value reporting"
+      },
+      {
+        "risk": "Talent retention during transformation",
+        "impact": "High",
+        "probability": "Medium",
+        "mitigation": "Retention bonuses, career development, public visibility of transformation work"
+      },
+      {
+        "risk": "Regulatory compliance regression",
+        "impact": "High",
+        "probability": "Low",
+        "mitigation": "Compliance-as-code, continuous audit, regulatory advisor on steering committee"
+      },
+      {
+        "risk": "Vendor lock-in",
+        "impact": "Medium",
+        "probability": "Medium",
+        "mitigation": "Multi-vendor strategy where viable, abstraction layers, exit-cost analysis at procurement"
+      },
+      {
+        "risk": "Change fatigue",
+        "impact": "High",
+        "probability": "Medium",
+        "mitigation": "Phased rollout, ADKAR framework, recognition of contributors, clear quick-win narrative"
+      }
+    ]
+  },
+  "next_steps_per_pillar": {
+    "P1": {
+      "immediate_30d": [
+        "Secure executive sponsorship for Pillar 1 transformation",
+        "Procure enterprise AI coding licenses for all developers",
+        "Identify 3 pilot teams for AI coding deep-dive",
+        "Establish baseline AI coding metrics dashboard",
+        "Launch champions program with first cohort of 10 champions"
+      ],
+      "h1_launch_30_90d": [
+        "Roll out enterprise AI coding to first 50% of developers",
+        "Deliver mandatory AI coding training to pilot teams",
+        "Standardize dev containers across top 10 repositories",
+        "Begin cloud IDE pilot with 1 development team",
+        "Publish first weekly AI adoption metrics report"
+      ],
+      "dependencies": [
+        "Part 2: DevOps Lifecycle transformation alignment for CI integration",
+        "Part 3: Application Platform IDP work for consistent dev experience",
+        "Part 4: Implementation Guide governance for change management"
+      ]
+    },
+    "P2": {
+      "immediate_30d": [
+        "Establish formal SRE function with named lead",
+        "Inventory existing pipeline maturity per service",
+        "Identify priority services for canary + feature flag rollout",
+        "Define SLO target framework",
+        "Procure progressive delivery tooling"
+      ],
+      "h1_launch_30_90d": [
+        "Achieve 100% CI/CD pipeline coverage gap closure for prioritized services",
+        "Deploy AI anomaly detection to first 5 tier-1 services",
+        "Run first chaos engineering game day",
+        "Standardize postmortem template and tracking",
+        "Launch DevSecOps deepening initiative (DAST 100%, threat modeling)"
+      ],
+      "dependencies": [
+        "Part 1: Developer Productivity for AI test generation alignment",
+        "Part 3: Application Platform observability stack alignment"
+      ]
+    },
+    "P3": {
+      "immediate_30d": [
+        "Define IDP target architecture and golden-path principles",
+        "Hire Platform Engineering Lead",
+        "Inventory existing platform capabilities and gaps",
+        "Identify 3 pilot teams for IDP early adoption",
+        "Procure service mesh tooling"
+      ],
+      "h1_launch_30_90d": [
+        "Deploy minimum-viable service catalog",
+        "Onboard first 3 pilot teams to IDP MVP",
+        "Begin service mesh deployment to 30% of services",
+        "Launch feature store GA",
+        "Establish platform-as-product OKRs"
+      ],
+      "dependencies": [
+        "Part 1: Developer Productivity adoption metrics for IDP success measurement",
+        "Part 2: DevOps Lifecycle observability investments shared with platform"
+      ]
+    }
+  },
+  "key_evidence_sources": {},
+  "implementation_guide_inputs": {
+    "executive_steering_committee": [
+      {
+        "name": "Maria Tech Leader",
+        "role": "maria.tl@cliente-exemplo.com.br"
+      },
+      {
+        "name": "Joao Backend SRE",
+        "role": "joao.sre@cliente-exemplo.com.br"
+      },
+      {
+        "name": "Sofia Frontend Lead",
+        "role": "sofia.fe@cliente-exemplo.com.br"
+      }
+    ],
+    "executive_steering_committee_raw_markdown": "Comitê Executivo Diretivo (Champions ativos identificados pelo Learning Survey):\n\n- Maria Tech Leader — maria.tl@cliente-exemplo.com.br\n- Joao Backend SRE — joao.sre@cliente-exemplo.com.br\n- Sofia Frontend Lead — sofia.fe@cliente-exemplo.com.br",
+    "tpo_raw_markdown": "(preencher manualmente — Learning Survey não cobre TPO. Liste Programa Manager + escritório + autoridade de decisão)",
+    "raci_matrix_raw_markdown": "(preencher manualmente — Learning Survey não cobre RACI. Use template em wizard/implementation-guide-inputs.template.json)",
+    "communication_plan": [
+      {
+        "audience": "W1",
+        "channel": "Champions Kickoff",
+        "frequency": "3",
+        "owner": "Líder Eng"
+      },
+      {
+        "audience": "W2",
+        "channel": "Copilot Spaces (contexto compartilhado)",
+        "frequency": "5",
+        "owner": "Maria Tech Leader"
+      },
+      {
+        "audience": "W3",
+        "channel": "A2A (Agent-to-Agent) protocol",
+        "frequency": "4",
+        "owner": "Maria Tech Leader"
+      },
+      {
+        "audience": "W4",
+        "channel": "Microsoft Foundry — visão geral",
+        "frequency": "4",
+        "owner": "Maria Tech Leader"
+      },
+      {
+        "audience": "W4",
+        "channel": "Office hours #1",
+        "frequency": "Todos",
+        "owner": "Champions"
+      },
+      {
+        "audience": "W6, W8, W10, W12",
+        "channel": "Office hours quinzenal",
+        "frequency": "Todos",
+        "owner": "Champions"
+      }
+    ],
+    "communication_plan_raw_markdown": "Plano de Comunicação derivado do calendário sugerido:\n\n| Semana | Workshop | Audiência | Champion | Formato |\n|---|---|---|---|---|\n| W1 | Champions Kickoff | 3 | Líder Eng | 2h síncrono |\n| W2 | Copilot Spaces (contexto compartilhado) | 5 | Maria Tech Leader | 4h hands-on |\n| W3 | A2A (Agent-to-Agent) protocol | 4 | Maria Tech Leader | 4h hands-on |\n| W4 | Microsoft Foundry — visão geral | 4 | Maria Tech Leader | 4h hands-on |\n| W4 | Office hours #1 | Todos | Champions | 1h Q&A |\n| W6, W8, W10, W12 | Office hours quinzenal | Todos | Champions | 1h Q&A |",
+    "training_plan": [
+      {
+        "audience": "**3 devs querem evoluir nesta dimensão**",
+        "format": "",
+        "cadence": ""
+      },
+      {
+        "audience": "**Formato preferido pelo time:** Self-paced (meu ritmo, mais flexibilidade)",
+        "format": "",
+        "cadence": ""
+      },
+      {
+        "audience": "**Plano:** cohort de 4-6 semanas com sessões síncronas + lab self-paced",
+        "format": "",
+        "cadence": ""
+      },
+      {
+        "audience": "**3 devs querem evoluir nesta dimensão**",
+        "format": "",
+        "cadence": ""
+      },
+      {
+        "audience": "**Formato preferido pelo time:** Self-paced (meu ritmo, mais flexibilidade)",
+        "format": "",
+        "cadence": ""
+      },
+      {
+        "audience": "**Plano:** cohort de 4-6 semanas com sessões síncronas + lab self-paced",
+        "format": "",
+        "cadence": ""
+      },
+      {
+        "audience": "**1 devs querem evoluir nesta dimensão**",
+        "format": "",
+        "cadence": ""
+      },
+      {
+        "audience": "**Formato preferido pelo time:** Self-paced (meu ritmo, mais flexibilidade)",
+        "format": "",
+        "cadence": ""
+      },
+      {
+        "audience": "**Plano:** cohort de 4-6 semanas com sessões síncronas + lab self-paced",
+        "format": "",
+        "cadence": ""
+      },
+      {
+        "audience": "**2 devs querem evoluir nesta dimensão**",
+        "format": "",
+        "cadence": ""
+      },
+      {
+        "audience": "**Formato preferido pelo time:** Self-paced (meu ritmo, mais flexibilidade)",
+        "format": "",
+        "cadence": ""
+      },
+      {
+        "audience": "**Plano:** cohort de 4-6 semanas com sessões síncronas + lab self-paced",
+        "format": "",
+        "cadence": ""
+      },
+      {
+        "audience": "**4 devs querem evoluir nesta dimensão**",
+        "format": "",
+        "cadence": ""
+      },
+      {
+        "audience": "**Formato preferido pelo time:** Self-paced (meu ritmo, mais flexibilidade)",
+        "format": "",
+        "cadence": ""
+      },
+      {
+        "audience": "**Plano:** cohort de 4-6 semanas com sessões síncronas + lab self-paced",
+        "format": "",
+        "cadence": ""
+      },
+      {
+        "audience": "**3 devs querem evoluir nesta dimensão**",
+        "format": "",
+        "cadence": ""
+      },
+      {
+        "audience": "**Formato preferido pelo time:** Self-paced (meu ritmo, mais flexibilidade)",
+        "format": "",
+        "cadence": ""
+      },
+      {
+        "audience": "**Plano:** cohort de 4-6 semanas com sessões síncronas + lab self-paced",
+        "format": "",
+        "cadence": ""
+      },
+      {
+        "audience": "**2 devs querem evoluir nesta dimensão**",
+        "format": "",
+        "cadence": ""
+      },
+      {
+        "audience": "**Formato preferido pelo time",
+        "format": "",
+        "cadence": ""
+      }
+    ],
+    "training_plan_raw_markdown": "Plano de Treinamento (cohorts por dimensão derivados do Learning Survey):\n\n### Cohort D2 (Copilot Adoption)\n- **3 devs querem evoluir nesta dimensão**\n- **Formato preferido pelo time:** Self-paced (meu ritmo, mais flexibilidade)\n- **Plano:** cohort de 4-6 semanas com sessões síncronas + lab self-paced\n\n### Cohort D3 (MS/GH Tooling Breadth)\n- **3 devs querem evoluir nesta dimensão**\n- **Formato preferido pelo time:** Self-paced (meu ritmo, mais flexibilidade)\n- **Plano:** cohort de 4-6 semanas com sessões síncronas + lab self-paced\n\n### Cohort D4 (AI Dev Practices)\n- **1 devs querem evoluir nesta dimensão**\n- **Formato preferido pelo time:** Self-paced (meu ritmo, mais flexibilidade)\n- **Plano:** cohort de 4-6 semanas com sessões síncronas + lab self-paced\n\n### Cohort D5 (Agent Concepts Mastery)\n- **2 devs querem evoluir nesta dimensão**\n- **Formato preferido pelo time:** Self-paced (meu ritmo, mais flexibilidade)\n- **Plano:** cohort de 4-6 semanas com sessões síncronas + lab self-paced\n\n### Cohort D6 (Instructions Maturity)\n- **4 devs querem evoluir nesta dimensão**\n- **Formato preferido pelo time:** Self-paced (meu ritmo, mais flexibilidade)\n- **Plano:** cohort de 4-6 semanas com sessões síncronas + lab self-paced\n\n### Cohort D7 (Best Practices)\n- **3 devs querem evoluir nesta dimensão**\n- **Formato preferido pelo time:** Self-paced (meu ritmo, mais flexibilidade)\n- **Plano:** cohort de 4-6 semanas com sessões síncronas + lab self-paced\n\n### Cohort D8 (Security & Governance)\n- **2 devs querem evoluir nesta dimensão**\n- **Formato preferido pelo time",
+    "adkar_notes": "Plano de Mudança ADKAR derivado do Learning Survey:\n\n**Awareness:** Comunicar plano de capacitação consolidado em all-hands; cada dev recebe seu plano personalizado por email.\n\n**Desire:** Tornar visível que workshops têm inscritos pré-validados (não opt-in genérico).\n\n**Knowledge:** Workshops top 5 (do Learning Survey):\n1. Copilot Spaces (contexto compartilhado) (5 inscritos)\n2. A2A (Agent-to-Agent) protocol (4 inscritos)\n3. Microsoft Foundry — visão geral (4 inscritos)\n4. Documentação automática (4 inscritos)\n5. Modo Ask (perguntas eficazes) (3 inscritos)\n\n**Ability:** Office hours quinzenal (sem agenda fixa, devs trazem dúvidas práticas).\n\n**Reinforcement:** Métricas de adoção mensais publicadas; reconhecimento dos Champions; revisão trimestral do plano com novo Learning Survey.",
+    "adkar_notes_raw_markdown": "Plano de Mudança ADKAR derivado do Learning Survey:\n\n**Awareness:** Comunicar plano de capacitação consolidado em all-hands; cada dev recebe seu plano personalizado por email.\n\n**Desire:** Tornar visível que workshops têm inscritos pré-validados (não opt-in genérico).\n\n**Knowledge:** Workshops top 5 (do Learning Survey):\n1. Copilot Spaces (contexto compartilhado) (5 inscritos)\n2. A2A (Agent-to-Agent) protocol (4 inscritos)\n3. Microsoft Foundry — visão geral (4 inscritos)\n4. Documentação automática (4 inscritos)\n5. Modo Ask (perguntas eficazes) (3 inscritos)\n\n**Ability:** Office hours quinzenal (sem agenda fixa, devs trazem dúvidas práticas).\n\n**Reinforcement:** Métricas de adoção mensais publicadas; reconhecimento dos Champions; revisão trimestral do plano com novo Learning Survey.\n",
+    "quick_wins_w1_4": [
+      "W1: Champions Kickoff",
+      "W2: Copilot Spaces (contexto compartilhado)",
+      "W3: A2A (Agent-to-Agent) protocol",
+      "W4: Microsoft Foundry — visão geral",
+      "W4: Office hours #1"
+    ],
+    "quick_wins_w1_4_raw_markdown": "- W1: Champions Kickoff\n- W2: Copilot Spaces (contexto compartilhado)\n- W3: A2A (Agent-to-Agent) protocol\n- W4: Microsoft Foundry — visão geral\n- W4: Office hours #1",
+    "quick_wins_w5_8_raw_markdown": "(preencher — sem dados suficientes nas semanas 5-8)",
+    "quick_wins_w9_12": [
+      "W10: Office hours quinzenal"
+    ],
+    "quick_wins_w9_12_raw_markdown": "- W10: Office hours quinzenal"
+  },
+  "branding": {
+    "platform_name": "AI Maturity Assessment Platform",
+    "primary_color": "#00A4EF",
+    "footer_text_template": "Confidential | {organization_name}",
+    "author": "Paula Silva",
+    "role": "Global Developer Solutions Advisor",
+    "author_name": "Paula Silva | Global Developer Solutions Advisor",
+    "contact": "paulasilva@microsoft.com",
+    "tagline": "Building the future of software development with AI and Agentic DevOps",
+    "design_system": "paulasilva-ms Design System v1.7.0",
+    "palette_red": "#F25022",
+    "palette_green": "#7FBA00",
+    "palette_yellow": "#FFB900",
+    "palette_blue": "#00A4EF"
+  }
+}

@@ -1,142 +1,179 @@
-# Guía Paso a Paso · Edición Español
+# Paso a paso: AI Maturity Assessment
 
-> Walkthrough completo para ejecutar el kit AI Maturity Assessment desde cero hasta los 5 PDFs finales.
+🌐 [English](../kit-en/STEP-BY-STEP.md) · Español
 
-🏠 [Volver al README](README.md) · 🌐 [Sitio](https://paulasilvatech.github.io/ai-maturity-client-kit/es/) · 🇧🇷 [PT-BR](../GUIA-PASSO-A-PASSO.md) · 🇺🇸 [EN](../kit-en/STEP-BY-STEP.md)
+Esta guía ejecuta la evaluación framework v2 desde la recolección hasta los reportes. v1 sigue disponible para entradas archivadas.
 
----
+## Quickstart
 
-## Prerequisitos
-
-| Requisito | Versión | Verificar con |
-|---|---|---|
-| Python | 3.10+ | `python3 --version` |
-| VS Code | última | `code --version` |
-| GitHub Copilot Chat | Pro / Business / Enterprise | Ícono en el sidebar |
-| Paquetes pip | `jinja2`, `weasyprint`, `openpyxl` | `pip list \| grep -E "jinja2\|weasy\|openpyxl"` |
-
-En **macOS**, WeasyPrint además necesita `brew install pango`. En **Linux/WSL**: `sudo apt install libpango-1.0-0 libpangoft2-1.0-0`.
-
-> [!TIP]
-> Ejecuta `make smoke` después de extraer el ZIP. Valida cada prerequisito en 5 segundos.
-
-## Paso 1 — Obtener el kit
-
-Descarga el ZIP desde el sitio, extraelo y abre la carpeta extraida en VS Code.
+Ruta más rápida para obtener un primer PDF:
 
 ```bash
-make install-deps   # instala jinja2 + weasyprint + openpyxl
-make smoke          # valida el entorno
+make install-deps
+make demo
+open saida/demo/*.pdf
 ```
 
-Output esperado: `✅ Smoke test passed (X checks).`
-
-## Paso 2 — Elige tu fuente de datos
-
-Tienes **3 opciones** para llenar las 158 preguntas del framework:
-
-### Opción A — Datos de ejemplo (más rápido, ~3 min)
+Flujo real con cliente:
 
 ```bash
-cp respostas.json.example respostas.json
+# Recolecta respuestas con Microsoft Forms, o con exports del HTML offline.
+make merge DIR=exports/
+# Si usas Microsoft Forms en vez de exports offline:
+make import XLSX=respostas-forms.xlsx
+make pipeline
+# Cross-checks opcionales de evidencia.
+make scan-repos REPOS=~/src
+make telemetry METRICS=copilot-usage.json SEATS=200
+# Llena implementation-guide-inputs.json con el wizard, luego renderiza de nuevo.
+make pipeline
 ```
 
-Usa el ficticio **Cliente Exemplo S.A.** con 46 respuestas pre-llenadas. Ideal para validar el pipeline completo antes de ejecutarlo en producción.
+## 1. Elige el flujo
 
-### Opción B — Llenado manual
+Usa v2 para nuevas evaluaciones. Usa v1 solo para comparación histórica o archivos `respostas.json` sin `metadata.framework_version`.
 
-Edita `respostas.json` y define `level` (0 a 4) y `evidence` para cada pregunta. Salta las preguntas que no puedas responder; el algoritmo solo usa las respondidas.
+- Especificación v2: [../coleta/AI-Maturity-Form-Questions_v2.md](../coleta/AI-Maturity-Form-Questions_v2.md).
+- Formulario v2: [../formularios/assessment-v2.html](../formularios/assessment-v2.html).
+- Instrucciones Forms v2: [INSTRUCCIONES-FORMS.md](INSTRUCCIONES-FORMS.md).
+- Páginas de dimensión v2: [../referencia/dimensoes/README.es.md](../referencia/dimensoes/README.es.md).
+- Archivo v1: [../coleta/v1/](../coleta/v1/), [../formularios/v1/](../formularios/v1/), [../referencia/v1/](../referencia/v1/).
 
-### Opción C — Microsoft Forms (multi-respondente)
+## 2. Prepara entradas
 
-1. Publica los 3 forms HTML en `formularios/` como 3 encuestas de Microsoft Forms (ver `INSTRUCCIONES-FORMS.md`).
-2. Recolecta respuestas del liderazgo (3-5 respondentes recomendados).
-3. Exporta el Excel consolidado a la raíz del workspace como `respostas-forms.xlsx`.
-4. Ejecuta `/importar-respostas-excel` en Copilot Chat para auto-agregar a `respostas.json`.
-
-## Paso 3 — Ejecuta el pipeline
-
-Abre VS Code → Copilot Chat → cambia a **modo Agent** (dropdown junto al ícono).
-
-### Camino más fácil: agente concierge
-
-```
-@ai-maturity-assistant
+```bash
+make init
 ```
 
-El agente lee el estado del workspace y pregunta una cosa a la vez, invocando cada skill en el orden correcto. Recomendado para primera vez.
+Esto copia `respostas.v2.json.example` a `respostas.json` si el archivo todavía no existe.
 
-### Camino power user: orquestador completo
+También puedes importar un export de Microsoft Forms:
 
-```
-/pipeline-completo
-```
-
-Ejecuta los 6 pasos end-to-end (auto-detecta Excel e inputs del wizard).
-
-### Camino manual: una skill a la vez
-
-```
-/calcular-scores
-/gap-analysis
-/recomendar-estrategias
-/wizard-implementacao
-/gerar-relatorio
+```bash
+make import XLSX=respostas-forms.xlsx
 ```
 
-Útil cuando quieres inspeccionar cada JSON intermedio antes de continuar.
+También puedes usar el formulario offline. Cada persona abre [../formularios/assessment-v2.html](../formularios/assessment-v2.html), exporta un `respostas.json` y lo envía al facilitador. Coloca los exports en una carpeta y ejecuta:
 
-## Paso 4 — Inspecciona los outputs
+```bash
+make merge DIR=exports/
+```
 
-Todo va a `saida/`:
+El merge asigna IDs únicos por persona, rechaza archivos v1, rechaza organizaciones mixtas excepto con `--org` o `--allow-mixed-org`, y hace backup de un `respostas.json` existente antes de escribir el archivo unido.
 
-| Archivo | Propósito |
-|---|---|
-| `scores-<FECHA>.json` | Scores por capability / pilar / global |
-| `gaps-<FECHA>.json` | Gaps priorizados P0 / P1 / P2 / P3 |
-| `recomendacoes-<FECHA>.json` | Estrategias S1-S7 mapeadas a gaps + tecnologías |
-| `pontuacao-preenchida-<FECHA>.xlsx` | Excel auditable con fórmulas en vivo |
-| **5 PDFs** | Score Justification + 3 Pillar Roadmaps + Implementation Guide |
+## 3. Entiende la estructura v2
 
-Los PDFs son **~2 MB en total**, listos para presentar al board.
+- 5 preguntas de perfil: `R-Q1` a `R-Q5`.
+- 61 preguntas puntuadas: `D#-Q#`.
+- 9 dimensiones: D1 Estrategia, Política y Gobernanza de IA; D2 Habilitación, Habilidades y Cultura; D3 Planificar, Especificar y Diseñar; D4 Código e ingeniería de contexto; D5 Revisión, calidad y pruebas; D6 Seguridad y cadena de suministro de IA; D7 Entregar y Operar; D8 Fundamentos de Ingeniería; D9 Medición, Valor y AI FinOps.
+- Niveles: L0 No iniciado, L1 Explorando, L2 Adoptando, L3 Escalando, L4 Nativo en IA, más `NA`.
+- Las páginas de referencia D1 a D9 incluyen notas de alcance, anclas, ejemplos de evidencia, base, contexto del Developer Survey y referencias citadas.
 
-## Paso 5 — Personaliza el Implementation Guide (PDF Parte 4)
+## 4. Ejecuta scoring determinístico
 
-El PDF del Implementation Guide tiene 9 inputs específicos del cliente (miembros del Steering Committee, TPO, RACI, plan de comunicaciones, plan de capacitación, notas ADKAR, 3 olas de quick-wins). Llénalos de 3 formas:
+```bash
+make scores
+```
 
-- **Wizard HTML**: abre `wizard/implementation-guide-wizard.html` en cualquier navegador, llena, descarga el JSON.
-- **Template JSON**: copia `wizard/implementation-guide-inputs.template.json` y edita.
-- **Chat**: ejecuta `/wizard-implementacao` y responde en conversación.
+o:
 
-El Learning & Growth Survey auto-llena 6 de los 9 inputs si ejecutaste la encuesta C primero.
+```bash
+python3 scripts/assessment_engine.py all
+```
 
-## Troubleshooting
+No calcules scores a mano. El engine escribe:
 
-> [!WARNING]
-> **`/calcular-scores` no aparece cuando escribo `/`**
->
-> No estás en modo Agent. Haz clic en el dropdown junto al ícono de Copilot y elige **Agent**. Luego recarga la ventana (`Cmd+Shift+P` → "Developer: Reload Window").
+- `saida/scores.json`
+- `saida/gaps.json`
+- `saida/recomendacoes.json`
 
-> [!WARNING]
-> **Error de WeasyPrint en macOS: "no library called pango"**
->
-> `brew install pango glib gobject-introspection libffi`
+Cobertura es OK con 37 o más preguntas respondidas, WARNING de 25 a 36 y BLOCKED por debajo de 25. Divergencia entre personas encuestadas se marca cuando una dimensión tiene al menos 3 scores de personas encuestadas y desviación estándar de 1,0 o más.
 
-> [!WARNING]
-> **Los scores se ven bajos / muchos "sin respuesta"**
->
-> Umbral de cobertura: 40+ respondidas = OK, 25-39 = WARNING (preliminar), <25 = BLOQUEADO. Revisa `saida/scores-<FECHA>.json::metadata::coverage`.
+## 5. Crea el workbook
 
-## ¿Atascado en algún paso?
+```bash
+make workbook
+```
 
-Contacta a Paula Silva en [LinkedIn](https://linkedin.com/in/paulanunes).
+Para v2, el dispatcher escribe `saida/pontuacao-v2-<date>.xlsx`. Incluye fórmulas y una columna de cross-check del engine. Las fórmulas redondean comparaciones a 9 decimales para que los límites de prioridad ignoren ruido de punto flotante.
 
-## Continuar leyendo
+## 6. Renderiza reportes
 
-| ⬅ Anterior          | Siguiente ➡                                          |
-| :------------------ | ----------------------------------------------------: |
-| [🏠 README](README.md) | [📝 Instrucciones Forms](INSTRUCCIONES-FORMS.md) |
+```bash
+make pipeline
+```
 
----
+o, después de que ya existan los scores:
 
-**Paula Silva** — Software Global Black Belt | [LinkedIn](https://linkedin.com/in/paulanunes)
+```bash
+python3 relatorios/scripts/build_payload_and_render.py
+```
+
+Archivos v2:
+
+- `saida/v2_assessment_summary.pdf`
+- `saida/v2_roadmap_g1.pdf`, D1, D2, D9.
+- `saida/v2_roadmap_g2.pdf`, D3, D4, D5.
+- `saida/v2_roadmap_g3.pdf`, D6, D7, D8.
+- `saida/v2_implementation_guide.pdf`.
+- `saida/payload_v2.json`.
+
+Las entradas v1 todavía producen el conjunto archivado de 5 PDFs.
+
+## 7. Agrega cross-checks de evidencia
+
+Ejecuta uno o ambos antes del `make pipeline` final:
+
+```bash
+make scan-repos REPOS=~/src
+make telemetry METRICS=copilot-usage.json SEATS=200
+```
+
+La salida del scan de repositorios es `saida/repo-scan.json`. La salida de métricas de Copilot es `saida/telemetria.json`. El reporte de resumen muestra una sección Evidence cross-checks y marca respuestas por encima de lo que la evidencia soporta. La guía de implementación lista esas flags como riesgos. Sin los archivos, el PDF explica cómo producirlos.
+
+## 8. Llena el wizard de la guía de implementación
+
+Abre el wizard trilingüe generado:
+
+```bash
+open wizard/implementation-guide-wizard.html
+```
+
+Guarda 11 campos en `implementation-guide-inputs.json`: `executive_steering_committee`, `tpo`, `dimension_owners`, `raci_matrix`, `communication_plan`, `training_plan`, `adkar_notes`, `risk_register`, `quick_wins_w1_4`, `quick_wins_w5_8` y `quick_wins_w9_12`. Los campos vacíos aparecen como `to fill with the client`, no como contenido de ejemplo.
+
+Mode D puede llenar 7 campos desde el plan del Learning Survey:
+
+```bash
+python3 wizard/scripts/auto_fill_from_plano.py --lang es
+```
+
+Después del wizard, ejecuta `make pipeline` otra vez.
+
+## 9. Compara rondas
+
+```bash
+make compare BEFORE=old-respostas.json AFTER=respostas.json
+```
+
+El script de comparación soporta deltas comparables v2 a v2, baseline indicativo v1 a v2 vía `v1_lineage`, y v1 a v1. Escribe `saida/comparacao-rodadas.pdf` cuando la renderización de PDF está disponible.
+
+## 10. Usa surveys complementarios
+
+Developer Survey y Learning and Growth Survey aportan contexto. No cambian scores v2.
+
+- Las dimensiones del Developer Survey son `DS-D2` a `DS-D8` en las salidas.
+- El PDF de resumen v2 muestra contexto del Developer Survey cuando existe `saida/maturidade-developer-survey-*.json`.
+- La salida del Learning Survey puede alimentar Mode D del wizard de implementación.
+- Los scripts de survey escriben EN, PT-BR o ES (`--lang en|pt-br|es`) y puntúan igual los formularios creados en cualquiera de los tres idiomas.
+
+## 11. Valida las fuentes del repositorio
+
+```bash
+python3 scripts/build_kit_docs.py
+python3 scripts/build_kit_docs.py --check
+make validate-v2
+make validate-docs
+make test
+```
+
+Consulta [../CHANGELOG.md](../CHANGELOG.md) para el historial de versiones.

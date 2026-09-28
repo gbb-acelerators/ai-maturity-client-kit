@@ -1,128 +1,113 @@
-# Microsoft Forms Instructions · English Edition
+<!-- Generated from coleta/INSTRUCOES-FORMS.md by scripts/build_kit_docs.py. Edit the source, not this file. -->
+# How to create the Microsoft Forms for the AI Maturity Assessment (v2)
 
-> How to publish the 3 surveys as Microsoft Forms and aggregate the responses back into the kit.
+**`ASSESSMENT`** · 📖 [🏠 Index](README.md) · [« Step-by-step guide](STEP-BY-STEP.md) · You are here · [» Survey-devs](../survey-devs/INSTRUCOES-FORMS-DEVS.md)
 
-🏠 [README](README.md) · 📘 [Step-by-step](STEP-BY-STEP.md) · 🇧🇷 [PT-BR](../coleta/INSTRUCOES-FORMS.md)
+> [!TIP]
+> Framework v2 has **5 profile questions and 61 scored questions in 9 dimensions** (127 Forms elements, about 25 to 40 minutes per respondent). The v1 instructions (158 questions) are archived in [v1/INSTRUCOES-FORMS.md](../coleta/v1/INSTRUCOES-FORMS.md).
 
----
+## Quick comparison of the 4 paths
 
-## Why Microsoft Forms?
+| Path | Setup time | When to use |
+| --- | --- | --- |
+| **A. Full Microsoft Forms** | 60 to 90 minutes | Several respondents per role; you want persona results and the perception-gap flag. |
+| **B. Pilot with one dimension** | 15 minutes | Validate wording and timing with 3 to 5 people before the full launch. |
+| **C. Excel or SharePoint template** | 5 minutes | Workshops, or when Forms is not available: one row per respondent in [template-export-forms.xlsx](../coleta/template-export-forms.xlsx). |
+| **D. Offline HTML form** | None | One respondent at a time, no Microsoft 365 needed: [formularios/assessment-v2.html](../formularios/assessment-v2.html) exports one `respostas.json` per respondent. |
 
-The 3 HTML surveys at `formularios/` are convenient for individual fill, but you usually want **multiple respondents** (3-5 from leadership, 5+ devs anonymous, 3+ devs identified for learning). Microsoft Forms makes that easy:
+## Path A: Full Microsoft Forms
 
-- ✅ Native multi-respondent collection
-- ✅ Excel export with all responses in one file
-- ✅ Anonymous mode (for the Developer Survey)
-- ✅ Required fields validation
-- ✅ Mobile-friendly
+1. Open the question bank in your language: [perguntas-para-forms.en.md](../coleta/perguntas-para-forms.en.md) (EN), [perguntas-para-forms.md](../coleta/perguntas-para-forms.md) (PT-BR), or [perguntas-para-forms.es.md](../coleta/perguntas-para-forms.es.md) (ES). All three are generated from [framework.v2.json](../framework.v2.json) and have the same questions, options, anchors, and scope notes.
+2. Go to <https://forms.office.com>, create a blank form, and name it `AI-Assisted SDLC Maturity Assessment v2 - <Organization>`.
+3. Paste the [privacy notice](#privacy-notice-paste-into-the-form-description) into the form description and fill in the brackets.
+4. Add **10 sections**: Section 0 (profile) and D1 to D9.
+5. Section 0: add `R-Q1` to `R-Q5` as **Choice**. Turn on **Multiple answers** for `R-Q3` only.
+6. For each scored question add:
+   - a **Choice** (single answer) whose title starts with the ID and a colon, for example `D4-Q3: Are well-scoped tasks delegated ...`;
+   - the 6 options, in order, with the `L0` to `L4` and `NA` prefix kept at the start;
+   - the **L3 looks like** and **L4 looks like** lines, and the **Scope note** when the question has one, in the subtitle;
+   - an optional **Long Text** titled exactly `Evidence (D4-Q3)`.
+7. Optional: in `...` > `Branching`, let people who answer Executive or Product / program manager in `R-Q1` skip D4 to D7. Skipped questions count as not answered, not as `NA`.
+8. `Settings`: restrict to your organization, or `Anyone can respond` if you share by link.
+9. Share the link. Aim for **at least 3 respondents per role**: persona summaries mark smaller groups as low sample, and the perception-gap and respondent-divergence flags need enough respondents to be meaningful.
+10. When responses are in: `Responses` > `Open in Excel`, download the file, and run:
 
-## Form A · AI Maturity Assessment (158 questions)
-
-### Create the form
-
-1. Go to <https://forms.office.com> and create a new form.
-2. Use the question bank in `coleta/perguntas-para-forms.en.md` (English, runtime-safe). The canonical PT-BR bank is also available at `coleta/perguntas-para-forms.md`.
-3. For each question:
-   - Set type to **Choice** with 5 options: `L0 (Initial)`, `L1 (Developing)`, `L2 (Defined)`, `L3 (Managed)`, `L4 (Optimizing)`.
-   - Add an optional **Long text** for evidence/comments.
-4. Use **Sections** to group by pillar (P1, P2, P3).
-5. Recommended fill time: 60-90 minutes for the full survey, or distribute across leaders by pillar.
-
-### Collect responses
-
-1. Share the link with **3 to 5 leadership members**.
-2. Wait until the response window closes.
-3. Click **Open in Excel** → save as `respostas-forms.xlsx` at the kit workspace root.
-
-### Aggregate into the kit
-
-```text
-/importar-respostas-excel
-```
-
-The skill computes a **simple average per question** across all respondents (same behavior as the production platform) and writes `respostas.json` ready for `/pipeline-completo`.
-
-## Form B · Developer Survey (75 questions, anonymous)
-
-1. Create the form using questions from `survey-devs/perguntas-para-forms-devs.en.md` (English, runtime-safe). The canonical PT-BR bank is also available at `survey-devs/perguntas-para-forms-devs.md`.
-2. In **Settings**: enable **anonymous responses** (do NOT require email or sign-in).
-3. Share with all developers in scope (5+ minimum recommended).
-4. Export as `respostas-survey-devs.xlsx` to the workspace root.
-5. Run:
-
-```text
-/importar-survey-devs
-/insights-developer-survey
-```
-
-Output: `saida/insights-developer-survey-<DATE>.md` with adoption metrics, governance gaps, anonymized quotes, and recommendations linked to the maturity capabilities.
-
-## Form C · Learning & Growth Survey (32 questions, identified)
+    ```bash
+    make import XLSX=respostas-forms.xlsx
+    make pipeline
+    ```
 
 > [!IMPORTANT]
-> This survey requires **name + email** because the output includes attendee lists, cohort assignments, and mentor↔mentee pairs. Make sure participants consent to this in advance.
+> The importer finds each column by the ID at the start of the title (`D1-Q1:`, `R-Q1:`) and each evidence column by `Evidence (<ID>)`. It detects v2 from those IDs. Do not translate the `Evidence (<ID>)` label or the option prefixes.
 
-1. Create the form using questions from `survey-learning/perguntas-para-forms-learning.en.md` (English). The canonical PT-BR bank is also available at `survey-learning/perguntas-para-forms-learning.md`.
-2. In **Settings**: require **name and email** as mandatory fields. Disable anonymous mode.
-3. Share with all developers who will receive training (3+ minimum recommended).
-4. Export as `respostas-survey-learning.xlsx` to the workspace root.
-5. Run:
+## Path B: Pilot with one dimension
 
-```text
-/importar-survey-learning
-/plano-capacitacao
+Create the form with Section 0 and one dimension. D4 is a good start, it has 8 questions. Collect 3 to 5 answers, then run:
+
+```bash
+python3 scripts/import_forms_excel.py <file> --allow-partial
 ```
 
-Output: `saida/plano-capacitacao-<DATE>.md` with top 10 demanded topics, cohorts per dimension D2-D8 with attendee names, Champions Network candidates, mentor↔mentee pairs, and a 90-day workshop calendar.
+The engine reports coverage `BLOCKED` because fewer than 25 questions are answered. Use the pilot only to check wording and timing.
 
-## Recommended workflow
+## Path C: Excel or SharePoint template
 
-For serious consulting engagements, run all 3 in this order:
+1. Copy [template-export-forms.xlsx](../coleta/template-export-forms.xlsx) to SharePoint or OneDrive. Its header row has the exact Forms export shape: profile columns, `D#-Q#` answer columns, and `Evidence (D#-Q#)` columns.
+2. Each respondent fills one row. Answers must start with `L0` to `L4` or `NA`. `R-Q3` accepts several options separated by `;`.
+3. Download the file and run `make import XLSX=<file>`.
 
-```text
-1. Survey B (anonymous devs)    → behavioral baseline
-2. Survey C (identified devs)   → capacitation roadmap with attendees
-3. Survey A (leadership)        → informed organizational assessment
-4. /wizard-implementacao         → cross-validates and auto-fills the Implementation Guide
-5. /pipeline-completo            → generates the final 5 PDFs
+A filled, synthetic example is [v2-mock-forms-export.xlsx](../coleta/v2-mock-forms-export.xlsx) (14 illustrative respondents; not a real client).
+
+## Path D: Offline HTML form plus merge
+
+Use this path when respondents cannot access Microsoft Forms or when you need a fast workshop flow.
+
+1. Send [../formularios/assessment-v2.html](../formularios/assessment-v2.html) to each respondent, or open it from the repository.
+2. The form runs offline, supports EN, PT-BR, and ES, shows each question scope note, and exports one respondent per `respostas.json`.
+3. Collect the exported files in a folder, for example `exports/`.
+4. Merge them:
+
+   ```bash
+   make merge DIR=exports/
+   ```
+
+The merge script assigns unique IDs `R01`, `R02`, and so on. It refuses v1 files and refuses mixed organizations unless you pass `--org` or `--allow-mixed-org` to `scripts/merge_offline_respostas.py`. It backs up an existing `respostas.json` before writing the merged file.
+
+Then run:
+
+```bash
+make pipeline
 ```
 
-This sequence makes the leadership assessment **data-informed** rather than aspirational, and produces a capacitation plan with concrete names.
+## Privacy notice (paste into the form description)
 
-## Translating the questions
+```text
+This assessment asks about engineering practices, not about individual performance.
+We collect your role, the scope of your answers, the AI tools you use, your years of experience, and your hands-on time, so results can be shown per role.
+Controller: [organization]. Purpose: AI maturity diagnosis and roadmap.
+Access: [names or team]. Retention: [period], then deleted.
+Results are reported in aggregate; groups with fewer than 3 people are marked as low sample.
+Questions or deletion requests: [contact].
+```
 
-All 3 surveys now have English and Spanish runtime-safe banks:
+Agree on these points with your privacy or legal team before launch (LGPD / GDPR); this checklist is not legal advice:
 
-- `coleta/perguntas-para-forms.en.md`
-- `coleta/perguntas-para-forms.es.md`
+- **Minimization:** the form does not need name or email. If Forms collects them automatically, disable it or restrict access to the export.
+- **Storage:** keep the `.xlsx`, `respostas.json`, and `saida/` on managed storage with restricted access. `respostas.json` and `saida/` are in `.gitignore`; never commit them.
+- **Retention and deletion:** delete the Forms responses and the exported files when the retention period ends.
 
-- `survey-devs/perguntas-para-forms-devs.en.md`
-- `survey-devs/perguntas-para-forms-devs.es.md`
-- `survey-learning/perguntas-para-forms-learning.en.md`
-- `survey-learning/perguntas-para-forms-learning.es.md`
+## How answers become scores
 
-You can:
+The engine ([scripts/assessment_engine.py](../scripts/assessment_engine.py)) follows section 8 of [AI-Maturity-Form-Questions_v2.md](../coleta/AI-Maturity-Form-Questions_v2.md): pooled mean per question, mean per dimension, weighted mean of dimensions, half-open level bands, and the low-confidence, amplification-risk, perception-gap, respondent-divergence, scope, unverified L3/L4, and evidence coverage flags.
 
-- **Translate for respondents** in Microsoft Forms while preserving IDs in titles — Excel exports continue to parse correctly.
-- **Keep IDs unchanged** in Microsoft Forms titles and JSON output — the PDFs are rendered in English via `relatorios/i18n/en.json`.
+Optional evidence cross-checks come from `make scan-repos` and `make telemetry`. They are shown in the summary PDF and listed as risks in the implementation guide when they challenge an answer.
 
-If you want a fully translated question bank, contact Paula Silva on [LinkedIn](https://linkedin.com/in/paulanunes).
+## Troubleshooting
 
-## Stuck on a step?
-
-| Problem | Fix |
+| Symptom | Fix |
 | --- | --- |
-| Excel columns don't match question IDs | Check that you didn't reorder questions in Forms — IDs are positional |
-| `/importar-respostas-excel` fails | Make sure file is at workspace root and named exactly `respostas-forms.xlsx` |
-| Anonymous responses missing for survey C | Survey C requires name+email — re-publish without anonymous mode |
-| Empty responses break aggregation | The skill skips empty cells; leave them blank rather than putting "N/A" |
-
-## Continue reading
-
-| ⬅ Previous | Next ➡ |
-| :--- | ---: |
-| [📘 Step-by-step](STEP-BY-STEP.md) | [🌐 Site](https://paulasilvatech.github.io/ai-maturity-client-kit/en/) |
-
----
-
-**Paula Silva** — Software Global Black Belt | [LinkedIn](https://linkedin.com/in/paulanunes)
+| `No column header starts with a question ID` | The question titles do not start with `D1-Q1:`. Rename them in Forms and export again. |
+| `Only N of 61 v2 questions were found` | Some titles lost the ID. Use `--allow-partial` for a pilot only. |
+| `unrecognized value at R-Q1` | The option text was edited. Use the exact option text from the question bank (any of the 3 languages is accepted). |
+| Persona heatmap says low sample | Fewer than 3 respondents for that role. Invite more people or read that column with care. |
+| `make merge` refuses a file | Check whether it is a v1 export or whether the organization differs from the other exports. |

@@ -1,94 +1,140 @@
-# Kit AI Maturity Assessment · Edición Español
+# Kit cliente AI Maturity Assessment
 
-> Kit de autoservicio para ejecutar la Evaluación de Madurez en IA con GitHub Copilot.
-> **3 encuestas complementarias · 5 PDFs production-quality · plan de capacitación personalizado.**
+🌐 [English](../kit-en/README.md) · Español
 
-[![Sitio](https://img.shields.io/badge/sitio-paulasilvatech.github.io-00A4EF)](https://paulasilvatech.github.io/ai-maturity-client-kit/es/)
-[![Descargar ZIP](https://img.shields.io/badge/descargar-ES%20kit.zip-7FBA00)](https://paulasilvatech.github.io/ai-maturity-client-kit/downloads/ai-maturity-kit-es.zip)
+Un kit autónomo para ejecutar una autoevaluación de madurez del SDLC asistido por IA sin depender de una plataforma web. Framework v2 es el valor predeterminado. Framework v1 sigue archivado y soportado para entradas históricas.
 
----
+Rol de la autora: Global Developer Solutions Advisor.
 
-## Qué es este kit
+Consulta [../CHANGELOG.md](../CHANGELOG.md) para el historial de versiones.
 
-Un **kit autocontenido** para ejecutar una evaluación end-to-end de madurez en IA **sin depender de una plataforma web**. Incluye:
+## Qué hay de nuevo en framework v2
 
-- **Framework de 158 preguntas** organizado en 3 pilares × 28 capabilities × 7 estrategias
-- **3 encuestas complementarias**: Assessment organizacional + Developer Survey anónima + Learning & Growth Survey identificada
-- **12 skills custom de Copilot Chat + 1 prompt + 1 agente concierge** que orquestan el pipeline completo
-- **5 PDFs ejecutivos** renderizados con branding paulasilva-ms (paleta Microsoft 4 colores) — ya localizados en ES vía `relatorios/i18n/es.json`
-- **Hoja Excel auditable** con fórmulas SUMPRODUCT nativas
-- **Plan de capacitación** con nombres + emails de inscritos
+- Versión: 2.0.1.
+- Especificación fuente: [../coleta/AI-Maturity-Form-Questions_v2.md](../coleta/AI-Maturity-Form-Questions_v2.md).
+- Modelo de máquina: [../framework.v2.json](../framework.v2.json), validado por [../framework.v2.schema.json](../framework.v2.schema.json) y [../scripts/validate_framework_v2.py](../scripts/validate_framework_v2.py).
+- 5 preguntas de perfil y 61 preguntas puntuadas.
+- 9 dimensiones: D1 Estrategia, Política y Gobernanza de IA (7), D2 Habilitación, Habilidades y Cultura (6), D3 Planificar, Especificar y Diseñar (6), D4 Código e ingeniería de contexto (8), D5 Revisión, calidad y pruebas (7), D6 Seguridad y cadena de suministro de IA (7), D7 Entregar y Operar (6), D8 Fundamentos de Ingeniería (amplificadores de IA) (7), D9 Medición, Valor y AI FinOps (7).
+- Los IDs usan `D#-Q#`. Los IDs de perfil usan `R-Q1` a `R-Q5`.
+- Niveles: L0 No iniciado, L1 Explorando, L2 Adoptando, L3 Escalando, L4 Nativo en IA, más `NA`.
+- Formulario principal: [../formularios/assessment-v2.html](../formularios/assessment-v2.html). Se ejecuta offline, muestra la nota de alcance de cada pregunta y exporta una persona por `respostas.json`.
+- Configuración de Forms: [INSTRUCCIONES-FORMS.md](INSTRUCCIONES-FORMS.md).
+- Las páginas de referencia por dimensión están en [../referencia/dimensoes/README.es.md](../referencia/dimensoes/README.es.md), con páginas EN, PT-BR y ES para D1 a D9.
 
-## ⚠ Nota importante sobre idioma
+## Quickstart
 
-El ZIP en Español sigue una separación deliberada de idioma:
-
-1. **Los archivos de customización de Copilot se mantienen en Inglés** — `.github/copilot-instructions.md`, `.github/agents/`, `.github/prompts/` y `.github/skills/` son el runtime del agente y se comparten intencionalmente en todos los paquetes de idioma.
-2. **La documentación orientada al cliente está en Español** — `README.md`, `PASO-A-PASO.md`, `INSTRUCCIONES-FORMS.md` y `PACKAGE-LANGUAGE-NOTES.md` quedan en la raíz del ZIP.
-3. **Los activos runtime compartidos son neutrales al idioma** — JSONs, scripts, templates, workbooks e IDs de scoring se reutilizan. Los IDs canónicos de preguntas y algunos nombres internos permanecen en Portugués cuando el framework de scoring y el mapeo de plataforma lo requieren.
-4. **Los PDFs se renderizan en Español** vía `relatorios/i18n/es.json` — define `metadata.language: "es"` en `respostas.json` y los 5 PDFs salen en Español.
-
-Si necesitas el framework JSON totalmente traducido, contacta a Paula Silva en [LinkedIn](https://linkedin.com/in/paulanunes).
-
-## Inicio rápido
+Ruta más rápida para obtener un primer PDF después de `make install-deps`, o dentro del dev container:
 
 ```bash
-# 1. Descarga el ZIP desde el sitio, extraelo y abre la carpeta en VS Code
-
-# 2. Valida prerequisitos
-make smoke
-
-# 3. Copia los datos de ejemplo y ejecuta el pipeline completo
-cp respostas.json.example respostas.json
-
-# Abre VS Code, en Copilot Chat (modo Agent):
-#   @ai-maturity-assistant
-# o:
-#   /pipeline-completo
+make demo
+open saida/demo/*.pdf
 ```
 
-Los resultados aparecen en `saida/` (5 PDFs + scores.json + gaps.json + recomendacoes.json + Excel auditable).
+Usa `DEMO_LANG=en`, `DEMO_LANG=pt-BR` o `DEMO_LANG=es` para elegir el idioma de la demo. La demo escribe salidas ilustrativas en `saida/demo/` y no toca `respostas.json`.
 
-## Las 3 encuestas
+Flujo real de evaluación:
 
-| Encuesta | Audiencia | Preguntas | Tiempo | Output |
-| --- | --- | --- | --- | --- |
-| 🅰️ **AI Maturity Assessment** | Liderazgo / org | 158 | 60-90 min | 5 PDFs ejecutivos |
-| 🅱️ **Developer Survey** | Devs anónimos | 75 | 22-28 min/dev | Insights comportamentales + madurez L0-L4 por dimensión |
-| 🅲 **Learning & Growth** | Devs identificados | 32 | 5-8 min/dev | Roadmap de capacitación con listas de inscritos |
-
-Orden recomendado para consultoría seria: **B (anónimo) → C (identificado) → A (liderazgo)**. Cada encuesta informa la siguiente; el agente concierge cruza resultados automáticamente.
-
-## Pipeline en una línea
-
-```text
-INPUT (respostas.json o Forms .xlsx)
-  → /calcular-scores          (SUMPRODUCT 3 capas)
-  → /gap-analysis             (prioridades P0 / P1 / P2 / P3)
-  → /recomendar-estrategias   (S1 a S7 + tecnologías)
-  → /wizard-implementacao     (9 inputs para PDF Parte 4)
-  → /gerar-relatorio          (Jinja2 + WeasyPrint)
-OUTPUT (5 PDFs + XLSX auditable)
+```bash
+make install-deps
+# Recolecta con Microsoft Forms, o recolecta exports offline y únelos:
+make merge DIR=exports/
+# O importa un export de Microsoft Forms:
+make import XLSX=respostas-forms.xlsx
+make pipeline
+# Cross-checks opcionales de evidencia:
+make scan-repos REPOS=~/src
+make telemetry METRICS=copilot-usage.json SEATS=200
+# Llena implementation-guide-inputs.json con el wizard, luego renderiza de nuevo:
+make pipeline
 ```
 
-## Qué está traducido en este folder
+Los comandos directos siguen disponibles para automatización:
 
-| Archivo | Estado |
+```bash
+python3 scripts/import_forms_excel.py respostas-forms.xlsx
+python3 scripts/assessment_engine.py all
+python3 scripts/fill_workbook.py
+python3 relatorios/scripts/build_payload_and_render.py
+```
+
+## Salidas para v2
+
+| Salida | Propósito |
 | --- | --- |
-| [README.md](README.md) | ✅ Traducido |
-| [GUIA-PASSO-A-PASSO.md](../GUIA-PASSO-A-PASSO.md) | ✅ Traducido como `PASO-A-PASO.md` |
-| [INSTRUCOES-FORMS.md](../coleta/INSTRUCOES-FORMS.md) | ✅ Traducido como `INSTRUCCIONES-FORMS.md` |
-| Customizaciones Copilot bajo `.github/` | ✅ Incluidas, intencionalmente en Inglés |
-| JSONs, scripts, templates y workbooks compartidos | ✅ Incluidos como activos runtime |
-| PDFs de reporte | ✅ Ya en ES vía `relatorios/i18n/es.json` |
+| `saida/scores.json` | Scores por pregunta, dimensión, persona y general cuando el engine los produce. |
+| `saida/gaps.json` | Gaps de dimensión, prioridades, flags, divergencia entre personas encuestadas e insumos de backlog. |
+| `saida/recomendacoes.json` | Recomendaciones de estrategias `S1` a `S7`. |
+| `saida/pontuacao-v2-<date>.xlsx` | Workbook auditable con fórmulas y cross-check del engine. |
+| `saida/payload_v2.json` | Payload del reporte para inspección y customización. |
+| `saida/v2_assessment_summary.pdf` | Resumen ejecutivo, con cross-checks de evidencia cuando están disponibles. |
+| `saida/v2_roadmap_g1.pdf` | G1: D1, D2, D9. |
+| `saida/v2_roadmap_g2.pdf` | G2: D3, D4, D5. |
+| `saida/v2_roadmap_g3.pdf` | G3: D6, D7, D8. |
+| `saida/v2_implementation_guide.pdf` | Parte 4 para v2: gobernanza, RACI, plan por fases, gestión del cambio, riesgos, métricas, primeros 90 días y referencias. |
+| `saida/comparacao-rodadas.pdf` | Reporte de comparación de `make compare BEFORE=old.json AFTER=respostas.json`. |
 
-## Continuar leyendo
+`make pipeline` renderiza los 5 PDFs v2. v1 sigue renderizando su conjunto archivado de 5 PDFs.
 
-| ⬅ Anterior | Siguiente ➡ |
-| :--- | ---: |
-| [🏠 Sitio principal (multi-idioma)](https://paulasilvatech.github.io/ai-maturity-client-kit/) | [📘 Paso a paso detallado](PASO-A-PASO.md) |
+## Resumen de puntuación
 
----
+Los scripts son la fuente de verdad. No calcules scores a mano.
 
-**Paula Silva** — Software Global Black Belt | [LinkedIn](https://linkedin.com/in/paulanunes)
-*Building the future of software development with AI and Agentic DevOps*
+- Score de pregunta: media agrupada de niveles de las personas encuestadas, excluyendo vacío y `NA`.
+- Score de dimensión: media de los scores de sus preguntas.
+- General: media ponderada de dimensiones.
+- Los pesos de dimensión son `1.0` por defecto y pueden definirse de `0.5` a `2.0` en `respostas.json`.
+- Cobertura: OK con 37 o más preguntas respondidas, WARNING con 25 a 36, BLOCKED por debajo de 25.
+- Prioridad: `peso de dimensión x gap`; P0 en `>= 2.4`, P1 en `>= 1.6`, P2 en `>= 0.9`, si no P3. Las comparaciones de banda y prioridad ignoran ruido de punto flotante por debajo de `1e-9`.
+- Divergencia entre personas encuestadas: se marca una dimensión cuando al menos 3 personas tienen score y la desviación estándar de sus propios scores de dimensión es 1,0 o más.
+
+## Cross-checks de evidencia
+
+Dos insumos opcionales ayudan a cuestionar respuestas demasiado confiadas. No cambian los scores.
+
+- `make scan-repos REPOS=~/src` escanea clones locales usando solo archivos con commit. `make scan-repos ORG=<github-org>` escanea branches predeterminadas mediante la API REST de GitHub y requiere `GITHUB_TOKEN` o `GH_TOKEN`. Salida: `saida/repo-scan.json`. El scan ubica repositorios en niveles RAMP L1 a L4 como aproximación basada en patrones. La proporción de repositorios en L2+ limita D4-Q4 por bandas de cobertura, y la proporción en L3+ aparece junto a D4-Q5.
+- `make telemetry METRICS=<Copilot usage metrics report JSON/NDJSON> [SEATS=200]` escribe `saida/telemetria.json`. Lee exports de métricas de uso de GitHub Copilot y clasifica fases de adopción: No Cohort, Phase 1 Code first, Phase 2 Agent first, Phase 3 Multi-agent. El export en sí es evidencia para D9-Q1.
+
+La sección 2.2 del PDF de resumen muestra ambos cross-checks y marca respuestas por encima de lo que la evidencia soporta. La guía de implementación lista esos desajustes como riesgos. Si faltan los archivos, el reporte explica cómo producirlos.
+
+## Surveys complementarios
+
+Developer Survey y Learning and Growth Survey son señales complementarias. Los resultados de survey nunca cambian los scores v2.
+
+- Las dimensiones del Developer Survey se llaman `DS-D2` a `DS-D8` en las salidas. Forms construidos con el texto antiguo `D2` todavía se parsean.
+- `framework.v2.json` contiene el crosswalk desde cada `DS-D#` hacia las preguntas v2 que ayuda a validar.
+- El PDF de resumen v2 muestra contexto del Developer Survey cuando existe `saida/maturidade-developer-survey-*.json`.
+- La rúbrica del survey conserva las bandas v1, así que compara por score, no por nombre de nivel.
+- Los scripts de survey escriben EN, PT-BR o ES (`--lang en|pt-br|es`). Los bancos del Developer Survey traducen las opciones de respuesta en todos los idiomas; `survey-devs/options.json` las asigna a las mismas opciones canónicas, así que el puntaje no depende del idioma del formulario.
+
+## Archivo v1
+
+v1 sigue soportado para archivos sin `metadata.framework_version`, o con versión `1.x`. Usa [../framework.json](../framework.json), 158 preguntas, 3 pilares y activos archivados:
+
+- [../coleta/v1/](../coleta/v1/)
+- [../formularios/v1/](../formularios/v1/)
+- [../referencia/v1/](../referencia/v1/)
+
+Usa `make init-v1` para iniciar una entrada v1. Los scripts de despacho mantienen el comportamiento v1 sin cambios.
+
+## Mapa del repositorio
+
+| Ruta | Propósito |
+| --- | --- |
+| [../coleta/](../coleta/) | Instrucciones v2, especificación v2, bancos generados, guía de merge offline y archivo v1. |
+| [../formularios/](../formularios/) | Formulario offline v2 y formularios visuales v1 archivados. |
+| [../referencia/](../referencia/) | Guía del framework, calculadora v2, páginas por dimensión, branding y ejemplos. |
+| [../relatorios/](../relatorios/) | Renderer, templates, localización, PDF de comparación y parser de entradas del wizard. |
+| [../scripts/](../scripts/) | Scripts determinísticos de importación, scoring, workbook, comparación, validación, demo, evidencia, empaquetado y generación. |
+| [../wizard/](../wizard/) | Wizard trilingüe generado de la guía de implementación y script de auto-fill. |
+| [../.github/skills/](../.github/skills/) | Skills custom de Copilot que llaman scripts determinísticos. |
+
+## Validación
+
+```bash
+python3 scripts/build_kit_docs.py
+python3 scripts/build_kit_docs.py --check
+make validate-docs
+make test
+```
+
+CI está configurado para tests, validación de documentación, smoke rendering y demo en push y pull requests a `main` y `develop`. GitHub Actions puede estar bloqueado por billing en el repositorio, así que trata la validación local como obligatoria.

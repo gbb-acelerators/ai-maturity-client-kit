@@ -1,33 +1,30 @@
-# `coleta/` — Coletar respostas via Microsoft Forms ou Excel multi-respondente
+# `coleta/`: ativos de coleta
 
-Esta pasta tem tudo para o cliente coletar respostas de **3 ou mais pessoas** via Microsoft Forms (ou planilha Excel/SharePoint compartilhada). A skill `/importar-respostas-excel` consome o output e gera `respostas.json` agregado (média por questão).
+🌐 [English](README.md) · Português (Brasil)
 
-## Arquivos
+O framework v2 é o fluxo de coleta padrão.
 
-| Arquivo | O que é |
-|---|---|
-| **[INSTRUCOES-FORMS.md](INSTRUCOES-FORMS.md)** | Guia passo-a-passo dos 3 caminhos: Forms manual completo, Forms enxuto piloto, Excel/SharePoint direto |
-| **[perguntas-para-forms.md](perguntas-para-forms.md)** | As 158 perguntas formatadas para copy/paste no Microsoft Forms (estrutura por pillar/capability) |
-| **[template-export-forms.xlsx](template-export-forms.xlsx)** | Excel template no formato exato do Forms export — 158 colunas pergunta + 158 evidência + 3 respondentes mockados para teste |
+| Ativo | Uso |
+| --- | --- |
+| [AI-Maturity-Form-Questions_v2.md](AI-Maturity-Form-Questions_v2.md) | Especificação v2.0.1 aprovada. |
+| [INSTRUCOES-FORMS.md](INSTRUCOES-FORMS.md) | Configuração em inglês de Microsoft Forms, Excel e merge offline para v2. |
+| [INSTRUCOES-FORMS.pt-br.md](INSTRUCOES-FORMS.pt-br.md) | Configuração em PT-BR de Microsoft Forms, Excel e merge offline para v2. |
+| [perguntas-para-forms.md](perguntas-para-forms.md) | Banco de perguntas v2 gerado em PT-BR. |
+| [perguntas-para-forms.en.md](perguntas-para-forms.en.md) | Banco de perguntas v2 gerado em inglês. |
+| [perguntas-para-forms.es.md](perguntas-para-forms.es.md) | Banco de perguntas v2 gerado em espanhol. |
+| [template-export-forms.xlsx](template-export-forms.xlsx) | Template de importação v2 no formato Microsoft Forms. |
+| [v1/](v1/) | Bancos, instruções e template v1 arquivados. |
 
-## Quando usar cada arquivo
+O formulário offline exporta um respondente por `respostas.json`. Colete os exports em uma pasta e rode `make merge DIR=exports/` antes de `make pipeline`.
 
-- **Vai criar Microsoft Forms manual?** → leia `INSTRUCOES-FORMS.md` (Caminho A) + abra `perguntas-para-forms.md` ao lado para copy/paste
-- **Vai usar Excel/SharePoint direto (mais rápido)?** → leia `INSTRUCOES-FORMS.md` (Caminho C) + use `template-export-forms.xlsx` como base
-- **Quer testar a skill `/importar-respostas-excel` agora?** → renomeie `template-export-forms.xlsx` → `respostas-forms.xlsx`, mova para a raiz do kit, rode a skill (ela detecta automaticamente)
+Regere os ativos de coleta v2 com:
 
-## Próximo passo
-
-Depois de coletar (Forms ou Excel), você terá um arquivo `respostas-forms.xlsx`. Mova para a raiz do `kit-cliente/` e rode no Copilot Chat:
-
-```
-/importar-respostas-excel
-```
-
-Ou simplesmente:
-
-```
-@ai-maturity-assistant
+```bash
+make generate-v2
 ```
 
-— o concierge detecta o arquivo e te conduz.
+Valide sem alterar arquivos com:
+
+```bash
+make validate-v2
+```

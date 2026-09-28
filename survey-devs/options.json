@@ -1,0 +1,1982 @@
+{
+  "S1-Q1": [
+    {
+      "pt": "Desenvolvedor Backend",
+      "en": "Backend Developer",
+      "es": "Desarrollador Backend"
+    },
+    {
+      "pt": "Desenvolvedor Frontend",
+      "en": "Frontend Developer",
+      "es": "Desarrollador Frontend"
+    },
+    {
+      "pt": "Full-Stack",
+      "en": "Full-Stack",
+      "es": "Full-Stack"
+    },
+    {
+      "pt": "SRE / Platform Engineer",
+      "en": "SRE / Platform Engineer",
+      "es": "SRE / Platform Engineer"
+    },
+    {
+      "pt": "Data Engineer / ML Engineer",
+      "en": "Data Engineer / ML Engineer",
+      "es": "Data Engineer / ML Engineer"
+    },
+    {
+      "pt": "Architect",
+      "en": "Architect",
+      "es": "Architect"
+    },
+    {
+      "pt": "Tech Lead",
+      "en": "Tech Lead",
+      "es": "Tech Lead"
+    },
+    {
+      "pt": "Engineering Manager",
+      "en": "Engineering Manager",
+      "es": "Engineering Manager"
+    },
+    {
+      "pt": "QA / SDET",
+      "en": "QA / SDET",
+      "es": "QA / SDET"
+    },
+    {
+      "pt": "DevOps / DevEx",
+      "en": "DevOps / DevEx",
+      "es": "DevOps / DevEx"
+    },
+    {
+      "pt": "Outro",
+      "en": "Other",
+      "es": "Otro"
+    }
+  ],
+  "S1-Q2": [
+    {
+      "pt": "< 2 anos",
+      "en": "< 2 years",
+      "es": "< 2 años"
+    },
+    {
+      "pt": "2-5 anos",
+      "en": "2-5 years",
+      "es": "2-5 años"
+    },
+    {
+      "pt": "6-10 anos",
+      "en": "6-10 years",
+      "es": "6-10 años"
+    },
+    {
+      "pt": "11-15 anos",
+      "en": "11-15 years",
+      "es": "11-15 años"
+    },
+    {
+      "pt": "> 15 anos",
+      "en": "> 15 years",
+      "es": "> 15 años"
+    }
+  ],
+  "S1-Q3": [
+    {
+      "pt": "Nunca usei",
+      "en": "Never used it",
+      "es": "Nunca la usé"
+    },
+    {
+      "pt": "< 3 meses",
+      "en": "< 3 months",
+      "es": "< 3 meses"
+    },
+    {
+      "pt": "3-12 meses",
+      "en": "3-12 months",
+      "es": "3-12 meses"
+    },
+    {
+      "pt": "1-2 anos",
+      "en": "1-2 years",
+      "es": "1-2 años"
+    },
+    {
+      "pt": "> 2 anos",
+      "en": "> 2 years",
+      "es": "> 2 años"
+    }
+  ],
+  "S1-Q4": [
+    {
+      "pt": "TypeScript / JavaScript",
+      "en": "TypeScript / JavaScript",
+      "es": "TypeScript / JavaScript"
+    },
+    {
+      "pt": "Python",
+      "en": "Python",
+      "es": "Python"
+    },
+    {
+      "pt": "C# / .NET",
+      "en": "C# / .NET",
+      "es": "C# / .NET"
+    },
+    {
+      "pt": "Java / Kotlin",
+      "en": "Java / Kotlin",
+      "es": "Java / Kotlin"
+    },
+    {
+      "pt": "Go",
+      "en": "Go",
+      "es": "Go"
+    },
+    {
+      "pt": "Rust",
+      "en": "Rust",
+      "es": "Rust"
+    },
+    {
+      "pt": "C++",
+      "en": "C++",
+      "es": "C++"
+    },
+    {
+      "pt": "Ruby",
+      "en": "Ruby",
+      "es": "Ruby"
+    },
+    {
+      "pt": "PHP",
+      "en": "PHP",
+      "es": "PHP"
+    },
+    {
+      "pt": "Swift",
+      "en": "Swift",
+      "es": "Swift"
+    },
+    {
+      "pt": "SQL (foco principal)",
+      "en": "SQL (primary focus)",
+      "es": "SQL (enfoque principal)"
+    },
+    {
+      "pt": "Outra",
+      "en": "Other",
+      "es": "Otro"
+    }
+  ],
+  "S1-Q5": [
+    {
+      "pt": "< 2h",
+      "en": "< 2h",
+      "es": "< 2h"
+    },
+    {
+      "pt": "2-4h",
+      "en": "2-4h",
+      "es": "2-4h"
+    },
+    {
+      "pt": "4-6h",
+      "en": "4-6h",
+      "es": "4-6h"
+    },
+    {
+      "pt": "6-8h",
+      "en": "6-8h",
+      "es": "6-8h"
+    },
+    {
+      "pt": "> 8h",
+      "en": "> 8h",
+      "es": "> 8h"
+    }
+  ],
+  "S1-Q6": [
+    {
+      "pt": "Sou solo",
+      "en": "I work solo",
+      "es": "Trabajo solo"
+    },
+    {
+      "pt": "2-4 pessoas",
+      "en": "2-4 people",
+      "es": "2-4 personas"
+    },
+    {
+      "pt": "5-9 pessoas",
+      "en": "5-9 people",
+      "es": "5-9 personas"
+    },
+    {
+      "pt": "10-15 pessoas",
+      "en": "10-15 people",
+      "es": "10-15 personas"
+    },
+    {
+      "pt": "> 15 pessoas",
+      "en": "> 15 people",
+      "es": "> 15 personas"
+    }
+  ],
+  "S1-Q7": [
+    {
+      "pt": "Remoto 100%",
+      "en": "100% remote",
+      "es": "100% remoto"
+    },
+    {
+      "pt": "Híbrido (1-2 dias presencial)",
+      "en": "Hybrid (1-2 days in person)",
+      "es": "Híbrido (1-2 días presencial)"
+    },
+    {
+      "pt": "Híbrido (3-4 dias)",
+      "en": "Hybrid (3-4 days)",
+      "es": "Híbrido (3-4 días)"
+    },
+    {
+      "pt": "Presencial 100%",
+      "en": "100% in person",
+      "es": "100% presencial"
+    }
+  ],
+  "S2-Q1": [
+    {
+      "pt": "Sim, Copilot Enterprise",
+      "en": "Yes, Copilot Enterprise",
+      "es": "Sí, Copilot Enterprise"
+    },
+    {
+      "pt": "Sim, Copilot Business",
+      "en": "Yes, Copilot Business",
+      "es": "Sí, Copilot Business"
+    },
+    {
+      "pt": "Sim, Copilot Pro+ (individual)",
+      "en": "Yes, Copilot Pro+ (individual)",
+      "es": "Sí, Copilot Pro+ (individual)"
+    },
+    {
+      "pt": "Sim, Copilot Pro (individual)",
+      "en": "Yes, Copilot Pro (individual)",
+      "es": "Sí, Copilot Pro (individual)"
+    },
+    {
+      "pt": "Sim, Copilot Free",
+      "en": "Yes, Copilot Free",
+      "es": "Sí, Copilot Free"
+    },
+    {
+      "pt": "Tenho licença mas não uso",
+      "en": "I have a license but do not use it",
+      "es": "Tengo licencia pero no la uso"
+    },
+    {
+      "pt": "Não tenho licença",
+      "en": "I do not have a license",
+      "es": "No tengo licencia"
+    }
+  ],
+  "S2-Q2": [
+    {
+      "pt": "Diariamente (várias horas)",
+      "en": "Daily (several hours)",
+      "es": "Diariamente (varias horas)"
+    },
+    {
+      "pt": "Diariamente (esporádico)",
+      "en": "Daily (sporadic)",
+      "es": "Diariamente (esporádico)"
+    },
+    {
+      "pt": "Semanal",
+      "en": "Weekly",
+      "es": "Semanal"
+    },
+    {
+      "pt": "Raramente",
+      "en": "Rarely",
+      "es": "Rara vez"
+    },
+    {
+      "pt": "Nunca",
+      "en": "Never",
+      "es": "Nunca"
+    }
+  ],
+  "S2-Q3": [
+    {
+      "pt": "Ask (responder perguntas)",
+      "en": "Ask (answer questions)",
+      "es": "Ask (responder preguntas)"
+    },
+    {
+      "pt": "Edit (edição multi-arquivo no IDE)",
+      "en": "Edit (multi-file editing in the IDE)",
+      "es": "Edit (edición multiarchivo en el IDE)"
+    },
+    {
+      "pt": "Agent (autônomo no IDE, executa tasks)",
+      "en": "Agent (autonomous in the IDE, runs tasks)",
+      "es": "Agent (autónomo en el IDE, ejecuta tasks)"
+    },
+    {
+      "pt": "Copilot Coding Agent (autônomo no GitHub.com, assigna issue, abre PR sozinho)",
+      "en": "Copilot Coding Agent (autonomous on GitHub.com, assigns issues, opens PRs on its own)",
+      "es": "Copilot Coding Agent (autónomo en GitHub.com, asigna issues, abre PRs solo)"
+    },
+    {
+      "pt": "Plan / Vision",
+      "en": "Plan / Vision",
+      "es": "Plan / Vision"
+    },
+    {
+      "pt": "Não uso o Chat, só completion inline",
+      "en": "I do not use Chat, only inline completion",
+      "es": "No uso Chat, solo completion inline"
+    },
+    {
+      "pt": "Não conheço esses modos",
+      "en": "I do not know these modes",
+      "es": "No conozco esos modos"
+    }
+  ],
+  "S2-Q4": [
+    {
+      "pt": "Ask",
+      "en": "Ask",
+      "es": "Ask"
+    },
+    {
+      "pt": "Edit",
+      "en": "Edit",
+      "es": "Edit"
+    },
+    {
+      "pt": "Agent (no IDE)",
+      "en": "Agent (in the IDE)",
+      "es": "Agent (en el IDE)"
+    },
+    {
+      "pt": "Coding Agent (autônomo no GitHub)",
+      "en": "Coding Agent (autonomous on GitHub)",
+      "es": "Coding Agent (autónomo en GitHub)"
+    },
+    {
+      "pt": "Plan / Vision",
+      "en": "Plan / Vision",
+      "es": "Plan / Vision"
+    },
+    {
+      "pt": "Só completion inline",
+      "en": "Only inline completion",
+      "es": "Solo completion inline"
+    },
+    {
+      "pt": "Não sei a diferença",
+      "en": "I do not know the difference",
+      "es": "No sé la diferencia"
+    }
+  ],
+  "S2-Q5": [
+    {
+      "pt": "Inline code completion",
+      "en": "Inline code completion",
+      "es": "Inline code completion"
+    },
+    {
+      "pt": "Chat (perguntas no IDE)",
+      "en": "Chat (questions in the IDE)",
+      "es": "Chat (preguntas en el IDE)"
+    },
+    {
+      "pt": "Pull Request descriptions automáticas",
+      "en": "Automatic Pull Request descriptions",
+      "es": "Descripciones automáticas de Pull Request"
+    },
+    {
+      "pt": "Pull Request review (Copilot review)",
+      "en": "Pull Request review (Copilot review)",
+      "es": "Pull Request review (Copilot review)"
+    },
+    {
+      "pt": "Test generation",
+      "en": "Test generation",
+      "es": "Generación de tests"
+    },
+    {
+      "pt": "Documentation generation",
+      "en": "Documentation generation",
+      "es": "Generación de documentación"
+    },
+    {
+      "pt": "Issue resolution (Coding Agent assigna issue)",
+      "en": "Issue resolution (Coding Agent assigns issue)",
+      "es": "Resolución de issues (Coding Agent asigna issue)"
+    },
+    {
+      "pt": "Slash commands no Chat (/explain, /fix, /tests)",
+      "en": "Slash commands in Chat (/explain, /fix, /tests)",
+      "es": "Slash commands en Chat (/explain, /fix, /tests)"
+    },
+    {
+      "pt": "Copilot Spaces (contexto compartilhado: repos + docs + custom instructions)",
+      "en": "Copilot Spaces (shared context: repos + docs + custom instructions)",
+      "es": "Copilot Spaces (contexto compartido: repos + docs + custom instructions)"
+    },
+    {
+      "pt": "Copilot Coding Agent (tarefas autônomas)",
+      "en": "Copilot Coding Agent (autonomous tasks)",
+      "es": "Copilot Coding Agent (tareas autónomas)"
+    },
+    {
+      "pt": "Copilot CLI (gh copilot)",
+      "en": "Copilot CLI (gh copilot)",
+      "es": "Copilot CLI (gh copilot)"
+    }
+  ],
+  "S2-Q6": [
+    {
+      "pt": "VS Code",
+      "en": "VS Code",
+      "es": "VS Code"
+    },
+    {
+      "pt": "Visual Studio",
+      "en": "Visual Studio",
+      "es": "Visual Studio"
+    },
+    {
+      "pt": "JetBrains (IntelliJ, PyCharm, etc.)",
+      "en": "JetBrains (IntelliJ, PyCharm, etc.)",
+      "es": "JetBrains (IntelliJ, PyCharm, etc.)"
+    },
+    {
+      "pt": "Neovim",
+      "en": "Neovim",
+      "es": "Neovim"
+    },
+    {
+      "pt": "Xcode",
+      "en": "Xcode",
+      "es": "Xcode"
+    },
+    {
+      "pt": "GitHub.com (web)",
+      "en": "GitHub.com (web)",
+      "es": "GitHub.com (web)"
+    },
+    {
+      "pt": "GitHub Mobile",
+      "en": "GitHub Mobile",
+      "es": "GitHub Mobile"
+    },
+    {
+      "pt": "GitHub Codespaces",
+      "en": "GitHub Codespaces",
+      "es": "GitHub Codespaces"
+    },
+    {
+      "pt": "CLI (gh copilot)",
+      "en": "CLI (gh copilot)",
+      "es": "CLI (gh copilot)"
+    }
+  ],
+  "S2-Q7": [
+    {
+      "pt": "Negativo (atrapalha)",
+      "en": "Negative (gets in the way)",
+      "es": "Negativo (estorba)"
+    },
+    {
+      "pt": "Neutro (sem ganho)",
+      "en": "Neutral (no gain)",
+      "es": "Neutro (sin ganancia)"
+    },
+    {
+      "pt": "+10-20%",
+      "en": "+10-20%",
+      "es": "+10-20%"
+    },
+    {
+      "pt": "+20-40%",
+      "en": "+20-40%",
+      "es": "+20-40%"
+    },
+    {
+      "pt": "+40-60%",
+      "en": "+40-60%",
+      "es": "+40-60%"
+    },
+    {
+      "pt": "+60% ou mais",
+      "en": "+60% or more",
+      "es": "+60% o más"
+    },
+    {
+      "pt": "Não sei medir",
+      "en": "I do not know how to measure it",
+      "es": "No sé medirlo"
+    }
+  ],
+  "S2-Q8": [
+    {
+      "pt": "Boilerplate / código repetitivo",
+      "en": "Boilerplate / repetitive code",
+      "es": "Boilerplate / código repetitivo"
+    },
+    {
+      "pt": "Refactoring",
+      "en": "Refactoring",
+      "es": "Refactoring"
+    },
+    {
+      "pt": "Escrever testes",
+      "en": "Writing tests",
+      "es": "Escribir tests"
+    },
+    {
+      "pt": "Aprender API/lib nova",
+      "en": "Learning a new API/lib",
+      "es": "Aprender una API/lib nueva"
+    },
+    {
+      "pt": "Debugging",
+      "en": "Debugging",
+      "es": "Debugging"
+    },
+    {
+      "pt": "Explicar código legado",
+      "en": "Explaining legacy code",
+      "es": "Explicar código legacy"
+    },
+    {
+      "pt": "Documentação",
+      "en": "Documentation",
+      "es": "Documentación"
+    },
+    {
+      "pt": "SQL / queries complexas",
+      "en": "SQL / complex queries",
+      "es": "SQL / queries complejas"
+    },
+    {
+      "pt": "Regex",
+      "en": "Regex",
+      "es": "Regex"
+    },
+    {
+      "pt": "Tradução entre linguagens",
+      "en": "Translation between languages",
+      "es": "Traducción entre lenguajes"
+    },
+    {
+      "pt": "Onboarding em projeto novo",
+      "en": "Onboarding into a new project",
+      "es": "Onboarding en proyecto nuevo"
+    }
+  ],
+  "S3-Q1": [
+    {
+      "pt": "Microsoft Foundry (ex-Azure AI Foundry)",
+      "en": "Microsoft Foundry (formerly Azure AI Foundry)",
+      "es": "Microsoft Foundry (antes Azure AI Foundry)"
+    },
+    {
+      "pt": "Foundry Agent Service (GA, built on OpenAI Responses API)",
+      "en": "Foundry Agent Service (GA, built on OpenAI Responses API)",
+      "es": "Foundry Agent Service (GA, built on OpenAI Responses API)"
+    },
+    {
+      "pt": "Azure OpenAI Service (direto via API)",
+      "en": "Azure OpenAI Service (directly via API)",
+      "es": "Azure OpenAI Service (directo vía API)"
+    },
+    {
+      "pt": "Microsoft 365 Copilot",
+      "en": "Microsoft 365 Copilot",
+      "es": "Microsoft 365 Copilot"
+    },
+    {
+      "pt": "GitHub Copilot Spaces",
+      "en": "GitHub Copilot Spaces",
+      "es": "GitHub Copilot Spaces"
+    },
+    {
+      "pt": "GitHub Copilot Coding Agent (autônomo)",
+      "en": "GitHub Copilot Coding Agent (autonomous)",
+      "es": "GitHub Copilot Coding Agent (autónomo)"
+    },
+    {
+      "pt": "GitHub Codespaces",
+      "en": "GitHub Codespaces",
+      "es": "GitHub Codespaces"
+    },
+    {
+      "pt": "GitHub Models (playground multi-LLM)",
+      "en": "GitHub Models (multi-LLM playground)",
+      "es": "GitHub Models (playground multi-LLM)"
+    },
+    {
+      "pt": "GitHub Advanced Security (GHAS)",
+      "en": "GitHub Advanced Security (GHAS)",
+      "es": "GitHub Advanced Security (GHAS)"
+    },
+    {
+      "pt": "GitHub Actions com Copilot integration",
+      "en": "GitHub Actions with Copilot integration",
+      "es": "GitHub Actions con integración de Copilot"
+    },
+    {
+      "pt": "Visual Studio com Copilot avançado",
+      "en": "Visual Studio with advanced Copilot",
+      "es": "Visual Studio con Copilot avanzado"
+    },
+    {
+      "pt": "Nenhuma das acima",
+      "en": "None of the above",
+      "es": "Ninguna de las anteriores"
+    }
+  ],
+  "S3-Q2": [
+    {
+      "pt": "PoC / experimentação",
+      "en": "PoC / experimentation",
+      "es": "PoC / experimentación"
+    },
+    {
+      "pt": "Feature de produto em produção",
+      "en": "Production product feature",
+      "es": "Feature de producto en producción"
+    },
+    {
+      "pt": "Embeddings / RAG",
+      "en": "Embeddings / RAG",
+      "es": "Embeddings / RAG"
+    },
+    {
+      "pt": "Foundry Agent Service para agentes autônomos",
+      "en": "Foundry Agent Service for autonomous agents",
+      "es": "Foundry Agent Service para agentes autónomos"
+    },
+    {
+      "pt": "Multi-agent orchestration via MCP",
+      "en": "Multi-agent orchestration via MCP",
+      "es": "Multi-agent orchestration vía MCP"
+    },
+    {
+      "pt": "Fine-tuning",
+      "en": "Fine-tuning",
+      "es": "Fine-tuning"
+    },
+    {
+      "pt": "Connectors (Dynamics, SAP, SharePoint, etc.)",
+      "en": "Connectors (Dynamics, SAP, SharePoint, etc.)",
+      "es": "Connectors (Dynamics, SAP, SharePoint, etc.)"
+    },
+    {
+      "pt": "Não uso",
+      "en": "I do not use it",
+      "es": "No lo uso"
+    }
+  ],
+  "S3-Q3": [
+    {
+      "pt": "Uso ativamente em produção",
+      "en": "I actively use it in production",
+      "es": "Lo uso activamente en producción"
+    },
+    {
+      "pt": "Já testei mas não uso recorrente",
+      "en": "I have tested it but do not use it regularly",
+      "es": "Ya lo probé pero no lo uso de forma recurrente"
+    },
+    {
+      "pt": "Conheço mas nunca usei",
+      "en": "I know it but have never used it",
+      "es": "Lo conozco pero nunca lo usé"
+    },
+    {
+      "pt": "Não conheço",
+      "en": "I do not know it",
+      "es": "No lo conozco"
+    }
+  ],
+  "S3-Q4": [
+    {
+      "pt": "Uso e crio Spaces para meu time",
+      "en": "I use and create Spaces for my team",
+      "es": "Uso y creo Spaces para mi equipo"
+    },
+    {
+      "pt": "Uso Spaces criados por outros",
+      "en": "I use Spaces created by others",
+      "es": "Uso Spaces creados por otros"
+    },
+    {
+      "pt": "Conheço mas não uso",
+      "en": "I know it but do not use it",
+      "es": "Lo conozco pero no lo uso"
+    },
+    {
+      "pt": "Não conheço",
+      "en": "I do not know it",
+      "es": "No lo conozco"
+    }
+  ],
+  "S3-Q5": [
+    {
+      "pt": "Uso",
+      "en": "I use it",
+      "es": "Lo uso"
+    },
+    {
+      "pt": "Conheço mas não uso",
+      "en": "I know it but do not use it",
+      "es": "Lo conozco pero no lo uso"
+    },
+    {
+      "pt": "Não conheço",
+      "en": "I do not know it",
+      "es": "No lo conozco"
+    }
+  ],
+  "S3-Q6": [
+    {
+      "pt": "Uso servidores MCP no meu workflow",
+      "en": "I use MCP servers in my workflow",
+      "es": "Uso servidores MCP en mi workflow"
+    },
+    {
+      "pt": "Configurei algum MCP server custom",
+      "en": "I have configured a custom MCP server",
+      "es": "Configuré algún MCP server custom"
+    },
+    {
+      "pt": "Conheço o conceito",
+      "en": "I know the concept",
+      "es": "Conozco el concepto"
+    },
+    {
+      "pt": "Não conheço",
+      "en": "I do not know it",
+      "es": "No lo conozco"
+    }
+  ],
+  "S3-Q7": [
+    {
+      "pt": "Uso recorrente",
+      "en": "I use it regularly",
+      "es": "Lo uso de forma recurrente"
+    },
+    {
+      "pt": "Já testei",
+      "en": "I have tested it",
+      "es": "Ya lo probé"
+    },
+    {
+      "pt": "Não conheço",
+      "en": "I do not know it",
+      "es": "No lo conozco"
+    }
+  ],
+  "S4-Q1": [
+    {
+      "pt": "Sempre que possível",
+      "en": "Whenever possible",
+      "es": "Siempre que sea posible"
+    },
+    {
+      "pt": "Frequentemente",
+      "en": "Frequently",
+      "es": "Frecuentemente"
+    },
+    {
+      "pt": "Às vezes",
+      "en": "Sometimes",
+      "es": "A veces"
+    },
+    {
+      "pt": "Raramente",
+      "en": "Rarely",
+      "es": "Rara vez"
+    },
+    {
+      "pt": "Nunca",
+      "en": "Never",
+      "es": "Nunca"
+    },
+    {
+      "pt": "Não sei o que é TDD",
+      "en": "I do not know what TDD is",
+      "es": "No sé qué es TDD"
+    }
+  ],
+  "S4-Q2": [
+    {
+      "pt": "Uso ativamente (com Spec Kit ou similar)",
+      "en": "I actively use it (with Spec Kit or similar)",
+      "es": "Lo uso activamente (con Spec Kit o similar)"
+    },
+    {
+      "pt": "Já testei em alguns projetos",
+      "en": "I have tested it in some projects",
+      "es": "Ya lo probé en algunos proyectos"
+    },
+    {
+      "pt": "Conheço o conceito mas não uso",
+      "en": "I know the concept but do not use it",
+      "es": "Conozco el concepto pero no lo uso"
+    },
+    {
+      "pt": "Nunca ouvi falar",
+      "en": "I have never heard of it",
+      "es": "Nunca escuché hablar de eso"
+    }
+  ],
+  "S4-Q3": [
+    {
+      "pt": "Antes de começar (planejar arquitetura)",
+      "en": "Before starting (plan architecture)",
+      "es": "Antes de empezar (planear arquitectura)"
+    },
+    {
+      "pt": "Durante (autocomplete + perguntas)",
+      "en": "During (autocomplete + questions)",
+      "es": "Durante (autocomplete + preguntas)"
+    },
+    {
+      "pt": "Após implementar (review/refactor)",
+      "en": "After implementing (review/refactor)",
+      "es": "Después de implementar (review/refactor)"
+    },
+    {
+      "pt": "Quando trava (debugging)",
+      "en": "When I get stuck (debugging)",
+      "es": "Cuando me trabo (debugging)"
+    },
+    {
+      "pt": "Para escrever testes",
+      "en": "To write tests",
+      "es": "Para escribir tests"
+    },
+    {
+      "pt": "Para escrever docs",
+      "en": "To write docs",
+      "es": "Para escribir docs"
+    },
+    {
+      "pt": "Para code review do meu próprio PR",
+      "en": "For code review of my own PR",
+      "es": "Para code review de mi propio PR"
+    }
+  ],
+  "S4-Q4": [
+    {
+      "pt": "Sim, trato como par",
+      "en": "Yes, I treat it as a pair",
+      "es": "Sí, lo trato como par"
+    },
+    {
+      "pt": "Às vezes (depende da tarefa)",
+      "en": "Sometimes (depends on the task)",
+      "es": "A veces (depende de la tarea)"
+    },
+    {
+      "pt": "Não, só ferramenta de autocompletar",
+      "en": "No, just an autocomplete tool",
+      "es": "No, solo una herramienta de autocompletar"
+    },
+    {
+      "pt": "Não uso de forma estruturada",
+      "en": "I do not use it in a structured way",
+      "es": "No lo uso de forma estructurada"
+    }
+  ],
+  "S4-Q5": [
+    {
+      "pt": "Toda semana",
+      "en": "Every week",
+      "es": "Todas las semanas"
+    },
+    {
+      "pt": "Algumas vezes por mês",
+      "en": "A few times per month",
+      "es": "Algunas veces por mes"
+    },
+    {
+      "pt": "Raramente",
+      "en": "Rarely",
+      "es": "Rara vez"
+    },
+    {
+      "pt": "Nunca",
+      "en": "Never",
+      "es": "Nunca"
+    }
+  ],
+  "S4-Q6": [
+    {
+      "pt": "IA gera e o time revisa",
+      "en": "AI generates it and the team reviews it",
+      "es": "IA la genera y el equipo la revisa"
+    },
+    {
+      "pt": "Devs escrevem manualmente, IA ajuda às vezes",
+      "en": "Devs write it manually, AI helps sometimes",
+      "es": "Los devs la escriben manualmente, IA ayuda a veces"
+    },
+    {
+      "pt": "Time mantém manualmente, sem IA",
+      "en": "The team maintains it manually, without AI",
+      "es": "El equipo la mantiene manualmente, sin IA"
+    },
+    {
+      "pt": "Documentação está abandonada",
+      "en": "Documentation is abandoned",
+      "es": "La documentación está abandonada"
+    }
+  ],
+  "S4-Q7": [
+    {
+      "pt": "Pergunto ao Copilot Chat / Claude / outro AI",
+      "en": "I ask Copilot Chat / Claude / another AI",
+      "es": "Le pregunto a Copilot Chat / Claude / otra IA"
+    },
+    {
+      "pt": "Procuro nos logs / debugger",
+      "en": "I look in logs / debugger",
+      "es": "Busco en logs / debugger"
+    },
+    {
+      "pt": "Pergunto a colega humano",
+      "en": "I ask a human colleague",
+      "es": "Le pregunto a un colega humano"
+    },
+    {
+      "pt": "Stack Overflow / documentação",
+      "en": "Stack Overflow / documentation",
+      "es": "Stack Overflow / documentación"
+    },
+    {
+      "pt": "Depende do bug",
+      "en": "It depends on the bug",
+      "es": "Depende del bug"
+    }
+  ],
+  "S4-Q8": [
+    {
+      "pt": "Sempre, primeira coisa que faço",
+      "en": "Always, the first thing I do",
+      "es": "Siempre, es lo primero que hago"
+    },
+    {
+      "pt": "Frequentemente",
+      "en": "Frequently",
+      "es": "Frecuentemente"
+    },
+    {
+      "pt": "Às vezes",
+      "en": "Sometimes",
+      "es": "A veces"
+    },
+    {
+      "pt": "Não, leio README e código manualmente",
+      "en": "No, I read README and code manually",
+      "es": "No, leo README y código manualmente"
+    }
+  ],
+  "S5-Q1": [
+    {
+      "pt": "Sim, explico claramente",
+      "en": "Yes, I can explain it clearly",
+      "es": "Sí, lo explico claramente"
+    },
+    {
+      "pt": "Sim, vagamente",
+      "en": "Yes, vaguely",
+      "es": "Sí, vagamente"
+    },
+    {
+      "pt": "Não sei a diferença",
+      "en": "I do not know the difference",
+      "es": "No sé la diferencia"
+    },
+    {
+      "pt": "Não conheço o termo",
+      "en": "I do not know the term",
+      "es": "No conozco el término"
+    }
+  ],
+  "S5-Q2": [
+    {
+      "pt": "Sim, uso conscientemente",
+      "en": "Yes, I use them consciously",
+      "es": "Sí, los uso conscientemente"
+    },
+    {
+      "pt": "Mais ou menos",
+      "en": "More or less",
+      "es": "Más o menos"
+    },
+    {
+      "pt": "Não sei a diferença",
+      "en": "I do not know the difference",
+      "es": "No sé la diferencia"
+    }
+  ],
+  "S5-Q3": [
+    {
+      "pt": "Já criei",
+      "en": "I have created one",
+      "es": "Ya creé uno"
+    },
+    {
+      "pt": "Já usei mas não criei",
+      "en": "I have used one but not created one",
+      "es": "Ya usé uno pero no creé ninguno"
+    },
+    {
+      "pt": "Sei que existem mas nunca usei",
+      "en": "I know they exist but have never used one",
+      "es": "Sé que existen pero nunca usé uno"
+    },
+    {
+      "pt": "Não sabia que era possível",
+      "en": "I did not know it was possible",
+      "es": "No sabía que era posible"
+    }
+  ],
+  "S5-Q4": [
+    {
+      "pt": "Conheço e uso",
+      "en": "I know it and use it",
+      "es": "Lo conozco y lo uso"
+    },
+    {
+      "pt": "Conheço mas não uso",
+      "en": "I know it but do not use it",
+      "es": "Lo conozco pero no lo uso"
+    },
+    {
+      "pt": "Não conheço",
+      "en": "I do not know it",
+      "es": "No lo conozco"
+    }
+  ],
+  "S5-Q5": [
+    {
+      "pt": "Sim, várias",
+      "en": "Yes, several",
+      "es": "Sí, varias"
+    },
+    {
+      "pt": "Sim, uma ou duas",
+      "en": "Yes, one or two",
+      "es": "Sí, una o dos"
+    },
+    {
+      "pt": "Não, mas planejo",
+      "en": "No, but I plan to",
+      "es": "No, pero planeo hacerlo"
+    },
+    {
+      "pt": "Não conheço",
+      "en": "I do not know it",
+      "es": "No lo conozco"
+    }
+  ],
+  "S5-Q6": [
+    {
+      "pt": "Uso (ex.: Foundry A2A Tool)",
+      "en": "I use it (e.g., Foundry A2A Tool)",
+      "es": "Lo uso (p. ej., Foundry A2A Tool)"
+    },
+    {
+      "pt": "Conheço o conceito",
+      "en": "I know the concept",
+      "es": "Conozco el concepto"
+    },
+    {
+      "pt": "Não conheço",
+      "en": "I do not know it",
+      "es": "No lo conozco"
+    }
+  ],
+  "S5-Q7": [
+    {
+      "pt": "Uso",
+      "en": "I use it",
+      "es": "Lo uso"
+    },
+    {
+      "pt": "Conheço o conceito",
+      "en": "I know the concept",
+      "es": "Conozco el concepto"
+    },
+    {
+      "pt": "Não conheço",
+      "en": "I do not know it",
+      "es": "No lo conozco"
+    }
+  ],
+  "S5-Q8": [
+    {
+      "pt": "Uso",
+      "en": "I use it",
+      "es": "Lo uso"
+    },
+    {
+      "pt": "Conheço o conceito",
+      "en": "I know the concept",
+      "es": "Conozco el concepto"
+    },
+    {
+      "pt": "Não conheço",
+      "en": "I do not know it",
+      "es": "No lo conozco"
+    }
+  ],
+  "S5-Q9": [
+    {
+      "pt": "Sim, adoto explicitamente",
+      "en": "Yes, I explicitly adopt them",
+      "es": "Sí, las adopto explícitamente"
+    },
+    {
+      "pt": "Conheço o conceito",
+      "en": "I know the concept",
+      "es": "Conozco el concepto"
+    },
+    {
+      "pt": "Não conheço",
+      "en": "I do not know it",
+      "es": "No lo conozco"
+    }
+  ],
+  "S5-Q10": [
+    {
+      "pt": "Sempre, tenho test suite para meus agents",
+      "en": "Always, I have a test suite for my agents",
+      "es": "Siempre, tengo test suite para mis agents"
+    },
+    {
+      "pt": "Frequentemente, manual mas sistemático",
+      "en": "Frequently, manual but systematic",
+      "es": "Frecuentemente, manual pero sistemático"
+    },
+    {
+      "pt": "Às vezes, só sanity check",
+      "en": "Sometimes, only a sanity check",
+      "es": "A veces, solo sanity check"
+    },
+    {
+      "pt": "Raramente / nunca",
+      "en": "Rarely / never",
+      "es": "Rara vez / nunca"
+    },
+    {
+      "pt": "Não crio agents/prompts/skills",
+      "en": "I do not create agents/prompts/skills",
+      "es": "No creo agents/prompts/skills"
+    }
+  ],
+  "S5-Q11": [
+    {
+      "pt": "Custom prompts (.prompt.md)",
+      "en": "Custom prompts (.prompt.md)",
+      "es": "Custom prompts (.prompt.md)"
+    },
+    {
+      "pt": "Custom skills (SKILL.md)",
+      "en": "Custom skills (SKILL.md)",
+      "es": "Custom skills (SKILL.md)"
+    },
+    {
+      "pt": "Custom agents (.agent.md)",
+      "en": "Custom agents (.agent.md)",
+      "es": "Custom agents (.agent.md)"
+    },
+    {
+      "pt": "Custom MCP server",
+      "en": "Custom MCP server",
+      "es": "Custom MCP server"
+    },
+    {
+      "pt": "Instructions files (copilot-instructions.md / AGENTS.md / CLAUDE.md)",
+      "en": "Instructions files (copilot-instructions.md / AGENTS.md / CLAUDE.md)",
+      "es": "Archivos de instrucciones (copilot-instructions.md / AGENTS.md / CLAUDE.md)"
+    },
+    {
+      "pt": "Spaces compartilhados",
+      "en": "Shared Spaces",
+      "es": "Spaces compartidos"
+    },
+    {
+      "pt": "Nenhum dos acima",
+      "en": "None of the above",
+      "es": "Ninguno de los anteriores"
+    }
+  ],
+  "S6-Q1": [
+    {
+      "pt": ".github/copilot-instructions.md",
+      "en": ".github/copilot-instructions.md",
+      "es": ".github/copilot-instructions.md"
+    },
+    {
+      "pt": ".github/instructions/*.instructions.md",
+      "en": ".github/instructions/*.instructions.md",
+      "es": ".github/instructions/*.instructions.md"
+    },
+    {
+      "pt": "AGENTS.md",
+      "en": "AGENTS.md",
+      "es": "AGENTS.md"
+    },
+    {
+      "pt": "CLAUDE.md (raiz do projeto)",
+      "en": "CLAUDE.md (project root)",
+      "es": "CLAUDE.md (raíz del proyecto)"
+    },
+    {
+      "pt": ".cursorrules",
+      "en": ".cursorrules",
+      "es": ".cursorrules"
+    },
+    {
+      "pt": "Custom instructions em Copilot Spaces",
+      "en": "Custom instructions in Copilot Spaces",
+      "es": "Custom instructions en Copilot Spaces"
+    },
+    {
+      "pt": "Nenhum",
+      "en": "None",
+      "es": "Ninguno"
+    }
+  ],
+  "S6-Q2": [
+    {
+      "pt": "Time inteiro contribui",
+      "en": "The whole team contributes",
+      "es": "Todo el equipo contribuye"
+    },
+    {
+      "pt": "1-2 pessoas dedicadas",
+      "en": "1-2 dedicated people",
+      "es": "1-2 personas dedicadas"
+    },
+    {
+      "pt": "Eu mantenho sozinho",
+      "en": "I maintain them alone",
+      "es": "Los mantengo solo"
+    },
+    {
+      "pt": "Ninguém mantém, está desatualizado",
+      "en": "Nobody maintains them, they are outdated",
+      "es": "Nadie los mantiene, están desactualizados"
+    },
+    {
+      "pt": "Não temos",
+      "en": "We do not have it",
+      "es": "No tenemos"
+    }
+  ],
+  "S6-Q3": [
+    {
+      "pt": "Toda semana",
+      "en": "Every week",
+      "es": "Todas las semanas"
+    },
+    {
+      "pt": "Mensalmente",
+      "en": "Monthly",
+      "es": "Mensualmente"
+    },
+    {
+      "pt": "Trimestralmente",
+      "en": "Quarterly",
+      "es": "Trimestralmente"
+    },
+    {
+      "pt": "Quando algo quebra",
+      "en": "When something breaks",
+      "es": "Cuando algo se rompe"
+    },
+    {
+      "pt": "Nunca atualizo",
+      "en": "I never update them",
+      "es": "Nunca los actualizo"
+    }
+  ],
+  "S6-Q4": [
+    {
+      "pt": "Code style / convenções do projeto",
+      "en": "Code style / project conventions",
+      "es": "Code style / convenciones del proyecto"
+    },
+    {
+      "pt": "Domain knowledge (regras de negócio)",
+      "en": "Domain knowledge (business rules)",
+      "es": "Domain knowledge (reglas de negocio)"
+    },
+    {
+      "pt": "Stack / ferramentas",
+      "en": "Stack / tools",
+      "es": "Stack / herramientas"
+    },
+    {
+      "pt": "Forbidden patterns (o que NÃO fazer)",
+      "en": "Forbidden patterns (what NOT to do)",
+      "es": "Forbidden patterns (qué NO hacer)"
+    },
+    {
+      "pt": "Examples (good vs bad code)",
+      "en": "Examples (good vs bad code)",
+      "es": "Examples (good vs bad code)"
+    },
+    {
+      "pt": "Estrutura de pastas / arquitetura",
+      "en": "Folder structure / architecture",
+      "es": "Estructura de carpetas / arquitectura"
+    },
+    {
+      "pt": "Comandos comuns (test, build, deploy)",
+      "en": "Common commands (test, build, deploy)",
+      "es": "Comandos comunes (test, build, deploy)"
+    },
+    {
+      "pt": "Não tenho instruções",
+      "en": "I do not have instructions",
+      "es": "No tengo instrucciones"
+    }
+  ],
+  "S6-Q5": [
+    {
+      "pt": "Sim, Copilot Space compartilhado",
+      "en": "Yes, shared Copilot Space",
+      "es": "Sí, Copilot Space compartido"
+    },
+    {
+      "pt": "Sim, repo dedicado",
+      "en": "Yes, dedicated repo",
+      "es": "Sí, repo dedicado"
+    },
+    {
+      "pt": "Sim, wiki/Confluence",
+      "en": "Yes, wiki/Confluence",
+      "es": "Sí, wiki/Confluence"
+    },
+    {
+      "pt": "Cada um mantém o seu",
+      "en": "Each person maintains their own",
+      "es": "Cada quien mantiene el suyo"
+    },
+    {
+      "pt": "Não compartilhamos prompts",
+      "en": "We do not share prompts",
+      "es": "No compartimos prompts"
+    }
+  ],
+  "S6-Q6": [
+    {
+      "pt": "Uso ativamente",
+      "en": "I actively use it",
+      "es": "Lo uso activamente"
+    },
+    {
+      "pt": "Já testei",
+      "en": "I have tested it",
+      "es": "Ya lo probé"
+    },
+    {
+      "pt": "Não conheço",
+      "en": "I do not know it",
+      "es": "No lo conozco"
+    }
+  ],
+  "S7-Q1": [
+    {
+      "pt": "Auto-aprendizado (tentativa e erro)",
+      "en": "Self-learning (trial and error)",
+      "es": "Autoaprendizaje (prueba y error)"
+    },
+    {
+      "pt": "Workshop interno da empresa",
+      "en": "Internal company workshop",
+      "es": "Workshop interno de la empresa"
+    },
+    {
+      "pt": "Documentação oficial",
+      "en": "Official documentation",
+      "es": "Documentación oficial"
+    },
+    {
+      "pt": "Vídeos do YouTube",
+      "en": "YouTube videos",
+      "es": "Videos de YouTube"
+    },
+    {
+      "pt": "Curso online (Coursera, Udemy, MS Learn)",
+      "en": "Online course (Coursera, Udemy, MS Learn)",
+      "es": "Curso online (Coursera, Udemy, MS Learn)"
+    },
+    {
+      "pt": "Champion no time",
+      "en": "Champion on the team",
+      "es": "Champion en el equipo"
+    },
+    {
+      "pt": "Eventos / conferências (Microsoft Build, GitHub Universe)",
+      "en": "Events / conferences (Microsoft Build, GitHub Universe)",
+      "es": "Eventos / conferencias (Microsoft Build, GitHub Universe)"
+    },
+    {
+      "pt": "Comunidades / Discord / Slack",
+      "en": "Communities / Discord / Slack",
+      "es": "Comunidades / Discord / Slack"
+    }
+  ],
+  "S7-Q2": [
+    {
+      "pt": "Sim, eu sou",
+      "en": "Yes, I am",
+      "es": "Sí, soy yo"
+    },
+    {
+      "pt": "Sim, outra pessoa",
+      "en": "Yes, someone else",
+      "es": "Sí, otra persona"
+    },
+    {
+      "pt": "Não, mas precisava ter",
+      "en": "No, but we should have one",
+      "es": "No, pero debería haber"
+    },
+    {
+      "pt": "Não, cada um se vira",
+      "en": "No, everyone figures it out on their own",
+      "es": "No, cada quien se las arregla"
+    }
+  ],
+  "S7-Q3": [
+    {
+      "pt": "Sim, ativo (>5 mensagens/semana)",
+      "en": "Yes, active (>5 messages/week)",
+      "es": "Sí, activo (>5 mensajes/semana)"
+    },
+    {
+      "pt": "Sim, pouco ativo",
+      "en": "Yes, not very active",
+      "es": "Sí, poco activo"
+    },
+    {
+      "pt": "Não temos canal dedicado",
+      "en": "We do not have a dedicated channel",
+      "es": "No tenemos canal dedicado"
+    },
+    {
+      "pt": "Não sei",
+      "en": "I do not know",
+      "es": "No sé"
+    }
+  ],
+  "S7-Q4": [
+    {
+      "pt": "DORA metrics (lead time, deployment freq, MTTR, change failure)",
+      "en": "DORA metrics (lead time, deployment freq, MTTR, change failure)",
+      "es": "DORA metrics (lead time, deployment freq, MTTR, change failure)"
+    },
+    {
+      "pt": "DX index (developer experience)",
+      "en": "DX index (developer experience)",
+      "es": "DX index (developer experience)"
+    },
+    {
+      "pt": "SPACE framework",
+      "en": "SPACE framework",
+      "es": "SPACE framework"
+    },
+    {
+      "pt": "Métricas de adoção do Copilot (active users)",
+      "en": "Copilot adoption metrics (active users)",
+      "es": "Métricas de adopción de Copilot (active users)"
+    },
+    {
+      "pt": "Self-report periódico (survey)",
+      "en": "Periodic self-report (survey)",
+      "es": "Self-report periódico (survey)"
+    },
+    {
+      "pt": "Não medimos formalmente",
+      "en": "We do not measure formally",
+      "es": "No medimos formalmente"
+    }
+  ],
+  "S7-Q5": [
+    {
+      "pt": "Acerta na 1ª tentativa",
+      "en": "It gets it right on the 1st try",
+      "es": "Acierta en el 1er intento"
+    },
+    {
+      "pt": "2-3 iterações",
+      "en": "2-3 iterations",
+      "es": "2-3 iteraciones"
+    },
+    {
+      "pt": "4-6 iterações",
+      "en": "4-6 iterations",
+      "es": "4-6 iteraciones"
+    },
+    {
+      "pt": "7+ iterações (frequente)",
+      "en": "7+ iterations (frequent)",
+      "es": "7+ iteraciones (frecuente)"
+    }
+  ],
+  "S7-Q6": [
+    {
+      "pt": "Nunca, sempre reviso",
+      "en": "Never, I always review",
+      "es": "Nunca, siempre reviso"
+    },
+    {
+      "pt": "Para mudanças triviais (sim)",
+      "en": "For trivial changes (yes)",
+      "es": "Para cambios triviales (sí)"
+    },
+    {
+      "pt": "Frequentemente (confio)",
+      "en": "Frequently (I trust it)",
+      "es": "Frecuentemente (confío)"
+    },
+    {
+      "pt": "Quase sempre",
+      "en": "Almost always",
+      "es": "Casi siempre"
+    }
+  ],
+  "S7-Q7": [
+    {
+      "pt": "Diariamente",
+      "en": "Daily",
+      "es": "Diariamente"
+    },
+    {
+      "pt": "Semanalmente",
+      "en": "Weekly",
+      "es": "Semanalmente"
+    },
+    {
+      "pt": "Raramente",
+      "en": "Rarely",
+      "es": "Rara vez"
+    },
+    {
+      "pt": "Quase nunca",
+      "en": "Almost never",
+      "es": "Casi nunca"
+    }
+  ],
+  "S7-Q8": [
+    {
+      "pt": "Aprendendo MUITO MAIS (IA acelera)",
+      "en": "Learning MUCH MORE (AI accelerates it)",
+      "es": "Aprendiendo MUCHO MÁS (IA acelera)"
+    },
+    {
+      "pt": "Um pouco mais",
+      "en": "A little more",
+      "es": "Un poco más"
+    },
+    {
+      "pt": "Mais ou menos igual",
+      "en": "About the same",
+      "es": "Más o menos igual"
+    },
+    {
+      "pt": "Aprendendo MENOS (dependência)",
+      "en": "Learning LESS (dependency)",
+      "es": "Aprendiendo MENOS (dependencia)"
+    },
+    {
+      "pt": "Não sei avaliar",
+      "en": "I do not know how to assess it",
+      "es": "No sé evaluarlo"
+    }
+  ],
+  "S7-Q9": [
+    {
+      "pt": "Frequentemente, em canal compartilhado",
+      "en": "Frequently, in a shared channel",
+      "es": "Frecuentemente, en un canal compartido"
+    },
+    {
+      "pt": "Às vezes, pessoalmente",
+      "en": "Sometimes, personally",
+      "es": "A veces, en persona"
+    },
+    {
+      "pt": "Raramente",
+      "en": "Rarely",
+      "es": "Rara vez"
+    },
+    {
+      "pt": "Nunca",
+      "en": "Never",
+      "es": "Nunca"
+    }
+  ],
+  "S8-Q1": [
+    {
+      "pt": "Sim, política formal e clara",
+      "en": "Yes, formal and clear policy",
+      "es": "Sí, política formal y clara"
+    },
+    {
+      "pt": "Sim, mas pouco clara",
+      "en": "Yes, but not very clear",
+      "es": "Sí, pero poco clara"
+    },
+    {
+      "pt": "Política informal (sem documento)",
+      "en": "Informal policy (no document)",
+      "es": "Política informal (sin documento)"
+    },
+    {
+      "pt": "Não temos política",
+      "en": "We do not have a policy",
+      "es": "No tenemos política"
+    },
+    {
+      "pt": "Não sei",
+      "en": "I do not know",
+      "es": "No sé"
+    }
+  ],
+  "S8-Q2": [
+    {
+      "pt": "Sei claramente o que pode e o que NÃO pode",
+      "en": "I clearly know what can and CANNOT be used",
+      "es": "Sé claramente qué se puede y qué NO se puede"
+    },
+    {
+      "pt": "Tenho ideia geral",
+      "en": "I have a general idea",
+      "es": "Tengo una idea general"
+    },
+    {
+      "pt": "Vagamente",
+      "en": "Vaguely",
+      "es": "Vagamente"
+    },
+    {
+      "pt": "Não sei",
+      "en": "I do not know",
+      "es": "No sé"
+    }
+  ],
+  "S8-Q3": [
+    {
+      "pt": "PII / dados pessoais de clientes",
+      "en": "PII / customer personal data",
+      "es": "PII / datos personales de clientes"
+    },
+    {
+      "pt": "Secrets / API keys / tokens",
+      "en": "Secrets / API keys / tokens",
+      "es": "Secrets / API keys / tokens"
+    },
+    {
+      "pt": "Código de IP estratégico",
+      "en": "Strategic IP code",
+      "es": "Código de IP estratégico"
+    },
+    {
+      "pt": "Dados financeiros",
+      "en": "Financial data",
+      "es": "Datos financieros"
+    },
+    {
+      "pt": "Dados de saúde",
+      "en": "Health data",
+      "es": "Datos de salud"
+    },
+    {
+      "pt": "Nenhuma restrição (não temos política)",
+      "en": "No restrictions (we do not have a policy)",
+      "es": "Ninguna restricción (no tenemos política)"
+    }
+  ],
+  "S8-Q4": [
+    {
+      "pt": "GitHub Advanced Security (GHAS)",
+      "en": "GitHub Advanced Security (GHAS)",
+      "es": "GitHub Advanced Security (GHAS)"
+    },
+    {
+      "pt": "CodeQL scanning",
+      "en": "CodeQL scanning",
+      "es": "CodeQL scanning"
+    },
+    {
+      "pt": "Secret scanning",
+      "en": "Secret scanning",
+      "es": "Secret scanning"
+    },
+    {
+      "pt": "Dependabot / dependency review",
+      "en": "Dependabot / dependency review",
+      "es": "Dependabot / dependency review"
+    },
+    {
+      "pt": "SBOM (Software Bill of Materials)",
+      "en": "SBOM (Software Bill of Materials)",
+      "es": "SBOM (Software Bill of Materials)"
+    },
+    {
+      "pt": "Microsoft Defender for DevOps",
+      "en": "Microsoft Defender for DevOps",
+      "es": "Microsoft Defender for DevOps"
+    },
+    {
+      "pt": "Microsoft Defender for Cloud",
+      "en": "Microsoft Defender for Cloud",
+      "es": "Microsoft Defender for Cloud"
+    },
+    {
+      "pt": "Snyk / SonarQube / outro SAST",
+      "en": "Snyk / SonarQube / other SAST",
+      "es": "Snyk / SonarQube / otro SAST"
+    },
+    {
+      "pt": "Nenhuma",
+      "en": "None",
+      "es": "Ninguna"
+    }
+  ],
+  "S8-Q5": [
+    {
+      "pt": "Sim, gate obrigatório no PR",
+      "en": "Yes, mandatory gate in the PR",
+      "es": "Sí, gate obligatorio en el PR"
+    },
+    {
+      "pt": "Sim, opcional",
+      "en": "Yes, optional",
+      "es": "Sí, opcional"
+    },
+    {
+      "pt": "Roda mas não bloqueia",
+      "en": "Runs but does not block",
+      "es": "Corre pero no bloquea"
+    },
+    {
+      "pt": "Não roda",
+      "en": "Does not run",
+      "es": "No corre"
+    }
+  ],
+  "S8-Q6": [
+    {
+      "pt": "Sim, automatizado",
+      "en": "Yes, automated",
+      "es": "Sí, automatizado"
+    },
+    {
+      "pt": "Sim, manual quando solicitado",
+      "en": "Yes, manual when requested",
+      "es": "Sí, manual cuando se solicita"
+    },
+    {
+      "pt": "Não geramos",
+      "en": "We do not generate them",
+      "es": "No generamos"
+    },
+    {
+      "pt": "Não sei",
+      "en": "I do not know",
+      "es": "No sé"
+    }
+  ],
+  "S8-Q7": [
+    {
+      "pt": "Sim, review obrigatório por outro humano + scanner",
+      "en": "Yes, mandatory review by another human + scanner",
+      "es": "Sí, review obligatorio por otro humano + scanner"
+    },
+    {
+      "pt": "Review humano obrigatório (sem scanner extra)",
+      "en": "Mandatory human review (no extra scanner)",
+      "es": "Review humano obligatorio (sin scanner extra)"
+    },
+    {
+      "pt": "Review opcional",
+      "en": "Optional review",
+      "es": "Review opcional"
+    },
+    {
+      "pt": "Não temos processo",
+      "en": "We do not have a process",
+      "es": "No tenemos proceso"
+    }
+  ],
+  "S8-Q8": [
+    {
+      "pt": "Sempre, escopo + red-lines documentados",
+      "en": "Always, documented scope + red-lines",
+      "es": "Siempre, alcance + red-lines documentados"
+    },
+    {
+      "pt": "Frequentemente",
+      "en": "Frequently",
+      "es": "Frecuentemente"
+    },
+    {
+      "pt": "Às vezes",
+      "en": "Sometimes",
+      "es": "A veces"
+    },
+    {
+      "pt": "Raramente / nunca",
+      "en": "Rarely / never",
+      "es": "Rara vez / nunca"
+    },
+    {
+      "pt": "Não crio/uso custom agents",
+      "en": "I do not create/use custom agents",
+      "es": "No creo/uso custom agents"
+    }
+  ],
+  "S8-Q9": [
+    {
+      "pt": "Sim, JIT obrigatório para agents",
+      "en": "Yes, JIT is mandatory for agents",
+      "es": "Sí, JIT obligatorio para agents"
+    },
+    {
+      "pt": "Sim, opcional",
+      "en": "Yes, optional",
+      "es": "Sí, opcional"
+    },
+    {
+      "pt": "Não temos JIT",
+      "en": "We do not have JIT",
+      "es": "No tenemos JIT"
+    },
+    {
+      "pt": "Não sei",
+      "en": "I do not know",
+      "es": "No sé"
+    }
+  ],
+  "S8-Q10": [
+    {
+      "pt": "Sim, bloqueia ativamente",
+      "en": "Yes, actively blocks",
+      "es": "Sí, bloquea activamente"
+    },
+    {
+      "pt": "Sim, alerta mas não bloqueia",
+      "en": "Yes, alerts but does not block",
+      "es": "Sí, alerta pero no bloquea"
+    },
+    {
+      "pt": "Não temos",
+      "en": "We do not have it",
+      "es": "No tenemos"
+    },
+    {
+      "pt": "Não sei",
+      "en": "I do not know",
+      "es": "No sé"
+    }
+  ],
+  "S8-Q11": [
+    {
+      "pt": "Sim, logs ativos e revisados",
+      "en": "Yes, active and reviewed logs",
+      "es": "Sí, logs activos y revisados"
+    },
+    {
+      "pt": "Logs ativos mas não revisados",
+      "en": "Active logs but not reviewed",
+      "es": "Logs activos pero no revisados"
+    },
+    {
+      "pt": "Não temos",
+      "en": "We do not have it",
+      "es": "No tenemos"
+    },
+    {
+      "pt": "Não sei",
+      "en": "I do not know",
+      "es": "No sé"
+    }
+  ],
+  "S8-Q12": [
+    {
+      "pt": "Sim, treinamento obrigatório anual",
+      "en": "Yes, mandatory annual training",
+      "es": "Sí, entrenamiento obligatorio anual"
+    },
+    {
+      "pt": "Sim, uma vez (no onboarding)",
+      "en": "Yes, once (during onboarding)",
+      "es": "Sí, una vez (en el onboarding)"
+    },
+    {
+      "pt": "Não recebi treinamento",
+      "en": "I have not received training",
+      "es": "No recibí entrenamiento"
+    },
+    {
+      "pt": "Não sei",
+      "en": "I do not know",
+      "es": "No sé"
+    }
+  ],
+  "S8-Q13": [
+    {
+      "pt": "Diariamente",
+      "en": "Daily",
+      "es": "Diariamente"
+    },
+    {
+      "pt": "Semanalmente",
+      "en": "Weekly",
+      "es": "Semanalmente"
+    },
+    {
+      "pt": "Mensalmente",
+      "en": "Monthly",
+      "es": "Mensualmente"
+    },
+    {
+      "pt": "Quase nunca",
+      "en": "Almost never",
+      "es": "Casi nunca"
+    }
+  ],
+  "S9-Q4": [
+    {
+      "pt": "Sim, quero ver",
+      "en": "Yes, I want to see it",
+      "es": "Sí, quiero verla"
+    },
+    {
+      "pt": "Não, obrigado",
+      "en": "No, thank you",
+      "es": "No, gracias"
+    }
+  ]
+}

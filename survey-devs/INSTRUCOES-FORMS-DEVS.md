@@ -26,6 +26,7 @@
 ## 🔐 Anonymity: CRITICAL
 
 This survey is **anonymous by design**:
+
 - ❌ We do not ask for name, email, or corporate ID
 - ✅ We only collect: role, years of experience, usage patterns, opinions
 - ✅ Developers answer more honestly when they know it is anonymous
@@ -59,7 +60,7 @@ This survey is **anonymous by design**:
 3. Suggested title: `Developer Survey: How my team uses GitHub & AI today`
 4. Subtitle (paste this):
 
-```
+```text
 ANONYMOUS survey (20-25 min) about your practices with GitHub Copilot,
 Copilot Chat modes (Ask/Edit/Agent), AI agents, instructions files,
 AI + Dev best practices, and security.
@@ -89,7 +90,7 @@ Estimated time: 20-25 min.
 
 In Forms, button **+ Add new** → section icon (or "Add section"):
 
-```
+```text
 Section 1: S1 - Respondent profile            (7 questions)
 Section 2: S2 - GitHub Copilot                (9 questions)
 Section 3: S3 - Other Microsoft/GH tools      (7 questions)
@@ -103,7 +104,8 @@ Section 9: S9 - Pain Points & Wishlist        (4 questions)
 
 ### Step 4 · Add the 75 questions
 
-Use the English bank [`perguntas-para-forms-devs.en.md`](perguntas-para-forms-devs.en.md) as the **copy/paste source**. The canonical question bank is the PT-BR version, [`perguntas-para-forms-devs.md`](perguntas-para-forms-devs.md); use it if your respondents answer in Portuguese. Each question has:
+Use the bank in your respondents' language as the **copy/paste source**: English [`perguntas-para-forms-devs.en.md`](perguntas-para-forms-devs.en.md), Portuguese [`perguntas-para-forms-devs.md`](perguntas-para-forms-devs.md) or Spanish [`perguntas-para-forms-devs.es.md`](perguntas-para-forms-devs.es.md). The answer options are translated in every bank; [`options.json`](options.json) maps them back to the same canonical options, so scores do not depend on the form language. Each question has:
+
 - **Type** (`choice`, `multi`, `text`)
 - **ID** (`S2-Q1`, `S5-Q3`, etc.)
 - **Question text**
@@ -117,9 +119,11 @@ Use the English bank [`perguntas-para-forms-devs.en.md`](perguntas-para-forms-de
    - `text` (Long Text) → **Long answer**
 
 2. **The question TITLE MUST start with the ID + colon**:
-   ```
+
+   ```text
    S2-Q1: Do you have an active GitHub Copilot license?
    ```
+
    > ⚠️ **CRITICAL:** the ID is used by the `/importar-survey-devs` skill to map back to the schema. Do not remove or change the `SX-QY:` format.
 
 3. **Options** (for choice/multi): paste the options listed in the MD, **one per line**, in order.
@@ -154,11 +158,12 @@ Use the English bank [`perguntas-para-forms-devs.en.md`](perguntas-para-forms-de
 
 In Copilot Chat (Agent mode):
 
-```
+```text
 /importar-survey-devs
 ```
 
 The skill:
+
 - Detects `respostas-survey-devs.xlsx`
 - Parses 75 questions × N respondents
 - Generates `survey-devs/respostas-devs.json`
@@ -166,11 +171,12 @@ The skill:
 
 Then:
 
-```
+```text
 /insights-developer-survey
 ```
 
-Generates an aggregated report in `saida/insights-developer-survey-<DATE>.md` (in **English by default**; the scripts accept `--lang pt-br` for Portuguese (Brazil)) with:
+Generates an aggregated report in `saida/insights-developer-survey-<DATE>.md` (in **English by default**; the scripts accept `--lang pt-br` for Portuguese (Brazil) and `--lang es` for Spanish) with:
+
 - Role distribution
 - Top 5 most used Copilot features
 - % adoption by mode (Ask/Edit/Agent/Workspace)
@@ -199,23 +205,28 @@ Faster if the team is small (3-5 developers) and technical.
 ## 💡 Collection best practices
 
 ### Launch with context
+
 Do not drop the link in Slack without context. Create a moment:
 
 > "Team, before we define the AI strategy for engineering next quarter, we want to hear how you use AI today. Anonymous 20-25 min survey with 75 questions (Copilot, agents, security, and more). Your answers go straight into the roadmap. Link: <URL>. Deadline: 2 weeks."
 
 ### Guarantee anonymity (for real)
+
 - Confirm that Settings → Anonymous is CHECKED
 - Do not force MS365 login (if you share it externally)
 - In the aggregated report, never cite specific respondents, only patterns
 
 ### Remind periodically
+
 - D+3: gentle reminder in the channel
 - D+7: recap "X responses so far, Y days left"
 - D+10: 1-on-1s with leaders to push
 - D+14: final deadline + analysis starts
 
 ### Share the insights
+
 Developers are more likely to answer the next survey if they see that the previous one led to action. After `/insights-developer-survey`:
+
 - Present it at an all-hands
 - Generate quick wins (workshop, prompt library, etc.)
 - Repeat quarterly to measure evolution
@@ -271,6 +282,6 @@ Developers are more likely to answer the next survey if they see that the previo
 | ← PREVIOUS | NEXT → |
 |:---|---:|
 | **[Main assessment collection](../coleta/INSTRUCOES-FORMS.md)** | **[Learning & Growth Survey](../survey-learning/INSTRUCOES-FORMS-LEARNING.md)** |
-| 3 paths to collect the 158 assessment questions via Forms / Excel. | 32 identified questions: capacitation plan with Champions and workshops. |
+| 3 paths to collect the 61 assessment questions (v2) via Forms / Excel. | 32 identified questions: capacitation plan with Champions and workshops. |
 
 ↑ [Back to the kit Index](../README.md)

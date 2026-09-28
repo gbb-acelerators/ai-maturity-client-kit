@@ -4,7 +4,8 @@
 Reads: saida/plano-capacitacao-<DATE>.md (output of /plano-capacitacao),
        in English or Portuguese
 Extracts: Champions, training, calendar, ADKAR knowledge, quick wins
-Writes: implementation-guide-inputs.json (kit root), 6 of 9 fields filled
+Writes: implementation-guide-inputs.json (kit root); up to 7 of 11 fields
+        are filled, the others are marked "(fill in ...)" for the report
 
 Usage:
     python3 auto_fill_from_plano.py
@@ -24,19 +25,19 @@ KIT = SCRIPT_DIR.parent.parent
 sys.path.insert(0, str(KIT / "relatorios" / "scripts"))
 import branding  # noqa: E402
 
-SUPPORTED_LANGS = ("en", "pt-br")
+SUPPORTED_LANGS = ("en", "pt-br", "es")
 
-# Heading patterns accept both the English and the Portuguese plan.
+# Heading patterns accept the English, Portuguese and Spanish plan.
 # An optional emoji may precede the heading text.
 EMOJI = r"(?:\S+ )?"
-H_SUMMARY = r"1 · (?:Sumário Executivo|Executive Summary)"
+H_SUMMARY = r"1 · (?:Sumário Executivo|Executive Summary|Resumen ejecutivo)"
 H_COHORTS = r"3 · (?:Cohorts sugeridos|Suggested cohorts)"
 H_CHAMPIONS = r"4 · Champions Network"
-H_CALENDAR = r"5 · (?:Calendário sugerido|Suggested calendar)"
-H_FORMAT = r"6 · (?:Formato e cadência|Preferred format)"
-H_BARRIERS = r"7 · (?:Barreiras|Barriers)"
+H_CALENDAR = r"5 · (?:Calendário sugerido|Calendario sugerido|Suggested calendar)"
+H_FORMAT = r"6 · (?:Formato e cadência|Formato y cadencia|Preferred format)"
+H_BARRIERS = r"7 · (?:Barreiras|Barreras|Barriers)"
 H_SCHEDULE = rf"11 · {EMOJI}(?:Cronograma|30-day schedule)"
-H_ACTIVE = r"### 🥇 (?:Ativos|Active)"
+H_ACTIVE = r"### 🥇 (?:Ativos|Activos|Active)"
 H_FORMATS_SUB = r"### (?:Formatos|Formats)"
 # "1. **topic** — N devs" (PT) or "1. **topic**: N devs" (EN)
 TOPIC_LINE = r"^\d+\.\s+\*\*(.+?)\*\*(?: —|:) (\d+) devs"
@@ -46,7 +47,7 @@ STRINGS = {
         "committee_intro": "Executive Steering Committee (active "
                            "Champions identified by the Learning "
                            "Survey):",
-        "person": "- {name}: {email}",
+        "person": "- {name}: Champion ({email})",
         "comm_intro": "Communication Plan derived from the suggested "
                       "calendar:\n\n",
         "comm_missing": "(see Part 5 of the training plan)",
@@ -79,6 +80,13 @@ STRINGS = {
         "no_raci": "(fill in manually: the Learning Survey does not "
                    "cover RACI. Use the template in "
                    "wizard/implementation-guide-inputs.template.json)",
+        "comm_head": "| Audience | Channel | Frequency | Owner |",
+        "train_head": "| Audience | Format | Cadence |",
+        "cohort_row": "{name}: {count} devs",
+        "no_owners": "(fill in manually: one owner for each dimension "
+                     "below target, one per line as D#: name, role)",
+        "no_risks": "(fill in manually: the client's own risks as a "
+                    "table Risk | Impact | Mitigation | Owner)",
         "no_qw_1_4": "(fill in: not enough data for weeks 1-4 of the "
                      "calendar)",
         "no_qw_5_8": "(fill in: not enough data for weeks 5-8)",
@@ -100,8 +108,10 @@ STRINGS = {
         "c_manual": "\n⚠ You must fill in MANUALLY (not covered by the "
                     "Learning Survey):",
         "c_manual_fields": [
-            "   • tpo (Technology Product Owner)",
+            "   • tpo (program office)",
             "   • raci_matrix",
+            "   • dimension_owners",
+            "   • risk_register",
         ],
         "c_next": "\n💡 Next: /gerar-relatorio  → 5 PDFs with a "
                   "personalized Part 4",
@@ -109,7 +119,7 @@ STRINGS = {
     "pt-br": {
         "committee_intro": "Comitê Executivo Diretivo (Champions ativos "
                            "identificados pelo Learning Survey):",
-        "person": "- {name} — {email}",
+        "person": "- {name}: Champion ({email})",
         "comm_intro": "Plano de Comunicação derivado do calendário "
                       "sugerido:\n\n",
         "comm_missing": "(ver Parte 5 do plano de capacitação)",
@@ -133,19 +143,27 @@ STRINGS = {
             "reconhecimento dos Champions; revisão trimestral do plano "
             "com novo Learning Survey.\n"
         ),
-        "no_committee": "(preencher manualmente — sem Champions ativos "
+        "no_committee": "(preencher manualmente: sem Champions ativos "
                         "identificados pelo Learning Survey)",
-        "no_tpo": "(preencher manualmente — Learning Survey não cobre "
-                  "TPO. Liste Programa Manager + escritório + autoridade "
-                  "de decisão)",
-        "no_raci": "(preencher manualmente — Learning Survey não cobre "
-                   "RACI. Use template em "
+        "no_tpo": "(preencher manualmente: o Learning Survey não cobre o "
+                  "escritório do programa. Liste o gerente do programa, "
+                  "os membros e a autoridade de decisão)",
+        "no_raci": "(preencher manualmente: o Learning Survey não cobre a "
+                   "RACI. Use o modelo em "
                    "wizard/implementation-guide-inputs.template.json)",
-        "no_qw_1_4": "(preencher — sem dados suficientes nas semanas 1-4 "
+        "comm_head": "| Público | Canal | Frequência | Responsável |",
+        "train_head": "| Público | Formato | Cadência |",
+        "cohort_row": "{name}: {count} devs",
+        "no_owners": "(preencher manualmente: um responsável para cada "
+                     "dimensão abaixo da meta, um por linha como D#: nome, "
+                     "papel)",
+        "no_risks": "(preencher manualmente: riscos do próprio cliente "
+                    "em tabela Risco | Impacto | Mitigação | Responsável)",
+        "no_qw_1_4": "(preencher: sem dados suficientes nas semanas 1-4 "
                      "do calendário)",
-        "no_qw_5_8": "(preencher — sem dados suficientes nas semanas "
+        "no_qw_5_8": "(preencher: sem dados suficientes nas semanas "
                      "5-8)",
-        "no_qw_9_12": "(preencher — sem dados suficientes nas semanas "
+        "no_qw_9_12": "(preencher: sem dados suficientes nas semanas "
                       "9-12)",
         "c_missing": "❌ Plano de capacitação não encontrado em saida/.",
         "c_run": "   Rode /plano-capacitacao primeiro (após "
@@ -164,11 +182,89 @@ STRINGS = {
         "c_manual": "\n⚠ Você precisa preencher MANUALMENTE (Learning "
                     "Survey não cobre):",
         "c_manual_fields": [
-            "   • tpo (Technology Product Owner)",
+            "   • tpo (escritório do programa)",
             "   • raci_matrix",
+            "   • dimension_owners",
+            "   • risk_register",
         ],
         "c_next": "\n💡 Próximo: /gerar-relatorio  → 5 PDFs com Parte 4 "
                   "personalizada",
+    },
+    "es": {
+        "committee_intro": "Comité directivo (Champions activos "
+                           "identificados por el Learning Survey):",
+        "person": "- {name}: Champion ({email})",
+        "comm_intro": "Plan de comunicación derivado del calendario "
+                      "sugerido:\n\n",
+        "comm_missing": "(ver la parte 5 del plan de capacitación)",
+        "training_intro": "Plan de capacitación (grupos por dimensión "
+                          "derivados del Learning Survey):\n\n",
+        "training_missing": "(ver la parte 3 del plan de capacitación)",
+        "adkar_head": (
+            "Plan de cambio ADKAR derivado del Learning Survey:\n\n"
+            "**Awareness:** Comunicar el plan de capacitación consolidado "
+            "en un all-hands; cada dev recibe su plan personalizado por "
+            "correo.\n\n"
+            "**Desire:** Hacer visible que los talleres tienen inscritos "
+            "prevalidados (no un opt-in genérico).\n\n"
+            "**Knowledge:** Los 5 talleres principales (del Learning "
+            "Survey):\n"
+        ),
+        "adkar_item": "{i}. {topic} ({count} inscritos)\n",
+        "adkar_tail": (
+            "\n**Ability:** Office hours quincenales (sin agenda fija; "
+            "los devs traen dudas prácticas).\n\n"
+            "**Reinforcement:** Métricas de adopción mensuales publicadas; "
+            "reconocimiento a los Champions; revisión trimestral del plan "
+            "con un nuevo Learning Survey.\n"
+        ),
+        "no_committee": "(completar manualmente: el Learning Survey no "
+                        "identificó Champions activos)",
+        "no_tpo": "(completar manualmente: el Learning Survey no cubre la "
+                  "oficina del programa. Lista al gerente del programa, "
+                  "los miembros y la autoridad de decisión)",
+        "no_raci": "(completar manualmente: el Learning Survey no cubre "
+                   "la RACI. Usa la plantilla en "
+                   "wizard/implementation-guide-inputs.template.json)",
+        "comm_head": "| Audiencia | Canal | Frecuencia | Responsable |",
+        "train_head": "| Audiencia | Formato | Cadencia |",
+        "cohort_row": "{name}: {count} devs",
+        "no_owners": "(completar manualmente: una persona responsable por "
+                     "cada dimensión bajo el objetivo, una por línea como "
+                     "D#: nombre, rol)",
+        "no_risks": "(completar manualmente: riesgos del propio cliente "
+                    "en una tabla Riesgo | Impacto | Mitigación | "
+                    "Responsable)",
+        "no_qw_1_4": "(completar: no hay datos suficientes para las "
+                     "semanas 1-4 del calendario)",
+        "no_qw_5_8": "(completar: no hay datos suficientes para las "
+                     "semanas 5-8)",
+        "no_qw_9_12": "(completar: no hay datos suficientes para las "
+                      "semanas 9-12)",
+        "c_missing": "❌ No se encontró el plan de capacitación en saida/.",
+        "c_run": "   Ejecuta primero /plano-capacitacao (después de "
+                 "/importar-survey-learning).",
+        "c_reading": "📖 Leyendo: {path}",
+        "c_done": "\n✅ Mode D auto-fill → {path}",
+        "c_filled": "\n📊 Completado automáticamente:",
+        "c_fields": [
+            "   ✓ executive_steering_committee  (Champions activos)",
+            "   ✓ communication_plan            (Calendario)",
+            "   ✓ training_plan                 (Grupos por dimensión)",
+            "   ✓ adkar_notes                   (Knowledge = 5 talleres "
+            "principales)",
+            "   ✓ quick_wins_w1_4 / w5_8 / w9_12 (Cronograma)",
+        ],
+        "c_manual": "\n⚠ Debes completar MANUALMENTE (el Learning Survey "
+                    "no lo cubre):",
+        "c_manual_fields": [
+            "   • tpo (oficina del programa)",
+            "   • raci_matrix",
+            "   • dimension_owners",
+            "   • risk_register",
+        ],
+        "c_next": "\n💡 Siguiente: /gerar-relatorio  → 5 PDFs con la guía "
+                  "de implementación personalizada",
     },
 }
 
@@ -199,7 +295,7 @@ def extract_active_people(plano_md: str) -> list[tuple[str, str]]:
     if not active_block:
         return []
     rows = re.findall(
-        r"^\|\s*([^|]+?)\s*\|\s*([^|@]+@[^|\s]+)\s*\|",
+        r"^\|\s*([^|]+?)\s*\|\s*<?([^|@<>\s]+@[^|\s<>]+)>?\s*\|",
         active_block.group(1),
         re.MULTILINE,
     )
@@ -270,6 +366,51 @@ def extract_quick_wins_calendar(plano_md: str,
     return "\n".join(items) if items else ""
 
 
+def _table_rows(block: str) -> list[list[str]]:
+    rows = []
+    for line in block.splitlines():
+        line = line.strip()
+        if not line.startswith("|"):
+            continue
+        cells = [c.strip() for c in line.strip("|").split("|")]
+        if all(re.fullmatch(r":?-{2,}:?", c) for c in cells if c):
+            continue
+        rows.append(cells)
+    return rows[1:]
+
+
+def calendar_to_comm_table(calendar: str, t: dict) -> str:
+    """Week | Workshop | Audience | Champion | Format → comm plan."""
+    rows = [r for r in _table_rows(calendar) if len(r) >= 5]
+    if not rows:
+        return ""
+    lines = [t["comm_head"], "|---|---|---|---|"]
+    for week, workshop, audience, champion, fmt in (r[:5] for r in rows):
+        lines.append(f"| {workshop} ({audience}) | {fmt} | {week} | "
+                     f"{champion} |")
+    return "\n".join(lines)
+
+
+def cohorts_to_training_table(section: str, t: dict) -> str:
+    """### Cohort X (name) + three bullets → training plan table."""
+    blocks = re.split(r"^### ", section, flags=re.MULTILINE)[1:]
+    lines = []
+    for block in blocks:
+        head, _, body = block.partition("\n")
+        bullets = [b.strip()[2:] for b in body.splitlines()
+                   if b.strip().startswith("- ")]
+        count = re.search(r"\d+", bullets[0]) if bullets else None
+        rest = [b.split(":**", 1)[-1].strip(" *") for b in bullets[1:3]]
+        rest += [""] * (2 - len(rest))
+        name = head.strip().removeprefix("Cohort ").strip()
+        audience = t["cohort_row"].format(
+            name=name, count=count.group(0) if count else "?")
+        lines.append(f"| {audience} | {rest[0]} | {rest[1]} |")
+    if not lines:
+        return ""
+    return "\n".join([t["train_head"], "|---|---|---|"] + lines)
+
+
 def build_payload(plano_md: str, plano_name: str, lang: str) -> dict:
     t = STRINGS[lang]
     champions = extract_champions_active(plano_md, t)
@@ -279,13 +420,14 @@ def build_payload(plano_md: str, plano_name: str, lang: str) -> dict:
     quick_w5_8 = extract_quick_wins_calendar(plano_md, (5, 8))
     quick_w9_12 = extract_quick_wins_calendar(plano_md, (9, 12))
 
-    comm_plan = t["comm_intro"] + (calendar or t["comm_missing"])
+    comm_table = calendar_to_comm_table(calendar, t)
+    comm_plan = (t["comm_intro"] + comm_table if comm_table
+                 else t["comm_missing"])
 
     cohorts_section = extract_section(plano_md, H_COHORTS)
-    training = t["training_intro"] + (
-        cohorts_section[:1500] if cohorts_section
-        else t["training_missing"]
-    )
+    train_table = cohorts_to_training_table(cohorts_section, t)
+    training = (t["training_intro"] + train_table if train_table
+                else t["training_missing"])
 
     # ADKAR: the Knowledge stage lists the top topics
     adkar = t["adkar_head"]
@@ -293,28 +435,33 @@ def build_payload(plano_md: str, plano_name: str, lang: str) -> dict:
         adkar += t["adkar_item"].format(i=i, topic=topic, count=count)
     adkar += t["adkar_tail"]
 
+    inputs = {
+        "executive_steering_committee": champions or t["no_committee"],
+        "tpo": t["no_tpo"],
+        "dimension_owners": t["no_owners"],
+        "raci_matrix": t["no_raci"],
+        "communication_plan": comm_plan,
+        "training_plan": training,
+        "adkar_notes": adkar,
+        "risk_register": t["no_risks"],
+        "quick_wins_w1_4": quick_w1_4 or t["no_qw_1_4"],
+        "quick_wins_w5_8": quick_w5_8 or t["no_qw_5_8"],
+        "quick_wins_w9_12": quick_w9_12 or t["no_qw_9_12"],
+    }
+    manual = [k for k, v in inputs.items() if v.startswith("(")]
     return {
         "metadata": {
             "generated_at": datetime.datetime.now(
                 datetime.UTC).isoformat(),
             "generator": "wizard/scripts/auto_fill_from_plano.py (Mode D)",
             "source_plano": plano_name,
-            "completion_pct": 67,  # 6 of 9 fields filled
-            "manual_required": ["tpo", "raci_matrix"],
+            "completion_pct": round(
+                100 * (len(inputs) - len(manual)) / len(inputs)),
+            "manual_required": manual,
             "lang": lang,
             **branding.json_metadata(),
         },
-        "implementation_guide_inputs": {
-            "executive_steering_committee": champions or t["no_committee"],
-            "tpo": t["no_tpo"],
-            "raci_matrix": t["no_raci"],
-            "communication_plan": comm_plan,
-            "training_plan": training,
-            "adkar_notes": adkar,
-            "quick_wins_w1_4": quick_w1_4 or t["no_qw_1_4"],
-            "quick_wins_w5_8": quick_w5_8 or t["no_qw_5_8"],
-            "quick_wins_w9_12": quick_w9_12 or t["no_qw_9_12"],
-        },
+        "implementation_guide_inputs": inputs,
     }
 
 

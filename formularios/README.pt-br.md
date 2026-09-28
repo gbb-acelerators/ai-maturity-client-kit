@@ -1,41 +1,26 @@
-# `formularios/` — HTMLs visuais das 158 questões (referência offline)
+# `formularios/`: formulários do assessment
 
-Esta pasta contém **3 arquivos HTML standalone** (um por pillar) com todas as 158 questões do assessment formatadas como aparecem na plataforma web. Útil para **consultar visualmente** durante o preenchimento do `respostas.json` ou para apresentar/discutir as questões em workshops.
+🌐 [English](README.md) · Português (Brasil)
 
-## Arquivos
+O framework v2 é o padrão para novos assessments.
 
-| Arquivo | Pillar | Capabilities | Questões |
-|---|---|---|---|
-| **[P1-produtividade-do-desenvolvedor.html](P1-produtividade-do-desenvolvedor.html)** | P1 — Produtividade do Desenvolvedor | 9 | 53 |
-| **[P2-ciclo-de-vida-devops.html](P2-ciclo-de-vida-devops.html)** | P2 — Ciclo de Vida DevOps | 10 | 59 |
-| **[P3-plataforma-de-aplicações.html](P3-plataforma-de-aplicações.html)** | P3 — Plataforma de Aplicações | 9 | 46 |
+| Ativo | Uso |
+| --- | --- |
+| [assessment-v2.html](assessment-v2.html) | Formulário offline v2 gerado em PT-BR, EN e ES. Ele roda sem internet, mostra a nota de escopo de cada pergunta e exporta um respondente por `respostas.json`. |
+| [v1/](v1/) | Formulários visuais v1 arquivados para assessments históricos. |
 
-## Como usar
+Use o fluxo offline quando o Microsoft Forms não estiver disponível ou quando um workshop precisar de coleta local:
 
-1. Duplo clique em qualquer arquivo `.html` para abrir no navegador (não precisa servidor)
-2. Cada questão mostra:
-   - **ID** (`P1-C1-Q1`, etc.) — use para mapear no `respostas.json`
-   - **Texto** da pergunta em PT-BR
-   - **5 opções de nível** (L0 a L4) com descrição e cor
-   - **KPI** sugerido (em inglês — termo técnico universal)
-   - **Contexto** (o que mede / por que importa)
-   - **Evidências** esperadas por nível
+```bash
+# Colete cada respostas.json exportado em exports/, depois:
+make merge DIR=exports/
+make pipeline
+```
 
-3. Para preencher `respostas.json`:
-   - Identifique o ID da questão no HTML
-   - Vá no `respostas.json` (raiz do kit) e procure esse ID
-   - Marque o `level` (0-4) e adicione `evidence` (texto descritivo)
+O formulário v2 segue [../coleta/AI-Maturity-Form-Questions_v2.md](../coleta/AI-Maturity-Form-Questions_v2.md): 5 perguntas de perfil (`R-Q1` a `R-Q5`) e 61 perguntas pontuadas (`D#-Q#`) em 9 dimensões.
 
-## Observação importante
+Arquivos HTML v1 arquivados ficam em [v1/](v1/), incluindo:
 
-Estes HTMLs são **visualização offline** — não capturam respostas. Para coleta interativa (clicar e salvar), use:
-- **Microsoft Forms** (ver `coleta/INSTRUCOES-FORMS.md`)
-- **Wizard React** quando a plataforma web estiver pronta
-- **Edição manual** do `respostas.json` (formato JSON estruturado)
-
-## Documentação técnica das questões
-
-Para descrição detalhada das 158 questões com KPI/contexto/evidências por nível, veja os MD em [`../referencia/`](../referencia/):
-- `referencia/P1-produtividade-do-desenvolvedor.md`
-- `referencia/P2-ciclo-de-vida-devops.md`
-- `referencia/P3-plataforma-de-aplicações.md`
+- [v1/P1-produtividade-do-desenvolvedor.html](v1/P1-produtividade-do-desenvolvedor.html)
+- [v1/P2-ciclo-de-vida-devops.html](v1/P2-ciclo-de-vida-devops.html)
+- [v1/P3-plataforma-de-aplicações.html](v1/P3-plataforma-de-aplicações.html)

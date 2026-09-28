@@ -1,0 +1,177 @@
+{# Framework v2: implementation guide (Part 4).
+   Every number and every "done when" criterion comes from the engine
+   outputs and framework.v2.json. Governance, change management and
+   quick wins come from implementation-guide-inputs.json (the wizard);
+   empty fields show a "to fill" marker, never sample content. #}
+{% from "_v2_components.html.j2" import cover, num, ref_list, to_fill %}
+{% set wiz = impl.wizard %}
+<!DOCTYPE html>
+<html lang="{{ locale }}">
+<head>
+  <meta charset="utf-8">
+  <title>{{ t('v2.impl.title') }}: {{ organization.name or '' }}</title>
+  <link rel="stylesheet" href="_print.css">
+</head>
+<body>
+{{ cover(organization, assessment, branding, t('v2.impl.title'), t('v2.impl.subtitle')) }}
+
+<section class="section">
+  <h1>1. {{ t('v2.impl.s1') }}</h1>
+  <div class="kpi-grid">
+    <div class="kpi-tile"><div class="kpi-tile__value">{{ num(overall.score) }}</div><div class="kpi-tile__label">{{ overall.label }}</div></div>
+    <div class="kpi-tile"><div class="kpi-tile__value">{{ fmt(scoring.default_target, 1) }}</div><div class="kpi-tile__label">{{ t('v2.target') }}</div></div>
+    <div class="kpi-tile"><div class="kpi-tile__value">{{ impl.with_gap | length }} / {{ dimensions | length }}</div><div class="kpi-tile__label">{{ t('v2.impl.dims_with_gap') }}</div></div>
+    <div class="kpi-tile"><div class="kpi-tile__value">{{ gaps_summary.P0 }} / {{ gaps_summary.P1 }}</div><div class="kpi-tile__label">P0 / P1</div></div>
+  </div>
+  <p class="lead">{{ t('v2.impl.s1_text', org=(organization.name or t('label.not_specified')), score=num(overall.score), label=overall.label, n=assessment.respondents, gaps=(impl.with_gap | length), total=(dimensions | length), target=fmt(scoring.default_target, 1)) }}</p>
+  {% if threshold.status == 'BLOCKED' %}<p class="inline-warning">{{ t('v2.blocked') }}</p>{% endif %}
+  {% if impl.risks %}
+  <h2>1.1 {{ t('v2.impl.s1_flags') }}</h2>
+  <ul class="v2-flags">
+    {% for r in impl.risks %}<li class="critical"><b>{{ t('v2.impl.risk.' ~ r.kind ~ '.title') }}</b>{% if r['items'] %}: {{ r['items'] | join(', ') }}{% endif %}</li>{% endfor %}
+  </ul>
+  {% endif %}
+  {% if not impl.wizard_present %}<p class="text-muted">{{ t('v2.impl.no_wizard') }}</p>
+  {% elif impl.wizard_completion is not none %}<p class="text-muted">{{ t('v2.impl.wizard_completion', pct=impl.wizard_completion) }}</p>{% endif %}
+</section>
+
+<section class="section">
+  <h1>2. {{ t('v2.impl.s2') }}</h1>
+  <h2>2.1 {{ t('v2.impl.steering') }}</h2>
+  <p class="text-muted">{{ t('v2.impl.steering_purpose') }}</p>
+  {% if wiz.executive_steering_committee %}
+  <table class="v2-table"><tr><th>{{ t('v2.impl.name') }}</th><th>{{ t('v2.impl.role') }}</th></tr>
+    {% for m in wiz.executive_steering_committee %}<tr><td>{{ m.name }}</td><td>{{ m.role }}</td></tr>{% endfor %}
+  </table>
+  {% else %}<p>{{ to_fill() }}</p>{% endif %}
+
+  <h2>2.2 {{ t('v2.impl.tpo') }}</h2>
+  <p class="text-muted">{{ t('v2.impl.tpo_purpose') }}</p>
+  {% if wiz.tpo %}
+  <table class="v2-table">
+    <tr><th>{{ t('v2.impl.program_manager') }}</th><td>{{ wiz.tpo.program_manager }}</td></tr>
+    {% if wiz.tpo.members %}<tr><th>{{ t('v2.impl.members') }}</th><td>{{ wiz.tpo.members | join(', ') }}</td></tr>{% endif %}
+  </table>
+  {% else %}<p>{{ to_fill() }}</p>{% endif %}
+
+  <h2>2.3 {{ t('v2.impl.owners') }}</h2>
+  <p class="text-muted">{{ t('v2.impl.owners_purpose') }}</p>
+  {% if impl.with_gap %}
+  <table class="v2-table"><tr><th>ID</th><th>{{ t('v2.dimension') }}</th><th>{{ t('v2.priority') }}</th><th>{{ t('v2.horizon') }}</th><th>{{ t('v2.impl.owner') }}</th></tr>
+    {% for d in impl.with_gap %}<tr><td>{{ d.id }}</td><td>{{ d.name }}</td><td>{{ d.gap.priority }}</td><td>{{ d.gap.horizon_suggested }}</td><td>{{ d.owner or to_fill() }}</td></tr>{% endfor %}
+  </table>
+  {% else %}<p class="text-muted">{{ t('v2.impl.no_gaps') }}</p>{% endif %}
+
+  <h2>2.4 {{ t('v2.impl.raci') }}</h2>
+  {% if wiz.raci_matrix %}
+  <table class="v2-table"><tr><th>{{ t('v2.impl.activity') }}</th><th>R</th><th>A</th><th>C</th><th>I</th></tr>
+    {% for r in wiz.raci_matrix %}<tr><td>{{ r.activity }}</td><td>{{ r.r }}</td><td>{{ r.a }}</td><td>{{ r.c }}</td><td>{{ r.i }}</td></tr>{% endfor %}
+  </table>
+  <p class="text-faint">{{ t('v2.impl.raci_legend') }}</p>
+  {% else %}<p>{{ to_fill() }}</p>{% endif %}
+</section>
+
+<section class="section break-before">
+  <h1>3. {{ t('v2.impl.s3') }}</h1>
+  <p class="text-muted">{{ t('v2.impl.s3_intro') }}</p>
+  {% for ph in impl.phases %}
+  <h2>3.{{ loop.index }} {{ ph.priority }}: {{ ph.horizon }}</h2>
+  {% for d in ph.dimensions %}
+  <div class="v2-dim">
+    <h3>{{ d.id }}: {{ d.name }} <span class="text-faint">({{ num(d.score) }} → {{ fmt(d.gap.target_level, 1) }}, {{ d.gap.priority }}{% if d.owner %}, {{ d.owner }}{% endif %})</span></h3>
+    <table class="v2-table">
+      <tr><th>ID</th><th>{{ t('v2.question') }}</th><th class="num">{{ t('v2.score') }}</th><th>{{ t('v2.impl.done_when') }}</th><th>{{ t('v2.impl.evidence_to_collect') }}</th></tr>
+      {% for q in d.lowest %}
+      <tr><td>{{ q.id }}</td><td>{{ q.title }}{% if q.unverified %} <span class="tag-unverified">{{ t('v2.unverified') }}</span>{% endif %}<br><span class="text-faint">{{ t('v2.impl.kpi') }}: {{ t('v2.kpi.' ~ q.unit) }}</span></td><td class="num">{{ num(q.score) }}</td><td>{{ q.l3 }} <span class="text-faint">{% for n in q.basis %}[{{ n }}]{% endfor %}</span></td><td>{{ q.evidence_examples }}</td></tr>
+      {% endfor %}
+    </table>
+  </div>
+  {% endfor %}
+  {% if ph.strategy_groups %}
+  <h3>{{ t('v2.impl.strategies_in_phase') }}</h3>
+  <ul>{% for g in ph.strategy_groups %}<li><b>{{ g.names | join(', ') }}</b>: {{ g.action }}</li>{% endfor %}</ul>
+  {% endif %}
+  {% else %}
+  <p class="text-muted">{{ t('v2.impl.no_gaps') }}</p>
+  {% endfor %}
+</section>
+
+<section class="section break-before">
+  <h1>4. {{ t('v2.impl.s4') }}</h1>
+  <h2>4.1 {{ t('v2.impl.adkar') }}</h2>
+  <p class="text-muted">{{ t('v2.impl.adkar_intro') }}</p>
+  {% if wiz.adkar_notes %}<div class="v2-wizard-text">{% for line in wiz.adkar_notes.splitlines() %}{% if line.strip() %}<p>{{ line | replace('**', '') }}</p>{% endif %}{% endfor %}</div>
+  {% else %}<p>{{ to_fill() }}</p>{% endif %}
+
+  <h2>4.2 {{ t('v2.impl.communication') }}</h2>
+  {% if wiz.communication_plan %}
+  <table class="v2-table"><tr><th>{{ t('v2.impl.audience') }}</th><th>{{ t('v2.impl.channel') }}</th><th>{{ t('v2.impl.frequency') }}</th><th>{{ t('v2.impl.owner') }}</th></tr>
+    {% for c in wiz.communication_plan %}<tr><td>{{ c.audience }}</td><td>{{ c.channel }}</td><td>{{ c.frequency }}</td><td>{{ c.owner }}</td></tr>{% endfor %}
+  </table>
+  {% else %}<p>{{ to_fill() }}</p>{% endif %}
+
+  <h2>4.3 {{ t('v2.impl.training') }}</h2>
+  <p class="text-muted">{{ t('v2.impl.training_d2', name=impl.d2.name, score=num(impl.d2.score), label=impl.d2.label) }}{% if impl.learning_plan %} {{ t('v2.impl.learning_plan', file=impl.learning_plan) }}{% endif %}</p>
+  {% if wiz.training_plan %}
+  <table class="v2-table"><tr><th>{{ t('v2.impl.audience') }}</th><th>{{ t('v2.impl.format') }}</th><th>{{ t('v2.impl.cadence') }}</th></tr>
+    {% for c in wiz.training_plan %}<tr><td>{{ c.audience }}</td><td>{{ c.format }}</td><td>{{ c.cadence }}</td></tr>{% endfor %}
+  </table>
+  {% else %}<p>{{ to_fill() }}</p>{% endif %}
+</section>
+
+<section class="section">
+  <h1>5. {{ t('v2.impl.s5') }}</h1>
+  <p class="text-muted">{{ t('v2.impl.s5_intro') }}</p>
+  {% if impl.risks %}
+  <table class="v2-table wrap-first"><tr><th>{{ t('v2.impl.risk') }}</th><th>{{ t('v2.impl.affected') }}</th><th>{{ t('v2.impl.mitigation') }}</th></tr>
+    {% for r in impl.risks %}
+    <tr><td><b>{{ t('v2.impl.risk.' ~ r.kind ~ '.title') }}</b><br>{{ t('v2.impl.risk.' ~ r.kind ~ '.text', status=r.status, answered=r.answered, applicable=r.applicable, n=r.min_n) }}</td><td>{{ r['items'] | join(', ') or '-' }}</td><td>{{ t('v2.impl.risk.' ~ r.kind ~ '.mitigation', n=r.min_n) }}</td></tr>
+    {% endfor %}
+  </table>
+  {% else %}<p class="text-muted">{{ t('v2.impl.no_risks') }}</p>{% endif %}
+  <h2>5.1 {{ t('v2.impl.client_risks') }}</h2>
+  {% if wiz.risk_register %}
+  <table class="v2-table wrap-first"><tr><th>{{ t('v2.impl.risk') }}</th><th>{{ t('v2.impl.impact') }}</th><th>{{ t('v2.impl.mitigation') }}</th><th>{{ t('v2.impl.owner') }}</th></tr>
+    {% for r in wiz.risk_register %}<tr><td>{{ r.risk }}</td><td>{{ r.impact }}</td><td>{{ r.mitigation }}</td><td>{{ r.owner }}</td></tr>{% endfor %}
+  </table>
+  {% else %}<p>{{ to_fill() }}</p>{% endif %}
+</section>
+
+<section class="section">
+  <h1>6. {{ t('v2.impl.s6') }}</h1>
+  <p class="text-muted">{{ t('v2.impl.s6_intro') }}</p>
+  {% if impl.with_gap %}
+  <table class="v2-table"><tr><th>ID</th><th>{{ t('v2.dimension') }}</th><th class="num">{{ t('v2.score') }}</th><th class="num">{{ t('v2.target') }}</th><th class="num">{{ t('v2.gap') }}</th><th>{{ t('v2.horizon') }}</th></tr>
+    {% for d in impl.with_gap %}<tr><td>{{ d.id }}</td><td>{{ d.name }}</td><td class="num {{ d.heat }}">{{ num(d.score) }}</td><td class="num">{{ fmt(d.gap.target_level, 1) }}</td><td class="num">{{ num(d.gap.gap_size) }}</td><td>{{ d.gap.horizon_suggested }}</td></tr>{% endfor %}
+  </table>
+  {% endif %}
+  <ul>
+    <li>{{ t('v2.impl.reassess') }}</li>
+    <li>{{ t('v2.impl.telemetry') }}</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h1>7. {{ t('v2.impl.s7') }}</h1>
+  {% set weeks = [('quick_wins_w1_4', 'v2.impl.w1_4'), ('quick_wins_w5_8', 'v2.impl.w5_8'), ('quick_wins_w9_12', 'v2.impl.w9_12')] %}
+  {% if not (wiz.quick_wins_w1_4 or wiz.quick_wins_w5_8 or wiz.quick_wins_w9_12) %}<p class="text-muted">{{ t('v2.impl.s7_suggested') }}</p>{% endif %}
+  {% for key, label in weeks %}
+  <h2>7.{{ loop.index }} {{ t(label) }}</h2>
+  {% if wiz[key] %}
+  <ol>{% for w in wiz[key] %}<li>{{ w }}</li>{% endfor %}</ol>
+  {% elif loop.index == 1 %}
+  <ul>{% for b in backlog[:3] %}<li>{{ t('v2.impl.qw.owner_evidence', qid=b.question_id, title=b.title) }}</li>{% endfor %}</ul>
+  {% elif loop.index == 2 %}
+  <ul>{% for s in strategies[:2] %}<li>{{ t('v2.impl.qw.start', sid=s.strategy_id, name=s.strategy_name, action=s.first_action) }}</li>{% else %}<li>{{ to_fill() }}</li>{% endfor %}</ul>
+  {% else %}
+  <ul><li>{{ t('v2.impl.qw.recheck', dims=((impl.with_gap | map(attribute='id') | list)[:4] | join(', ') or '-')) }}</li></ul>
+  {% endif %}
+  {% endfor %}
+</section>
+
+<section class="section">
+  <h1>8. {{ t('v2.references') }}</h1>
+  {{ ref_list(impl.references) }}
+</section>
+</body>
+</html>

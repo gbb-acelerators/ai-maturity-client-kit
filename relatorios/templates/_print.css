@@ -3,7 +3,7 @@
    Renderer: WeasyPrint 60+
    Page  : A4 portrait, 25/20mm margins
    Design: paulasilva-ms identity (Microsoft 4-color palette), Inter, JetBrains Mono.
-   Branding: Paula Silva, Software Global Black Belt
+   Branding: Paula Silva, Global Developer Solutions Advisor
    Synced from: .github/skills/ai-maturity-reports/assets/templates/_print.css
    See referencia/branding/IDENTITY.md and SDD §6 (templates), §11 (visual guardrails).
    ============================================================================= */
@@ -1117,3 +1117,38 @@ table.pe-rubric td:nth-child(3) { font-size: 8pt; }
 .mb-0 { margin-bottom: 0; }
 .mb-2 { margin-bottom: 2mm; }
 .mb-4 { margin-bottom: 4mm; }
+
+/* ── Framework v2 components ─────────────────────────────────────── */
+.ms-logo { width: 22px; height: 22px; vertical-align: middle; margin-right: 6px; }
+.v2-flags { margin: 8px 0 16px; padding: 0; list-style: none; }
+.v2-flags li { border-left: 4px solid var(--color-warn); background: var(--color-warn-soft); padding: 6px 10px; margin: 6px 0; font-size: 9.5pt; }
+.v2-flags li.ok { border-left-color: var(--color-positive); background: var(--color-positive-soft); }
+.v2-flags li.critical { border-left-color: var(--color-critical); background: var(--color-critical-soft); }
+table.v2-table { width: 100%; border-collapse: collapse; font-size: 8.5pt; margin: 6px 0 12px; }
+table.v2-table th, table.v2-table td { border: 1px solid var(--color-border); padding: 3px 5px; vertical-align: top; text-align: left; }
+table.v2-table th { background: var(--color-bg-soft); }
+table.v2-table td.num, table.v2-table th.num { text-align: right; white-space: nowrap; }
+table.v2-heatmap td { text-align: center; font-weight: 600; }
+table.v2-heatmap { table-layout: fixed; }
+table.v2-heatmap th { font-size: 6.5pt; letter-spacing: 0; text-transform: none; overflow-wrap: anywhere; hyphens: auto; }
+table.v2-heatmap th:first-child, table.v2-heatmap td:first-child { width: 14mm; }
+.heat-na { background: #F2F2F2; color: #9A9A9A; }
+.heat-l0 { background: #FDE2DA; }
+.heat-l1 { background: #FFF1CC; }
+.heat-l2 { background: #FFE3B8; }
+.heat-l3 { background: #D5EEFB; }
+.heat-l4 { background: #E1F2C7; }
+.v2-dim { page-break-inside: avoid; border-top: 2px solid var(--color-primary); padding-top: 6px; margin-top: 14px; }
+.v2-dim h3 { margin: 0 0 4px; }
+.v2-anchor { font-size: 9pt; margin: 2px 0 6px 10px; }
+.v2-refs { font-size: 8pt; color: var(--color-text-muted); list-style: none; padding-left: 0; }
+.v2-ref-n { font-weight: 600; color: var(--color-text); }
+table.v2-table.wrap-first td:first-child { white-space: normal; }
+.v2-refs li { margin-bottom: 3px; word-break: break-all; }
+.v2-up { color: var(--color-positive); font-weight: 600; }
+.v2-down { color: var(--color-critical); font-weight: 600; }
+.v2-to-fill { display: inline-block; border: 1px dashed var(--color-warn); color: var(--color-text-muted); padding: 1px 6px; font-size: 8.5pt; }
+.v2-wizard-text p { margin: 2px 0 6px; font-size: 9pt; }
+.v2-crosscheck td.flag { color: var(--color-critical); font-weight: 600; }
+.tag-unverified { color: var(--color-critical); font-weight: 600; font-size: 8pt; }
+table.v2-table td:first-child { white-space: nowrap; }

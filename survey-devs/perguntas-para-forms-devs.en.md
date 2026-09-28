@@ -1,13 +1,13 @@
-# Microsoft Forms Questions — Developer Survey (GitHub + AI)
+# Microsoft Forms Questions: Developer Survey (GitHub + AI)
 
 75 questions in 9 sections. Estimated time: **20-25 min**. ANONYMOUS, we do not ask for respondent name or email.
 
-**Runtime note:** This localized bank translates instructions and question titles, but keeps answer options canonical when those options feed deterministic scoring. Keep all IDs (`Sx-Qy:`) unchanged in Microsoft Forms.
+**Runtime note:** This localized bank translates instructions, question titles and answer options. `survey-devs/options.json` maps every English, Spanish and Portuguese option to the same canonical option, so scoring works for a form built in any of the three languages (older Portuguese forms with dashes in the options still parse). Keep all IDs (`Sx-Qy:`) unchanged in Microsoft Forms.
 
 ## How to Create the Form
 
 1. Go to <https://forms.office.com> -> **+ New Form**.
-2. Suggested title: `Developer Survey — How my team uses GitHub & AI today`.
+2. Suggested title: `Developer Survey: How my team uses GitHub & AI today`.
 3. Subtitle suggestion: Anonymous survey (15-25 min) about your GitHub Copilot practices, Copilot Chat modes (Ask/Edit/Agent), AI agents, instruction files, AI + Dev best practices, and security. Your answers will inform the team AI adoption roadmap.
 4. Settings: enable **Anonymous responses**, disable **One response per person**, and keep **Accept responses** enabled.
 5. Add 9 sections: S1 Respondent profile, S2 GitHub Copilot Adoption and Modes, S3 Other Microsoft / GitHub AI tools, S4 AI Development Practices, S5 Agent Concepts and Structure, S6 Markdown / Memory / Instructions, S7 Usability and Best Practices, S8 Security and Governance, S9 Pain Points & Wishlist.
@@ -19,20 +19,20 @@
 
 ---
 
-## S1 — Respondent profile
+## S1: Respondent profile
 
-_Basic questions about you and your context. Anonymous — we will not ask for name or email._
+_Basic questions about you and your context. Anonymous: we will not ask for name or email._
 
 _7 questions in this section._
 
-### Question `S1-Q1` — _Choice (single answer)_
+### Question `S1-Q1`: _Choice (single answer)_
 
 > **S1-Q1: What is your current role?**
 
 Options:
 
-- Desenvolvedor Backend
-- Desenvolvedor Frontend
+- Backend Developer
+- Frontend Developer
 - Full-Stack
 - SRE / Platform Engineer
 - Data Engineer / ML Engineer
@@ -43,7 +43,7 @@ Options:
 - DevOps / DevEx
 - Other
 
-### Question `S1-Q2` — _Choice (single answer)_
+### Question `S1-Q2`: _Choice (single answer)_
 
 > **S1-Q2: Total time as a developer?**
 
@@ -55,19 +55,19 @@ Options:
 - 11-15 years
 - > 15 years
 
-### Question `S1-Q3` — _Choice (single answer)_
+### Question `S1-Q3`: _Choice (single answer)_
 
 > **S1-Q3: How long have you used AI in development (Copilot, Cursor, Claude Code, etc.)?**
 
 Options:
 
-- Nunca usei
+- Never used it
 - < 3 months
 - 3-12 months
 - 1-2 years
 - > 2 years
 
-### Question `S1-Q4` — _Choice (multiple answers)_
+### Question `S1-Q4`: _Choice (multiple answers)_
 
 > **S1-Q4: Main languages you use day to day?**
 
@@ -86,7 +86,7 @@ Options:
 - SQL (primary focus)
 - Other
 
-### Question `S1-Q5` — _Choice (single answer)_
+### Question `S1-Q5`: _Choice (single answer)_
 
 > **S1-Q5: How many hours per day do you spend coding on average?**
 
@@ -98,78 +98,78 @@ Options:
 - 6-8h
 - > 8h
 
-### Question `S1-Q6` — _Choice (single answer)_
+### Question `S1-Q6`: _Choice (single answer)_
 
 > **S1-Q6: What is the size of your immediate squad/team?**
 
 Options:
 
-- Sou solo
-- 2-4 pessoas
-- 5-9 pessoas
-- 10-15 pessoas
-- > 15 pessoas
+- I work solo
+- 2-4 people
+- 5-9 people
+- 10-15 people
+- > 15 people
 
-### Question `S1-Q7` — _Choice (single answer)_
+### Question `S1-Q7`: _Choice (single answer)_
 
 > **S1-Q7: Work model?**
 
 Options:
 
-- Remoto 100%
-- Híbrido (1-2 dias presencial)
-- Híbrido (3-4 dias)
-- Presencial 100%
+- 100% remote
+- Hybrid (1-2 days in person)
+- Hybrid (3-4 days)
+- 100% in person
 
 ---
 
-## S2 — GitHub Copilot — Adoption and Modes
+## S2: GitHub Copilot: Adoption and Modes
 
 _Focus on GitHub Copilot. Includes current modes (Ask, Edit, Agent), autonomous Coding Agent, and Spaces for shared context._
 
 _9 questions in this section._
 
-### Question `S2-Q1` — _Choice (single answer)_
+### Question `S2-Q1`: _Choice (single answer)_
 
 > **S2-Q1: Do you have an active GitHub Copilot license?**
 
 Options:
 
-- Sim — Copilot Enterprise
-- Sim — Copilot Business
-- Sim — Copilot Pro+ (individual)
-- Sim — Copilot Pro (individual)
-- Sim — Copilot Free
-- Tenho licença mas não uso
-- Não tenho licença
+- Yes, Copilot Enterprise
+- Yes, Copilot Business
+- Yes, Copilot Pro+ (individual)
+- Yes, Copilot Pro (individual)
+- Yes, Copilot Free
+- I have a license but do not use it
+- I do not have a license
 
-### Question `S2-Q2` — _Choice (single answer)_
+### Question `S2-Q2`: _Choice (single answer)_
 
 > **S2-Q2: How often do you use Copilot?**
 
 Options:
 
-- Diariamente (várias horas)
-- Diariamente (esporádico)
-- Semanal
-- Raramente
-- Nunca
+- Daily (several hours)
+- Daily (sporadic)
+- Weekly
+- Rarely
+- Never
 
-### Question `S2-Q3` — _Choice (multiple answers)_
+### Question `S2-Q3`: _Choice (multiple answers)_
 
 > **S2-Q3: Which Copilot Chat MODES do you use? (select all that apply)**
 
 Options:
 
-- Ask (responder questions)
-- Edit (edição multi-arquivo no IDE)
-- Agent (autônomo no IDE, executa tasks)
-- Copilot Coding Agent (autônomo no GitHub.com — assigna issue, abre PR sozinho)
+- Ask (answer questions)
+- Edit (multi-file editing in the IDE)
+- Agent (autonomous in the IDE, runs tasks)
+- Copilot Coding Agent (autonomous on GitHub.com, assigns issues, opens PRs on its own)
 - Plan / Vision
-- Não uso o Chat — só completion inline
-- Não conheço esses modos
+- I do not use Chat, only inline completion
+- I do not know these modes
 
-### Question `S2-Q4` — _Choice (single answer)_
+### Question `S2-Q4`: _Choice (single answer)_
 
 > **S2-Q4: Which MODE do you use MOST day to day?**
 
@@ -177,31 +177,31 @@ Options:
 
 - Ask
 - Edit
-- Agent (no IDE)
-- Coding Agent (autônomo no GitHub)
+- Agent (in the IDE)
+- Coding Agent (autonomous on GitHub)
 - Plan / Vision
-- Só completion inline
-- Não sei a diferença
+- Only inline completion
+- I do not know the difference
 
-### Question `S2-Q5` — _Choice (multiple answers)_
+### Question `S2-Q5`: _Choice (multiple answers)_
 
 > **S2-Q5: Which Copilot features do you use?**
 
 Options:
 
 - Inline code completion
-- Chat (questions no IDE)
-- Pull Request descriptions automáticas
+- Chat (questions in the IDE)
+- Automatic Pull Request descriptions
 - Pull Request review (Copilot review)
 - Test generation
 - Documentation generation
-- Issue resolution (Coding Agent assigna issue)
-- Slash commands no Chat (/explain, /fix, /tests)
-- Copilot Spaces (contexto compartilhado: repos + docs + custom instructions)
-- Copilot Coding Agent (tarefas autônomas)
+- Issue resolution (Coding Agent assigns issue)
+- Slash commands in Chat (/explain, /fix, /tests)
+- Copilot Spaces (shared context: repos + docs + custom instructions)
+- Copilot Coding Agent (autonomous tasks)
 - Copilot CLI (gh copilot)
 
-### Question `S2-Q6` — _Choice (multiple answers)_
+### Question `S2-Q6`: _Choice (multiple answers)_
 
 > **S2-Q6: Where do you use Copilot?**
 
@@ -217,357 +217,357 @@ Options:
 - GitHub Codespaces
 - CLI (gh copilot)
 
-### Question `S2-Q7` — _Choice (single answer)_
+### Question `S2-Q7`: _Choice (single answer)_
 
 > **S2-Q7: Perceived productivity gain with Copilot?**
 
 Options:
 
-- Negativo (atrapalha)
-- Neutro (sem ganho)
+- Negative (gets in the way)
+- Neutral (no gain)
 - +10-20%
 - +20-40%
 - +40-60%
-- +60% ou mais
-- Não sei medir
+- +60% or more
+- I do not know how to measure it
 
-### Question `S2-Q8` — _Choice (multiple answers)_
+### Question `S2-Q8`: _Choice (multiple answers)_
 
 > **S2-Q8: For WHICH TASKS does Copilot help you the most?**
 
 Options:
 
-- Boilerplate / código repetitivo
+- Boilerplate / repetitive code
 - Refactoring
-- Escrever testes
-- Aprender API/lib nova
+- Writing tests
+- Learning a new API/lib
 - Debugging
-- Explicar código legado
-- Documentação
-- SQL / queries complexas
+- Explaining legacy code
+- Documentation
+- SQL / complex queries
 - Regex
-- Tradução entre linguagens
-- Onboarding em projeto novo
+- Translation between languages
+- Onboarding into a new project
 
-### Question `S2-Q9` — _Long Text (free response)_
+### Question `S2-Q9`: _Long Text (free response)_
 
 > **S2-Q9: In which tasks does Copilot NOT help you, or get in the way?**
 
 ---
 
-## S3 — Other Microsoft / GitHub AI tools
+## S3: Other Microsoft / GitHub AI tools
 
 _Microsoft Foundry ecosystem and advanced GitHub features._
 
 _7 questions in this section._
 
-### Question `S3-Q1` — _Choice (multiple answers)_
+### Question `S3-Q1`: _Choice (multiple answers)_
 
 > **S3-Q1: Which other Microsoft / GitHub AI tools do you use today?**
 
 Options:
 
-- Microsoft Foundry (ex-Azure AI Foundry)
-- Foundry Agent Service (GA — built on OpenAI Responses API)
-- Azure OpenAI Service (direto via API)
+- Microsoft Foundry (formerly Azure AI Foundry)
+- Foundry Agent Service (GA, built on OpenAI Responses API)
+- Azure OpenAI Service (directly via API)
 - Microsoft 365 Copilot
 - GitHub Copilot Spaces
-- GitHub Copilot Coding Agent (autônomo)
+- GitHub Copilot Coding Agent (autonomous)
 - GitHub Codespaces
-- GitHub Models (playground multi-LLM)
+- GitHub Models (multi-LLM playground)
 - GitHub Advanced Security (GHAS)
-- GitHub Actions com Copilot integration
-- Visual Studio com Copilot avançado
-- Nenhuma das acima
+- GitHub Actions with Copilot integration
+- Visual Studio with advanced Copilot
+- None of the above
 
-### Question `S3-Q2` — _Choice (multiple answers)_
+### Question `S3-Q2`: _Choice (multiple answers)_
 
 > **S3-Q2: WHAT do you use Microsoft Foundry / Azure OpenAI for, if you use it?**
 
 Options:
 
-- PoC / experimentação
-- Feature de produto em produção
+- PoC / experimentation
+- Production product feature
 - Embeddings / RAG
-- Foundry Agent Service para agentes autônomos
+- Foundry Agent Service for autonomous agents
 - Multi-agent orchestration via MCP
 - Fine-tuning
 - Connectors (Dynamics, SAP, SharePoint, etc.)
-- Não uso
+- I do not use it
 
-### Question `S3-Q3` — _Choice (single answer)_
+### Question `S3-Q3`: _Choice (single answer)_
 
 > **S3-Q3: Do you know GitHub Copilot Coding Agent, the autonomous successor to Workspace that can pick up issues and open PRs?**
 
 Options:
 
-- Uso ativamente em produção
-- Já testei mas não uso recorrente
-- Conheço mas nunca usei
-- Não conheço
+- I actively use it in production
+- I have tested it but do not use it regularly
+- I know it but have never used it
+- I do not know it
 
-### Question `S3-Q4` — _Choice (single answer)_
+### Question `S3-Q4`: _Choice (single answer)_
 
 > **S3-Q4: Do you know Copilot Spaces, the shared-context feature that replaced Knowledge Bases?**
 
 Options:
 
-- Uso e crio Spaces para meu time
-- Uso Spaces criados por outros
-- Conheço mas não uso
-- Não conheço
+- I use and create Spaces for my team
+- I use Spaces created by others
+- I know it but do not use it
+- I do not know it
 
-### Question `S3-Q5` — _Choice (single answer)_
+### Question `S3-Q5`: _Choice (single answer)_
 
 > **S3-Q5: Do you know GitHub Spec Kit (github/spec-kit) for Spec-Driven Development?**
 
 Options:
 
-- Uso
-- Conheço mas não uso
-- Não conheço
+- I use it
+- I know it but do not use it
+- I do not know it
 
-### Question `S3-Q6` — _Choice (single answer)_
+### Question `S3-Q6`: _Choice (single answer)_
 
 > **S3-Q6: Do you know MCP (Model Context Protocol), the standard for agents to consume tools/context?**
 
 Options:
 
-- Uso servidores MCP no meu workflow
-- Configurei algum MCP server custom
-- Conheço o conceito
-- Não conheço
+- I use MCP servers in my workflow
+- I have configured a custom MCP server
+- I know the concept
+- I do not know it
 
-### Question `S3-Q7` — _Choice (single answer)_
+### Question `S3-Q7`: _Choice (single answer)_
 
 > **S3-Q7: Have you used GitHub Models to test different LLMs (gpt-4o, claude, llama, etc.)?**
 
 Options:
 
-- Uso recorrente
-- Já testei
-- Não conheço
+- I use it regularly
+- I have tested it
+- I do not know it
 
 ---
 
-## S4 — AI Development Practices
+## S4: AI Development Practices
 
 _How you incorporate AI into your workflow: TDD, SDD, AI pair programming, and related practices._
 
 _9 questions in this section._
 
-### Question `S4-Q1` — _Choice (single answer)_
+### Question `S4-Q1`: _Choice (single answer)_
 
 > **S4-Q1: Do you practice TDD with AI, writing tests first with Copilot?**
 
 Options:
 
-- Sempre que possível
-- Frequentemente
-- Às vezes
-- Raramente
-- Nunca
-- Não sei o que é TDD
+- Whenever possible
+- Frequently
+- Sometimes
+- Rarely
+- Never
+- I do not know what TDD is
 
-### Question `S4-Q2` — _Choice (single answer)_
+### Question `S4-Q2`: _Choice (single answer)_
 
 > **S4-Q2: Do you practice SDD (Spec-Driven Development), writing a spec so AI generates code?**
 
 Options:
 
-- Uso ativamente (com Spec Kit ou similar)
-- Já testei em alguns projetos
-- Conheço o conceito mas não uso
-- Nunca ouvi falar
+- I actively use it (with Spec Kit or similar)
+- I have tested it in some projects
+- I know the concept but do not use it
+- I have never heard of it
 
-### Question `S4-Q3` — _Choice (multiple answers)_
+### Question `S4-Q3`: _Choice (multiple answers)_
 
 > **S4-Q3: At WHICH moments do you consult AI while coding?**
 
 Options:
 
-- Antes de começar (planejar arquitetura)
-- Durante (autocomplete + questions)
-- Após implementar (review/refactor)
-- Quando trava (debugging)
-- Para escrever testes
-- Para escrever docs
-- Para code review do meu próprio PR
+- Before starting (plan architecture)
+- During (autocomplete + questions)
+- After implementing (review/refactor)
+- When I get stuck (debugging)
+- To write tests
+- To write docs
+- For code review of my own PR
 
-### Question `S4-Q4` — _Choice (single answer)_
+### Question `S4-Q4`: _Choice (single answer)_
 
 > **S4-Q4: Do you consider Copilot / an AI agent a pair programmer?**
 
 Options:
 
-- Sim — trato como par
-- Às vezes (depende da tarefa)
-- Não — só ferramenta de autocompletar
-- Não uso de forma estruturada
+- Yes, I treat it as a pair
+- Sometimes (depends on the task)
+- No, just an autocomplete tool
+- I do not use it in a structured way
 
-### Question `S4-Q5` — _Choice (single answer)_
+### Question `S4-Q5`: _Choice (single answer)_
 
 > **S4-Q5: How often do you refactor code with AI help?**
 
 Options:
 
-- Toda semana
-- Algumas vezes por mês
-- Raramente
-- Nunca
+- Every week
+- A few times per month
+- Rarely
+- Never
 
-### Question `S4-Q6` — _Choice (single answer)_
+### Question `S4-Q6`: _Choice (single answer)_
 
 > **S4-Q6: Who maintains code documentation in your team?**
 
 Options:
 
-- IA gera e o time revisa
-- Devs escrevem manualmente, IA ajuda às vezes
-- Time mantém manualmente, sem IA
-- Documentação está abandonada
+- AI generates it and the team reviews it
+- Devs write it manually, AI helps sometimes
+- The team maintains it manually, without AI
+- Documentation is abandoned
 
-### Question `S4-Q7` — _Choice (single answer)_
+### Question `S4-Q7`: _Choice (single answer)_
 
 > **S4-Q7: When you face a difficult bug, what is your first action?**
 
 Options:
 
-- Pergunto ao Copilot Chat / Claude / outro AI
-- Procuro nos logs / debugger
-- Pergunto a colega humano
-- Stack Overflow / documentação
-- Depende do bug
+- I ask Copilot Chat / Claude / another AI
+- I look in logs / debugger
+- I ask a human colleague
+- Stack Overflow / documentation
+- It depends on the bug
 
-### Question `S4-Q8` — _Choice (single answer)_
+### Question `S4-Q8`: _Choice (single answer)_
 
 > **S4-Q8: When onboarding into a new project, do you use AI (with Copilot Spaces or similar) to understand the codebase?**
 
 Options:
 
-- Sempre — primeira coisa que faço
-- Frequentemente
-- Às vezes
-- Não — leio README e código manualmente
+- Always, the first thing I do
+- Frequently
+- Sometimes
+- No, I read README and code manually
 
-### Question `S4-Q9` — _Long Text (free response)_
+### Question `S4-Q9`: _Long Text (free response)_
 
 > **S4-Q9: Describe one concrete AI practice that changed your productivity in the last 6 months:**
 
 ---
 
-## S5 — Agent Concepts and Structure
+## S5: Agent Concepts and Structure
 
 _Checks knowledge and use of structured AI agents, including Microsoft Agentic DevOps personas and agent testing/governance practices._
 
 _11 questions in this section._
 
-### Question `S5-Q1` — _Choice (single answer)_
+### Question `S5-Q1`: _Choice (single answer)_
 
 > **S5-Q1: Do you know what an AI agent is, autonomous versus a reactive assistant?**
 
 Options:
 
-- Sim — explico claramente
-- Sim — vagamente
-- Não sei a diferença
-- Não conheço o termo
+- Yes, I can explain it clearly
+- Yes, vaguely
+- I do not know the difference
+- I do not know the term
 
-### Question `S5-Q2` — _Choice (single answer)_
+### Question `S5-Q2`: _Choice (single answer)_
 
 > **S5-Q2: Do you know the difference between Ask, Edit, Agent, and Coding Agent Copilot modes?**
 
 Options:
 
-- Sim — uso conscientemente
-- Mais ou menos
-- Não sei a diferença
+- Yes, I use them consciously
+- More or less
+- I do not know the difference
 
-### Question `S5-Q3` — _Choice (single answer)_
+### Question `S5-Q3`: _Choice (single answer)_
 
 > **S5-Q3: Have you created or used a custom agent (.github/agents/*.agent.md or Claude/Cursor equivalent)?**
 
 Options:
 
-- Já criei
-- Já usei mas não criei
-- Sei que existem mas nunca usei
-- Não sabia que era possível
+- I have created one
+- I have used one but not created one
+- I know they exist but have never used one
+- I did not know it was possible
 
-### Question `S5-Q4` — _Choice (single answer)_
+### Question `S5-Q4`: _Choice (single answer)_
 
 > **S5-Q4: Do you know the concept of a skill (SKILL.md or equivalent reusable instruction block)?**
 
 Options:
 
-- Conheço e uso
-- Conheço mas não uso
-- Não conheço
+- I know it and use it
+- I know it but do not use it
+- I do not know it
 
-### Question `S5-Q5` — _Choice (single answer)_
+### Question `S5-Q5`: _Choice (single answer)_
 
 > **S5-Q5: Have you created prompt files (.prompt.md in .github/prompts/)?**
 
 Options:
 
-- Sim — várias
-- Sim — uma ou duas
-- Não, mas planejo
-- Não conheço
+- Yes, several
+- Yes, one or two
+- No, but I plan to
+- I do not know it
 
-### Question `S5-Q6` — _Choice (single answer)_
+### Question `S5-Q6`: _Choice (single answer)_
 
 > **S5-Q6: Do you know A2A (Agent-to-Agent protocol), agents communicating with each other?**
 
 Options:
 
-- Uso (ex.: Foundry A2A Tool)
-- Conheço o conceito
-- Não conheço
+- I use it (e.g., Foundry A2A Tool)
+- I know the concept
+- I do not know it
 
-### Question `S5-Q7` — _Choice (single answer)_
+### Question `S5-Q7`: _Choice (single answer)_
 
 > **S5-Q7: Do you know handoffs between agents, where agent A passes context to agent B?**
 
 Options:
 
-- Uso
-- Conheço o conceito
-- Não conheço
+- I use it
+- I know the concept
+- I do not know it
 
-### Question `S5-Q8` — _Choice (single answer)_
+### Question `S5-Q8`: _Choice (single answer)_
 
 > **S5-Q8: Do you know subagents, where a main agent delegates tasks to specialized subagents?**
 
 Options:
 
-- Uso
-- Conheço o conceito
-- Não conheço
+- I use it
+- I know the concept
+- I do not know it
 
-### Question `S5-Q9` — _Choice (single answer)_
+### Question `S5-Q9`: _Choice (single answer)_
 
 > **S5-Q9: Do you know Microsoft Agentic DevOps personas: System Designer and Agent Operator?**
 
 Options:
 
-- Sim — adoto explicitamente
-- Conheço o conceito
-- Não conheço
+- Yes, I explicitly adopt them
+- I know the concept
+- I do not know it
 
-### Question `S5-Q10` — _Choice (single answer)_
+### Question `S5-Q10`: _Choice (single answer)_
 
 > **S5-Q10: Do you TEST your custom agents/prompts/skills before using them on real code?**
 
 Options:
 
-- Sempre — tenho test suite para meus agents
-- Frequentemente — manual mas sistemático
-- Às vezes — só sanity check
-- Raramente / nunca
-- Não crio agents/prompts/skills
+- Always, I have a test suite for my agents
+- Frequently, manual but systematic
+- Sometimes, only a sanity check
+- Rarely / never
+- I do not create agents/prompts/skills
 
-### Question `S5-Q11` — _Choice (multiple answers)_
+### Question `S5-Q11`: _Choice (multiple answers)_
 
 > **S5-Q11: Which primitives have you ALREADY CREATED for personal/team use?**
 
@@ -578,18 +578,18 @@ Options:
 - Custom agents (.agent.md)
 - Custom MCP server
 - Instructions files (copilot-instructions.md / AGENTS.md / CLAUDE.md)
-- Spaces compartilhados
-- Nenhum dos acima
+- Shared Spaces
+- None of the above
 
 ---
 
-## S6 — Markdown / Memory / Instructions
+## S6: Markdown / Memory / Instructions
 
 _About configuration files that teach the agent about your project._
 
 _6 questions in this section._
 
-### Question `S6-Q1` — _Choice (multiple answers)_
+### Question `S6-Q1`: _Choice (multiple answers)_
 
 > **S6-Q1: Which instruction files do you use today?**
 
@@ -598,118 +598,118 @@ Options:
 - .github/copilot-instructions.md
 - .github/instructions/*.instructions.md
 - AGENTS.md
-- CLAUDE.md (raiz do projeto)
+- CLAUDE.md (project root)
 - .cursorrules
-- Custom instructions em Copilot Spaces
-- Nenhum
+- Custom instructions in Copilot Spaces
+- None
 
-### Question `S6-Q2` — _Choice (single answer)_
+### Question `S6-Q2`: _Choice (single answer)_
 
 > **S6-Q2: Who maintains the instruction file(s) in your project?**
 
 Options:
 
-- Time inteiro contribui
-- 1-2 pessoas dedicadas
-- Eu mantenho sozinho
-- Ninguém mantém — está desatualizado
-- Não temos
+- The whole team contributes
+- 1-2 dedicated people
+- I maintain them alone
+- Nobody maintains them, they are outdated
+- We do not have it
 
-### Question `S6-Q3` — _Choice (single answer)_
+### Question `S6-Q3`: _Choice (single answer)_
 
 > **S6-Q3: How often are these files updated?**
 
 Options:
 
-- Toda semana
-- Mensalmente
-- Trimestralmente
-- Quando algo quebra
-- Nunca atualizo
+- Every week
+- Monthly
+- Quarterly
+- When something breaks
+- I never update them
 
-### Question `S6-Q4` — _Choice (multiple answers)_
+### Question `S6-Q4`: _Choice (multiple answers)_
 
 > **S6-Q4: WHAT do you include in instruction files?**
 
 Options:
 
-- Code style / convenções do projeto
-- Domain knowledge (regras de negócio)
-- Stack / ferramentas
-- Forbidden patterns (o que NÃO fazer)
+- Code style / project conventions
+- Domain knowledge (business rules)
+- Stack / tools
+- Forbidden patterns (what NOT to do)
 - Examples (good vs bad code)
-- Estrutura de pastas / arquitetura
-- Comandos comuns (test, build, deploy)
-- Não tenho instruções
+- Folder structure / architecture
+- Common commands (test, build, deploy)
+- I do not have instructions
 
-### Question `S6-Q5` — _Choice (single answer)_
+### Question `S6-Q5`: _Choice (single answer)_
 
 > **S6-Q5: Do you have a shared prompt library with your team (repo or dedicated Copilot Space)?**
 
 Options:
 
-- Sim — Copilot Space compartilhado
-- Sim — repo dedicado
-- Sim — wiki/Confluence
-- Cada um mantém o seu
-- Não compartilhamos prompts
+- Yes, shared Copilot Space
+- Yes, dedicated repo
+- Yes, wiki/Confluence
+- Each person maintains their own
+- We do not share prompts
 
-### Question `S6-Q6` — _Choice (single answer)_
+### Question `S6-Q6`: _Choice (single answer)_
 
 > **S6-Q6: Do you use persistent agent memory (Foundry Memory, Claude memory, Copilot memory)?**
 
 Options:
 
-- Uso ativamente
-- Já testei
-- Não conheço
+- I actively use it
+- I have tested it
+- I do not know it
 
 ---
 
-## S7 — Usability and Best Practices
+## S7: Usability and Best Practices
 
 _How you and your team learn and improve AI usage._
 
 _9 questions in this section._
 
-### Question `S7-Q1` — _Choice (multiple answers)_
+### Question `S7-Q1`: _Choice (multiple answers)_
 
 > **S7-Q1: How did you LEARN to use Copilot/AI for development?**
 
 Options:
 
-- Auto-aprendizado (tentativa e erro)
-- Workshop interno da empresa
-- Documentação oficial
-- Vídeos do YouTube
-- Curso online (Coursera, Udemy, MS Learn)
-- Champion no time
-- Eventos / conferências (Microsoft Build, GitHub Universe)
-- Comunidades / Discord / Slack
+- Self-learning (trial and error)
+- Internal company workshop
+- Official documentation
+- YouTube videos
+- Online course (Coursera, Udemy, MS Learn)
+- Champion on the team
+- Events / conferences (Microsoft Build, GitHub Universe)
+- Communities / Discord / Slack
 
-### Question `S7-Q2` — _Choice (single answer)_
+### Question `S7-Q2`: _Choice (single answer)_
 
 > **S7-Q2: Is there an AI/Copilot Champion in your team/company who helps others?**
 
 Options:
 
-- Sim — eu sou
-- Sim — outra pessoa
-- Não, mas precisava ter
-- Não — cada um se vira
+- Yes, I am
+- Yes, someone else
+- No, but we should have one
+- No, everyone figures it out on their own
 
-### Question `S7-Q3` — _Choice (single answer)_
+### Question `S7-Q3`: _Choice (single answer)_
 
 > **S7-Q3: Is there an internal channel/community to discuss AI usage in engineering?**
 
 Options:
 
-- Sim — ativo (>5 mensagens/semana)
-- Sim — pouco ativo
-- Não temos canal dedicado
-- Não sei
+- Yes, active (>5 messages/week)
+- Yes, not very active
+- We do not have a dedicated channel
+- I do not know
 
-### Question `S7-Q4` — _Choice (multiple answers)_
+### Question `S7-Q4`: _Choice (multiple answers)_
 
 > **S7-Q4: Does your organization MEASURE developer productivity in a structured way?**
 
@@ -718,111 +718,111 @@ Options:
 - DORA metrics (lead time, deployment freq, MTTR, change failure)
 - DX index (developer experience)
 - SPACE framework
-- Métricas de adoção do Copilot (active users)
-- Self-report periódico (survey)
-- Não medimos formalmente
+- Copilot adoption metrics (active users)
+- Periodic self-report (survey)
+- We do not measure formally
 
-### Question `S7-Q5` — _Choice (single answer)_
+### Question `S7-Q5`: _Choice (single answer)_
 
 > **S7-Q5: How many prompt iterations do you typically need before you get a good result?**
 
 Options:
 
-- Acerta na 1ª tentativa
-- 2-3 iterações
-- 4-6 iterações
-- 7+ iterações (frequente)
+- It gets it right on the 1st try
+- 2-3 iterations
+- 4-6 iterations
+- 7+ iterations (frequent)
 
-### Question `S7-Q6` — _Choice (single answer)_
+### Question `S7-Q6`: _Choice (single answer)_
 
 > **S7-Q6: Do you trust AI-generated code enough to merge it WITHOUT reviewing line by line?**
 
 Options:
 
-- Nunca — sempre reviso
-- Para mudanças triviais (sim)
-- Frequentemente (confio)
-- Quase sempre
+- Never, I always review
+- For trivial changes (yes)
+- Frequently (I trust it)
+- Almost always
 
-### Question `S7-Q7` — _Choice (single answer)_
+### Question `S7-Q7`: _Choice (single answer)_
 
 > **S7-Q7: How often do you detect hallucinations, where AI invents nonexistent APIs/methods?**
 
 Options:
 
-- Diariamente
-- Semanalmente
-- Raramente
-- Quase nunca
+- Daily
+- Weekly
+- Rarely
+- Almost never
 
-### Question `S7-Q8` — _Choice (single answer)_
+### Question `S7-Q8`: _Choice (single answer)_
 
 > **S7-Q8: Since adopting AI, do you feel you are learning more or less about engineering?**
 
 Options:
 
-- Aprendendo MUITO MAIS (IA acelera)
-- Um pouco mais
-- Mais ou menos igual
-- Aprendendo MENOS (dependência)
-- Não sei avaliar
+- Learning MUCH MORE (AI accelerates it)
+- A little more
+- About the same
+- Learning LESS (dependency)
+- I do not know how to assess it
 
-### Question `S7-Q9` — _Choice (single answer)_
+### Question `S7-Q9`: _Choice (single answer)_
 
 > **S7-Q9: Do you share good prompts/usage examples with colleagues in Spaces, Slack, or Confluence?**
 
 Options:
 
-- Frequentemente — em canal compartilhado
-- Às vezes — pessoalmente
-- Raramente
-- Nunca
+- Frequently, in a shared channel
+- Sometimes, personally
+- Rarely
+- Never
 
 ---
 
-## S8 — Security and Governance
+## S8: Security and Governance
 
 _Security practices for AI usage plus agent governance (scope, red-lines, JIT permissions, audit)._
 
 _13 questions in this section._
 
-### Question `S8-Q1` — _Choice (single answer)_
+### Question `S8-Q1`: _Choice (single answer)_
 
 > **S8-Q1: Does your organization have a DOCUMENTED AI usage policy for engineering?**
 
 Options:
 
-- Sim — política formal e clara
-- Sim — mas pouco clara
-- Política informal (sem documento)
-- Não temos política
-- Não sei
+- Yes, formal and clear policy
+- Yes, but not very clear
+- Informal policy (no document)
+- We do not have a policy
+- I do not know
 
-### Question `S8-Q2` — _Choice (single answer)_
+### Question `S8-Q2`: _Choice (single answer)_
 
 > **S8-Q2: Do you know WHICH DATA can go to external LLMs (Copilot, ChatGPT)?**
 
 Options:
 
-- Sei claramente o que pode e o que NÃO pode
-- Tenho ideia geral
-- Vagamente
-- Não sei
+- I clearly know what can and CANNOT be used
+- I have a general idea
+- Vaguely
+- I do not know
 
-### Question `S8-Q3` — _Choice (multiple answers)_
+### Question `S8-Q3`: _Choice (multiple answers)_
 
 > **S8-Q3: Which data types would you NEVER put into external AI prompts?**
 
 Options:
 
-- PII / dados pessoais de clientes
+- PII / customer personal data
 - Secrets / API keys / tokens
-- Código de IP estratégico
-- Dados financeiros
-- Dados de saúde
-- Nenhuma restrição (não temos política)
+- Strategic IP code
+- Financial data
+- Health data
+- No restrictions (we do not have a policy)
 
-### Question `S8-Q4` — _Choice (multiple answers)_
+### Question `S8-Q4`: _Choice (multiple answers)_
 
 > **S8-Q4: Which SECURITY tools are active in your repository?**
 
@@ -835,137 +835,137 @@ Options:
 - SBOM (Software Bill of Materials)
 - Microsoft Defender for DevOps
 - Microsoft Defender for Cloud
-- Snyk / SonarQube / outro SAST
-- Nenhuma
+- Snyk / SonarQube / other SAST
+- None
 
-### Question `S8-Q5` — _Choice (single answer)_
+### Question `S8-Q5`: _Choice (single answer)_
 
 > **S8-Q5: Does Code Scanning run on AI-GENERATED code in the PR or IDE?**
 
 Options:
 
-- Sim — gate obrigatório no PR
-- Sim — opcional
-- Roda mas não bloqueia
-- Não roda
+- Yes, mandatory gate in the PR
+- Yes, optional
+- Runs but does not block
+- Does not run
 
-### Question `S8-Q6` — _Choice (single answer)_
+### Question `S8-Q6`: _Choice (single answer)_
 
 > **S8-Q6: Does your organization generate SBOMs for critical services?**
 
 Options:
 
-- Sim — automatizado
-- Sim — manual quando solicitado
-- Não geramos
-- Não sei
+- Yes, automated
+- Yes, manual when requested
+- We do not generate them
+- I do not know
 
-### Question `S8-Q7` — _Choice (single answer)_
+### Question `S8-Q7`: _Choice (single answer)_
 
 > **S8-Q7: Is there a formal REVIEW process for AI-generated code before merge?**
 
 Options:
 
-- Sim — review obrigatório por outro humano + scanner
-- Review humano obrigatório (sem scanner extra)
-- Review opcional
-- Não temos processo
+- Yes, mandatory review by another human + scanner
+- Mandatory human review (no extra scanner)
+- Optional review
+- We do not have a process
 
-### Question `S8-Q8` — _Choice (single answer)_
+### Question `S8-Q8`: _Choice (single answer)_
 
 > **S8-Q8: When creating/using a custom agent, do you define explicit SCOPE and RED-LINES?**
 
 Options:
 
-- Sempre — escopo + red-lines documentados
-- Frequentemente
-- Às vezes
-- Raramente / nunca
-- Não crio/uso custom agents
+- Always, documented scope + red-lines
+- Frequently
+- Sometimes
+- Rarely / never
+- I do not create/use custom agents
 
-### Question `S8-Q9` — _Choice (single answer)_
+### Question `S8-Q9`: _Choice (single answer)_
 
 > **S8-Q9: Does your organization use JIT (Just-In-Time) permissions for agents instead of persistent permissions?**
 
 Options:
 
-- Sim — JIT obrigatório para agents
-- Sim — opcional
-- Não temos JIT
-- Não sei
+- Yes, JIT is mandatory for agents
+- Yes, optional
+- We do not have JIT
+- I do not know
 
-### Question `S8-Q10` — _Choice (single answer)_
+### Question `S8-Q10`: _Choice (single answer)_
 
 > **S8-Q10: Does your organization have DLP configured to prevent sensitive data in prompts?**
 
 Options:
 
-- Sim — bloqueia ativamente
-- Sim — alerta mas não bloqueia
-- Não temos
-- Não sei
+- Yes, actively blocks
+- Yes, alerts but does not block
+- We do not have it
+- I do not know
 
-### Question `S8-Q11` — _Choice (single answer)_
+### Question `S8-Q11`: _Choice (single answer)_
 
 > **S8-Q11: Does your organization have AUDIT LOGS for Copilot/AI agents, including autonomous agent decisions?**
 
 Options:
 
-- Sim — logs ativos e revisados
-- Logs ativos mas não revisados
-- Não temos
-- Não sei
+- Yes, active and reviewed logs
+- Active logs but not reviewed
+- We do not have it
+- I do not know
 
-### Question `S8-Q12` — _Choice (single answer)_
+### Question `S8-Q12`: _Choice (single answer)_
 
 > **S8-Q12: Have you received formal security training for AI usage?**
 
 Options:
 
-- Sim — treinamento obrigatório anual
-- Sim — uma vez (no onboarding)
-- Não recebi treinamento
-- Não sei
+- Yes, mandatory annual training
+- Yes, once (during onboarding)
+- I have not received training
+- I do not know
 
-### Question `S8-Q13` — _Choice (single answer)_
+### Question `S8-Q13`: _Choice (single answer)_
 
 > **S8-Q13: How often have you seen Copilot/AI suggest code with an obvious vulnerability?**
 
 Options:
 
-- Diariamente
-- Semanalmente
-- Mensalmente
-- Quase nunca
+- Daily
+- Weekly
+- Monthly
+- Almost never
 
 ---
 
-## S9 — Pain Points & Wishlist
+## S9: Pain Points & Wishlist
 
-_Your ideas and frustrations. Free text — feel free to be candid._
+_Your ideas and frustrations. Free text: feel free to be candid._
 
 _4 questions in this section._
 
-### Question `S9-Q1` — _Long Text (free response)_
+### Question `S9-Q1`: _Long Text (free response)_
 
 > **S9-Q1: What frustrates you MOST today about using AI in your day-to-day engineering work?**
 
-### Question `S9-Q2` — _Long Text (free response)_
+### Question `S9-Q2`: _Long Text (free response)_
 
 > **S9-Q2: What CHANGE in tooling/process would double your productivity?**
 
-### Question `S9-Q3` — _Long Text (free response)_
+### Question `S9-Q3`: _Long Text (free response)_
 
 > **S9-Q3: Which Microsoft/GitHub feature/tool would you like to exist, or know better?**
 
-### Question `S9-Q4` — _Choice (single answer)_
+### Question `S9-Q4`: _Choice (single answer)_
 
 > **S9-Q4: Would you like to receive the consolidated version of this survey (team-wide aggregated insights)?**
 
 Options:
 
-- Sim — quero ver
-- Não, obrigado
+- Yes, I want to see it
+- No, thank you
 
 ---
 
@@ -974,7 +974,7 @@ Options:
 - **9 seções** (1 por tema)
 - **75 questions** (55 choice + 15 multi + 5 long text)
 - **Tempo estimado:** 20-25 min (rascunho rápido em 10 min)
-- **Respostas esperadas:** quanto mais devs, melhor — mínimo 5, ideal 15+
+- **Respostas esperadas:** quanto mais devs, melhor: mínimo 5, ideal 15+
 
 ## Próximos passos
 

@@ -1,187 +1,350 @@
 {
   "metadata": {
-    "computed_at": "2026-05-08T16:20:08Z",
+    "computed_at": "2026-09-28T17:28:59Z",
+    "framework_version": "2.0.1",
     "default_target": 3.0,
-    "total_capabilities_with_gap": 10
+    "total_dimensions_with_gap": 9
   },
   "summary": {
-    "P0": 3,
-    "P1": 0,
-    "P2": 1,
-    "P3": 6
+    "P0": 0,
+    "P1": 1,
+    "P2": 5,
+    "P3": 3
   },
   "gaps": [
     {
       "rank": 1,
-      "capability_id": "P2-C4",
-      "capability_name_pt_br": "Integração de Segurança (DevSecOps)",
-      "pillar_id": "P2",
-      "current_score": 0.75,
-      "current_label": "L1 — Em Desenvolvimento",
-      "target_level": 3.5,
-      "gap_size": 2.75,
-      "weight": 1.2,
-      "priority_score": 3.3,
-      "priority": "P0 — Crítico",
-      "horizon_suggested": "30 dias",
+      "dimension_id": "D8",
+      "dimension_name": "Engineering Foundations (AI amplifiers)",
+      "group": "G3",
+      "current_score": 1.088,
+      "current_level": "L1",
+      "current_label": "L1 Exploring",
+      "target_level": 3.0,
+      "gap_size": 1.912,
+      "weight": 1.0,
+      "priority_score": 1.912,
+      "priority": "P1 High",
+      "horizon_suggested": "Next quarter",
       "strategies": [
-        "S7"
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "low_confidence": false,
+      "lowest_questions": [
+        {
+          "id": "D8-Q7",
+          "score": 0.75,
+          "l3_anchor": "Most services have layered automated tests that run on every PR within agreed time budgets."
+        },
+        {
+          "id": "D8-Q4",
+          "score": 0.923,
+          "l3_anchor": "Key data is cataloged with owners and quality indicators; most questions can be answered within an hour."
+        },
+        {
+          "id": "D8-Q5",
+          "score": 1.0,
+          "l3_anchor": "Most repositories define a reproducible environment; agents use the same definition."
+        }
       ]
     },
     {
       "rank": 2,
-      "capability_id": "P3-C5",
-      "capability_name_pt_br": "Aplicações Agênticas",
-      "pillar_id": "P3",
-      "current_score": 0.833,
-      "current_label": "L1 — Em Desenvolvimento",
-      "target_level": 4.0,
-      "gap_size": 3.167,
+      "dimension_id": "D9",
+      "dimension_name": "Measurement, Value and AI FinOps",
+      "group": "G1",
+      "current_score": 1.611,
+      "current_level": "L2",
+      "current_label": "L2 Adopting",
+      "target_level": 3.0,
+      "gap_size": 1.389,
       "weight": 1.0,
-      "priority_score": 3.167,
-      "priority": "P0 — Crítico",
-      "horizon_suggested": "30 dias",
+      "priority_score": 1.389,
+      "priority": "P2 Medium",
+      "horizon_suggested": "Semester",
       "strategies": [
-        "S6"
+        "S5",
+        "S2"
+      ],
+      "low_confidence": false,
+      "lowest_questions": [
+        {
+          "id": "D9-Q3",
+          "score": 1.333,
+          "l3_anchor": "PR lifecycle metrics are reported per organization; agent-authored PRs are identified separately, including their post-merge fix rate."
+        },
+        {
+          "id": "D9-Q7",
+          "score": 1.545,
+          "l3_anchor": "A business case with explicit assumptions exists and is reviewed at least yearly."
+        },
+        {
+          "id": "D9-Q4",
+          "score": 1.571,
+          "l3_anchor": "A survey runs at least twice a year with good participation; results are shared and acted on."
+        }
       ]
     },
     {
       "rank": 3,
-      "capability_id": "P2-C10",
-      "capability_name_pt_br": "Segurança de Dependências e Cadeia de Suprimentos",
-      "pillar_id": "P2",
-      "current_score": 0.667,
-      "current_label": "L1 — Em Desenvolvimento",
+      "dimension_id": "D7",
+      "dimension_name": "Deliver and Operate",
+      "group": "G3",
+      "current_score": 1.752,
+      "current_level": "L2",
+      "current_label": "L2 Adopting",
       "target_level": 3.0,
-      "gap_size": 2.333,
-      "weight": 1.1,
-      "priority_score": 2.567,
-      "priority": "P0 — Crítico",
-      "horizon_suggested": "30 dias",
+      "gap_size": 1.248,
+      "weight": 1.0,
+      "priority_score": 1.248,
+      "priority": "P2 Medium",
+      "horizon_suggested": "Semester",
       "strategies": [
-        "S7"
+        "S2",
+        "S6"
+      ],
+      "low_confidence": false,
+      "lowest_questions": [
+        {
+          "id": "D7-Q4",
+          "score": 1.571,
+          "l3_anchor": "Agent runs emit telemetry to the central observability stack; dashboards show failures and cost per agent."
+        },
+        {
+          "id": "D7-Q1",
+          "score": 1.692,
+          "l3_anchor": "Pipelines are code in most repositories; AI-assisted failure analysis is available to all teams."
+        },
+        {
+          "id": "D7-Q3",
+          "score": 1.714,
+          "l3_anchor": "On-call engineers in most teams use AI for triage and summaries; post-incident reviews record whether AI helped."
+        }
       ]
     },
     {
       "rank": 4,
-      "capability_id": "P1-C1",
-      "capability_name_pt_br": "Assistentes de Codificação IA",
-      "pillar_id": "P1",
-      "current_score": 3.041,
-      "current_label": "L3 — Gerenciado",
-      "target_level": 4.0,
-      "gap_size": 0.959,
-      "weight": 1.2,
-      "priority_score": 1.151,
-      "priority": "P2 — Médio",
-      "horizon_suggested": "Semestre",
+      "dimension_id": "D6",
+      "dimension_name": "Security and AI Supply Chain",
+      "group": "G3",
+      "current_score": 1.895,
+      "current_level": "L2",
+      "current_label": "L2 Adopting",
+      "target_level": 3.0,
+      "gap_size": 1.105,
+      "weight": 1.0,
+      "priority_score": 1.105,
+      "priority": "P2 Medium",
+      "horizon_suggested": "Semester",
       "strategies": [
-        "S5"
+        "S7",
+        "S6"
+      ],
+      "low_confidence": true,
+      "lowest_questions": [
+        {
+          "id": "D6-Q5",
+          "score": 1.5,
+          "l3_anchor": "A review process covers AI components; SBOMs and build provenance are produced for most builds."
+        },
+        {
+          "id": "D6-Q6",
+          "score": 1.625,
+          "l3_anchor": "Threat models are required for new AI features and agent workflows and reviewed by security."
+        },
+        {
+          "id": "D6-Q4",
+          "score": 1.714,
+          "l3_anchor": "Agent permissions are documented and reviewed; agents cannot reach production credentials or push to protected branches."
+        }
       ]
     },
     {
       "rank": 5,
-      "capability_id": "P2-C1",
-      "capability_name_pt_br": "Inteligência de Pipeline CI/CD",
-      "pillar_id": "P2",
-      "current_score": 2.333,
-      "current_label": "L2 — Definido",
+      "dimension_id": "D3",
+      "dimension_name": "Plan, Specify and Design",
+      "group": "G2",
+      "current_score": 2.087,
+      "current_level": "L2",
+      "current_label": "L2 Adopting",
       "target_level": 3.0,
-      "gap_size": 0.667,
-      "weight": 1.2,
-      "priority_score": 0.8,
-      "priority": "P3 — Baixo",
-      "horizon_suggested": "Backlog / monitorar",
+      "gap_size": 0.913,
+      "weight": 1.0,
+      "priority_score": 0.913,
+      "priority": "P2 Medium",
+      "horizon_suggested": "Semester",
       "strategies": [
-        "S2",
-        "S5"
+        "S5",
+        "S3"
+      ],
+      "low_confidence": false,
+      "lowest_questions": [
+        {
+          "id": "D3-Q1",
+          "score": 2.0,
+          "l3_anchor": "Most teams use AI to draft or improve work items; acceptance criteria are mandatory before work starts."
+        },
+        {
+          "id": "D3-Q2",
+          "score": 2.0,
+          "l3_anchor": "Plans or specs are stored in the repository or linked to the issue, and are reviewed by a human before agent implementation."
+        },
+        {
+          "id": "D3-Q5",
+          "score": 2.071,
+          "l3_anchor": "Work items reference the user problem and success measure; feedback is reviewed before prioritization."
+        }
       ]
     },
     {
       "rank": 6,
-      "capability_id": "P3-C3",
-      "capability_name_pt_br": "Desenvolvimento de Aplicações IA",
-      "pillar_id": "P3",
-      "current_score": 2.25,
-      "current_label": "L2 — Definido",
+      "dimension_id": "D5",
+      "dimension_name": "Review, Quality and Testing",
+      "group": "G2",
+      "current_score": 2.096,
+      "current_level": "L2",
+      "current_label": "L2 Adopting",
       "target_level": 3.0,
-      "gap_size": 0.75,
+      "gap_size": 0.904,
       "weight": 1.0,
-      "priority_score": 0.75,
-      "priority": "P3 — Baixo",
-      "horizon_suggested": "Backlog / monitorar",
+      "priority_score": 0.904,
+      "priority": "P2 Medium",
+      "horizon_suggested": "Semester",
       "strategies": [
-        "S4",
-        "S6"
+        "S5",
+        "S7"
+      ],
+      "low_confidence": false,
+      "lowest_questions": [
+        {
+          "id": "D5-Q6",
+          "score": 1.769,
+          "l3_anchor": "Review guidelines explain what to check in AI output; trust in AI output is part of the developer survey."
+        },
+        {
+          "id": "D5-Q3",
+          "score": 2.0,
+          "l3_anchor": "Required checks are enforced by rulesets on the protected branches of most repositories, with no bypass for agent identities."
+        },
+        {
+          "id": "D5-Q1",
+          "score": 2.071,
+          "l3_anchor": "AI review runs automatically on most PRs; teams track useful vs dismissed suggestions."
+        }
       ]
     },
     {
       "rank": 7,
-      "capability_id": "P2-C3",
-      "capability_name_pt_br": "Observabilidade e Monitoramento",
-      "pillar_id": "P2",
-      "current_score": 2.4,
-      "current_label": "L2 — Definido",
+      "dimension_id": "D2",
+      "dimension_name": "Enablement, Skills and Culture",
+      "group": "G1",
+      "current_score": 2.277,
+      "current_level": "L2",
+      "current_label": "L2 Adopting",
       "target_level": 3.0,
-      "gap_size": 0.6,
+      "gap_size": 0.723,
       "weight": 1.0,
-      "priority_score": 0.6,
-      "priority": "P3 — Baixo",
-      "horizon_suggested": "Backlog / monitorar",
+      "priority_score": 0.723,
+      "priority": "P3 Low",
+      "horizon_suggested": "Backlog / monitor",
       "strategies": [
-        "S2"
+        "S5"
+      ],
+      "low_confidence": false,
+      "lowest_questions": [
+        {
+          "id": "D2-Q1",
+          "score": 2.154,
+          "l3_anchor": "Role-based curriculum (developer, reviewer, platform, security) with completion tracked; training is required before agent features are enabled; it teaches learning-preserving patterns (ask for explanations, attempt first, then compare) and not only full delegation."
+        },
+        {
+          "id": "D2-Q6",
+          "score": 2.154,
+          "l3_anchor": "Onboarding includes AI-guided codebase tours and repository instructions; time to first merged PR is tracked; new engineers are checked on code reading and debugging, not only output."
+        },
+        {
+          "id": "D2-Q4",
+          "score": 2.214,
+          "l3_anchor": "Guidance and examples on context engineering are part of training; teams review their instructions and prompts for quality."
+        }
       ]
     },
     {
       "rank": 8,
-      "capability_id": "P1-C4",
-      "capability_name_pt_br": "Automação de Revisão de Código",
-      "pillar_id": "P1",
-      "current_score": 2.5,
-      "current_label": "L3 — Gerenciado",
+      "dimension_id": "D4",
+      "dimension_name": "Code and Context Engineering",
+      "group": "G2",
+      "current_score": 2.721,
+      "current_level": "L3",
+      "current_label": "L3 Scaling",
       "target_level": 3.0,
-      "gap_size": 0.5,
-      "weight": 1.1,
-      "priority_score": 0.55,
-      "priority": "P3 — Baixo",
-      "horizon_suggested": "Backlog / monitorar",
+      "gap_size": 0.279,
+      "weight": 1.0,
+      "priority_score": 0.279,
+      "priority": "P3 Low",
+      "horizon_suggested": "Backlog / monitor",
       "strategies": [
-        "S5"
+        "S5",
+        "S6",
+        "S4"
+      ],
+      "low_confidence": false,
+      "lowest_questions": [
+        {
+          "id": "D4-Q4",
+          "score": 2.5,
+          "l3_anchor": "Most active repositories have structured instructions (build, test, conventions, constraints) with an owner; changes go through PR review; files are updated when the codebase changes rather than committed once."
+        },
+        {
+          "id": "D4-Q1",
+          "score": 2.615,
+          "l3_anchor": "Many engineers regularly use at least one GitHub agent surface (\"Agent first\"), confirmed by usage metrics."
+        },
+        {
+          "id": "D4-Q2",
+          "score": 2.643,
+          "l3_anchor": "Agent mode is the default for multi-file refactors and features in most teams; changes are reviewed in the diff before commit."
+        }
       ]
     },
     {
       "rank": 9,
-      "capability_id": "P1-C2",
-      "capability_name_pt_br": "Plataforma de Experiência do Desenvolvedor",
-      "pillar_id": "P1",
-      "current_score": 2.487,
-      "current_label": "L2 — Definido",
+      "dimension_id": "D1",
+      "dimension_name": "AI Strategy, Policy and Governance",
+      "group": "G1",
+      "current_score": 2.817,
+      "current_level": "L3",
+      "current_label": "L3 Scaling",
       "target_level": 3.0,
-      "gap_size": 0.513,
+      "gap_size": 0.183,
       "weight": 1.0,
-      "priority_score": 0.513,
-      "priority": "P3 — Baixo",
-      "horizon_suggested": "Backlog / monitorar",
+      "priority_score": 0.183,
+      "priority": "P3 Low",
+      "horizon_suggested": "Backlog / monitor",
       "strategies": [
-        "S2",
-        "S5"
-      ]
-    },
-    {
-      "rank": 10,
-      "capability_id": "P3-C1",
-      "capability_name_pt_br": "Arquitetura Cloud-Native",
-      "pillar_id": "P3",
-      "current_score": 2.6,
-      "current_label": "L3 — Gerenciado",
-      "target_level": 3.0,
-      "gap_size": 0.4,
-      "weight": 1.1,
-      "priority_score": 0.44,
-      "priority": "P3 — Baixo",
-      "horizon_suggested": "Backlog / monitorar",
-      "strategies": [
-        "S3"
+        "S7",
+        "S5",
+        "S6"
+      ],
+      "low_confidence": false,
+      "lowest_questions": [
+        {
+          "id": "D1-Q5",
+          "score": 2.692,
+          "l3_anchor": "A published matrix maps task types (for example dependency upgrades, test generation, feature work, production changes) to autonomy levels and required approvals."
+        },
+        {
+          "id": "D1-Q6",
+          "score": 2.714,
+          "l3_anchor": "A named framework is adopted; AI-related risks are in the risk register with owners and reviews."
+        },
+        {
+          "id": "D1-Q3",
+          "score": 2.75,
+          "l3_anchor": "Enterprise/organization policies enable only approved features and models; the catalog lists owner, data handling and review date for each tool."
+        }
       ]
     }
   ]

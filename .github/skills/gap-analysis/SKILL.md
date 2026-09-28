@@ -1,115 +1,40 @@
 ---
 name: gap-analysis
-description: Computes gap (target − current) per capability and priority P0-P3 (weight × gap). Reads saida/scores.json and respostas.json::target_overrides. Generates saida/gaps.json. Use when user asks for "gap analysis", "priorização", "onde estão minhas lacunas", "prioritize gaps", "where are my gaps", "what should we fix first".
+description: Computes v2 dimension gaps and priorities, or archived v1 capability gaps, by invoking scripts/assessment_engine.py. Use for "gap analysis", "analise de gaps", "prioritize gaps", "where are my gaps".
 ---
 
-# Skill: Gap analysis and prioritization
+# Skill: Gap analysis
 
-## When to use
-- After `/calcular-scores` (depends on `saida/scores.json`).
-- When client wants to understand **where to invest first** or prioritize the roadmap.
+Always use the deterministic engine. Do not calculate gaps manually.
 
-## Inputs
-- `saida/scores.json` — capability scores
-- `respostas.json::target_overrides` — custom targets per capability (optional)
-- `framework.json` — weights, names, cap→strategies mapping
-
-## Expected output
-- `saida/gaps.json` — list ordered by priority (P0 first)
-- Brief chat message (English by default, or the user's language): top 5 P0/P1 gaps.
-
-## Implementation: invoke the official script
+## Command
 
 ```bash
-python3 scripts/assessment_engine.py gaps
+python3 scripts/assessment_engine.py all
 ```
 
-**DO NOT compute gaps in chat.** The script recomputes unrounded capability scores from `respostas.json`, applies `target_overrides`, and writes `saida/gaps.json`. The algorithm below documents its behavior.
+`make scores` is also acceptable.
 
-## Algorithm
+## v2 rules documented by the script
 
-```
-default_target = 3.0
-for each capability c in scores.capabilities (with score != null):
-    target_c       = target_overrides.get(c.id, default_target)
-    gap_size       = max(0, target_c − c.score)
-    priority_score = c.weight × gap_size
-    
-    if gap_size ≤ 1e-9:  # already met target
-        skip c   (don't enter gaps.json)
-    
-    classify (canonical priority labels, keep verbatim):
-        priority_score ≥ 2.4  → "P0 — Crítico"
-        ≥ 1.6                 → "P1 — Alto"
-        ≥ 0.9                 → "P2 — Médio"
-        < 0.9                 → "P3 — Baixo"
-```
+- Gap is `target - score`.
+- Default target is `3.0`.
+- `target_overrides` can override per dimension.
+- Priority score is `dimension_weight x gap`.
+- Priority bands: P0 at `>= 2.4`, P1 at `>= 1.6`, P2 at `>= 0.9`, else P3.
+- Band and priority comparisons ignore floating-point noise below `1e-9`.
+- Phases and horizons used by the implementation guide come from the engine: P0 first 30 days, P1 next quarter, P2 semester, P3 backlog.
 
-In chat and English reports, display them as P0 Critical, P1 High, P2 Medium, and P3 Low.
+## Flags to report
 
-Sort `saida/gaps.json::gaps` by `priority_score` desc.
+Report low confidence, amplification risk, perception gap, respondent divergence, scope caveat, unverified L3/L4, evidence cross-check warnings, persona summaries, and backlog items when present in `saida/gaps.json` or related output.
 
-## `saida/gaps.json` schema
+## v2 output
 
-```json
-{
-  "metadata": {
-    "computed_at": "2026-05-08T14:25:00Z",
-    "default_target": 3.0,
-    "total_capabilities_with_gap": 17
-  },
-  "summary": {
-    "P0": 3,  "P1": 5,  "P2": 7,  "P3": 2
-  },
-  "gaps": [
-    {
-      "rank": 1,
-      "capability_id": "P3-C5",
-      "capability_name_pt_br": "Aplicações Agênticas",
-      "pillar_id": "P3",
-      "current_score": 2.04,
-      "current_label": "L2 — Definido",
-      "target_level": 4.0,
-      "gap_size": 1.96,
-      "weight": 1.5,
-      "priority_score": 2.94,
-      "priority": "P0 — Crítico",
-      "horizon_suggested": "30 days",
-      "strategies": ["S6", "S4"]
-    }
-  ]
-}
-```
+- `saida/gaps.json`
+- Top gaps by dimension and question.
+- Backlog questions with L3 anchors, evidence to collect, and KPI where present.
 
-## Horizon mapping by priority
+## Chat response
 
-Use the English value by default; use the PT-BR value when `respostas.json::metadata.language` is `pt-BR` (translate to Spanish for `es`).
-
-| Priority | `horizon_suggested` (`en`, default) | `pt-BR` |
-|---|---|---|
-| P0 | "30 days" | "30 dias" |
-| P1 | "Next quarter" | "Próximo trimestre" |
-| P2 | "Semester" | "Semestre" |
-| P3 | "Backlog / monitor" | "Backlog / monitorar" |
-
-## Report in chat (English by default, or the user's language)
-
-```
-✓ Gap analysis → saida/gaps.json
-• Capabilities with a gap: 17
-• Distribution: P0=3 · P1=5 · P2=7 · P3=2
-
-Top 5 priorities (P0/P1):
-  1. P3-C5 Agentic Applications                gap 1.96 → priority 2.94 (P0 Critical), strategies S6, S4
-  2. P2-C4 Security Integration (DevSecOps)    gap 1.60 → priority 2.40 (P0 Critical), S7
-  3. P1-C8 Developer Productivity Measurement  gap 1.50 → priority 2.25 (P1 High), S5
-
-Next: /recomendar-estrategias
-```
-
-In chat, show the English capability name from `framework.json::name`; use `name_pt_br` when replying in Portuguese. Keep `capability_name_pt_br` in `gaps.json` as stored.
-
-## Constraints
-- Capabilities with `score=null` (no answers) **don't** enter gaps.json — should become "warning" in the report (insufficient coverage).
-- Capabilities that already passed target (`gap_size ≤ 0`) also don't enter — could appear as "Target met" in another report section if useful.
-- Don't invent `target_level` — use exclusively `target_overrides` or default 3.0.
+Summarize the P0 to P3 distribution, top priorities, coverage status, and flags. Include the next command: `python3 relatorios/scripts/build_payload_and_render.py` after recommendations are ready.

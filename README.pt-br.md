@@ -1,376 +1,140 @@
-<!-- paulasilva-ms identity -->
-<!--
-  Paula Silva, Software Global Black Belt
-  Building the future of software development with AI and Agentic DevOps
-  Contact: LinkedIn https://linkedin.com/in/paulanunes
-  Branding: paulasilva-ms Design System v1.7.0
-  See referencia/branding/ for tokens, identity, and voice rules
--->
+# Kit AI Maturity Assessment
 
-# Kit AI Maturity Assessment — Auto-serviço com GitHub Copilot
+🌐 [English](README.md) · Português (Brasil)
 
-**`🏠 ÍNDICE`** · 📖 Você está aqui · [» Guia passo-a-passo](GUIA-PASSO-A-PASSO.md) · [» Coleta via Forms](coleta/INSTRUCOES-FORMS.md) · [» Wizard](wizard/README.md)
+Kit autônomo para conduzir uma autoavaliação de maturidade do SDLC assistido por IA sem depender de uma plataforma web. O framework v2 é o fluxo padrão. O framework v1 continua arquivado e suportado para entradas históricas.
 
-> [!TIP]
-> **Primeira vez aqui?** Vá direto para o [GUIA-PASSO-A-PASSO.md](GUIA-PASSO-A-PASSO.md) ou abra o Copilot Chat e digite `@ai-maturity-assistant` — ele guia você da instalação ao PDF final.
+Papel da autora: Global Developer Solutions Advisor.
 
-🌐 **Mini-site público:** [paulasilvatech.github.io/ai-maturity-client-kit](https://paulasilvatech.github.io/ai-maturity-client-kit/) — apresentação visual + botão de download (ative GitHub Pages em Settings → Pages → Source: GitHub Actions)
+Veja [CHANGELOG.md](CHANGELOG.md) para o histórico de versões.
 
-🌍 **Language kits:** PT-BR está neste README. English: [kit-en/README.md](kit-en/README.md) · Español: [kit-es/README.md](kit-es/README.md). Os ZIPs EN/ES incluem documentação traduzida e bancos canônicos de perguntas em PT-BR para preservar IDs de parsing.
+## O que há de novo no framework v2
 
-> **Para o cliente:** este pacote contém tudo que você precisa para conduzir o **AI Maturity Assessment** sem depender da plataforma web. Você responde um JSON, abre o GitHub Copilot Chat no VS Code, digita um comando, e recebe **planilha, scores, gap analysis, recomendações de estratégia e relatório executivo** em PT-BR.
+- Versão: 2.0.1.
+- Especificação: [coleta/AI-Maturity-Form-Questions_v2.md](coleta/AI-Maturity-Form-Questions_v2.md).
+- Modelo: [framework.v2.json](framework.v2.json), validado por [framework.v2.schema.json](framework.v2.schema.json) e [scripts/validate_framework_v2.py](scripts/validate_framework_v2.py).
+- 5 perguntas de perfil e 61 perguntas pontuadas.
+- 9 dimensões: D1 Estratégia, Política e Governança de IA (7), D2 Habilitação, Habilidades e Cultura (6), D3 Planejar, Especificar e Desenhar (6), D4 Código e engenharia de contexto (8), D5 Revisão, qualidade e testes (7), D6 Segurança e cadeia de suprimentos de IA (7), D7 Entregar e Operar (6), D8 Fundamentos de Engenharia (amplificadores de IA) (7), D9 Medição, Valor e AI FinOps (7).
+- IDs usam `D#-Q#`. Perguntas de perfil usam `R-Q1` a `R-Q5`.
+- Níveis: L0 Não iniciado, L1 Explorando, L2 Adotando, L3 Escalando, L4 Nativo em IA, mais `NA`.
+- Formulário principal: [formularios/assessment-v2.html](formularios/assessment-v2.html). Ele roda offline, mostra a nota de escopo de cada pergunta e exporta um respondente por `respostas.json`.
+- Instruções do Forms: [coleta/INSTRUCOES-FORMS.pt-br.md](coleta/INSTRUCOES-FORMS.pt-br.md).
+- Páginas de referência por dimensão ficam em [referencia/dimensoes/](referencia/dimensoes/) com páginas EN, PT-BR e ES para D1 a D9.
 
-## 🔄 Pipeline visual
+## Quickstart
 
-```mermaid
-flowchart LR
-    A[📝 respostas.json<br/>ou xlsx do Forms] --> B[/calcular-scores/]
-    B --> C[/gap-analysis/]
-    C --> D[/recomendar-estrategias/]
-    D --> E{wizard<br/>preenchido?}
-    E -- sim --> F[/gerar-relatorio/]
-    E -- não --> G[/wizard-implementacao/]
-    G --> F
-    F --> H[📄 5 PDFs<br/>+ xlsx auditável]
-    style A fill:#FFB900,stroke:#333,color:#000
-    style H fill:#7FBA00,stroke:#333,color:#000
-    style F fill:#00A4EF,stroke:#333,color:#fff
-```
-
----
-
-## 🎯 Quando usar cada survey (e ROI esperado)
-
-O kit tem **3 surveys complementares** — escolha 1, 2 ou os 3 baseado no seu objetivo:
-
-| Survey | Objetivo | Audiência | Tempo | ROI |
-|---|---|---|---|---|
-| **🅰️ Assessment principal** | Baseline organizacional formal + 5 PDFs executivos para liderança | Liderança / Tech Leads (1-3 pessoas) | 60-90 min coletar + 5 min gerar | Documento canônico para board, comparável trimestralmente |
-| **🅱️ Developer Survey** | Validar maturidade real anônima + identificar dissonância vs assessment | Devs individuais ANÔNIMOS (≥5, ideal 15+) | 22-28 min/dev + 3 min insights | Descobre gaps invisíveis para liderança; rubrica L0-L4 determinística em 7 dimensões |
-| **🅲 Learning & Growth Survey** | Roadmap de capacitação personalizado com Champions + cohorts + workshops | Devs IDENTIFICADOS (nome+email) | 5-8 min/dev + 3 min plano | Lista concreta de inscritos por workshop; alimenta wizard Mode D auto-fill |
-| **🅳 Os três (recomendado para consultoria)** | Visão 360° + cross-validation + plano de ação | Devs (anônimos + identificados) + liderança | ~6 semanas (incl. coleta) | PDFs executivos com **dissonâncias detectadas** + plano de capacitação com inscritos |
-
-### Quando rodar 1 vs. 2 vs. 3
-
-- **Só assessment:** liderança já tem boa visibilidade (org pequena) ou precisa de entregável formal rápido
-- **Só survey-devs:** quer pulse anônimo da equipe sem comprometer com framework formal
-- **Só learning:** time já maduro em IA, foco é agora capacitação avançada
-- **Os 3:** consultoria séria, decisão de investimento, baseline antes/depois de transformação
-
-> 📘 **Detalhamento completo de cada fluxo (incluindo combinação dos 3):** [GUIA-PASSO-A-PASSO.md](GUIA-PASSO-A-PASSO.md) Partes 1-11.
-
----
-
-## ⚡ TL;DR — 3 passos
-
-1. **Abra esta pasta no VS Code** (`code .` ou File → Open Folder).
-2. **Preencha [`respostas.json`](respostas.json)** — para cada questão, marque um `level` de 0 a 4 e um texto de evidência.
-3. **No Copilot Chat (modo Agent), digite `@ai-maturity-assistant`** (concierge guiado) ou `/pipeline-completo` (rodar tudo direto).
-
-Pronto. O agente concierge ou o prompt orquestrador conduz as 7 skills em sequência e gera tudo em [`saida/`](saida/) — incluindo os **5 PDFs production-quality**.
-
-> 🤖 **Primeira vez? Use o agente concierge.** Digite `@ai-maturity-assistant` no Copilot Chat e ele te guia desde "como preencho?" até "abrir os PDFs" — sem precisar lembrar nenhum comando.
-
-> 📘 **Primeira vez usando?** Siga o **[GUIA-PASSO-A-PASSO.md](GUIA-PASSO-A-PASSO.md)** — instruções detalhadas com setup por OS, screenshots verbais, checkpoints e troubleshooting expandido.
->
-> 🧪 **Quer testar antes de preencher tudo?** O kit vem com **[respostas.json.example](respostas.json.example)** — 46 respostas mockadas de uma "Cliente Exemplo S.A.". Renomeie para `respostas.json` e rode `/pipeline-completo` para ver o output completo em ~3 minutos.
->
-> 📋 **Tem equipe e quer coletar via Microsoft Forms?** Veja **[coleta/INSTRUCOES-FORMS.md](coleta/INSTRUCOES-FORMS.md)** — 3 caminhos (Forms manual, Forms enxuto, Excel/SharePoint direto). A skill `/importar-respostas-excel` agrega múltiplos respondentes automaticamente.
->
-> 🧙 **Quer personalizar a Parte 4 do PDF (Implementation Guide)?** Use o **[wizard/](wizard/)**: HTML standalone (`implementation-guide-wizard.html`), JSON template editável, ou skill `/wizard-implementacao` que conduz pelo chat. 9 inputs estruturados (Steering Committee, RACI, ADKAR, Quick Wins…) populam o `roadmap_part4.pdf`.
->
-> 📄 **Quer ver o output final antes de rodar?** Os 5 PDFs reais estão em **[referencia/exemplo-saida/](referencia/exemplo-saida/)** — gerados a partir do `respostas.json.example` (Cliente Exemplo S.A.) com o pipeline real.
->
-> 👥 **Quer ouvir os devs (anônimo, comportamental)?** Veja **[survey-devs/](survey-devs/)** — Developer Survey de 75 perguntas em 9 seções (GitHub Copilot + modos Ask/Edit/Agent + Coding Agent + Spaces + agentes IA + Foundry + segurança). Skills: `/importar-survey-devs` + `/insights-developer-survey`. Anônimo, individual, comportamental. Inclui rubrica determinística L0-L4 em 7 dimensões.
->
-> 🎓 **Quer construir o roadmap de capacitação (identificado)?** Veja **[survey-learning/](survey-learning/)** — Learning & Growth Survey de 32 perguntas curtas (5-8 min, IDENTIFICADO com nome+email) que vira plano de workshops + cohorts + Champions Network + mentoria. Skills: `/importar-survey-learning` + `/plano-capacitacao`.
-
----
-
-## 📋 Pré-requisitos
-
-- [ ] **VS Code** com extensão **GitHub Copilot Chat** instalada e ativa
-- [ ] Plano **Copilot Pro / Business / Enterprise** (Free pode funcionar para skills — confirmar com sua org)
-- [ ] **Python 3.10+** com `openpyxl` (`pip install openpyxl`) — para preencher a planilha
-- [ ] Modo **Agent** habilitado no Copilot Chat (necessário para invocar skills custom)
-
-> [!IMPORTANT]
-> Sem o modo **Agent** habilitado, os comandos `/calcular-scores`, `/gap-analysis` etc. não aparecem. Veja [GUIA-PASSO-A-PASSO.md](GUIA-PASSO-A-PASSO.md#parte-1) para o how-to por sistema operacional.
-### Smoke test rápido (opcional, para contribuidores)
-
-Valide que o pipeline está íntegro sem precisar do WeasyPrint:
+Caminho mais rápido para o primeiro PDF depois de `make install-deps`, ou dentro do dev container:
 
 ```bash
-make smoke          # rapid e2e — copia respostas.json.example e valida payload
-make smoke-cross    # mesmo + cross-survey (developer + learning)
+make demo
+open saida/demo/*.pdf
 ```
 
-Ambos restauram o workspace ao final. Útil após editar `relatorios/scripts/build_payload_and_render.py` ou qualquer SKILL.md no pipeline.
----
+Use `DEMO_LANG=en`, `DEMO_LANG=pt-BR` ou `DEMO_LANG=es` para escolher o idioma da demonstração. A demonstração grava saídas ilustrativas em `saida/demo/` e não toca em `respostas.json`.
 
-## 🗂 Estrutura do kit
+Fluxo real do assessment:
 
-```
-kit-cliente/
-├── README.md                          ← você está aqui
-├── GUIA-PASSO-A-PASSO.md              ← guia detalhado para iniciantes
-├── respostas.json                     ← INPUT principal (preenchido manualmente)
-├── respostas.json.example             ← 46 respostas mockadas para teste
-├── framework.json                     ← Imutável — pesos, capabilities, S1-S7
-│
-├── formularios/                       ← HTMLs visuais (referência)
-│   ├── P1-produtividade-do-desenvolvedor.html
-│   ├── P2-ciclo-de-vida-devops.html
-│   └── P3-plataforma-de-aplicações.html
-│
-├── coleta/                            ← Coleta multi-respondente do ASSESSMENT principal (Forms/Excel)
-│   ├── INSTRUCOES-FORMS.md            ← 3 caminhos de coleta + tradeoffs
-│   ├── perguntas-para-forms.md        ← 158 perguntas para copy/paste no Forms
-│   └── template-export-forms.xlsx     ← Excel template (formato Forms export)
-│
-├── survey-devs/                       ← Developer Survey (anônimo, comportamental, 75 q)
-│   ├── README.md
-│   ├── INSTRUCOES-FORMS-DEVS.md       ← Como criar Forms anônimo
-│   ├── perguntas-para-forms-devs.md   ← 75 perguntas formatadas para Forms (9 seções)
-│   ├── template-export-forms-devs.xlsx ← Excel template + 5 respondentes mockados
-│   ├── respostas-mock-devs.json       ← JSON estruturado de exemplo
-│   ├── RUBRICA-MATURIDADE.md          ← Modelo de scoring determinístico L0-L4 (7 dimensões)
-│   └── scripts/                       ← rubric.py + calcular_maturidade.py
-│
-├── survey-learning/                   ← ★ Learning & Growth Survey (identificado, capacitação, 32 q)
-│   ├── README.md
-│   ├── INSTRUCOES-FORMS-LEARNING.md   ← Como criar Forms IDENTIFICADO
-│   ├── perguntas-para-forms-learning.md  ← 32 perguntas formatadas (7 seções)
-│   ├── template-export-forms-learning.xlsx  ← Excel + 5 respondentes mockados
-│   └── respostas-mock-learning.json   ← JSON estruturado de exemplo
-│
-├── wizard/                            ← ★ Wizard Implementation Guide (9 steps)
-│   ├── implementation-guide-wizard.html       ← Wizard visual standalone
-│   └── implementation-guide-inputs.template.json ← Alternativa para edição direta
-│
-├── relatorios/                        ← Templates Jinja2 + renderer (PDFs finais)
-│   ├── templates/                     ← 4 .html.j2 oficiais + _print.css
-│   │   ├── _components.html.j2
-│   │   ├── _print.css
-│   │   ├── score_justification.html.j2
-│   │   ├── roadmap_part_pillar.html.j2  (renderizado 3x: P1, P2, P3)
-│   │   └── roadmap_part4.html.j2
-│   ├── i18n/                          ← Strings EN / ES / PT-BR
-│   ├── scripts/
-│   │   ├── render_reports.py          ← Renderer Jinja2 → WeasyPrint → PDF
-│   │   └── build_payload_and_render.py ← Merge sample + dados cliente + render
-│   └── sample_payload.json            ← Schema reference + sample data
-│
-├── referencia/                        ← Documentação técnica
-│   ├── pontuacao-e-calculo.md         ← Algoritmo oficial
-│   ├── pontuacao-e-calculo.xlsx       ← Template auditável
-│   ├── calculadora-pontuacao.html     ← Demo interativa (com branding paulasilva-ms)
-│   ├── P1/P2/P3-...md                 ← Documentação das 158 questões
-│   ├── branding/                      ← ★ Identidade paulasilva-ms (Microsoft)
-│   │   ├── tokens-paulasilva-ms.css   ← Design tokens (4 cores MS + neutros + dark mode)
-│   │   ├── IDENTITY.md                ← Strings canônicas, logo SVG, chrome bar
-│   │   └── VOICE.md                   ← Voz, vocabulário banido, regras de pontuação
-│   └── exemplo-saida/                 ← ★ 5 PDFs reais + JSONs de exemplo
-│       ├── README.md
-│       ├── score_justification.pdf
-│       ├── roadmap_part_pillar_p1.pdf  (P2, P3)
-│       ├── roadmap_part4.pdf
-│       ├── pt-br/                     ← Mesmos 5 PDFs em PT-BR
-│       ├── scores.json · gaps.json · recomendacoes.json  (JSONs intermediários)
-│       └── pontuacao-preenchida-2026-05-08.xlsx
-│
-├── saida/                             ← OUTPUT — tudo que o Copilot gera
-│
-└── .github/
-    ├── copilot-instructions.md        ← Carregado automaticamente em todo prompt (EN)
-    ├── agents/
-    │   └── ai-maturity-assistant.agent.md       ← @ai-maturity-assistant (concierge guiado)
-    ├── prompts/
-    │   └── pipeline-completo.prompt.md          ← /pipeline-completo
-    └── skills/  (12 skills custom — 1 orchestrator + 6 assessment + 1 wizard + 2 survey-devs + 2 survey-learning)
-        ├── importar-respostas-excel/SKILL.md    ← /importar-respostas-excel       (assessment)
-        ├── preencher-planilha/SKILL.md          ← /preencher-planilha             (assessment)
-        ├── calcular-scores/SKILL.md             ← /calcular-scores                (assessment)
-        ├── gap-analysis/SKILL.md                ← /gap-analysis                   (assessment)
-        ├── recomendar-estrategias/SKILL.md      ← /recomendar-estrategias         (assessment)
-        ├── wizard-implementacao/SKILL.md        ← /wizard-implementacao           (assessment)
-        ├── gerar-relatorio/SKILL.md             ← /gerar-relatorio  (5 PDFs)      (assessment)
-        ├── importar-survey-devs/SKILL.md        ← /importar-survey-devs           (survey-devs)
-        ├── insights-developer-survey/SKILL.md   ← /insights-developer-survey      (survey-devs)
-        ├── importar-survey-learning/SKILL.md    ← /importar-survey-learning       (survey-learning)
-        └── plano-capacitacao/SKILL.md           ← /plano-capacitacao              (survey-learning)
+```bash
+make install-deps
+# Colete pelo Microsoft Forms, ou colete exports offline e una os arquivos:
+make merge DIR=exports/
+# Ou importe uma exportação do Microsoft Forms:
+make import XLSX=respostas-forms.xlsx
+make pipeline
+# Cross-checks opcionais de evidência:
+make scan-repos REPOS=~/src
+make telemetry METRICS=copilot-usage.json SEATS=200
+# Preencha implementation-guide-inputs.json com o wizard, depois renderize de novo:
+make pipeline
 ```
 
----
+Comandos diretos continuam disponíveis para automação:
 
-## 🎯 Comandos disponíveis no Copilot Chat
-
-Abra o Copilot Chat (`Ctrl+Shift+I` / `Cmd+Shift+I`) **em modo Agent** e digite `/`:
-
-### Assessment de Maturidade IA (fluxo principal)
-
-| Comando | O que faz | Pré-requisito |
-|---|---|---|
-| `@ai-maturity-assistant` | **Concierge guiado** — descobre o estado, pergunta o que falta, invoca skills, conduz até os 5 PDFs (recomendado para 1ª vez) | nenhum |
-| `/pipeline-completo` | **Tudo de uma vez**: 6 skills em ordem (auto-detecta Excel + wizard) | `respostas.json` ou `respostas-forms.xlsx` |
-| `/importar-respostas-excel` | Converte Excel do Microsoft Forms → `respostas.json` (agrega multi-respondente) | `respostas-forms.xlsx` |
-| `/preencher-planilha` | Copia template xlsx e preenche níveis | `respostas.json` |
-| `/calcular-scores` | Aplica SUMPRODUCT, gera `saida/scores.json` | `respostas.json` |
-| `/gap-analysis` | Calcula gaps + prioridade P0–P3 | `saida/scores.json` |
-| `/recomendar-estrategias` | Mapeia gaps → S1–S7 + tecnologias | `saida/gaps.json` |
-| `/wizard-implementacao` | **Wizard de 9 steps** para personalizar Parte 4 do PDF (steering committee, RACI, ADKAR, quick wins…) | nenhum (independente) |
-| `/gerar-relatorio` | **5 PDFs production-quality** via Jinja2 + WeasyPrint (idênticos à plataforma) | os 3 acima + opcional wizard |
-
-### Developer Survey (anônimo, comportamental)
-
-| Comando | O que faz | Pré-requisito |
-|---|---|---|
-| `/importar-survey-devs` | Converte `respostas-survey-devs.xlsx` (Forms anônimo) → `survey-devs/respostas-devs.json` (75 q × N respondentes) | `respostas-survey-devs.xlsx` |
-| `/insights-developer-survey` | **Relatório agregado** + maturidade calculada (rubrica determinística L0-L4 nas 7 dimensões D2-D8) + gaps + recomendações ligadas às capabilities | `survey-devs/respostas-devs.json` |
-
-### Learning & Growth Survey (identificado, capacitação)
-
-| Comando | O que faz | Pré-requisito |
-|---|---|---|
-| `/importar-survey-learning` | Converte `respostas-survey-learning.xlsx` (Forms identificado) → `survey-learning/respostas-learning.json` (32 q × N respondentes com nome+email) | `respostas-survey-learning.xlsx` |
-| `/plano-capacitacao` | **Plano de capacitação personalizado**: top 10 tópicos com inscritos pré-validados, cohorts por dimensão D2-D8, Champions Network (3 tiers), mentor↔mentee pairs, calendário 90 dias, barreiras priorizadas | `survey-learning/respostas-learning.json` |
-
----
-
-## 📝 Como preencher `respostas.json`
-
-```jsonc
-{
-  "metadata": {
-    "respondent_name": "João Silva",
-    "respondent_email": "joao@empresa.com",
-    "respondent_role": "Engineering Manager",
-    "audience": ["developer", "manager"],
-    "organization": "Empresa Acme",
-    "assessment_date": "2026-05-08",
-    "language": "pt-BR"
-  },
-  "target_overrides": {
-    // Opcional — se quiser target diferente do default 3.0 para alguma capability:
-    "P3-C5": 4.0,   // ambicionar L4 em Aplicações Agênticas
-    "P2-C4": 3.5    // ambicionar L3+ em DevSecOps
-  },
-  "responses": {
-    "P1-C1-Q1": {
-      "level": 3,                                        // 0=L0 ... 4=L4 ... null=não respondida
-      "evidence": "Copilot Enterprise para 80% dos devs, métricas DORA mostram +18% velocidade.",
-      "text_pt_br": "Em que medida sua organização utiliza..."  // só leitura
-    },
-    // ... (mais 157 questões — formato idêntico)
-  }
-}
+```bash
+python3 scripts/import_forms_excel.py respostas-forms.xlsx
+python3 scripts/assessment_engine.py all
+python3 scripts/fill_workbook.py
+python3 relatorios/scripts/build_payload_and_render.py
 ```
 
-### Dicas de preenchimento
+## Saídas do v2
 
-- **Não tem certeza?** Deixe `level: null` — o sistema ignora (sem penalização).
-- **Quanto mais evidência, melhor.** Texto com ferramenta + métrica + período = "exemplary".
-- **Threshold mínimo: 25 questões respondidas** para sair de BLOCKED. Ideal ≥ 40 (OK).
-- **Multi-respondente:** prefira `respostas-forms.xlsx` ou o template Excel em `coleta/`; a skill `/importar-respostas-excel` agrega automaticamente por média simples por questão.
+| Saída | Uso |
+| --- | --- |
+| `saida/scores.json` | Scores por pergunta, dimensão, persona e geral quando gerados pelo engine. |
+| `saida/gaps.json` | Gaps de dimensão, prioridades, flags, divergência entre respondentes e insumos de backlog. |
+| `saida/recomendacoes.json` | Recomendações de estratégias `S1` a `S7`. |
+| `saida/pontuacao-v2-<date>.xlsx` | Planilha auditável com fórmulas e conferência do engine. |
+| `saida/payload_v2.json` | Payload do relatório para inspeção e customização. |
+| `saida/v2_assessment_summary.pdf` | Sumário executivo, incluindo cross-checks de evidência quando disponíveis. |
+| `saida/v2_roadmap_g1.pdf` | G1: D1, D2, D9. |
+| `saida/v2_roadmap_g2.pdf` | G2: D3, D4, D5. |
+| `saida/v2_roadmap_g3.pdf` | G3: D6, D7, D8. |
+| `saida/v2_implementation_guide.pdf` | Parte 4 do v2: governança, RACI, plano por fases, gestão da mudança, riscos, métricas, primeiros 90 dias e referências. |
+| `saida/comparacao-rodadas.pdf` | Relatório de comparação gerado por `make compare BEFORE=old.json AFTER=respostas.json`. |
 
-### Alternativa visual: usar os HTMLs em `formularios/`
-Os HTMLs em [`formularios/`](formularios/) reproduzem o visual da plataforma. Você pode abrir no browser, ler o contexto rico de cada questão (KPI, what/why, exemplos por nível) e depois preencher o JSON. Hoje **não há export automático** dos HTMLs para JSON — preencha o JSON manualmente.
+`make pipeline` renderiza os 5 PDFs v2. O v1 ainda renderiza seu conjunto arquivado de 5 PDFs.
 
----
+## Resumo de pontuação
 
-## 🔢 Algoritmo de scoring (resumo de 5 linhas)
+Os scripts são a fonte da verdade. Não calcule scores manualmente.
 
+- Score da pergunta: média agrupada dos níveis dos respondentes, excluindo vazio e `NA`.
+- Score da dimensão: média dos scores das perguntas.
+- Geral: média ponderada das dimensões.
+- Pesos de dimensão padrão `1.0`, com valores de `0.5` a `2.0` em `respostas.json`.
+- Cobertura: OK com 37 ou mais perguntas respondidas, WARNING de 25 a 36, BLOCKED abaixo de 25.
+- Prioridade: `peso da dimensão x gap`; P0 em `>= 2.4`, P1 em `>= 1.6`, P2 em `>= 0.9`, senão P3. Comparações de banda e prioridade ignoram ruído de ponto flutuante abaixo de `1e-9`.
+- Divergência entre respondentes: uma dimensão é sinalizada quando pelo menos 3 respondentes têm score e o desvio padrão dos scores próprios da dimensão é 1,0 ou mais.
+
+## Cross-checks de evidência
+
+Dois insumos opcionais ajudam a desafiar respostas superconfiantes. Eles não mudam os scores.
+
+- `make scan-repos REPOS=~/src` examina clones locais usando apenas arquivos commitados. `make scan-repos ORG=<github-org>` examina branches padrão pela API REST do GitHub e exige `GITHUB_TOKEN` ou `GH_TOKEN`. Saída: `saida/repo-scan.json`. O scan posiciona repositórios nos níveis RAMP L1 a L4 como aproximação baseada em padrões. A fração de repositórios em L2+ limita D4-Q4 pelas bandas de cobertura, e a fração em L3+ aparece ao lado de D4-Q5.
+- `make telemetry METRICS=<Copilot usage metrics report JSON/NDJSON> [SEATS=200]` grava `saida/telemetria.json`. Ele lê exports de métricas de uso do GitHub Copilot e classifica fases de adoção: No Cohort, Phase 1 Code first, Phase 2 Agent first, Phase 3 Multi-agent. O próprio export é evidência para D9-Q1.
+
+A seção 2.2 do PDF de sumário mostra os dois cross-checks e sinaliza respostas acima do que a evidência suporta. O guia de implementação lista essas divergências como riscos. Se os arquivos não existirem, o relatório explica como produzi-los.
+
+## Surveys complementares
+
+O Developer Survey e o Learning and Growth Survey são sinais complementares. Resultados de survey nunca mudam os scores v2.
+
+- Dimensões do Developer Survey são nomeadas como `DS-D2` a `DS-D8` nas saídas. Forms construídos com o texto antigo `D2` ainda são aceitos.
+- `framework.v2.json` contém o crosswalk de cada `DS-D#` para as perguntas v2 que ele ajuda a validar.
+- O PDF de sumário v2 mostra contexto do Developer Survey quando `saida/maturidade-developer-survey-*.json` existe.
+- A rubrica do survey mantém as bandas v1, então compare por score, não pelo nome do nível.
+- Scripts de survey escrevem EN, PT-BR ou ES (`--lang en|pt-br|es`). Os bancos do Developer Survey traduzem as opções de resposta em todos os idiomas; `survey-devs/options.json` as mapeia para as mesmas opções canônicas, então a nota não depende do idioma do formulário.
+
+## Arquivo v1
+
+O v1 continua suportado para arquivos sem `metadata.framework_version`, ou com versão `1.x`. Ele usa [framework.json](framework.json), 158 perguntas, 3 pilares e ativos arquivados:
+
+- [coleta/v1/](coleta/v1/)
+- [formularios/v1/](formularios/v1/)
+- [referencia/v1/](referencia/v1/)
+
+Use `make init-v1` para iniciar uma entrada v1. Os scripts de despacho preservam o comportamento v1.
+
+## Mapa do repositório
+
+| Caminho | Uso |
+| --- | --- |
+| [coleta/](coleta/) | Instruções v2, especificação v2, bancos gerados, orientação de merge offline e arquivo v1. |
+| [formularios/](formularios/) | Formulário offline v2 e formulários visuais v1 arquivados. |
+| [referencia/](referencia/) | Guia do framework, calculadora v2, páginas por dimensão, branding e exemplos. |
+| [relatorios/](relatorios/) | Renderer, templates, localização, PDF de comparação e parser de entradas do wizard. |
+| [scripts/](scripts/) | Scripts determinísticos de importação, scoring, planilha, comparação, validação, demo, evidências, empacotamento e geração. |
+| [wizard/](wizard/) | Wizard trilingue gerado do guia de implementação e script de auto-fill. |
+| [.github/skills/](.github/skills/) | Skills custom do Copilot que chamam os scripts determinísticos. |
+
+## Validação
+
+```bash
+python3 scripts/build_kit_docs.py
+python3 scripts/build_kit_docs.py --check
+make validate-docs
+make test
 ```
-capability_score = Σ(nível × peso_questão) / Σ(peso_questão)         # apenas respondidas
-pillar_score     = Σ(cap_score × peso_cap) / Σ(peso_cap)             # caps do pillar
-overall_score    = Σ(cap_score × peso_cap) / Σ(peso_cap)             # TODAS as caps (não pillars)
-gap_size         = max(0, target − current);  priority = peso × gap
-threshold        = ≥40 OK · 25–39 WARNING · <25 BLOCKED
-```
 
-Ver `referencia/pontuacao-e-calculo.md` para fórmulas completas, edge cases e 3 exemplos end-to-end.
-
----
-
-## 🎨 As 7 estratégias (S1–S7)
-
-| ID | Nome | Quando aparece em recomendações |
-|---|---|---|
-| S1 | GitHub Migration | Gaps em capabilities relacionadas a SCM/colaboração |
-| S2 | Foundry + SRE | Gaps em observabilidade, SLO, plataforma |
-| S3 | App Modernization | Gaps em IaC, containers, cloud-native |
-| S4 | AI Applications | Gaps em features IA / Azure OpenAI |
-| S5 | GitHub Copilot Acceleration | Gaps em produtividade do dev |
-| S6 | Agentic Activation | Gaps em workflows agênticos |
-| S7 | Security & Governance | Gaps em DevSecOps, supply chain |
-
-A skill `/recomendar-estrategias` calcula `cumulative_priority` por estratégia (soma dos `priority_score` dos gaps que ela endereça) e devolve as estratégias rankeadas com tecnologias específicas e ações iniciais.
-
----
-
-## ❓ Troubleshooting
-
-| Sintoma | Causa provável | Ação |
-|---|---|---|
-| Copilot Chat não mostra `/pipeline-completo` no menu | Modo Agent desativado | Trocar para "Agent" no dropdown do chat |
-| Skills custom não aparecem | Pasta `.github/skills/` não detectada | Reabrir o workspace ou rodar **Developer: Reload Window** |
-| `respostas.json: Unexpected token` | JSON inválido (vírgula a mais, aspas faltando) | Validar em jsonlint.com ou rodar `python -m json.tool respostas.json` |
-| Planilha não recalcula no Excel | Excel em modo "manual calculation" | Excel → Fórmulas → Calcular agora (F9) |
-| `openpyxl` não instalado | Falta dependência Python | `pip install openpyxl` |
-| Threshold sempre BLOCKED | < 25 questões respondidas | Preencha mais 25+ — distribua entre P1, P2, P3 |
-
----
-
-## 🔁 Migração para a plataforma web (futuro)
-
-Quando o app web ficar pronto, a migração é direta:
-
-1. O `respostas.json` deste kit segue **o mesmo schema** que a API da plataforma aceita (`POST /api/responses/bulk`).
-2. As 5 skills viram operações nativas do app (botões em vez de comandos `/`).
-3. Os relatórios em `saida/` ficam como arquivo histórico — o app passa a ser a fonte de verdade.
-
-Você não perde dados — basta upload do JSON quando o app estiver disponível.
-
----
-
-## 📞 Suporte
-
-- **Dúvidas técnicas sobre o algoritmo:** ver `referencia/pontuacao-e-calculo.md`
-- **Dúvidas sobre uma questão específica:** ver `referencia/P1-…md`, `P2-…md` ou `P3-…md`
-- **Bugs no kit:** abrir issue no repo principal ou contatar Microsoft GBB
-
----
-
-**Versão do framework:** 1.0.0 · **Data do kit:** 2026-05-08 · **Idioma:** PT-BR
-
----
-
-## Travou em algum desses passos?
-
-<details>
-<summary><strong>FAQ — dúvidas comuns no primeiro contato com o kit</strong></summary>
-
-| Sintoma | Causa provável | Como resolver |
-|---|---|---|
-| Não sei qual survey rodar primeiro | Você ainda não decidiu o escopo da consultoria | Use o agente: `@ai-maturity-assistant` apresenta os 4 caminhos (A/B/C/D) e te ajuda a escolher |
-| `@ai-maturity-assistant` não aparece no chat | Copilot Chat não está em **modo Agent** | Clique no dropdown ao lado do ícone do Copilot → escolha **Agent** |
-| `respostas.json.example` funciona como teste real? | Sim — é a Cliente Exemplo S.A. com 46 respostas mockadas | `cp respostas.json.example respostas.json` e rode `/pipeline-completo` |
-| Copilot Free funciona? | Funciona para skills, mas com limites de mensagens | Recomendado **Pro/Business/Enterprise** para fluxo completo |
-| Posso rodar sem WeasyPrint? | Sim, mas não vai gerar PDFs | `make smoke` valida tudo até o `payload.json` sem precisar de WeasyPrint |
-
-</details>
-
----
-
-## Continuar a leitura
-
-| ← ANTERIOR | PRÓXIMO → |
-|:---|---:|
-| _(você está no hub)_ | **[Guia passo-a-passo](GUIA-PASSO-A-PASSO.md)** |
-| Você já está no índice principal do kit. | Instalação, preenchimento e execução detalhados, do zero ao PDF executivo em 60–90 min. |
-
----
-
-<sub>**Paula Silva** | Software Global Black Belt · [LinkedIn](https://linkedin.com/in/paulanunes)</sub>
-<sub>Building the future of software development with AI and Agentic DevOps</sub>
-<sub>Identidade visual: [paulasilva-ms Design System v1.7.0](referencia/branding/) · Paleta Microsoft 4 cores aplicada nos HTMLs interativos e nos 5 PDFs production-quality</sub>
+CI está configurado para testes, validação de documentação, smoke rendering e demo em push e pull requests para `main` e `develop`. GitHub Actions pode estar bloqueado por billing no repositório, então trate a validação local como obrigatória.

@@ -31,35 +31,35 @@
         },
         "L2-Q1": {
           "type": "choice",
-          "value": "L3 — Uso Agent + Spaces, mensuro ganho"
+          "value": "L3: Uso Agent + Spaces, mensuro ganho"
         },
         "L2-Q2": {
           "type": "choice",
-          "value": "L3 — Uso 4+ ferramentas avançadas"
+          "value": "L3: Uso 4+ ferramentas avançadas"
         },
         "L2-Q3": {
           "type": "choice",
-          "value": "L3 — Trato IA como pair em várias fases"
+          "value": "L3: Trato IA como pair em várias fases"
         },
         "L2-Q4": {
           "type": "choice",
-          "value": "L3 — Já criei custom agents/skills/prompts"
+          "value": "L3: Já criei custom agents/skills/prompts"
         },
         "L2-Q5": {
           "type": "choice",
-          "value": "L3 — Time mantém ativamente"
+          "value": "L3: Time mantém ativamente"
         },
         "L2-Q6": {
           "type": "choice",
-          "value": "L3 — Mensuro DORA/DX + compartilho com colegas"
+          "value": "L3: Mensuro DORA/DX + compartilho com colegas"
         },
         "L2-Q7": {
           "type": "choice",
-          "value": "L3 — Scanners obrigatórios + SBOM + treinamento"
+          "value": "L3: Scanners obrigatórios + SBOM + treinamento"
         },
         "L3-Q1": {
           "type": "multi",
-          "value": "D8 — Security & Governance (GHAS, SBOM, red-lines); D5 — Agent Concepts (custom agents, MCP, A2A)"
+          "value": "DS-D8 Security & Governance (GHAS, SBOM, red-lines); DS-D5 Agent Concepts (custom agents, MCP, A2A)"
         },
         "L3-Q2": {
           "type": "text",
@@ -71,7 +71,7 @@
         },
         "L4-Q2": {
           "type": "multi",
-          "value": "A2A (Agent-to-Agent) protocol; Microsoft Foundry — visão geral; Azure OpenAI Service (API direta); Foundry Agent Service (criar agentes)"
+          "value": "A2A (Agent-to-Agent) protocol; Microsoft Foundry, visão geral; Azure OpenAI Service (API direta); Foundry Agent Service (criar agentes)"
         },
         "L4-Q3": {
           "type": "multi",
@@ -103,7 +103,7 @@
         },
         "L6-Q1": {
           "type": "choice",
-          "value": "Sim — quero ser Champion ativo"
+          "value": "Sim, quero ser Champion ativo"
         },
         "L6-Q2": {
           "type": "text",
@@ -111,11 +111,11 @@
         },
         "L6-Q3": {
           "type": "choice",
-          "value": "Sim — mentor sênior em IA"
+          "value": "Sim, mentor sênior em IA"
         },
         "L6-Q4": {
           "type": "choice",
-          "value": "Talvez — depende do tópico"
+          "value": "Talvez, depende do tópico"
         },
         "L6-Q5": {
           "type": "text",
@@ -123,7 +123,7 @@
         },
         "L7-Q1": {
           "type": "multi",
-          "value": "Falta de orçamento para cursos pagos; Não sei por onde começar; Falta de treinamento estruturado; Tudo bem — sem barreiras significativas; Política de segurança bloqueia testes"
+          "value": "Falta de orçamento para cursos pagos; Não sei por onde começar; Falta de treinamento estruturado; Tudo bem, sem barreiras significativas; Política de segurança bloqueia testes"
         },
         "L7-Q2": {
           "type": "text",
@@ -139,7 +139,7 @@
         },
         "L7-Q5": {
           "type": "choice",
-          "value": "Sim — quero ver o plano e os workshops sugeridos"
+          "value": "Sim, quero ver o plano e os workshops sugeridos"
         }
       }
     },
@@ -166,35 +166,35 @@
         },
         "L2-Q1": {
           "type": "choice",
-          "value": "L2 — Uso Ask/Edit no dia-a-dia"
+          "value": "L2: Uso Ask/Edit no dia-a-dia"
         },
         "L2-Q2": {
           "type": "choice",
-          "value": "L2 — Uso 2-3 ferramentas básicas"
+          "value": "L2: Uso 2-3 ferramentas básicas"
         },
         "L2-Q3": {
           "type": "choice",
-          "value": "L2 — TDD ou SDD ocasional"
+          "value": "L2: TDD ou SDD ocasional"
         },
         "L2-Q4": {
           "type": "choice",
-          "value": "L2 — Conheço modos do Copilot"
+          "value": "L2: Conheço modos do Copilot"
         },
         "L2-Q5": {
           "type": "choice",
-          "value": "L2 — Uso e atualizo ocasionalmente"
+          "value": "L2: Uso e atualizo ocasionalmente"
         },
         "L2-Q6": {
           "type": "choice",
-          "value": "L2 — Tenho Champion no time"
+          "value": "L2: Tenho Champion no time"
         },
         "L2-Q7": {
           "type": "choice",
-          "value": "L2 — GHAS ativo + política básica"
+          "value": "L2: GHAS ativo + política básica"
         },
         "L3-Q1": {
           "type": "multi",
-          "value": "D3 — MS/GitHub Tooling (Foundry, Spaces, Spec Kit, MCP); D6 — Instructions / Memory (instructions files, prompt library); D7 — Best Practices (DORA, comunidade, mentoria); D4 — AI Dev Practices (TDD com IA, SDD); D2 — Copilot Adoption (modos avançados, Coding Agent)"
+          "value": "DS-D3 MS/GitHub Tooling (Foundry, Spaces, Spec Kit, MCP); DS-D6 Instructions / Memory (instructions files, prompt library); DS-D7 Best Practices (DORA, comunidade, mentoria); DS-D4 AI Dev Practices (TDD com IA, SDD); DS-D2 Copilot Adoption (modos avançados, Coding Agent)"
         },
         "L3-Q2": {
           "type": "text",
@@ -206,7 +206,7 @@
         },
         "L4-Q2": {
           "type": "multi",
-          "value": "A2A (Agent-to-Agent) protocol; Foundry Memory (long-term context); Microsoft Foundry — visão geral; Multi-agent orchestration; Não tenho interesse em Foundry hoje"
+          "value": "A2A (Agent-to-Agent) protocol; Foundry Memory (long-term context); Microsoft Foundry, visão geral; Multi-agent orchestration; Não tenho interesse em Foundry hoje"
         },
         "L4-Q3": {
           "type": "multi",
@@ -238,7 +238,7 @@
         },
         "L6-Q1": {
           "type": "choice",
-          "value": "Sim — quero ser Champion ativo"
+          "value": "Sim, quero ser Champion ativo"
         },
         "L6-Q2": {
           "type": "text",
@@ -246,7 +246,7 @@
         },
         "L6-Q3": {
           "type": "choice",
-          "value": "Não — prefiro auto-aprendizado"
+          "value": "Não, prefiro auto-aprendizado"
         },
         "L6-Q4": {
           "type": "choice",
@@ -274,7 +274,7 @@
         },
         "L7-Q5": {
           "type": "choice",
-          "value": "Sim — quero ver o plano e os workshops sugeridos"
+          "value": "Sim, quero ver o plano e os workshops sugeridos"
         }
       }
     },
@@ -301,35 +301,35 @@
         },
         "L2-Q1": {
           "type": "choice",
-          "value": "L3 — Uso Agent + Spaces, mensuro ganho"
+          "value": "L3: Uso Agent + Spaces, mensuro ganho"
         },
         "L2-Q2": {
           "type": "choice",
-          "value": "L3 — Uso 4+ ferramentas avançadas"
+          "value": "L3: Uso 4+ ferramentas avançadas"
         },
         "L2-Q3": {
           "type": "choice",
-          "value": "L3 — Trato IA como pair em várias fases"
+          "value": "L3: Trato IA como pair em várias fases"
         },
         "L2-Q4": {
           "type": "choice",
-          "value": "L3 — Já criei custom agents/skills/prompts"
+          "value": "L3: Já criei custom agents/skills/prompts"
         },
         "L2-Q5": {
           "type": "choice",
-          "value": "L3 — Time mantém ativamente"
+          "value": "L3: Time mantém ativamente"
         },
         "L2-Q6": {
           "type": "choice",
-          "value": "L3 — Mensuro DORA/DX + compartilho com colegas"
+          "value": "L3: Mensuro DORA/DX + compartilho com colegas"
         },
         "L2-Q7": {
           "type": "choice",
-          "value": "L3 — Scanners obrigatórios + SBOM + treinamento"
+          "value": "L3: Scanners obrigatórios + SBOM + treinamento"
         },
         "L3-Q1": {
           "type": "multi",
-          "value": "D8 — Security & Governance (GHAS, SBOM, red-lines); D5 — Agent Concepts (custom agents, MCP, A2A); D2 — Copilot Adoption (modos avançados, Coding Agent); D6 — Instructions / Memory (instructions files, prompt library); D7 — Best Practices (DORA, comunidade, mentoria)"
+          "value": "DS-D8 Security & Governance (GHAS, SBOM, red-lines); DS-D5 Agent Concepts (custom agents, MCP, A2A); DS-D2 Copilot Adoption (modos avançados, Coding Agent); DS-D6 Instructions / Memory (instructions files, prompt library); DS-D7 Best Practices (DORA, comunidade, mentoria)"
         },
         "L3-Q2": {
           "type": "text",
@@ -337,11 +337,11 @@
         },
         "L4-Q1": {
           "type": "multi",
-          "value": "Coding Agent (autônomo no GitHub.com — assigna issue, abre PR); Modo Ask (perguntas eficazes); Copilot Spaces (contexto compartilhado); Test generation; Modo Agent (autônomo no IDE)"
+          "value": "Coding Agent (autônomo no GitHub.com, assigna issue, abre PR); Modo Ask (perguntas eficazes); Copilot Spaces (contexto compartilhado); Test generation; Modo Agent (autônomo no IDE)"
         },
         "L4-Q2": {
           "type": "multi",
-          "value": "Multi-agent orchestration; Não tenho interesse em Foundry hoje; Microsoft Foundry — visão geral; Connectors (Dynamics, SAP, SharePoint)"
+          "value": "Multi-agent orchestration; Não tenho interesse em Foundry hoje; Microsoft Foundry, visão geral; Connectors (Dynamics, SAP, SharePoint)"
         },
         "L4-Q3": {
           "type": "multi",
@@ -365,7 +365,7 @@
         },
         "L5-Q3": {
           "type": "multi",
-          "value": "Sexta tarde (low-stress); Almoço (lunch & learn); Manhã de quarta/quinta; Não consigo síncrono — só self-paced"
+          "value": "Sexta tarde (low-stress); Almoço (lunch & learn); Manhã de quarta/quinta; Não consigo síncrono, só self-paced"
         },
         "L5-Q4": {
           "type": "choice",
@@ -385,7 +385,7 @@
         },
         "L6-Q4": {
           "type": "choice",
-          "value": "Talvez — depende do tópico"
+          "value": "Talvez, depende do tópico"
         },
         "L6-Q5": {
           "type": "text",
@@ -393,7 +393,7 @@
         },
         "L7-Q1": {
           "type": "multi",
-          "value": "Tudo bem — sem barreiras significativas; Falta de licença para Foundry / Azure AI"
+          "value": "Tudo bem, sem barreiras significativas; Falta de licença para Foundry / Azure AI"
         },
         "L7-Q2": {
           "type": "text",
@@ -436,35 +436,35 @@
         },
         "L2-Q1": {
           "type": "choice",
-          "value": "L1 — Sei o básico (inline completion)"
+          "value": "L1: Sei o básico (inline completion)"
         },
         "L2-Q2": {
           "type": "choice",
-          "value": "L1 — Conheço de nome"
+          "value": "L1: Conheço de nome"
         },
         "L2-Q3": {
           "type": "choice",
-          "value": "L1 — Uso IA pontualmente"
+          "value": "L1: Uso IA pontualmente"
         },
         "L2-Q4": {
           "type": "choice",
-          "value": "L1 — Conheço só o básico"
+          "value": "L1: Conheço só o básico"
         },
         "L2-Q5": {
           "type": "choice",
-          "value": "L1 — Tenho 1 arquivo básico"
+          "value": "L1: Tenho 1 arquivo básico"
         },
         "L2-Q6": {
           "type": "choice",
-          "value": "L1 — Auto-aprendizado isolado"
+          "value": "L1: Auto-aprendizado isolado"
         },
         "L2-Q7": {
           "type": "choice",
-          "value": "L1 — Política informal"
+          "value": "L1: Política informal"
         },
         "L3-Q1": {
           "type": "multi",
-          "value": "D7 — Best Practices (DORA, comunidade, mentoria); D3 — MS/GitHub Tooling (Foundry, Spaces, Spec Kit, MCP); D2 — Copilot Adoption (modos avançados, Coding Agent); D6 — Instructions / Memory (instructions files, prompt library)"
+          "value": "DS-D7 Best Practices (DORA, comunidade, mentoria); DS-D3 MS/GitHub Tooling (Foundry, Spaces, Spec Kit, MCP); DS-D2 Copilot Adoption (modos avançados, Coding Agent); DS-D6 Instructions / Memory (instructions files, prompt library)"
         },
         "L3-Q2": {
           "type": "text",
@@ -476,7 +476,7 @@
         },
         "L4-Q2": {
           "type": "multi",
-          "value": "A2A (Agent-to-Agent) protocol; Azure OpenAI Service (API direta); Não tenho interesse em Foundry hoje; MCP (Model Context Protocol) + Foundry MCP server; Microsoft Foundry — visão geral"
+          "value": "A2A (Agent-to-Agent) protocol; Azure OpenAI Service (API direta); Não tenho interesse em Foundry hoje; MCP (Model Context Protocol) + Foundry MCP server; Microsoft Foundry, visão geral"
         },
         "L4-Q3": {
           "type": "multi",
@@ -516,11 +516,11 @@
         },
         "L6-Q3": {
           "type": "choice",
-          "value": "Não — prefiro auto-aprendizado"
+          "value": "Não, prefiro auto-aprendizado"
         },
         "L6-Q4": {
           "type": "choice",
-          "value": "Sim — em vários tópicos"
+          "value": "Sim, em vários tópicos"
         },
         "L6-Q5": {
           "type": "text",
@@ -571,35 +571,35 @@
         },
         "L2-Q1": {
           "type": "choice",
-          "value": "L2 — Uso Ask/Edit no dia-a-dia"
+          "value": "L2: Uso Ask/Edit no dia-a-dia"
         },
         "L2-Q2": {
           "type": "choice",
-          "value": "L2 — Uso 2-3 ferramentas básicas"
+          "value": "L2: Uso 2-3 ferramentas básicas"
         },
         "L2-Q3": {
           "type": "choice",
-          "value": "L2 — TDD ou SDD ocasional"
+          "value": "L2: TDD ou SDD ocasional"
         },
         "L2-Q4": {
           "type": "choice",
-          "value": "L2 — Conheço modos do Copilot"
+          "value": "L2: Conheço modos do Copilot"
         },
         "L2-Q5": {
           "type": "choice",
-          "value": "L2 — Uso e atualizo ocasionalmente"
+          "value": "L2: Uso e atualizo ocasionalmente"
         },
         "L2-Q6": {
           "type": "choice",
-          "value": "L2 — Tenho Champion no time"
+          "value": "L2: Tenho Champion no time"
         },
         "L2-Q7": {
           "type": "choice",
-          "value": "L2 — GHAS ativo + política básica"
+          "value": "L2: GHAS ativo + política básica"
         },
         "L3-Q1": {
           "type": "multi",
-          "value": "D3 — MS/GitHub Tooling (Foundry, Spaces, Spec Kit, MCP); D6 — Instructions / Memory (instructions files, prompt library)"
+          "value": "DS-D3 MS/GitHub Tooling (Foundry, Spaces, Spec Kit, MCP); DS-D6 Instructions / Memory (instructions files, prompt library)"
         },
         "L3-Q2": {
           "type": "text",
@@ -607,7 +607,7 @@
         },
         "L4-Q1": {
           "type": "multi",
-          "value": "Modo Ask (perguntas eficazes); Coding Agent (autônomo no GitHub.com — assigna issue, abre PR); Copilot Spaces (contexto compartilhado)"
+          "value": "Modo Ask (perguntas eficazes); Coding Agent (autônomo no GitHub.com, assigna issue, abre PR); Copilot Spaces (contexto compartilhado)"
         },
         "L4-Q2": {
           "type": "multi",
@@ -635,7 +635,7 @@
         },
         "L5-Q3": {
           "type": "multi",
-          "value": "Após expediente (com hora extra); Não consigo síncrono — só self-paced"
+          "value": "Após expediente (com hora extra); Não consigo síncrono, só self-paced"
         },
         "L5-Q4": {
           "type": "choice",
@@ -643,7 +643,7 @@
         },
         "L6-Q1": {
           "type": "choice",
-          "value": "Sim — quero ser Champion ativo"
+          "value": "Sim, quero ser Champion ativo"
         },
         "L6-Q2": {
           "type": "text",
@@ -651,11 +651,11 @@
         },
         "L6-Q3": {
           "type": "choice",
-          "value": "Não — prefiro auto-aprendizado"
+          "value": "Não, prefiro auto-aprendizado"
         },
         "L6-Q4": {
           "type": "choice",
-          "value": "Sim — em vários tópicos"
+          "value": "Sim, em vários tópicos"
         },
         "L6-Q5": {
           "type": "text",

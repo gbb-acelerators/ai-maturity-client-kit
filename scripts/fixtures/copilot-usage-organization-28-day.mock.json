@@ -1,0 +1,35 @@
+{
+  "_note": "Illustrative mock of a Copilot usage metrics organization-28-day report (GitHub Docs [6]). Not real data. Used by scripts/build_v2_examples.py.",
+  "report_start_day": "2026-08-31",
+  "report_end_day": "2026-09-27",
+  "day_totals": [
+    {
+      "day": "2026-09-26",
+      "daily_active_users": 81,
+      "weekly_active_users": 102,
+      "monthly_active_users": 119,
+      "monthly_active_agent_users": 30,
+      "monthly_active_chat_users": 88,
+      "totals_by_ai_adoption_phase": [
+        {"phase": "No Cohort", "phase_number": 0, "total_engaged_users": 12, "users_in_phase_28d": 41},
+        {"phase": "Phase 1", "phase_number": 1, "total_engaged_users": 52, "users_in_phase_28d": 69},
+        {"phase": "Phase 2", "phase_number": 2, "total_engaged_users": 15, "users_in_phase_28d": 25},
+        {"phase": "Phase 3", "phase_number": 3, "total_engaged_users": 3, "users_in_phase_28d": 5}
+      ]
+    },
+    {
+      "day": "2026-09-27",
+      "daily_active_users": 84,
+      "weekly_active_users": 104,
+      "monthly_active_users": 120,
+      "monthly_active_agent_users": 31,
+      "monthly_active_chat_users": 89,
+      "totals_by_ai_adoption_phase": [
+        {"phase": "No Cohort", "phase_number": 0, "total_engaged_users": 11, "users_in_phase_28d": 40},
+        {"phase": "Phase 1", "phase_number": 1, "total_engaged_users": 54, "users_in_phase_28d": 70},
+        {"phase": "Phase 2", "phase_number": 2, "total_engaged_users": 16, "users_in_phase_28d": 25},
+        {"phase": "Phase 3", "phase_number": 3, "total_engaged_users": 3, "users_in_phase_28d": 5}
+      ]
+    }
+  ]
+}

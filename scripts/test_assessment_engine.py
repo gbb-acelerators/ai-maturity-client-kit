@@ -16,7 +16,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 import assessment_engine as eng  # noqa: E402
 
-EXAMPLE = ROOT / "referencia" / "exemplo-saida"
+EXAMPLE = ROOT / "referencia" / "exemplo-saida" / "v1"
 
 
 def load(path: Path) -> dict:

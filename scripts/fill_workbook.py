@@ -262,6 +262,11 @@ def run(args) -> int:
               f"/importar-respostas-excel first.", file=sys.stderr)
         return 1
     respostas = json.loads(src.read_text(encoding="utf-8"))
+    version = str(respostas.get("metadata", {}).get("framework_version")
+                  or "1")
+    if version.split(".")[0] not in ("0", "1"):
+        import fill_workbook_v2
+        return fill_workbook_v2.run(args)
     errors = validate(respostas)
     if errors:
         print("✗ Invalid levels (must be null or 0-4):\n  "

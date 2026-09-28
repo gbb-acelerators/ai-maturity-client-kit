@@ -1,9 +1,5 @@
 (() => {
-  const LOGO_PATHS = `
-    <path d="M528 200 L300 385 L528 565" fill="none" stroke="#FF3133" stroke-width="112" stroke-linecap="round" stroke-linejoin="round"/>
-    <rect x="518" y="455" width="136" height="136" rx="30" fill="#7ED956"/>
-    <line x1="855" y1="150" x2="692" y2="610" stroke="#FFDE59" stroke-width="112" stroke-linecap="round"/>
-    <path d="M975 200 L1203 385 L975 565" fill="none" stroke="#39B8FF" stroke-width="112" stroke-linecap="round" stroke-linejoin="round"/>`;
+  const LOGO_PATHS = `<rect x="1" y="1" width="10" height="10" fill="#F25022"/><rect x="12" y="1" width="10" height="10" fill="#7FBA00"/><rect x="1" y="12" width="10" height="10" fill="#00A4EF"/><rect x="12" y="12" width="10" height="10" fill="#FFB900"/>`;
 
   const CONFIG = {
     pt: { path: '', label: 'PT', code: 'pt-BR' },
@@ -64,7 +60,7 @@
   }
 
   function logoSvg(label, title) {
-    return `<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${escapeHtml(label)}"><title>${escapeHtml(title)}</title>${LOGO_PATHS}</svg>`;
+    return `<svg viewBox="0 0 23 23" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${escapeHtml(label)}"><title>${escapeHtml(title)}</title>${LOGO_PATHS}</svg>`;
   }
 
   function renderLanguageLinks(currentLang) {
@@ -81,7 +77,7 @@
     return `
       <header class="meta-bar">
         <a href="#main" class="brand">
-          ${logoSvg('paulasilva', 'paulasilva')}
+          ${logoSvg('Microsoft', 'Microsoft')}
           <div class="brand__text">
             <div class="brand__title">AI Maturity Kit</div>
             <div class="brand__sub">by ${escapeHtml(content.brand.name)}</div>
@@ -301,7 +297,7 @@
         <div class="footer__stripe" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
         <div class="container">
           <section class="footer__hub" aria-label="AI Maturity Kit hub">
-            <div class="footer__kicker">${escapeHtml(content.brand.name)} | ${escapeHtml(footer.roleTagline || 'AI-native software engineer')}</div>
+            <div class="footer__kicker">${escapeHtml(content.brand.name)} | ${escapeHtml(footer.roleTagline || 'Global Developer Solutions Advisor')}</div>
             <h2 class="footer__headline">${escapeHtml(footer.headlineBefore || 'Building the future of software with')} <span class="footer__headline-accent">${escapeHtml(footer.headlineAccent || 'AI.')}</span></h2>
             <p class="footer__summary">${escapeHtml(footer.summary || 'Everything here comes from practical field work with enterprise AI transformation: assessment kits, survey flows, scoring models, executive reports, and implementation guides built to help teams adopt AI with evidence.')}</p>
             <a class="footer__hub-link" href="${escapeHtml(data.hubUrl || 'https://agenticdevopsplatform.ai/')}">

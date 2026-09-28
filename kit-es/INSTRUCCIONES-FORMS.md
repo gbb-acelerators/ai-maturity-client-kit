@@ -1,128 +1,114 @@
-# Instrucciones Microsoft Forms · Edición Español
+# Cómo crear Microsoft Forms para el AI Maturity Assessment (v2)
 
-> Cómo publicar las 3 encuestas como Microsoft Forms y agregar las respuestas de vuelta al kit.
+🌐 [English](../kit-en/FORMS-INSTRUCTIONS.md) · Español
 
-🏠 [README](README.md) · 📘 [Paso a paso](PASO-A-PASO.md) · 🇧🇷 [PT-BR](../coleta/INSTRUCOES-FORMS.md)
+**`ASSESSMENT`** · 📖 [🏠 Índice](README.md) · [« Guía paso a paso](PASO-A-PASO.md) · Estás aquí · [» Survey-devs](../survey-devs/INSTRUCOES-FORMS-DEVS.md)
 
----
+> [!TIP]
+> Framework v2 tiene **5 preguntas de perfil y 61 preguntas puntuadas en 9 dimensiones** (127 elementos de Forms, cerca de 25 a 40 minutos por persona). Las instrucciones v1 (158 preguntas) están archivadas en [../coleta/v1/INSTRUCOES-FORMS.md](../coleta/v1/INSTRUCOES-FORMS.md).
 
-## ¿Por qué Microsoft Forms?
+## Comparación rápida de los 4 caminos
 
-Las 3 encuestas HTML en `formularios/` son convenientes para llenado individual, pero generalmente quieres **múltiples respondentes** (3-5 del liderazgo, 5+ devs anónimos, 3+ devs identificados para learning). Microsoft Forms lo facilita:
+| Camino | Tiempo de setup | Cuándo usar |
+| --- | --- | --- |
+| **A. Microsoft Forms completo** | 60 a 90 minutos | Varias personas por rol; quieres resultados por persona y flag de brecha de percepción. |
+| **B. Piloto con una dimensión** | 15 minutos | Validar redacción y duración con 3 a 5 personas antes del lanzamiento completo. |
+| **C. Template Excel o SharePoint** | 5 minutos | Workshops, o cuando Forms no está disponible: una fila por persona en [../coleta/template-export-forms.xlsx](../coleta/template-export-forms.xlsx). |
+| **D. Formulario HTML offline** | Ninguno | Una persona por vez, sin Microsoft 365: [../formularios/assessment-v2.html](../formularios/assessment-v2.html) exporta un `respostas.json` por persona. |
 
-- ✅ Recolección multi-respondente nativa
-- ✅ Exportación a Excel con todas las respuestas en un archivo
-- ✅ Modo anónimo (para el Developer Survey)
-- ✅ Validación de campos obligatorios
-- ✅ Mobile-friendly
+## Camino A: Microsoft Forms completo
 
-## Forma A · AI Maturity Assessment (158 preguntas)
+1. Abre el banco de preguntas en tu idioma: [../coleta/perguntas-para-forms.en.md](../coleta/perguntas-para-forms.en.md) (EN), [../coleta/perguntas-para-forms.md](../coleta/perguntas-para-forms.md) (PT-BR) o [../coleta/perguntas-para-forms.es.md](../coleta/perguntas-para-forms.es.md) (ES). Los tres son generados desde [../framework.v2.json](../framework.v2.json) y tienen las mismas preguntas, opciones, anclas y notas de alcance.
+2. Ve a <https://forms.office.com>, crea un formulario en blanco y nómbralo `AI-Assisted SDLC Maturity Assessment v2 - <Organización>`.
+3. Pega el [aviso de privacidad](#aviso-de-privacidad-pégalo-en-la-descripción-del-formulario) en la descripción del formulario y llena los corchetes.
+4. Agrega **10 secciones**: Sección 0 (perfil) y D1 a D9.
+5. Sección 0: agrega `R-Q1` a `R-Q5` como **Opción**. Activa **Múltiples respuestas** solo para `R-Q3`.
+6. Para cada pregunta puntuada agrega:
+   - una **Opción** (respuesta única) cuyo título comienza con el ID y dos puntos, por ejemplo `D4-Q3: Are well-scoped tasks delegated ...`;
+   - las 6 opciones, en orden, manteniendo el prefijo `L0` a `L4` y `NA` al inicio;
+   - las líneas **L3 looks like** y **L4 looks like**, y la **Scope note** cuando la pregunta tenga una, en el subtítulo;
+   - un **Texto largo** opcional con el título exacto `Evidence (D4-Q3)`.
+7. Opcional: en `...` > `Branching`, permite que personas que respondan Executive o Product / program manager en `R-Q1` salten D4 a D7. Las preguntas saltadas cuentan como no respondidas, no como `NA`.
+8. `Settings`: restringe a tu organización, o usa `Anyone can respond` si compartes por link.
+9. Comparte el link. Busca **al menos 3 personas por rol**: los resúmenes por persona marcan grupos menores como muestra baja, y las flags de brecha de percepción y divergencia entre personas encuestadas necesitan suficientes respuestas para ser útiles.
+10. Cuando haya respuestas: `Responses` > `Open in Excel`, descarga el archivo y ejecuta:
 
-### Crea el form
-
-1. Ve a <https://forms.office.com> y crea un nuevo form.
-2. Usa el banco de preguntas en `coleta/perguntas-para-forms.es.md` (Español, runtime-safe). El banco canónico PT-BR también está disponible en `coleta/perguntas-para-forms.md`.
-3. Para cada pregunta:
-   - Tipo **Elección** con 5 opciones: `L0 (Inicial)`, `L1 (En Desarrollo)`, `L2 (Definido)`, `L3 (Gestionado)`, `L4 (Optimizando)`.
-   - Agrega un **Texto largo** opcional para evidencia/comentarios.
-4. Usa **Secciones** para agrupar por pilar (P1, P2, P3).
-5. Tiempo recomendado de llenado: 60-90 minutos para la encuesta completa, o distribuir entre líderes por pilar.
-
-### Recolecta respuestas
-
-1. Comparte el link con **3 a 5 miembros del liderazgo**.
-2. Espera hasta que cierre la ventana de respuestas.
-3. Haz clic en **Abrir en Excel** → guarda como `respostas-forms.xlsx` en la raíz del workspace.
-
-### Agrega al kit
-
-```text
-/importar-respostas-excel
-```
-
-La skill calcula el **promedio simple por pregunta** entre todos los respondentes (mismo comportamiento que la plataforma de producción) y escribe `respostas.json` listo para `/pipeline-completo`.
-
-## Forma B · Developer Survey (75 preguntas, anónimo)
-
-1. Crea el form usando preguntas de `survey-devs/perguntas-para-forms-devs.es.md` (Español, runtime-safe). El banco canónico PT-BR también está disponible en `survey-devs/perguntas-para-forms-devs.md`.
-2. En **Configuración**: habilita **respuestas anónimas** (NO requieras email ni login).
-3. Comparte con todos los desarrolladores en alcance (5+ mínimo recomendado).
-4. Exporta como `respostas-survey-devs.xlsx` a la raíz del workspace.
-5. Ejecuta:
-
-```text
-/importar-survey-devs
-/insights-developer-survey
-```
-
-Output: `saida/insights-developer-survey-<FECHA>.md` con métricas de adopción, gaps de gobernanza, quotes anonimizadas y recomendaciones vinculadas a las capabilities de madurez.
-
-## Forma C · Learning & Growth Survey (32 preguntas, identificado)
+    ```bash
+    make import XLSX=respostas-forms.xlsx
+    make pipeline
+    ```
 
 > [!IMPORTANT]
-> Esta encuesta requiere **nombre + email** porque el output incluye listas de inscritos, asignación a cohorts y pares mentor↔mentee. Asegúrate de que los participantes consientan esto previamente.
+> El importador encuentra cada columna por el ID al inicio del título (`D1-Q1:`, `R-Q1:`) y cada columna de evidencia por `Evidence (<ID>)`. Detecta v2 a partir de esos IDs. No traduzcas el rótulo `Evidence (<ID>)` ni los prefijos de opciones.
 
-1. Crea el form usando preguntas de `survey-learning/perguntas-para-forms-learning.es.md` (Español). El banco canónico PT-BR también está disponible en `survey-learning/perguntas-para-forms-learning.md`.
-2. En **Configuración**: requiere **nombre y email** como campos obligatorios. Deshabilita el modo anónimo.
-3. Comparte con todos los desarrolladores que recibirán capacitación (3+ mínimo recomendado).
-4. Exporta como `respostas-survey-learning.xlsx` a la raíz del workspace.
-5. Ejecuta:
+## Camino B: Piloto con una dimensión
 
-```text
-/importar-survey-learning
-/plano-capacitacao
+Crea el formulario con la Sección 0 y una dimensión. D4 es un buen comienzo porque tiene 8 preguntas. Recolecta 3 a 5 respuestas, luego ejecuta:
+
+```bash
+python3 scripts/import_forms_excel.py <file> --allow-partial
 ```
 
-Output: `saida/plano-capacitacao-<FECHA>.md` con top 10 temas demandados, cohorts por dimensión D2-D8 con nombres de inscritos, candidatos a Champions Network, pares mentor↔mentee y calendario 90 días de talleres.
+El engine reporta cobertura `BLOCKED` porque hay menos de 25 preguntas respondidas. Usa el piloto solo para revisar redacción y duración.
 
-## Workflow recomendado
+## Camino C: Template Excel o SharePoint
 
-Para engagements de consultoría seria, ejecuta las 3 en este orden:
+1. Copia [../coleta/template-export-forms.xlsx](../coleta/template-export-forms.xlsx) a SharePoint o OneDrive. Su fila de encabezado tiene el formato exacto del export de Forms: columnas de perfil, columnas de respuesta `D#-Q#` y columnas `Evidence (D#-Q#)`.
+2. Cada persona llena una fila. Las respuestas deben empezar con `L0` a `L4` o `NA`. `R-Q3` acepta varias opciones separadas por `;`.
+3. Descarga el archivo y ejecuta `make import XLSX=<file>`.
 
-```text
-1. Encuesta B (devs anónimos)       → baseline comportamental
-2. Encuesta C (devs identificados)  → roadmap de capacitación con inscritos
-3. Encuesta A (liderazgo)           → assessment organizacional informado
-4. /wizard-implementacao             → cruza validación y auto-llena el Implementation Guide
-5. /pipeline-completo                → genera los 5 PDFs finales
+Un ejemplo lleno y sintético es [../coleta/v2-mock-forms-export.xlsx](../coleta/v2-mock-forms-export.xlsx) (14 personas ilustrativas; no es un cliente real).
+
+## Camino D: Formulario HTML offline más merge
+
+Usa este camino cuando las personas encuestadas no puedan acceder a Microsoft Forms o cuando necesites un flujo rápido de workshop.
+
+1. Envía [../formularios/assessment-v2.html](../formularios/assessment-v2.html) a cada persona, o ábrelo desde el repositorio.
+2. El formulario se ejecuta offline, soporta EN, PT-BR y ES, muestra la nota de alcance de cada pregunta y exporta una persona por `respostas.json`.
+3. Recolecta los archivos exportados en una carpeta, por ejemplo `exports/`.
+4. Une los archivos:
+
+   ```bash
+   make merge DIR=exports/
+   ```
+
+El script de merge asigna IDs únicos `R01`, `R02` y así sucesivamente. Rechaza archivos v1 y organizaciones mixtas excepto cuando pasas `--org` o `--allow-mixed-org` a `scripts/merge_offline_respostas.py`. Hace backup de un `respostas.json` existente antes de escribir el archivo unido.
+
+Luego ejecuta:
+
+```bash
+make pipeline
 ```
 
-Esta secuencia hace que el assessment del liderazgo sea **informado por datos** en vez de aspiracional, y produce un plan de capacitación con nombres concretos.
+## Aviso de privacidad (pégalo en la descripción del formulario)
 
-## Traducir las preguntas
+```text
+Esta evaluación pregunta sobre prácticas de ingeniería, no sobre desempeño individual.
+Recolectamos tu rol, el alcance de tus respuestas, las herramientas de IA que usas, tus años de experiencia y tu tiempo hands-on, para que los resultados puedan mostrarse por rol.
+Controlador: [organización]. Finalidad: diagnóstico de madurez en IA y roadmap.
+Acceso: [nombres o equipo]. Retención: [período], luego eliminación.
+Los resultados se reportan de forma agregada; grupos con menos de 3 personas se marcan como muestra baja.
+Preguntas o solicitudes de eliminación: [contacto].
+```
 
-Las 3 encuestas ya tienen bancos runtime-safe en Inglés y Español:
+Alinea estos puntos con tu equipo de privacidad o legal antes del lanzamiento (LGPD / GDPR); esta lista no es asesoría legal:
 
-- `coleta/perguntas-para-forms.en.md`
-- `coleta/perguntas-para-forms.es.md`
+- **Minimización:** el formulario no necesita nombre ni email. Si Forms los recolecta automáticamente, desactívalo o restringe el acceso al export.
+- **Almacenamiento:** mantén `.xlsx`, `respostas.json` y `saida/` en almacenamiento administrado con acceso restringido. `respostas.json` y `saida/` están en `.gitignore`; nunca hagas commit de ellos.
+- **Retención y eliminación:** elimina las respuestas de Forms y los archivos exportados cuando termine el período de retención.
 
-- `survey-devs/perguntas-para-forms-devs.en.md`
-- `survey-devs/perguntas-para-forms-devs.es.md`
-- `survey-learning/perguntas-para-forms-learning.en.md`
-- `survey-learning/perguntas-para-forms-learning.es.md`
+## Cómo las respuestas se convierten en scores
 
-Puedes:
+El engine ([../scripts/assessment_engine.py](../scripts/assessment_engine.py)) sigue la sección 8 de [../coleta/AI-Maturity-Form-Questions_v2.md](../coleta/AI-Maturity-Form-Questions_v2.md): media agrupada por pregunta, media por dimensión, media ponderada de dimensiones, bandas de nivel semiabiertas, y flags de baja confianza, riesgo de amplificación, brecha de percepción, divergencia entre personas encuestadas, alcance, L3/L4 sin verificación y cobertura de evidencia.
 
-- **Traducir para los respondentes** en Microsoft Forms manteniendo los IDs en los títulos — el Excel exportado se parsea correctamente.
-- **Mantener los IDs sin cambios** en los títulos de Microsoft Forms y en el JSON de salida — los PDFs se renderizan en Español vía `relatorios/i18n/es.json`.
+Los cross-checks opcionales de evidencia vienen de `make scan-repos` y `make telemetry`. Aparecen en el PDF de resumen y se listan como riesgos en la guía de implementación cuando desafían una respuesta.
 
-Si quieres un banco de preguntas totalmente traducido, contacta a Paula Silva en [LinkedIn](https://linkedin.com/in/paulanunes).
+## Solución de problemas
 
-## ¿Atascado en algún paso?
-
-| Problema | Solución |
+| Síntoma | Corrección |
 | --- | --- |
-| Las columnas del Excel no coinciden con los IDs | Verifica que no reordenaste preguntas en Forms — los IDs son posicionales |
-| `/importar-respostas-excel` falla | Asegúrate que el archivo está en la raíz y se llama exactamente `respostas-forms.xlsx` |
-| Faltan respuestas anónimas para encuesta C | La encuesta C requiere nombre+email — re-publica sin modo anónimo |
-| Respuestas vacías rompen la agregación | La skill salta celdas vacías; déjalas en blanco en vez de poner "N/A" |
-
-## Continuar leyendo
-
-| ⬅ Anterior | Siguiente ➡ |
-| :--- | ---: |
-| [📘 Paso a paso](PASO-A-PASO.md) | [🌐 Sitio](https://paulasilvatech.github.io/ai-maturity-client-kit/es/) |
-
----
-
-**Paula Silva** — Software Global Black Belt | [LinkedIn](https://linkedin.com/in/paulanunes)
+| `No column header starts with a question ID` | Los títulos de preguntas no comienzan con `D1-Q1:`. Renómbralos en Forms y exporta de nuevo. |
+| `Only N of 61 v2 questions were found` | Algunos títulos perdieron el ID. Usa `--allow-partial` solo para piloto. |
+| `unrecognized value at R-Q1` | Se editó el texto de la opción. Usa el texto exacto del banco de preguntas (cualquiera de los 3 idiomas se acepta). |
+| Heatmap de persona dice muestra baja | Menos de 3 personas en ese rol. Invita a más personas o lee esa columna con cuidado. |
+| `make merge` rechaza un archivo | Verifica si es un export v1 o si la organización difiere de los otros exports. |

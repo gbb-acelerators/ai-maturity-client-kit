@@ -1,142 +1,178 @@
-# Step-by-step Guide · English Edition
+<!-- Generated from GUIA-PASSO-A-PASSO.md by scripts/build_kit_docs.py. Edit the source, not this file. -->
+# Step by step: AI Maturity Assessment
 
-> Complete walkthrough to run the AI Maturity Assessment kit from zero to 5 final PDFs.
+This guide runs the framework v2 assessment from collection to reports. v1 remains available for archived inputs.
 
-🏠 [Back to README](README.md) · 🌐 [Site](https://paulasilvatech.github.io/ai-maturity-client-kit/en/) · 🇧🇷 [PT-BR](../GUIA-PASSO-A-PASSO.md) · 🇪🇸 [ES](../kit-es/PASO-A-PASO.md)
+## Quickstart
 
----
-
-## Prerequisites
-
-| Requirement | Version | Verify with |
-|---|---|---|
-| Python | 3.10+ | `python3 --version` |
-| VS Code | latest | `code --version` |
-| GitHub Copilot Chat | Pro / Business / Enterprise | Sidebar icon |
-| pip packages | `jinja2`, `weasyprint`, `openpyxl` | `pip list \| grep -E "jinja2\|weasy\|openpyxl"` |
-
-On **macOS**, WeasyPrint additionally needs `brew install pango`. On **Linux/WSL**: `sudo apt install libpango-1.0-0 libpangoft2-1.0-0`.
-
-> [!TIP]
-> Run `make smoke` after extracting the ZIP. It validates every prerequisite in 5 seconds.
-
-## Step 1 — Get the kit
-
-Download the ZIP from the site, extract it, and open the extracted folder in VS Code.
+Fastest path to a first PDF:
 
 ```bash
-make install-deps   # installs jinja2 + weasyprint + openpyxl
-make smoke          # validates the environment
+make install-deps
+make demo
+open saida/demo/*.pdf
 ```
 
-Expected output: `✅ Smoke test passed (X checks).`
-
-## Step 2 — Choose your data source
-
-You have **3 options** to fill the 158 framework questions:
-
-### Option A — Sample data (fastest, ~3 min)
+Real client flow:
 
 ```bash
-cp respostas.json.example respostas.json
+# Collect responses with Microsoft Forms, or with offline HTML exports.
+make merge DIR=exports/
+# If using Microsoft Forms instead of offline exports:
+make import XLSX=respostas-forms.xlsx
+make pipeline
+# Optional evidence cross-checks.
+make scan-repos REPOS=~/src
+make telemetry METRICS=copilot-usage.json SEATS=200
+# Fill implementation-guide-inputs.json with the wizard, then render again.
+make pipeline
 ```
 
-Uses the fictional **Cliente Exemplo S.A.** with 46 pre-filled responses. Great to validate the full pipeline before running for real.
+## 1. Choose the flow
 
-### Option B — Manual fill
+Use v2 for new assessments. Use v1 only for historical comparison or existing `respostas.json` files without `metadata.framework_version`.
 
-Edit `respostas.json` and set `level` (0 to 4) and `evidence` for each question. Skip questions you can't answer; the algorithm uses only answered ones.
+- v2 spec: [coleta/AI-Maturity-Form-Questions_v2.md](../coleta/AI-Maturity-Form-Questions_v2.md).
+- v2 form: [formularios/assessment-v2.html](../formularios/assessment-v2.html).
+- v2 Forms instructions: [coleta/INSTRUCOES-FORMS.md](FORMS-INSTRUCTIONS.md).
+- v2 dimension pages: [referencia/dimensoes/](../referencia/dimensoes/).
+- v1 archive: [coleta/v1/](../coleta/v1/), [formularios/v1/](../formularios/v1/), [referencia/v1/](../referencia/v1/).
 
-### Option C — Microsoft Forms (multi-respondent)
+## 2. Prepare inputs
 
-1. Publish the 3 HTML forms at `formularios/` as 3 Microsoft Forms surveys (see `coleta/INSTRUCOES-FORMS.md` translated below).
-2. Collect responses from leadership (3-5 respondents recommended).
-3. Export the consolidated Excel to the workspace root as `respostas-forms.xlsx`.
-4. Run `/importar-respostas-excel` in Copilot Chat to auto-aggregate to `respostas.json`.
-
-## Step 3 — Run the pipeline
-
-Open VS Code → Copilot Chat → switch to **Agent mode** (dropdown next to the icon).
-
-### Easiest path: concierge agent
-
-```
-@ai-maturity-assistant
+```bash
+make init
 ```
 
-The agent reads your workspace state and asks one question at a time, invoking each skill in the correct order. Recommended for first-time users.
+This copies `respostas.v2.json.example` to `respostas.json` if the file does not already exist.
 
-### Power user path: full orchestrator
+You can import a Microsoft Forms export:
 
-```
-/pipeline-completo
-```
-
-Runs the 6 steps end-to-end (auto-detects Excel and wizard inputs).
-
-### Manual path: one skill at a time
-
-```
-/calcular-scores
-/gap-analysis
-/recomendar-estrategias
-/wizard-implementacao
-/gerar-relatorio
+```bash
+make import XLSX=respostas-forms.xlsx
 ```
 
-Useful when you want to inspect each intermediate JSON before continuing.
+You can also use the offline form. Each respondent opens [formularios/assessment-v2.html](../formularios/assessment-v2.html), exports one `respostas.json`, and sends it to the facilitator. Put the exports in one folder and run:
 
-## Step 4 — Inspect outputs
+```bash
+make merge DIR=exports/
+```
 
-Everything goes into `saida/`:
+The merge assigns unique respondent IDs, refuses v1 files, refuses mixed organizations unless `--org` or `--allow-mixed-org` is used, and backs up an existing `respostas.json` before writing the merged file.
 
-| File | Purpose |
-|---|---|
-| `scores-<DATE>.json` | Scores per capability / pillar / overall |
-| `gaps-<DATE>.json` | Prioritized gaps P0 / P1 / P2 / P3 |
-| `recomendacoes-<DATE>.json` | Strategies S1-S7 mapped to gaps + technologies |
-| `pontuacao-preenchida-<DATE>.xlsx` | Auditable Excel with live formulas |
-| **5 PDFs** | Score Justification + 3 Pillar Roadmaps + Implementation Guide |
+## 3. Understand v2 structure
 
-PDFs are **~2 MB total**, ready to present to the board.
+- 5 profile questions: `R-Q1` to `R-Q5`.
+- 61 scored questions: `D#-Q#`.
+- 9 dimensions: D1 AI Strategy, Policy and Governance; D2 Enablement, Skills and Culture; D3 Plan, Specify and Design; D4 Code and Context Engineering; D5 Review, Quality and Testing; D6 Security and AI Supply Chain; D7 Deliver and Operate; D8 Engineering Foundations; D9 Measurement, Value and AI FinOps.
+- Levels: L0 Not started, L1 Exploring, L2 Adopting, L3 Scaling, L4 AI-native, plus `NA`.
+- Reference pages for D1 to D9 include scope notes, anchors, evidence examples, basis, Developer Survey context, and cited references.
 
-## Step 5 — Customize the Implementation Guide (Part 4 PDF)
+## 4. Run deterministic scoring
 
-The Implementation Guide PDF has 9 client-specific inputs (Steering Committee members, TPO, RACI, comms plan, training plan, ADKAR notes, 3 quick-wins waves). Fill them in 3 ways:
+```bash
+make scores
+```
 
-- **HTML wizard**: open `wizard/implementation-guide-wizard.html` in any browser, fill, download JSON.
-- **JSON template**: copy `wizard/implementation-guide-inputs.template.json` and edit.
-- **Chat**: run `/wizard-implementacao` and answer in conversation.
+or:
 
-The Learning & Growth Survey auto-fills 6 of the 9 inputs if you ran survey C first.
+```bash
+python3 scripts/assessment_engine.py all
+```
 
-## Troubleshooting
+Do not compute scores by hand. The engine writes:
 
-> [!WARNING]
-> **`/calcular-scores` doesn't show up when I type `/`**
->
-> You're not in Agent mode. Click the dropdown next to the Copilot icon and pick **Agent**. Then reload the window (`Cmd+Shift+P` → "Developer: Reload Window").
+- `saida/scores.json`
+- `saida/gaps.json`
+- `saida/recomendacoes.json`
 
-> [!WARNING]
-> **WeasyPrint error on macOS: "no library called pango"**
->
-> `brew install pango glib gobject-introspection libffi`
+Coverage is OK at 37 or more answered questions, WARNING at 25 to 36, and BLOCKED below 25. Respondent divergence is flagged when a dimension has at least 3 respondent scores and a standard deviation of 1.0 or more.
 
-> [!WARNING]
-> **Scores look low / many "no answer"**
->
-> Coverage threshold: 40+ answered = OK, 25-39 = WARNING (preliminary), <25 = BLOCKED. Check `saida/scores-<DATE>.json::metadata::coverage`.
+## 5. Create the workbook
 
-## Stuck on a step?
+```bash
+make workbook
+```
 
-Contact Paula Silva on [LinkedIn](https://linkedin.com/in/paulanunes).
+For v2, the dispatcher writes `saida/pontuacao-v2-<date>.xlsx`. It includes formulas and an engine cross-check column. The formulas round comparisons to 9 decimal places so priority boundaries ignore floating-point noise.
 
-## Continue reading
+## 6. Render reports
 
-| ⬅ Previous          | Next ➡                                       |
-| :------------------ | -------------------------------------------: |
-| [🏠 README](README.md) | [📝 Forms instructions](FORMS-INSTRUCTIONS.md) |
+```bash
+make pipeline
+```
 
----
+or, after scores already exist:
 
-**Paula Silva** — Software Global Black Belt | [LinkedIn](https://linkedin.com/in/paulanunes)
+```bash
+python3 relatorios/scripts/build_payload_and_render.py
+```
+
+v2 report files:
+
+- `saida/v2_assessment_summary.pdf`
+- `saida/v2_roadmap_g1.pdf`, D1, D2, D9.
+- `saida/v2_roadmap_g2.pdf`, D3, D4, D5.
+- `saida/v2_roadmap_g3.pdf`, D6, D7, D8.
+- `saida/v2_implementation_guide.pdf`.
+- `saida/payload_v2.json`.
+
+v1 inputs still produce the archived 5 PDF set.
+
+## 7. Add evidence cross-checks
+
+Run either or both before the final `make pipeline`:
+
+```bash
+make scan-repos REPOS=~/src
+make telemetry METRICS=copilot-usage.json SEATS=200
+```
+
+Repository scan output is `saida/repo-scan.json`. Copilot metrics output is `saida/telemetria.json`. The summary report shows an Evidence cross-checks section and flags answers above what the evidence supports. The implementation guide lists those flags as risks. Without the files, the PDF explains how to produce them.
+
+## 8. Fill the implementation guide wizard
+
+Open the generated trilingual wizard:
+
+```bash
+open wizard/implementation-guide-wizard.html
+```
+
+It saves 11 fields to `implementation-guide-inputs.json`: `executive_steering_committee`, `tpo`, `dimension_owners`, `raci_matrix`, `communication_plan`, `training_plan`, `adkar_notes`, `risk_register`, `quick_wins_w1_4`, `quick_wins_w5_8`, and `quick_wins_w9_12`. Empty fields render as `to fill with the client`, not sample content.
+
+Mode D can prefill 7 fields from the Learning Survey plan:
+
+```bash
+python3 wizard/scripts/auto_fill_from_plano.py --lang en
+```
+
+After the wizard, run `make pipeline` again.
+
+## 9. Compare rounds
+
+```bash
+make compare BEFORE=old-respostas.json AFTER=respostas.json
+```
+
+The comparison script supports v2 to v2 comparable deltas, v1 to v2 indicative baseline through `v1_lineage`, and v1 to v1. It writes `saida/comparacao-rodadas.pdf` when PDF rendering is available.
+
+## 10. Use companion surveys
+
+Developer Survey and Learning and Growth Survey provide context. They do not change v2 scores.
+
+- Developer Survey dimensions are `DS-D2` to `DS-D8` in outputs.
+- The v2 summary PDF shows Developer Survey context when `saida/maturidade-developer-survey-*.json` exists.
+- Learning Survey output can feed the implementation guide wizard Mode D.
+- Survey scripts write EN, PT-BR or ES (`--lang en|pt-br|es`), and score forms built in any of the three languages the same way.
+
+## 11. Validate repository sources
+
+```bash
+python3 scripts/build_kit_docs.py
+python3 scripts/build_kit_docs.py --check
+make validate-v2
+make validate-docs
+make test
+```
+
+See [CHANGELOG.md](../CHANGELOG.md) for release history.

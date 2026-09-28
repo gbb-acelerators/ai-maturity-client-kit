@@ -1,0 +1,549 @@
+{
+  "options": [
+    "L0 - Não iniciado: Nenhuma prática ainda, ou IA não permitida para esta atividade",
+    "L1 - Explorando: Uso individual ou ad hoc, sem orientação acordada (mais de 0% e até 25% das equipes)",
+    "L2 - Adotando: Prática no nível da equipe com orientação escrita (26-50% das equipes)",
+    "L3 - Escalando: Padrão organizacional, governado e medido (51-90% das equipes)",
+    "L4 - Nativo em IA: Universal (>90%), continuamente avaliado e melhorado, vinculado a resultados",
+    "NA - Não sei / Não se aplica"
+  ],
+  "dimensions": {
+    "D1": {
+      "name": "Estratégia, política e governança de IA",
+      "why_it_matters": "DORA identifica uma \"postura de IA clara e comunicada\" como amplificadora dos benefícios da IA [1], [2]; o Microsoft CAF afirma que \"todo agente deve ser observável, governado e seguro\" [19]."
+    },
+    "D2": {
+      "name": "Capacitação, habilidades e cultura",
+      "why_it_matters": "O Gartner espera que GenAI exija que 80% da força de trabalho de engenharia se requalifique até 2027 [30]; DORA pergunta sobre treinamento, aprendizagem entre pares e suporte à experimentação [2]."
+    },
+    "D3": {
+      "name": "Planejar, especificar e desenhar",
+      "why_it_matters": "em agentic coding, \"as pessoas tomam a maior parte das decisões de planejamento (o que fazer) e Claude toma a maior parte das decisões de execução (como fazer)\" [24]; a qualidade da definição da tarefa impulsiona a qualidade da saída do agente [8], [27]."
+    },
+    "D4": {
+      "name": "Código e engenharia de contexto",
+      "why_it_matters": "GitHub mede a profundidade de adoção como uma progressão de \"Code first\" para \"Agent first\" e \"Multi-agent\" [6]; a Anthropic descreve contexto como \"um recurso finito com retornos marginais decrescentes\" [25]."
+    },
+    "D5": {
+      "name": "Revisão, qualidade e testes",
+      "why_it_matters": "DORA vincula o volume de mudanças impulsionadas por IA à instabilidade, a menos que existam sistemas de controle fortes [3]; GitHub exige revisão humana antes que PRs de agentes sejam mergeados [7]; 46% dos desenvolvedores desconfiam da precisão da saída de IA [37]."
+    },
+    "D6": {
+      "name": "Segurança e cadeia de suprimentos de IA",
+      "why_it_matters": "OWASP lista prompt injection (LLM01:2025), supply chain (LLM03:2025) e agência excessiva (LLM06:2025) entre os principais riscos [38], e agent goal hijack (ASI01) em primeiro lugar para aplicações agentic [39]; NIST SP 800-218A adiciona ao SSDF práticas para o desenvolvimento de modelos de IA [40]."
+    },
+    "D7": {
+      "name": "Entregar e operar",
+      "why_it_matters": "mais mudanças geradas por IA precisam de redes de segurança fortes na entrega [3], [5]; a Microsoft recomenda observação contínua da atividade de agentes [19] e está estendendo agentes para operações de cloud [22]."
+    },
+    "D8": {
+      "name": "Fundamentos de engenharia (amplificadores de IA)",
+      "why_it_matters": "DORA constata que essas capacidades amplificam os benefícios da adoção de IA, e que uma plataforma interna de alta qualidade se correlaciona com a capacidade de desbloquear valor de IA [1], [3]."
+    },
+    "D9": {
+      "name": "Medição, valor e AI FinOps",
+      "why_it_matters": "estudos controlados variam de 55.8% mais rápido [33] e 26.08% mais tarefas concluídas [34] a 19% mais lento com uma forte lacuna de percepção [35], portanto as organizações precisam de sua própria medição objetiva; o Gartner prevê que os custos de AI coding ultrapassarão o salário médio de um desenvolvedor até 2028 [32]."
+    }
+  },
+  "questions": {
+    "D1-Q1": {
+      "title": "Estratégia de IA para engenharia de software",
+      "text": "Existe uma estratégia documentada de IA para engenharia de software, patrocinada pela liderança, que declare objetivos explícitos e seja comunicada a todas as equipes de engenharia?",
+      "l3": "Estratégia publicada e revisada pelo menos anualmente; objetivos (por exemplo entrega, qualidade, developer experience) têm responsáveis; a maioria dos engenheiros consegue dizer onde encontrá-la.",
+      "l4": "A estratégia é revisada a partir de resultados medidos (D9) e vinculada a OKRs de negócio; o progresso é reportado à liderança em uma cadência fixa.",
+      "evidence_examples": "Documento de estratégia, comunicação da liderança, entradas de OKR."
+    },
+    "D1-Q2": {
+      "title": "Política de uso aceitável",
+      "text": "Está claro para os engenheiros como eles podem e não podem usar IA no trabalho, incluindo quais dados podem ser compartilhados com ferramentas de IA?",
+      "l3": "Política escrita de uso aceitável cobre code, dados de clientes, segredos e IP de terceiros; faz parte do onboarding; exceções têm um responsável.",
+      "l4": "A política é aplicada por controles técnicos (por exemplo content exclusion, prevenção contra perda de dados, allowlists) e auditada; violações disparam alertas automatizados.",
+      "evidence_examples": "Link da política, checklist de onboarding, configuração de controles."
+    },
+    "D1-Q3": {
+      "title": "Ferramentas e modelos aprovados",
+      "text": "Existe um catálogo mantido de ferramentas, recursos e modelos de IA aprovados para desenvolvimento de software, gerenciado por políticas enterprise ou da organização?",
+      "l3": "Políticas enterprise/da organização habilitam apenas recursos e modelos aprovados; o catálogo lista responsável, tratamento de dados e data de revisão para cada ferramenta.",
+      "l4": "Novos modelos e ferramentas passam por uma avaliação definida (qualidade, custo, segurança) antes da habilitação; os descontinuados são removidos conforme cronograma.",
+      "evidence_examples": "Configurações de política do Copilot, catálogo de ferramentas, registros de avaliação de modelos."
+    },
+    "D1-Q4": {
+      "title": "Proteção de dados, IP e residência",
+      "text": "Requisitos de residência, retenção, propriedade intelectual e privacidade de dados estão definidos e aplicados às ferramentas e agentes de IA usados no SDLC?",
+      "l3": "Requisitos são documentados por ferramenta; repositórios ou arquivos sensíveis são excluídos do contexto de IA; retenção de logs e memória segue a política.",
+      "l4": "A conformidade é avaliada continuamente (por exemplo com um compliance manager) e mapeada a regulamentações como o EU AI Act quando aplicável.",
+      "evidence_examples": "Registros de processamento de dados, configurações de exclusão, política de retenção."
+    },
+    "D1-Q5": {
+      "title": "Níveis de autonomia para trabalho com IA",
+      "text": "A organização definiu quais tarefas são lideradas pelo desenvolvedor, conduzidas por desenvolvedor com agente, ou totalmente lideradas por agente, e os controles exigidos para cada nível?",
+      "l3": "Uma matriz publicada mapeia tipos de tarefa (por exemplo upgrades de dependências, geração de testes, trabalho de feature, mudanças em produção) para níveis de autonomia e aprovações exigidas.",
+      "l4": "A matriz é aplicada por regras da plataforma (por exemplo branch protection, revisores exigidos por caminho) e atualizada a partir de dados de incidentes e qualidade.",
+      "evidence_examples": "Matriz de autonomia, rulesets de repositório, registros de mudança.",
+      "scope_note": "Mede a política que define níveis de autonomia. Como as tarefas são escritas para agentes é D3-Q3; com que frequência o trabalho é delegado é D4-Q3."
+    },
+    "D1-Q6": {
+      "title": "IA responsável e framework de risco",
+      "text": "O uso de IA em engenharia de software é governado por um padrão de IA responsável e por um framework de risco reconhecido (por exemplo Microsoft Responsible AI Standard, NIST AI RMF, ISO/IEC 42001)?",
+      "l3": "Um framework nomeado é adotado; riscos relacionados a IA estão no registro de riscos com responsáveis e revisões.",
+      "l4": "Controles do framework são auditados interna ou externamente; resultados retroalimentam política e tooling.",
+      "evidence_examples": "Mapeamento do framework, entradas no registro de riscos, relatórios de auditoria."
+    },
+    "D1-Q7": {
+      "title": "Registro e identidade de agentes",
+      "text": "Todo agente de IA usado no SDLC (coding agents, review agents, custom agents, pipeline agents) está registrado com um responsável, um propósito, uma identidade distinta e um escopo de acesso definido?",
+      "l3": "Um único inventário lista todos os agentes com responsável, plataforma e permissões; cada agente executa sob sua própria identidade, não uma conta humana compartilhada.",
+      "l4": "Agentes não registrados (\"shadow\") são detectados automaticamente; o ciclo de vida de identidade (criação, revisão, remoção) é automatizado.",
+      "evidence_examples": "Inventário de agentes, configuração de identidade (por exemplo Microsoft Entra Agent ID), revisões de acesso."
+    },
+    "D2-Q1": {
+      "title": "Treinamento estruturado de IA",
+      "text": "Os engenheiros recebem treinamento estruturado nas ferramentas de IA e workflows de agentes aprovados, além do onboarding padrão do fornecedor?",
+      "l3": "Currículo baseado em função (desenvolvedor, revisor, plataforma, segurança) com conclusão rastreada; o treinamento é exigido antes que recursos de agentes sejam habilitados; ensina padrões que preservam o aprendizado (pedir explicações, tentar primeiro, depois comparar) e não apenas delegação total.",
+      "l4": "O currículo é atualizado a cada trimestre com base em dados de uso e padrões de falha; existem trilhas avançadas (orquestração de agentes, avaliação).",
+      "evidence_examples": "Trilhas de aprendizagem, taxas de conclusão, regras de bloqueio de habilitação."
+    },
+    "D2-Q2": {
+      "title": "Aprendizagem entre pares e champions",
+      "text": "Existem formatos regulares de aprendizagem entre pares (demos, brown bags, office hours) e uma rede de champions de IA entre equipes?",
+      "l3": "Champions existem na maioria das equipes; sessões ocorrem pelo menos mensalmente; gravações e exemplos são compartilhados em um único lugar.",
+      "l4": "Uma comunidade de prática faz curadoria de ativos reutilizáveis (instruções, arquivos de prompt, agentes) e mede sua reutilização.",
+      "evidence_examples": "Lista de champions, calendário de sessões, repositório compartilhado de exemplos."
+    },
+    "D2-Q3": {
+      "title": "Suporte à experimentação",
+      "text": "A organização dá aos engenheiros tempo, sandboxes e orçamento para experimentar com segurança novas ferramentas de IA e padrões de agentes?",
+      "l3": "Ambientes em sandbox e um caminho leve de solicitação existem; experimentos são registrados e seus resultados compartilhados.",
+      "l4": "Experimentos bem-sucedidos entram no catálogo aprovado (D1-Q3) por meio de um caminho definido em semanas.",
+      "evidence_examples": "Assinaturas de sandbox, log de experimentos, registros de promoção."
+    },
+    "D2-Q4": {
+      "title": "Habilidades de engenharia de contexto",
+      "text": "Os engenheiros são treinados para dar às ferramentas de IA o contexto correto (escopo claro da tarefa, arquivos relevantes, restrições, exemplos) e manter o contexto enxuto?",
+      "l3": "Orientações e exemplos sobre engenharia de contexto fazem parte do treinamento; equipes revisam suas instruções e prompts quanto à qualidade.",
+      "l4": "Práticas de contexto são medidas (por exemplo taxa de sucesso ou uso de tokens por tarefa) e melhoradas ao longo do tempo.",
+      "evidence_examples": "Páginas de orientação, checklists de review, métricas antes/depois."
+    },
+    "D2-Q5": {
+      "title": "Papéis e trajetórias de carreira",
+      "text": "Descrições de cargo, frameworks de carreira e expectativas de desempenho foram atualizados para engenharia assistida por IA e agentic engineering (por exemplo dirigir agentes, revisar saída de IA, engenharia de IA)?",
+      "l3": "Perfis de função atualizados são publicados; avaliações de desempenho reconhecem uso efetivo de IA e qualidade de review, não volume bruto de saída.",
+      "l4": "Existem funções dedicadas (por exemplo engenheiro de IA, responsável pela plataforma de agentes) com um caminho claro de crescimento.",
+      "evidence_examples": "Framework de carreira, descrições de função."
+    },
+    "D2-Q6": {
+      "title": "Onboarding assistido por IA",
+      "text": "Novos engenheiros usam ferramentas de IA para entender codebases e se tornarem produtivos, com tempo de ramp-up medido?",
+      "l3": "O onboarding inclui tours de codebase guiados por IA e instruções de repositório; tempo até o primeiro PR mergeado é rastreado; novos engenheiros são avaliados em leitura de code e debugging, não apenas em saída.",
+      "l4": "Métricas de ramp-up e habilidades são comparadas entre coortes e usadas para melhorar material e instruções de onboarding.",
+      "evidence_examples": "Playbook de onboarding, dados de tempo até primeiro PR, resultados de verificação de habilidades."
+    },
+    "D3-Q1": {
+      "title": "IA no refinamento de backlog",
+      "text": "IA é usada para redigir e refinar issues ou user stories, incluindo critérios de aceite, com um responsável humano que as aprova?",
+      "l3": "A maioria das equipes usa IA para redigir ou melhorar itens de trabalho; critérios de aceite são obrigatórios antes do trabalho começar.",
+      "l4": "A qualidade dos itens de trabalho (clareza, testabilidade) é medida e vinculada a retrabalho e cycle time.",
+      "evidence_examples": "Templates de issue, exemplos de itens de trabalho, verificações de qualidade."
+    },
+    "D3-Q2": {
+      "title": "Especificação antes da implementação",
+      "text": "Para mudanças não triviais, um plano ou especificação escrito é produzido e revisado antes que um agente de IA implemente a mudança?",
+      "l3": "Planos ou specs são armazenados no repositório ou vinculados à issue, e são revisados por um humano antes da implementação pelo agente.",
+      "l4": "Specs são o contrato para verificação automatizada (testes, checks) e são mantidas sincronizadas com o code.",
+      "evidence_examples": "Arquivos de spec, reviews de plano, PRs que referenciam specs."
+    },
+    "D3-Q3": {
+      "title": "Escopo de tarefas para agentes",
+      "text": "As tarefas dadas a coding agents são bem delimitadas (pequenas, com critérios de aceite claros e ponteiros para code relevante) antes da atribuição?",
+      "l3": "Equipes seguem orientação escrita para issues prontas para agentes; tarefas grandes demais são divididas antes da atribuição.",
+      "l4": "Sucesso de tarefas de agentes e taxas de retrabalho são rastreados por tipo de tarefa e usados para refinar a orientação.",
+      "evidence_examples": "Diretrizes de tarefas para agentes, exemplos de issues, dados de taxa de sucesso.",
+      "scope_note": "Mede como as tarefas são delimitadas para agentes. A política de autonomia é D1-Q5; o volume de delegação é D4-Q3."
+    },
+    "D3-Q4": {
+      "title": "Decisões de arquitetura e design",
+      "text": "IA é usada para apoiar trabalho de design (análise de opções, modos de ameaça e falha, architecture decision records), enquanto as decisões permanecem com humanos responsáveis?",
+      "l3": "ADRs são versionados; análise assistida por IA é anexada; um humano nomeado aprova cada decisão.",
+      "l4": "Agentes verificam novas mudanças contra decisões registradas e sinalizam conflitos automaticamente.",
+      "evidence_examples": "Repositório de ADR, registros de design review."
+    },
+    "D3-Q5": {
+      "title": "Foco centrado no usuário",
+      "text": "O trabalho assistido por IA está vinculado a resultados claros para usuários e informado por feedback de usuários?",
+      "l3": "Itens de trabalho referenciam o problema do usuário e a medida de sucesso; feedback é revisado antes da priorização.",
+      "l4": "Métricas de resultado do usuário fazem parte da definition of done para entrega assistida por IA.",
+      "evidence_examples": "Briefs de produto, registros de loop de feedback, dashboards de resultados."
+    },
+    "D3-Q6": {
+      "title": "Modernização assistida por IA",
+      "text": "Ferramentas e agentes de IA são usados para entender, fazer upgrade e migrar code legado (por exemplo upgrades de framework ou runtime, migração para cloud), com resultados verificados por testes?",
+      "l3": "Existe um processo repetível de modernização assistida por IA para tipos comuns de upgrade, com gates de teste.",
+      "l4": "O backlog de modernização é reduzido continuamente por agentes sob review humano, com taxas de sucesso rastreadas.",
+      "evidence_examples": "Runbooks de upgrade, PRs de migração, resultados de testes."
+    },
+    "D4-Q1": {
+      "title": "Profundidade do uso de IA entre superfícies",
+      "text": "Quão profundamente os engenheiros usam IA entre superfícies: completions e edições de agentes no IDE, superfícies de agentes do GitHub (cloud agent, code review, CLI), e vários agentes juntos?",
+      "l3": "Muitos engenheiros usam regularmente pelo menos uma superfície de agente do GitHub (\"Agent first\"), confirmado por métricas de uso.",
+      "l4": "Uso multi-agent é normal (\"Multi-agent\"), com distribuição de coortes rastreada mensalmente.",
+      "l1_l2": "Principalmente completions e edições de agente no IDE (\"Code first\"); uso só de chat conta como Passive nas coortes do GitHub.",
+      "evidence_examples": "Dashboard ou API de métricas de uso do Copilot: distribuição de coortes de adoção, usuários ativos diários/semanais.",
+      "scope_note": "Mede quão profundamente IA é usada. Se esse uso é medido é D9-Q1."
+    },
+    "D4-Q2": {
+      "title": "Modo agente para trabalho multi-file",
+      "text": "Os engenheiros usam IDE agent mode (ou equivalente) para mudanças multi-file, e revisam toda mudança antes de fazer commit?",
+      "l3": "Agent mode é o padrão para refactors e features multi-file na maioria das equipes; mudanças são revisadas no diff antes do commit.",
+      "l4": "Equipes compartilham padrões de agent mode que funcionam e rastreiam onde ele falha; permissões de ferramentas são ajustadas por repositório.",
+      "evidence_examples": "Uso por feature/mode, diretrizes da equipe."
+    },
+    "D4-Q3": {
+      "title": "Delegação a coding agents",
+      "text": "Coding agents (por exemplo Copilot cloud agent) recebem issues e produzem pull requests que são mergeados após review humano?",
+      "l3": "A maioria das equipes delega issues adequadas a um coding agent; a parcela de PRs mergeados que são criados por agentes é rastreada.",
+      "l4": "Taxa de merge de PRs de agentes, retrabalho e taxa de correções pós-merge são rastreadas por tipo de tarefa; regras de delegação (D1-Q5) são ajustadas a partir desses dados.",
+      "evidence_examples": "Contagens de PRs criados por agentes, taxa de merge, tempo até merge, correções de acompanhamento.",
+      "scope_note": "Mede quanto trabalho é delegado a coding agents. A política de autonomia é D1-Q5; escopo de tarefas é D3-Q3."
+    },
+    "D4-Q4": {
+      "title": "Instruções de repositório",
+      "text": "Os repositórios contêm custom instructions versionadas e revisadas para ferramentas de IA (por exemplo `.github/copilot-instructions.md`, `AGENTS.md`) descrevendo build, test, convenções e restrições?",
+      "l3": "A maioria dos repositórios ativos tem instruções estruturadas (build, test, convenções, restrições) com um responsável; mudanças passam por PR review; arquivos são atualizados quando o codebase muda, em vez de serem commitados uma vez.",
+      "l4": "Instruções são geradas a partir de uma base compartilhada, verificadas quanto a desatualização, e seu efeito na taxa de merge de agentes e na qualidade de code é medido, já que arquivos de instrução sozinhos não garantem melhores resultados.",
+      "evidence_examples": "Arquivos de instrução, cobertura entre repositórios, histórico de mudanças, métricas antes/depois de PRs de agentes."
+    },
+    "D4-Q5": {
+      "title": "Prompts, agentes e skills reutilizáveis",
+      "text": "Existe uma biblioteca compartilhada e curada de arquivos de prompt, custom agents e skills reutilizáveis, com responsáveis e versionamento?",
+      "l3": "Um repositório central contém arquivos de prompt e custom agents aprovados; equipes os reutilizam em vez de copiar.",
+      "l4": "Ativos são avaliados antes do release (qualidade, custo), o uso é rastreado, e ativos não usados são retirados.",
+      "evidence_examples": "Repositório da biblioteca, perfis de custom agents, métricas de reutilização."
+    },
+    "D4-Q6": {
+      "title": "Governança de MCP servers",
+      "text": "MCP servers e outras ferramentas de agentes são governados por uma allowlist ou registry, com ferramentas em escopo e responsáveis nomeados?",
+      "l3": "Uma allowlist enterprise de MCP ou registry customizado é aplicada; cada server tem um responsável, uma security review e ferramentas limitadas.",
+      "l4": "Tool calls são registrados e revisados; novos servers passam por security checks automatizados antes de serem adicionados.",
+      "evidence_examples": "Política de allowlist ou registry, configuração de MCP, registros de review."
+    },
+    "D4-Q7": {
+      "title": "Acesso de IA ao conhecimento interno",
+      "text": "Ferramentas e agentes de IA conseguem usar com segurança fontes internas (code, documentação, wikis, itens de trabalho) como contexto, por meio de conectores aprovados?",
+      "l3": "Conectores aprovados dão às ferramentas de IA acesso ciente de permissões às principais fontes internas; respostas citam material interno.",
+      "l4": "Fontes de conhecimento são curadas para uso por IA (atualização, ownership) e a qualidade de retrieval é avaliada.",
+      "evidence_examples": "Configuração de conectores, avaliações de retrieval."
+    },
+    "D4-Q8": {
+      "title": "Seleção e roteamento de modelos",
+      "text": "A escolha do modelo é combinada à complexidade da tarefa (modelos menores para trabalho rotineiro, frontier models para trabalho complexo), por orientação ou roteamento automático?",
+      "l3": "Orientação escrita mapeia tipos de tarefa a modelos; modelos padrão são definidos por política.",
+      "l4": "Roteamento automático está em vigor e é ajustado a partir de dados de custo e qualidade.",
+      "evidence_examples": "Orientação de modelos, configurações de política, configuração de roteamento."
+    },
+    "D5-Q1": {
+      "title": "AI-assisted code review",
+      "text": "AI code review (por exemplo Copilot code review) é aplicado a pull requests, com um revisor humano ainda responsável pela aprovação?",
+      "l3": "AI review executa automaticamente na maioria dos PRs; equipes rastreiam sugestões úteis versus descartadas.",
+      "l4": "Regras de review são ajustadas por repositório a partir dos resultados de sugestões; tempo de review e defeitos escapados são rastreados; PRs em que apenas IA revisou code criado por IA são visíveis e governados.",
+      "evidence_examples": "Rulesets de repositório, métricas de adoção de code review, resultados de sugestões."
+    },
+    "D5-Q2": {
+      "title": "Human-in-the-loop para mudanças de agentes",
+      "text": "Pull requests criados por agentes exigem aprovação humana independente (não o solicitante), com workflow runs aprovadas antes de executarem?",
+      "l3": "Proteções padrão são mantidas: PRs de agentes precisam de um aprovador humano independente (aprovações do Copilot, se habilitadas, não contam); \"Approve and run workflows\" não é desabilitado sem uma decisão de risco documentada.",
+      "l4": "Requisitos de aprovação escalam com o risco (D1-Q5) e são auditados; exceções expiram automaticamente.",
+      "evidence_examples": "Rulesets, branch protection, configurações de agentes."
+    },
+    "D5-Q3": {
+      "title": "Mesmos quality gates para code de IA e humano",
+      "text": "Mudanças geradas por IA e criadas por agentes passam pelos mesmos checks exigidos (build, tests, linting, security scans, coverage) que mudanças humanas?",
+      "l3": "Checks exigidos são aplicados por rulesets nos protected branches da maioria dos repositórios, sem bypass para identidades de agentes.",
+      "l4": "Gates são policy as code, aplicados em todos os repositórios (>90%) e revisados após incidentes.",
+      "evidence_examples": "Rulesets, checks exigidos, listas de bypass."
+    },
+    "D5-Q4": {
+      "title": "Lotes pequenos",
+      "text": "As mudanças são mantidas pequenas (limites de tamanho de PR, uma preocupação por PR), incluindo mudanças produzidas por agentes?",
+      "l3": "Orientação de tamanho de PR é aplicada ou monitorada; PRs de agentes grandes demais são divididos antes do review.",
+      "l4": "Tamanho de lote é rastreado em relação a change failure rate e tempo de review, e usado para ajustar limites.",
+      "evidence_examples": "Distribuição de tamanho de PR, configuração de bot ou ruleset.",
+      "scope_note": "Mede o tamanho das mudanças assistidas por IA. Com que frequência o code é commitado e quão rápido é revertido é D8-Q2."
+    },
+    "D5-Q5": {
+      "title": "Testes assistidos por IA",
+      "text": "IA é usada para gerar e manter testes, com qualidade dos testes verificada (por exemplo coverage do code alterado, mutation testing) em vez de apenas contagem de testes?",
+      "l3": "A maioria das equipes usa IA para escrever testes; coverage de linhas alteradas é um check exigido.",
+      "l4": "Efetividade dos testes (mutation score, defeitos escapados) é rastreada; flaky tests são detectados e colocados em quarentena automaticamente.",
+      "evidence_examples": "Relatórios de coverage, resultados de mutation testing, dashboard de flaky tests.",
+      "scope_note": "Mede IA usada para escrever e melhorar testes. Se testes automatizados atuam como gate é D8-Q7."
+    },
+    "D5-Q6": {
+      "title": "Cultura de verificação e confiança calibrada",
+      "text": "Os engenheiros verificam sistematicamente a saída de IA (executam, testam, leem) e a confiança na saída de IA é medida ao longo do tempo?",
+      "l3": "Diretrizes de review explicam o que verificar na saída de IA; confiança na saída de IA faz parte da pesquisa com desenvolvedores.",
+      "l4": "Confiança e precisão são comparadas com dados reais de defeitos, e a orientação é atualizada onde divergem.",
+      "evidence_examples": "Diretrizes de review, resultados de pesquisa, análise de defeitos.",
+      "scope_note": "Mede comportamento de review e calibração de confiança. Como developer experience é pesquisada é D9-Q4."
+    },
+    "D5-Q7": {
+      "title": "Saúde do code gerado por IA",
+      "text": "A saúde de longo prazo do code gerado por IA é monitorada (duplicação, churn, complexidade, manutenibilidade)?",
+      "l3": "Métricas de code health são coletadas para a maioria dos repositórios e revisadas em retrospectivas de equipe; code gerado por IA tem um responsável humano nomeado.",
+      "l4": "Tendências de saúde (por exemplo complexidade cognitiva, avisos de static analysis) são comparadas entre code com alta presença de IA e outros codes, com ações corretivas rastreadas.",
+      "evidence_examples": "Dashboards de static analysis, relatórios de churn, arquivos de ownership."
+    },
+    "D6-Q1": {
+      "title": "Scanning de base em todo repositório",
+      "text": "Code scanning (SAST), secret scanning com push protection e dependency review são aplicados a todos os repositórios, incluindo branches de agentes?",
+      "l3": "Habilitado por padrão para todos os repositórios novos e a maioria dos existentes; push protection se aplica a todo commit, humano ou de agente; alertas têm responsáveis e metas de nível de serviço.",
+      "l4": "A cobertura é quase completa e verificada automaticamente; mean time to remediate é rastreado.",
+      "evidence_examples": "Dashboard de cobertura de segurança, tempo de remediação."
+    },
+    "D6-Q2": {
+      "title": "Remediação assistida por IA",
+      "text": "Remediação assistida por IA (por exemplo autofix para code scanning) é usada para corrigir vulnerabilidades, com correções revisadas e testadas antes do merge?",
+      "l3": "Sugestões de autofix são habilitadas para a maioria dos repositórios; taxas de aceitação e reabertura são rastreadas.",
+      "l4": "Campanhas de segurança usam remediação com IA em escala, e o tempo de remediação é reportado à liderança.",
+      "evidence_examples": "Configurações de autofix, métricas de remediação."
+    },
+    "D6-Q3": {
+      "title": "Defesas contra prompt injection para agentes",
+      "text": "Agentes são protegidos contra prompt injection e goal hijack (conteúdo não confiável tratado como dados, instruções ocultas filtradas, saída de rede restrita)?",
+      "l3": "Agent firewalls e restrições de egress permanecem ativados; a orientação informa às equipes quais fontes de conteúdo não são confiáveis.",
+      "l4": "Agentes passam regularmente por red team contra cenários OWASP LLM01:2025 e ASI01; achados são rastreados até o fechamento.",
+      "evidence_examples": "Configuração de firewall, relatórios de red team."
+    },
+    "D6-Q4": {
+      "title": "Least privilege para agentes",
+      "text": "Agentes executam com least privilege (tokens com escopo, sem segredos de produção, branches restritos, ambientes em sandbox)?",
+      "l3": "Permissões de agentes são documentadas e revisadas; agentes não conseguem acessar credenciais de produção nem fazer push para protected branches.",
+      "l4": "Permissões são just-in-time e limitadas no tempo; o acesso é revisado automaticamente.",
+      "evidence_examples": "Configuração de ambiente de agentes, escopos de token, revisões de acesso."
+    },
+    "D6-Q5": {
+      "title": "AI supply chain",
+      "text": "Modelos, MCP servers, extensões de IDE e ferramentas de agentes são avaliados antes do uso, com proveniência e SBOMs para o que você constrói e entrega?",
+      "l3": "Um processo de review cobre componentes de IA; SBOMs e proveniência de build são produzidos para a maioria dos builds.",
+      "l4": "Proveniência é verificada no deploy (por exemplo metas de nível SLSA); componentes não avaliados são bloqueados automaticamente.",
+      "evidence_examples": "Registros de review de componentes, amostras de SBOM e atestação."
+    },
+    "D6-Q6": {
+      "title": "Threat modeling para features e agentes de IA",
+      "text": "Features de IA e workflows agentic são threat-modeled com riscos específicos de IA (OWASP LLM and Agentic Top 10, NIST SP 800-218A)?",
+      "l3": "Threat models são exigidos para novas features de IA e workflows de agentes, e revisados por segurança.",
+      "l4": "Threat models são atualizados após incidentes e exercícios de red team; controles são verificados por testes automatizados.",
+      "evidence_examples": "Documentos de threat model, registros de security review."
+    },
+    "D6-Q7": {
+      "title": "Trilha de auditoria para ações de agentes",
+      "text": "Sessões e ações de agentes (prompts, tool calls, commits, aprovações) são registradas, atribuíveis a uma identidade e retidas de acordo com a política?",
+      "l3": "Atividade de agentes é registrada centralmente e vinculada ao usuário solicitante e à identidade do agente.",
+      "l4": "Logs alimentam detecção de anomalias; auditorias conseguem reconstruir qualquer mudança de agente de ponta a ponta.",
+      "evidence_examples": "Configuração de audit log, exemplo de investigação."
+    },
+    "D7-Q1": {
+      "title": "IA em pipelines CI/CD",
+      "text": "IA é usada para criar, manter e solucionar problemas em pipelines CI/CD (por exemplo explicar runs com falha, propor correções), sobre pipeline-as-code?",
+      "l3": "Pipelines são code na maioria dos repositórios; análise de falhas assistida por IA está disponível para todas as equipes.",
+      "l4": "Agentes propõem correções e otimizações de pipeline automaticamente, sob review, com tempo de build e taxa de falhas rastreados.",
+      "evidence_examples": "Repositórios de pipeline, uso de análise de falhas, métricas de build."
+    },
+    "D7-Q2": {
+      "title": "Entrega progressiva e rollback",
+      "text": "As equipes conseguem lançar mudanças assistidas por IA com segurança por meio de entrega progressiva (feature flags, canary ou blue/green) e rollback automatizado?",
+      "l3": "A maioria dos serviços usa feature flags ou rollout em estágios; rollback é automatizado para serviços críticos.",
+      "l4": "Decisões de rollout são conduzidas automaticamente por sinais de saúde; change failure rate e tempo de recuperação são rastreados por serviço.",
+      "evidence_examples": "Plataforma de feature flags, configuração de rollout, registros de rollback."
+    },
+    "D7-Q3": {
+      "title": "Resposta a incidentes assistida por IA",
+      "text": "IA é usada em resposta a incidentes (correlação de alertas, sumarização, hipóteses de causa raiz, rascunhos de revisão pós-incidente) com humanos no comando?",
+      "l3": "Engenheiros de on-call na maioria das equipes usam IA para triage e resumos; revisões pós-incidente registram se a IA ajudou.",
+      "l4": "Agentes de operações executam diagnósticos aprovados automaticamente; tempo de restauração é comparado antes e depois da adoção.",
+      "evidence_examples": "Configuração de ferramentas de incidentes, timelines de incidentes, dados de tempo de restauração."
+    },
+    "D7-Q4": {
+      "title": "Observabilidade de agentes",
+      "text": "Agentes de IA no SDLC são observáveis (traces de runs e tool calls, latência, falhas, custo), por exemplo por meio de OpenTelemetry?",
+      "l3": "Runs de agentes emitem telemetria para a stack central de observabilidade; dashboards mostram falhas e custo por agente.",
+      "l4": "Alertas disparam em drift de agentes, picos de erro ou anomalias de custo; achados alimentam governança (D1).",
+      "evidence_examples": "Dashboards de telemetria, regras de alerta."
+    },
+    "D7-Q5": {
+      "title": "Infrastructure as code com guardrails",
+      "text": "IA é usada para escrever e revisar infrastructure as code, com guardrails de policy-as-code que bloqueiam mudanças não conformes?",
+      "l3": "A maior parte da infraestrutura é code; IaC gerado por IA passa pelos mesmos policy checks e plan reviews.",
+      "l4": "Drift é detectado e corrigido por meio de GitOps; violações de política por IaC gerado por IA são rastreadas e estão em queda.",
+      "evidence_examples": "Repositórios de IaC, regras de policy-as-code, relatórios de drift."
+    },
+    "D7-Q6": {
+      "title": "Automação operacional orientada por agentes",
+      "text": "Tarefas operacionais (runbooks, remediação, atualizações de dependências e patches) são automatizadas por agentes sob regras de aprovação definidas?",
+      "l3": "Runbooks comuns e atualizações de dependências são automatizados; aprovações seguem a matriz de autonomia (D1-Q5).",
+      "l4": "A maioria das operações rotineiras executa automaticamente com aprovações auditadas; o esforço humano se desloca para exceções.",
+      "evidence_examples": "Catálogo de automação, logs de aprovação."
+    },
+    "D8-Q1": {
+      "title": "Controle de versão para tudo",
+      "text": "Application code, configuração, automação de build, configuração de sistema e prompts/instruções de IA estão todos armazenados em controle de versão?",
+      "l3": "Todos os cinco tipos de ativos são versionados para a maioria dos serviços.",
+      "l4": "Nada chega à produção sem uma fonte versionada; checks confirmam isso automaticamente.",
+      "evidence_examples": "Inventário de repositórios, fontes de configuração."
+    },
+    "D8-Q2": {
+      "title": "Frequência de commit e rollback rápido",
+      "text": "Os engenheiros fazem commit de mudanças pequenas com frequência e contam com undo/revert rápido ao experimentar com saída de IA?",
+      "l3": "A maioria dos engenheiros faz commit pelo menos diariamente; reverter uma mudança é rotina e rápido.",
+      "l4": "Trunk-based development com branches de curta duração é a norma; tempo de revert é medido.",
+      "evidence_examples": "Dados de frequência de commit, idade de branch.",
+      "scope_note": "Mede frequência de commit e velocidade de rollback. O tamanho das mudanças assistidas por IA é D5-Q4."
+    },
+    "D8-Q3": {
+      "title": "Plataforma interna de qualidade",
+      "text": "Existe uma internal developer platform fácil de usar, que abstrai infraestrutura e torna o caminho seguro e conforme o padrão para humanos e agentes?",
+      "l3": "Uma equipe dedicada de plataforma oferece golden paths de self-service usados pela maioria das equipes; a equipe age com base em feedback.",
+      "l4": "Agentes usam as mesmas APIs e guardrails da plataforma que humanos; satisfação com a plataforma é medida e melhora.",
+      "evidence_examples": "Catálogo da plataforma, golden paths, pesquisa de satisfação."
+    },
+    "D8-Q4": {
+      "title": "Ecossistema de dados saudável",
+      "text": "Engenheiros e ferramentas de IA conseguem encontrar e usar dados internos confiáveis (não em silos, de boa qualidade, respondíveis rapidamente)?",
+      "l3": "Dados-chave são catalogados com responsáveis e indicadores de qualidade; a maioria das perguntas pode ser respondida em até uma hora.",
+      "l4": "Qualidade de dados é monitorada automaticamente; linhagem e contratos existem para dados críticos.",
+      "evidence_examples": "Catálogo de dados, dashboards de qualidade."
+    },
+    "D8-Q5": {
+      "title": "Ambientes reproduzíveis para humanos e agentes",
+      "text": "Ambientes de desenvolvimento são reproduzíveis (devcontainers, cloud workspaces, toolchains fixadas) para que humanos e agentes façam build e test da mesma forma?",
+      "l3": "A maioria dos repositórios define um ambiente reproduzível; agentes usam a mesma definição.",
+      "l4": "Ambientes iniciam em minutos para qualquer repositório; drift em relação à definição é detectado.",
+      "evidence_examples": "Arquivos devcontainer, tempos de start-up de ambiente."
+    },
+    "D8-Q6": {
+      "title": "Documentação como contexto pronto para IA",
+      "text": "A documentação é mantida como code, atual e com ownership, para que sirva como contexto confiável para ferramentas de IA?",
+      "l3": "Docs ficam junto ao code com responsáveis; docs desatualizadas são sinalizadas em reviews.",
+      "l4": "Atualização é verificada automaticamente; mudanças de docs geradas por IA são revisadas como code.",
+      "evidence_examples": "Repositórios de docs, checks de atualização."
+    },
+    "D8-Q7": {
+      "title": "Testes automatizados como sistema de controle",
+      "text": "Testes automatizados são profundos e rápidos o suficiente para capturar regressões de altos volumes de mudanças geradas por IA (unit, integration, end-to-end, contract)?",
+      "l3": "A maioria dos serviços tem testes automatizados em camadas que executam em todo PR dentro de time budgets acordados.",
+      "l4": "Suites de teste são ajustadas a partir de dados de defeitos escapados; tempo de feedback é rastreado e melhora.",
+      "evidence_examples": "Inventário de suites de teste, durações de pipeline, dados de defeitos escapados.",
+      "scope_note": "Mede testes automatizados como sistema de controle. IA usada para escrever testes é D5-Q5."
+    },
+    "D9-Q1": {
+      "title": "Métricas de profundidade de adoção",
+      "text": "A adoção de IA é rastreada com telemetria além da contagem de seats (usuários ativos, engajamento por feature, coortes de adoção)?",
+      "l3": "Métricas de uso (por exemplo a API ou dashboard de métricas de uso do Copilot) são revisadas mensalmente pela liderança de engenharia.",
+      "l4": "Movimento de coortes é uma meta gerenciada; ações de capacitação são avaliadas por seu efeito nas coortes.",
+      "evidence_examples": "Dashboards de uso, relatórios de tendência de coortes.",
+      "scope_note": "Mede se a adoção é rastreada. Quão profundamente IA é usada é D4-Q1."
+    },
+    "D9-Q2": {
+      "title": "Métricas de resultado de entrega",
+      "text": "Métricas de entrega de software (lead time, deployment frequency, change failure rate, time to restore) são rastreadas e comparadas antes e depois da adoção de IA?",
+      "l3": "Métricas DORA são coletadas automaticamente para a maioria dos serviços e revisadas com dados de adoção de IA.",
+      "l4": "Métricas de entrega fazem parte das decisões de investimento em IA; regressões disparam ação corretiva.",
+      "evidence_examples": "Dashboards DORA, comparação baseline versus atual."
+    },
+    "D9-Q3": {
+      "title": "Métricas de fluxo de pull request",
+      "text": "Throughput de PR, tempo até merge e a parcela e taxa de merge de PRs criados por IA ou agentes são rastreados?",
+      "l3": "Métricas de ciclo de vida de PR são reportadas por organização; PRs criados por agentes são identificados separadamente, incluindo sua taxa de correções pós-merge.",
+      "l4": "Métricas de fluxo são vinculadas a métricas de qualidade (D5) para que fluxo mais rápido não seja comprado com instabilidade.",
+      "evidence_examples": "Métricas de ciclo de vida de PR, relatórios de PRs de agentes, análise de correções de acompanhamento."
+    },
+    "D9-Q4": {
+      "title": "Developer experience e fricção",
+      "text": "Developer experience é medida regularmente (produtividade percebida, fricção, confiança em IA, satisfação), usando um framework reconhecido como SPACE ou as perguntas de resultado do DORA?",
+      "l3": "Uma pesquisa ocorre pelo menos duas vezes por ano com boa participação; resultados são compartilhados e geram ações.",
+      "l4": "Resultados de pesquisa são combinados com telemetria (D9-Q1 a Q3) para encontrar e remover fricção.",
+      "evidence_examples": "Instrumento de pesquisa, taxa de participação, log de ações.",
+      "scope_note": "Mede a pesquisa de developer experience. Comportamento de review e calibração de confiança é D5-Q6."
+    },
+    "D9-Q5": {
+      "title": "Medição controlada de impacto",
+      "text": "O impacto de IA é estimado com comparações controladas ou baseadas em coortes (por exemplo piloto versus controle, coortes de adoção, antes/depois com um baseline) em vez de apenas estimativas autorreportadas?",
+      "l3": "Pelo menos uma comparação controlada ou de coorte foi executada e documentada, com suas limitações.",
+      "l4": "Comparações são executadas continuamente para ferramentas e práticas principais; decisões as citam.",
+      "evidence_examples": "Desenho do estudo, resultados, registros de decisão."
+    },
+    "D9-Q6": {
+      "title": "Governança de custos de IA (AI FinOps)",
+      "text": "Custos de IA (seats, premium requests, tokens, runs de agentes) são orçados, monitorados por equipe e caso de uso, com thresholds e revisões regulares?",
+      "l3": "Orçamentos e thresholds de alerta existem por organização ou equipe; workflows de alto consumo são revisados em retrospectivas.",
+      "l4": "Custo por resultado (por exemplo por PR mergeado) é rastreado; práticas de roteamento e contexto são ajustadas para reduzir desperdício.",
+      "evidence_examples": "Dashboards de custo, alertas de orçamento, notas de retrospectiva."
+    },
+    "D9-Q7": {
+      "title": "Vínculo com valor de negócio",
+      "text": "Resultados de engenharia com IA são conectados a valor de negócio (business case, premissas de ROI, OKRs) e revisados com stakeholders de finanças ou negócio?",
+      "l3": "Existe um business case com premissas explícitas e ele é revisado pelo menos anualmente.",
+      "l4": "Valor é reportado em uma cadência fixa com insumos medidos de D9-Q1 a Q6; investimento é ajustado a partir dos resultados.",
+      "evidence_examples": "Business case, relatórios de valor."
+    }
+  },
+  "profile": {
+    "R-Q1": {
+      "title": "Função principal",
+      "text": "Qual opção descreve melhor sua função principal?",
+      "options": [
+        "Engenheiro(a) de software / desenvolvedor(a)",
+        "Gerente de engenharia / tech lead",
+        "Arquiteto(a)",
+        "Engenheiro(a) de plataforma / DevOps / SRE",
+        "Segurança / AppSec",
+        "Engenheiro(a) de QA / testes",
+        "Gerente de produto / programa",
+        "Executivo(a) (CTO, VP, Diretor(a))",
+        "Outro"
+      ]
+    },
+    "R-Q2": {
+      "title": "Escopo das suas respostas",
+      "text": "Em qual escopo suas respostas se baseiam?",
+      "options": [
+        "Uma única equipe",
+        "Várias equipes em uma unidade de negócio",
+        "Uma unidade de negócio",
+        "Toda a organização"
+      ]
+    },
+    "R-Q3": {
+      "title": "Principais ferramentas de IA para código",
+      "text": "Quais ferramentas de IA você usa pelo menos semanalmente para trabalho de software? (múltiplas respostas)",
+      "options": [
+        "GitHub Copilot no IDE (autocompletar, chat, modo agente)",
+        "GitHub Copilot cloud agent / code review / CLI",
+        "Claude Code ou Claude em outros clientes",
+        "Ferramentas internas baseadas em Microsoft Foundry / Azure OpenAI",
+        "Outras ferramentas comerciais de IA para código",
+        "Modelos internos ou auto-hospedados",
+        "Nenhuma"
+      ]
+    },
+    "R-Q4": {
+      "title": "Experiência profissional",
+      "text": "Quantos anos de experiência profissional em software você tem?",
+      "options": [
+        "Menos de 2",
+        "2-5",
+        "6-10",
+        "Mais de 10"
+      ]
+    },
+    "R-Q5": {
+      "title": "Tempo prático (hands-on)",
+      "text": "Em uma semana típica, quanto do seu tempo é prático, construindo (código, configuração, testes)?",
+      "options": [
+        "Menos de 20%",
+        "20-50%",
+        "51-80%",
+        "Mais de 80%"
+      ]
+    }
+  }
+}

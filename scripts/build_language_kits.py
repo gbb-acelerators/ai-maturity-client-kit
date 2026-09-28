@@ -13,10 +13,15 @@ Packaging rule:
 from __future__ import annotations
 
 import argparse
+import os
 import re
 import shutil
+import sys
 import zipfile
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_kit_docs import rebase_links  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -55,7 +60,11 @@ COPILOT_CUSTOMIZATION_ROOTS = [
 
 SHARED_RUNTIME_ROOTS = [
     "framework.json",
+    "framework.v2.json",
+    "framework.v2.schema.json",
+    "framework",
     "respostas.json.example",
+    "respostas.v2.json.example",
     "Makefile",
     "scripts",
     "relatorios/templates",
@@ -63,8 +72,10 @@ SHARED_RUNTIME_ROOTS = [
     "relatorios/i18n",
     "relatorios/sample_payload.json",
     "coleta/template-export-forms.xlsx",
+    "coleta/v1/template-export-forms.xlsx",
     "survey-devs/scripts",
     "survey-devs/respostas-mock-devs.json",
+    "survey-devs/options.json",
     "survey-devs/template-export-forms-devs.xlsx",
     "survey-learning/scripts",
     "survey-learning/respostas-mock-learning.json",
@@ -72,6 +83,9 @@ SHARED_RUNTIME_ROOTS = [
     "wizard/scripts",
     "wizard/implementation-guide-inputs.template.json",
     "referencia/pontuacao-e-calculo.xlsx",
+    "referencia/branding/tokens-paulasilva-ms.css",
+    "coleta/v2-mock-forms-export.xlsx",
+    "CHANGELOG.md",
 ]
 
 SHARED_CLIENT_ASSETS = [
@@ -80,6 +94,10 @@ SHARED_CLIENT_ASSETS = [
     "coleta/perguntas-para-forms.md",
     "coleta/perguntas-para-forms.en.md",
     "coleta/perguntas-para-forms.es.md",
+    "coleta/AI-Maturity-Form-Questions_v2.md",
+    "coleta/v1",
+    "referencia/framework-v2.md",
+    "referencia/framework-v2.es.md",
     "survey-devs/perguntas-para-forms-devs.md",
     "survey-devs/perguntas-para-forms-devs.en.md",
     "survey-devs/perguntas-para-forms-devs.es.md",
@@ -122,7 +140,9 @@ LANGUAGE_NOTES = {
   português com os nomes base (`README.md`, `GUIA-PASSO-A-PASSO.md` etc.).
 - Relatórios são gerados em inglês por padrão. Para PT-BR, defina
   `metadata.language` como `"pt-BR"` em `respostas.json`. Os relatórios dos
-  surveys aceitam `--lang pt-br`.
+  surveys aceitam `--lang pt-br` (ou `en`, `es`).
+- Os assistentes HTML (formulário offline, wizard e calculadora) têm
+  seletor de idioma e abrem em português neste pacote.
 - Arquivos de customização do Copilot em `.github/`: mantidos em inglês por
   design, para economizar contexto e melhorar compatibilidade.
 - JSONs, scripts, templates e workbooks são recursos executáveis ou
@@ -130,35 +150,37 @@ LANGUAGE_NOTES = {
 """,
     "en": """# Language Notes for the English Package
 
-- Client-facing documentation: English. Repository docs are English, with
-  Portuguese copies kept as `.pt-br` files; those copies ship only in the
-  PT-BR package.
+- Client-facing documentation: English, including every folder guide.
+  Portuguese copies (`.pt-br` files) ship only in the PT-BR package.
+- `README.md`, `STEP-BY-STEP.md` and `FORMS-INSTRUCTIONS.md` at the root are
+  the English quickstart, step-by-step guide and Forms instructions.
 - Reports default to English. Set `metadata.language` to `"pt-BR"` or `"es"`
   in `respostas.json` for other languages. Survey reports accept
-  `--lang pt-br`.
+  `--lang en`, `--lang pt-br` or `--lang es`.
+- The HTML helpers (offline form, wizard, calculator) have a language
+  selector and follow the browser language.
 - Copilot customization files in `.github/`: intentionally kept in English
   across every language package.
 - Shared JSON files, scripts, templates, and workbooks are executable or
   structured assets reused by all languages.
-- Canonical question IDs and some internal field names remain in Portuguese
-  where required by the scoring framework and production platform mapping.
 """,
     "es": """# Notas de idioma del paquete Español
 
-- Documentación orientada al cliente: Español (`README.md`,
-  `PASO-A-PASO.md`, `INSTRUCCIONES-FORMS.md`). Las guías de apoyo
-  compartidas (`coleta/`, `survey-devs/`, `survey-learning/`, `wizard/`)
-  y los asistentes HTML están en inglés.
-- Los reportes se generan en inglés por defecto. Define `metadata.language`
-  como `"es"` en `respostas.json` para español. Los reportes de los surveys
-  aceptan `--lang pt-br`.
+- Documentación orientada al cliente en español: `README.md`,
+  `PASO-A-PASO.md`, `INSTRUCCIONES-FORMS.md`, el banco de preguntas
+  (`coleta/perguntas-para-forms.es.md`), la guía de referencia
+  (`referencia/framework-v2.es.md`) y las páginas por dimensión
+  (`referencia/dimensoes/*.es.md`). Las demás guías de las carpetas van en
+  inglés.
+- Los informes se generan en inglés por defecto. Define `metadata.language`
+  como `"es"` en `respostas.json` para español. Los informes de los surveys
+  complementarios aceptan `--lang en`, `--lang pt-br` o `--lang es`.
+- Los asistentes HTML (formulario offline, wizard y calculadora) tienen
+  selector de idioma y siguen el idioma del navegador.
 - Archivos de customización de Copilot en `.github/`: se mantienen en inglés
   intencionalmente en todos los paquetes.
 - JSONs, scripts, templates y workbooks compartidos son activos ejecutables
   o estructurados reutilizados por todos los idiomas.
-- IDs canónicos de preguntas y algunos nombres internos permanecen en
-  portugués cuando el framework de scoring y el mapeo de plataforma lo
-  requieren.
 """,
 }
 
@@ -245,8 +267,9 @@ def strip_language_switchers(text: str, suffix: str) -> str:
 
 
 def localize_text(text: str, suffix: str, lang: str) -> str:
-    if lang == "pt":
-        text = PT_BR_LINK_RE.sub(r"\1.\2", text)
+    # No package ships .pt-br names: PT gets the Portuguese content under
+    # the base name, the others get the English file with that name.
+    text = PT_BR_LINK_RE.sub(r"\1.\2", text)
     return strip_language_switchers(text, suffix)
 
 
@@ -259,7 +282,7 @@ def write_source(
     if arcname in zf.NameToInfo:
         return
     rel = normalized(source.relative_to(ROOT))
-    if rel.startswith(UNTRANSFORMED_PREFIXES):
+    if rel.startswith(UNTRANSFORMED_PREFIXES) and source.suffix != ".md":
         zf.write(source, arcname)
         return
     if lang == "pt":
@@ -364,71 +387,75 @@ def validate_packaging_sources() -> None:
 
 
 def add_reference_examples(zf: zipfile.ZipFile, lang: str) -> None:
-    # JSON examples are language-neutral structured outputs.
-    for source in [
-        "referencia/exemplo-saida/scores.json",
-        "referencia/exemplo-saida/gaps.json",
-        "referencia/exemplo-saida/recomendacoes.json",
-        "referencia/exemplo-saida/payload.json",
-        "referencia/exemplo-saida/maturidade-developer-survey-EXEMPLO.json",
-        "referencia/exemplo-saida/implementation-guide-inputs-EXEMPLO.json",
-    ]:
-        add_file(zf, source, lang=lang)
-
-    if lang == "pt":
-        example_dir = ROOT / "referencia/exemplo-saida"
-        for file_path in sorted(example_dir.glob("*.pdf")):
+    # The current (v2) example sits in referencia/exemplo-saida and the
+    # archived v1 example in its v1/ subfolder. JSON outputs are
+    # language-neutral; PDFs, workbooks and notes ship per language
+    # (PT at the folder root, EN and ES in en/ and es/).
+    for base in ("referencia/exemplo-saida", "referencia/exemplo-saida/v1"):
+        example_dir = ROOT / base
+        if not example_dir.is_dir():
+            continue
+        for file_path in sorted(example_dir.glob("*.json")):
             add_file(zf, normalized(file_path.relative_to(ROOT)), lang=lang)
-        add_file(
-            zf,
-            "referencia/exemplo-saida/pontuacao-preenchida-2026-05-08.xlsx",
-            lang=lang,
-        )
-        add_file(zf, "referencia/exemplo-saida/README.md", lang=lang)
-        add_file(
-            zf,
-            "referencia/exemplo-saida/insights-developer-survey-EXEMPLO.md",
-            lang=lang,
-        )
-        add_file(
-            zf,
-            "referencia/exemplo-saida/plano-capacitacao-EXEMPLO.md",
-            lang=lang,
-        )
-    elif lang == "en":
-        add_tree(zf, "referencia/exemplo-saida/en", lang=lang)
-    elif lang == "es":
-        add_tree(zf, "referencia/exemplo-saida/es", lang=lang)
+        if lang == "pt":
+            for pattern in ("*.pdf", "*.xlsx", "*.md"):
+                for file_path in sorted(example_dir.glob(pattern)):
+                    rel = normalized(file_path.relative_to(ROOT))
+                    if PT_BR_TAG in file_path.name:
+                        continue
+                    add_file(zf, rel, lang=lang)
+        elif (example_dir / lang).is_dir():
+            add_tree(zf, f"{base}/{lang}", lang=lang)
 
 
-def add_pt_documentation(zf: zipfile.ZipFile) -> None:
-    excluded_prefixes = (
-        ".github/",
-        ".git/",
-        "docs/",
-        "kit-en/",
-        "kit-es/",
-        "saida/",
-        "dist/",
-    )
+def add_documentation(zf: zipfile.ZipFile, lang: str) -> None:
+    # 1. The package-root guides of the package language (kit-en/ and
+    #    kit-es/ copies move to the root with their links rebased).
+    rename = dict(LANGUAGE_DOCS[lang])
+    for source, dest in LANGUAGE_DOCS[lang]:
+        text = (ROOT / source).read_text(encoding="utf-8")
+        text = rebase_links(text, source, dest, rename)
+        zf.writestr(dest, localize_text(text, ".md", lang))
+    # 2. Every other repository doc, so that links keep working: the PT
+    #    package gets the .pt-br copies under the base names, the other
+    #    packages get the English docs.
+    excluded_prefixes = (".github/", ".git/", "docs/", "saida/", "dist/")
     for file_path in sorted(ROOT.rglob("*.md")):
         rel = normalized(file_path.relative_to(ROOT))
         if rel.startswith(excluded_prefixes) or is_common_excluded(rel):
             continue
-        add_file(zf, rel, lang="pt")
-
-    # PT-BR visual guides are intentionally included only in the PT package.
-    add_tree(zf, "formularios", lang="pt")
-    add_file(zf, "wizard/implementation-guide-wizard.html", lang="pt")
-    add_file(zf, "referencia/calculadora-pontuacao.html", lang="pt")
-
-
-def add_localized_docs(zf: zipfile.ZipFile, lang: str) -> None:
-    if lang == "pt":
-        add_pt_documentation(zf)
-    for source, dest in LANGUAGE_DOCS[lang]:
-        add_file(zf, source, dest, lang=lang)
+        add_file(zf, rel, lang=lang)
+    # 3. HTML helpers: one trilingual file each; the PT package gets the
+    #    copy that opens in Portuguese.
+    add_tree(zf, "formularios", lang=lang)
+    add_tree(zf, "referencia/v1", lang=lang)
+    add_file(zf, "wizard/implementation-guide-wizard.html", lang=lang)
+    add_file(zf, "referencia/calculadora-pontuacao.html", lang=lang)
     zf.writestr("PACKAGE-LANGUAGE-NOTES.md", LANGUAGE_NOTES[lang])
+
+
+LINK_RE = re.compile(r"\]\(([^)\s]+)\)")
+
+
+def broken_links(zf: zipfile.ZipFile) -> list[str]:
+    """Relative Markdown links that point outside the package."""
+    names = set(zf.namelist())
+    folders = {"."}
+    for name in names:
+        parts = name.split("/")[:-1]
+        folders.update("/".join(parts[:i]) for i in range(1, len(parts) + 1))
+    bad = []
+    for name in sorted(n for n in names if n.endswith(".md")):
+        text = zf.read(name).decode("utf-8", "ignore")
+        for match in LINK_RE.finditer(text):
+            target = match.group(1).split("#")[0]
+            if not target or re.match(r"^(?:[a-z]+:|/|<)", target):
+                continue
+            resolved = os.path.normpath(
+                os.path.join(os.path.dirname(name), target)).rstrip("/")
+            if resolved not in names and resolved not in folders:
+                bad.append(f"{name}: {match.group(1)}")
+    return bad
 
 
 def assert_no_pt_br_names(zf: zipfile.ZipFile, archive_path: Path) -> None:
@@ -455,8 +482,14 @@ def build_archive(lang: str, output_dir: Path) -> Path:
         add_shared_runtime(zf, lang)
         add_shared_client_assets(zf, lang)
         add_reference_examples(zf, lang)
-        add_localized_docs(zf, lang)
+        add_documentation(zf, lang)
         assert_no_pt_br_names(zf, archive_path)
+        bad = broken_links(zf)
+        if bad:
+            joined = "\n  - ".join(bad)
+            raise RuntimeError(
+                f"{archive_path.name} has broken relative links:\n"
+                f"  - {joined}")
 
     return archive_path
 

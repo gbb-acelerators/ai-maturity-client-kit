@@ -11,9 +11,9 @@ See referencia/branding/IDENTITY.md and referencia/branding/VOICE.md.
 # ============================================================
 
 AUTHOR = "Paula Silva"
-ROLE = "Software Global Black Belt"
-ROLE_FULL = "Paula Silva, Software Global Black Belt"
-META_BAR = "Paula Silva | Software Global Black Belt"
+ROLE = "Global Developer Solutions Advisor"
+ROLE_FULL = "Paula Silva, Global Developer Solutions Advisor"
+META_BAR = "Paula Silva | Global Developer Solutions Advisor"
 CONTACT = "paulasilva@microsoft.com"
 TAGLINE = "Building the future of software development with AI and Agentic DevOps"
 
@@ -51,6 +51,7 @@ def md_header() -> str:
 FOOTER_IDENTITY = {
     "en": "Visual identity: {ds} · see `referencia/branding/`",
     "pt-br": "Identidade visual: {ds} · ver `referencia/branding/`",
+    "es": "Identidad visual: {ds} · ver `referencia/branding/`",
 }
 
 
@@ -59,10 +60,57 @@ def md_footer(lang: str = "pt-br") -> str:
     identity = FOOTER_IDENTITY.get(lang, FOOTER_IDENTITY["en"])
     return (
         "\n\n---\n\n"
-        f"<sub>**{AUTHOR}** | {ROLE} · {CONTACT}</sub>  \n"
+        f"<sub>**{AUTHOR}** | {ROLE} · <{CONTACT}></sub>  \n"
         f"<sub>{TAGLINE}</sub>  \n"
         f"<sub>{identity.format(ds=DESIGN_SYSTEM)}</sub>\n"
     )
+
+
+def tidy_markdown(text: str) -> str:
+    """Blank lines around headings, tables and lists; no runs of blanks.
+
+    Generated reports then pass Markdown lint (MD012, MD022, MD032,
+    MD058). Fenced code blocks are left untouched.
+    """
+    kinds = []
+    lines = text.split("\n")
+    fence = False
+    for line in lines:
+        stripped = line.strip()
+        if stripped.startswith("```"):
+            fence = not fence
+            kinds.append("code")
+            continue
+        if fence:
+            kinds.append("code")
+        elif not stripped:
+            kinds.append("blank")
+        elif stripped.startswith("#"):
+            kinds.append("heading")
+        elif stripped.startswith("|"):
+            kinds.append("table")
+        elif (stripped.startswith(("- ", "* "))
+              or stripped[:1].isdigit() and ". " in stripped[:4]):
+            kinds.append("list")
+        else:
+            kinds.append("text")
+    out: list[str] = []
+    prev = "blank"
+    for line, kind in zip(lines, kinds):
+        if kind == "blank":
+            if prev != "blank":
+                out.append("")
+            prev = "blank"
+            continue
+        needs_gap = prev != "blank" and (
+            kind == "heading" or prev == "heading"
+            or (kind in ("table", "list") and prev != kind)
+            or (prev in ("table", "list") and kind != prev))
+        if needs_gap and not (kind == "code" and prev == "code"):
+            out.append("")
+        out.append(line)
+        prev = kind
+    return "\n".join(out).strip("\n") + "\n"
 
 
 def json_metadata() -> dict:

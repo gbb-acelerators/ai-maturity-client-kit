@@ -10,10 +10,18 @@ on:
       - '.github/skills/**'
       - 'kit-en/**'
       - 'kit-es/**'
-      - 'README.md'
-      - 'GUIA-PASSO-A-PASSO.md'
+      - '*.md'
       - 'framework.json'
-      - 'scripts/build_language_kits.py'
+      - 'framework.v2.json'
+      - 'framework/**'
+      - 'coleta/**'
+      - 'formularios/**'
+      - 'referencia/**'
+      - 'relatorios/**'
+      - 'scripts/**'
+      - 'survey-devs/**'
+      - 'survey-learning/**'
+      - 'wizard/**'
       - '.github/workflows/release-zips.yml'
   workflow_dispatch:
 
@@ -26,6 +34,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check generated files are current
+        run: |
+          python3 scripts/validate_framework_v2.py
+          python3 scripts/generate_v2_collection.py --check
+          python3 scripts/generate_v2_reference.py --check
+          python3 scripts/generate_v2_tools_html.py --check
+          python3 scripts/build_kit_docs.py --check
+          python3 scripts/check_language_coverage.py
+
       - name: Build 3 ZIPs (PT, EN, ES)
         run: python3 scripts/build_language_kits.py --out dist --clean
 
@@ -37,5 +54,5 @@ jobs:
           gh release create "$RELEASE_TAG" dist/*.zip \
             --repo "$GITHUB_REPOSITORY" \
             --title "Latest kits (PT · EN · ES)" \
-            --notes "Auto-built kits per language.\n\n- ai-maturity-kit-pt.zip — kit completo em Português (Brasil)\n- ai-maturity-kit-en.zip — kit with English client docs\n- ai-maturity-kit-es.zip — kit con docs cliente en Español" \
+            --notes "Auto-built kits per language.\n\n- ai-maturity-kit-pt.zip: kit completo em Português (Brasil)\n- ai-maturity-kit-en.zip: kit with English client docs\n- ai-maturity-kit-es.zip: kit con docs de cliente en español" \
             --latest

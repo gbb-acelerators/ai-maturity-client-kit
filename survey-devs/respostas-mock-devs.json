@@ -40,7 +40,7 @@
         },
         "S2-Q1": {
           "type": "choice",
-          "value": "Sim — Copilot Pro (individual)"
+          "value": "Sim, Copilot Pro (individual)"
         },
         "S2-Q2": {
           "type": "choice",
@@ -132,7 +132,7 @@
         },
         "S4-Q8": {
           "type": "choice",
-          "value": "Sempre — primeira coisa que faço"
+          "value": "Sempre, primeira coisa que faço"
         },
         "S4-Q9": {
           "type": "text",
@@ -140,11 +140,11 @@
         },
         "S5-Q1": {
           "type": "choice",
-          "value": "Sim — vagamente"
+          "value": "Sim, vagamente"
         },
         "S5-Q2": {
           "type": "choice",
-          "value": "Sim — uso conscientemente"
+          "value": "Sim, uso conscientemente"
         },
         "S5-Q3": {
           "type": "choice",
@@ -156,7 +156,7 @@
         },
         "S5-Q5": {
           "type": "choice",
-          "value": "Sim — uma ou duas"
+          "value": "Sim, uma ou duas"
         },
         "S5-Q6": {
           "type": "choice",
@@ -176,7 +176,7 @@
         },
         "S5-Q10": {
           "type": "choice",
-          "value": "Sempre — tenho test suite para meus agents"
+          "value": "Sempre, tenho test suite para meus agents"
         },
         "S5-Q11": {
           "type": "multi",
@@ -200,7 +200,7 @@
         },
         "S6-Q5": {
           "type": "choice",
-          "value": "Sim — repo dedicado"
+          "value": "Sim, repo dedicado"
         },
         "S6-Q6": {
           "type": "choice",
@@ -212,11 +212,11 @@
         },
         "S7-Q2": {
           "type": "choice",
-          "value": "Sim — eu sou"
+          "value": "Sim, eu sou"
         },
         "S7-Q3": {
           "type": "choice",
-          "value": "Sim — ativo (>5 mensagens/semana)"
+          "value": "Sim, ativo (>5 mensagens/semana)"
         },
         "S7-Q4": {
           "type": "multi",
@@ -240,11 +240,11 @@
         },
         "S7-Q9": {
           "type": "choice",
-          "value": "Às vezes — pessoalmente"
+          "value": "Às vezes, pessoalmente"
         },
         "S8-Q1": {
           "type": "choice",
-          "value": "Sim — mas pouco clara"
+          "value": "Sim, mas pouco clara"
         },
         "S8-Q2": {
           "type": "choice",
@@ -260,11 +260,11 @@
         },
         "S8-Q5": {
           "type": "choice",
-          "value": "Sim — opcional"
+          "value": "Sim, opcional"
         },
         "S8-Q6": {
           "type": "choice",
-          "value": "Sim — manual quando solicitado"
+          "value": "Sim, manual quando solicitado"
         },
         "S8-Q7": {
           "type": "choice",
@@ -272,23 +272,23 @@
         },
         "S8-Q8": {
           "type": "choice",
-          "value": "Sempre — escopo + red-lines documentados"
+          "value": "Sempre, escopo + red-lines documentados"
         },
         "S8-Q9": {
           "type": "choice",
-          "value": "Sim — JIT obrigatório para agents"
+          "value": "Sim, JIT obrigatório para agents"
         },
         "S8-Q10": {
           "type": "choice",
-          "value": "Sim — alerta mas não bloqueia"
+          "value": "Sim, alerta mas não bloqueia"
         },
         "S8-Q11": {
           "type": "choice",
-          "value": "Sim — logs ativos e revisados"
+          "value": "Sim, logs ativos e revisados"
         },
         "S8-Q12": {
           "type": "choice",
-          "value": "Sim — treinamento obrigatório anual"
+          "value": "Sim, treinamento obrigatório anual"
         },
         "S8-Q13": {
           "type": "choice",
@@ -308,7 +308,7 @@
         },
         "S9-Q4": {
           "type": "choice",
-          "value": "Sim — quero ver"
+          "value": "Sim, quero ver"
         }
       }
     },
@@ -354,7 +354,7 @@
         },
         "S2-Q3": {
           "type": "multi",
-          "value": "Plan / Vision; Agent (autônomo no IDE, executa tasks); Não uso o Chat — só completion inline; Ask (responder perguntas)"
+          "value": "Plan / Vision; Agent (autônomo no IDE, executa tasks); Não uso o Chat, só completion inline; Ask (responder perguntas)"
         },
         "S2-Q4": {
           "type": "choice",
@@ -462,7 +462,7 @@
         },
         "S5-Q5": {
           "type": "choice",
-          "value": "Sim — uma ou duas"
+          "value": "Sim, uma ou duas"
         },
         "S5-Q6": {
           "type": "choice",
@@ -482,7 +482,7 @@
         },
         "S5-Q10": {
           "type": "choice",
-          "value": "Às vezes — só sanity check"
+          "value": "Às vezes, só sanity check"
         },
         "S5-Q11": {
           "type": "multi",
@@ -506,7 +506,7 @@
         },
         "S6-Q5": {
           "type": "choice",
-          "value": "Sim — Copilot Space compartilhado"
+          "value": "Sim, Copilot Space compartilhado"
         },
         "S6-Q6": {
           "type": "choice",
@@ -522,7 +522,7 @@
         },
         "S7-Q3": {
           "type": "choice",
-          "value": "Sim — ativo (>5 mensagens/semana)"
+          "value": "Sim, ativo (>5 mensagens/semana)"
         },
         "S7-Q4": {
           "type": "multi",
@@ -550,7 +550,7 @@
         },
         "S8-Q1": {
           "type": "choice",
-          "value": "Sim — mas pouco clara"
+          "value": "Sim, mas pouco clara"
         },
         "S8-Q2": {
           "type": "choice",
@@ -566,15 +566,15 @@
         },
         "S8-Q5": {
           "type": "choice",
-          "value": "Sim — gate obrigatório no PR"
+          "value": "Sim, gate obrigatório no PR"
         },
         "S8-Q6": {
           "type": "choice",
-          "value": "Sim — automatizado"
+          "value": "Sim, automatizado"
         },
         "S8-Q7": {
           "type": "choice",
-          "value": "Sim — review obrigatório por outro humano + scanner"
+          "value": "Sim, review obrigatório por outro humano + scanner"
         },
         "S8-Q8": {
           "type": "choice",
@@ -586,7 +586,7 @@
         },
         "S8-Q10": {
           "type": "choice",
-          "value": "Sim — bloqueia ativamente"
+          "value": "Sim, bloqueia ativamente"
         },
         "S8-Q11": {
           "type": "choice",
@@ -594,7 +594,7 @@
         },
         "S8-Q12": {
           "type": "choice",
-          "value": "Sim — uma vez (no onboarding)"
+          "value": "Sim, uma vez (no onboarding)"
         },
         "S8-Q13": {
           "type": "choice",
@@ -652,7 +652,7 @@
         },
         "S2-Q1": {
           "type": "choice",
-          "value": "Sim — Copilot Enterprise"
+          "value": "Sim, Copilot Enterprise"
         },
         "S2-Q2": {
           "type": "choice",
@@ -744,7 +744,7 @@
         },
         "S4-Q8": {
           "type": "choice",
-          "value": "Sempre — primeira coisa que faço"
+          "value": "Sempre, primeira coisa que faço"
         },
         "S4-Q9": {
           "type": "text",
@@ -752,7 +752,7 @@
         },
         "S5-Q1": {
           "type": "choice",
-          "value": "Sim — explico claramente"
+          "value": "Sim, explico claramente"
         },
         "S5-Q2": {
           "type": "choice",
@@ -768,7 +768,7 @@
         },
         "S5-Q5": {
           "type": "choice",
-          "value": "Sim — várias"
+          "value": "Sim, várias"
         },
         "S5-Q6": {
           "type": "choice",
@@ -788,7 +788,7 @@
         },
         "S5-Q10": {
           "type": "choice",
-          "value": "Sempre — tenho test suite para meus agents"
+          "value": "Sempre, tenho test suite para meus agents"
         },
         "S5-Q11": {
           "type": "multi",
@@ -812,7 +812,7 @@
         },
         "S6-Q5": {
           "type": "choice",
-          "value": "Sim — wiki/Confluence"
+          "value": "Sim, wiki/Confluence"
         },
         "S6-Q6": {
           "type": "choice",
@@ -824,11 +824,11 @@
         },
         "S7-Q2": {
           "type": "choice",
-          "value": "Sim — eu sou"
+          "value": "Sim, eu sou"
         },
         "S7-Q3": {
           "type": "choice",
-          "value": "Sim — ativo (>5 mensagens/semana)"
+          "value": "Sim, ativo (>5 mensagens/semana)"
         },
         "S7-Q4": {
           "type": "multi",
@@ -840,7 +840,7 @@
         },
         "S7-Q6": {
           "type": "choice",
-          "value": "Nunca — sempre reviso"
+          "value": "Nunca, sempre reviso"
         },
         "S7-Q7": {
           "type": "choice",
@@ -856,7 +856,7 @@
         },
         "S8-Q1": {
           "type": "choice",
-          "value": "Sim — mas pouco clara"
+          "value": "Sim, mas pouco clara"
         },
         "S8-Q2": {
           "type": "choice",
@@ -872,11 +872,11 @@
         },
         "S8-Q5": {
           "type": "choice",
-          "value": "Sim — gate obrigatório no PR"
+          "value": "Sim, gate obrigatório no PR"
         },
         "S8-Q6": {
           "type": "choice",
-          "value": "Sim — automatizado"
+          "value": "Sim, automatizado"
         },
         "S8-Q7": {
           "type": "choice",
@@ -892,7 +892,7 @@
         },
         "S8-Q10": {
           "type": "choice",
-          "value": "Sim — alerta mas não bloqueia"
+          "value": "Sim, alerta mas não bloqueia"
         },
         "S8-Q11": {
           "type": "choice",
@@ -900,7 +900,7 @@
         },
         "S8-Q12": {
           "type": "choice",
-          "value": "Sim — uma vez (no onboarding)"
+          "value": "Sim, uma vez (no onboarding)"
         },
         "S8-Q13": {
           "type": "choice",
@@ -958,7 +958,7 @@
         },
         "S2-Q1": {
           "type": "choice",
-          "value": "Sim — Copilot Business"
+          "value": "Sim, Copilot Business"
         },
         "S2-Q2": {
           "type": "choice",
@@ -966,7 +966,7 @@
         },
         "S2-Q3": {
           "type": "multi",
-          "value": "Plan / Vision; Não uso o Chat — só completion inline; Copilot Coding Agent (autônomo no GitHub.com — assigna issue, abre PR sozinho)"
+          "value": "Plan / Vision; Não uso o Chat, só completion inline; Copilot Coding Agent (autônomo no GitHub.com, assigna issue, abre PR sozinho)"
         },
         "S2-Q4": {
           "type": "choice",
@@ -1050,7 +1050,7 @@
         },
         "S4-Q8": {
           "type": "choice",
-          "value": "Sempre — primeira coisa que faço"
+          "value": "Sempre, primeira coisa que faço"
         },
         "S4-Q9": {
           "type": "text",
@@ -1058,11 +1058,11 @@
         },
         "S5-Q1": {
           "type": "choice",
-          "value": "Sim — vagamente"
+          "value": "Sim, vagamente"
         },
         "S5-Q2": {
           "type": "choice",
-          "value": "Sim — uso conscientemente"
+          "value": "Sim, uso conscientemente"
         },
         "S5-Q3": {
           "type": "choice",
@@ -1074,7 +1074,7 @@
         },
         "S5-Q5": {
           "type": "choice",
-          "value": "Sim — várias"
+          "value": "Sim, várias"
         },
         "S5-Q6": {
           "type": "choice",
@@ -1090,11 +1090,11 @@
         },
         "S5-Q9": {
           "type": "choice",
-          "value": "Sim — adoto explicitamente"
+          "value": "Sim, adoto explicitamente"
         },
         "S5-Q10": {
           "type": "choice",
-          "value": "Sempre — tenho test suite para meus agents"
+          "value": "Sempre, tenho test suite para meus agents"
         },
         "S5-Q11": {
           "type": "multi",
@@ -1118,7 +1118,7 @@
         },
         "S6-Q5": {
           "type": "choice",
-          "value": "Sim — Copilot Space compartilhado"
+          "value": "Sim, Copilot Space compartilhado"
         },
         "S6-Q6": {
           "type": "choice",
@@ -1130,11 +1130,11 @@
         },
         "S7-Q2": {
           "type": "choice",
-          "value": "Sim — eu sou"
+          "value": "Sim, eu sou"
         },
         "S7-Q3": {
           "type": "choice",
-          "value": "Sim — ativo (>5 mensagens/semana)"
+          "value": "Sim, ativo (>5 mensagens/semana)"
         },
         "S7-Q4": {
           "type": "multi",
@@ -1158,7 +1158,7 @@
         },
         "S7-Q9": {
           "type": "choice",
-          "value": "Frequentemente — em canal compartilhado"
+          "value": "Frequentemente, em canal compartilhado"
         },
         "S8-Q1": {
           "type": "choice",
@@ -1178,15 +1178,15 @@
         },
         "S8-Q5": {
           "type": "choice",
-          "value": "Sim — opcional"
+          "value": "Sim, opcional"
         },
         "S8-Q6": {
           "type": "choice",
-          "value": "Sim — manual quando solicitado"
+          "value": "Sim, manual quando solicitado"
         },
         "S8-Q7": {
           "type": "choice",
-          "value": "Sim — review obrigatório por outro humano + scanner"
+          "value": "Sim, review obrigatório por outro humano + scanner"
         },
         "S8-Q8": {
           "type": "choice",
@@ -1194,11 +1194,11 @@
         },
         "S8-Q9": {
           "type": "choice",
-          "value": "Sim — opcional"
+          "value": "Sim, opcional"
         },
         "S8-Q10": {
           "type": "choice",
-          "value": "Sim — alerta mas não bloqueia"
+          "value": "Sim, alerta mas não bloqueia"
         },
         "S8-Q11": {
           "type": "choice",
@@ -1206,7 +1206,7 @@
         },
         "S8-Q12": {
           "type": "choice",
-          "value": "Sim — uma vez (no onboarding)"
+          "value": "Sim, uma vez (no onboarding)"
         },
         "S8-Q13": {
           "type": "choice",
@@ -1264,7 +1264,7 @@
         },
         "S2-Q1": {
           "type": "choice",
-          "value": "Sim — Copilot Pro (individual)"
+          "value": "Sim, Copilot Pro (individual)"
         },
         "S2-Q2": {
           "type": "choice",
@@ -1364,11 +1364,11 @@
         },
         "S5-Q1": {
           "type": "choice",
-          "value": "Sim — explico claramente"
+          "value": "Sim, explico claramente"
         },
         "S5-Q2": {
           "type": "choice",
-          "value": "Sim — uso conscientemente"
+          "value": "Sim, uso conscientemente"
         },
         "S5-Q3": {
           "type": "choice",
@@ -1380,7 +1380,7 @@
         },
         "S5-Q5": {
           "type": "choice",
-          "value": "Sim — uma ou duas"
+          "value": "Sim, uma ou duas"
         },
         "S5-Q6": {
           "type": "choice",
@@ -1400,7 +1400,7 @@
         },
         "S5-Q10": {
           "type": "choice",
-          "value": "Frequentemente — manual mas sistemático"
+          "value": "Frequentemente, manual mas sistemático"
         },
         "S5-Q11": {
           "type": "multi",
@@ -1424,7 +1424,7 @@
         },
         "S6-Q5": {
           "type": "choice",
-          "value": "Sim — wiki/Confluence"
+          "value": "Sim, wiki/Confluence"
         },
         "S6-Q6": {
           "type": "choice",
@@ -1436,11 +1436,11 @@
         },
         "S7-Q2": {
           "type": "choice",
-          "value": "Sim — outra pessoa"
+          "value": "Sim, outra pessoa"
         },
         "S7-Q3": {
           "type": "choice",
-          "value": "Sim — pouco ativo"
+          "value": "Sim, pouco ativo"
         },
         "S7-Q4": {
           "type": "multi",
@@ -1464,11 +1464,11 @@
         },
         "S7-Q9": {
           "type": "choice",
-          "value": "Às vezes — pessoalmente"
+          "value": "Às vezes, pessoalmente"
         },
         "S8-Q1": {
           "type": "choice",
-          "value": "Sim — política formal e clara"
+          "value": "Sim, política formal e clara"
         },
         "S8-Q2": {
           "type": "choice",
@@ -1484,27 +1484,27 @@
         },
         "S8-Q5": {
           "type": "choice",
-          "value": "Sim — opcional"
+          "value": "Sim, opcional"
         },
         "S8-Q6": {
           "type": "choice",
-          "value": "Sim — automatizado"
+          "value": "Sim, automatizado"
         },
         "S8-Q7": {
           "type": "choice",
-          "value": "Sim — review obrigatório por outro humano + scanner"
+          "value": "Sim, review obrigatório por outro humano + scanner"
         },
         "S8-Q8": {
           "type": "choice",
-          "value": "Sempre — escopo + red-lines documentados"
+          "value": "Sempre, escopo + red-lines documentados"
         },
         "S8-Q9": {
           "type": "choice",
-          "value": "Sim — opcional"
+          "value": "Sim, opcional"
         },
         "S8-Q10": {
           "type": "choice",
-          "value": "Sim — alerta mas não bloqueia"
+          "value": "Sim, alerta mas não bloqueia"
         },
         "S8-Q11": {
           "type": "choice",
@@ -1512,7 +1512,7 @@
         },
         "S8-Q12": {
           "type": "choice",
-          "value": "Sim — uma vez (no onboarding)"
+          "value": "Sim, uma vez (no onboarding)"
         },
         "S8-Q13": {
           "type": "choice",
@@ -1532,7 +1532,7 @@
         },
         "S9-Q4": {
           "type": "choice",
-          "value": "Sim — quero ver"
+          "value": "Sim, quero ver"
         }
       }
     }

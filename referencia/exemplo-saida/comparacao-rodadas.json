@@ -1,0 +1,571 @@
+{
+  "mode": "v1-v2",
+  "overall": {
+    "before": null,
+    "after": 2.038,
+    "delta": null
+  },
+  "units": [
+    {
+      "id": "D1",
+      "name": "AI Strategy, Policy and Governance",
+      "comparable_questions": 3,
+      "before": 2.0,
+      "after": 2.931,
+      "delta": 0.931
+    },
+    {
+      "id": "D2",
+      "name": "Enablement, Skills and Culture",
+      "comparable_questions": 0,
+      "before": null,
+      "after": null,
+      "delta": null
+    },
+    {
+      "id": "D3",
+      "name": "Plan, Specify and Design",
+      "comparable_questions": 0,
+      "before": null,
+      "after": null,
+      "delta": null
+    },
+    {
+      "id": "D4",
+      "name": "Code and Context Engineering",
+      "comparable_questions": 4,
+      "before": 1.75,
+      "after": 2.678,
+      "delta": 0.928
+    },
+    {
+      "id": "D5",
+      "name": "Review, Quality and Testing",
+      "comparable_questions": 4,
+      "before": 2.5,
+      "after": 2.112,
+      "delta": -0.388
+    },
+    {
+      "id": "D6",
+      "name": "Security and AI Supply Chain",
+      "comparable_questions": 3,
+      "before": 1.222,
+      "after": 1.708,
+      "delta": 0.486
+    },
+    {
+      "id": "D7",
+      "name": "Deliver and Operate",
+      "comparable_questions": 3,
+      "before": 1.944,
+      "after": 1.699,
+      "delta": -0.246
+    },
+    {
+      "id": "D8",
+      "name": "Engineering Foundations (AI amplifiers)",
+      "comparable_questions": 3,
+      "before": 2.444,
+      "after": 1.172,
+      "delta": -1.272
+    },
+    {
+      "id": "D9",
+      "name": "Measurement, Value and AI FinOps",
+      "comparable_questions": 2,
+      "before": 2.5,
+      "after": 1.7,
+      "delta": -0.8
+    }
+  ],
+  "questions": [
+    {
+      "id": "D1-Q2",
+      "v1_ids": [
+        "P1-C1-Q5"
+      ],
+      "partial": true,
+      "before": 3.0,
+      "after": 2.929,
+      "delta": -0.071
+    },
+    {
+      "id": "D1-Q4",
+      "v1_ids": [
+        "P1-C1-Q5"
+      ],
+      "partial": true,
+      "before": 3.0,
+      "after": 3.077,
+      "delta": 0.077
+    },
+    {
+      "id": "D1-Q6",
+      "v1_ids": [
+        "P3-C3-Q5"
+      ],
+      "partial": true,
+      "before": null,
+      "after": 2.714,
+      "delta": null
+    },
+    {
+      "id": "D1-Q7",
+      "v1_ids": [
+        "P3-C5-Q4"
+      ],
+      "partial": true,
+      "before": 0.0,
+      "after": 2.786,
+      "delta": 2.786
+    },
+    {
+      "id": "D2-Q1",
+      "v1_ids": [
+        "P1-C5-Q4",
+        "P1-C3-Q6"
+      ],
+      "partial": true,
+      "before": null,
+      "after": 2.154,
+      "delta": null
+    },
+    {
+      "id": "D2-Q2",
+      "v1_ids": [
+        "P1-C6-Q6"
+      ],
+      "partial": false,
+      "before": null,
+      "after": 2.357,
+      "delta": null
+    },
+    {
+      "id": "D2-Q6",
+      "v1_ids": [
+        "P1-C5-Q2",
+        "P1-C5-Q6",
+        "P1-C5-Q7"
+      ],
+      "partial": false,
+      "before": null,
+      "after": 2.154,
+      "delta": null
+    },
+    {
+      "id": "D3-Q4",
+      "v1_ids": [
+        "P1-C3-Q5",
+        "P1-C6-Q5"
+      ],
+      "partial": false,
+      "before": null,
+      "after": 2.154,
+      "delta": null
+    },
+    {
+      "id": "D4-Q1",
+      "v1_ids": [
+        "P1-C1-Q1"
+      ],
+      "partial": false,
+      "before": 3.0,
+      "after": 2.615,
+      "delta": -0.385
+    },
+    {
+      "id": "D4-Q2",
+      "v1_ids": [
+        "P1-C1-Q1"
+      ],
+      "partial": true,
+      "before": 3.0,
+      "after": 2.643,
+      "delta": -0.357
+    },
+    {
+      "id": "D4-Q3",
+      "v1_ids": [
+        "P3-C5-Q1"
+      ],
+      "partial": true,
+      "before": 1.0,
+      "after": 2.667,
+      "delta": 1.667
+    },
+    {
+      "id": "D4-Q6",
+      "v1_ids": [
+        "P3-C5-Q4"
+      ],
+      "partial": false,
+      "before": 0.0,
+      "after": 2.786,
+      "delta": 2.786
+    },
+    {
+      "id": "D4-Q7",
+      "v1_ids": [
+        "P1-C3-Q2",
+        "P1-C3-Q3"
+      ],
+      "partial": false,
+      "before": null,
+      "after": 3.083,
+      "delta": null
+    },
+    {
+      "id": "D5-Q1",
+      "v1_ids": [
+        "P1-C1-Q2",
+        "P1-C4-Q1"
+      ],
+      "partial": false,
+      "before": 3.0,
+      "after": 2.071,
+      "delta": -0.929
+    },
+    {
+      "id": "D5-Q2",
+      "v1_ids": [
+        "P3-C5-Q5",
+        "P2-C9-Q3"
+      ],
+      "partial": false,
+      "before": 1.0,
+      "after": 2.071,
+      "delta": 1.071
+    },
+    {
+      "id": "D5-Q3",
+      "v1_ids": [
+        "P1-C4-Q2",
+        "P1-C4-Q4"
+      ],
+      "partial": false,
+      "before": 2.0,
+      "after": 2.0,
+      "delta": 0.0
+    },
+    {
+      "id": "D5-Q4",
+      "v1_ids": [
+        "P1-C4-Q6"
+      ],
+      "partial": false,
+      "before": null,
+      "after": 2.167,
+      "delta": null
+    },
+    {
+      "id": "D5-Q5",
+      "v1_ids": [
+        "P1-C1-Q4",
+        "P2-C6-Q1",
+        "P2-C6-Q5",
+        "P2-C6-Q6",
+        "P2-C6-Q7"
+      ],
+      "partial": false,
+      "before": 4.0,
+      "after": 2.308,
+      "delta": -1.692
+    },
+    {
+      "id": "D6-Q1",
+      "v1_ids": [
+        "P1-C4-Q3",
+        "P2-C4-Q1",
+        "P2-C4-Q2",
+        "P2-C4-Q3",
+        "P2-C4-Q4",
+        "P2-C10-Q1"
+      ],
+      "partial": false,
+      "before": 1.167,
+      "after": 2.0,
+      "delta": 0.833
+    },
+    {
+      "id": "D6-Q4",
+      "v1_ids": [
+        "P3-C6-Q2",
+        "P3-C6-Q3"
+      ],
+      "partial": true,
+      "before": null,
+      "after": 1.714,
+      "delta": null
+    },
+    {
+      "id": "D6-Q5",
+      "v1_ids": [
+        "P2-C8-Q2",
+        "P2-C8-Q3",
+        "P2-C10-Q2",
+        "P2-C10-Q3",
+        "P2-C10-Q5"
+      ],
+      "partial": false,
+      "before": 0.5,
+      "after": 1.5,
+      "delta": 1.0
+    },
+    {
+      "id": "D6-Q6",
+      "v1_ids": [
+        "P2-C4-Q6",
+        "P3-C3-Q5",
+        "P3-C5-Q3"
+      ],
+      "partial": true,
+      "before": 2.0,
+      "after": 1.625,
+      "delta": -0.375
+    },
+    {
+      "id": "D6-Q7",
+      "v1_ids": [
+        "P3-C6-Q5"
+      ],
+      "partial": true,
+      "before": null,
+      "after": 2.083,
+      "delta": null
+    },
+    {
+      "id": "D7-Q1",
+      "v1_ids": [
+        "P2-C1-Q1",
+        "P2-C1-Q2",
+        "P2-C1-Q3"
+      ],
+      "partial": false,
+      "before": 2.333,
+      "after": 1.692,
+      "delta": -0.641
+    },
+    {
+      "id": "D7-Q2",
+      "v1_ids": [
+        "P2-C1-Q6",
+        "P2-C5-Q1",
+        "P2-C5-Q2",
+        "P2-C5-Q3",
+        "P2-C5-Q5"
+      ],
+      "partial": false,
+      "before": 2.0,
+      "after": 1.833,
+      "delta": -0.167
+    },
+    {
+      "id": "D7-Q3",
+      "v1_ids": [
+        "P2-C3-Q6",
+        "P2-C7-Q2",
+        "P2-C7-Q5"
+      ],
+      "partial": false,
+      "before": null,
+      "after": 1.714,
+      "delta": null
+    },
+    {
+      "id": "D7-Q4",
+      "v1_ids": [
+        "P2-C3-Q3",
+        "P3-C5-Q6"
+      ],
+      "partial": false,
+      "before": 1.5,
+      "after": 1.571,
+      "delta": 0.071
+    },
+    {
+      "id": "D7-Q5",
+      "v1_ids": [
+        "P2-C2-Q1",
+        "P2-C2-Q2",
+        "P2-C2-Q4",
+        "P2-C2-Q5",
+        "P2-C9-Q1"
+      ],
+      "partial": false,
+      "before": null,
+      "after": 1.846,
+      "delta": null
+    },
+    {
+      "id": "D7-Q6",
+      "v1_ids": [
+        "P2-C7-Q7",
+        "P2-C10-Q4"
+      ],
+      "partial": false,
+      "before": null,
+      "after": 1.857,
+      "delta": null
+    },
+    {
+      "id": "D8-Q1",
+      "v1_ids": [
+        "P1-C7-Q1"
+      ],
+      "partial": true,
+      "before": null,
+      "after": 1.071,
+      "delta": null
+    },
+    {
+      "id": "D8-Q2",
+      "v1_ids": [
+        "P2-C1-Q4"
+      ],
+      "partial": false,
+      "before": 2.0,
+      "after": 1.231,
+      "delta": -0.769
+    },
+    {
+      "id": "D8-Q3",
+      "v1_ids": [
+        "P1-C2-Q1",
+        "P1-C2-Q3",
+        "P1-C2-Q4",
+        "P1-C2-Q5",
+        "P1-C2-Q6"
+      ],
+      "partial": false,
+      "before": 2.333,
+      "after": 1.286,
+      "delta": -1.047
+    },
+    {
+      "id": "D8-Q4",
+      "v1_ids": [
+        "P3-C4-Q1",
+        "P3-C4-Q2",
+        "P3-C4-Q3"
+      ],
+      "partial": false,
+      "before": null,
+      "after": 0.923,
+      "delta": null
+    },
+    {
+      "id": "D8-Q5",
+      "v1_ids": [
+        "P1-C2-Q2",
+        "P1-C5-Q1",
+        "P1-C9-Q1",
+        "P1-C9-Q2",
+        "P1-C9-Q3"
+      ],
+      "partial": false,
+      "before": 3.0,
+      "after": 1.0,
+      "delta": -2.0
+    },
+    {
+      "id": "D8-Q6",
+      "v1_ids": [
+        "P1-C3-Q1",
+        "P1-C3-Q4",
+        "P1-C7-Q1",
+        "P1-C7-Q2",
+        "P1-C7-Q3",
+        "P1-C7-Q4"
+      ],
+      "partial": false,
+      "before": null,
+      "after": 1.357,
+      "delta": null
+    },
+    {
+      "id": "D8-Q7",
+      "v1_ids": [
+        "P2-C6-Q2",
+        "P2-C6-Q3",
+        "P2-C6-Q4",
+        "P1-C8-Q3"
+      ],
+      "partial": false,
+      "before": null,
+      "after": 0.75,
+      "delta": null
+    },
+    {
+      "id": "D9-Q1",
+      "v1_ids": [
+        "P1-C1-Q3"
+      ],
+      "partial": false,
+      "before": 2.0,
+      "after": 1.786,
+      "delta": -0.214
+    },
+    {
+      "id": "D9-Q2",
+      "v1_ids": [
+        "P1-C8-Q1",
+        "P2-C1-Q5",
+        "P2-C5-Q6",
+        "P2-C3-Q1"
+      ],
+      "partial": false,
+      "before": 3.0,
+      "after": 1.615,
+      "delta": -1.385
+    },
+    {
+      "id": "D9-Q3",
+      "v1_ids": [
+        "P1-C4-Q5",
+        "P1-C8-Q5"
+      ],
+      "partial": false,
+      "before": null,
+      "after": 1.333,
+      "delta": null
+    },
+    {
+      "id": "D9-Q4",
+      "v1_ids": [
+        "P1-C8-Q2",
+        "P1-C8-Q4"
+      ],
+      "partial": false,
+      "before": null,
+      "after": 1.571,
+      "delta": null
+    },
+    {
+      "id": "D9-Q6",
+      "v1_ids": [
+        "P3-C9-Q1"
+      ],
+      "partial": true,
+      "before": null,
+      "after": 1.786,
+      "delta": null
+    },
+    {
+      "id": "D9-Q7",
+      "v1_ids": [
+        "P1-C8-Q6",
+        "P3-C9-Q5"
+      ],
+      "partial": false,
+      "before": null,
+      "after": 1.545,
+      "delta": null
+    }
+  ],
+  "caveats": [
+    "v1 and v2 use different questions, anchors and bands; deltas are indicative only.",
+    "Only v2 questions with a v1 lineage are compared; 'partial' marks a v1 question that covers only part of the v2 question.",
+    "No overall delta is given across versions."
+  ]
+}
