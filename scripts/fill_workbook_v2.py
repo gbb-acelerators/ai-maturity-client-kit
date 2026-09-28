@@ -32,13 +32,15 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 def level_formula(ref: str, bands: list[dict]) -> str:
     expr = f'"{bands[-1]["level"]}"'
     for band in reversed(bands[:-1]):
-        expr = f'IF({ref}<{band["max"]},"{band["level"]}",{expr})'
+        expr = (f'IF(ROUND({ref},9)<{band["max"]},"{band["level"]}",'
+                f'{expr})')
     return f'=IF({ref}="","",{expr})'
 
 
 def priority_formula(ref: str, cuts: dict) -> str:
-    return (f'=IF({ref}="","",IF({ref}>={cuts["P0"]},"P0",'
-            f'IF({ref}>={cuts["P1"]},"P1",IF({ref}>={cuts["P2"]},"P2",'
+    v = f"ROUND({ref},9)"
+    return (f'=IF({ref}="","",IF({v}>={cuts["P0"]},"P0",'
+            f'IF({v}>={cuts["P1"]},"P1",IF({v}>={cuts["P2"]},"P2",'
             f'"P3"))))')
 
 

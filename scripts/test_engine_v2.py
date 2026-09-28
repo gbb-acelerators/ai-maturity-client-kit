@@ -58,6 +58,11 @@ class BandTest(unittest.TestCase):
         for score, level in cases.items():
             self.assertEqual(v2.level_code(FW, score), level, score)
 
+    def test_floating_point_noise_at_boundaries(self) -> None:
+        self.assertEqual(v2.level_code(FW, 2.3999999999999995), "L3")
+        self.assertEqual(v2.priority_of(FW, 3.0 - 2.1), 2)
+        self.assertEqual(v2.priority_of(FW, 0.899), 3)
+
 
 class ScoringTest(unittest.TestCase):
     def test_na_and_skipped_are_excluded(self) -> None:
@@ -115,6 +120,20 @@ class ScoringTest(unittest.TestCase):
         gap = s["flags"]["perception_gap"]
         self.assertEqual(gap["status"], "evaluated")
         self.assertEqual(len(gap["dimensions"]), 9)
+
+    def test_respondent_divergence(self) -> None:
+        agree = [person(f"a{i}", 2) for i in range(3)]
+        s = v2.compute_scores(FW, file_with(agree), "en")
+        self.assertEqual(s["flags"]["respondent_divergence"], [])
+        split = [person("lo", 0), person("mid", 2), person("hi", 4)]
+        s = v2.compute_scores(FW, file_with(split[:2]), "en")
+        self.assertEqual(s["flags"]["respondent_divergence"], [])
+        s = v2.compute_scores(FW, file_with(split), "en")
+        flags = s["flags"]["respondent_divergence"]
+        self.assertEqual(len(flags), 9)
+        self.assertEqual(flags[0]["n"], 3)
+        self.assertAlmostEqual(flags[0]["sd"], 1.633, places=3)
+        self.assertEqual((flags[0]["min"], flags[0]["max"]), (0.0, 4.0))
 
     def test_scope_caveat_and_evidence(self) -> None:
         people = [person(f"p{i}", 3, scope="A single team")

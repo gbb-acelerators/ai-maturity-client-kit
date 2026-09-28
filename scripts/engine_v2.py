@@ -3,7 +3,8 @@
 Implements section 8 of coleta/AI-Maturity-Form-Questions_v2.md:
 pooled question means, dimension and overall scores, half-open level
 bands, coverage status, low-confidence, amplification-risk,
-perception-gap and scope flags, evidence coverage, persona scores,
+perception-gap, respondent-divergence and scope flags, evidence
+coverage, persona scores,
 gaps, priorities and strategy recommendations.
 
 Called by scripts/assessment_engine.py when respostas.json declares
@@ -12,6 +13,7 @@ metadata.framework_version 2.x.
 from __future__ import annotations
 
 import datetime
+import statistics
 from collections import defaultdict
 
 PRIORITIES = ("P0", "P1", "P2", "P3")
@@ -41,7 +43,7 @@ TEXT = {
         "no_answer": "Sem resposta",
         "skip_none": "sem gaps relacionados",
         "skip_low": "monitorar (apenas gaps de baixa prioridade)",
-        "first_action": "Comece por {qid} ({title}). Meta do âncora L3: "
+        "first_action": "Comece por {qid} ({title}). Meta da âncora L3: "
                         "{anchor}",
         "outcome": "Levar {dims} ao nível-alvo; reavaliar para confirmar "
                    "com evidências.",
@@ -79,10 +81,45 @@ def band_index(fw: dict, score: float | None) -> int | None:
     if score is None:
         return None
     bands = fw["level_bands"]
+    # Rounding to 9 decimals absorbs floating-point noise, so a mean of
+    # 2.3999999999999995 lands in the band that starts at 2.4.
+    value = round(score, 9)
     for idx, band in enumerate(bands):
-        if score < band["max"]:
+        if value < band["max"]:
             return idx
     return len(bands) - 1
+
+
+def coverage_level_index(share: float | None) -> int | None:
+    """Level supported by a coverage share (section 4 coverage bands).
+
+    L0 none, L1 more than 0% and up to 25%, L2 up to 50%, L3 up to 90%,
+    L4 above 90%.
+    """
+    if share is None:
+        return None
+    for idx, upper in enumerate((0.0, 0.25, 0.50, 0.90)):
+        if round(share, 9) <= upper:
+            return idx
+    return 4
+
+
+def agentic_level_index(shares: dict) -> int | None:
+    """Level supported by Copilot adoption phases (section 4 signal).
+
+    More than half of the users Code first or higher supports L2, Agent
+    first or higher supports L3, Multi-agent supports L4.
+    """
+    code = shares.get("code_first_or_higher")
+    if code is None:
+        return None
+    if (shares.get("multi_agent") or 0) > 0.5:
+        return 4
+    if (shares.get("agent_first_or_higher") or 0) > 0.5:
+        return 3
+    if code > 0.5:
+        return 2
+    return 1 if code > 0 else 0
 
 
 def level_code(fw: dict, score: float | None) -> str | None:
@@ -229,6 +266,35 @@ def perception_gap(fw: dict, people: list[dict], qindex: dict) -> dict:
                 "hands_on_score": r3(ho[d["id"]]),
             })
     return result
+
+
+def respondent_divergence(fw: dict, people: list[dict]) -> list[dict]:
+    """Dimensions where respondents disagree by a level or more.
+
+    Each respondent gets a dimension score (mean of their own answered
+    questions). A dimension is flagged when at least ``persona_min_n``
+    respondents have a score and their population standard deviation
+    is at least ``divergence_sd_min``.
+    """
+    sc = fw["scoring"]
+    out = []
+    for d in fw["dimensions"]:
+        per = []
+        for person in people:
+            answers = person.get("answers") or {}
+            vals = [float(e["level"]) for q in d["questions"]
+                    if isinstance(e := answers.get(q["id"]), dict)
+                    and e.get("level") is not None]
+            if vals:
+                per.append(sum(vals) / len(vals))
+        if len(per) < sc["persona_min_n"]:
+            continue
+        sd = statistics.pstdev(per)
+        if sd >= sc["divergence_sd_min"]:
+            out.append({"dimension_id": d["id"], "n": len(per),
+                        "sd": r3(sd), "min": r3(min(per)),
+                        "max": r3(max(per))})
+    return out
 
 
 def scope_caveat(fw: dict, people: list[dict]) -> dict:
@@ -379,6 +445,7 @@ def compute_scores(fw: dict, respostas: dict, locale: str) -> dict:
             "low_confidence": low_conf,
             "amplification_risk": amplification,
             "perception_gap": perception_gap(fw, people, qindex),
+            "respondent_divergence": respondent_divergence(fw, people),
             "scope_caveat": scope_caveat(fw, people),
         },
         "evidence": {
@@ -393,6 +460,7 @@ def compute_scores(fw: dict, respostas: dict, locale: str) -> dict:
 
 def priority_of(fw: dict, value: float) -> int:
     cuts = fw["scoring"]["priority_cuts"]
+    value = round(value, 9)
     for idx, key in enumerate(("P0", "P1", "P2")):
         if value >= cuts[key]:
             return idx
