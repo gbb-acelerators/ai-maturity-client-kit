@@ -19,7 +19,7 @@ El logo oficial de cuatro cuadrados de Microsoft y `Paula Silva | Global Develop
 - [../calculadora-pontuacao.es.html](../calculadora-pontuacao.es.html), calculadora v2 generada.
 - [../../formularios/assessment-v2.es.html](../../formularios/assessment-v2.es.html), formulario de evaluación v2 generado.
 - [../../wizard/implementation-guide-wizard.es.html](../../wizard/implementation-guide-wizard.es.html), wizard de guía de implementación generado.
-- [../v1/calculadora-pontuacao.html](../v1/calculadora-pontuacao.html), calculadora v1 archivada.
+- [../v1/calculadora-pontuacao.html](../v1/calculadora-pontuacao.es.html), calculadora v1 archivada.
 - [../../formularios/v1/](../../formularios/v1/), formularios v1 archivados.
 - PDFs v2 renderizados desde [../../relatorios/templates/](../../relatorios/templates/), en la portada.
 

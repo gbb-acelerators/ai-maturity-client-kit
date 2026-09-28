@@ -73,6 +73,7 @@
       <h1 class="text-xl font-bold text-gray-900">Scoring Calculator · AI Maturity Assessment</h1>
       <div class="flex items-center gap-3">
         <a href="calculadora-pontuacao.pt-br.html" hreflang="pt-BR" lang="pt-BR" class="text-xs text-gray-600 underline hover:text-gray-900">Português (Brasil)</a>
+        <a href="calculadora-pontuacao.es.html" hreflang="es" lang="es" class="text-xs text-gray-600 underline hover:text-gray-900">Español</a>
         <button onclick="resetAll()" class="text-xs px-3 py-1.5 rounded border border-gray-300 hover:bg-gray-50">Clear all</button>
       </div>
     </div>
@@ -128,9 +129,9 @@
 
     <header class="flex flex-wrap items-center justify-between gap-4 border-b border-gray-100 px-6 py-5 bg-gray-50/50">
       <div class="flex items-center gap-3 flex-wrap">
-        <span class="inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-700 border-blue-200">P1 — Produtividade do Desenvolvedor</span>
+        <span class="inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-700 border-blue-200">P1: Developer Productivity</span>
         <span class="text-xs font-mono text-gray-400">P1-C1</span>
-        <h2 class="text-lg font-bold text-gray-900">Assistentes de Codificação IA</h2>
+        <h2 class="text-lg font-bold text-gray-900">AI Coding Assistants</h2>
       </div>
       <div class="flex items-center gap-4 text-xs">
         <label class="flex items-center gap-1.5">
@@ -160,11 +161,11 @@
         <tr data-qid="P1-C1-Q1" class="border-b border-gray-100 last:border-0 align-top">
           <td class="py-4 pl-6 pr-3 text-xs font-mono text-gray-500 whitespace-nowrap">P1-C1-Q1</td>
           <td class="py-4 pr-4">
-            <p class="text-sm text-gray-800 leading-snug">Em que medida sua organização utiliza ferramentas de completação de código com IA (ex. GitHub Copilot)?</p>
+            <p class="text-sm text-gray-800 leading-snug">To what extent does your organization use AI code completion tools (e.g., GitHub Copilot)?</p>
             <div class="flex flex-wrap gap-2 mt-3">
               <button type="button"
                 data-qid="P1-C1-Q1" data-level="0"
-                title="Sem ferramentas de IA de codificação implementadas. Todo o código é escrito manualmente sem assistência de IA."
+                title="No AI coding tools implemented. All code is written manually without AI assistance."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L0</span>
@@ -172,7 +173,7 @@
               </button>
               <button type="button"
                 data-qid="P1-C1-Q1" data-level="1"
-                title="Implementação piloto de assistente de codificação IA para &lt;10% dos desenvolvedores. Uso ad-hoc sem diretrizes."
+                title="Pilot implementation of an AI coding assistant for &lt;10% of developers. Ad-hoc usage without guidelines."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L1</span>
@@ -180,7 +181,7 @@
               </button>
               <button type="button"
                 data-qid="P1-C1-Q1" data-level="2"
-                title="Assistente de codificação IA implantado para 25-50% dos desenvolvedores com diretrizes de uso e treinamento básico."
+                title="AI coding assistant deployed to 25-50% of developers with usage guidelines and basic training."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L2</span>
@@ -188,7 +189,7 @@
               </button>
               <button type="button"
                 data-qid="P1-C1-Q1" data-level="3"
-                title="Assistente de codificação IA implantado para &gt;75% dos desenvolvedores com ganhos de produtividade medidos &gt;15% e bibliotecas de prompts."
+                title="AI coding assistant deployed to &gt;75% of developers with measured productivity gains &gt;15% and prompt libraries."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L3</span>
@@ -196,7 +197,7 @@
               </button>
               <button type="button"
                 data-qid="P1-C1-Q1" data-level="4"
-                title="Assistente de codificação IA universal (&gt;95%) com ajuste fino de modelo personalizado e melhoria de velocidade medida &gt;30%."
+                title="Universal AI coding assistant (&gt;95%) with custom model fine-tuning and measured velocity improvement &gt;30%."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L4</span>
@@ -216,11 +217,11 @@
         <tr data-qid="P1-C1-Q2" class="border-b border-gray-100 last:border-0 align-top">
           <td class="py-4 pl-6 pr-3 text-xs font-mono text-gray-500 whitespace-nowrap">P1-C1-Q2</td>
           <td class="py-4 pr-4">
-            <p class="text-sm text-gray-800 leading-snug">Quão efetivamente sua equipe aproveita IA para revisão de código e melhoria de qualidade?</p>
+            <p class="text-sm text-gray-800 leading-snug">How effectively does your team leverage AI for code review and quality improvement?</p>
             <div class="flex flex-wrap gap-2 mt-3">
               <button type="button"
                 data-qid="P1-C1-Q2" data-level="0"
-                title="Sem participação de IA em revisão de código. Todas as revisões são revisões manuais entre pares."
+                title="No AI involvement in code review. All reviews are manual peer reviews."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L0</span>
@@ -228,7 +229,7 @@
               </button>
               <button type="button"
                 data-qid="P1-C1-Q2" data-level="1"
-                title="Linting básico e ferramentas de análise estática em CI. Sem sugestões de revisão impulsadas por IA."
+                title="Basic linting and static analysis tools in CI. No AI-driven review suggestions."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L1</span>
@@ -236,7 +237,7 @@
               </button>
               <button type="button"
                 data-qid="P1-C1-Q2" data-level="2"
-                title="Bot de revisão com IA configurado em 30-60% dos repositórios, fornecendo sugestões automatizadas de código."
+                title="AI review bot configured on 30-60% of repositories, providing automated code suggestions."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L2</span>
@@ -244,7 +245,7 @@
               </button>
               <button type="button"
                 data-qid="P1-C1-Q2" data-level="3"
-                title="Revisão com IA integrada em &gt;80% dos repositórios com regras personalizadas alinhadas aos padrões da equipe."
+                title="AI review integrated into &gt;80% of repositories with custom rules aligned to team standards."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L3</span>
@@ -252,7 +253,7 @@
               </button>
               <button type="button"
                 data-qid="P1-C1-Q2" data-level="4"
-                title="IA realiza primeira revisão em todos os PRs, aprovando automaticamente mudanças de baixo risco e escalando as críticas."
+                title="AI performs the first review on all PRs, automatically approving low-risk changes and escalating critical ones."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L4</span>
@@ -272,11 +273,11 @@
         <tr data-qid="P1-C1-Q3" class="border-b border-gray-100 last:border-0 align-top">
           <td class="py-4 pl-6 pr-3 text-xs font-mono text-gray-500 whitespace-nowrap">P1-C1-Q3</td>
           <td class="py-4 pr-4">
-            <p class="text-sm text-gray-800 leading-snug">Como sua organização mede e rastreia o impacto das ferramentas de codificação IA na produtividade?</p>
+            <p class="text-sm text-gray-800 leading-snug">How does your organization measure and track the impact of AI coding tools on productivity?</p>
             <div class="flex flex-wrap gap-2 mt-3">
               <button type="button"
                 data-qid="P1-C1-Q3" data-level="0"
-                title="Sem medição do impacto das ferramentas de IA. Sem métricas de produtividade base capturadas."
+                title="No measurement of AI tool impact. No baseline productivity metrics captured."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L0</span>
@@ -284,7 +285,7 @@
               </button>
               <button type="button"
                 data-qid="P1-C1-Q3" data-level="1"
-                title="Feedback anedótico de desenvolvedores sobre a utilidade de ferramentas de IA. Sem medição quantitativa."
+                title="Anecdotal developer feedback on the usefulness of AI tools. No quantitative measurement."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L1</span>
@@ -292,7 +293,7 @@
               </button>
               <button type="button"
                 data-qid="P1-C1-Q3" data-level="2"
-                title="Métricas DORA básicas rastreadas (frequência de implantação, tempo de entrega). Análise de uso de ferramentas de IA disponível."
+                title="Basic DORA metrics tracked (deployment frequency, lead time). AI tool usage analytics available."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L2</span>
@@ -300,7 +301,7 @@
               </button>
               <button type="button"
                 data-qid="P1-C1-Q3" data-level="3"
-                title="Métricas abrangentes de produtividade do desenvolvedor incluindo medidas específicas de IA: taxa de aceitação, tempo economizado."
+                title="Comprehensive developer productivity metrics including AI-specific measures: acceptance rate, time saved."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L3</span>
@@ -308,7 +309,7 @@
               </button>
               <button type="button"
                 data-qid="P1-C1-Q3" data-level="4"
-                title="Plataforma de inteligência de produtividade em tempo real correlacionando o uso de ferramentas de IA com resultados de negócio."
+                title="Real-time productivity intelligence platform correlating AI tool usage with business outcomes."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L4</span>
@@ -328,11 +329,11 @@
         <tr data-qid="P1-C1-Q4" class="border-b border-gray-100 last:border-0 align-top">
           <td class="py-4 pl-6 pr-3 text-xs font-mono text-gray-500 whitespace-nowrap">P1-C1-Q4</td>
           <td class="py-4 pr-4">
-            <p class="text-sm text-gray-800 leading-snug">Qual nível de capacidades de testes assistidos por IA sua organização emprega?</p>
+            <p class="text-sm text-gray-800 leading-snug">What level of AI-assisted testing capabilities does your organization employ?</p>
             <div class="flex flex-wrap gap-2 mt-3">
               <button type="button"
                 data-qid="P1-C1-Q4" data-level="0"
-                title="Todos os testes escritos manualmente. Cobertura de testes inferior a 40% na maioria dos projetos."
+                title="All tests written manually. Test coverage below 40% on most projects."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L0</span>
@@ -340,7 +341,7 @@
               </button>
               <button type="button"
                 data-qid="P1-C1-Q4" data-level="1"
-                title="Uso ocasional de IA para gerar esqueletos de testes unitários. A cobertura permanece abaixo de 50%."
+                title="Occasional use of AI to generate unit test skeletons. Coverage remains below 50%."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L1</span>
@@ -348,7 +349,7 @@
               </button>
               <button type="button"
                 data-qid="P1-C1-Q4" data-level="2"
-                title="Geração de testes com IA integrada no fluxo de desenvolvimento para 30-50% do novo código. Cobertura &gt;60%."
+                title="AI test generation integrated into the development workflow for 30-50% of new code. Coverage &gt;60%."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L2</span>
@@ -356,7 +357,7 @@
               </button>
               <button type="button"
                 data-qid="P1-C1-Q4" data-level="3"
-                title="IA gera &gt;70% de testes unitários com revisão humana. Cobertura &gt;75%. IA identifica casos extremos."
+                title="AI generates &gt;70% of unit tests with human review. Coverage &gt;75%. AI identifies edge cases."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L3</span>
@@ -364,7 +365,7 @@
               </button>
               <button type="button"
                 data-qid="P1-C1-Q4" data-level="4"
-                title="Otimização de testes impulsionada por IA: gera suites de regressão automaticamente, identifica testes instáveis, otimiza cobertura."
+                title="AI-driven test optimization: automatically generates regression suites, identifies flaky tests, and optimizes coverage."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L4</span>
@@ -384,11 +385,11 @@
         <tr data-qid="P1-C1-Q5" class="border-b border-gray-100 last:border-0 align-top">
           <td class="py-4 pl-6 pr-3 text-xs font-mono text-gray-500 whitespace-nowrap">P1-C1-Q5</td>
           <td class="py-4 pr-4">
-            <p class="text-sm text-gray-800 leading-snug">Como sua organização governa o código gerado por IA em termos de segurança e conformidade?</p>
+            <p class="text-sm text-gray-800 leading-snug">How does your organization govern AI-generated code in terms of security and compliance?</p>
             <div class="flex flex-wrap gap-2 mt-3">
               <button type="button"
                 data-qid="P1-C1-Q5" data-level="0"
-                title="Sem governança sobre código gerado por IA. Nenhuma política existe. Desenvolvedores usam ferramentas de IA sem restrições."
+                title="No governance over AI-generated code. No policy exists. Developers use AI tools without restrictions."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L0</span>
@@ -396,7 +397,7 @@
               </button>
               <button type="button"
                 data-qid="P1-C1-Q5" data-level="1"
-                title="Política básica existe proibindo uso de IA em módulos sensíveis à segurança. Sem automação."
+                title="A basic policy exists prohibiting AI use in security-sensitive modules. No automation."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L1</span>
@@ -404,7 +405,7 @@
               </button>
               <button type="button"
                 data-qid="P1-C1-Q5" data-level="2"
-                title="Código gerado por IA passa por análise de segurança padrão (SAST/DAST). Verificação de conformidade de licenças em CI."
+                title="AI-generated code goes through standard security analysis (SAST/DAST). License compliance checks in CI."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L2</span>
@@ -412,7 +413,7 @@
               </button>
               <button type="button"
                 data-qid="P1-C1-Q5" data-level="3"
-                title="Portões de qualidade de código dedicados para IA: varredura de vulnerabilidades, auditoria de licenças, revisão de qualidade de código."
+                title="Dedicated code quality gates for AI: vulnerability scanning, license auditing, and code quality review."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L3</span>
@@ -420,7 +421,7 @@
               </button>
               <button type="button"
                 data-qid="P1-C1-Q5" data-level="4"
-                title="Governança de código IA em tempo real: cada sugestão varrida antes de exibir, licenças bloqueadas e métricas de qualidade rastreadas."
+                title="Real-time AI code governance: every suggestion scanned before display, blocked licenses, and tracked quality metrics."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L4</span>
@@ -466,9 +467,9 @@
 
     <header class="flex flex-wrap items-center justify-between gap-4 border-b border-gray-100 px-6 py-5 bg-gray-50/50">
       <div class="flex items-center gap-3 flex-wrap">
-        <span class="inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold bg-emerald-100 text-emerald-700 border-emerald-200">P2 — Ciclo de Vida DevOps</span>
+        <span class="inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold bg-emerald-100 text-emerald-700 border-emerald-200">P2: DevOps Lifecycle</span>
         <span class="text-xs font-mono text-gray-400">P2-C1</span>
-        <h2 class="text-lg font-bold text-gray-900">Inteligência de Pipeline CI/CD</h2>
+        <h2 class="text-lg font-bold text-gray-900">CI/CD Pipeline Intelligence</h2>
       </div>
       <div class="flex items-center gap-4 text-xs">
         <label class="flex items-center gap-1.5">
@@ -498,7 +499,7 @@
         <tr data-qid="P2-C1-Q1" class="border-b border-gray-100 last:border-0 align-top">
           <td class="py-4 pl-6 pr-3 text-xs font-mono text-gray-500 whitespace-nowrap">P2-C1-Q1</td>
           <td class="py-4 pr-4">
-            <p class="text-sm text-gray-800 leading-snug">Quão maduro é seu pipeline CI/CD em termos de automação e integração de IA?</p>
+            <p class="text-sm text-gray-800 leading-snug">How mature is your CI/CD pipeline in terms of automation and AI integration?</p>
             <div class="flex flex-wrap gap-2 mt-3">
               <button type="button"
                 data-qid="P2-C1-Q1" data-level="0"
@@ -554,11 +555,11 @@
         <tr data-qid="P2-C1-Q2" class="border-b border-gray-100 last:border-0 align-top">
           <td class="py-4 pl-6 pr-3 text-xs font-mono text-gray-500 whitespace-nowrap">P2-C1-Q2</td>
           <td class="py-4 pr-4">
-            <p class="text-sm text-gray-800 leading-snug">Em que medida Inteligência de Pipeline CI/CD (pipeline-as-code everywhere) foi adotado entre as equipes?</p>
+            <p class="text-sm text-gray-800 leading-snug">To what extent has CI/CD Pipeline Intelligence (pipeline-as-code everywhere) been adopted across teams?</p>
             <div class="flex flex-wrap gap-2 mt-3">
               <button type="button"
                 data-qid="P2-C1-Q2" data-level="0"
-                title="Sem pipeline-as-code everywhere implementado. As equipes operam sem esta capacidade."
+                title="No pipeline-as-code everywhere implemented. Teams operate without this capability."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L0</span>
@@ -566,7 +567,7 @@
               </button>
               <button type="button"
                 data-qid="P2-C1-Q2" data-level="1"
-                title="Implementação piloto de pipeline-as-code everywhere com &lt;10% de cobertura de equipes e uso ad-hoc."
+                title="Pilot implementation of pipeline-as-code everywhere with &lt;10% team coverage and ad-hoc usage."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L1</span>
@@ -574,7 +575,7 @@
               </button>
               <button type="button"
                 data-qid="P2-C1-Q2" data-level="2"
-                title="pipeline-as-code everywhere adotado por 25-50% das equipes com diretrizes básicas e treinamento."
+                title="pipeline-as-code everywhere adopted by 25-50% of teams with basic guidelines and training."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L2</span>
@@ -582,7 +583,7 @@
               </button>
               <button type="button"
                 data-qid="P2-C1-Q2" data-level="3"
-                title="pipeline-as-code everywhere padronizado em &gt;75% das equipes com resultados medidos e governança."
+                title="pipeline-as-code everywhere standardized across &gt;75% of teams with measured results and governance."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L3</span>
@@ -590,7 +591,7 @@
               </button>
               <button type="button"
                 data-qid="P2-C1-Q2" data-level="4"
-                title="pipeline-as-code everywhere é otimizado, automatizado e continuamente melhorado com insights baseados em dados."
+                title="pipeline-as-code everywhere is optimized, automated, and continuously improved with data-driven insights."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L4</span>
@@ -610,11 +611,11 @@
         <tr data-qid="P2-C1-Q3" class="border-b border-gray-100 last:border-0 align-top">
           <td class="py-4 pl-6 pr-3 text-xs font-mono text-gray-500 whitespace-nowrap">P2-C1-Q3</td>
           <td class="py-4 pr-4">
-            <p class="text-sm text-gray-800 leading-snug">Em que medida Inteligência de Pipeline CI/CD (build caching and artifact reuse) foi adotado entre as equipes?</p>
+            <p class="text-sm text-gray-800 leading-snug">To what extent has CI/CD Pipeline Intelligence (build caching and artifact reuse) been adopted across teams?</p>
             <div class="flex flex-wrap gap-2 mt-3">
               <button type="button"
                 data-qid="P2-C1-Q3" data-level="0"
-                title="Sem build caching and artifact reuse implementado. As equipes operam sem esta capacidade."
+                title="No build caching and artifact reuse implemented. Teams operate without this capability."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L0</span>
@@ -622,7 +623,7 @@
               </button>
               <button type="button"
                 data-qid="P2-C1-Q3" data-level="1"
-                title="Implementação piloto de build caching and artifact reuse com &lt;10% de cobertura de equipes e uso ad-hoc."
+                title="Pilot implementation of build caching and artifact reuse with &lt;10% team coverage and ad-hoc usage."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L1</span>
@@ -630,7 +631,7 @@
               </button>
               <button type="button"
                 data-qid="P2-C1-Q3" data-level="2"
-                title="build caching and artifact reuse adotado por 25-50% das equipes com diretrizes básicas e treinamento."
+                title="build caching and artifact reuse adopted by 25-50% of teams with basic guidelines and training."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L2</span>
@@ -638,7 +639,7 @@
               </button>
               <button type="button"
                 data-qid="P2-C1-Q3" data-level="3"
-                title="build caching and artifact reuse padronizado em &gt;75% das equipes com resultados medidos e governança."
+                title="build caching and artifact reuse standardized across &gt;75% of teams with measured results and governance."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L3</span>
@@ -646,7 +647,7 @@
               </button>
               <button type="button"
                 data-qid="P2-C1-Q3" data-level="4"
-                title="build caching and artifact reuse é otimizado, automatizado e continuamente melhorado com insights baseados em dados."
+                title="build caching and artifact reuse is optimized, automated, and continuously improved with data-driven insights."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L4</span>
@@ -666,11 +667,11 @@
         <tr data-qid="P2-C1-Q4" class="border-b border-gray-100 last:border-0 align-top">
           <td class="py-4 pl-6 pr-3 text-xs font-mono text-gray-500 whitespace-nowrap">P2-C1-Q4</td>
           <td class="py-4 pr-4">
-            <p class="text-sm text-gray-800 leading-snug">Em que medida Inteligência de Pipeline CI/CD (trunk-based development) foi adotado entre as equipes?</p>
+            <p class="text-sm text-gray-800 leading-snug">To what extent has CI/CD Pipeline Intelligence (trunk-based development) been adopted across teams?</p>
             <div class="flex flex-wrap gap-2 mt-3">
               <button type="button"
                 data-qid="P2-C1-Q4" data-level="0"
-                title="Sem trunk-based development implementado. As equipes operam sem esta capacidade."
+                title="No trunk-based development implemented. Teams operate without this capability."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L0</span>
@@ -678,7 +679,7 @@
               </button>
               <button type="button"
                 data-qid="P2-C1-Q4" data-level="1"
-                title="Implementação piloto de trunk-based development com &lt;10% de cobertura de equipes e uso ad-hoc."
+                title="Pilot implementation of trunk-based development with &lt;10% team coverage and ad-hoc usage."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L1</span>
@@ -686,7 +687,7 @@
               </button>
               <button type="button"
                 data-qid="P2-C1-Q4" data-level="2"
-                title="trunk-based development adotado por 25-50% das equipes com diretrizes básicas e treinamento."
+                title="trunk-based development adopted by 25-50% of teams with basic guidelines and training."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L2</span>
@@ -694,7 +695,7 @@
               </button>
               <button type="button"
                 data-qid="P2-C1-Q4" data-level="3"
-                title="trunk-based development padronizado em &gt;75% das equipes com resultados medidos e governança."
+                title="trunk-based development standardized across &gt;75% of teams with measured results and governance."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L3</span>
@@ -702,7 +703,7 @@
               </button>
               <button type="button"
                 data-qid="P2-C1-Q4" data-level="4"
-                title="trunk-based development é otimizado, automatizado e continuamente melhorado com insights baseados em dados."
+                title="trunk-based development is optimized, automated, and continuously improved with data-driven insights."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L4</span>
@@ -722,11 +723,11 @@
         <tr data-qid="P2-C1-Q5" class="border-b border-gray-100 last:border-0 align-top">
           <td class="py-4 pl-6 pr-3 text-xs font-mono text-gray-500 whitespace-nowrap">P2-C1-Q5</td>
           <td class="py-4 pr-4">
-            <p class="text-sm text-gray-800 leading-snug">Em que medida Inteligência de Pipeline CI/CD (deployment frequency) foi adotado entre as equipes?</p>
+            <p class="text-sm text-gray-800 leading-snug">To what extent has CI/CD Pipeline Intelligence (deployment frequency) been adopted across teams?</p>
             <div class="flex flex-wrap gap-2 mt-3">
               <button type="button"
                 data-qid="P2-C1-Q5" data-level="0"
-                title="Sem deployment frequency implementado. As equipes operam sem esta capacidade."
+                title="No deployment frequency implemented. Teams operate without this capability."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L0</span>
@@ -734,7 +735,7 @@
               </button>
               <button type="button"
                 data-qid="P2-C1-Q5" data-level="1"
-                title="Implementação piloto de deployment frequency com &lt;10% de cobertura de equipes e uso ad-hoc."
+                title="Pilot implementation of deployment frequency with &lt;10% team coverage and ad-hoc usage."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L1</span>
@@ -742,7 +743,7 @@
               </button>
               <button type="button"
                 data-qid="P2-C1-Q5" data-level="2"
-                title="deployment frequency adotado por 25-50% das equipes com diretrizes básicas e treinamento."
+                title="deployment frequency adopted by 25-50% of teams with basic guidelines and training."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L2</span>
@@ -750,7 +751,7 @@
               </button>
               <button type="button"
                 data-qid="P2-C1-Q5" data-level="3"
-                title="deployment frequency padronizado em &gt;75% das equipes com resultados medidos e governança."
+                title="deployment frequency standardized across &gt;75% of teams with measured results and governance."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L3</span>
@@ -758,7 +759,7 @@
               </button>
               <button type="button"
                 data-qid="P2-C1-Q5" data-level="4"
-                title="deployment frequency é otimizado, automatizado e continuamente melhorado com insights baseados em dados."
+                title="deployment frequency is optimized, automated, and continuously improved with data-driven insights."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L4</span>
@@ -778,11 +779,11 @@
         <tr data-qid="P2-C1-Q6" class="border-b border-gray-100 last:border-0 align-top">
           <td class="py-4 pl-6 pr-3 text-xs font-mono text-gray-500 whitespace-nowrap">P2-C1-Q6</td>
           <td class="py-4 pr-4">
-            <p class="text-sm text-gray-800 leading-snug">Em que medida Inteligência de Pipeline CI/CD (feature flags for progressive delivery) foi adotado entre as equipes?</p>
+            <p class="text-sm text-gray-800 leading-snug">To what extent has CI/CD Pipeline Intelligence (feature flags for progressive delivery) been adopted across teams?</p>
             <div class="flex flex-wrap gap-2 mt-3">
               <button type="button"
                 data-qid="P2-C1-Q6" data-level="0"
-                title="Sem feature flags for progressive delivery implementado. As equipes operam sem esta capacidade."
+                title="No feature flags for progressive delivery implemented. Teams operate without this capability."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L0</span>
@@ -790,7 +791,7 @@
               </button>
               <button type="button"
                 data-qid="P2-C1-Q6" data-level="1"
-                title="Implementação piloto de feature flags for progressive delivery com &lt;10% de cobertura de equipes e uso ad-hoc."
+                title="Pilot implementation of feature flags for progressive delivery with &lt;10% team coverage and ad-hoc usage."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L1</span>
@@ -798,7 +799,7 @@
               </button>
               <button type="button"
                 data-qid="P2-C1-Q6" data-level="2"
-                title="feature flags for progressive delivery adotado por 25-50% das equipes com diretrizes básicas e treinamento."
+                title="feature flags for progressive delivery adopted by 25-50% of teams with basic guidelines and training."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L2</span>
@@ -806,7 +807,7 @@
               </button>
               <button type="button"
                 data-qid="P2-C1-Q6" data-level="3"
-                title="feature flags for progressive delivery padronizado em &gt;75% das equipes com resultados medidos e governança."
+                title="feature flags for progressive delivery standardized across &gt;75% of teams with measured results and governance."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L3</span>
@@ -814,7 +815,7 @@
               </button>
               <button type="button"
                 data-qid="P2-C1-Q6" data-level="4"
-                title="feature flags for progressive delivery é otimizado, automatizado e continuamente melhorado com insights baseados em dados."
+                title="feature flags for progressive delivery is optimized, automated, and continuously improved with data-driven insights."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L4</span>
@@ -860,9 +861,9 @@
 
     <header class="flex flex-wrap items-center justify-between gap-4 border-b border-gray-100 px-6 py-5 bg-gray-50/50">
       <div class="flex items-center gap-3 flex-wrap">
-        <span class="inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold bg-violet-100 text-violet-700 border-violet-200">P3 — Plataforma de Aplicações</span>
+        <span class="inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold bg-violet-100 text-violet-700 border-violet-200">P3: Application Platform</span>
         <span class="text-xs font-mono text-gray-400">P3-C1</span>
-        <h2 class="text-lg font-bold text-gray-900">Arquitetura Cloud-Native</h2>
+        <h2 class="text-lg font-bold text-gray-900">Cloud-Native Architecture</h2>
       </div>
       <div class="flex items-center gap-4 text-xs">
         <label class="flex items-center gap-1.5">
@@ -892,7 +893,7 @@
         <tr data-qid="P3-C1-Q1" class="border-b border-gray-100 last:border-0 align-top">
           <td class="py-4 pl-6 pr-3 text-xs font-mono text-gray-500 whitespace-nowrap">P3-C1-Q1</td>
           <td class="py-4 pr-4">
-            <p class="text-sm text-gray-800 leading-snug">Qual é a maturidade da adoção de arquitetura cloud-native?</p>
+            <p class="text-sm text-gray-800 leading-snug">How mature is the adoption of cloud-native architecture?</p>
             <div class="flex flex-wrap gap-2 mt-3">
               <button type="button"
                 data-qid="P3-C1-Q1" data-level="0"
@@ -948,11 +949,11 @@
         <tr data-qid="P3-C1-Q2" class="border-b border-gray-100 last:border-0 align-top">
           <td class="py-4 pl-6 pr-3 text-xs font-mono text-gray-500 whitespace-nowrap">P3-C1-Q2</td>
           <td class="py-4 pr-4">
-            <p class="text-sm text-gray-800 leading-snug">Em que medida Arquitetura Nativa da Nuvem (container adoption) foi adotado entre as equipes?</p>
+            <p class="text-sm text-gray-800 leading-snug">To what extent has Cloud-Native Architecture (container adoption) been adopted across teams?</p>
             <div class="flex flex-wrap gap-2 mt-3">
               <button type="button"
                 data-qid="P3-C1-Q2" data-level="0"
-                title="Sem container adoption implementado. As equipes operam sem esta capacidade."
+                title="No container adoption implemented. Teams operate without this capability."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L0</span>
@@ -960,7 +961,7 @@
               </button>
               <button type="button"
                 data-qid="P3-C1-Q2" data-level="1"
-                title="Implementação piloto de container adoption com &lt;10% de cobertura de equipes e uso ad-hoc."
+                title="Pilot implementation of container adoption with &lt;10% team coverage and ad-hoc usage."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L1</span>
@@ -968,7 +969,7 @@
               </button>
               <button type="button"
                 data-qid="P3-C1-Q2" data-level="2"
-                title="container adoption adotado por 25-50% das equipes com diretrizes básicas e treinamento."
+                title="container adoption adopted by 25-50% of teams with basic guidelines and training."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L2</span>
@@ -976,7 +977,7 @@
               </button>
               <button type="button"
                 data-qid="P3-C1-Q2" data-level="3"
-                title="container adoption padronizado em &gt;75% das equipes com resultados medidos e governança."
+                title="container adoption standardized across &gt;75% of teams with measured results and governance."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L3</span>
@@ -984,7 +985,7 @@
               </button>
               <button type="button"
                 data-qid="P3-C1-Q2" data-level="4"
-                title="container adoption é otimizado, automatizado e continuamente melhorado com insights baseados em dados."
+                title="container adoption is optimized, automated, and continuously improved with data-driven insights."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L4</span>
@@ -1004,11 +1005,11 @@
         <tr data-qid="P3-C1-Q3" class="border-b border-gray-100 last:border-0 align-top">
           <td class="py-4 pl-6 pr-3 text-xs font-mono text-gray-500 whitespace-nowrap">P3-C1-Q3</td>
           <td class="py-4 pr-4">
-            <p class="text-sm text-gray-800 leading-snug">Em que medida Arquitetura Nativa da Nuvem (service mesh / zero trust networking) foi adotado entre as equipes?</p>
+            <p class="text-sm text-gray-800 leading-snug">To what extent has Cloud-Native Architecture (service mesh / zero trust networking) been adopted across teams?</p>
             <div class="flex flex-wrap gap-2 mt-3">
               <button type="button"
                 data-qid="P3-C1-Q3" data-level="0"
-                title="Sem service mesh / zero trust networking implementado. As equipes operam sem esta capacidade."
+                title="No service mesh / zero trust networking implemented. Teams operate without this capability."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L0</span>
@@ -1016,7 +1017,7 @@
               </button>
               <button type="button"
                 data-qid="P3-C1-Q3" data-level="1"
-                title="Implementação piloto de service mesh / zero trust networking com &lt;10% de cobertura de equipes e uso ad-hoc."
+                title="Pilot implementation of service mesh / zero trust networking with &lt;10% team coverage and ad-hoc usage."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L1</span>
@@ -1024,7 +1025,7 @@
               </button>
               <button type="button"
                 data-qid="P3-C1-Q3" data-level="2"
-                title="service mesh / zero trust networking adotado por 25-50% das equipes com diretrizes básicas e treinamento."
+                title="service mesh / zero trust networking adopted by 25-50% of teams with basic guidelines and training."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L2</span>
@@ -1032,7 +1033,7 @@
               </button>
               <button type="button"
                 data-qid="P3-C1-Q3" data-level="3"
-                title="service mesh / zero trust networking padronizado em &gt;75% das equipes com resultados medidos e governança."
+                title="service mesh / zero trust networking standardized across &gt;75% of teams with measured results and governance."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L3</span>
@@ -1040,7 +1041,7 @@
               </button>
               <button type="button"
                 data-qid="P3-C1-Q3" data-level="4"
-                title="service mesh / zero trust networking é otimizado, automatizado e continuamente melhorado com insights baseados em dados."
+                title="service mesh / zero trust networking is optimized, automated, and continuously improved with data-driven insights."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L4</span>
@@ -1060,11 +1061,11 @@
         <tr data-qid="P3-C1-Q4" class="border-b border-gray-100 last:border-0 align-top">
           <td class="py-4 pl-6 pr-3 text-xs font-mono text-gray-500 whitespace-nowrap">P3-C1-Q4</td>
           <td class="py-4 pr-4">
-            <p class="text-sm text-gray-800 leading-snug">Em que medida Arquitetura Nativa da Nuvem (event-driven architecture) foi adotado entre as equipes?</p>
+            <p class="text-sm text-gray-800 leading-snug">To what extent has Cloud-Native Architecture (event-driven architecture) been adopted across teams?</p>
             <div class="flex flex-wrap gap-2 mt-3">
               <button type="button"
                 data-qid="P3-C1-Q4" data-level="0"
-                title="Sem event-driven architecture implementado. As equipes operam sem esta capacidade."
+                title="No event-driven architecture implemented. Teams operate without this capability."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L0</span>
@@ -1072,7 +1073,7 @@
               </button>
               <button type="button"
                 data-qid="P3-C1-Q4" data-level="1"
-                title="Implementação piloto de event-driven architecture com &lt;10% de cobertura de equipes e uso ad-hoc."
+                title="Pilot implementation of event-driven architecture with &lt;10% team coverage and ad-hoc usage."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L1</span>
@@ -1080,7 +1081,7 @@
               </button>
               <button type="button"
                 data-qid="P3-C1-Q4" data-level="2"
-                title="event-driven architecture adotado por 25-50% das equipes com diretrizes básicas e treinamento."
+                title="event-driven architecture adopted by 25-50% of teams with basic guidelines and training."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L2</span>
@@ -1088,7 +1089,7 @@
               </button>
               <button type="button"
                 data-qid="P3-C1-Q4" data-level="3"
-                title="event-driven architecture padronizado em &gt;75% das equipes com resultados medidos e governança."
+                title="event-driven architecture standardized across &gt;75% of teams with measured results and governance."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L3</span>
@@ -1096,7 +1097,7 @@
               </button>
               <button type="button"
                 data-qid="P3-C1-Q4" data-level="4"
-                title="event-driven architecture é otimizado, automatizado e continuamente melhorado com insights baseados em dados."
+                title="event-driven architecture is optimized, automated, and continuously improved with data-driven insights."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L4</span>
@@ -1116,11 +1117,11 @@
         <tr data-qid="P3-C1-Q5" class="border-b border-gray-100 last:border-0 align-top">
           <td class="py-4 pl-6 pr-3 text-xs font-mono text-gray-500 whitespace-nowrap">P3-C1-Q5</td>
           <td class="py-4 pr-4">
-            <p class="text-sm text-gray-800 leading-snug">Em que medida Arquitetura Nativa da Nuvem (managed services preference) foi adotado entre as equipes?</p>
+            <p class="text-sm text-gray-800 leading-snug">To what extent has Cloud-Native Architecture (managed services preference) been adopted across teams?</p>
             <div class="flex flex-wrap gap-2 mt-3">
               <button type="button"
                 data-qid="P3-C1-Q5" data-level="0"
-                title="Sem managed services preference implementado. As equipes operam sem esta capacidade."
+                title="No managed services preference implemented. Teams operate without this capability."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L0</span>
@@ -1128,7 +1129,7 @@
               </button>
               <button type="button"
                 data-qid="P3-C1-Q5" data-level="1"
-                title="Implementação piloto de managed services preference com &lt;10% de cobertura de equipes e uso ad-hoc."
+                title="Pilot implementation of managed services preference with &lt;10% team coverage and ad-hoc usage."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L1</span>
@@ -1136,7 +1137,7 @@
               </button>
               <button type="button"
                 data-qid="P3-C1-Q5" data-level="2"
-                title="managed services preference adotado por 25-50% das equipes com diretrizes básicas e treinamento."
+                title="managed services preference adopted by 25-50% of teams with basic guidelines and training."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L2</span>
@@ -1144,7 +1145,7 @@
               </button>
               <button type="button"
                 data-qid="P3-C1-Q5" data-level="3"
-                title="managed services preference padronizado em &gt;75% das equipes com resultados medidos e governança."
+                title="managed services preference standardized across &gt;75% of teams with measured results and governance."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L3</span>
@@ -1152,7 +1153,7 @@
               </button>
               <button type="button"
                 data-qid="P3-C1-Q5" data-level="4"
-                title="managed services preference é otimizado, automatizado e continuamente melhorado com insights baseados em dados."
+                title="managed services preference is optimized, automated, and continuously improved with data-driven insights."
                 class="lvl-btn group relative flex flex-col items-start gap-1 rounded-md border-2 border-gray-200 bg-white px-3 py-2 text-xs hover:border-gray-300 hover:bg-gray-50 transition-all"
                 onclick="selectLevel(this)">
                 <span class="font-bold text-gray-700">L4</span>
@@ -1329,15 +1330,15 @@ function recalculate() {
       const ps = acc.ws / acc.wt;
       const [label, txtCls, bg] = classifyLabel(ps);
       scoreEl.textContent = ps.toFixed(2);
-      scoreEl.className = 'text-3xl font-bold mt-1 ' + txtCls;
+      scoreEl.className = 'text-3xl font-bold mt-1 pillar-score ' + txtCls;
       labelEl.textContent = label;
-      labelEl.className = 'text-xs mt-0.5 ' + txtCls;
+      labelEl.className = 'text-xs mt-0.5 pillar-label ' + txtCls;
       card.style.background = bg;
     } else {
       scoreEl.textContent = '—';
-      scoreEl.className = 'text-3xl font-bold mt-1 text-gray-400';
+      scoreEl.className = 'text-3xl font-bold mt-1 pillar-score text-gray-400';
       labelEl.textContent = 'Waiting for answers';
-      labelEl.className = 'text-xs text-gray-500';
+      labelEl.className = 'text-xs pillar-label text-gray-500';
       card.style.background = '#ffffff';
     }
   });

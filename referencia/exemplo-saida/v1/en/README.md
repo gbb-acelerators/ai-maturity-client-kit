@@ -1,32 +1,32 @@
-# `referencia/exemplo-saida/en/`
+# `referencia/exemplo-saida/v1/en/`
 
-📖 **Navegação:** [🏠 Index](../../../../README.md) · [« Example folder](../../README.md)
+📖 **Navigation:** [🏠 Index](../../../../README.md) · [« Example folder](../../README.md)
 
-Versão **em inglês** dos 5 PDFs de referência gerados a partir de `respostas.json.example` (Cliente Exemplo S.A., locale forçado para `en`).
+**English** version of the 5 archived framework v1 reference PDFs, generated from the v1 example payload (Cliente Exemplo S.A., locale forced to `en`).
 
-## Conteúdo
+## Contents
 
-| Arquivo | Descrição |
+| File | Description |
 |---|---|
-| `score_justification.pdf` | Score Justification — Acme/Cliente Exemplo |
-| `roadmap_part_pillar_p1.pdf` | Productivity pillar deep-dive |
-| `roadmap_part_pillar_p2.pdf` | DevOps pillar deep-dive |
-| `roadmap_part_pillar_p3.pdf` | Platform pillar deep-dive |
-| `roadmap_part4.pdf` | Implementation Guide consolidated |
+| `score_justification.pdf` | Score justification |
+| `roadmap_part_pillar_p1.pdf` | Roadmap part 1, Developer Productivity pillar |
+| `roadmap_part_pillar_p2.pdf` | Roadmap part 2, DevOps Lifecycle pillar |
+| `roadmap_part_pillar_p3.pdf` | Roadmap part 3, Application Platform pillar |
+| `roadmap_part4.pdf` | Consolidated implementation guide |
 
-## Quando usar
+## When to use
 
-- Mostrar ao cliente final como **vão ficar os PDFs em inglês** (se ele optar por `language: "en"` no `respostas.json::metadata`)
-- Validar visualmente que o template `roadmap_part_pillar.html.j2` lida bem com strings mais longas (inglês tende a expandir vs. PT-BR)
+- Show a client how the v1 PDFs look in English (`"language": "en"` in `respostas.json::metadata`).
+- Check that the templates handle longer strings (English text tends to be longer than PT-BR).
 
 > [!NOTE]
-> Os PDFs em PT-BR (default) ficam no diretório pai: [`../`](../).
+> The PT-BR v1 PDFs are in the parent folder, [`../`](../). The Spanish ones are in [`../es/`](../es/).
 
-## Como regerar
+## How to regenerate
 
 ```bash
-# editar respostas.json.example, mudar "language": "en"
-cp respostas.json.example respostas.json
-python3 relatorios/scripts/build_payload_and_render.py
-# mover saida/*.pdf para referencia/exemplo-saida/en/
+python3 relatorios/scripts/render_reports.py \
+  --payload referencia/exemplo-saida/v1/payload.json \
+  --locale en \
+  --out referencia/exemplo-saida/v1/en
 ```

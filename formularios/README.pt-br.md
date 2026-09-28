@@ -19,8 +19,8 @@ make pipeline
 
 O formulário v2 segue [../coleta/AI-Maturity-Form-Questions_v2.pt-br.md](../coleta/AI-Maturity-Form-Questions_v2.pt-br.md): 5 perguntas de perfil (`R-Q1` a `R-Q5`) e 61 perguntas pontuadas (`D#-Q#`) em 9 dimensões.
 
-Arquivos HTML v1 arquivados ficam em [v1/](v1/), incluindo:
+Arquivos HTML v1 arquivados ficam em [v1/](v1/). No repositório, cada um tem a versão em inglês (nome base), a cópia em português (`.pt-br.html`) e a cópia em espanhol (`.es.html`); cada pacote de idioma entrega a sua cópia com o nome base:
 
-- [v1/P1-produtividade-do-desenvolvedor.html](v1/P1-produtividade-do-desenvolvedor.html)
-- [v1/P2-ciclo-de-vida-devops.html](v1/P2-ciclo-de-vida-devops.html)
-- [v1/P3-plataforma-de-aplicações.html](v1/P3-plataforma-de-aplicações.html)
+- [v1/P1-produtividade-do-desenvolvedor.html](v1/P1-produtividade-do-desenvolvedor.pt-br.html)
+- [v1/P2-ciclo-de-vida-devops.html](v1/P2-ciclo-de-vida-devops.pt-br.html)
+- [v1/P3-plataforma-de-aplicações.html](v1/P3-plataforma-de-aplicações.pt-br.html)

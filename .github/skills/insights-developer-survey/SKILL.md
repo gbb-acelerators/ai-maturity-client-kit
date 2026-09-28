@@ -1,6 +1,6 @@
 ---
 name: insights-developer-survey
-description: Generates Developer Survey insights from imported survey outputs. Use for "developer survey insights", "insights survey devs", "maturidade dos devs".
+description: Generates Developer Survey insights from imported survey outputs. Use for "developer survey insights", "insights survey devs", "maturidade dos devs", "insights de la encuesta de desarrolladores", "madurez de los desarrolladores".
 ---
 
 # Skill: Developer Survey insights

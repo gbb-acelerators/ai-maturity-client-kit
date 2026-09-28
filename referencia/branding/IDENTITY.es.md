@@ -54,7 +54,7 @@ Consulta [tokens-paulasilva-ms.css](tokens-paulasilva-ms.css).
 - [../calculadora-pontuacao.es.html](../calculadora-pontuacao.es.html), calculadora v2 generada.
 - [../../formularios/assessment-v2.es.html](../../formularios/assessment-v2.es.html), formulario offline de evaluación v2 generado.
 - [../../wizard/implementation-guide-wizard.es.html](../../wizard/implementation-guide-wizard.es.html), wizard de guía de implementación v2 generado.
-- [../v1/calculadora-pontuacao.html](../v1/calculadora-pontuacao.html), calculadora v1 archivada.
+- [../v1/calculadora-pontuacao.html](../v1/calculadora-pontuacao.es.html), calculadora v1 archivada.
 - [../../formularios/v1/](../../formularios/v1/), formularios HTML v1 archivados.
 - Los PDFs v2 renderizados desde [../../relatorios/templates/](../../relatorios/templates/) llevan el logo de cuatro cuadrados en la portada.
 

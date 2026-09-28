@@ -1,6 +1,6 @@
 ---
 name: calcular-scores
-description: Computes v2 dimension and overall scores, or archived v1 scores, by invoking scripts/assessment_engine.py. Use for "calcular scores", "computar pontuacao", "rodar scoring", "compute scores", "calculate maturity scores".
+description: Computes v2 dimension and overall scores, or archived v1 scores, by invoking scripts/assessment_engine.py. Use for "calcular scores", "computar pontuacao", "rodar scoring", "compute scores", "calculate maturity scores", "calcular puntajes", "calcular la puntuación".
 ---
 
 # Skill: Compute scores

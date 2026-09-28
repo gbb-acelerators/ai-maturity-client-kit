@@ -6,8 +6,9 @@ Every group is required: a missing file fails the check.
 - Repository docs are English (`X.md`) with a Portuguese (`X.pt-br.md`) and
   a Spanish (`X.es.md`) copy. Every English doc in scope must have both
   copies, with the same heading levels and the three-language switcher
-  line. NOT_TRANSLATED and V1_ARCHIVE list what stays out of scope, and
-  why.
+  line, including the archived v1 docs. NOT_TRANSLATED lists what stays
+  out of scope, and why.
+- HTML helpers follow the same rule: `X.html`, `X.pt-br.html`, `X.es.html`.
 - The framework v2 group also checks that framework.v2.json carries every
   text in EN, PT-BR and ES (see scripts/validate_framework_v2.py for the
   full check).
@@ -24,18 +25,17 @@ EXCLUDED_PARTS = {".git", "dist", "saida", "node_modules"}
 
 # English docs that have no PT-BR/ES copies, and why.
 NOT_TRANSLATED = {
-    ".github/": "Copilot customization files stay in English by design",
+    ".github/": "model-facing Copilot files stay in English by design (the "
+                "assistant answers in the user's language)",
     "kit-en/": "generated from the English quickstart docs",
     "kit-es/": "generated from the Spanish (.es.md) quickstart docs",
     "docs/downloads/": "package downloads",
     "referencia/exemplo-saida/en/": "generated example outputs (English)",
     "referencia/exemplo-saida/es/": "generated example outputs (Spanish)",
     "referencia/exemplo-saida/v1/": "generated v1 example outputs",
-    "upgrade-framework-v2.prompt.md": "internal record of the v2 plan",
 }
-# Frozen v1 archive: English + Portuguese, as published. The v1 question
-# bank also has EN and ES versions (coleta/v1/perguntas-para-forms.*).
-V1_ARCHIVE = ("referencia/v1/", "coleta/v1/", "formularios/v1/")
+# Folders whose HTML helpers need .pt-br.html and .es.html copies.
+HTML_HELPER_ROOTS = ("formularios", "wizard", "referencia")
 # Question banks (Portuguese base with .en and .es versions, checked in
 # the question bank groups) and generated example outputs.
 LANGUAGE_BASED_NAMES = ("perguntas-para-forms", "-EXEMPLO.md")
@@ -226,9 +226,8 @@ def print_translated_docs() -> int:
     in_scope = [rel for rel in docs if not not_translated(rel)]
     print(f"\nTranslated docs: EN + PT-BR + ES ({len(in_scope)} docs)")
     problems = 0
+    langs = ("en", "pt-br", "es")
     for rel in in_scope:
-        v1 = rel.startswith(V1_ARCHIVE)
-        langs = ("en", "pt-br") if v1 else ("en", "pt-br", "es")
         files = {"en": rel, "pt-br": tagged(rel, PT_BR_TAG),
                  "es": tagged(rel, ES_TAG)}
         issues = [f"missing {files[code]}" for code in langs
@@ -242,8 +241,7 @@ def print_translated_docs() -> int:
                        for code in langs
                        if not switcher_ok(files[code],
                                           switcher(rel, code, langs))]
-        note = " (v1 archive: EN + PT-BR)" if v1 else ""
-        print(f"  {'OK' if not issues else 'FAIL'} {rel}{note}")
+        print(f"  {'OK' if not issues else 'FAIL'} {rel}")
         for issue in issues:
             print(f"     - {issue}")
         problems += bool(issues)
@@ -258,6 +256,27 @@ def print_translated_docs() -> int:
             f"{paths[0]} and {len(paths) - 1} more"
         print(f"     - {reason}: {shown}")
     return problems
+
+
+def print_html_helpers() -> int:
+    """Each HTML helper has copies that open in PT-BR and ES."""
+    bases = []
+    for root in HTML_HELPER_ROOTS:
+        for path in sorted((ROOT / root).rglob("*.html")):
+            name = path.name
+            if f"{PT_BR_TAG}." in name or f"{ES_TAG}." in name:
+                continue
+            bases.append(path.relative_to(ROOT).as_posix())
+    print(f"\nHTML helpers: EN + PT-BR + ES ({len(bases)} helpers)")
+    missing = 0
+    for rel in bases:
+        copies = [tagged(rel, tag) for tag in (PT_BR_TAG, ES_TAG)]
+        absent = [c for c in copies if not exists(c)]
+        print(f"  {'OK' if not absent else 'MISS'} {rel}")
+        for c in absent:
+            print(f"     - missing {c}")
+        missing += len(absent)
+    return missing
 
 
 def main() -> int:
@@ -285,6 +304,7 @@ def main() -> int:
         REQUIRED_REFERENCE_OUTPUTS,
     )
     required_missing += print_translated_docs()
+    required_missing += print_html_helpers()
 
     print("\nSummary")
     print(f"  Required missing: {required_missing}")

@@ -1,6 +1,6 @@
 ---
 name: recomendar-estrategias
-description: Maps deterministic v2 dimension priorities, or archived v1 capability gaps, to strategies S1-S7 by invoking scripts/assessment_engine.py. Use for "recommend strategies", "recomendar estrategias", "which initiatives should we prioritize".
+description: Maps deterministic v2 dimension priorities, or archived v1 capability gaps, to strategies S1-S7 by invoking scripts/assessment_engine.py. Use for "recommend strategies", "recomendar estrategias", "which initiatives should we prioritize", "qué iniciativas priorizar".
 ---
 
 # Skill: Recommend strategies

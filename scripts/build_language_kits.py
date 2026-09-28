@@ -170,10 +170,12 @@ LANGUAGE_NOTES = {
   `metadata.language` como `"pt-BR"` em `respostas.json`. Os relatórios dos
   surveys aceitam `--lang pt-br` (ou `en`, `es`).
 - Os assistentes HTML (formulário offline, wizard e calculadora) têm
-  seletor de idioma e abrem em português neste pacote.
-- Ficam em inglês por design: os arquivos de customização do Copilot em
-  `.github/` (economizam contexto e melhoram a compatibilidade) e o
-  registro interno do plano v2 (`upgrade-framework-v2.prompt.md`).
+  seletor de idioma e abrem em português neste pacote. O material
+  arquivado da v1 (docs, bancos, formulários visuais e calculadora) também
+  vem em português.
+- Ficam em inglês por design os arquivos de customização do Copilot em
+  `.github/`: são lidos pelo modelo, e o assistente responde no idioma de
+  quem usa.
 - JSONs, scripts, templates e workbooks são recursos executáveis ou
   estruturados compartilhados por todos os idiomas.
 """,
@@ -194,9 +196,11 @@ LANGUAGE_NOTES = {
   in `respostas.json` for other languages. Survey reports accept
   `--lang en`, `--lang pt-br` or `--lang es`.
 - The HTML helpers (offline form, wizard, calculator) have a language
-  selector and follow the browser language.
+  selector and follow the browser language. The archived v1 material
+  (docs, banks, visual forms and calculator) ships in English too.
 - Copilot customization files in `.github/`: intentionally kept in English
-  across every language package.
+  across every language package, because the model reads them; the
+  assistant answers in the user's language.
 - Shared JSON files, scripts, templates, and workbooks are executable or
   structured assets reused by all languages.
 """,
@@ -220,14 +224,12 @@ LANGUAGE_NOTES = {
   encuestas complementarias aceptan `--lang en`, `--lang pt-br` o
   `--lang es`.
 - Los asistentes HTML (formulario offline, wizard y calculadora) tienen
-  selector de idioma y abren en español en este paquete.
-- Quedan en inglés por diseño: los archivos de customización de Copilot en
-  `.github/` y el registro interno del plan v2
-  (`upgrade-framework-v2.prompt.md`). El archivo histórico de framework v1
-  se conserva como se publicó: `referencia/v1/` y
-  `coleta/v1/INSTRUCOES-FORMS.md` en inglés, `formularios/v1/` en
-  portugués. El banco v1 en español está en
-  `coleta/v1/perguntas-para-forms.es.md`.
+  selector de idioma y abren en español en este paquete. El material
+  archivado de v1 (docs, bancos, formularios visuales y calculadora)
+  también va en español.
+- Quedan en inglés por diseño los archivos de customización de Copilot en
+  `.github/`: los lee el modelo, y el asistente responde en el idioma de
+  quien lo usa.
 - JSONs, scripts, plantillas y workbooks compartidos son activos ejecutables
   o estructurados reutilizados por todos los idiomas.
 """,

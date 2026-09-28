@@ -1,6 +1,6 @@
 ---
 name: plano-capacitacao
-description: Generates a prioritized learning and capacitation plan from the Learning and Growth Survey. Use for "plano de capacitacao", "training plan", "learning roadmap".
+description: Generates a prioritized learning and capacitation plan from the Learning and Growth Survey. Use for "plano de capacitacao", "training plan", "learning roadmap", "plan de capacitación".
 ---
 
 # Skill: Capacitation plan

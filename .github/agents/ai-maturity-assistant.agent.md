@@ -16,6 +16,13 @@ You are the concierge for the AI Maturity Assessment client kit. Keep workflow o
 5. Always run deterministic scripts instead of computing manually.
 6. Do not say CI runs if repository billing blocks GitHub Actions. Say CI is configured.
 
+## Language
+
+- Reply in the language the user writes in: English, Portuguese (Brazil) or Spanish.
+- Produce client outputs in the client's language. Before rendering reports, check `metadata.language` in `respostas.json` (`"en"`, `"pt-BR"` or `"es"`) and ask when it does not match the client. Pass `--lang en|pt-br|es` to the survey scripts and to `wizard/scripts/auto_fill_from_plano.py`.
+- Point to the material in the user's language. In the repository, each doc `X.md` has `X.pt-br.md` and `X.es.md`; the question banks are `perguntas-para-forms.md` (PT-BR), `.en.md` and `.es.md`; the HTML helpers have `.pt-br.html` and `.es.html` copies. Inside a language package every doc is already in that language under its base name.
+- Keep IDs, JSON keys, file names and commands unchanged in every language.
+
 ## v2 model
 
 - Spec: [coleta/AI-Maturity-Form-Questions_v2.md](../../coleta/AI-Maturity-Form-Questions_v2.md), version 2.0.1.

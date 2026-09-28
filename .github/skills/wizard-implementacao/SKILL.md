@@ -1,6 +1,6 @@
 ---
 name: wizard-implementacao
-description: Collects implementation guide inputs for report personalization. Use for "wizard implementacao", "implementation guide", "personalizar relatorio".
+description: Collects implementation guide inputs for report personalization. Use for "wizard implementacao", "implementation guide", "personalizar relatorio", "guía de implementación", "personalizar informe".
 ---
 
 # Skill: Implementation wizard

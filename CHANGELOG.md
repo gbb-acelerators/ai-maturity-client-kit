@@ -96,6 +96,16 @@ All notable changes to the AI Maturity client kit. Dates are ISO 8601.
   now follows the browser language, like the wizard and the calculator.
 - `scripts/test_i18n_docs.py` covers the package language swap, the spec
   copies and the docs coverage.
+- The archived v1 material in the three languages: Spanish pillar
+  references (`referencia/v1/P1` to `P3` `.es.md`) and Forms
+  instructions (`coleta/v1/INSTRUCOES-FORMS.es.md`); English and Spanish
+  copies of the v1 visual forms (`formularios/v1/*.html`, `*.es.html`,
+  with the Portuguese original in `*.pt-br.html`) and a Spanish v1
+  calculator. The PT-BR v1 docs and forms now also translate the context
+  and the suggested evidence, which were in English; KPI names stay in
+  English in every version, as in `framework.json`.
+- PT-BR and ES copies of `upgrade-framework-v2.prompt.md`.
+- "Copilot Chat commands" section in the README, in the three languages.
 
 ### Changed
 
@@ -138,6 +148,17 @@ All notable changes to the AI Maturity client kit. Dates are ISO 8601.
 - Spanish generated texts (question bank, reference guide) use the "tú"
   register, and the Spanish bank links the Spanish Forms instructions.
   The PT-BR scoring reference no longer uses em or en dashes.
+- The Copilot agent, instructions and pipeline prompt answer in the
+  user's language and render outputs in the client's language
+  (`metadata.language`, `--lang`); skill descriptions also list Spanish
+  trigger phrases. The `.github/` files stay in English because the model
+  reads them.
+- The v1 EN and ES question banks carry the questions, pillar and
+  capability names in their own language (the importer maps columns by
+  ID), with dash-free options.
+- `check_language_coverage.py` requires the three languages for the v1
+  docs too and checks that every HTML helper has `.pt-br.html` and
+  `.es.html` copies.
 
 ### Fixed
 
@@ -151,6 +172,15 @@ All notable changes to the AI Maturity client kit. Dates are ISO 8601.
 - Six `SKILL.md` files had invalid YAML front matter.
 - `referencia/pontuacao-e-calculo.xlsx` stored explanatory text as broken
   formulas.
+- The v1 EN calculator and EN question bank showed the Portuguese
+  question texts; some v1 EN questions listed the audience "Arquiteto".
+- The v1 example READMEs in `referencia/exemplo-saida/v1/en/` and `es/`
+  were in the wrong language or pointed to old paths.
+- The v1 calculator never updated the pillar and overall scores after the
+  first answer (the pillar cards lost their marker classes), and the v1
+  visual forms pointed to a missing branding CSS file.
+- The Portuguese v1 docs, question bank, Forms instructions, visual forms
+  and calculator no longer use em or en dashes as separators.
 
 ### Archived
 

@@ -1,6 +1,6 @@
 # Como criar o Microsoft Forms para o AI Maturity Assessment
 
-🌐 [English](INSTRUCOES-FORMS.md) · Português (Brasil)
+🌐 [English](INSTRUCOES-FORMS.md) · Português (Brasil) · [Español](INSTRUCOES-FORMS.es.md)
 
 **`🅰️ ASSESSMENT`** · 📖 [🏠 Índice](../README.md) · [« Guia passo-a-passo](../../GUIA-PASSO-A-PASSO.md) · Você está aqui · [» Survey-devs](../../survey-devs/INSTRUCOES-FORMS-DEVS.md)
 
@@ -13,21 +13,22 @@
 
 | Caminho | Tempo de setup | Esforço | Quando usar |
 |---|---|---|---|
-| **A. Forms manual completo** | 4–6 horas | Alto (criar 158 perguntas) | Você quer experiência Forms 100% nativa, com seções e branding |
+| **A. Forms manual completo** | 4-6 horas | Alto (criar 158 perguntas) | Você quer experiência Forms 100% nativa, com seções e branding |
 | **B. Forms enxuto (1 capability piloto)** | 30 minutos | Baixo | PoC ou validação com poucos respondentes antes de escalar |
-| **C. Direto no Excel/SharePoint** ⭐ | 5 minutos | Mínimo | **Recomendado** — usa o template Excel que já vem no kit, evita 4h de criação |
+| **C. Direto no Excel/SharePoint** ⭐ | 5 minutos | Mínimo | **Recomendado**: usa o template Excel que já vem no kit, evita 4h de criação |
 
 ---
 
-## 🅰️ Caminho A — Forms manual completo (158 perguntas)
+## 🅰️ Caminho A: Forms manual completo (158 perguntas)
 
 ### Passo 1 · Criar o Forms
 
-1. Acesse https://forms.office.com (login com sua conta Microsoft 365)
+1. Acesse <https://forms.office.com> (login com sua conta Microsoft 365)
 2. Clique em **+ New Form**
 3. Título: `AI Maturity Assessment - <Nome da sua organização>`
 4. Subtítulo (opcional):
-   ```
+
+   ```text
    Avaliação de maturidade IA em 3 pillars: Produtividade, DevOps e Plataforma.
    158 questões com escala L0-L4. Tempo estimado: 45-90 minutos.
    Suas respostas são confidenciais e usadas apenas para gerar o roadmap.
@@ -39,9 +40,9 @@ Adicione 3 seções (botão **+ Add new** → ícone de seção):
 
 | Seção | Título | Subtítulo sugerido |
 |---|---|---|
-| 1 | **Pilar P1 — Produtividade do Desenvolvedor** | 53 questões em 9 capabilities |
-| 2 | **Pilar P2 — Ciclo de Vida DevOps** | 59 questões em 10 capabilities |
-| 3 | **Pilar P3 — Plataforma de Aplicações** | 46 questões em 9 capabilities |
+| 1 | **Pilar P1: Produtividade do Desenvolvedor** | 53 questões em 9 capabilities |
+| 2 | **Pilar P2: Ciclo de Vida DevOps** | 59 questões em 10 capabilities |
+| 3 | **Pilar P3: Plataforma de Aplicações** | 46 questões em 9 capabilities |
 
 ### Passo 3 · Adicionar as 158 questões
 
@@ -50,24 +51,24 @@ Para cada questão, adicione **2 elementos** no Forms:
 1. **Choice (single answer)** com a pergunta + as 6 opções de nível
 2. **Long Text** (opcional) para evidência
 
-Use o documento [`perguntas-para-forms.md`](perguntas-para-forms.md) como fonte de copy/paste — ele tem as 158 perguntas formatadas com IDs (`P1-C1-Q1`, etc.) e o texto completo.
+Use o documento [`perguntas-para-forms.md`](perguntas-para-forms.md) como fonte de copy/paste: ele tem as 158 perguntas formatadas com IDs (`P1-C1-Q1`, etc.) e o texto completo.
 
 #### Opções fixas para TODAS as questões (cole idênticas)
 
-```
-L0 — Inicial — Sem prática estabelecida
-L1 — Em Desenvolvimento — Pilotos isolados (<25%)
-L2 — Definido — Cobertura 25-50% com diretrizes
-L3 — Gerenciado — >75% com métricas de impacto
-L4 — Otimizando — Universal (>95%) com automação contínua
-NA — Não sei / Não se aplica
+```text
+L0 - Inicial: Sem prática estabelecida
+L1 - Em Desenvolvimento: Pilotos isolados (<25%)
+L2 - Definido: Cobertura 25-50% com diretrizes
+L3 - Gerenciado: >75% com métricas de impacto
+L4 - Otimizando: Universal (>95%) com automação contínua
+NA - Não sei / Não se aplica
 ```
 
-> ⚠️ **CRÍTICO:** o prefixo `L0`, `L1`, ..., `L4`, `NA` deve estar **literalmente no início** de cada opção. A skill de importação usa esse prefixo para mapear de volta para o número (0–4 ou null). Não traduza, não reformate.
+> ⚠️ **CRÍTICO:** o prefixo `L0`, `L1`, ..., `L4`, `NA` deve estar **literalmente no início** de cada opção. A skill de importação usa esse prefixo para mapear de volta para o número (0-4 ou null). Não traduza, não reformate.
 
 #### Formato do título de cada pergunta
 
-```
+```text
 P1-C1-Q1: <texto da pergunta>
 ```
 
@@ -77,7 +78,7 @@ P1-C1-Q1: <texto da pergunta>
 
 #### Formato do campo de evidência
 
-```
+```text
 Evidência (P1-C1-Q1)
 ```
 
@@ -87,10 +88,10 @@ Tipo: **Long Text**, opcional (não marcar como required).
 
 1. Botão **Settings** (engrenagem) no canto superior direito
 2. **Who can fill out this form**:
-   - **Only people in my organization** — recomendado se for uso interno
-   - **Anyone with the link** — se for cross-empresa (consultoria)
-3. **One response per person** — desabilitado (queremos múltiplos para agregar)
-4. **Email notification of each response** — opcional
+   - **Only people in my organization**: recomendado se for uso interno
+   - **Anyone with the link**: se for cross-empresa (consultoria)
+3. **One response per person**: desabilitado (queremos múltiplos para agregar)
+4. **Email notification of each response**: opcional
 
 ### Passo 5 · Compartilhar
 
@@ -111,11 +112,12 @@ Quando tiver respostas suficientes (recomendado: ≥3 respondentes para reduzir 
 
 No VS Code, abra o Copilot Chat (modo **Agent**) e digite:
 
-```
+```text
 /importar-respostas-excel
 ```
 
 A skill:
+
 - Detecta o `respostas-forms.xlsx` automaticamente
 - Faz backup do `respostas.json` atual
 - Agrega múltiplos respondentes via média por questão
@@ -126,13 +128,13 @@ Depois rode `/pipeline-completo` normalmente.
 
 ---
 
-## 🅱️ Caminho B — Forms enxuto (1 capability piloto)
+## 🅱️ Caminho B: Forms enxuto (1 capability piloto)
 
 Para **validar o fluxo end-to-end** antes de investir na criação completa.
 
 ### Passo 1 · Escolher 1 capability
 
-Escolha 1 capability com 5-7 questões. Sugestão: **P1-C1 (Assistentes de Codificação IA)** — é o tema mais "quente" e vai gerar boa discussão na equipe.
+Escolha 1 capability com 5-7 questões. Sugestão: **P1-C1 (Assistentes de Codificação IA)**: é o tema mais "quente" e vai gerar boa discussão na equipe.
 
 ### Passo 2 · Criar o Forms só com essas 5 questões
 
@@ -145,6 +147,7 @@ Compartilhe com seu time imediato (não com toda a empresa). Tempo: 1-2 dias.
 ### Passo 4 · Importar e rodar
 
 Como o `respostas.json` vai ter só 5 questões respondidas, o **threshold ficará em BLOCKED** (precisa ≥25). Mas:
+
 - Você valida que o fluxo Forms → Excel → respostas.json funciona
 - Você vê como aparece no relatório uma capability com dados reais
 
@@ -152,20 +155,21 @@ Para gerar relatório útil, complete manualmente o resto via `respostas.json` o
 
 ---
 
-## 🅲 Caminho C — Direto no Excel/SharePoint ⭐ (RECOMENDADO)
+## 🅲 Caminho C: Direto no Excel/SharePoint ⭐ (RECOMENDADO)
 
 Pula o Forms e usa o **template Excel** que já vem no kit.
 
 ### Passo 1 · Pegar o template
 
 O kit vem com [`coleta/template-export-forms.xlsx`](template-export-forms.xlsx). Esse arquivo:
+
 - Tem o **mesmo formato** que o Forms exportaria
 - Já tem as 158 colunas de pergunta + 158 de evidência
 - Vem com **3 respondentes mockados** como exemplo (você pode apagar e substituir)
 
 ### Passo 2 · Subir no SharePoint/OneDrive
 
-1. Limpar as 3 linhas de respondentes mockados (linhas 2, 3, 4) — manter só o header
+1. Limpar as 3 linhas de respondentes mockados (linhas 2, 3, 4) e manter só o header
 2. Renomear: `respostas-forms.xlsx` (ou outro nome)
 3. **SharePoint:** subir na library do projeto, gerar link "Anyone with the link can edit"
 4. **OneDrive:** subir e compartilhar editar
@@ -175,7 +179,7 @@ O kit vem com [`coleta/template-export-forms.xlsx`](template-export-forms.xlsx).
 
 Compartilhe instruções:
 
-```
+```text
 Olá equipe!
 
 Por favor preencham UMA linha por pessoa neste arquivo:
@@ -183,7 +187,7 @@ Por favor preencham UMA linha por pessoa neste arquivo:
 
 Para cada uma das 158 colunas de pergunta:
 - Selecione um nível L0-L4 (ou deixe em branco se "não sabe")
-- O texto deve começar com o código (ex.: "L3 — Gerenciado")
+- O texto deve começar com o código (ex.: "L3 - Gerenciado")
 - Use a coluna de Evidência logo à direita para descrever ferramenta/cobertura/métrica
 
 Tempo estimado: 45-90 min. Pode pausar e voltar.
@@ -194,20 +198,21 @@ Dúvidas? Consultem os documentos em referencia/P*.md (no kit-cliente).
 ### Passo 4 · Baixar o Excel
 
 Quando todos preencherem:
+
 1. SharePoint → arquivo → **Download a Copy**
 2. Renomear para **`respostas-forms.xlsx`**
 3. Mover para a raiz do `kit-cliente/`
 
 ### Passo 5 · Importar e rodar
 
-```
+```text
 /importar-respostas-excel
 /pipeline-completo
 ```
 
 ---
 
-## 🆚 Forms vs Excel direto — qual escolher?
+## 🆚 Forms vs Excel direto: qual escolher?
 
 | Critério | Microsoft Forms | Excel/SharePoint |
 |---|---|---|
@@ -221,6 +226,7 @@ Quando todos preencherem:
 | **Integração com kit** | Idêntica (`/importar-respostas-excel`) | Idêntica |
 
 **Recomendação prática:**
+
 - **PoC / Time pequeno (3-5 pessoas):** Excel direto (Caminho C)
 - **Roll-out organização (10+ respondentes):** Forms (Caminho A)
 - **Cliente exigente / branding profissional:** Forms (Caminho A)
@@ -235,20 +241,24 @@ A skill `/importar-respostas-excel` aceita qualquer Excel/CSV cujo header de per
 - ✅ **Google Forms** export (Sheets → Download as .xlsx)
 - ✅ **Excel/SharePoint** custom (template do kit ou seu próprio)
 - ✅ **CSV** (se renomear para .xlsx ou converter)
-- ⚠️ **Typeform** — funciona se ajustar headers para ter os IDs
+- ⚠️ **Typeform**: funciona se ajustar headers para ter os IDs
 
 ---
 
 ## 💡 Dicas práticas
 
 ### Dica 1 · Comece com 1 pillar
+
 Não tente coletar respostas dos 3 pillars ao mesmo tempo. Comece pelo P1 (Produtividade) que é o mais tangível para devs. Depois P2 (DevOps) com SREs. Depois P3 (Plataforma) com arquitetos.
 
 ### Dica 2 · Pré-preenchimento por entrevista
+
 Em vez de mandar o link e esperar, faça uma **entrevista de 1h por respondente** preenchendo junto. Você captura nuances melhor e gera evidências mais ricas.
 
 ### Dica 3 · Treine antes de soltar
+
 Faça um **kick-off de 30 min** explicando:
+
 - O que é o assessment
 - Como L0-L4 são definidos
 - Por que evidência importa
@@ -256,10 +266,12 @@ Faça um **kick-off de 30 min** explicando:
 - Quando vão receber o relatório
 
 ### Dica 4 · Rode ciclos curtos
+
 Não espere 100% de respostas para rodar `/pipeline-completo`. Rode com 25 (WARNING), depois 50 (OK), depois 100. A cada ciclo, o relatório melhora e você captura mais conversas.
 
 ### Dica 5 · Versionamento
-Toda vez que importar, a skill cria `respostas.json.backup-<timestamp>`. Guarde esses backups — eles são seu **histórico de evolução** entre rodadas do assessment.
+
+Toda vez que importar, a skill cria `respostas.json.backup-<timestamp>`. Guarde esses backups: eles são seu **histórico de evolução** entre rodadas do assessment.
 
 ---
 
@@ -277,7 +289,7 @@ Toda vez que importar, a skill cria `respostas.json.backup-<timestamp>`. Guarde 
 
 ## 📚 Referências
 
-- **Lista completa das 158 perguntas formatadas para Forms:** [`perguntas-para-forms.md`](perguntas-para-forms.md)
+- **Lista completa das 158 perguntas formatadas para Forms:** [`perguntas-para-forms.md`](perguntas-para-forms.md) (também em inglês, [`perguntas-para-forms.en.md`](perguntas-para-forms.en.md), e em espanhol, [`perguntas-para-forms.es.md`](perguntas-para-forms.es.md))
 - **Template Excel pronto (3 respondentes mockados):** [`template-export-forms.xlsx`](template-export-forms.xlsx)
 - **Skill de importação:** [`../.github/skills/importar-respostas-excel/SKILL.md`](../../.github/skills/importar-respostas-excel/SKILL.md)
 - **Algoritmo de agregação multi-respondente:** [`../referencia/pontuacao-e-calculo.md`](../../referencia/pontuacao-e-calculo.md) seção 6
@@ -291,12 +303,12 @@ Toda vez que importar, a skill cria `respostas.json.backup-<timestamp>`. Guarde 
 ## Travou em algum desses passos?
 
 <details>
-<summary><strong>FAQ — dúvidas comuns na coleta via Forms</strong></summary>
+<summary><strong>FAQ: dúvidas comuns na coleta via Forms</strong></summary>
 
 | Sintoma | Causa provável | Como resolver |
 |---|---|---|
 | **Open in Excel** está desabilitado no Forms | Sua conta não tem licença M365 / Forms está em conta pessoal | Peça a um admin para mover o Forms para a conta organizacional |
-| Tenho múltiplos respondentes — como agregá-los? | Comportamento padrão da skill | `/importar-respostas-excel` faz **média automática** por questão |
+| Tenho múltiplos respondentes: como agregá-los? | Comportamento padrão da skill | `/importar-respostas-excel` faz **média automática** por questão |
 | Os headers das colunas não começam com `P1-C1-Q1:` | Você não seguiu o padrão ao criar o Forms | Edite os títulos das questões no Forms para incluir o ID no começo |
 | Compartilhar Forms com gente de fora da org | Settings do Forms restringe acesso | Settings → **Anyone with the link can respond** |
 | Excel chega com colunas extras (ID, Start time, ...) | Comportamento padrão do Forms | A skill ignora colunas A-E automaticamente |
@@ -311,6 +323,6 @@ Toda vez que importar, a skill cria `respostas.json.backup-<timestamp>`. Guarde 
 | ← ANTERIOR | PRÓXIMO → |
 |:---|---:|
 | **[Guia passo-a-passo](../../GUIA-PASSO-A-PASSO.md)** | **[Developer Survey (anônimo)](../../survey-devs/INSTRUCOES-FORMS-DEVS.md)** |
-| Do zero ao PDF executivo em 60–90 min. | 75 perguntas anônimas sobre Copilot, agentes, governança, MCP / A2A. |
+| Do zero ao PDF executivo em 60-90 min. | 75 perguntas anônimas sobre Copilot, agentes, governança, MCP / A2A. |
 
 ↑ [Voltar ao Índice do kit](../README.md)

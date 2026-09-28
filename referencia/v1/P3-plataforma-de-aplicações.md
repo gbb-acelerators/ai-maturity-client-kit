@@ -1,6 +1,6 @@
 # AI Maturity Assessment: Pillar P3, Application Platform
 
-🌐 English · [Português (Brasil)](P3-plataforma-de-aplicações.pt-br.md)
+🌐 English · [Português (Brasil)](P3-plataforma-de-aplicações.pt-br.md) · [Español](P3-plataforma-de-aplicações.es.md)
 
 > Measures platform sophistication: cloud-native architecture, APIs, AI, data, agents, identity, multi-cloud, performance, and FinOps.
 
@@ -10,8 +10,8 @@
 - **Capabilities:** 9
 - **Total questions:** 46
 - **Scale:** Likert L0 to L4 (Initial → Optimizing)
-- **Question language:** English (translated from the Portuguese (Brazil) source)
-- **KPI/context/evidence language:** English (universal technical terms)
+- **Question language:** English (translated from the original Portuguese (Brazil) wording)
+- **KPI language:** English in every language version (metric names, as in `framework.json`)
 - **Expected response per question:** 1 selected level + evidence text (recommended minimum 80 characters) + optional attachment
 
 ## How to interpret the scale
@@ -1261,7 +1261,7 @@ Each question simultaneously captures **three types of data**:
 
 **Metadata**
 
-- **Target audience:** devops, Arquiteto
+- **Target audience:** devops, Architect
 - **Weight:** 1.0
 - **Professional Edition:** No
 - **Primary KPI:** `% services continuously profiled`
@@ -1291,7 +1291,7 @@ Each question simultaneously captures **three types of data**:
 
 **Metadata**
 
-- **Target audience:** devops, Arquiteto
+- **Target audience:** devops, Architect
 - **Weight:** 1.0
 - **Professional Edition:** No
 - **Primary KPI:** `capacity reviews per year`
@@ -1470,7 +1470,6 @@ Each question simultaneously captures **three types of data**:
 | **L4** | Optimizing | unit economics per product is optimized, automated, and continuously improved with data-driven insights. | • >95% adoption rate measured<br>• Automated telemetry feedback loops<br>• Continuous improvement program |
 
 ---
-
 
 ## How this section is scored
 

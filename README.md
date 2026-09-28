@@ -106,6 +106,27 @@ The Developer Survey and Learning and Growth Survey are companion signals. Surve
 - The survey rubric keeps the v1 score bands, so compare by score, not by level name.
 - Survey scripts write EN, PT-BR or ES (`--lang en|pt-br|es`). The Developer Survey banks translate the answer options in every language; `survey-devs/options.json` maps them back to the same canonical options, so scores do not depend on the form language.
 
+## Copilot Chat commands
+
+Open the kit folder in VS Code with GitHub Copilot and use Copilot Chat in Agent mode. The assistant answers in your language (English, Portuguese (Brazil) or Spanish) and renders client outputs in the client's language (`metadata.language` in `respostas.json`, `--lang` in the survey scripts). Its instruction files in [.github/](.github/) stay in English by design: they are read by the model, not by the client.
+
+| Command | What it does |
+| --- | --- |
+| `@ai-maturity-assistant` | Concierge agent: checks the workspace and runs or suggests the next step. |
+| `/pipeline-completo` | Full pipeline, from `respostas.json` to the workbook and the PDFs. |
+| `/ai-maturity-reports` | Reporting pipeline wrapper (v2 by default, v1 archived inputs supported). |
+| `/importar-respostas-excel` | Imports a Microsoft Forms export or merges offline form exports into `respostas.json`. |
+| `/calcular-scores` | Computes the scores with the deterministic engine. |
+| `/gap-analysis` | Computes gaps and P0 to P3 priorities. |
+| `/recomendar-estrategias` | Maps the priorities to the strategies S1 to S7. |
+| `/preencher-planilha` | Fills the auditable workbook. |
+| `/wizard-implementacao` | Collects the 11 implementation guide inputs (wizard, manual or auto-fill). |
+| `/gerar-relatorio` | Renders the PDF reports. |
+| `/importar-survey-devs` | Imports the anonymous Developer Survey. |
+| `/insights-developer-survey` | Writes the Developer Survey insights report. |
+| `/importar-survey-learning` | Imports the Learning and Growth Survey. |
+| `/plano-capacitacao` | Writes the training plan from the Learning Survey. |
+
 ## v1 archive
 
 v1 is still supported for files without `metadata.framework_version`, or with a `1.x` version. It uses [framework.json](framework.json), 158 questions, 3 pillars, and archived assets:
@@ -130,7 +151,7 @@ Use `make init-v1` to start a v1 input. The dispatching scripts keep v1 behavior
 
 ## Languages
 
-English is the main language. Every doc has a Portuguese (Brazil) copy (`X.pt-br.md`) and a Spanish copy (`X.es.md`), linked from the language line at the top. The question banks, the v2 spec, the HTML helpers (offline form, wizard and calculator), the reports and the survey outputs work in EN, PT-BR and ES. The PT and ES packages ship every doc in their language under the base file names. Only the Copilot customization files in `.github/` (English by design), the frozen v1 archive (EN and PT-BR) and the internal v2 plan (`upgrade-framework-v2.prompt.md`) stay out of the Spanish set. `make validate-docs` fails if a copy is missing or its headings drift from the English doc.
+English is the main language. Every doc has a Portuguese (Brazil) copy (`X.pt-br.md`) and a Spanish copy (`X.es.md`), linked from the language line at the top. The question banks, the v2 spec, the HTML helpers (offline form, wizard and calculator), the reports and the survey outputs work in EN, PT-BR and ES. The PT and ES packages ship every doc in their language under the base file names. The archived v1 material (reference docs, Forms instructions, question banks, visual forms and calculator) and the record of the v2 upgrade plan are in the three languages too. Only the Copilot customization files in `.github/` stay in English, by design; the assistant still answers in the user's language (see [Copilot Chat commands](#copilot-chat-commands)). `make validate-docs` fails if a copy is missing or its headings drift from the English doc.
 
 ## Validation
 
