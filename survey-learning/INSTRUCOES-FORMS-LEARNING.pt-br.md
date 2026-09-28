@@ -8,6 +8,7 @@
 > Diferente dos outros 2 surveys, este é **IDENTIFICADO** (nome + email obrigatórios). É 32 perguntas em 7 seções para construir o **roadmap de capacitação personalizado** da equipe — workshops, cohorts, Champions Network, mentoria. Tempo estimado por dev: **5-8 min**.
 
 **Diferente dos outros 2 surveys:**
+
 - Assessment principal: maturidade organizacional (Likert L0-L4 declarada por liderança)
 - Developer Survey: comportamento real ANÔNIMO
 - **Este Learning Survey: roadmap de capacitação IDENTIFICADO** — precisa nome+email para convidar pessoas certas para workshops certos
@@ -17,12 +18,14 @@
 ## ⚠️ Por que IDENTIFICADO (não anônimo)?
 
 Para gerar valor acionável, este survey **precisa saber quem é quem**:
+
 - Convocar **as pessoas certas** para cada workshop (10 inscritos pré-validados é melhor que "70% mostraram interesse")
 - Formar **Champions Network** com nomes (não anônimos)
 - Mapear **mentor↔mentee pairs** (precisa nome dos dois lados)
 - Atribuir **dono** dos quick wins identificados
 
-**Trade-off honesto:** algumas perguntas (ex.: "qual seu nível em D8 Security?") podem ser respondidas com pouca honestidade se devs sentirem julgamento. Por isso:
+**Trade-off honesto:** algumas perguntas (ex.: "qual seu nível em DS-D8 Security?") podem ser respondidas com pouca honestidade se devs sentirem julgamento. Por isso:
+
 - Liderança deve **comunicar claramente**: "respostas usadas para CAPACITAR, não para AVALIAR performance"
 - Não usar respostas em performance reviews
 - Compartilhar plano consolidado com toda a equipe (transparência)
@@ -54,7 +57,7 @@ Se sua organização preferir **anonimato puro**: rode o **Developer Survey** (`
 2. Título: `Learning & Growth IA — O que você quer aprender nos próximos 6 meses?`
 3. Subtítulo (cole):
 
-```
+```text
 Survey de 5-8 min sobre seu plano de capacitação em IA.
 
 ⚠️ IDENTIFICADO: vamos usar seu nome+email para CONVIDAR você para os
@@ -80,7 +83,7 @@ Resultado: plano de capacitação personalizado + cohorts + Champions Network.
 
 ### Passo 3 · Criar 7 seções
 
-```
+```text
 Section 1: L1 — Identificação                  (4 questões)
 Section 2: L2 — Auto-percepção (D2-D8)         (7 questões)
 Section 3: L3 — Onde quer crescer              (2 questões)
@@ -103,7 +106,8 @@ Use [`perguntas-para-forms-learning.md`](perguntas-para-forms-learning.md) como 
    - `text` (Long Text) → **Long answer**
 
 2. **TÍTULO inicia SEMPRE com o ID + dois pontos**:
-   ```
+
+   ```text
    L4-Q1: Quais tópicos de GitHub Copilot você quer dominar?
    ```
 
@@ -113,7 +117,7 @@ Use [`perguntas-para-forms-learning.md`](perguntas-para-forms-learning.md) como 
 
 A pergunta L1-Q4 ("Time / Squad") tem placeholder `[Lista a customizar pela org]` — substitua pelos nomes reais dos squads da sua organização. Exemplo:
 
-```
+```text
 - Squad Pagamentos
 - Squad Onboarding
 - Squad Plataforma
@@ -149,17 +153,18 @@ A pergunta L1-Q4 ("Time / Squad") tem placeholder `[Lista a customizar pela org]
 
 No Copilot Chat (modo Agent):
 
-```
+```text
 /importar-survey-learning
 ```
 
 Gera `survey-learning/respostas-learning.json` (estruturado).
 
-```
+```text
 /plano-capacitacao
 ```
 
 Gera `saida/plano-capacitacao-<DATE>.md` com:
+
 - Top 10 tópicos demandados (com lista de inscritos pré-validados)
 - Cohorts sugeridos por dimensão D2-D8
 - Champions Network identificados (3 tiers)
@@ -171,7 +176,7 @@ Gera `saida/plano-capacitacao-<DATE>.md` com:
 
 ### Passo 10 · ⭐ Auto-fill do wizard (Mode D)
 
-Depois de gerar o plano, ao rodar `/wizard-implementacao`, o Copilot Agent **detecta automaticamente** o `saida/plano-capacitacao-*.md` e oferece **Mode D — Auto-fill** que preenche **6 dos 9 inputs** do wizard automaticamente:
+Depois de gerar o plano, ao rodar `/wizard-implementacao`, o Copilot Agent **detecta automaticamente** o `saida/plano-capacitacao-*.md` e oferece **Mode D — Auto-fill** que preenche **7 dos 11 campos** do wizard automaticamente:
 
 | Input do wizard (Parte 4 do PDF) | Vem de |
 |---|---|
@@ -181,17 +186,18 @@ Depois de gerar o plano, ao rodar `/wizard-implementacao`, o Copilot Agent **det
 | `adkar_notes` | Workshops top 5 (Knowledge stage) |
 | `quick_wins_w1_4` / `quick_wins_w5_8` / `quick_wins_w9_12` | Calendário 90 dias |
 
-Você só precisa preencher manualmente: **TPO** + **RACI Matrix** (que o learning survey não cobre).
+Você preenche manualmente: **escritório do programa (TPO)**, **RACI**, **responsáveis por dimensão** e o **registro de riscos do cliente** (o Learning Survey não cobre esses campos). Campos vazios aparecem como "a preencher com o cliente" no guia de implementação.
 
-**Economia estimada:** 30-45 min de wizard manual. E os dados são REAIS do seu time, não placeholders do sample.
+**Economia estimada:** 30-45 min de wizard manual. E os dados vêm do seu time.
 
 ### Passo 11 · Re-renderizar PDFs com plano + wizard auto-fill
 
-```
+```text
 /gerar-relatorio
 ```
 
 A skill detecta:
+
 - ✅ `implementation-guide-inputs.json` (do wizard Mode D auto-fill) → popula Parte 4 com seus Champions e workshops
 - ✅ `saida/plano-capacitacao-*.md` (deste survey) → enriquece roadmap_part4.pdf
 - ✅ `saida/insights-developer-survey-*.md` (se você rodou) → cross-references no apêndice
@@ -219,6 +225,7 @@ cp survey-learning/template-export-forms-learning.xlsx respostas-survey-learning
 ## 💡 Boas práticas
 
 ### Compromisso de uso ético dos dados
+
 Comunique antes de lançar:
 
 > "Suas respostas serão usadas para: (1) construir nosso roadmap de capacitação, (2) convidar você para workshops específicos que pediu, (3) formar Champions Network. **NÃO** serão usadas para performance review, comparação entre devs, ou compartilhadas com clientes externos."
@@ -236,10 +243,12 @@ Este survey trata dados pessoais (nome, e-mail, cargo, squad, autoavaliação). 
 - **Pedidos individuais:** defina um responsável por pedidos de acesso, correção e exclusão.
 
 ### Cadência de relançamento
+
 - **A cada 6 meses** ou após eventos grandes (rollout Copilot, mudança de stack, etc.)
-- **Compare evoluções**: dev que estava L1 em D5 e agora se auto-avalia L3? Champion natural
+- **Compare evoluções**: dev que estava L1 em DS-D5 e agora se auto-avalia L3? Champion natural
 
 ### Transparência do plano
+
 - Apresentar o `plano-capacitacao-DATA.md` em all-hands
 - Pessoas que pediram workshop X recebem convite — fechar o loop
 - Champions identificados são reconhecidos publicamente (com consentimento)

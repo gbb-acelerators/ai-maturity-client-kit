@@ -4,32 +4,22 @@
 
 📖 **Navegação:** [🏠 Índice](../../README.pt-br.md) · [« Developer Survey](../README.pt-br.md)
 
-Scripts que computam maturidade IA dos desenvolvedores a partir do Developer Survey (anônimo).
+Scripts que calculam maturidade de IA dos desenvolvedores a partir do Developer Survey anônimo.
 
 ## Conteúdo
 
-| Arquivo | Propósito |
-|---|---|
-| [`rubric.py`](rubric.py) | **Rubrica determinística L0–L4** em 7 dimensões (D2-D8). Mapeia respostas → scores. Importável como módulo. |
-| [`calcular_maturidade.py`](calcular_maturidade.py) | Lê `survey-devs/respostas-devs.json`, aplica `rubric.py`, gera `saida/maturidade-developer-survey-<DATE>.json` com scores agregados do time. |
-| [`gerar_insights.py`](gerar_insights.py) | Gera o relatório completo em markdown (`saida/insights-developer-survey-<DATE>.md`) — demografia, adoção Copilot, governança, citações anonimizadas, recomendações ligadas às capabilities (P1-C1, P1-C5, P1-C8, P2-C4, P3-C6). O relatório é escrito em **inglês por padrão**; passe `--lang pt-br` para português (Brasil). |
+| Arquivo | Uso |
+| --- | --- |
+| [rubric.py](rubric.py) | Rubrica determinística em `DS-D2` a `DS-D8`. Mapeia respostas para scores. As bandas de score correspondem à rubrica v1 do survey. |
+| [calcular_maturidade.py](calcular_maturidade.py) | Lê `survey-devs/respostas-devs.json` e gera `saida/maturidade-developer-survey-<date>.json` com chaves `DS-D#`. |
+| [gerar_insights.py](gerar_insights.py) | Gera `saida/insights-developer-survey-<date>.md`. A seção 12 liga sinais do survey a perguntas v2. Inglês por padrão; use `--lang pt-br` para PT-BR. |
 
 ## Uso
 
 ```bash
-# Só os scores de maturidade
 python3 survey-devs/scripts/calcular_maturidade.py
-
-# Scores + relatório completo (recomendado), em inglês por padrão
 python3 survey-devs/scripts/gerar_insights.py
-
-# Mesmo relatório em português (Brasil)
 python3 survey-devs/scripts/gerar_insights.py --lang pt-br
 ```
 
-> [!IMPORTANT]
-> Estes scripts são invocados pelas skills `/insights-developer-survey`. Você normalmente não precisa rodar diretamente — o agente concierge faz isso.
-
-## Documentação da rubrica
-
-Veja [`../RUBRICA-MATURIDADE.md`](../RUBRICA-MATURIDADE.pt-br.md) para regras de scoring por dimensão.
+Saídas de survey são contexto para relatórios v2. Elas nunca mudam scores v2.

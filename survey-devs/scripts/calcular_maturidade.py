@@ -56,7 +56,7 @@ STRINGS = {
     "pt-br": {
         "missing": "❌ Input não encontrado: {path}",
         "run_import": "   Rode /importar-survey-devs primeiro.",
-        "computing": "\n📊 Calculando maturidade IA — {n} respondentes "
+        "computing": "\n📊 Calculando maturidade IA: {n} respondentes "
                      "(anônimos)\n",
         "none": "❌ Nenhum respondente.",
         "output": "✓ Output: {path}\n",
@@ -70,7 +70,7 @@ STRINGS = {
         "no_data": "Sem dados",
         "top": "🏆 Top 3 dimensões mais fortes:",
         "bottom": "⚠ Top 3 dimensões mais fracas (oportunidades):",
-        "rank_item": "   {i}. {did} {name} — {score:.2f} ({label})",
+        "rank_item": "   {i}. {did} {name}: {score:.2f} ({label})",
         "next": "Próximo: /insights-developer-survey gera o relatório "
                 "completo em PT-BR.",
     },
@@ -125,7 +125,8 @@ def main():
     ranking = _ranking(team["dimensions"])
     output = {
         "metadata": {
-            "computed_at": datetime.datetime.utcnow().isoformat() + "Z",
+            "computed_at": datetime.datetime.now(
+                datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "source": str(_display(inp, kit_root)),
             "n_respondents": n,
             "rubric_version": "1.0 (deterministic)",

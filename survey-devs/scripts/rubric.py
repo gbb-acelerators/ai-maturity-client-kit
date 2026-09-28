@@ -28,11 +28,11 @@ LEVEL_LABELS = {
         "L4 Optimizing",
     ],
     "pt-br": [
-        "L0 — Inicial",
-        "L1 — Em Desenvolvimento",
-        "L2 — Definido",
-        "L3 — Gerenciado",
-        "L4 — Otimizando",
+        "L0 Inicial",
+        "L1 Em Desenvolvimento",
+        "L2 Definido",
+        "L3 Gerenciado",
+        "L4 Otimizando",
     ],
 }
 
@@ -518,47 +518,49 @@ def score_D8(responses: dict) -> Optional[float]:
 # Public API
 # =========================================================
 
-# (id, name, scorer, English description)
+# (id, name, scorer, English description). The DS- prefix keeps these
+# Developer Survey dimensions apart from the v2 assessment dimensions
+# D1 to D9, which have different meanings.
 DIMENSIONS = [
-    ("D2", "Copilot Adoption", score_D2,
+    ("DS-D2", "Copilot Adoption", score_D2,
      "Adoption and depth of GitHub Copilot use: frequency, modes "
      "(Ask/Edit/Agent/Coding Agent), features, and measured gain"),
-    ("D3", "MS/GH Tooling Breadth", score_D3,
+    ("DS-D3", "MS/GH Tooling Breadth", score_D3,
      "Breadth of Microsoft/GitHub ecosystem use: Foundry, Spaces, "
      "Coding Agent, MCP, Spec Kit, and GHAS"),
-    ("D4", "AI Dev Practices", score_D4,
+    ("DS-D4", "AI Dev Practices", score_D4,
      "Structured AI practices: TDD, SDD, pair programming, debugging, "
      "and onboarding"),
-    ("D5", "Agent Concepts Mastery", score_D5,
+    ("DS-D5", "Agent Concepts Mastery", score_D5,
      "Knowledge of advanced concepts (agents, MCP, A2A, handoffs, "
      "subagents, and Agentic DevOps personas), primitive creation, "
      "and testing"),
-    ("D6", "Instructions Maturity", score_D6,
+    ("DS-D6", "Instructions Maturity", score_D6,
      "Instructions file maturity: copilot-instructions.md, AGENTS.md, "
      "CLAUDE.md, maintenance, and a shared prompt library"),
-    ("D7", "Best Practices", score_D7,
+    ("DS-D7", "Best Practices", score_D7,
      "Culture and usability: Champions, DORA/DX metrics, community, "
      "and sharing"),
-    ("D8", "Security & Governance", score_D8,
+    ("DS-D8", "Security & Governance", score_D8,
      "AI policy, GHAS, scanners, SBOM, agent scope and red-lines, JIT "
      "permissions, audit, and training"),
 ]
 
 DIMENSION_DESCRIPTIONS_PT = {
-    "D2": "Adoção e profundidade de uso do GitHub Copilot — frequência, "
+    "DS-D2": "Adoção e profundidade de uso do GitHub Copilot: frequência, "
           "modos (Ask/Edit/Agent/Coding Agent), features, ganho mensurado",
-    "D3": "Amplitude de uso do ecossistema Microsoft/GitHub — Foundry, "
+    "DS-D3": "Amplitude de uso do ecossistema Microsoft/GitHub: Foundry, "
           "Spaces, Coding Agent, MCP, Spec Kit, GHAS",
-    "D4": "Práticas estruturadas com IA — TDD, SDD, pair programming, "
+    "DS-D4": "Práticas estruturadas com IA: TDD, SDD, pair programming, "
           "debugging, onboarding",
-    "D5": "Conhecimento de conceitos avançados — agentes, MCP, A2A, "
+    "DS-D5": "Conhecimento de conceitos avançados: agentes, MCP, A2A, "
           "handoffs, subagentes, personas Agentic DevOps + criação de "
           "primitives + testes",
-    "D6": "Maturidade de instructions files — copilot-instructions.md, "
+    "DS-D6": "Maturidade de instructions files: copilot-instructions.md, "
           "AGENTS.md, CLAUDE.md, manutenção, prompt library compartilhada",
-    "D7": "Cultura e usabilidade — Champions, métricas DORA/DX, "
+    "DS-D7": "Cultura e usabilidade: Champions, métricas DORA/DX, "
           "comunidade, compartilhamento",
-    "D8": "Política de IA, GHAS, scanners, SBOM, escopo+red-lines de "
+    "DS-D8": "Política de IA, GHAS, scanners, SBOM, escopo+red-lines de "
           "agents, JIT permissions, audit, treinamento",
 }
 
@@ -570,7 +572,7 @@ def dimension_description(did: str, desc_en: str, lang: str = "en") -> str:
 
 
 def label_for(score: Optional[float], lang: str = "en") -> str:
-    """Maps score 0-4 to an L0-L4 label (same scale as the assessment)."""
+    """Maps score 0-4 to an L0-L4 label (the v1 assessment bands)."""
     lang = _lang(lang)
     if score is None:
         return NO_DATA_LABEL[lang]

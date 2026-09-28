@@ -17,9 +17,9 @@
 2. **Auditable**: every rule is documented in this file, and the code replicates it 1:1.
 3. **Conservative**: when in doubt, the level goes down (avoids inflating declared maturity).
 4. **Anonymous**: computed for each respondent individually, but **only aggregates** appear in the report (mean, distribution).
-5. **Mirror of the main assessment**: uses the same L0-L4 scale (Initial → Optimizing) for direct comparison.
+5. **v1 bands**: uses the L0-L4 bands of the v1 assessment (Initial to Optimizing). Framework v2 uses other bands (0.8 wide) and level names, so compare survey and v2 results by score and through the v2 questions listed below, not by level name.
 
-## 🧭 Scale (same as the main assessment)
+## 🧭 Scale (v1 assessment bands)
 
 | Range | Label | Description |
 |---|---|---|
@@ -29,23 +29,25 @@
 | `[2.5, 3.5)` | **L3 Managed** | Broad adoption, knows advanced concepts, measures impact |
 | `≥ 3.5` | **L4 Optimizing** | Full mastery, creates primitives, continuous optimization |
 
+> **IDs:** the survey dimensions are `DS-D2` to `DS-D8`. The `DS-` prefix keeps them apart from the v2 assessment dimensions `D1` to `D9`, which mean different things. `survey_crosswalk` in [framework.v2.json](../framework.v2.json) lists the v2 questions each survey dimension helps validate; survey results never change v2 scores.
+
 ## 📊 The 7 dimensions
 
 | ID | Dimension | Comes from | What it measures |
 |---|---|---|---|
-| **D2** | **Copilot Adoption** | S2 (9 q) | Frequency + breadth of modes + features + measured gain |
-| **D3** | **MS/GH Tooling Breadth** | S3 (7 q) | How many advanced tools (Foundry, Spaces, Coding Agent, MCP, Spec Kit) are used |
-| **D4** | **AI Dev Practices** | S4 (9 q) | TDD with AI, SDD, pair programming, debugging, onboarding |
-| **D5** | **Agent Concepts Mastery** | S5 (11 q) | Knowledge of 9 key concepts + creation of primitives + tests |
-| **D6** | **Instructions Maturity** | S6 (6 q) | Use of instructions files, maintenance, shared prompt library |
-| **D7** | **Best Practices** | S7 (9 q) | Champion, DORA/DX metrics, community, sharing |
-| **D8** | **Security & Governance** | S8 (13 q) | Policy, GHAS, scanners, SBOM, JIT, red-lines, audit, training |
+| **DS-D2** | **Copilot Adoption** | S2 (9 q) | Frequency + breadth of modes + features + measured gain |
+| **DS-D3** | **MS/GH Tooling Breadth** | S3 (7 q) | How many advanced tools (Foundry, Spaces, Coding Agent, MCP, Spec Kit) are used |
+| **DS-D4** | **AI Dev Practices** | S4 (9 q) | TDD with AI, SDD, pair programming, debugging, onboarding |
+| **DS-D5** | **Agent Concepts Mastery** | S5 (11 q) | Knowledge of 9 key concepts + creation of primitives + tests |
+| **DS-D6** | **Instructions Maturity** | S6 (6 q) | Use of instructions files, maintenance, shared prompt library |
+| **DS-D7** | **Best Practices** | S7 (9 q) | Champion, DORA/DX metrics, community, sharing |
+| **DS-D8** | **Security & Governance** | S8 (13 q) | Policy, GHAS, scanners, SBOM, JIT, red-lines, audit, training |
 
 > **Excluded from the score:** S1 (profile, only categorizes) and S9 (free text, becomes quotes).
 
 ## ⚖️ Detailed rules per dimension
 
-### D2: Copilot Adoption
+### DS-D2: Copilot Adoption
 
 | Key answer | Signals |
 |---|---|
@@ -56,7 +58,7 @@
 | Above + `S2-Q3: usa Agent ou Coding Agent` [uses Agent or Coding Agent] + `S2-Q5: 4+ features` + positive gain | **L3** |
 | Above + `S2-Q3: Coding Agent` + `S2-Q5: Spaces` + `S2-Q7: ganho >40%` [gain >40%] + `S2-Q5: 5+ features` | **L4** |
 
-### D3: MS/GH Tooling Breadth
+### DS-D3: MS/GH Tooling Breadth
 
 Point-by-point score: `n_tools (S3-Q1) + advanced_signals (S3-Q3, Q4, Q6, Q2)`
 
@@ -68,13 +70,14 @@ Point-by-point score: `n_tools (S3-Q1) + advanced_signals (S3-Q3, Q4, Q6, Q2)`
   - Foundry used for "MCP", "multi-agent", or "agentes autônomos" [autonomous agents]
 
 **Mapping:**
+
 - `score ≥ 8` → **L4** (5+ tools + 3+ advanced signals)
 - `score 5-7` → **L3**
 - `score 3-4` → **L2**
 - `score 1-2` → **L1**
 - `score 0` → **L0**
 
-### D4: AI Dev Practices
+### DS-D4: AI Dev Practices
 
 Weighted sum (max ~10 points), mapped to 0-4:
 
@@ -95,11 +98,12 @@ Weighted sum (max ~10 points), mapped to 0-4:
 
 **Mapping:** `score / 10 × 4` → rounded.
 
-### D5: Agent Concepts Mastery
+### DS-D5: Agent Concepts Mastery
 
 3 components:
 
 **(a) Coverage of 9 concepts** (60% of the weight): for each one, +1.0 if "uso/explico" [I use it / I can explain it], otherwise 0:
+
 - S5-Q1 AI agent
 - S5-Q2 Copilot modes
 - S5-Q3 Custom agents
@@ -113,6 +117,7 @@ Weighted sum (max ~10 points), mapped to 0-4:
 **(b) Primitives created (S5-Q11 multi)** (25% of the weight): n_primitives × 0.25 (cap 1.0)
 
 **(c) Agent tests (S5-Q10)** (15% of the weight):
+
 - "Sempre — test suite" [always, with a test suite] → +1.0
 - "Frequentemente" [frequently] → +0.5
 - "Não crio agents" [I do not create agents] → 0 (neutral)
@@ -121,7 +126,7 @@ Weighted sum (max ~10 points), mapped to 0-4:
 
 **Minimum coverage:** if `<5` questions are answered → returns `None` (not scored).
 
-### D6: Instructions Maturity
+### DS-D6: Instructions Maturity
 
 | Question | Signal | Points |
 |---|---|---|
@@ -141,7 +146,7 @@ Weighted sum (max ~10 points), mapped to 0-4:
 
 **Mapping:** `score / 9 × 4`.
 
-### D7: Best Practices
+### DS-D7: Best Practices
 
 | Question | Signal | Points |
 |---|---|---|
@@ -159,7 +164,7 @@ Weighted sum (max ~10 points), mapped to 0-4:
 
 **Mapping:** `score / 8 × 4`.
 
-### D8: Security & Governance (CRITICAL, conservative)
+### DS-D8: Security & Governance (CRITICAL, conservative)
 
 Largest number of rules + penalties for red flags:
 
@@ -186,13 +191,13 @@ Largest number of rules + penalties for red flags:
 
 ## 🧮 Respondent overall score
 
-```
-overall = mean(D2..D8)  # only dimensions with score != None
+```text
+overall = mean(DS-D2..DS-D8)  # only dimensions with score != None
 ```
 
 ## 🧮 Team aggregation
 
-```
+```text
 team_score(D) = mean(D across all respondents)  # ignores None
 team_overall  = mean(overall of all respondents)
 distribution(D) = % of respondents in each L0-L4
@@ -217,7 +222,7 @@ distribution(D) = % of respondents in each L0-L4
     "respondents_with_overall": 12
   },
   "dimensions": {
-    "D2": {
+    "DS-D2": {
       "name": "Copilot Adoption",
       "team_score": 0.80,
       "label": "L1 — Em Desenvolvimento",
@@ -225,12 +230,12 @@ distribution(D) = % of respondents in each L0-L4
       "distribution_count": {"L0": 5, "L1": 5, "L2": 2, "L3": 0, "L4": 0},
       "distribution_pct": {"L0": 41.7, "L1": 41.7, "L2": 16.7, "L3": 0, "L4": 0}
     },
-    "D3": {...}, "D4": {...}, "D5": {...},
-    "D6": {...}, "D7": {...}, "D8": {...}
+    "DS-D3": {...}, "DS-D4": {...}, "DS-D5": {...},
+    "DS-D6": {...}, "DS-D7": {...}, "DS-D8": {...}
   },
   "ranking": {
-    "top": [["D7", "Best Practices", 2.91], ...],
-    "bottom": [["D2", "Copilot Adoption", 0.80], ...]
+    "top": [["DS-D7", "Best Practices", 2.91], ...],
+    "bottom": [["DS-D2", "Copilot Adoption", 0.80], ...]
   }
 }
 ```
@@ -241,7 +246,7 @@ The sample above shows the PT-BR labels. Human-readable output (the insights rep
 
 ### Via skill in Copilot Chat
 
-```
+```text
 /insights-developer-survey   # invokes the script automatically
 ```
 
@@ -260,25 +265,26 @@ Individual maturity (from the survey) **feeds and validates** the capabilities o
 
 | Survey dimension | Assessment capability | What to validate |
 |---|---|---|
-| **D2** Copilot Adoption | `P1-C1` AI Coding Assistants | Declared score vs. real adoption declared by developers |
-| **D3** MS/GH Tooling | `P3-C3` AI Applications + `P3-C5` Agentic Apps | Technical sophistication in AI |
-| **D4** AI Dev Practices | `P1-C2` DevEx + `P1-C8` Productivity Metrics | Structured practices |
-| **D5** Agent Concepts | `P3-C5` Agentic Apps | Advanced knowledge |
-| **D6** Instructions | `P1-C7` Automated documentation | Maintenance of AI context |
-| **D7** Best Practices | `P1-C5` Onboarding + `P1-C8` Metrics | Adoption culture |
-| **D8** Security & Governance | `P2-C4` DevSecOps + `P2-C10` Supply Chain | Real governance |
+| **DS-D2** Copilot Adoption | `P1-C1` AI Coding Assistants | Declared score vs. real adoption declared by developers |
+| **DS-D3** MS/GH Tooling | `P3-C3` AI Applications + `P3-C5` Agentic Apps | Technical sophistication in AI |
+| **DS-D4** AI Dev Practices | `P1-C2` DevEx + `P1-C8` Productivity Metrics | Structured practices |
+| **DS-D5** Agent Concepts | `P3-C5` Agentic Apps | Advanced knowledge |
+| **DS-D6** Instructions | `P1-C7` Automated documentation | Maintenance of AI context |
+| **DS-D7** Best Practices | `P1-C5` Onboarding + `P1-C8` Metrics | Adoption culture |
+| **DS-D8** Security & Governance | `P2-C4` DevSecOps + `P2-C10` Supply Chain | Real governance |
 
-> 💡 **Classic pattern:** leadership rates P1-C1 as L3, but survey D2 shows L1 (60% of developers rarely use it) → **dissonance** between strategy and practice. The `/insights-developer-survey` skill highlights this in section 12 of the report.
+> 💡 **Classic pattern:** leadership rates P1-C1 as L3, but survey DS-D2 shows L1 (60% of developers rarely use it) → **dissonance** between strategy and practice. The `/insights-developer-survey` skill highlights this in section 12 of the report.
 
 ## 📊 Rubric calibration and review
 
 This is **version 1.0**. Review it quarterly based on:
 
 - Cases where the score seems under- or over-estimated (calibrate weights)
-- Ecosystem changes (e.g., Copilot launches a new mode → add it to S2-Q3 + update D2)
+- Ecosystem changes (e.g., Copilot launches a new mode → add it to S2-Q3 + update DS-D2)
 - Respondent feedback ("this question was ambiguous")
 
 **How to propose a change:**
+
 1. Edit `scripts/rubric.py` with the updated rule
 2. Document the reason in this file
 3. Increment `RUBRIC_VERSION` and rerun with previous data to compare

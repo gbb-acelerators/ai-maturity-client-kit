@@ -15,9 +15,9 @@
 2. **Auditável** — cada regra documentada neste arquivo, código replica 1:1.
 3. **Conservadora** — na dúvida, desce o nível (evita inflar maturidade declarada).
 4. **Anônimo** — calcula por respondente individualmente, mas **só agregados** saem no relatório (média, distribuição).
-5. **Espelho do assessment principal** — usa a mesma escala L0-L4 (Inicial → Otimizando) para comparação direta.
+5. **Faixas do v1**: usa as faixas L0-L4 do assessment v1 (Inicial a Otimizando). O framework v2 usa outras faixas (largura 0,8) e outros nomes de nível, então compare os resultados do survey e do v2 pela nota e pelas perguntas v2 listadas abaixo, não pelo nome do nível.
 
-## 🧭 Escala (igual ao assessment principal)
+## 🧭 Escala (faixas do assessment v1)
 
 | Faixa | Rótulo | Descrição |
 |---|---|---|
@@ -27,23 +27,25 @@
 | `[2.5, 3.5)` | **L3 — Gerenciado** | Adoção ampla, conhece avançados, mede impacto |
 | `≥ 3.5` | **L4 — Otimizando** | Domínio completo, cria primitivos, otimização contínua |
 
+> **IDs:** as dimensões do survey são `DS-D2` a `DS-D8`. O prefixo `DS-` as separa das dimensões `D1` a `D9` do assessment v2, que têm outros significados. `survey_crosswalk` em [framework.v2.json](../framework.v2.json) lista as perguntas v2 que cada dimensão do survey ajuda a validar; o survey nunca altera as notas do v2.
+
 ## 📊 As 7 dimensões
 
 | ID | Dimensão | Vem de | O que mede |
 |---|---|---|---|
-| **D2** | **Copilot Adoption** | S2 (9 q) | Frequência + breadth de modos + features + ganho mensurado |
-| **D3** | **MS/GH Tooling Breadth** | S3 (7 q) | Quantas ferramentas avançadas (Foundry, Spaces, Coding Agent, MCP, Spec Kit) usa |
-| **D4** | **AI Dev Practices** | S4 (9 q) | TDD com IA, SDD, pair programming, debugging, onboarding |
-| **D5** | **Agent Concepts Mastery** | S5 (11 q) | Conhecimento de 9 conceitos chave + criação de primitives + testes |
-| **D6** | **Instructions Maturity** | S6 (6 q) | Uso de instructions files, manutenção, prompt library compartilhada |
-| **D7** | **Best Practices** | S7 (9 q) | Champion, métricas DORA/DX, comunidade, compartilhamento |
-| **D8** | **Security & Governance** | S8 (13 q) | Política, GHAS, scanners, SBOM, JIT, red-lines, audit, treinamento |
+| **DS-D2** | **Copilot Adoption** | S2 (9 q) | Frequência + breadth de modos + features + ganho mensurado |
+| **DS-D3** | **MS/GH Tooling Breadth** | S3 (7 q) | Quantas ferramentas avançadas (Foundry, Spaces, Coding Agent, MCP, Spec Kit) usa |
+| **DS-D4** | **AI Dev Practices** | S4 (9 q) | TDD com IA, SDD, pair programming, debugging, onboarding |
+| **DS-D5** | **Agent Concepts Mastery** | S5 (11 q) | Conhecimento de 9 conceitos chave + criação de primitives + testes |
+| **DS-D6** | **Instructions Maturity** | S6 (6 q) | Uso de instructions files, manutenção, prompt library compartilhada |
+| **DS-D7** | **Best Practices** | S7 (9 q) | Champion, métricas DORA/DX, comunidade, compartilhamento |
+| **DS-D8** | **Security & Governance** | S8 (13 q) | Política, GHAS, scanners, SBOM, JIT, red-lines, audit, treinamento |
 
 > **Excluídas do score:** S1 (perfil — só categoriza) e S9 (texto livre — vira quotes).
 
 ## ⚖️ Regras detalhadas por dimensão
 
-### D2 — Copilot Adoption
+### DS-D2 — Copilot Adoption
 
 | Resposta-chave | Sinaliza |
 |---|---|
@@ -54,7 +56,7 @@
 | Acima + `S2-Q3: usa Agent ou Coding Agent` + `S2-Q5: 4+ features` + ganho positivo | **L3** |
 | Acima + `S2-Q3: Coding Agent` + `S2-Q5: Spaces` + `S2-Q7: ganho >40%` + `S2-Q5: 5+ features` | **L4** |
 
-### D3 — MS/GH Tooling Breadth
+### DS-D3 — MS/GH Tooling Breadth
 
 Score ponto-a-ponto: `n_tools (S3-Q1) + advanced_signals (S3-Q3, Q4, Q6, Q2)`
 
@@ -66,13 +68,14 @@ Score ponto-a-ponto: `n_tools (S3-Q1) + advanced_signals (S3-Q3, Q4, Q6, Q2)`
   - Foundry usado para "MCP", "multi-agent" ou "agentes autônomos"
 
 **Mapping:**
+
 - `score ≥ 8` → **L4** (5+ ferramentas + 3+ sinais avançados)
 - `score 5-7` → **L3**
 - `score 3-4` → **L2**
 - `score 1-2` → **L1**
 - `score 0` → **L0**
 
-### D4 — AI Dev Practices
+### DS-D4 — AI Dev Practices
 
 Soma ponderada (max ~10 pontos), mapeada para 0-4:
 
@@ -93,11 +96,12 @@ Soma ponderada (max ~10 pontos), mapeada para 0-4:
 
 **Mapping:** `score / 10 × 4` → arredondado.
 
-### D5 — Agent Concepts Mastery
+### DS-D5 — Agent Concepts Mastery
 
 3 componentes:
 
 **(a) Coverage de 9 conceitos** (60% do peso): para cada um, +1.0 se "uso/explico", senão 0:
+
 - S5-Q1 AI agent
 - S5-Q2 Modos Copilot
 - S5-Q3 Custom agents
@@ -111,6 +115,7 @@ Soma ponderada (max ~10 pontos), mapeada para 0-4:
 **(b) Primitives criados (S5-Q11 multi)** (25% do peso): n_primitivos × 0.25 (cap 1.0)
 
 **(c) Testes de agents (S5-Q10)** (15% do peso):
+
 - "Sempre — test suite" → +1.0
 - "Frequentemente" → +0.5
 - "Não crio agents" → 0 (neutro)
@@ -119,7 +124,7 @@ Soma ponderada (max ~10 pontos), mapeada para 0-4:
 
 **Cobertura mínima:** se `<5` perguntas respondidas → retorna `None` (não scored).
 
-### D6 — Instructions Maturity
+### DS-D6 — Instructions Maturity
 
 | Pergunta | Sinal | Pontos |
 |---|---|---|
@@ -139,7 +144,7 @@ Soma ponderada (max ~10 pontos), mapeada para 0-4:
 
 **Mapping:** `score / 9 × 4`.
 
-### D7 — Best Practices
+### DS-D7 — Best Practices
 
 | Pergunta | Sinal | Pontos |
 |---|---|---|
@@ -157,7 +162,7 @@ Soma ponderada (max ~10 pontos), mapeada para 0-4:
 
 **Mapping:** `score / 8 × 4`.
 
-### D8 — Security & Governance (CRÍTICO — conservadora)
+### DS-D8 — Security & Governance (CRÍTICO — conservadora)
 
 Maior número de regras + penalizações por red flags:
 
@@ -184,13 +189,13 @@ Maior número de regras + penalizações por red flags:
 
 ## 🧮 Score overall do respondente
 
-```
-overall = média(D2..D8)  # apenas dimensões com score != None
+```text
+overall = média(DS-D2..DS-D8)  # apenas dimensões com score != None
 ```
 
 ## 🧮 Agregação para o time
 
-```
+```text
 team_score(D) = média(D em todos os respondentes)  # ignora None
 team_overall  = média(overall de todos os respondentes)
 distribuição(D) = % de respondentes em cada L0-L4
@@ -215,7 +220,7 @@ distribuição(D) = % de respondentes em cada L0-L4
     "respondents_with_overall": 12
   },
   "dimensions": {
-    "D2": {
+    "DS-D2": {
       "name": "Copilot Adoption",
       "team_score": 0.80,
       "label": "L1 — Em Desenvolvimento",
@@ -223,12 +228,12 @@ distribuição(D) = % de respondentes em cada L0-L4
       "distribution_count": {"L0": 5, "L1": 5, "L2": 2, "L3": 0, "L4": 0},
       "distribution_pct": {"L0": 41.7, "L1": 41.7, "L2": 16.7, "L3": 0, "L4": 0}
     },
-    "D3": {...}, "D4": {...}, "D5": {...},
-    "D6": {...}, "D7": {...}, "D8": {...}
+    "DS-D3": {...}, "DS-D4": {...}, "DS-D5": {...},
+    "DS-D6": {...}, "DS-D7": {...}, "DS-D8": {...}
   },
   "ranking": {
-    "top": [["D7", "Best Practices", 2.91], ...],
-    "bottom": [["D2", "Copilot Adoption", 0.80], ...]
+    "top": [["DS-D7", "Best Practices", 2.91], ...],
+    "bottom": [["DS-D2", "Copilot Adoption", 0.80], ...]
   }
 }
 ```
@@ -239,7 +244,7 @@ O exemplo acima mostra os rótulos em PT-BR. A saída legível (o relatório de 
 
 ### Via skill no Copilot Chat
 
-```
+```text
 /insights-developer-survey   # invoca o script automaticamente
 ```
 
@@ -258,25 +263,26 @@ A maturidade individual (do survey) **alimenta e valida** as capabilities do ass
 
 | Dimensão do survey | Capability do assessment | O que validar |
 |---|---|---|
-| **D2** Copilot Adoption | `P1-C1` Assistentes de Codificação IA | Score declarado vs. adoção real declarada por devs |
-| **D3** MS/GH Tooling | `P3-C3` Aplicações IA + `P3-C5` Apps Agênticas | Sofisticação técnica em IA |
-| **D4** AI Dev Practices | `P1-C2` DevEx + `P1-C8` Métricas Produtividade | Práticas estruturadas |
-| **D5** Agent Concepts | `P3-C5` Apps Agênticas | Conhecimento avançado |
-| **D6** Instructions | `P1-C7` Documentação automatizada | Manutenção de contexto IA |
-| **D7** Best Practices | `P1-C5` Onboarding + `P1-C8` Métricas | Cultura de adoção |
-| **D8** Security & Governance | `P2-C4` DevSecOps + `P2-C10` Supply Chain | Governance real |
+| **DS-D2** Copilot Adoption | `P1-C1` Assistentes de Codificação IA | Score declarado vs. adoção real declarada por devs |
+| **DS-D3** MS/GH Tooling | `P3-C3` Aplicações IA + `P3-C5` Apps Agênticas | Sofisticação técnica em IA |
+| **DS-D4** AI Dev Practices | `P1-C2` DevEx + `P1-C8` Métricas Produtividade | Práticas estruturadas |
+| **DS-D5** Agent Concepts | `P3-C5` Apps Agênticas | Conhecimento avançado |
+| **DS-D6** Instructions | `P1-C7` Documentação automatizada | Manutenção de contexto IA |
+| **DS-D7** Best Practices | `P1-C5` Onboarding + `P1-C8` Métricas | Cultura de adoção |
+| **DS-D8** Security & Governance | `P2-C4` DevSecOps + `P2-C10` Supply Chain | Governance real |
 
-> 💡 **Padrão clássico:** liderança avalia P1-C1 como L3, mas survey D2 mostra L1 (60% dos devs raramente usa) → **dissonância** entre estratégia e prática. A skill `/insights-developer-survey` destaca isso na seção 12 do relatório.
+> 💡 **Padrão clássico:** liderança avalia P1-C1 como L3, mas survey DS-D2 mostra L1 (60% dos devs raramente usa) → **dissonância** entre estratégia e prática. A skill `/insights-developer-survey` destaca isso na seção 12 do relatório.
 
 ## 📊 Calibração e revisão da rubrica
 
 Esta é a **versão 1.0**. Recomendado revisar trimestralmente baseado em:
 
 - Casos onde score parece sub/super-estimado (calibrar pesos)
-- Mudanças no ecossistema (ex.: Copilot lança modo novo → adicionar em S2-Q3 + atualizar D2)
+- Mudanças no ecossistema (ex.: Copilot lança modo novo → adicionar em S2-Q3 + atualizar DS-D2)
 - Feedback de respondentes ("essa pergunta era ambígua")
 
 **Como propor mudança:**
+
 1. Editar `scripts/rubric.py` com a regra atualizada
 2. Documentar o porquê neste arquivo
 3. Incrementar `RUBRIC_VERSION` e re-rodar com dados anteriores para comparar

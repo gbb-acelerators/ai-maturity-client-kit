@@ -8,6 +8,7 @@
 > Unlike the other 2 surveys, this one is **IDENTIFIED** (name + email required). It has 32 questions in 7 sections to build the team's **personalized capacitation roadmap**: workshops, cohorts, Champions Network, and mentoring. Estimated time per developer: **5-8 min**.
 
 **Different from the other 2 surveys:**
+
 - Main assessment: organizational maturity (Likert L0-L4 declared by leadership)
 - Developer Survey: ANONYMOUS real behavior
 - **This Learning Survey: IDENTIFIED capacitation roadmap**: it needs name+email to invite the right people to the right workshops
@@ -17,12 +18,14 @@
 ## ⚠️ Why IDENTIFIED (not anonymous)?
 
 To produce actionable value, this survey **needs to know who is who**:
+
 - Invite **the right people** to each workshop (10 pre-validated attendees is better than "70% showed interest")
 - Build a **Champions Network** with names (not anonymous)
 - Map **mentor↔mentee pairs** (needs names on both sides)
 - Assign an **owner** to the identified quick wins
 
-**Honest trade-off:** some questions (e.g., "what is your level in D8 Security?") may be answered less honestly if developers feel judged. That is why:
+**Honest trade-off:** some questions (e.g., "what is your level in DS-D8 Security?") may be answered less honestly if developers feel judged. That is why:
+
 - Leadership must **communicate clearly**: "answers are used to BUILD SKILLS, not to EVALUATE performance"
 - Do not use answers in performance reviews
 - Share the consolidated plan with the whole team (transparency)
@@ -54,7 +57,7 @@ If your organization prefers **pure anonymity**: run the **Developer Survey** (`
 2. Title: `AI Learning & Growth: What do you want to learn in the next 6 months?`
 3. Subtitle (paste):
 
-```
+```text
 5-8 min survey about your AI capacitation plan.
 
 ⚠️ IDENTIFIED: we will use your name+email to INVITE you to the right
@@ -80,7 +83,7 @@ Result: personalized capacitation plan + cohorts + Champions Network.
 
 ### Step 3 · Create 7 sections
 
-```
+```text
 Section 1: L1 - Identification                 (4 questions)
 Section 2: L2 - Self-perception (D2-D8)        (7 questions)
 Section 3: L3 - Where you want to grow         (2 questions)
@@ -103,7 +106,8 @@ Use the English bank [`perguntas-para-forms-learning.en.md`](perguntas-para-form
    - `text` (Long Text) → **Long answer**
 
 2. **The TITLE ALWAYS starts with the ID + colon**:
-   ```
+
+   ```text
    L4-Q1: Which GitHub Copilot topics do you want to master?
    ```
 
@@ -113,7 +117,7 @@ Use the English bank [`perguntas-para-forms-learning.en.md`](perguntas-para-form
 
 Question L1-Q4 ("Team / Squad") has a placeholder (`[Customize with the organization's team list]` in the English bank, `[Lista a customizar pela org]` in the PT-BR bank). Replace it with the real squad names in your organization. Example:
 
-```
+```text
 - Payments Squad
 - Onboarding Squad
 - Platform Squad
@@ -149,17 +153,18 @@ Question L1-Q4 ("Team / Squad") has a placeholder (`[Customize with the organiza
 
 In Copilot Chat (Agent mode):
 
-```
+```text
 /importar-survey-learning
 ```
 
 Generates `survey-learning/respostas-learning.json` (structured).
 
-```
+```text
 /plano-capacitacao
 ```
 
 Generates `saida/plano-capacitacao-<DATE>.md` (in **English by default**; the script accepts `--lang pt-br` for Portuguese (Brazil)) with:
+
 - Top 10 requested topics (with a list of pre-validated attendees)
 - Suggested cohorts per dimension D2-D8
 - Identified Champions Network (3 tiers)
@@ -171,7 +176,7 @@ Generates `saida/plano-capacitacao-<DATE>.md` (in **English by default**; the sc
 
 ### Step 10 · ⭐ Wizard auto-fill (Mode D)
 
-After generating the plan, running `/wizard-implementacao` makes the Copilot Agent **automatically detect** `saida/plano-capacitacao-*.md` and offer **Mode D: Auto-fill**, which fills **6 of the 9** wizard inputs automatically:
+After generating the plan, running `/wizard-implementacao` makes the Copilot Agent **automatically detect** `saida/plano-capacitacao-*.md` and offer **Mode D: Auto-fill**, which fills **7 of the 11** wizard fields automatically:
 
 | Wizard input (Part 4 of the PDF) | Comes from |
 |---|---|
@@ -181,17 +186,18 @@ After generating the plan, running `/wizard-implementacao` makes the Copilot Age
 | `adkar_notes` | Top 5 workshops (Knowledge stage) |
 | `quick_wins_w1_4` / `quick_wins_w5_8` / `quick_wins_w9_12` | 90-day calendar |
 
-You only need to fill in manually: **TPO** + **RACI Matrix** (which the learning survey does not cover).
+You fill in manually: **program office (TPO)**, **RACI**, **dimension owners** and the **client risk register** (the Learning Survey does not cover them). Empty fields show "to fill with the client" in the implementation guide.
 
-**Estimated savings:** 30-45 min of manual wizard work. And the data is REAL data from your team, not placeholders from the sample.
+**Estimated savings:** 30-45 min of manual wizard work. And the data comes from your team.
 
 ### Step 11 · Re-render the PDFs with the plan + wizard auto-fill
 
-```
+```text
 /gerar-relatorio
 ```
 
 The skill detects:
+
 - ✅ `implementation-guide-inputs.json` (from wizard Mode D auto-fill) → populates Part 4 with your Champions and workshops
 - ✅ `saida/plano-capacitacao-*.md` (from this survey) → enriches roadmap_part4.pdf
 - ✅ `saida/insights-developer-survey-*.md` (if you ran it) → cross-references in the appendix
@@ -219,6 +225,7 @@ cp survey-learning/template-export-forms-learning.xlsx respostas-survey-learning
 ## 💡 Best practices
 
 ### Commitment to ethical use of the data
+
 Communicate before launching:
 
 > "Your answers will be used to: (1) build our capacitation roadmap, (2) invite you to the specific workshops you asked for, and (3) build the Champions Network. They will **NOT** be used for performance review, comparison between developers, or shared with external clients."
@@ -236,10 +243,12 @@ This survey processes personal data (name, email, role, squad, self-assessment).
 - **Individual requests:** name an owner for access, correction, and deletion requests.
 
 ### Relaunch cadence
+
 - **Every 6 months** or after major events (Copilot rollout, stack change, etc.)
-- **Compare evolution**: a developer who was L1 in D5 now self-rates L3? A natural Champion
+- **Compare evolution**: a developer who was L1 in DS-D5 now self-rates L3? A natural Champion
 
 ### Plan transparency
+
 - Present `plano-capacitacao-DATE.md` at an all-hands
 - People who asked for workshop X receive an invitation: close the loop
 - Identified Champions are recognized publicly (with consent)

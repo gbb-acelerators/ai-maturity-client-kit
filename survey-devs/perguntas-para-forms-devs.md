@@ -4,15 +4,17 @@
 
 ## Como criar o Forms
 
-1. Acesse https://forms.office.com → **+ New Form**
+1. Acesse <https://forms.office.com> → **+ New Form**
 2. Título sugerido: `Developer Survey — Como minha equipe usa GitHub & IA hoje`
 3. Subtítulo:
-   ```
+
+   ```text
    Survey anônimo (15-25 min) sobre suas práticas com GitHub Copilot,
    modos do Copilot Chat (Ask/Edit/Agent), agentes IA, instructions files,
    melhores práticas de IA + Dev e segurança.
    Suas respostas vão alimentar o roadmap de adoção de IA no time.
    ```
+
 4. **Settings** (⚙️):
    - ☑ **Anonymous responses** (CRÍTICO — deixar marcado)
    - ☑ One response per person: **DESMARCADO** (queremos múltiplos)
@@ -34,9 +36,11 @@
    - **`text`** → Long Text
 
 7. **TÍTULO** de cada pergunta deve começar com o ID + dois pontos. Exemplo:
-   ```
+
+   ```text
    S2-Q1: Você tem licença GitHub Copilot ativa?
    ```
+
    > ⚠️ O ID é usado pela skill `/importar-survey-devs` para mapear de volta. NÃO REMOVA.
 
 8. Compartilhe via **+ Send / Collect responses** → copiar link → enviar via Slack/Teams/email
@@ -56,6 +60,7 @@ _7 perguntas nesta seção._
 > **S1-Q1: Qual seu cargo atual?**
 
 Opções:
+
 - Desenvolvedor Backend
 - Desenvolvedor Frontend
 - Full-Stack
@@ -73,6 +78,7 @@ Opções:
 > **S1-Q2: Tempo total como desenvolvedor?**
 
 Opções:
+
 - < 2 anos
 - 2-5 anos
 - 6-10 anos
@@ -84,6 +90,7 @@ Opções:
 > **S1-Q3: Há quanto tempo usa IA no desenvolvimento (Copilot, Cursor, Claude Code, etc.)?**
 
 Opções:
+
 - Nunca usei
 - < 3 meses
 - 3-12 meses
@@ -95,6 +102,7 @@ Opções:
 > **S1-Q4: Linguagens principais que você usa no dia-a-dia?**
 
 Opções:
+
 - TypeScript / JavaScript
 - Python
 - C# / .NET
@@ -113,6 +121,7 @@ Opções:
 > **S1-Q5: Quantas horas por dia você passa codando (em média)?**
 
 Opções:
+
 - < 2h
 - 2-4h
 - 4-6h
@@ -124,6 +133,7 @@ Opções:
 > **S1-Q6: Qual o tamanho do seu squad / time imediato?**
 
 Opções:
+
 - Sou solo
 - 2-4 pessoas
 - 5-9 pessoas
@@ -135,6 +145,7 @@ Opções:
 > **S1-Q7: Modelo de trabalho?**
 
 Opções:
+
 - Remoto 100%
 - Híbrido (1-2 dias presencial)
 - Híbrido (3-4 dias)
@@ -153,6 +164,7 @@ _9 perguntas nesta seção._
 > **S2-Q1: Você tem licença GitHub Copilot ativa?**
 
 Opções:
+
 - Sim — Copilot Enterprise
 - Sim — Copilot Business
 - Sim — Copilot Pro+ (individual)
@@ -166,6 +178,7 @@ Opções:
 > **S2-Q2: Frequência de uso do Copilot?**
 
 Opções:
+
 - Diariamente (várias horas)
 - Diariamente (esporádico)
 - Semanal
@@ -177,6 +190,7 @@ Opções:
 > **S2-Q3: Quais MODOS do Copilot Chat você usa? (selecione todos que se aplicam)**
 
 Opções:
+
 - Ask (responder perguntas)
 - Edit (edição multi-arquivo no IDE)
 - Agent (autônomo no IDE, executa tasks)
@@ -190,6 +204,7 @@ Opções:
 > **S2-Q4: Qual MODO você usa MAIS no dia-a-dia?**
 
 Opções:
+
 - Ask
 - Edit
 - Agent (no IDE)
@@ -203,6 +218,7 @@ Opções:
 > **S2-Q5: Quais features do Copilot você usa?**
 
 Opções:
+
 - Inline code completion
 - Chat (perguntas no IDE)
 - Pull Request descriptions automáticas
@@ -220,6 +236,7 @@ Opções:
 > **S2-Q6: Onde você usa Copilot?**
 
 Opções:
+
 - VS Code
 - Visual Studio
 - JetBrains (IntelliJ, PyCharm, etc.)
@@ -235,6 +252,7 @@ Opções:
 > **S2-Q7: Ganho de produtividade percebido com Copilot?**
 
 Opções:
+
 - Negativo (atrapalha)
 - Neutro (sem ganho)
 - +10-20%
@@ -248,6 +266,7 @@ Opções:
 > **S2-Q8: Para QUE TAREFAS o Copilot mais te ajuda?**
 
 Opções:
+
 - Boilerplate / código repetitivo
 - Refactoring
 - Escrever testes
@@ -277,6 +296,7 @@ _7 perguntas nesta seção._
 > **S3-Q1: Quais outras ferramentas Microsoft / GitHub AI você USA hoje?**
 
 Opções:
+
 - Microsoft Foundry (ex-Azure AI Foundry)
 - Foundry Agent Service (GA — built on OpenAI Responses API)
 - Azure OpenAI Service (direto via API)
@@ -295,6 +315,7 @@ Opções:
 > **S3-Q2: Para QUE você usa Microsoft Foundry / Azure OpenAI (se usa)?**
 
 Opções:
+
 - PoC / experimentação
 - Feature de produto em produção
 - Embeddings / RAG
@@ -309,6 +330,7 @@ Opções:
 > **S3-Q3: Conhece o GitHub Copilot Coding Agent (sucessor do Workspace, GA set/2025 — assigna issue e abre PR sozinho)?**
 
 Opções:
+
 - Uso ativamente em produção
 - Já testei mas não uso recorrente
 - Conheço mas nunca usei
@@ -319,6 +341,7 @@ Opções:
 > **S3-Q4: Conhece Copilot Spaces (contexto compartilhado — substituiu Knowledge Bases)?**
 
 Opções:
+
 - Uso e crio Spaces para meu time
 - Uso Spaces criados por outros
 - Conheço mas não uso
@@ -329,6 +352,7 @@ Opções:
 > **S3-Q5: Conhece o GitHub Spec Kit (github/spec-kit) para Spec-Driven Development?**
 
 Opções:
+
 - Uso
 - Conheço mas não uso
 - Não conheço
@@ -338,6 +362,7 @@ Opções:
 > **S3-Q6: Conhece MCP (Model Context Protocol) — padrão para agentes consumirem tools/contexto?**
 
 Opções:
+
 - Uso servidores MCP no meu workflow
 - Configurei algum MCP server custom
 - Conheço o conceito
@@ -348,6 +373,7 @@ Opções:
 > **S3-Q7: Já usou GitHub Models para testar diferentes LLMs (gpt-4o, claude, llama, etc.)?**
 
 Opções:
+
 - Uso recorrente
 - Já testei
 - Não conheço
@@ -365,6 +391,7 @@ _9 perguntas nesta seção._
 > **S4-Q1: Você pratica TDD (Test-Driven Development) com IA — escrever teste primeiro com Copilot?**
 
 Opções:
+
 - Sempre que possível
 - Frequentemente
 - Às vezes
@@ -377,6 +404,7 @@ Opções:
 > **S4-Q2: Você pratica SDD (Spec-Driven Development) — escrever spec → IA gera código?**
 
 Opções:
+
 - Uso ativamente (com Spec Kit ou similar)
 - Já testei em alguns projetos
 - Conheço o conceito mas não uso
@@ -387,6 +415,7 @@ Opções:
 > **S4-Q3: Em QUE momentos você consulta IA durante o coding?**
 
 Opções:
+
 - Antes de começar (planejar arquitetura)
 - Durante (autocomplete + perguntas)
 - Após implementar (review/refactor)
@@ -400,6 +429,7 @@ Opções:
 > **S4-Q4: Considera o Copilot/agente IA como um 'pair programmer'?**
 
 Opções:
+
 - Sim — trato como par
 - Às vezes (depende da tarefa)
 - Não — só ferramenta de autocompletar
@@ -410,6 +440,7 @@ Opções:
 > **S4-Q5: Frequência: você refatora código com ajuda de IA?**
 
 Opções:
+
 - Toda semana
 - Algumas vezes por mês
 - Raramente
@@ -420,6 +451,7 @@ Opções:
 > **S4-Q6: Quem mantém a documentação do código no seu time?**
 
 Opções:
+
 - IA gera e o time revisa
 - Devs escrevem manualmente, IA ajuda às vezes
 - Time mantém manualmente, sem IA
@@ -430,6 +462,7 @@ Opções:
 > **S4-Q7: Quando você tem um bug difícil, sua primeira ação é?**
 
 Opções:
+
 - Pergunto ao Copilot Chat / Claude / outro AI
 - Procuro nos logs / debugger
 - Pergunto a colega humano
@@ -441,6 +474,7 @@ Opções:
 > **S4-Q8: Onboarding em projeto novo — você usa IA (com Copilot Spaces ou similar) para entender a base de código?**
 
 Opções:
+
 - Sempre — primeira coisa que faço
 - Frequentemente
 - Às vezes
@@ -463,6 +497,7 @@ _11 perguntas nesta seção._
 > **S5-Q1: Você sabe o que é um 'AI agent' (autônomo, vs. assistente reativo)?**
 
 Opções:
+
 - Sim — explico claramente
 - Sim — vagamente
 - Não sei a diferença
@@ -473,6 +508,7 @@ Opções:
 > **S5-Q2: Sabe diferença entre Ask, Edit, Agent e Coding Agent (modos do Copilot)?**
 
 Opções:
+
 - Sim — uso conscientemente
 - Mais ou menos
 - Não sei a diferença
@@ -482,6 +518,7 @@ Opções:
 > **S5-Q3: Já criou ou usou um custom agent (.github/agents/*.agent.md ou equivalente Claude/Cursor)?**
 
 Opções:
+
 - Já criei
 - Já usei mas não criei
 - Sei que existem mas nunca usei
@@ -492,6 +529,7 @@ Opções:
 > **S5-Q4: Você conhece o conceito de 'skill' (SKILL.md ou equivalente — bloco reutilizável de instruções)?**
 
 Opções:
+
 - Conheço e uso
 - Conheço mas não uso
 - Não conheço
@@ -501,6 +539,7 @@ Opções:
 > **S5-Q5: Já criou prompt files (.prompt.md em .github/prompts/)?**
 
 Opções:
+
 - Sim — várias
 - Sim — uma ou duas
 - Não, mas planejo
@@ -511,6 +550,7 @@ Opções:
 > **S5-Q6: Conhece A2A (Agent-to-Agent protocol) — agentes comunicando entre si?**
 
 Opções:
+
 - Uso (ex.: Foundry A2A Tool)
 - Conheço o conceito
 - Não conheço
@@ -520,6 +560,7 @@ Opções:
 > **S5-Q7: Conhece handoffs entre agentes (agente A passa contexto para agente B)?**
 
 Opções:
+
 - Uso
 - Conheço o conceito
 - Não conheço
@@ -529,6 +570,7 @@ Opções:
 > **S5-Q8: Conhece subagentes (agente principal delega tarefas para sub-agentes especializados)?**
 
 Opções:
+
 - Uso
 - Conheço o conceito
 - Não conheço
@@ -538,6 +580,7 @@ Opções:
 > **S5-Q9: Conhece as personas Agentic DevOps Microsoft: 'System Designer' (define specs/constraints) e 'Agent Operator' (orquestra agents)?**
 
 Opções:
+
 - Sim — adoto explicitamente
 - Conheço o conceito
 - Não conheço
@@ -547,6 +590,7 @@ Opções:
 > **S5-Q10: Você TESTA seus custom agents/prompts/skills antes de usar em código real?**
 
 Opções:
+
 - Sempre — tenho test suite para meus agents
 - Frequentemente — manual mas sistemático
 - Às vezes — só sanity check
@@ -558,6 +602,7 @@ Opções:
 > **S5-Q11: Quais primitivos você JÁ CRIOU para uso pessoal/team?**
 
 Opções:
+
 - Custom prompts (.prompt.md)
 - Custom skills (SKILL.md)
 - Custom agents (.agent.md)
@@ -579,6 +624,7 @@ _6 perguntas nesta seção._
 > **S6-Q1: Quais arquivos de instruções você USA hoje?**
 
 Opções:
+
 - .github/copilot-instructions.md
 - .github/instructions/*.instructions.md
 - AGENTS.md
@@ -592,6 +638,7 @@ Opções:
 > **S6-Q2: Quem mantém o(s) arquivo(s) de instruções no seu projeto?**
 
 Opções:
+
 - Time inteiro contribui
 - 1-2 pessoas dedicadas
 - Eu mantenho sozinho
@@ -603,6 +650,7 @@ Opções:
 > **S6-Q3: Frequência de update desses arquivos?**
 
 Opções:
+
 - Toda semana
 - Mensalmente
 - Trimestralmente
@@ -614,6 +662,7 @@ Opções:
 > **S6-Q4: O QUE você inclui nos arquivos de instruções?**
 
 Opções:
+
 - Code style / convenções do projeto
 - Domain knowledge (regras de negócio)
 - Stack / ferramentas
@@ -628,6 +677,7 @@ Opções:
 > **S6-Q5: Tem prompt library compartilhada com seu time (repo ou Copilot Space dedicado)?**
 
 Opções:
+
 - Sim — Copilot Space compartilhado
 - Sim — repo dedicado
 - Sim — wiki/Confluence
@@ -639,6 +689,7 @@ Opções:
 > **S6-Q6: Usa memory persistente do agente (Foundry Memory, Claude memory, Copilot memory)?**
 
 Opções:
+
 - Uso ativamente
 - Já testei
 - Não conheço
@@ -656,6 +707,7 @@ _9 perguntas nesta seção._
 > **S7-Q1: Como você APRENDEU a usar Copilot/IA no dev?**
 
 Opções:
+
 - Auto-aprendizado (tentativa e erro)
 - Workshop interno da empresa
 - Documentação oficial
@@ -670,6 +722,7 @@ Opções:
 > **S7-Q2: Existe um 'AI/Copilot Champion' no seu time/empresa (alguém que ajuda os outros)?**
 
 Opções:
+
 - Sim — eu sou
 - Sim — outra pessoa
 - Não, mas precisava ter
@@ -680,6 +733,7 @@ Opções:
 > **S7-Q3: Tem canal/comunidade interna para discutir uso de IA na engenharia?**
 
 Opções:
+
 - Sim — ativo (>5 mensagens/semana)
 - Sim — pouco ativo
 - Não temos canal dedicado
@@ -690,6 +744,7 @@ Opções:
 > **S7-Q4: Sua organização MEDE produtividade do dev de forma estruturada?**
 
 Opções:
+
 - DORA metrics (lead time, deployment freq, MTTR, change failure)
 - DX index (developer experience)
 - SPACE framework
@@ -702,6 +757,7 @@ Opções:
 > **S7-Q5: Quantas iterações típicas em um prompt antes de você ter o resultado bom?**
 
 Opções:
+
 - Acerta na 1ª tentativa
 - 2-3 iterações
 - 4-6 iterações
@@ -712,6 +768,7 @@ Opções:
 > **S7-Q6: Você confia no código gerado por IA o suficiente para mergeá-lo SEM revisar linha-a-linha?**
 
 Opções:
+
 - Nunca — sempre reviso
 - Para mudanças triviais (sim)
 - Frequentemente (confio)
@@ -722,6 +779,7 @@ Opções:
 > **S7-Q7: Frequência com que você detecta 'hallucinations' (IA inventa API/método inexistente)?**
 
 Opções:
+
 - Diariamente
 - Semanalmente
 - Raramente
@@ -732,6 +790,7 @@ Opções:
 > **S7-Q8: Desde que adotou IA, sente que está APRENDENDO mais ou menos sobre engenharia?**
 
 Opções:
+
 - Aprendendo MUITO MAIS (IA acelera)
 - Um pouco mais
 - Mais ou menos igual
@@ -743,6 +802,7 @@ Opções:
 > **S7-Q9: Você compartilha bons prompts/exemplos de uso com colegas (em Spaces, Slack, Confluence)?**
 
 Opções:
+
 - Frequentemente — em canal compartilhado
 - Às vezes — pessoalmente
 - Raramente
@@ -761,6 +821,7 @@ _13 perguntas nesta seção._
 > **S8-Q1: Sua organização tem POLÍTICA DOCUMENTADA de uso de IA na engenharia?**
 
 Opções:
+
 - Sim — política formal e clara
 - Sim — mas pouco clara
 - Política informal (sem documento)
@@ -772,6 +833,7 @@ Opções:
 > **S8-Q2: Você sabe QUAIS DADOS PODEM ir para LLMs externas (Copilot, ChatGPT)?**
 
 Opções:
+
 - Sei claramente o que pode e o que NÃO pode
 - Tenho ideia geral
 - Vagamente
@@ -782,6 +844,7 @@ Opções:
 > **S8-Q3: Quais tipos de dados você JAMAIS coloca em prompts de IA externa?**
 
 Opções:
+
 - PII / dados pessoais de clientes
 - Secrets / API keys / tokens
 - Código de IP estratégico
@@ -794,6 +857,7 @@ Opções:
 > **S8-Q4: Quais ferramentas de SEGURANÇA estão ativas no seu repo?**
 
 Opções:
+
 - GitHub Advanced Security (GHAS)
 - CodeQL scanning
 - Secret scanning
@@ -809,6 +873,7 @@ Opções:
 > **S8-Q5: Code Scanning roda em código GERADO por IA (no PR ou no IDE)?**
 
 Opções:
+
 - Sim — gate obrigatório no PR
 - Sim — opcional
 - Roda mas não bloqueia
@@ -819,6 +884,7 @@ Opções:
 > **S8-Q6: Sua org gera SBOM dos serviços críticos?**
 
 Opções:
+
 - Sim — automatizado
 - Sim — manual quando solicitado
 - Não geramos
@@ -829,6 +895,7 @@ Opções:
 > **S8-Q7: Existe processo formal de REVIEW para código gerado por IA antes de merge?**
 
 Opções:
+
 - Sim — review obrigatório por outro humano + scanner
 - Review humano obrigatório (sem scanner extra)
 - Review opcional
@@ -839,6 +906,7 @@ Opções:
 > **S8-Q8: Quando você cria/usa um custom agent, define ESCOPO e RED-LINES explícitos (ex.: 'agent não pode aprovar próprio PR')?**
 
 Opções:
+
 - Sempre — escopo + red-lines documentados
 - Frequentemente
 - Às vezes
@@ -850,6 +918,7 @@ Opções:
 > **S8-Q9: Sua org tem permissões JIT (Just-In-Time) para agents — vs. permissões persistentes?**
 
 Opções:
+
 - Sim — JIT obrigatório para agents
 - Sim — opcional
 - Não temos JIT
@@ -860,6 +929,7 @@ Opções:
 > **S8-Q10: Sua org tem DLP (Data Loss Prevention) configurado para evitar dados sensíveis em prompts?**
 
 Opções:
+
 - Sim — bloqueia ativamente
 - Sim — alerta mas não bloqueia
 - Não temos
@@ -870,6 +940,7 @@ Opções:
 > **S8-Q11: Sua org tem AUDIT LOGS de uso do Copilot/agentes IA — incluindo decisões autônomas de agents?**
 
 Opções:
+
 - Sim — logs ativos e revisados
 - Logs ativos mas não revisados
 - Não temos
@@ -880,6 +951,7 @@ Opções:
 > **S8-Q12: Já recebeu TREINAMENTO formal de segurança no uso de IA?**
 
 Opções:
+
 - Sim — treinamento obrigatório anual
 - Sim — uma vez (no onboarding)
 - Não recebi treinamento
@@ -890,6 +962,7 @@ Opções:
 > **S8-Q13: Frequência: você já viu Copilot/IA sugerir código com vulnerabilidade óbvia (SQL injection, XSS, hardcoded secrets, etc.)?**
 
 Opções:
+
 - Diariamente
 - Semanalmente
 - Mensalmente
@@ -920,6 +993,7 @@ _4 perguntas nesta seção._
 > **S9-Q4: Você gostaria de receber a versão consolidada deste survey (insights agregados de toda a equipe)?**
 
 Opções:
+
 - Sim — quero ver
 - Não, obrigado
 

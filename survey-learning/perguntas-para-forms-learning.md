@@ -3,6 +3,7 @@
 > **Survey IDENTIFICADO** (nome + email) de 32 perguntas em 7 seções. Tempo estimado: **5-8 min**. Foca em o que devs querem APRENDER + formato preferido + barreiras + Champions.
 
 **Diferente dos surveys anteriores:**
+
 - Assessment principal: maturidade organizacional (Likert L0-L4)
 - Developer Survey: comportamento real anônimo
 - **Este Learning Survey: roadmap de capacitação IDENTIFICADO** (precisa nome+email para convidar para workshops)
@@ -12,11 +13,13 @@
 1. Acesse <https://forms.office.com> → **+ New Form**
 2. Título: `Learning & Growth IA — O que você quer aprender nos próximos 6 meses?`
 3. Subtítulo:
-   ```
+
+   ```text
    Survey de 5-8 min sobre seu plano de capacitação em IA.
    IDENTIFICADO (precisamos nome+email para te convidar para os workshops certos).
    Resultado: plano de capacitação personalizado + cohorts + Champions Network.
    ```
+
    Adicione este aviso de privacidade abaixo do subtítulo (preencha os colchetes angulares com o time de privacidade ou jurídico):
 
    > **Aviso de privacidade.** Este survey coleta seu nome, e-mail, cargo e squad para planejar capacitação, convidar você para workshops e montar a Champions Network. As respostas não são usadas em avaliação de desempenho. Controlador e contato: `<time / e-mail>`. Acesso: `<quem vê respostas individuais>`. Retenção: `<prazo>`, depois excluídas. Você pode pedir acesso, correção ou exclusão das suas respostas em `<contato>`. Ao enviar, você concorda com este uso.
@@ -43,9 +46,11 @@
    - **`text-short`** → Short Text (1 linha)
 
 7. **TÍTULO** começa SEMPRE com o ID + dois pontos. Exemplo:
-   ```
+
+   ```text
    L4-Q1: Quais tópicos de GitHub Copilot você quer dominar?
    ```
+
 8. **Required**: marque L1-Q1 (nome) e L1-Q2 (email) como required. Demais opcionais.
 9. Compartilhe via **Send → Link** com TODOS os devs da empresa
 10. Quando tiver respostas: **Responses → Open in Excel** → renomeie para `respostas-survey-learning.xlsx` → mova para raiz do `kit-cliente/`
@@ -71,6 +76,7 @@ _4 perguntas nesta seção._
 > **L1-Q3: Cargo:**
 
 Opções:
+
 - Desenvolvedor Backend
 - Desenvolvedor Frontend
 - Full-Stack
@@ -88,6 +94,7 @@ Opções:
 > **L1-Q4: Time / Squad:**
 
 Opções:
+
 - [Lista a customizar pela org]
 - Outro / não pertenço a um squad fixo
 
@@ -101,9 +108,10 @@ _7 perguntas nesta seção._
 
 ### Pergunta `L2-Q1` — _Choice (single answer)_
 
-> **L2-Q1: **D2 — Copilot Adoption** (modos Ask/Edit/Agent/Coding Agent, features, ganho mensurado): qual seu nível?**
+> **L2-Q1: **DS-D2 Copilot Adoption** (modos Ask/Edit/Agent/Coding Agent, features, ganho mensurado): qual seu nível?**
 
 Opções:
+
 - L0 — Nunca usei ou não conheço
 - L1 — Sei o básico (inline completion)
 - L2 — Uso Ask/Edit no dia-a-dia
@@ -112,9 +120,10 @@ Opções:
 
 ### Pergunta `L2-Q2` — _Choice (single answer)_
 
-> **L2-Q2: **D3 — Microsoft/GitHub Tooling** (Foundry, Spaces, Coding Agent, MCP, Spec Kit, GHAS): qual seu nível?**
+> **L2-Q2: **DS-D3 Microsoft/GitHub Tooling** (Foundry, Spaces, Coding Agent, MCP, Spec Kit, GHAS): qual seu nível?**
 
 Opções:
+
 - L0 — Não conheço o ecossistema
 - L1 — Conheço de nome
 - L2 — Uso 2-3 ferramentas básicas
@@ -123,9 +132,10 @@ Opções:
 
 ### Pergunta `L2-Q3` — _Choice (single answer)_
 
-> **L2-Q3: **D4 — AI Dev Practices** (TDD com IA, SDD, pair programming, debugging com IA): qual seu nível?**
+> **L2-Q3: **DS-D4 AI Dev Practices** (TDD com IA, SDD, pair programming, debugging com IA): qual seu nível?**
 
 Opções:
+
 - L0 — Nenhuma prática estruturada
 - L1 — Uso IA pontualmente
 - L2 — TDD ou SDD ocasional
@@ -134,9 +144,10 @@ Opções:
 
 ### Pergunta `L2-Q4` — _Choice (single answer)_
 
-> **L2-Q4: **D5 — Agent Concepts** (custom agents, skills, prompts, MCP, A2A, handoffs, subagentes, personas Agentic DevOps): qual seu nível?**
+> **L2-Q4: **DS-D5 Agent Concepts** (custom agents, skills, prompts, MCP, A2A, handoffs, subagentes, personas Agentic DevOps): qual seu nível?**
 
 Opções:
+
 - L0 — Não sei o que é um agente
 - L1 — Conheço só o básico
 - L2 — Conheço modos do Copilot
@@ -145,9 +156,10 @@ Opções:
 
 ### Pergunta `L2-Q5` — _Choice (single answer)_
 
-> **L2-Q5: **D6 — Instructions / Memory** (copilot-instructions.md, AGENTS.md, CLAUDE.md, Spaces, prompt library): qual seu nível?**
+> **L2-Q5: **DS-D6 Instructions / Memory** (copilot-instructions.md, AGENTS.md, CLAUDE.md, Spaces, prompt library): qual seu nível?**
 
 Opções:
+
 - L0 — Não uso instructions files
 - L1 — Tenho 1 arquivo básico
 - L2 — Uso e atualizo ocasionalmente
@@ -156,9 +168,10 @@ Opções:
 
 ### Pergunta `L2-Q6` — _Choice (single answer)_
 
-> **L2-Q6: **D7 — Best Practices** (Champion, métricas DORA/DX, comunidade, compartilha prompts): qual seu nível?**
+> **L2-Q6: **DS-D7 Best Practices** (Champion, métricas DORA/DX, comunidade, compartilha prompts): qual seu nível?**
 
 Opções:
+
 - L0 — Não tenho cultura de IA estruturada
 - L1 — Auto-aprendizado isolado
 - L2 — Tenho Champion no time
@@ -167,9 +180,10 @@ Opções:
 
 ### Pergunta `L2-Q7` — _Choice (single answer)_
 
-> **L2-Q7: **D8 — Security & Governance** (política IA, GHAS, SBOM, JIT permissions, red-lines de agents, audit): qual seu nível?**
+> **L2-Q7: **DS-D8 Security & Governance** (política IA, GHAS, SBOM, JIT permissions, red-lines de agents, audit): qual seu nível?**
 
 Opções:
+
 - L0 — Sem política, sem ferramentas
 - L1 — Política informal
 - L2 — GHAS ativo + política básica
@@ -189,13 +203,14 @@ _2 perguntas nesta seção._
 > **L3-Q1: Selecione as **3 dimensões PRIORITÁRIAS** para você crescer nos próximos 6 meses (escolha exatamente 3):**
 
 Opções:
-- D2 — Copilot Adoption (modos avançados, Coding Agent)
-- D3 — MS/GitHub Tooling (Foundry, Spaces, Spec Kit, MCP)
-- D4 — AI Dev Practices (TDD com IA, SDD)
-- D5 — Agent Concepts (custom agents, MCP, A2A)
-- D6 — Instructions / Memory (instructions files, prompt library)
-- D7 — Best Practices (DORA, comunidade, mentoria)
-- D8 — Security & Governance (GHAS, SBOM, red-lines)
+
+- DS-D2 Copilot Adoption (modos avançados, Coding Agent)
+- DS-D3 MS/GitHub Tooling (Foundry, Spaces, Spec Kit, MCP)
+- DS-D4 AI Dev Practices (TDD com IA, SDD)
+- DS-D5 Agent Concepts (custom agents, MCP, A2A)
+- DS-D6 Instructions / Memory (instructions files, prompt library)
+- DS-D7 Best Practices (DORA, comunidade, mentoria)
+- DS-D8 Security & Governance (GHAS, SBOM, red-lines)
 
 ### Pergunta `L3-Q2` — _Long Text (resposta livre)_
 
@@ -214,6 +229,7 @@ _5 perguntas nesta seção._
 > **L4-Q1: Quais tópicos de **GitHub Copilot** você quer dominar?**
 
 Opções:
+
 - Modo Ask (perguntas eficazes)
 - Modo Edit (edição multi-arquivo)
 - Modo Agent (autônomo no IDE)
@@ -230,6 +246,7 @@ Opções:
 > **L4-Q2: Quais tópicos de **Microsoft Foundry / Azure AI** você quer aprender?**
 
 Opções:
+
 - Microsoft Foundry — visão geral
 - Foundry Agent Service (criar agentes)
 - Azure OpenAI Service (API direta)
@@ -246,6 +263,7 @@ Opções:
 > **L4-Q3: Quais tópicos de **práticas com IA** você quer aprender?**
 
 Opções:
+
 - TDD com IA (test-first com Copilot)
 - SDD com Spec Kit (Spec-Driven Development)
 - Prompt engineering (técnicas avançadas)
@@ -261,6 +279,7 @@ Opções:
 > **L4-Q4: Quais tópicos de **agentes e primitives** você quer aprender?**
 
 Opções:
+
 - Criar custom agents (.agent.md)
 - Criar custom skills (SKILL.md)
 - Criar prompt files (.prompt.md)
@@ -276,6 +295,7 @@ Opções:
 > **L4-Q5: Quais tópicos de **segurança e governança** você quer aprender?**
 
 Opções:
+
 - GitHub Advanced Security (CodeQL, secret scan)
 - SBOM (Software Bill of Materials)
 - Microsoft Defender for DevOps / Cloud
@@ -299,6 +319,7 @@ _4 perguntas nesta seção._
 > **L5-Q1: Quais formatos de aprendizado funcionam melhor para você?**
 
 Opções:
+
 - Workshop hands-on presencial/remoto (3-4h)
 - Workshop curto (1h, sandwich seminar)
 - Curso online self-paced (Coursera, Pluralsight, MS Learn)
@@ -316,6 +337,7 @@ Opções:
 > **L5-Q2: Quanto tempo por SEMANA você dedicaria a aprender IA/Copilot?**
 
 Opções:
+
 - < 1h/semana
 - 1-2h/semana
 - 2-4h/semana
@@ -327,6 +349,7 @@ Opções:
 > **L5-Q3: Que horário/dia funciona melhor para workshops síncronos?**
 
 Opções:
+
 - Manhã de quarta/quinta
 - Tarde de quarta/quinta
 - Sexta tarde (low-stress)
@@ -339,6 +362,7 @@ Opções:
 > **L5-Q4: Prefere cohorts (grupo fixo aprendendo junto) ou self-paced (no seu ritmo)?**
 
 Opções:
+
 - Cohort (grupo fixo, mais accountability)
 - Self-paced (meu ritmo, mais flexibilidade)
 - Híbrido (módulos self-paced + sessões síncronas)
@@ -357,6 +381,7 @@ _5 perguntas nesta seção._
 > **L6-Q1: Você se candidataria como **Champion de IA** no seu time/empresa (ajudar outros, organizar workshops)?**
 
 Opções:
+
 - Sim — quero ser Champion ativo
 - Sim — mas só se tiver suporte/treino dedicado
 - Talvez — preciso pensar
@@ -371,6 +396,7 @@ Opções:
 > **L6-Q3: Você gostaria de mentoria 1:1 com alguém mais experiente em IA?**
 
 Opções:
+
 - Sim — mentor sênior em IA
 - Sim — peer mentoring (mesmo nível, troca mútua)
 - Não — prefiro auto-aprendizado
@@ -381,6 +407,7 @@ Opções:
 > **L6-Q4: Você se ofereceria para mentorar/ensinar OUTRAS pessoas em algum tópico?**
 
 Opções:
+
 - Sim — em vários tópicos
 - Sim — em 1 tópico específico
 - Talvez — depende do tópico
@@ -403,6 +430,7 @@ _5 perguntas nesta seção._
 > **L7-Q1: Quais BARREIRAS te impedem de aprender mais sobre IA hoje?**
 
 Opções:
+
 - Falta de tempo (sprint pressure)
 - Falta de licença Copilot
 - Falta de licença para Foundry / Azure AI
@@ -432,12 +460,14 @@ Opções:
 > **L7-Q5: Você quer receber o **plano de capacitação consolidado** (resultado deste survey) por email?**
 
 Opções:
+
 - Sim — quero ver o plano e os workshops sugeridos
 - Não, obrigado
 
 ---
 
 ## Resumo
+
 - **7 seções**
 - **32 perguntas** (15 choice + 9 multi + 8 text)
 - **Tempo:** 5-8 min
@@ -448,8 +478,10 @@ Opções:
 1. Coletar respostas (1-2 semanas, lembrar 1×/semana)
 2. Exportar Excel → renomear `respostas-survey-learning.xlsx` → mover para raiz do kit
 3. No Copilot Chat (modo Agent):
-   ```
+
+   ```text
    /importar-survey-learning
    /plano-capacitacao
    ```
+
 4. Receber plano de capacitação priorizado em `saida/plano-capacitacao-DATA.md`

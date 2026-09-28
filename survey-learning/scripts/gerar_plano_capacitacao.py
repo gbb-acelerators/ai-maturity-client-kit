@@ -15,6 +15,7 @@ from __future__ import annotations
 import argparse
 import datetime
 import json
+import re
 import sys
 import unicodedata
 from collections import Counter, defaultdict
@@ -28,14 +29,17 @@ import branding  # noqa: E402
 
 SUPPORTED_LANGS = ("en", "pt-br")
 
+# Developer Survey dimensions, prefixed DS- so they do not collide with
+# the v2 assessment dimensions D1 to D9. Forms built before the prefix
+# (options such as "D8 — Security & Governance") still parse.
 DIMENSION_NAMES = {
-    "D2": "Copilot Adoption",
-    "D3": "MS/GH Tooling Breadth",
-    "D4": "AI Dev Practices",
-    "D5": "Agent Concepts Mastery",
-    "D6": "Instructions Maturity",
-    "D7": "Best Practices",
-    "D8": "Security & Governance",
+    "DS-D2": "Copilot Adoption",
+    "DS-D3": "MS/GH Tooling Breadth",
+    "DS-D4": "AI Dev Practices",
+    "DS-D5": "Agent Concepts Mastery",
+    "DS-D6": "Instructions Maturity",
+    "DS-D7": "Best Practices",
+    "DS-D8": "Security & Governance",
 }
 
 LEVELS = ["L0", "L1", "L2", "L3", "L4"]
@@ -201,12 +205,12 @@ STRINGS = {
         "c_few": "⚠ Only {n} respondents. The plan will be preliminary.",
     },
     "pt-br": {
-        "title": "# Plano de Capacitação IA — Roadmap Personalizado",
+        "title": "# Plano de Capacitação IA: Roadmap Personalizado",
         "meta": "**Data:** {date}  ·  **Respondentes:** {n} "
                 "(identificados)  ·  Survey: Learning & Growth "
                 "(32 perguntas)",
         "author": "**Autor:** {author}  ·  **Contato:** {contact}",
-        "empty": "—",
+        "empty": "-",
         "unspecified": "(não especificou)",
         "hybrid": "Híbrido",
         "self_title": "### Maturidade IA percebida pelo time "
@@ -222,22 +226,22 @@ STRINGS = {
                       "por colegas em L6-Q2):",
         "champ_ref": "  - {name} (mencionado por {count} pessoas)",
         "qw_title": "### ⚡ 3 quick wins recomendados (próximos 30 dias)",
-        "qw_1": "1. **Workshop: {topic}** — {count} inscritos "
+        "qw_1": "1. **Workshop: {topic}**: {count} inscritos "
                 "pré-validados",
-        "qw_2": "2. **Champions Kickoff** — ativar os {n} Champions "
+        "qw_2": "2. **Champions Kickoff**: ativar os {n} Champions "
                 "ativos identificados",
-        "qw_3": "3. **Remover barreira #1: '{barrier}'** — citada por "
+        "qw_3": "3. **Remover barreira #1: '{barrier}'**: citada por "
                 "{count}/{total} devs",
         "s1": "## 1 · Sumário Executivo",
         "prio_title": "### 🎯 Top 3 dimensões PRIORITÁRIAS para crescer "
                       "(L3-Q1)",
-        "prio_row": "- **{did}** {name} — {count}/{total} devs "
+        "prio_row": "- **{did}** {name}: {count}/{total} devs "
                     "({pct:.0f}%)",
         "topics_title": "### 📚 Top 10 tópicos mais demandados (L4)",
-        "topic_row": "{i}. **{topic}** — {count} devs ({pct:.0f}%)",
+        "topic_row": "{i}. **{topic}**: {count} devs ({pct:.0f}%)",
         "s2": "## 2 · Top 10 tópicos demandados (com inscritos "
               "pré-validados)",
-        "s2_topic": "### {i}. {topic} — {count} inscritos",
+        "s2_topic": "### {i}. {topic}: {count} inscritos",
         "s2_demand": "**Demanda:** {count}/{total} devs ({pct:.0f}%)",
         "s2_attendees": "**Inscritos pré-validados** (já confirmados na "
                         "resposta):",
@@ -276,7 +280,7 @@ STRINGS = {
             "| Champions | 1h Q&A |",
         ],
         "s6": "## 6 · Formato e cadência preferidos",
-        "fmt_title": "### Formatos (top 5 — L5-Q1 multi)",
+        "fmt_title": "### Formatos (top 5: L5-Q1 multi)",
         "fmt_header": "| Formato | N | % |",
         "time_title": "### Tempo disponível por semana (L5-Q2)",
         "time_header": "| Tempo | N | % |",
@@ -290,7 +294,7 @@ STRINGS = {
         "s7": "## 7 · Barreiras a remover (priorizado)",
         "bar_header": "| Barreira | Devs afetados | % "
                       "| Ação sugerida |",
-        "quote": "> _\"{quote}\"_ — sugerido por {name}",
+        "quote": "> _\"{quote}\"_ (sugerido por {name})",
         "s8": "## 8 · Wishlist do time",
         "wish_workshops": "### Workshops sugeridos pelo time (L7-Q2)",
         "wish_speakers": "### Palestrantes externos sugeridos (L7-Q3)",
@@ -328,10 +332,10 @@ STRINGS = {
             "| **W3** | Office hours #1 + remoção de barreira top |",
             "| **W4** | Retrospectiva + revisão do plano |",
         ],
-        "s12": "## 12 · 📋 Apêndice — Respondentes (para liderança usar "
+        "s12": "## 12 · 📋 Apêndice: Respondentes (para liderança usar "
                "para convites)",
         "s12_warn": "> ⚠️ Esta tabela contém nomes/emails. **NÃO "
-                    "compartilhar publicamente** — só usar para convites "
+                    "compartilhar publicamente**: só usar para convites "
                     "de workshops.",
         "s12_header": "| Nome | Email | Quer Champion? |",
         "tier_active": "Sim ativo",
@@ -343,7 +347,7 @@ STRINGS = {
         "c_done": "\n✅ Plano de capacitação → {path}",
         "c_count": "\n📊 {n} respondentes IDENTIFICADOS",
         "c_topics": "\n📚 Top 3 tópicos demandados:",
-        "c_topic": "   {i}. {topic} — {count} inscritos",
+        "c_topic": "   {i}. {topic}: {count} inscritos",
         "c_champions": "\n👥 Champions: {a} ativos · {s} com suporte "
                        "· {m} maybe",
         "c_mentors": "\n🎓 Mentor pairs: {mentors} mentores · "
@@ -461,7 +465,7 @@ def champion_short_label(value, t):
     return t["tier_no"]
 
 
-def median_level(counts, empty="—"):
+def median_level(counts, empty="-"):
     sorted_levels = []
     for level in LEVELS:
         sorted_levels.extend([level] * counts.get(level, 0))
@@ -471,7 +475,7 @@ def median_level(counts, empty="—"):
 
 
 def collect_l2_self_perception(respondents):
-    """L2-Q1 -> D2, L2-Q2 -> D3, ..., L2-Q7 -> D8."""
+    """L2-Q1 -> DS-D2, L2-Q2 -> DS-D3, ..., L2-Q7 -> DS-D8."""
     dist = {}
     for index, dimension_id in enumerate(DIMENSION_IDS, start=1):
         counts = Counter()
@@ -490,8 +494,9 @@ def collect_priorities(respondents):
     for respondent in respondents:
         responses = respondent.get("responses", {})
         for option in selected_options(responses, "L3-Q1"):
+            key = option if option.startswith("DS-") else "DS-" + option
             for dimension_id in DIMENSION_IDS:
-                if option.startswith(dimension_id):
+                if re.match(re.escape(dimension_id) + r"(?!\d)", key):
                     counts[dimension_id] += 1
                     break
     return counts

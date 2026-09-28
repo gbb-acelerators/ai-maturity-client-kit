@@ -59,7 +59,7 @@
         },
         "L3-Q1": {
           "type": "multi",
-          "value": "D8 — Security & Governance (GHAS, SBOM, red-lines); D5 — Agent Concepts (custom agents, MCP, A2A)"
+          "value": "DS-D8 Security & Governance (GHAS, SBOM, red-lines); DS-D5 Agent Concepts (custom agents, MCP, A2A)"
         },
         "L3-Q2": {
           "type": "text",
@@ -194,7 +194,7 @@
         },
         "L3-Q1": {
           "type": "multi",
-          "value": "D3 — MS/GitHub Tooling (Foundry, Spaces, Spec Kit, MCP); D6 — Instructions / Memory (instructions files, prompt library); D7 — Best Practices (DORA, comunidade, mentoria); D4 — AI Dev Practices (TDD com IA, SDD); D2 — Copilot Adoption (modos avançados, Coding Agent)"
+          "value": "DS-D3 MS/GitHub Tooling (Foundry, Spaces, Spec Kit, MCP); DS-D6 Instructions / Memory (instructions files, prompt library); DS-D7 Best Practices (DORA, comunidade, mentoria); DS-D4 AI Dev Practices (TDD com IA, SDD); DS-D2 Copilot Adoption (modos avançados, Coding Agent)"
         },
         "L3-Q2": {
           "type": "text",
@@ -329,7 +329,7 @@
         },
         "L3-Q1": {
           "type": "multi",
-          "value": "D8 — Security & Governance (GHAS, SBOM, red-lines); D5 — Agent Concepts (custom agents, MCP, A2A); D2 — Copilot Adoption (modos avançados, Coding Agent); D6 — Instructions / Memory (instructions files, prompt library); D7 — Best Practices (DORA, comunidade, mentoria)"
+          "value": "DS-D8 Security & Governance (GHAS, SBOM, red-lines); DS-D5 Agent Concepts (custom agents, MCP, A2A); DS-D2 Copilot Adoption (modos avançados, Coding Agent); DS-D6 Instructions / Memory (instructions files, prompt library); DS-D7 Best Practices (DORA, comunidade, mentoria)"
         },
         "L3-Q2": {
           "type": "text",
@@ -464,7 +464,7 @@
         },
         "L3-Q1": {
           "type": "multi",
-          "value": "D7 — Best Practices (DORA, comunidade, mentoria); D3 — MS/GitHub Tooling (Foundry, Spaces, Spec Kit, MCP); D2 — Copilot Adoption (modos avançados, Coding Agent); D6 — Instructions / Memory (instructions files, prompt library)"
+          "value": "DS-D7 Best Practices (DORA, comunidade, mentoria); DS-D3 MS/GitHub Tooling (Foundry, Spaces, Spec Kit, MCP); DS-D2 Copilot Adoption (modos avançados, Coding Agent); DS-D6 Instructions / Memory (instructions files, prompt library)"
         },
         "L3-Q2": {
           "type": "text",
@@ -599,7 +599,7 @@
         },
         "L3-Q1": {
           "type": "multi",
-          "value": "D3 — MS/GitHub Tooling (Foundry, Spaces, Spec Kit, MCP); D6 — Instructions / Memory (instructions files, prompt library)"
+          "value": "DS-D3 MS/GitHub Tooling (Foundry, Spaces, Spec Kit, MCP); DS-D6 Instructions / Memory (instructions files, prompt library)"
         },
         "L3-Q2": {
           "type": "text",

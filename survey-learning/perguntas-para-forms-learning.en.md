@@ -113,7 +113,7 @@ _7 questions in this section._
 
 ### Question `L2-Q1` — _Choice (single answer)_
 
-> **L2-Q1: D2 — Copilot Adoption (Ask/Edit/Agent/Coding Agent modes, features, measured gains): what is your level?**
+> **L2-Q1: DS-D2 Copilot Adoption (Ask/Edit/Agent/Coding Agent modes, features, measured gains): what is your level?**
 
 Options:
 
@@ -129,7 +129,7 @@ Options:
 
 ### Question `L2-Q2` — _Choice (single answer)_
 
-> **L2-Q2: D3 — Microsoft/GitHub Tooling (Foundry, Spaces, Coding Agent, MCP, Spec Kit, GHAS): what is your level?**
+> **L2-Q2: DS-D3 Microsoft/GitHub Tooling (Foundry, Spaces, Coding Agent, MCP, Spec Kit, GHAS): what is your level?**
 
 Options:
 
@@ -145,7 +145,7 @@ Options:
 
 ### Question `L2-Q3` — _Choice (single answer)_
 
-> **L2-Q3: D4 — AI Dev Practices (TDD with AI, SDD, pair programming, debugging with AI): what is your level?**
+> **L2-Q3: DS-D4 AI Dev Practices (TDD with AI, SDD, pair programming, debugging with AI): what is your level?**
 
 Options:
 
@@ -161,7 +161,7 @@ Options:
 
 ### Question `L2-Q4` — _Choice (single answer)_
 
-> **L2-Q4: D5 — Agent Concepts (custom agents, skills, prompts, MCP, A2A, handoffs, subagents, Agentic DevOps personas): what is your level?**
+> **L2-Q4: DS-D5 Agent Concepts (custom agents, skills, prompts, MCP, A2A, handoffs, subagents, Agentic DevOps personas): what is your level?**
 
 Options:
 
@@ -177,7 +177,7 @@ Options:
 
 ### Question `L2-Q5` — _Choice (single answer)_
 
-> **L2-Q5: D6 — Instructions / Memory (copilot-instructions.md, AGENTS.md, CLAUDE.md, Spaces, prompt library): what is your level?**
+> **L2-Q5: DS-D6 Instructions / Memory (copilot-instructions.md, AGENTS.md, CLAUDE.md, Spaces, prompt library): what is your level?**
 
 Options:
 
@@ -193,7 +193,7 @@ Options:
 
 ### Question `L2-Q6` — _Choice (single answer)_
 
-> **L2-Q6: D7 — Best Practices (Champion, DORA/DX metrics, community, prompt sharing): what is your level?**
+> **L2-Q6: DS-D7 Best Practices (Champion, DORA/DX metrics, community, prompt sharing): what is your level?**
 
 Options:
 
@@ -209,7 +209,7 @@ Options:
 
 ### Question `L2-Q7` — _Choice (single answer)_
 
-> **L2-Q7: D8 — Security & Governance (AI policy, GHAS, SBOM, JIT permissions, agent red-lines, audit): what is your level?**
+> **L2-Q7: DS-D8 Security & Governance (AI policy, GHAS, SBOM, JIT permissions, agent red-lines, audit): what is your level?**
 
 Options:
 
@@ -237,19 +237,19 @@ _2 questions in this section._
 
 Options:
 
-- D2 — Copilot Adoption (advanced modes, Coding Agent)
+- DS-D2 Copilot Adoption (advanced modes, Coding Agent)
 
-- D3 — MS/GH Tooling (Foundry, Spaces, Spec Kit, MCP)
+- DS-D3 MS/GH Tooling (Foundry, Spaces, Spec Kit, MCP)
 
-- D4 — AI Dev Practices (TDD with AI, SDD)
+- DS-D4 AI Dev Practices (TDD with AI, SDD)
 
-- D5 — Agent Concepts (custom agents, MCP, A2A)
+- DS-D5 Agent Concepts (custom agents, MCP, A2A)
 
-- D6 — Instructions / Memory (instruction files, prompt library)
+- DS-D6 Instructions / Memory (instruction files, prompt library)
 
-- D7 — Best Practices (DORA, community, mentoring)
+- DS-D7 Best Practices (DORA, community, mentoring)
 
-- D8 — Security & Governance (GHAS, SBOM, red-lines)
+- DS-D8 Security & Governance (GHAS, SBOM, red-lines)
 
 ### Question `L3-Q2` — _Long Text (free response)_
 
