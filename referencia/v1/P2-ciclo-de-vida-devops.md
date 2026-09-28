@@ -1,6 +1,6 @@
 # AI Maturity Assessment (Pillar P2: DevOps Lifecycle)
 
-🌐 English · [Português (Brasil)](P2-ciclo-de-vida-devops.pt-br.md)
+🌐 English · [Português (Brasil)](P2-ciclo-de-vida-devops.pt-br.md) · [Español](P2-ciclo-de-vida-devops.es.md)
 
 > Measures the maturity of pipelines, infrastructure as code, observability, DevSecOps, releases, testing, incidents, and supply chain security.
 
@@ -10,8 +10,8 @@
 - **Capabilities:** 10
 - **Total questions:** 59
 - **Scale:** Likert L0-L4 (Initial → Optimizing)
-- **Question language:** Portuguese (Brazil) in `framework.json` (translated to English in this reference)
-- **KPI/context/evidence language:** English (universal technical terms)
+- **Question language:** English (translated from the original Portuguese (Brazil) wording)
+- **KPI language:** English in every language version (metric names, as in `framework.json`)
 - **Expected response per question:** 1 selected level + evidence text (recommended minimum 80 characters) + optional attachment
 
 ## How to interpret the scale
@@ -308,7 +308,7 @@ Each question simultaneously captures **three types of data**:
 
 **Metadata**
 
-- **Target audience:** devops, Platform Engineer, Arquiteto
+- **Target audience:** devops, Platform Engineer, Architect
 - **Weight:** 1.0
 - **Professional Edition:** No
 - **Primary KPI:** `% resources via modules`
@@ -860,7 +860,7 @@ Each question simultaneously captures **three types of data**:
 
 **Metadata**
 
-- **Target audience:** devops, Arquiteto
+- **Target audience:** devops, Architect
 - **Weight:** 1.0
 - **Professional Edition:** No
 - **Primary KPI:** `flags in active use`
@@ -1865,7 +1865,6 @@ Each question simultaneously captures **three types of data**:
 | **L4** | Optimizing | vendor/OSS risk reviews is optimized, automated, and continuously improved with data-driven insights. | • >95% adoption rate measured<br>• Automated telemetry feedback loops<br>• Continuous improvement program |
 
 ---
-
 
 ## How this section is scored
 

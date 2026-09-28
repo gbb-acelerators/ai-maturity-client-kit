@@ -1,15 +1,15 @@
-# Microsoft Forms Questions — AI Maturity Assessment
+# Microsoft Forms questions: AI Maturity Assessment
 
 > This document includes **ALL 158 questions** to create the Microsoft Forms assessment.
 > Use copy/paste section by section. Each question should include:
+>
 > - **Type:** Choice (single answer) with the 6 fixed options plus a long-text evidence field right after.
 
 ## How to Use This Document
 
 > [!IMPORTANT]
-> Runtime-safe localized edition: section/instruction labels are in English and all IDs are preserved.
-> To keep strict scoring and audit parity with the workbook, canonical assessment prompt wording remains unchanged where needed.
-
+> Localized edition: every label and question is in English and all IDs are preserved.
+> The importer finds each question by its ID prefix, so forms built from the Portuguese, English or Spanish bank import the same way.
 
 1. Go to <https://forms.office.com>
 2. Create a new blank form
@@ -26,1712 +26,1842 @@
 
 Use these same 6 options for every question (order matters for parsing):
 
-- **L0 — Initial — No established practice**
-- **L1 — Developing — Isolated pilots (<25%)**
-- **L2 — Defined — 25-50% coverage with guidelines**
-- **L3 — Managed — >75% with impact metrics**
-- **L4 — Optimizing — Universal (>95%) with continuous automation**
-- **NA — I do not know / Not applicable**
+- **L0 - Initial: No established practice**
+- **L1 - Developing: Isolated pilots (<25%)**
+- **L2 - Defined: 25-50% coverage with guidelines**
+- **L3 - Managed: >75% with impact metrics**
+- **L4 - Optimizing: Universal (>95%) with continuous automation**
+- **NA - I do not know / Not applicable**
 
 > ⚠️ **Important:** keep the `L0`, `L1`, ..., `L4`, `NA` prefixes at the start of each option. Import tools rely on these prefixes to map answers back to numeric values (0-4 or null).
 
 ---
 
-## Section: Pillar P1 — Produtividade do Desenvolvedor
+## Section: Pillar P1: Developer Productivity
 
 _This section has 53 questions in 9 capabilities._
 
-### P1-C1 — Assistentes de Codificação IA
+### P1-C1: AI Coding Assistants
 
 #### Question `P1-C1-Q1`
 
-> **Em que medida sua organização utiliza ferramentas de completação de código com IA (ex. GitHub Copilot)?**
+> **To what extent does your organization use AI code completion tools (e.g., GitHub Copilot)?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C1-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C1-Q2`
 
-> **Quão efetivamente sua equipe aproveita IA para revisão de código e melhoria de qualidade?**
+> **How effectively does your team leverage AI for code review and quality improvement?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C1-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C1-Q3`
 
-> **Como sua organização mede e rastreia o impacto das ferramentas de codificação IA na produtividade?**
+> **How does your organization measure and track the impact of AI coding tools on productivity?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C1-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C1-Q4`
 
-> **Qual nível de capacidades de testes assistidos por IA sua organização emprega?**
+> **What level of AI-assisted testing capabilities does your organization employ?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C1-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C1-Q5`
 
-> **Como sua organização governa o código gerado por IA em termos de segurança e conformidade?**
+> **How does your organization govern AI-generated code in terms of security and compliance?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C1-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P1-C2 — Plataforma de Experiência do Desenvolvedor
+### P1-C2: Developer Experience Platform
 
 #### Question `P1-C2-Q1`
 
-> **Quão maduro é seu portal ou plataforma interna para desenvolvedores?**
+> **How mature is your internal developer portal or platform?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C2-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C2-Q2`
 
-> **Quão efetivamente suas equipes usam ambientes de desenvolvimento padronizados?**
+> **How effectively do your teams use standardized development environments?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C2-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C2-Q3`
 
-> **Em que medida Plataforma de Experiência do Desenvolvedor (self-service IDP) foi adotado entre as equipes?**
+> **To what extent has Developer Experience Platform (self-service IDP) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C2-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C2-Q4`
 
-> **Em que medida Plataforma de Experiência do Desenvolvedor (golden paths and templates) foi adotado entre as equipes?**
+> **To what extent has Developer Experience Platform (golden paths and templates) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C2-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C2-Q5`
 
-> **Em que medida Plataforma de Experiência do Desenvolvedor (developer portal) foi adotado entre as equipes?**
+> **To what extent has Developer Experience Platform (developer portal) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C2-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C2-Q6`
 
-> **Em que medida Plataforma de Experiência do Desenvolvedor (paved road policy enforcement) foi adotado entre as equipes?**
+> **To what extent has Developer Experience Platform (paved road policy enforcement) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C2-Q6)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P1-C3 — Gestão do Conhecimento
+### P1-C3: Knowledge Management
 
 #### Question `P1-C3-Q1`
 
-> **Quão efetivamente sua organização captura e compartilha conhecimento de desenvolvimento?**
+> **How effectively does your organization capture and share development knowledge?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C3-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C3-Q2`
 
-> **Em que medida Gestão do Conhecimento (semantic code search) foi adotado entre as equipes?**
+> **To what extent has Knowledge Management (semantic code search) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C3-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C3-Q3`
 
-> **Em que medida Gestão do Conhecimento (RAG-based docs assistant) foi adotado entre as equipes?**
+> **To what extent has Knowledge Management (RAG-based docs assistant) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C3-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C3-Q4`
 
-> **Em que medida Gestão do Conhecimento (runbook and playbook coverage) foi adotado entre as equipes?**
+> **To what extent has Knowledge Management (runbook and playbook coverage) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C3-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C3-Q5`
 
-> **Em que medida Gestão do Conhecimento (ADR (architecture decision records)) foi adotado entre as equipes?**
+> **To what extent has Knowledge Management (ADR (architecture decision records)) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C3-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C3-Q6`
 
-> **Em que medida Gestão do Conhecimento (learning content & curated paths) foi adotado entre as equipes?**
+> **To what extent has Knowledge Management (learning content & curated paths) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C3-Q6)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P1-C4 — Automação de Revisão de Código
+### P1-C4: Code Review Automation
 
 #### Question `P1-C4-Q1`
 
-> **Em que medida Automação de Revisão de Código (AI reviewer bot on every PR) foi adotado entre as equipes?**
+> **To what extent has Code Review Automation (AI reviewer bot on every PR) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C4-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C4-Q2`
 
-> **Em que medida Automação de Revisão de Código (static linting and style auto-fix) foi adotado entre as equipes?**
+> **To what extent has Code Review Automation (static linting and style auto-fix) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C4-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C4-Q3`
 
-> **Em que medida Automação de Revisão de Código (automated security review) foi adotado entre as equipes?**
+> **To what extent has Code Review Automation (automated security review) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C4-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C4-Q4`
 
-> **Em que medida Automação de Revisão de Código (required-reviewer rules) foi adotado entre as equipes?**
+> **To what extent has Code Review Automation (required-reviewer rules) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C4-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C4-Q5`
 
-> **Em que medida Automação de Revisão de Código (review SLA tracking) foi adotado entre as equipes?**
+> **To what extent has Code Review Automation (review SLA tracking) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C4-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C4-Q6`
 
-> **Em que medida Automação de Revisão de Código (change size enforcement) foi adotado entre as equipes?**
+> **To what extent has Code Review Automation (change size enforcement) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C4-Q6)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C4-Q7`
 
-> **Em que medida Automação de Revisão de Código (reviewer load balancing) foi adotado entre as equipes?**
+> **To what extent has Code Review Automation (reviewer load balancing) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C4-Q7)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P1-C5 — Onboarding e Treinamento de Desenvolvedores
+### P1-C5: Developer Onboarding and Training
 
 #### Question `P1-C5-Q1`
 
-> **Em que medida Onboarding e Treinamento de Desenvolvedores (codespaces/dev containers for instant env) foi adotado entre as equipes?**
+> **To what extent has Developer Onboarding and Training (codespaces/dev containers for instant env) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C5-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C5-Q2`
 
-> **Em que medida Onboarding e Treinamento de Desenvolvedores (structured onboarding playbook) foi adotado entre as equipes?**
+> **To what extent has Developer Onboarding and Training (structured onboarding playbook) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C5-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C5-Q3`
 
-> **Em que medida Onboarding e Treinamento de Desenvolvedores (mentor pairing program) foi adotado entre as equipes?**
+> **To what extent has Developer Onboarding and Training (mentor pairing program) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C5-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C5-Q4`
 
-> **Em que medida Onboarding e Treinamento de Desenvolvedores (hands-on curriculum & kata) foi adotado entre as equipes?**
+> **To what extent has Developer Onboarding and Training (hands-on curriculum & kata) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C5-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C5-Q5`
 
-> **Em que medida Onboarding e Treinamento de Desenvolvedores (shadow on-call rotation) foi adotado entre as equipes?**
+> **To what extent has Developer Onboarding and Training (shadow on-call rotation) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C5-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C5-Q6`
 
-> **Em que medida Onboarding e Treinamento de Desenvolvedores (onboarding feedback loop) foi adotado entre as equipes?**
+> **To what extent has Developer Onboarding and Training (onboarding feedback loop) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C5-Q6)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C5-Q7`
 
-> **Em que medida Onboarding e Treinamento de Desenvolvedores (ramp-time measurement) foi adotado entre as equipes?**
+> **To what extent has Developer Onboarding and Training (ramp-time measurement) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C5-Q7)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P1-C6 — Inner Source e Colaboração
+### P1-C6: Inner Source and Collaboration
 
 #### Question `P1-C6-Q1`
 
-> **Em que medida Inner Source e Colaboração (internal repos with open contribution) foi adotado entre as equipes?**
+> **To what extent has Inner Source and Collaboration (internal repos with open contribution) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C6-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C6-Q2`
 
-> **Em que medida Inner Source e Colaboração (CONTRIBUTING.md standards) foi adotado entre as equipes?**
+> **To what extent has Inner Source and Collaboration (CONTRIBUTING.md standards) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C6-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C6-Q3`
 
-> **Em que medida Inner Source e Colaboração (inner-source discovery portal) foi adotado entre as equipes?**
+> **To what extent has Inner Source and Collaboration (inner-source discovery portal) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C6-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C6-Q4`
 
-> **Em que medida Inner Source e Colaboração (good-first-issue labeling) foi adotado entre as equipes?**
+> **To what extent has Inner Source and Collaboration (good-first-issue labeling) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C6-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C6-Q5`
 
-> **Em que medida Inner Source e Colaboração (cross-team design reviews) foi adotado entre as equipes?**
+> **To what extent has Inner Source and Collaboration (cross-team design reviews) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C6-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C6-Q6`
 
-> **Em que medida Inner Source e Colaboração (community of practice) foi adotado entre as equipes?**
+> **To what extent has Inner Source and Collaboration (community of practice) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C6-Q6)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P1-C7 — Automação de Documentação
+### P1-C7: Documentation Automation
 
 #### Question `P1-C7-Q1`
 
-> **Em que medida Automação de Documentação (docs-as-code in Git) foi adotado entre as equipes?**
+> **To what extent has Documentation Automation (docs-as-code in Git) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C7-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C7-Q2`
 
-> **Em que medida Automação de Documentação (auto-generated API reference) foi adotado entre as equipes?**
+> **To what extent has Documentation Automation (auto-generated API reference) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C7-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C7-Q3`
 
-> **Em que medida Automação de Documentação (AI-assisted doc drafting) foi adotado entre as equipes?**
+> **To what extent has Documentation Automation (AI-assisted doc drafting) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C7-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C7-Q4`
 
-> **Em que medida Automação de Documentação (doc quality linting) foi adotado entre as equipes?**
+> **To what extent has Documentation Automation (doc quality linting) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C7-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C7-Q5`
 
-> **Em que medida Automação de Documentação (docs analytics) foi adotado entre as equipes?**
+> **To what extent has Documentation Automation (docs analytics) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C7-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P1-C8 — Medição de Produtividade do Desenvolvedor
+### P1-C8: Developer Productivity Measurement
 
 #### Question `P1-C8-Q1`
 
-> **Em que medida Medição de Produtividade do Desenvolvedor (DORA four key metrics) foi adotado entre as equipes?**
+> **To what extent has Developer Productivity Measurement (DORA four key metrics) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C8-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C8-Q2`
 
-> **Em que medida Medição de Produtividade do Desenvolvedor (developer experience surveys) foi adotado entre as equipes?**
+> **To what extent has Developer Productivity Measurement (developer experience surveys) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C8-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C8-Q3`
 
-> **Em que medida Medição de Produtividade do Desenvolvedor (build/test feedback loop time) foi adotado entre as equipes?**
+> **To what extent has Developer Productivity Measurement (build/test feedback loop time) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C8-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C8-Q4`
 
-> **Em que medida Medição de Produtividade do Desenvolvedor (SPACE framework adoption) foi adotado entre as equipes?**
+> **To what extent has Developer Productivity Measurement (SPACE framework adoption) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C8-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C8-Q5`
 
-> **Em que medida Medição de Produtividade do Desenvolvedor (flow vs friction dashboards) foi adotado entre as equipes?**
+> **To what extent has Developer Productivity Measurement (flow vs friction dashboards) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C8-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C8-Q6`
 
-> **Em que medida Medição de Produtividade do Desenvolvedor (quarterly productivity OKRs) foi adotado entre as equipes?**
+> **To what extent has Developer Productivity Measurement (quarterly productivity OKRs) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C8-Q6)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P1-C9 — Automação de Ambientes e Espaços de Trabalho
+### P1-C9: Environment and Workspace Automation
 
 #### Question `P1-C9-Q1`
 
-> **Em que medida Automação de Ambientes e Espaços de Trabalho (reproducible local envs (devcontainers)) foi adotado entre as equipes?**
+> **To what extent has Environment and Workspace Automation (reproducible local envs (devcontainers)) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C9-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C9-Q2`
 
-> **Em que medida Automação de Ambientes e Espaços de Trabalho (cloud workspaces (Codespaces/Gitpod)) foi adotado entre as equipes?**
+> **To what extent has Environment and Workspace Automation (cloud workspaces (Codespaces/Gitpod)) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C9-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C9-Q3`
 
-> **Em que medida Automação de Ambientes e Espaços de Trabalho (tool and SDK version pinning) foi adotado entre as equipes?**
+> **To what extent has Environment and Workspace Automation (tool and SDK version pinning) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C9-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C9-Q4`
 
-> **Em que medida Automação de Ambientes e Espaços de Trabalho (on-demand test data) foi adotado entre as equipes?**
+> **To what extent has Environment and Workspace Automation (on-demand test data) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C9-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P1-C9-Q5`
 
-> **Em que medida Automação de Ambientes e Espaços de Trabalho (workspace telemetry & health) foi adotado entre as equipes?**
+> **To what extent has Environment and Workspace Automation (workspace telemetry & health) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P1-C9-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
 ---
 
-## Section: Pillar P2 — Ciclo de Vida DevOps
+## Section: Pillar P2: DevOps Lifecycle
 
 _This section has 59 questions in 10 capabilities._
 
-### P2-C1 — Inteligência de Pipeline CI/CD
+### P2-C1: CI/CD Pipeline Intelligence
 
 #### Question `P2-C1-Q1`
 
-> **Quão maduro é seu pipeline CI/CD em termos de automação e integração de IA?**
+> **How mature is your CI/CD pipeline in terms of automation and AI integration?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C1-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C1-Q2`
 
-> **Em que medida Inteligência de Pipeline CI/CD (pipeline-as-code everywhere) foi adotado entre as equipes?**
+> **To what extent has CI/CD Pipeline Intelligence (pipeline-as-code everywhere) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C1-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C1-Q3`
 
-> **Em que medida Inteligência de Pipeline CI/CD (build caching and artifact reuse) foi adotado entre as equipes?**
+> **To what extent has CI/CD Pipeline Intelligence (build caching and artifact reuse) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C1-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C1-Q4`
 
-> **Em que medida Inteligência de Pipeline CI/CD (trunk-based development) foi adotado entre as equipes?**
+> **To what extent has CI/CD Pipeline Intelligence (trunk-based development) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C1-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C1-Q5`
 
-> **Em que medida Inteligência de Pipeline CI/CD (deployment frequency) foi adotado entre as equipes?**
+> **To what extent has CI/CD Pipeline Intelligence (deployment frequency) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C1-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C1-Q6`
 
-> **Em que medida Inteligência de Pipeline CI/CD (feature flags for progressive delivery) foi adotado entre as equipes?**
+> **To what extent has CI/CD Pipeline Intelligence (feature flags for progressive delivery) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C1-Q6)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P2-C2 — Infraestrutura como Código
+### P2-C2: Infrastructure as Code
 
 #### Question `P2-C2-Q1`
 
-> **Qual porcentagem de sua infraestrutura é gerenciada por código?**
+> **What percentage of your infrastructure is managed as code?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C2-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C2-Q2`
 
-> **Em que medida Infraestrutura como Código (Terraform/Bicep-based IaC) foi adotado entre as equipes?**
+> **To what extent has Infrastructure as Code (Terraform/Bicep-based IaC) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C2-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C2-Q3`
 
-> **Em que medida Infraestrutura como Código (module and pattern library) foi adotado entre as equipes?**
+> **To what extent has Infrastructure as Code (module and pattern library) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C2-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C2-Q4`
 
-> **Em que medida Infraestrutura como Código (GitOps for config drift) foi adotado entre as equipes?**
+> **To what extent has Infrastructure as Code (GitOps for config drift) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C2-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C2-Q5`
 
-> **Em que medida Infraestrutura como Código (policy-as-code (OPA/Conftest)) foi adotado entre as equipes?**
+> **To what extent has Infrastructure as Code (policy-as-code (OPA/Conftest)) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C2-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C2-Q6`
 
-> **Em que medida Infraestrutura como Código (ephemeral environment per PR) foi adotado entre as equipes?**
+> **To what extent has Infrastructure as Code (ephemeral environment per PR) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C2-Q6)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P2-C3 — Observabilidade e Monitoramento
+### P2-C3: Observability and Monitoring
 
 #### Question `P2-C3-Q1`
 
-> **Quão abrangente é sua stack de observabilidade (logs, métricas, traces)?**
+> **How comprehensive is your observability stack (logs, metrics, traces)?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C3-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C3-Q2`
 
-> **Em que medida Observabilidade e Monitoramento (structured logging w/ correlation IDs) foi adotado entre as equipes?**
+> **To what extent has Observability and Monitoring (structured logging w/ correlation IDs) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C3-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C3-Q3`
 
-> **Em que medida Observabilidade e Monitoramento (distributed tracing (OpenTelemetry)) foi adotado entre as equipes?**
+> **To what extent has Observability and Monitoring (distributed tracing (OpenTelemetry)) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C3-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C3-Q4`
 
-> **Em que medida Observabilidade e Monitoramento (SLOs and error budgets) foi adotado entre as equipes?**
+> **To what extent has Observability and Monitoring (SLOs and error budgets) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C3-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C3-Q5`
 
-> **Em que medida Observabilidade e Monitoramento (synthetic monitoring) foi adotado entre as equipes?**
+> **To what extent has Observability and Monitoring (synthetic monitoring) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C3-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C3-Q6`
 
-> **Em que medida Observabilidade e Monitoramento (anomaly detection with ML) foi adotado entre as equipes?**
+> **To what extent has Observability and Monitoring (anomaly detection with ML) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C3-Q6)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P2-C4 — Integração de Segurança (DevSecOps)
+### P2-C4: Security Integration (DevSecOps)
 
 #### Question `P2-C4-Q1`
 
-> **Quão integrada está a segurança no seu pipeline de desenvolvimento e implantação?**
+> **How integrated is security into your development and deployment pipeline?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C4-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C4-Q2`
 
-> **Em que medida Integração de Segurança (DevSecOps) (SAST in every pipeline) foi adotado entre as equipes?**
+> **To what extent has Security Integration (DevSecOps) (SAST in every pipeline) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C4-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C4-Q3`
 
-> **Em que medida Integração de Segurança (DevSecOps) (SCA and dependency review) foi adotado entre as equipes?**
+> **To what extent has Security Integration (DevSecOps) (SCA and dependency review) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C4-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C4-Q4`
 
-> **Em que medida Integração de Segurança (DevSecOps) (secret scanning and push protection) foi adotado entre as equipes?**
+> **To what extent has Security Integration (DevSecOps) (secret scanning and push protection) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C4-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C4-Q5`
 
-> **Em que medida Integração de Segurança (DevSecOps) (DAST and API security testing) foi adotado entre as equipes?**
+> **To what extent has Security Integration (DevSecOps) (DAST and API security testing) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C4-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C4-Q6`
 
-> **Em que medida Integração de Segurança (DevSecOps) (security champions program) foi adotado entre as equipes?**
+> **To what extent has Security Integration (DevSecOps) (security champions program) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C4-Q6)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P2-C5 — Estratégias de Release e Implantação
+### P2-C5: Release and Deployment Strategies
 
 #### Question `P2-C5-Q1`
 
-> **Em que medida Estratégias de Release e Implantação (blue/green or canary deploys) foi adotado entre as equipes?**
+> **To what extent has Release and Deployment Strategies (blue/green or canary deploys) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C5-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C5-Q2`
 
-> **Em que medida Estratégias de Release e Implantação (automated rollback) foi adotado entre as equipes?**
+> **To what extent has Release and Deployment Strategies (automated rollback) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C5-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C5-Q3`
 
-> **Em que medida Estratégias de Release e Implantação (feature flag platform) foi adotado entre as equipes?**
+> **To what extent has Release and Deployment Strategies (feature flag platform) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C5-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C5-Q4`
 
-> **Em que medida Estratégias de Release e Implantação (release coordination via ChatOps) foi adotado entre as equipes?**
+> **To what extent has Release and Deployment Strategies (release coordination via ChatOps) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C5-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C5-Q5`
 
-> **Em que medida Estratégias de Release e Implantação (progressive delivery across regions) foi adotado entre as equipes?**
+> **To what extent has Release and Deployment Strategies (progressive delivery across regions) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C5-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C5-Q6`
 
-> **Em que medida Estratégias de Release e Implantação (release metrics dashboard) foi adotado entre as equipes?**
+> **To what extent has Release and Deployment Strategies (release metrics dashboard) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C5-Q6)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P2-C6 — Automação de Testes
+### P2-C6: Test Automation
 
 #### Question `P2-C6-Q1`
 
-> **Em que medida Automação de Testes (unit test coverage targets) foi adotado entre as equipes?**
+> **To what extent has Test Automation (unit test coverage targets) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C6-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C6-Q2`
 
-> **Em que medida Automação de Testes (integration test suites) foi adotado entre as equipes?**
+> **To what extent has Test Automation (integration test suites) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C6-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C6-Q3`
 
-> **Em que medida Automação de Testes (end-to-end / journey tests) foi adotado entre as equipes?**
+> **To what extent has Test Automation (end-to-end / journey tests) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C6-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C6-Q4`
 
-> **Em que medida Automação de Testes (contract testing) foi adotado entre as equipes?**
+> **To what extent has Test Automation (contract testing) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C6-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C6-Q5`
 
-> **Em que medida Automação de Testes (AI-assisted test generation) foi adotado entre as equipes?**
+> **To what extent has Test Automation (AI-assisted test generation) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C6-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C6-Q6`
 
-> **Em que medida Automação de Testes (flaky-test detection & quarantine) foi adotado entre as equipes?**
+> **To what extent has Test Automation (flaky-test detection & quarantine) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C6-Q6)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C6-Q7`
 
-> **Em que medida Automação de Testes (mutation testing) foi adotado entre as equipes?**
+> **To what extent has Test Automation (mutation testing) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C6-Q7)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P2-C7 — Gestão de Incidentes e SRE
+### P2-C7: Incident Management and SRE
 
 #### Question `P2-C7-Q1`
 
-> **Em que medida Gestão de Incidentes e SRE (on-call rotation with tooling) foi adotado entre as equipes?**
+> **To what extent has Incident Management and SRE (on-call rotation with tooling) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C7-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C7-Q2`
 
-> **Em que medida Gestão de Incidentes e SRE (blameless postmortems) foi adotado entre as equipes?**
+> **To what extent has Incident Management and SRE (blameless postmortems) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C7-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C7-Q3`
 
-> **Em que medida Gestão de Incidentes e SRE (error budget policy) foi adotado entre as equipes?**
+> **To what extent has Incident Management and SRE (error budget policy) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C7-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C7-Q4`
 
-> **Em que medida Gestão de Incidentes e SRE (chaos engineering) foi adotado entre as equipes?**
+> **To what extent has Incident Management and SRE (chaos engineering) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C7-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C7-Q5`
 
-> **Em que medida Gestão de Incidentes e SRE (incident commander role) foi adotado entre as equipes?**
+> **To what extent has Incident Management and SRE (incident commander role) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C7-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C7-Q6`
 
-> **Em que medida Gestão de Incidentes e SRE (SRE-dev partnership model) foi adotado entre as equipes?**
+> **To what extent has Incident Management and SRE (SRE-dev partnership model) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C7-Q6)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C7-Q7`
 
-> **Em que medida Gestão de Incidentes e SRE (runbook automation) foi adotado entre as equipes?**
+> **To what extent has Incident Management and SRE (runbook automation) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C7-Q7)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P2-C8 — Gestão de Artefatos e Pacotes
+### P2-C8: Artifact and Package Management
 
 #### Question `P2-C8-Q1`
 
-> **Em que medida Gestão de Artefatos e Pacotes (internal package registry) foi adotado entre as equipes?**
+> **To what extent has Artifact and Package Management (internal package registry) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C8-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C8-Q2`
 
-> **Em que medida Gestão de Artefatos e Pacotes (SBOM for every build) foi adotado entre as equipes?**
+> **To what extent has Artifact and Package Management (SBOM for every build) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C8-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C8-Q3`
 
-> **Em que medida Gestão de Artefatos e Pacotes (artifact signing (SLSA)) foi adotado entre as equipes?**
+> **To what extent has Artifact and Package Management (artifact signing (SLSA)) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C8-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C8-Q4`
 
-> **Em que medida Gestão de Artefatos e Pacotes (vulnerability scanning of artifacts) foi adotado entre as equipes?**
+> **To what extent has Artifact and Package Management (vulnerability scanning of artifacts) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C8-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C8-Q5`
 
-> **Em que medida Gestão de Artefatos e Pacotes (retention & promotion policies) foi adotado entre as equipes?**
+> **To what extent has Artifact and Package Management (retention & promotion policies) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C8-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P2-C9 — Gestão de Mudanças e GitOps
+### P2-C9: Change Management and GitOps
 
 #### Question `P2-C9-Q1`
 
-> **Em que medida Gestão de Mudanças e GitOps (GitOps controllers in prod) foi adotado entre as equipes?**
+> **To what extent has Change Management and GitOps (GitOps controllers in prod) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C9-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C9-Q2`
 
-> **Em que medida Gestão de Mudanças e GitOps (automated change tickets) foi adotado entre as equipes?**
+> **To what extent has Change Management and GitOps (automated change tickets) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C9-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C9-Q3`
 
-> **Em que medida Gestão de Mudanças e GitOps (approvals in PR (not tickets)) foi adotado entre as equipes?**
+> **To what extent has Change Management and GitOps (approvals in PR (not tickets)) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C9-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C9-Q4`
 
-> **Em que medida Gestão de Mudanças e GitOps (environment promotion via PR) foi adotado entre as equipes?**
+> **To what extent has Change Management and GitOps (environment promotion via PR) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C9-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C9-Q5`
 
-> **Em que medida Gestão de Mudanças e GitOps (compliance evidence auto-collected) foi adotado entre as equipes?**
+> **To what extent has Change Management and GitOps (compliance evidence auto-collected) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C9-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P2-C10 — Segurança de Dependências e Cadeia de Suprimentos
+### P2-C10: Dependency and Supply Chain Security
 
 #### Question `P2-C10-Q1`
 
-> **Em que medida Segurança de Dependências e Cadeia de Suprimentos (dependabot or renovate on every repo) foi adotado entre as equipes?**
+> **To what extent has Dependency and Supply Chain Security (dependabot or renovate on every repo) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C10-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C10-Q2`
 
-> **Em que medida Segurança de Dependências e Cadeia de Suprimentos (allow-list registries only) foi adotado entre as equipes?**
+> **To what extent has Dependency and Supply Chain Security (allow-list registries only) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C10-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C10-Q3`
 
-> **Em que medida Segurança de Dependências e Cadeia de Suprimentos (build provenance (SLSA level)) foi adotado entre as equipes?**
+> **To what extent has Dependency and Supply Chain Security (build provenance (SLSA level)) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C10-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C10-Q4`
 
-> **Em que medida Segurança de Dependências e Cadeia de Suprimentos (critical dep response playbook) foi adotado entre as equipes?**
+> **To what extent has Dependency and Supply Chain Security (critical dep response playbook) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C10-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P2-C10-Q5`
 
-> **Em que medida Segurança de Dependências e Cadeia de Suprimentos (vendor/OSS risk reviews) foi adotado entre as equipes?**
+> **To what extent has Dependency and Supply Chain Security (vendor/OSS risk reviews) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P2-C10-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
 ---
 
-## Section: Pillar P3 — Plataforma de Aplicações
+## Section: Pillar P3: Application Platform
 
 _This section has 46 questions in 9 capabilities._
 
-### P3-C1 — Arquitetura Cloud-Native
+### P3-C1: Cloud-Native Architecture
 
 #### Question `P3-C1-Q1`
 
-> **Qual é a maturidade da adoção de arquitetura cloud-native?**
+> **How mature is the adoption of cloud-native architecture?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C1-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C1-Q2`
 
-> **Em que medida Arquitetura Nativa da Nuvem (container adoption) foi adotado entre as equipes?**
+> **To what extent has Cloud-Native Architecture (container adoption) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C1-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C1-Q3`
 
-> **Em que medida Arquitetura Nativa da Nuvem (service mesh / zero trust networking) foi adotado entre as equipes?**
+> **To what extent has Cloud-Native Architecture (service mesh / zero trust networking) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C1-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C1-Q4`
 
-> **Em que medida Arquitetura Nativa da Nuvem (event-driven architecture) foi adotado entre as equipes?**
+> **To what extent has Cloud-Native Architecture (event-driven architecture) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C1-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C1-Q5`
 
-> **Em que medida Arquitetura Nativa da Nuvem (managed services preference) foi adotado entre as equipes?**
+> **To what extent has Cloud-Native Architecture (managed services preference) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C1-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P3-C2 — Gestão de APIs
+### P3-C2: API Management
 
 #### Question `P3-C2-Q1`
 
-> **Quão madura é sua estratégia de gestão de APIs?**
+> **How mature is your API management strategy?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C2-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C2-Q2`
 
-> **Em que medida Gestão de APIs (API gateway for all external APIs) foi adotado entre as equipes?**
+> **To what extent has API Management (API gateway for all external APIs) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C2-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C2-Q3`
 
-> **Em que medida Gestão de APIs (OpenAPI contracts) foi adotado entre as equipes?**
+> **To what extent has API Management (OpenAPI contracts) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C2-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C2-Q4`
 
-> **Em que medida Gestão de APIs (versioning & deprecation policy) foi adotado entre as equipes?**
+> **To what extent has API Management (versioning & deprecation policy) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C2-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C2-Q5`
 
-> **Em que medida Gestão de APIs (developer portal with self-serve keys) foi adotado entre as equipes?**
+> **To what extent has API Management (developer portal with self-serve keys) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C2-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P3-C3 — Desenvolvimento de Aplicações IA
+### P3-C3: AI Application Development
 
 #### Question `P3-C3-Q1`
 
-> **Quão madura é a capacidade da sua organização de construir e implantar aplicações com IA?**
+> **How mature is your organization's ability to build and deploy AI-powered applications?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C3-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C3-Q2`
 
-> **Em que medida Desenvolvimento de Aplicações de IA (LLM application frameworks) foi adotado entre as equipes?**
+> **To what extent has AI Application Development (LLM application frameworks) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C3-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C3-Q3`
 
-> **Em que medida Desenvolvimento de Aplicações de IA (evaluation harness for AI) foi adotado entre as equipes?**
+> **To what extent has AI Application Development (evaluation harness for AI) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C3-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C3-Q4`
 
-> **Em que medida Desenvolvimento de Aplicações de IA (vector database / RAG platform) foi adotado entre as equipes?**
+> **To what extent has AI Application Development (vector database / RAG platform) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C3-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C3-Q5`
 
-> **Em que medida Desenvolvimento de Aplicações de IA (responsible AI / safety filters) foi adotado entre as equipes?**
+> **To what extent has AI Application Development (responsible AI / safety filters) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C3-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P3-C4 — Plataforma de Dados e Lakehouse
+### P3-C4: Data Platform and Lakehouse
 
 #### Question `P3-C4-Q1`
 
-> **Em que medida Plataforma de Dados e Lakehouse (lakehouse or data platform in use) foi adotado entre as equipes?**
+> **To what extent has Data Platform and Lakehouse (lakehouse or data platform in use) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C4-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C4-Q2`
 
-> **Em que medida Plataforma de Dados e Lakehouse (data contracts between producers & consumers) foi adotado entre as equipes?**
+> **To what extent has Data Platform and Lakehouse (data contracts between producers & consumers) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C4-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C4-Q3`
 
-> **Em que medida Plataforma de Dados e Lakehouse (catalog and lineage tracking) foi adotado entre as equipes?**
+> **To what extent has Data Platform and Lakehouse (catalog and lineage tracking) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C4-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C4-Q4`
 
-> **Em que medida Plataforma de Dados e Lakehouse (self-service analytics) foi adotado entre as equipes?**
+> **To what extent has Data Platform and Lakehouse (self-service analytics) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C4-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C4-Q5`
 
-> **Em que medida Plataforma de Dados e Lakehouse (real-time streaming ingestion) foi adotado entre as equipes?**
+> **To what extent has Data Platform and Lakehouse (real-time streaming ingestion) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C4-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P3-C5 — Aplicações Agênticas
+### P3-C5: Agentic Applications
 
 #### Question `P3-C5-Q1`
 
-> **Em que medida Aplicações Agênticas (agents with tool-use in prod) foi adotado entre as equipes?**
+> **To what extent has Agentic Applications (agents with tool-use in prod) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C5-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C5-Q2`
 
-> **Em que medida Aplicações Agênticas (orchestration framework (Semantic Kernel, etc)) foi adotado entre as equipes?**
+> **To what extent has Agentic Applications (orchestration framework (Semantic Kernel, etc)) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C5-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C5-Q3`
 
-> **Em que medida Aplicações Agênticas (evaluation and safety for agents) foi adotado entre as equipes?**
+> **To what extent has Agentic Applications (evaluation and safety for agents) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C5-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C5-Q4`
 
-> **Em que medida Aplicações Agênticas (tool/action registry) foi adotado entre as equipes?**
+> **To what extent has Agentic Applications (tool/action registry) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C5-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C5-Q5`
 
-> **Em que medida Aplicações Agênticas (human-in-the-loop controls) foi adotado entre as equipes?**
+> **To what extent has Agentic Applications (human-in-the-loop controls) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C5-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C5-Q6`
 
-> **Em que medida Aplicações Agênticas (agent cost and latency telemetry) foi adotado entre as equipes?**
+> **To what extent has Agentic Applications (agent cost and latency telemetry) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C5-Q6)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P3-C6 — Gestão de Identidades e Acessos
+### P3-C6: Identity and Access Management
 
 #### Question `P3-C6-Q1`
 
-> **Em que medida Gestão de Identidades e Acessos (SSO for all apps) foi adotado entre as equipes?**
+> **To what extent has Identity and Access Management (SSO for all apps) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C6-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C6-Q2`
 
-> **Em que medida Gestão de Identidades e Acessos (workload identity (no long-lived secrets)) foi adotado entre as equipes?**
+> **To what extent has Identity and Access Management (workload identity (no long-lived secrets)) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C6-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C6-Q3`
 
-> **Em que medida Gestão de Identidades e Acessos (least-privilege with JIT elevation) foi adotado entre as equipes?**
+> **To what extent has Identity and Access Management (least-privilege with JIT elevation) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C6-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C6-Q4`
 
-> **Em que medida Gestão de Identidades e Acessos (conditional access policies) foi adotado entre as equipes?**
+> **To what extent has Identity and Access Management (conditional access policies) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C6-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C6-Q5`
 
-> **Em que medida Gestão de Identidades e Acessos (access reviews and audit) foi adotado entre as equipes?**
+> **To what extent has Identity and Access Management (access reviews and audit) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C6-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P3-C7 — Multi-Cloud e Portabilidade
+### P3-C7: Multi-Cloud and Portability
 
 #### Question `P3-C7-Q1`
 
-> **Em que medida Multi-Cloud e Portabilidade (container-based workloads for portability) foi adotado entre as equipes?**
+> **To what extent has Multi-Cloud and Portability (container-based workloads for portability) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C7-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C7-Q2`
 
-> **Em que medida Multi-Cloud e Portabilidade (abstracted data tier (Postgres, etc)) foi adotado entre as equipes?**
+> **To what extent has Multi-Cloud and Portability (abstracted data tier (Postgres, etc)) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C7-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C7-Q3`
 
-> **Em que medida Multi-Cloud e Portabilidade (multi-region deployment capability) foi adotado entre as equipes?**
+> **To what extent has Multi-Cloud and Portability (multi-region deployment capability) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C7-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C7-Q4`
 
-> **Em que medida Multi-Cloud e Portabilidade (cloud-agnostic IaC modules) foi adotado entre as equipes?**
+> **To what extent has Multi-Cloud and Portability (cloud-agnostic IaC modules) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C7-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C7-Q5`
 
-> **Em que medida Multi-Cloud e Portabilidade (disaster recovery drills) foi adotado entre as equipes?**
+> **To what extent has Multi-Cloud and Portability (disaster recovery drills) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C7-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P3-C8 — Desempenho e Escalabilidade
+### P3-C8: Performance and Scalability
 
 #### Question `P3-C8-Q1`
 
-> **Em que medida Desempenho e Escalabilidade (performance budgets per service) foi adotado entre as equipes?**
+> **To what extent has Performance and Scalability (performance budgets per service) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C8-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C8-Q2`
 
-> **Em que medida Desempenho e Escalabilidade (load/stress testing in CI) foi adotado entre as equipes?**
+> **To what extent has Performance and Scalability (load/stress testing in CI) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C8-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C8-Q3`
 
-> **Em que medida Desempenho e Escalabilidade (autoscaling based on real demand) foi adotado entre as equipes?**
+> **To what extent has Performance and Scalability (autoscaling based on real demand) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C8-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C8-Q4`
 
-> **Em que medida Desempenho e Escalabilidade (profiling in production) foi adotado entre as equipes?**
+> **To what extent has Performance and Scalability (profiling in production) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C8-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C8-Q5`
 
-> **Em que medida Desempenho e Escalabilidade (capacity planning cadence) foi adotado entre as equipes?**
+> **To what extent has Performance and Scalability (capacity planning cadence) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C8-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
-### P3-C9 — FinOps e Otimização de Custos
+### P3-C9: FinOps and Cost Optimization
 
 #### Question `P3-C9-Q1`
 
-> **Em que medida FinOps e Otimização de Custos (cost allocation & showback) foi adotado entre as equipes?**
+> **To what extent has FinOps and Cost Optimization (cost allocation & showback) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C9-Q1)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C9-Q2`
 
-> **Em que medida FinOps e Otimização de Custos (committed use / savings plans) foi adotado entre as equipes?**
+> **To what extent has FinOps and Cost Optimization (committed use / savings plans) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C9-Q2)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C9-Q3`
 
-> **Em que medida FinOps e Otimização de Custos (idle and unused resource cleanup) foi adotado entre as equipes?**
+> **To what extent has FinOps and Cost Optimization (idle and unused resource cleanup) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C9-Q3)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C9-Q4`
 
-> **Em que medida FinOps e Otimização de Custos (rightsizing recommendations) foi adotado entre as equipes?**
+> **To what extent has FinOps and Cost Optimization (rightsizing recommendations) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C9-Q4)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
 #### Question `P3-C9-Q5`
 
-> **Em que medida FinOps e Otimização de Custos (unit economics per product) foi adotado entre as equipes?**
+> **To what extent has FinOps and Cost Optimization (unit economics per product) been adopted across teams?**
 
 _Type: Choice (single answer). Options: use the 6 fixed options listed at the top._
 
 **Text field after this question** (Long Text, optional):
+
 - Label: `Evidence (P3-C9-Q5)`
 - Placeholder: `Describe tool, coverage %, metric, and time window`
 
-
 ---
 
-## Resumo final
+## Summary
 
-- **3 seções** (1 por pillar)
-- **28 capabilities** com headers
-- **158 perguntas** (Choice) + **158 campos de evidência** (Long Text opcional)
-- **Total de elementos no Forms:** ~324 (158 + 158 + 8 headers de seção/capability)
+- **3 sections** (1 per pillar)
+- **28 capabilities** with headers
+- **158 questions** (Choice) + **158 evidence fields** (optional Long Text)
+- **Total elements in Forms:** about 324 (158 + 158 + 8 section and capability headers)
 
-## Próximos passos após criar o Forms
+## Next steps after creating the form
 
-1. Compartilhe o link com sua equipe (via email, Teams, SharePoint)
-2. Aguarde respostas (recomendado: ≥ 3 respondentes para reduzir viés)
-3. **Responses → Open in Excel** → baixar `.xlsx`
-4. Renomear para `respostas-forms.xlsx` e colocar na raiz do `kit-cliente/`
-5. No Copilot Chat (modo Agent), digitar: `/importar-respostas-excel`
-6. A skill converterá o Excel em `respostas.json` agregando múltiplos respondentes (média)
-7. Continuar fluxo normal: `/pipeline-completo`
+1. Share the link with your team (email, Teams, SharePoint)
+2. Wait for responses (recommended: at least 3 respondents to reduce bias)
+3. **Responses → Open in Excel** → download the `.xlsx`
+4. Rename it to `respostas-forms.xlsx` and put it in the kit root
+5. In Copilot Chat (Agent mode), type: `/importar-respostas-excel`
+6. The skill converts the Excel file into `respostas.json` and averages multiple respondents
+7. Continue the normal flow: `/pipeline-completo`

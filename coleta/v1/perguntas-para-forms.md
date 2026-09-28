@@ -1,4 +1,4 @@
-# Perguntas para Microsoft Forms — AI Maturity Assessment
+# Perguntas para Microsoft Forms: AI Maturity Assessment
 
 > Este documento contém **TODAS as 158 perguntas** formatadas para você criar o formulário no Microsoft Forms.
 > Use copy/paste seção por seção. Cada questão deve ter:
@@ -9,7 +9,7 @@
 1. Acesse https://forms.office.com
 2. Crie um novo formulário em branco
 3. Título sugerido: `AI Maturity Assessment - <Nome da Organização>`
-4. Adicione **3 seções** (uma por pillar) — botão `+ Add new` → `Section`
+4. Adicione **3 seções** (uma por pillar) com o botão `+ Add new` → `Section`
 5. Para cada questão, adicione 2 elementos:
    a. **Choice** (única escolha) com o texto da pergunta + as 6 opções abaixo
    b. **Long Text** com label `Evidência` (campo opcional)
@@ -21,22 +21,22 @@
 
 Cole estas 6 opções idênticas em cada pergunta (ordem importante para o parsing posterior):
 
-- **L0 — Inicial — Sem prática estabelecida**
-- **L1 — Em Desenvolvimento — Pilotos isolados (<25%)**
-- **L2 — Definido — Cobertura 25-50% com diretrizes**
-- **L3 — Gerenciado — >75% com métricas de impacto**
-- **L4 — Otimizando — Universal (>95%) com automação contínua**
-- **NA — Não sei / Não se aplica**
+- **L0 - Inicial: Sem prática estabelecida**
+- **L1 - Em Desenvolvimento: Pilotos isolados (<25%)**
+- **L2 - Definido: Cobertura 25-50% com diretrizes**
+- **L3 - Gerenciado: >75% com métricas de impacto**
+- **L4 - Otimizando: Universal (>95%) com automação contínua**
+- **NA - Não sei / Não se aplica**
 
-> ⚠️ **Importante:** mantenha o prefixo `L0`, `L1`, ..., `L4`, `NA` no início de cada opção. A skill de importação usa esse prefixo para mapear a resposta de volta para o número (0–4 ou null).
+> ⚠️ **Importante:** mantenha o prefixo `L0`, `L1`, ..., `L4`, `NA` no início de cada opção. A skill de importação usa esse prefixo para mapear a resposta de volta para o número (0-4 ou null).
 
 ---
 
-## Seção: Pillar P1 — Produtividade do Desenvolvedor
+## Seção: Pillar P1: Produtividade do Desenvolvedor
 
 _Esta seção tem 53 questões em 9 capabilities._
 
-### P1-C1 — Assistentes de Codificação IA
+### P1-C1: Assistentes de Codificação IA
 
 #### Pergunta `P1-C1-Q1`
 
@@ -89,7 +89,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P1-C2 — Plataforma de Experiência do Desenvolvedor
+### P1-C2: Plataforma de Experiência do Desenvolvedor
 
 #### Pergunta `P1-C2-Q1`
 
@@ -152,7 +152,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P1-C3 — Gestão do Conhecimento
+### P1-C3: Gestão do Conhecimento
 
 #### Pergunta `P1-C3-Q1`
 
@@ -215,7 +215,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P1-C4 — Automação de Revisão de Código
+### P1-C4: Automação de Revisão de Código
 
 #### Pergunta `P1-C4-Q1`
 
@@ -288,7 +288,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P1-C5 — Onboarding e Treinamento de Desenvolvedores
+### P1-C5: Onboarding e Treinamento de Desenvolvedores
 
 #### Pergunta `P1-C5-Q1`
 
@@ -361,7 +361,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P1-C6 — Inner Source e Colaboração
+### P1-C6: Inner Source e Colaboração
 
 #### Pergunta `P1-C6-Q1`
 
@@ -424,7 +424,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P1-C7 — Automação de Documentação
+### P1-C7: Automação de Documentação
 
 #### Pergunta `P1-C7-Q1`
 
@@ -477,7 +477,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P1-C8 — Medição de Produtividade do Desenvolvedor
+### P1-C8: Medição de Produtividade do Desenvolvedor
 
 #### Pergunta `P1-C8-Q1`
 
@@ -540,7 +540,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P1-C9 — Automação de Ambientes e Espaços de Trabalho
+### P1-C9: Automação de Ambientes e Espaços de Trabalho
 
 #### Pergunta `P1-C9-Q1`
 
@@ -595,11 +595,11 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 
 ---
 
-## Seção: Pillar P2 — Ciclo de Vida DevOps
+## Seção: Pillar P2: Ciclo de Vida DevOps
 
 _Esta seção tem 59 questões em 10 capabilities._
 
-### P2-C1 — Inteligência de Pipeline CI/CD
+### P2-C1: Inteligência de Pipeline CI/CD
 
 #### Pergunta `P2-C1-Q1`
 
@@ -662,7 +662,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P2-C2 — Infraestrutura como Código
+### P2-C2: Infraestrutura como Código
 
 #### Pergunta `P2-C2-Q1`
 
@@ -725,7 +725,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P2-C3 — Observabilidade e Monitoramento
+### P2-C3: Observabilidade e Monitoramento
 
 #### Pergunta `P2-C3-Q1`
 
@@ -788,7 +788,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P2-C4 — Integração de Segurança (DevSecOps)
+### P2-C4: Integração de Segurança (DevSecOps)
 
 #### Pergunta `P2-C4-Q1`
 
@@ -851,7 +851,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P2-C5 — Estratégias de Release e Implantação
+### P2-C5: Estratégias de Release e Implantação
 
 #### Pergunta `P2-C5-Q1`
 
@@ -914,7 +914,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P2-C6 — Automação de Testes
+### P2-C6: Automação de Testes
 
 #### Pergunta `P2-C6-Q1`
 
@@ -987,7 +987,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P2-C7 — Gestão de Incidentes e SRE
+### P2-C7: Gestão de Incidentes e SRE
 
 #### Pergunta `P2-C7-Q1`
 
@@ -1060,7 +1060,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P2-C8 — Gestão de Artefatos e Pacotes
+### P2-C8: Gestão de Artefatos e Pacotes
 
 #### Pergunta `P2-C8-Q1`
 
@@ -1113,7 +1113,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P2-C9 — Gestão de Mudanças e GitOps
+### P2-C9: Gestão de Mudanças e GitOps
 
 #### Pergunta `P2-C9-Q1`
 
@@ -1166,7 +1166,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P2-C10 — Segurança de Dependências e Cadeia de Suprimentos
+### P2-C10: Segurança de Dependências e Cadeia de Suprimentos
 
 #### Pergunta `P2-C10-Q1`
 
@@ -1221,11 +1221,11 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 
 ---
 
-## Seção: Pillar P3 — Plataforma de Aplicações
+## Seção: Pillar P3: Plataforma de Aplicações
 
 _Esta seção tem 46 questões em 9 capabilities._
 
-### P3-C1 — Arquitetura Cloud-Native
+### P3-C1: Arquitetura Cloud-Native
 
 #### Pergunta `P3-C1-Q1`
 
@@ -1278,7 +1278,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P3-C2 — Gestão de APIs
+### P3-C2: Gestão de APIs
 
 #### Pergunta `P3-C2-Q1`
 
@@ -1331,7 +1331,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P3-C3 — Desenvolvimento de Aplicações IA
+### P3-C3: Desenvolvimento de Aplicações IA
 
 #### Pergunta `P3-C3-Q1`
 
@@ -1384,7 +1384,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P3-C4 — Plataforma de Dados e Lakehouse
+### P3-C4: Plataforma de Dados e Lakehouse
 
 #### Pergunta `P3-C4-Q1`
 
@@ -1437,7 +1437,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P3-C5 — Aplicações Agênticas
+### P3-C5: Aplicações Agênticas
 
 #### Pergunta `P3-C5-Q1`
 
@@ -1500,7 +1500,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P3-C6 — Gestão de Identidades e Acessos
+### P3-C6: Gestão de Identidades e Acessos
 
 #### Pergunta `P3-C6-Q1`
 
@@ -1553,7 +1553,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P3-C7 — Multi-Cloud e Portabilidade
+### P3-C7: Multi-Cloud e Portabilidade
 
 #### Pergunta `P3-C7-Q1`
 
@@ -1606,7 +1606,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P3-C8 — Desempenho e Escalabilidade
+### P3-C8: Desempenho e Escalabilidade
 
 #### Pergunta `P3-C8-Q1`
 
@@ -1659,7 +1659,7 @@ _Tipo: Choice (single answer). Opções: as 6 fixas listadas no topo._
 - Placeholder: `Descreva ferramenta, % de cobertura, métrica e período`
 
 
-### P3-C9 — FinOps e Otimização de Custos
+### P3-C9: FinOps e Otimização de Custos
 
 #### Pergunta `P3-C9-Q1`
 

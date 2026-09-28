@@ -1,6 +1,6 @@
 # AI Maturity Assessment: Pillar P1, Developer Productivity
 
-🌐 English · [Português (Brasil)](P1-produtividade-do-desenvolvedor.pt-br.md)
+🌐 English · [Português (Brasil)](P1-produtividade-do-desenvolvedor.pt-br.md) · [Español](P1-produtividade-do-desenvolvedor.es.md)
 
 > Measures how much engineering adopts AI to accelerate the cycle of coding, documentation, review, onboarding, and internal collaboration.
 
@@ -10,8 +10,8 @@
 - **Capabilities:** 9
 - **Total questions:** 53
 - **Scale:** Likert L0 to L4 (Initial → Optimizing)
-- **Question language:** English (translated from the Portuguese (Brazil) source)
-- **KPI/context/evidence language:** English (universal technical terms)
+- **Question language:** English (translated from the original Portuguese (Brazil) wording)
+- **KPI language:** English in every language version (metric names, as in `framework.json`)
 - **Expected response per question:** 1 selected level + evidence text (recommended minimum 80 characters) + optional attachment
 
 ## How to interpret the scale
@@ -1680,7 +1680,6 @@ Each question simultaneously captures **three types of data**:
 | **L4** | Optimizing | Workspace telemetry & health optimized, automated, and continuously improved with data-driven insights. | • >95% adoption rate measured<br>• Automated telemetry feedback loops<br>• Continuous improvement program |
 
 ---
-
 
 ## How this section is scored
 
