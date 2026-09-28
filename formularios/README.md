@@ -19,7 +19,7 @@ make pipeline
 
 The v2 form follows [../coleta/AI-Maturity-Form-Questions_v2.md](../coleta/AI-Maturity-Form-Questions_v2.md): 5 profile questions (`R-Q1` to `R-Q5`) and 61 scored questions (`D#-Q#`) across 9 dimensions.
 
-Archived v1 HTML files live in [v1/](v1/), including:
+Archived v1 HTML files live in [v1/](v1/). Each one has a Portuguese (`.pt-br.html`) and a Spanish (`.es.html`) copy in the repository; each language package ships its copy under the base name:
 
 - [v1/P1-produtividade-do-desenvolvedor.html](v1/P1-produtividade-do-desenvolvedor.html)
 - [v1/P2-ciclo-de-vida-devops.html](v1/P2-ciclo-de-vida-devops.html)

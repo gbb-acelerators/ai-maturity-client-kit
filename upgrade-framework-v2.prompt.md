@@ -5,6 +5,8 @@ agent: agent
 
 # Upgrade the AI Maturity Client Kit to framework v2
 
+🌐 English · [Português (Brasil)](upgrade-framework-v2.prompt.pt-br.md) · [Español](upgrade-framework-v2.prompt.es.md)
+
 > **Status (2026-09-28): executed** on branch `feature/framework-v2`. The spec is v2.0.1 ([coleta/AI-Maturity-Form-Questions_v2.md](coleta/AI-Maturity-Form-Questions_v2.md)); decisions D-1 to D-8 and the rest of the changes are listed in [CHANGELOG.md](CHANGELOG.md). Keep this file as the record of the plan; run it again only for a new framework major version.
 
 ## Role

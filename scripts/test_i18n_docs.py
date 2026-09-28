@@ -48,6 +48,22 @@ class FamilyTest(unittest.TestCase):
         for lang in ("pt", "es"):
             self.assertEqual(kits.package_source(source, lang), source)
 
+    def test_v1_helpers_ship_in_the_package_language(self) -> None:
+        for rel in ("formularios/v1/P1-produtividade-do-desenvolvedor.html",
+                    "referencia/v1/calculadora-pontuacao.html",
+                    "referencia/v1/P2-ciclo-de-vida-devops.md",
+                    "coleta/v1/INSTRUCOES-FORMS.md",
+                    "upgrade-framework-v2.prompt.md"):
+            source = ROOT / rel
+            with self.subTest(rel=rel):
+                self.assertEqual(kits.package_source(source, "es").name,
+                                 kits.tagged(source.name, ".es"))
+                self.assertEqual(kits.package_source(source, "pt").name,
+                                 kits.tagged(source.name, ".pt-br"))
+                self.assertEqual(kits.package_source(source, "en"), source)
+        bank = ROOT / "coleta/v1/perguntas-para-forms.md"
+        self.assertEqual(kits.package_source(bank, "es"), bank)
+
     def test_links_to_copies_point_to_base_names(self) -> None:
         text = ("[a](../survey-devs/README.es.md#x) "
                 "[b](perguntas-para-forms.es.md) "
@@ -90,6 +106,11 @@ class CoverageTest(unittest.TestCase):
     def test_every_doc_has_three_languages(self) -> None:
         with contextlib.redirect_stdout(io.StringIO()) as out:
             problems = coverage.print_translated_docs()
+        self.assertEqual(problems, 0, out.getvalue())
+
+    def test_every_html_helper_has_three_languages(self) -> None:
+        with contextlib.redirect_stdout(io.StringIO()) as out:
+            problems = coverage.print_html_helpers()
         self.assertEqual(problems, 0, out.getvalue())
 
 

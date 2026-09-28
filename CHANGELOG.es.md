@@ -103,6 +103,17 @@ Todos los cambios notables del kit de cliente AI Maturity. Las fechas están en 
   la calculadora.
 - `scripts/test_i18n_docs.py` cubre el cambio de idioma de los paquetes,
   las copias de la especificación y la cobertura de los documentos.
+- El material archivado de v1 en los tres idiomas: referencias de los
+  pilares en español (`referencia/v1/P1` a `P3` `.es.md`) e instrucciones
+  de Forms (`coleta/v1/INSTRUCOES-FORMS.es.md`); copias en inglés y
+  español de los formularios visuales de v1 (`formularios/v1/*.html`,
+  `*.es.html`, con el original en portugués en `*.pt-br.html`) y una
+  calculadora v1 en español. Los docs y formularios v1 en PT-BR ahora
+  también traducen el contexto y las evidencias sugeridas, que estaban en
+  inglés; los nombres de KPI siguen en inglés en todas las versiones, como
+  en `framework.json`.
+- Copias PT-BR y ES de `upgrade-framework-v2.prompt.md`.
+- Sección "Comandos de Copilot Chat" en el README, en los tres idiomas.
 
 ### Cambiado
 
@@ -147,6 +158,17 @@ Todos los cambios notables del kit de cliente AI Maturity. Las fechas están en 
   usan el registro "tú", y el banco en español enlaza las instrucciones de
   Forms en español. La referencia de puntuación en PT-BR ya no usa rayas
   (em dash ni en dash).
+- El agente, las instrucciones y el prompt de pipeline de Copilot
+  responden en el idioma de quien los usa y generan las salidas en el
+  idioma del cliente (`metadata.language`, `--lang`); las descripciones de
+  las skills también incluyen frases de activación en español. Los
+  archivos de `.github/` siguen en inglés porque los lee el modelo.
+- Los bancos de preguntas v1 en EN y ES traen las preguntas y los nombres
+  de pilares y capabilities en su propio idioma (el importador asocia las
+  columnas por ID), con opciones sin rayas.
+- `check_language_coverage.py` exige los tres idiomas también para los
+  docs de v1 y verifica que cada asistente HTML tenga las copias
+  `.pt-br.html` y `.es.html`.
 
 ### Corregido
 
@@ -161,6 +183,18 @@ Todos los cambios notables del kit de cliente AI Maturity. Las fechas están en 
 - Seis archivos `SKILL.md` tenían front matter YAML no válido.
 - `referencia/pontuacao-e-calculo.xlsx` almacenaba texto explicativo como
   fórmulas rotas.
+- La calculadora v1 y el banco de preguntas v1 en inglés mostraban las
+  preguntas en portugués; algunas preguntas v1 en inglés listaban la
+  audiencia "Arquiteto".
+- Los README del ejemplo v1 en `referencia/exemplo-saida/v1/en/` y `es/`
+  estaban en el idioma equivocado o apuntaban a rutas antiguas.
+- La calculadora v1 nunca actualizaba los puntajes de los pilares y el
+  general después de la primera respuesta (las tarjetas de los pilares
+  perdían sus clases de marcado), y los formularios visuales v1 apuntaban
+  a un CSS de branding inexistente.
+- Los docs, el banco de preguntas, las instrucciones de Forms, los
+  formularios visuales y la calculadora de v1 en portugués ya no usan
+  rayas (em dash ni en dash) como separadores.
 
 ### Archivado
 

@@ -9,7 +9,7 @@ Framework v2 es el modelo de referencia predeterminado. El material v1 sigue arc
 | [framework-v2.es.md](framework-v2.es.md) | Guía del framework v2 generada con reglas de puntuación, notas de alcance, crosswalk y referencias. |
 | [dimensoes/](dimensoes/) | Páginas generadas por dimensión para D1 a D9 en EN, PT-BR y ES. |
 | [calculadora-pontuacao.es.html](calculadora-pontuacao.es.html) | Calculadora what-if v2 trilingüe generada, que se abre en español. En el repositorio, `calculadora-pontuacao.html` sigue el idioma del navegador y `calculadora-pontuacao.pt-br.html` se abre en portugués; cada paquete de idioma entrega su copia como `calculadora-pontuacao.html`. Carga `saida/scores.json`, ajusta pesos y objetivos, e inspecciona nivel, brecha, prioridad, horizonte, riesgo de amplificación y estrategias. |
-| [v1/calculadora-pontuacao.html](v1/calculadora-pontuacao.html) | Calculadora v1 archivada. |
+| [v1/calculadora-pontuacao.html](v1/calculadora-pontuacao.es.html) | Calculadora v1 archivada. |
 | [exemplo-saida/](exemplo-saida/) | Salidas v2 ilustrativas, incluidos 5 PDFs, PDF de comparación, workbook, escaneo de repo, telemetría, encuestas y entradas del wizard. |
 | [v1/](v1/) | Referencias y ejemplos de pilares v1 archivados. |
 | [branding/](branding/) | Guía de marca y voz. |
