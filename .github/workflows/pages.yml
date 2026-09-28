@@ -30,6 +30,13 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Check generated files are current
+        run: |
+          python3 scripts/generate_v2_collection.py --check
+          python3 scripts/generate_v2_reference.py --check
+          python3 scripts/generate_v2_tools_html.py --check
+          python3 scripts/build_kit_docs.py --check
+
       - name: Build public ZIP downloads
         run: python3 scripts/build_language_kits.py --out docs/downloads --clean
 

@@ -51,13 +51,26 @@ REQUIRED_FRAMEWORK_V2 = [
     "formularios/assessment-v2.html",
     "coleta/INSTRUCOES-FORMS.md",
     "coleta/INSTRUCOES-FORMS.pt-br.md",
+    "wizard/implementation-guide-wizard.html",
+    "wizard/implementation-guide-wizard.pt-br.html",
+    "wizard/implementation-guide-inputs.template.json",
+    "referencia/calculadora-pontuacao.html",
+    "referencia/calculadora-pontuacao.pt-br.html",
+] + [
+    f"referencia/framework-v2{suffix}" for suffix in
+    (".md", ".pt-br.md", ".es.md")
+] + [
+    f"referencia/dimensoes/{name}{suffix}"
+    for name in ["README"] + [f"D{n}" for n in range(1, 10)]
+    for suffix in (".md", ".pt-br.md", ".es.md")
 ]
 
 REQUIRED_REFERENCE_OUTPUTS = [
     f"referencia/exemplo-saida/{sub}{name}.pdf"
     for sub in ("", "en/", "es/")
     for name in ("v2_assessment_summary", "v2_roadmap_g1",
-                 "v2_roadmap_g2", "v2_roadmap_g3")
+                 "v2_roadmap_g2", "v2_roadmap_g3",
+                 "v2_implementation_guide", "comparacao-rodadas")
 ]
 
 
@@ -93,6 +106,39 @@ def framework_v2_languages() -> int:
     if not missing:
         print("  OK every text has en, pt-br and es")
     return len(missing)
+
+
+def heading_levels(rel: str) -> list[int]:
+    import re
+
+    levels, fence = [], False
+    for line in (ROOT / rel).read_text(encoding="utf-8").splitlines():
+        if line.startswith("```"):
+            fence = not fence
+            continue
+        if not fence and re.match(r"^#{1,6} ", line):
+            levels.append(len(line.split(" ")[0]))
+    return levels
+
+
+def spanish_guides_parity() -> int:
+    """kit-es/ translations must keep the headings of the EN sources."""
+    import sys
+
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from build_kit_docs import ES_TWINS
+
+    print("\nSpanish guides keep the structure of the English sources")
+    drift = 0
+    for source, twin in ES_TWINS.items():
+        if not exists(twin):
+            print(f"  MISS {twin}")
+            drift += 1
+            continue
+        same = heading_levels(source) == heading_levels(twin)
+        print(f"  {'OK' if same else 'DRIFT'} {source} <-> {twin}")
+        drift += 0 if same else 1
+    return drift
 
 
 def exists(rel: str) -> bool:
@@ -143,6 +189,11 @@ def print_translated_docs() -> int:
     for base, copy in pairs:
         # The glob found the copy, so only the base can be missing.
         if exists(base):
+            if copy.endswith(".md") and \
+                    heading_levels(base) != heading_levels(copy):
+                print(f"  DRIFT {base} <-> {copy} (headings differ)")
+                missing += 1
+                continue
             print(f"  OK {base} <-> {copy}")
         else:
             print(f"  MISS {base} (EN base missing for {copy})")
@@ -175,6 +226,7 @@ def main() -> int:
         REQUIRED_REFERENCE_OUTPUTS,
     )
     required_missing += print_translated_docs()
+    required_missing += spanish_guides_parity()
 
     print("\nSummary")
     print(f"  Required missing: {required_missing}")
