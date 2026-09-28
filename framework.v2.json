@@ -4041,8 +4041,8 @@
     },
     {
       "n": 8,
-      "text": "GitHub Docs. _Best practices for using GitHub Copilot to work on tasks_. <https://docs.github.com/enterprise-cloud@latest/copilot/tutorials/cloud-agent/get-the-best-results>",
-      "url": "https://docs.github.com/enterprise-cloud@latest/copilot/tutorials/cloud-agent/get-the-best-results"
+      "text": "GitHub Docs. _Best practices for using GitHub Copilot to work on tasks_. <https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/cloud-agent/get-the-best-results>",
+      "url": "https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/cloud-agent/get-the-best-results"
     },
     {
       "n": 9,
@@ -4061,8 +4061,8 @@
     },
     {
       "n": 12,
-      "text": "GitHub Docs. _About GitHub Copilot code review_. <https://docs.github.com/copilot/concepts/agents/code-review>",
-      "url": "https://docs.github.com/copilot/concepts/agents/code-review"
+      "text": "GitHub Docs. _About GitHub Copilot code review_. <https://docs.github.com/en/copilot/concepts/agents/code-review>",
+      "url": "https://docs.github.com/en/copilot/concepts/agents/code-review"
     },
     {
       "n": 13,
