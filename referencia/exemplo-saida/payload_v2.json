@@ -7531,11 +7531,11 @@
         },
         {
           "n": 8,
-          "text": "GitHub Docs. Best practices for using GitHub Copilot to work on tasks. https://docs.github.com/enterprise-cloud@latest/copilot/tutorials/cloud-agent/get-the-best-results"
+          "text": "GitHub Docs. Best practices for using GitHub Copilot to work on tasks. https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/cloud-agent/get-the-best-results"
         },
         {
           "n": 12,
-          "text": "GitHub Docs. About GitHub Copilot code review. https://docs.github.com/copilot/concepts/agents/code-review"
+          "text": "GitHub Docs. About GitHub Copilot code review. https://docs.github.com/en/copilot/concepts/agents/code-review"
         },
         {
           "n": 14,
@@ -8885,7 +8885,7 @@
         },
         {
           "n": 8,
-          "text": "GitHub Docs. Best practices for using GitHub Copilot to work on tasks. https://docs.github.com/enterprise-cloud@latest/copilot/tutorials/cloud-agent/get-the-best-results"
+          "text": "GitHub Docs. Best practices for using GitHub Copilot to work on tasks. https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/cloud-agent/get-the-best-results"
         },
         {
           "n": 16,
@@ -8957,11 +8957,11 @@
     },
     {
       "n": 8,
-      "text": "GitHub Docs. Best practices for using GitHub Copilot to work on tasks. https://docs.github.com/enterprise-cloud@latest/copilot/tutorials/cloud-agent/get-the-best-results"
+      "text": "GitHub Docs. Best practices for using GitHub Copilot to work on tasks. https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/cloud-agent/get-the-best-results"
     },
     {
       "n": 12,
-      "text": "GitHub Docs. About GitHub Copilot code review. https://docs.github.com/copilot/concepts/agents/code-review"
+      "text": "GitHub Docs. About GitHub Copilot code review. https://docs.github.com/en/copilot/concepts/agents/code-review"
     },
     {
       "n": 14,
@@ -9147,7 +9147,7 @@
           "owner": "Eng Lead"
         },
         {
-          "audience": "Copilot Spaces (contexto compartilhado) (5)",
+          "audience": "Copilot Spaces (shared context) (5)",
           "channel": "4h hands-on",
           "frequency": "W2",
           "owner": "Maria Tech Leader"
@@ -9159,7 +9159,7 @@
           "owner": "Maria Tech Leader"
         },
         {
-          "audience": "Microsoft Foundry — visão geral (4)",
+          "audience": "Microsoft Foundry overview (4)",
           "channel": "4h hands-on",
           "frequency": "W4",
           "owner": "Maria Tech Leader"
@@ -9180,47 +9180,47 @@
       "training_plan": [
         {
           "audience": "DS-D2 (Copilot Adoption): 3 devs",
-          "format": "Self-paced (meu ritmo, mais flexibilidade)",
+          "format": "Self-paced (my pace, more flexibility)",
           "cadence": "4-6 week cohort with live sessions and a self-paced lab"
         },
         {
           "audience": "DS-D3 (MS/GH Tooling Breadth): 3 devs",
-          "format": "Self-paced (meu ritmo, mais flexibilidade)",
+          "format": "Self-paced (my pace, more flexibility)",
           "cadence": "4-6 week cohort with live sessions and a self-paced lab"
         },
         {
           "audience": "DS-D4 (AI Dev Practices): 1 devs",
-          "format": "Self-paced (meu ritmo, mais flexibilidade)",
+          "format": "Self-paced (my pace, more flexibility)",
           "cadence": "4-6 week cohort with live sessions and a self-paced lab"
         },
         {
           "audience": "DS-D5 (Agent Concepts Mastery): 2 devs",
-          "format": "Self-paced (meu ritmo, mais flexibilidade)",
+          "format": "Self-paced (my pace, more flexibility)",
           "cadence": "4-6 week cohort with live sessions and a self-paced lab"
         },
         {
           "audience": "DS-D6 (Instructions Maturity): 4 devs",
-          "format": "Self-paced (meu ritmo, mais flexibilidade)",
+          "format": "Self-paced (my pace, more flexibility)",
           "cadence": "4-6 week cohort with live sessions and a self-paced lab"
         },
         {
           "audience": "DS-D7 (Best Practices): 3 devs",
-          "format": "Self-paced (meu ritmo, mais flexibilidade)",
+          "format": "Self-paced (my pace, more flexibility)",
           "cadence": "4-6 week cohort with live sessions and a self-paced lab"
         },
         {
           "audience": "DS-D8 (Security & Governance): 2 devs",
-          "format": "Self-paced (meu ritmo, mais flexibilidade)",
+          "format": "Self-paced (my pace, more flexibility)",
           "cadence": "4-6 week cohort with live sessions and a self-paced lab"
         }
       ],
-      "adkar_notes": "ADKAR Change Plan derived from the Learning Survey:\n\n**Awareness:** Share the consolidated training plan in an all-hands; each dev receives a personalized plan by email.\n\n**Desire:** Make it visible that workshops have pre-validated attendees (not a generic opt-in).\n\n**Knowledge:** Top 5 workshops (from the Learning Survey):\n1. Copilot Spaces (contexto compartilhado) (5 attendees)\n2. A2A (Agent-to-Agent) protocol (4 attendees)\n3. Microsoft Foundry — visão geral (4 attendees)\n4. Documentação automática (4 attendees)\n5. Modo Ask (perguntas eficazes) (3 attendees)\n\n**Ability:** Biweekly office hours (no fixed agenda; devs bring practical questions).\n\n**Reinforcement:** Monthly adoption metrics published; recognition for Champions; quarterly plan review with a new Learning Survey.",
+      "adkar_notes": "ADKAR Change Plan derived from the Learning Survey:\n\n**Awareness:** Share the consolidated training plan in an all-hands; each dev receives a personalized plan by email.\n\n**Desire:** Make it visible that workshops have pre-validated attendees (not a generic opt-in).\n\n**Knowledge:** Top 5 workshops (from the Learning Survey):\n1. Copilot Spaces (shared context) (5 attendees)\n2. A2A (Agent-to-Agent) protocol (4 attendees)\n3. Microsoft Foundry overview (4 attendees)\n4. Automatic documentation (4 attendees)\n5. Ask mode (effective questions) (3 attendees)\n\n**Ability:** Biweekly office hours (no fixed agenda; devs bring practical questions).\n\n**Reinforcement:** Monthly adoption metrics published; recognition for Champions; quarterly plan review with a new Learning Survey.",
       "risk_register": null,
       "quick_wins_w1_4": [
         "W1: Champions Kickoff",
-        "W2: Copilot Spaces (contexto compartilhado)",
+        "W2: Copilot Spaces (shared context)",
         "W3: A2A (Agent-to-Agent) protocol",
-        "W4: Microsoft Foundry — visão geral",
+        "W4: Microsoft Foundry overview",
         "W4: Office hours #1"
       ],
       "quick_wins_w5_8": null,
@@ -17318,11 +17318,11 @@
       },
       {
         "n": 8,
-        "text": "GitHub Docs. Best practices for using GitHub Copilot to work on tasks. https://docs.github.com/enterprise-cloud@latest/copilot/tutorials/cloud-agent/get-the-best-results"
+        "text": "GitHub Docs. Best practices for using GitHub Copilot to work on tasks. https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/cloud-agent/get-the-best-results"
       },
       {
         "n": 12,
-        "text": "GitHub Docs. About GitHub Copilot code review. https://docs.github.com/copilot/concepts/agents/code-review"
+        "text": "GitHub Docs. About GitHub Copilot code review. https://docs.github.com/en/copilot/concepts/agents/code-review"
       },
       {
         "n": 14,

@@ -4,7 +4,7 @@
 # Developer Survey: Relatório de Insights
 
 **Data:** 2026-09-28  ·  **Respondentes:** 5 (anônimos)  ·  **Versão da rubrica:** 1.0
-**Autor:** Paula Silva | Global Developer Solutions Advisor  ·  **Contato:** paulasilva@microsoft.com
+**Autor:** Paula Silva | Global Developer Solutions Advisor  ·  **Contato:** <paulasilva@microsoft.com>
 
 ---
 
@@ -26,16 +26,19 @@
 | DS-D8 Security & Governance | **1.92** | L2 Definido | 20% |
 
 ### 🏆 3 dimensões mais fortes
+
 - **DS-D7** Best Practices: score **2.91** (L3 Gerenciado)
 - **DS-D4** AI Dev Practices: score **2.68** (L3 Gerenciado)
 - **DS-D5** Agent Concepts Mastery: score **2.56** (L3 Gerenciado)
 
 ### ⚠️ 3 maiores gaps (oportunidades de roadmap)
+
 - 🔴 **DS-D2** Copilot Adoption: score **0.80** (L1 Em Desenvolvimento)
 - 🔴 **DS-D8** Security & Governance: score **1.92** (L2 Definido)
 - 🔴 **DS-D6** Instructions Maturity: score **2.31** (L2 Definido)
 
 ### 💡 3 insights principais
+
 1. **Underutilization de Coding Agent:** apenas 20% conhece/usa Coding Agent autônomo (S2-Q3): tópico de workshop urgente
 
 ---
@@ -43,6 +46,7 @@
 ## 2 · Demografia (S1)
 
 ### Distribuição por cargo
+
 | Cargo | N | % |
 |---|---|---|
 | Full-Stack | 2 | 40% |
@@ -55,14 +59,16 @@
 ## 3 · GitHub Copilot: Adoção e Modos (S2)
 
 ### Cobertura de licenças (S2-Q1)
+
 | Tipo | N | % |
 |---|---|---|
-| Sim — Copilot Pro (individual) | 2 | 40% |
+| Sim, Copilot Pro (individual) | 2 | 40% |
 | Tenho licença mas não uso | 1 | 20% |
-| Sim — Copilot Enterprise | 1 | 20% |
-| Sim — Copilot Business | 1 | 20% |
+| Sim, Copilot Enterprise | 1 | 20% |
+| Sim, Copilot Business | 1 | 20% |
 
 ### Frequência de uso (S2-Q2)
+
 | Frequência | N | % |
 |---|---|---|
 | Diariamente (várias horas) | 2 | 40% |
@@ -70,16 +76,18 @@
 | Nunca | 1 | 20% |
 
 ### 🆕 Modos do Copilot Chat usados (S2-Q3, multi-select)
+
 | Modo | N usuários | % devs |
 |---|---|---|
 | Ask (responder perguntas) | 3 | 60% |
 | Edit (edição multi-arquivo no IDE) | 2 | 40% |
 | Plan / Vision | 2 | 40% |
 | Agent (autônomo no IDE, executa tasks) | 2 | 40% |
-| Não uso o Chat — só completion inline | 2 | 40% |
-| Copilot Coding Agent (autônomo no GitHub.com — assigna issue, abre PR sozinho) | 1 | 20% |
+| Não uso o Chat, só completion inline | 2 | 40% |
+| Copilot Coding Agent (autônomo no GitHub.com, assigna issue, abre PR sozinho) | 1 | 20% |
 
 ### Features ativas (S2-Q5, multi-select): Top 8
+
 | Feature | N | % devs |
 |---|---|---|
 | Copilot Coding Agent (tarefas autônomas) | 2 | 40% |
@@ -92,6 +100,7 @@
 | Chat (perguntas no IDE) | 1 | 20% |
 
 ### Ganho de produtividade percebido (S2-Q7)
+
 | Faixa | N | % |
 |---|---|---|
 | Neutro (sem ganho) | 2 | 40% |
@@ -104,6 +113,7 @@
 ## 4 · Outras ferramentas Microsoft / GitHub AI (S3)
 
 ### Adoção (S3-Q1, multi-select)
+
 | Ferramenta | N usuários | % devs |
 |---|---|---|
 | Azure OpenAI Service (direto via API) | 2 | 40% |
@@ -122,6 +132,7 @@
 ## 5 · Práticas de Desenvolvimento com IA (S4)
 
 ### TDD com IA (S4-Q1)
+
 | Frequência | N | % |
 |---|---|---|
 | Às vezes | 2 | 40% |
@@ -129,6 +140,7 @@
 | Frequentemente | 1 | 20% |
 
 ### SDD (Spec-Driven Development) (S4-Q2)
+
 | Conhecimento | N | % |
 |---|---|---|
 | Uso ativamente (com Spec Kit ou similar) | 3 | 60% |
@@ -139,14 +151,15 @@
 ## 6 · Conceitos de Agentes (S5)
 
 ### Conhecimento por conceito
+
 | Conceito | Distribuição |
 |---|---|
-| **S5-Q1** AI agent | Sim — vagamente=2, Sim — explico claramente=2, Não sei a diferença=1 |
+| **S5-Q1** AI agent | Sim, vagamente=2, Sim, explico claramente=2, Não sei a diferença=1 |
 | **S5-Q3** Custom agents (.agent.md) | Já criei=2, Já usei mas não criei=2, Não sabia que era possível=1 |
 | **S5-Q4** Skills (SKILL.md) | Conheço e uso=4, Conheço mas não uso=1 |
-| **S5-Q5** Prompt files (.prompt.md) | Sim — uma ou duas=3, Sim — várias=2 |
+| **S5-Q5** Prompt files (.prompt.md) | Sim, uma ou duas=3, Sim, várias=2 |
 | **S5-Q6** A2A protocol | Conheço o conceito=2, Não conheço=2, Uso (ex.: Foundry A2A Tool)=1 |
-| **S5-Q9** Personas Agentic DevOps | Não conheço=3, Conheço o conceito=1, Sim — adoto explicitamente=1 |
+| **S5-Q9** Personas Agentic DevOps | Não conheço=3, Conheço o conceito=1, Sim, adoto explicitamente=1 |
 
 **Insight:** apenas 60% conhece MCP: conceitos avançados (A2A, handoffs, subagentes, personas) são desconhecidos pela maioria. Oportunidade de workshop técnico.
 
@@ -155,6 +168,7 @@
 ## 7 · Markdown / Memory / Instructions (S6)
 
 ### Arquivos de instruções usados (S6-Q1, multi)
+
 | Arquivo | N usuários | % |
 |---|---|---|
 | .github/instructions/*.instructions.md | 4 | 80% |
@@ -168,13 +182,15 @@
 ## 8 · Usabilidade e Best Practices (S7)
 
 ### Champions no time (S7-Q2)
+
 | Resposta | N | % |
 |---|---|---|
-| Sim — eu sou | 3 | 60% |
+| Sim, eu sou | 3 | 60% |
 | Não, mas precisava ter | 1 | 20% |
-| Sim — outra pessoa | 1 | 20% |
+| Sim, outra pessoa | 1 | 20% |
 
 ### Métricas de produtividade (S7-Q4, multi)
+
 | Framework | N | % |
 |---|---|---|
 | SPACE framework | 5 | 100% |
@@ -188,13 +204,15 @@
 ## 9 · 🔒 Segurança e Governança (S8)
 
 ### Política documentada (S8-Q1)
+
 | Resposta | N | % |
 |---|---|---|
-| Sim — mas pouco clara | 3 | 60% |
+| Sim, mas pouco clara | 3 | 60% |
 | Política informal (sem documento) | 1 | 20% |
-| Sim — política formal e clara | 1 | 20% |
+| Sim, política formal e clara | 1 | 20% |
 
 ### Ferramentas de segurança ativas (S8-Q4, multi)
+
 | Ferramenta | N | % |
 |---|---|---|
 | Dependabot / dependency review | 3 | 60% |
@@ -241,11 +259,10 @@ Se você rodou o assessment principal, compare:
 
 ---
 
-*Relatório gerado pela skill `/insights-developer-survey` · Rubrica determinística v1.0 · 2026-09-28*
-
+_Relatório gerado pela skill `/insights-developer-survey` · Rubrica determinística v1.0 · 2026-09-28_
 
 ---
 
-<sub>**Paula Silva** | Global Developer Solutions Advisor · paulasilva@microsoft.com</sub>  
+<sub>**Paula Silva** | Global Developer Solutions Advisor · <paulasilva@microsoft.com></sub>  
 <sub>Building the future of software development with AI and Agentic DevOps</sub>  
 <sub>Identidade visual: paulasilva-ms Design System v1.7.0 · ver `referencia/branding/`</sub>

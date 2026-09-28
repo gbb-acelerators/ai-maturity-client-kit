@@ -4,7 +4,7 @@
 # Plano de Capacitação IA: Roadmap Personalizado
 
 **Data:** 2026-09-28  ·  **Respondentes:** 5 (identificados)  ·  Survey: Learning & Growth (32 perguntas)
-**Autor:** Paula Silva | Global Developer Solutions Advisor  ·  **Contato:** paulasilva@microsoft.com
+**Autor:** Paula Silva | Global Developer Solutions Advisor  ·  **Contato:** <paulasilva@microsoft.com>
 
 ---
 
@@ -32,7 +32,7 @@
 
 1. **Copilot Spaces (contexto compartilhado)**: 5 devs (100%)
 2. **A2A (Agent-to-Agent) protocol**: 4 devs (80%)
-3. **Microsoft Foundry — visão geral**: 4 devs (80%)
+3. **Microsoft Foundry, visão geral**: 4 devs (80%)
 4. **Documentação automática**: 4 devs (80%)
 5. **Modo Ask (perguntas eficazes)**: 3 devs (60%)
 6. **Test generation**: 3 devs (60%)
@@ -62,131 +62,148 @@
 **Demanda:** 5/5 devs (100%)
 
 **Inscritos pré-validados** (já confirmados na resposta):
-- Maria Tech Leader (maria.tl@cliente-exemplo.com.br)
-- Joao Backend SRE (joao.sre@cliente-exemplo.com.br)
-- Ana Security Lead (ana.sec@cliente-exemplo.com.br)
-- Pedro Junior Dev (pedro.jr@cliente-exemplo.com.br)
-- Sofia Frontend Lead (sofia.fe@cliente-exemplo.com.br)
+
+- Maria Tech Leader (<maria.tl@cliente-exemplo.com.br>)
+- Joao Backend SRE (<joao.sre@cliente-exemplo.com.br>)
+- Ana Security Lead (<ana.sec@cliente-exemplo.com.br>)
+- Pedro Junior Dev (<pedro.jr@cliente-exemplo.com.br>)
+- Sofia Frontend Lead (<sofia.fe@cliente-exemplo.com.br>)
 
 ### 2. A2A (Agent-to-Agent) protocol: 4 inscritos
 
 **Demanda:** 4/5 devs (80%)
 
 **Inscritos pré-validados** (já confirmados na resposta):
-- Maria Tech Leader (maria.tl@cliente-exemplo.com.br)
-- Joao Backend SRE (joao.sre@cliente-exemplo.com.br)
-- Pedro Junior Dev (pedro.jr@cliente-exemplo.com.br)
-- Sofia Frontend Lead (sofia.fe@cliente-exemplo.com.br)
 
-### 3. Microsoft Foundry — visão geral: 4 inscritos
+- Maria Tech Leader (<maria.tl@cliente-exemplo.com.br>)
+- Joao Backend SRE (<joao.sre@cliente-exemplo.com.br>)
+- Pedro Junior Dev (<pedro.jr@cliente-exemplo.com.br>)
+- Sofia Frontend Lead (<sofia.fe@cliente-exemplo.com.br>)
+
+### 3. Microsoft Foundry, visão geral: 4 inscritos
 
 **Demanda:** 4/5 devs (80%)
 
 **Inscritos pré-validados** (já confirmados na resposta):
-- Maria Tech Leader (maria.tl@cliente-exemplo.com.br)
-- Joao Backend SRE (joao.sre@cliente-exemplo.com.br)
-- Ana Security Lead (ana.sec@cliente-exemplo.com.br)
-- Pedro Junior Dev (pedro.jr@cliente-exemplo.com.br)
+
+- Maria Tech Leader (<maria.tl@cliente-exemplo.com.br>)
+- Joao Backend SRE (<joao.sre@cliente-exemplo.com.br>)
+- Ana Security Lead (<ana.sec@cliente-exemplo.com.br>)
+- Pedro Junior Dev (<pedro.jr@cliente-exemplo.com.br>)
 
 ### 4. Documentação automática: 4 inscritos
 
 **Demanda:** 4/5 devs (80%)
 
 **Inscritos pré-validados** (já confirmados na resposta):
-- Maria Tech Leader (maria.tl@cliente-exemplo.com.br)
-- Ana Security Lead (ana.sec@cliente-exemplo.com.br)
-- Pedro Junior Dev (pedro.jr@cliente-exemplo.com.br)
-- Sofia Frontend Lead (sofia.fe@cliente-exemplo.com.br)
+
+- Maria Tech Leader (<maria.tl@cliente-exemplo.com.br>)
+- Ana Security Lead (<ana.sec@cliente-exemplo.com.br>)
+- Pedro Junior Dev (<pedro.jr@cliente-exemplo.com.br>)
+- Sofia Frontend Lead (<sofia.fe@cliente-exemplo.com.br>)
 
 ### 5. Modo Ask (perguntas eficazes): 3 inscritos
 
 **Demanda:** 3/5 devs (60%)
 
 **Inscritos pré-validados** (já confirmados na resposta):
-- Maria Tech Leader (maria.tl@cliente-exemplo.com.br)
-- Ana Security Lead (ana.sec@cliente-exemplo.com.br)
-- Sofia Frontend Lead (sofia.fe@cliente-exemplo.com.br)
+
+- Maria Tech Leader (<maria.tl@cliente-exemplo.com.br>)
+- Ana Security Lead (<ana.sec@cliente-exemplo.com.br>)
+- Sofia Frontend Lead (<sofia.fe@cliente-exemplo.com.br>)
 
 ### 6. Test generation: 3 inscritos
 
 **Demanda:** 3/5 devs (60%)
 
 **Inscritos pré-validados** (já confirmados na resposta):
-- Maria Tech Leader (maria.tl@cliente-exemplo.com.br)
-- Joao Backend SRE (joao.sre@cliente-exemplo.com.br)
-- Ana Security Lead (ana.sec@cliente-exemplo.com.br)
+
+- Maria Tech Leader (<maria.tl@cliente-exemplo.com.br>)
+- Joao Backend SRE (<joao.sre@cliente-exemplo.com.br>)
+- Ana Security Lead (<ana.sec@cliente-exemplo.com.br>)
 
 ### 7. Code review com IA antes de PR: 3 inscritos
 
 **Demanda:** 3/5 devs (60%)
 
 **Inscritos pré-validados** (já confirmados na resposta):
-- Maria Tech Leader (maria.tl@cliente-exemplo.com.br)
-- Joao Backend SRE (joao.sre@cliente-exemplo.com.br)
-- Ana Security Lead (ana.sec@cliente-exemplo.com.br)
+
+- Maria Tech Leader (<maria.tl@cliente-exemplo.com.br>)
+- Joao Backend SRE (<joao.sre@cliente-exemplo.com.br>)
+- Ana Security Lead (<ana.sec@cliente-exemplo.com.br>)
 
 ### 8. Testar agents (test suites para prompts/skills): 3 inscritos
 
 **Demanda:** 3/5 devs (60%)
 
 **Inscritos pré-validados** (já confirmados na resposta):
-- Maria Tech Leader (maria.tl@cliente-exemplo.com.br)
-- Pedro Junior Dev (pedro.jr@cliente-exemplo.com.br)
-- Sofia Frontend Lead (sofia.fe@cliente-exemplo.com.br)
+
+- Maria Tech Leader (<maria.tl@cliente-exemplo.com.br>)
+- Pedro Junior Dev (<pedro.jr@cliente-exemplo.com.br>)
+- Sofia Frontend Lead (<sofia.fe@cliente-exemplo.com.br>)
 
 ### 9. SBOM (Software Bill of Materials): 3 inscritos
 
 **Demanda:** 3/5 devs (60%)
 
 **Inscritos pré-validados** (já confirmados na resposta):
-- Maria Tech Leader (maria.tl@cliente-exemplo.com.br)
-- Joao Backend SRE (joao.sre@cliente-exemplo.com.br)
-- Pedro Junior Dev (pedro.jr@cliente-exemplo.com.br)
+
+- Maria Tech Leader (<maria.tl@cliente-exemplo.com.br>)
+- Joao Backend SRE (<joao.sre@cliente-exemplo.com.br>)
+- Pedro Junior Dev (<pedro.jr@cliente-exemplo.com.br>)
 
 ### 10. Vulnerabilidades comuns em código gerado por IA: 3 inscritos
 
 **Demanda:** 3/5 devs (60%)
 
 **Inscritos pré-validados** (já confirmados na resposta):
-- Joao Backend SRE (joao.sre@cliente-exemplo.com.br)
-- Pedro Junior Dev (pedro.jr@cliente-exemplo.com.br)
-- Sofia Frontend Lead (sofia.fe@cliente-exemplo.com.br)
+
+- Joao Backend SRE (<joao.sre@cliente-exemplo.com.br>)
+- Pedro Junior Dev (<pedro.jr@cliente-exemplo.com.br>)
+- Sofia Frontend Lead (<sofia.fe@cliente-exemplo.com.br>)
 
 ---
 
 ## 3 · Cohorts sugeridos por dimensão da rubrica
 
 ### Cohort DS-D2 (Copilot Adoption)
+
 - **3 devs querem evoluir nesta dimensão**
 - **Formato preferido pelo time:** Self-paced (meu ritmo, mais flexibilidade)
 - **Plano:** cohort de 4-6 semanas com sessões síncronas + lab self-paced
 
 ### Cohort DS-D3 (MS/GH Tooling Breadth)
+
 - **3 devs querem evoluir nesta dimensão**
 - **Formato preferido pelo time:** Self-paced (meu ritmo, mais flexibilidade)
 - **Plano:** cohort de 4-6 semanas com sessões síncronas + lab self-paced
 
 ### Cohort DS-D4 (AI Dev Practices)
+
 - **1 devs querem evoluir nesta dimensão**
 - **Formato preferido pelo time:** Self-paced (meu ritmo, mais flexibilidade)
 - **Plano:** cohort de 4-6 semanas com sessões síncronas + lab self-paced
 
 ### Cohort DS-D5 (Agent Concepts Mastery)
+
 - **2 devs querem evoluir nesta dimensão**
 - **Formato preferido pelo time:** Self-paced (meu ritmo, mais flexibilidade)
 - **Plano:** cohort de 4-6 semanas com sessões síncronas + lab self-paced
 
 ### Cohort DS-D6 (Instructions Maturity)
+
 - **4 devs querem evoluir nesta dimensão**
 - **Formato preferido pelo time:** Self-paced (meu ritmo, mais flexibilidade)
 - **Plano:** cohort de 4-6 semanas com sessões síncronas + lab self-paced
 
 ### Cohort DS-D7 (Best Practices)
+
 - **3 devs querem evoluir nesta dimensão**
 - **Formato preferido pelo time:** Self-paced (meu ritmo, mais flexibilidade)
 - **Plano:** cohort de 4-6 semanas com sessões síncronas + lab self-paced
 
 ### Cohort DS-D8 (Security & Governance)
+
 - **2 devs querem evoluir nesta dimensão**
 - **Formato preferido pelo time:** Self-paced (meu ritmo, mais flexibilidade)
 - **Plano:** cohort de 4-6 semanas com sessões síncronas + lab self-paced
@@ -196,25 +213,29 @@
 ## 4 · Champions Network (3 tiers)
 
 ### 🥇 Ativos (já querem ser Champion)
+
 | Nome | Email | Próximo passo |
 | --- | --- | --- |
-| Maria Tech Leader | maria.tl@cliente-exemplo.com.br | Convidar para train-the-trainer |
-| Joao Backend SRE | joao.sre@cliente-exemplo.com.br | Convidar para train-the-trainer |
-| Sofia Frontend Lead | sofia.fe@cliente-exemplo.com.br | Convidar para train-the-trainer |
+| Maria Tech Leader | <maria.tl@cliente-exemplo.com.br> | Convidar para train-the-trainer |
+| Joao Backend SRE | <joao.sre@cliente-exemplo.com.br> | Convidar para train-the-trainer |
+| Sofia Frontend Lead | <sofia.fe@cliente-exemplo.com.br> | Convidar para train-the-trainer |
 
 ### 🥈 Com suporte (querem se tiver treino dedicado)
+
 _(nenhum)_
 
 ### 🤝 Mentor candidates (se ofereceram em L6-Q4)
+
 | Nome | Email | Tópico que ensina |
 | --- | --- | --- |
-| Pedro Junior Dev | pedro.jr@cliente-exemplo.com.br | [texto livre exemplo de Pedro Junior Dev] |
-| Sofia Frontend Lead | sofia.fe@cliente-exemplo.com.br | [texto livre exemplo de Sofia Frontend Lead] |
+| Pedro Junior Dev | <pedro.jr@cliente-exemplo.com.br> | [texto livre exemplo de Pedro Junior Dev] |
+| Sofia Frontend Lead | <sofia.fe@cliente-exemplo.com.br> | [texto livre exemplo de Sofia Frontend Lead] |
 
 ### 🎓 Mentees (querem mentoria 1:1)
+
 | Nome | Email |
 | --- | --- |
-| Maria Tech Leader | maria.tl@cliente-exemplo.com.br |
+| Maria Tech Leader | <maria.tl@cliente-exemplo.com.br> |
 
 ---
 
@@ -225,7 +246,7 @@ _(nenhum)_
 | W1 | Champions Kickoff | 3 | Líder Eng | 2h síncrono |
 | W2 | Copilot Spaces (contexto compartilhado) | 5 | Maria Tech Leader | 4h hands-on |
 | W3 | A2A (Agent-to-Agent) protocol | 4 | Maria Tech Leader | 4h hands-on |
-| W4 | Microsoft Foundry — visão geral | 4 | Maria Tech Leader | 4h hands-on |
+| W4 | Microsoft Foundry, visão geral | 4 | Maria Tech Leader | 4h hands-on |
 | W4 | Office hours #1 | Todos | Champions | 1h Q&A |
 | W6, W8, W10, W12 | Office hours quinzenal | Todos | Champions | 1h Q&A |
 
@@ -234,6 +255,7 @@ _(nenhum)_
 ## 6 · Formato e cadência preferidos
 
 ### Formatos (top 5: L5-Q1 multi)
+
 | Formato | N | % |
 | --- | --- | --- |
 | Hackathon interno | 3 | 60% |
@@ -243,6 +265,7 @@ _(nenhum)_
 | Curso online self-paced (Coursera, Pluralsight, MS Learn) | 2 | 40% |
 
 ### Tempo disponível por semana (L5-Q2)
+
 | Tempo | N | % |
 | --- | --- | --- |
 | < 1h/semana | 3 | 60% |
@@ -250,6 +273,7 @@ _(nenhum)_
 | Mais de 6h/semana | 1 | 20% |
 
 ### Cohort vs self-paced (L5-Q4)
+
 | Preferência | N | % |
 | --- | --- | --- |
 | Self-paced (meu ritmo, mais flexibilidade) | 2 | 40% |
@@ -323,19 +347,18 @@ Se você rodou também o **Developer Survey** (anônimo) e o **Assessment princi
 
 | Nome | Email | Quer Champion? |
 | --- | --- | --- |
-| Maria Tech Leader | maria.tl@cliente-exemplo.com.br | Sim ativo |
-| Joao Backend SRE | joao.sre@cliente-exemplo.com.br | Sim ativo |
-| Ana Security Lead | ana.sec@cliente-exemplo.com.br | Não |
-| Pedro Junior Dev | pedro.jr@cliente-exemplo.com.br | Não |
-| Sofia Frontend Lead | sofia.fe@cliente-exemplo.com.br | Sim ativo |
+| Maria Tech Leader | <maria.tl@cliente-exemplo.com.br> | Sim ativo |
+| Joao Backend SRE | <joao.sre@cliente-exemplo.com.br> | Sim ativo |
+| Ana Security Lead | <ana.sec@cliente-exemplo.com.br> | Não |
+| Pedro Junior Dev | <pedro.jr@cliente-exemplo.com.br> | Não |
+| Sofia Frontend Lead | <sofia.fe@cliente-exemplo.com.br> | Sim ativo |
 
 ---
 
-*Plano gerado pela skill `/plano-capacitacao` · 2026-09-28 · Sobrescreva editando manualmente o .md*
-
+_Plano gerado pela skill `/plano-capacitacao` · 2026-09-28 · Sobrescreva editando manualmente o .md_
 
 ---
 
-<sub>**Paula Silva** | Global Developer Solutions Advisor · paulasilva@microsoft.com</sub>  
+<sub>**Paula Silva** | Global Developer Solutions Advisor · <paulasilva@microsoft.com></sub>  
 <sub>Building the future of software development with AI and Agentic DevOps</sub>  
 <sub>Identidade visual: paulasilva-ms Design System v1.7.0 · ver `referencia/branding/`</sub>

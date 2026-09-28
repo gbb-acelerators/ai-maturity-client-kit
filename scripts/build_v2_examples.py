@@ -7,9 +7,10 @@ Runs the real scripts on illustrative inputs, once per language:
   respostas.v2.json.example
 - the evidence cross-checks: a repository scan of generated fixture
   repositories and scripts/fixtures/copilot-usage-*.mock.json
-- the companion surveys on their mocks (PT-BR and EN only, the
-  languages the survey scripts support) and the wizard auto-fill from
-  the training plan, so the implementation guide shows the full flow
+- the companion surveys on their mocks, answered as if the Forms were
+  built in each language (option answers translated through the banks
+  and survey-devs/options.json), and the wizard auto-fill from the
+  training plan, so the implementation guide shows the full flow
 - the round comparison PDF from the v1 example (respostas.json.example)
   to the v2 mock, an indicative baseline through the v1 lineage
 
@@ -30,6 +31,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -39,7 +41,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DEST = ROOT / "referencia" / "exemplo-saida"
 LANGS = {"pt-BR": DEST, "en": DEST / "en", "es": DEST / "es"}
-SURVEY_LANG = {"pt-BR": "pt-br", "en": "en"}
+SURVEY_LANG = {"pt-BR": "pt-br", "en": "en", "es": "es"}
+BANK_KEY = {"pt-br": "", "en": ".en", "es": ".es"}
+OPT_KEY = {"pt-br": "pt", "en": "en", "es": "es"}
 PDFS = ["v2_assessment_summary", "v2_roadmap_g1", "v2_roadmap_g2",
         "v2_roadmap_g3", "v2_implementation_guide", "comparacao-rodadas"]
 TELEMETRY = ROOT / "scripts" / "fixtures" / \
@@ -98,16 +102,65 @@ def make_fixture_repos(base: Path) -> Path:
     return base
 
 
+def bank_options(path: Path) -> dict[str, list[str]]:
+    text = path.read_text(encoding="utf-8")
+    out = {}
+    for block in re.split(r"\n### (?:Question|Pergunta|Pregunta) `",
+                          text)[1:]:
+        qid = block.split("`", 1)[0]
+        m = re.search(r"\n(?:Options|Opções|Opciones):\s*\n(.*?)"
+                      r"(?=\n### |\n## |\n---|\Z)", block, re.S)
+        if m:
+            out[qid] = [ln[2:].strip() for ln in m.group(1).splitlines()
+                        if ln.startswith("- ")]
+    return out
+
+
+def localized_mock(mock: Path, tables: dict[str, dict[str, str]],
+                   dest: Path) -> Path:
+    """The mock as if collected with the Forms built in another language:
+    option answers are translated; free text stays as written."""
+    data = json.loads(mock.read_text(encoding="utf-8"))
+    for person in data.get("respondents", []):
+        for qid, entry in person.get("responses", {}).items():
+            value = entry.get("value") if isinstance(entry, dict) else None
+            table = tables.get(qid)
+            if not isinstance(value, str) or not table:
+                continue
+            parts = [p.strip() for p in value.split(";") if p.strip()]
+            entry["value"] = "; ".join(table.get(p, p) for p in parts)
+    dest.write_text(json.dumps(data, ensure_ascii=False, indent=2),
+                    encoding="utf-8")
+    return dest
+
+
+def survey_mocks(kit: Path, lang: str) -> tuple[Path, Path]:
+    devs = ROOT / "survey-devs" / "respostas-mock-devs.json"
+    learning = ROOT / "survey-learning" / "respostas-mock-learning.json"
+    if lang == "pt-br":
+        return devs, learning
+    options = json.loads((ROOT / "survey-devs" / "options.json").read_text(
+        encoding="utf-8"))
+    devs_tables = {q: {o["pt"]: o[OPT_KEY[lang]] for o in opts}
+                   for q, opts in options.items()}
+    base = ROOT / "survey-learning" / "perguntas-para-forms-learning"
+    pt_bank = bank_options(Path(f"{base}.md"))
+    lang_bank = bank_options(Path(f"{base}{BANK_KEY[lang]}.md"))
+    learning_tables = {q: dict(zip(opts, lang_bank.get(q, opts)))
+                       for q, opts in pt_bank.items()}
+    return (localized_mock(devs, devs_tables, kit / "respostas-devs.json"),
+            localized_mock(learning, learning_tables,
+                           kit / "respostas-learning.json"))
+
+
 def run_surveys(kit: Path, out: Path, lang: str) -> None:
+    devs, learning = survey_mocks(kit, lang)
     run("survey-devs/scripts/calcular_maturidade.py", "--input",
-        "survey-devs/respostas-mock-devs.json", "--out", str(out),
-        "--lang", lang)
+        str(devs), "--out", str(out), "--lang", lang)
     run("survey-devs/scripts/gerar_insights.py", "--input",
-        "survey-devs/respostas-mock-devs.json", "--out", str(out),
-        "--lang", lang)
+        str(devs), "--out", str(out), "--lang", lang)
     run("survey-learning/scripts/gerar_plano_capacitacao.py", "--input",
-        "survey-learning/respostas-mock-learning.json", "--out", str(out),
-        "--lang", lang)
+        str(learning), "--out", str(out), "--lang", lang)
     plan = next(out.glob("plano-capacitacao-*.md"))
     run("wizard/scripts/auto_fill_from_plano.py", "--plano", str(plan),
         "--out", str(kit / "implementation-guide-inputs.json"),
