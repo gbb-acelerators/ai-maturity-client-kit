@@ -1,9 +1,9 @@
 # Pontuação e Cálculo do Assessment de Maturidade IA
 
-🌐 [English](pontuacao-e-calculo.md) · Português (Brasil)
+🌐 [English](pontuacao-e-calculo.md) · Português (Brasil) · [Español](pontuacao-e-calculo.es.md)
 
 > **Framework v1 (158 perguntas, 3 pilares).** Para o framework v2 (9 dimensões, 61 perguntas), veja [framework-v2.pt-br.md](framework-v2.pt-br.md). Arquivos v1 continuam pontuando com estas regras.
-
+>
 > **Documento técnico de referência**: descreve com precisão como cada resposta vira score, como capabilities/pillars/overall são agregados, regras de threshold, multi-respondente, gap analysis e PE score. O kit implementa estas fórmulas em [`scripts/assessment_engine.py`](../scripts/assessment_engine.py) (testes golden em `scripts/test_assessment_engine.py`).
 
 **Versão do algoritmo:** 1.0.0 · **Última auditoria do código:** 2026-05-08
@@ -17,14 +17,14 @@
 3. [Fórmulas oficiais](#3-fórmulas-oficiais)
 4. [Tratamento de respostas faltantes](#4-tratamento-de-respostas-faltantes)
 5. [Threshold de cobertura mínima](#5-threshold-de-cobertura-mínima)
-6. [Multi-respondente — agregação](#6-multi-respondente--agregação)
+6. [Multi-respondente: agregação](#6-multi-respondente-agregação)
 7. [Rótulos de maturidade (mapping de score)](#7-rótulos-de-maturidade-mapping-de-score)
 8. [Gap analysis e priorização](#8-gap-analysis-e-priorização)
 9. [PE Score (Production Engineering Readiness)](#9-pe-score-production-engineering-readiness)
 10. [Persistência (tabelas e materialização)](#10-persistência-tabelas-e-materialização)
-11. [**Exemplo end-to-end — Pilar P1**](#11-exemplo-end-to-end--pilar-p1)
-12. [**Exemplo end-to-end — Pilar P2**](#12-exemplo-end-to-end--pilar-p2)
-13. [**Exemplo end-to-end — Pilar P3**](#13-exemplo-end-to-end--pilar-p3)
+11. [**Exemplo end-to-end: Pilar P1**](#11-exemplo-end-to-end-pilar-p1)
+12. [**Exemplo end-to-end: Pilar P2**](#12-exemplo-end-to-end-pilar-p2)
+13. [**Exemplo end-to-end: Pilar P3**](#13-exemplo-end-to-end-pilar-p3)
 14. [Edge cases & garantias](#14-edge-cases--garantias)
 15. [Glossário](#15-glossário)
 
@@ -32,9 +32,9 @@
 
 ## 1. Modelo conceitual em 3 camadas
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
-│                    OVERALL SCORE (0–4)                      │
+│                    OVERALL SCORE (0-4)                      │
 │   = média ponderada de TODAS as capabilities (não pillars)  │
 └─────────────────────────────────────────────────────────────┘
                 ▲
@@ -71,13 +71,14 @@
 | L3 | Gerenciado | **3** |
 | L4 | Otimizando | **4** |
 
-A escala é **discreta na entrada (0–4 inteiro)** mas as agregações produzem valores **contínuos em ponto flutuante (`f64`)**, sem arredondamento. Apenas a apresentação (UI/relatório) decide a precisão visual (geralmente 2 casas decimais).
+A escala é **discreta na entrada (0-4 inteiro)** mas as agregações produzem valores **contínuos em ponto flutuante (`f64`)**, sem arredondamento. Apenas a apresentação (UI/relatório) decide a precisão visual (geralmente 2 casas decimais).
 
 ---
 
 ## 3. Fórmulas oficiais
 
 ### 3.1 Capability score
+>
 > Código de referência: [`scoring.rs:205-225`](../scripts/assessment_engine.py)
 
 $$
@@ -88,6 +89,7 @@ $$
 - Pesos default: **1.0**. Range permitido: **[0.5, 2.0]**.
 
 ### 3.2 Pillar score
+>
 > Código de referência: [`scoring.rs:227-247`](../scripts/assessment_engine.py)
 
 $$
@@ -97,13 +99,14 @@ $$
 Apenas capabilities com `score = Some(_)` participam (capabilities sem nenhuma resposta são puladas).
 
 ### 3.3 Overall score
+>
 > Código de referência: [`scoring.rs:250-263`](../scripts/assessment_engine.py)
 
 $$
 \text{overall\_score} = \frac{\sum_{c \in \text{TODAS as capabilities}} (\text{capability\_score}_c \times \text{peso}_c)}{\sum_{c \in \text{TODAS as capabilities}} \text{peso}_c}
 $$
 
-**Atenção:** SUMPRODUCT direto sobre todas as capabilities — **não** é `mean(P1, P2, P3)`.
+**Atenção:** SUMPRODUCT direto sobre todas as capabilities; **não** é `mean(P1, P2, P3)`.
 
 ---
 
@@ -116,7 +119,7 @@ $$
 | Pillar sem capabilities respondidas | `pillar_score = 0.0` (caso de borda raro). |
 | Overall sem capabilities respondidas | `overall_score = 0.0`. |
 
-> **Regra de ouro:** "respondidas pesam, faltantes desaparecem". Isto incentiva o respondente a *não chutar* quando não sabe — o sistema só pune via `threshold_status`, não via score deflacionado.
+> **Regra de ouro:** "respondidas pesam, faltantes desaparecem". Isto incentiva o respondente a *não chutar* quando não sabe: o sistema só pune via `threshold_status`, não via score deflacionado.
 
 ---
 
@@ -127,14 +130,14 @@ $$
 | Questões aplicáveis | Status | Comportamento |
 |---|---|---|
 | **≥ 40** | `Ok` | Scoring normal, sem aviso. |
-| **25–39** | `Warning` | Scoring calculado, mas relatório exibe banner "Resultado preliminar — confiabilidade limitada". |
+| **25-39** | `Warning` | Scoring calculado, mas relatório exibe banner "Resultado preliminar: confiabilidade limitada". |
 | **< 25** | `Blocked` | Scoring **recusado**. API responde 422 `InsufficientData`. |
 
 "Aplicáveis" = questões visíveis para a audience configurada do respondente (após filtro `audience`). Se um respondente é Backend, questões só de Frontend não contam.
 
 ---
 
-## 6. Multi-respondente — agregação
+## 6. Multi-respondente: agregação
 
 > Código de referência: [`repos/scoring.rs:354-368`](../scripts/assessment_engine.py)
 
@@ -142,8 +145,8 @@ Quando mais de uma pessoa responde o mesmo assessment:
 
 1. Para cada `question_id`, o sistema computa **`AVG(selected_level)`** sobre todos os respondentes que responderam aquela questão.
 2. Esse valor médio (que pode ser fracionário, ex.: 2.67) entra como `nivel_q` na fórmula de capability score.
-3. **Não há peso por respondente** — todo respondente vale igual.
-4. **Não há estratificação por audience** — se Backend e Frontend respondem a mesma Q, a média mistura ambos.
+3. **Não há peso por respondente**: todo respondente vale igual.
+4. **Não há estratificação por audience**: se Backend e Frontend respondem a mesma Q, a média mistura ambos.
 
 **Exemplo:** 3 respondentes para Q1 com níveis 2, 4, 3 → `Q1 = (2+4+3)/3 = 3.0`.
 
@@ -157,11 +160,11 @@ Aplicado a qualquer score (capability, pillar ou overall):
 
 | Faixa de score | Rótulo | Cor (token) |
 |---|---|---|
-| `score < 0.5` | **L0 — Inicial** | `--color-l0` (vermelho) |
-| `0.5 ≤ score < 1.5` | **L1 — Em Desenvolvimento** | `--color-l1` (âmbar) |
-| `1.5 ≤ score < 2.5` | **L2 — Definido** | `--color-l2` (azul) |
-| `2.5 ≤ score < 3.5` | **L3 — Gerenciado** | `--color-l3` (verde) |
-| `score ≥ 3.5` | **L4 — Otimizando** | `--color-l4` (roxo) |
+| `score < 0.5` | **L0 Inicial** | `--color-l0` (vermelho) |
+| `0.5 ≤ score < 1.5` | **L1 Em Desenvolvimento** | `--color-l1` (âmbar) |
+| `1.5 ≤ score < 2.5` | **L2 Definido** | `--color-l2` (azul) |
+| `2.5 ≤ score < 3.5` | **L3 Gerenciado** | `--color-l3` (verde) |
+| `score ≥ 3.5` | **L4 Otimizando** | `--color-l4` (roxo) |
 
 ---
 
@@ -171,7 +174,7 @@ Aplicado a qualquer score (capability, pillar ou overall):
 
 Para cada capability:
 
-```
+```text
 target_level   = target_overrides.get(capability_id) ou 3.0 (default L3)
 gap_size       = target_level − current_score
 priority_score = peso_capability × gap_size
@@ -183,10 +186,10 @@ Se gap_size ≤ 1e-9 (epsilon flutuante) → descarta (já atingiu meta)
 
 | `priority_score` | Rótulo | Significado |
 |---|---|---|
-| ≥ 2.4 | **P0** | Crítico — endereçar nos próximos 30 dias |
-| ≥ 1.6 e < 2.4 | **P1** | Alto — incluir no próximo trimestre |
-| ≥ 0.9 e < 1.6 | **P2** | Médio — backlog do semestre |
-| < 0.9 | **P3** | Baixo — monitorar |
+| ≥ 2.4 | **P0** | Crítico: endereçar nos próximos 30 dias |
+| ≥ 1.6 e < 2.4 | **P1** | Alto: incluir no próximo trimestre |
+| ≥ 0.9 e < 1.6 | **P2** | Médio: backlog do semestre |
+| < 0.9 | **P3** | Baixo: monitorar |
 
 **Por que `weight × gap`?** Capabilities com peso 2.0 e gap 1.5 (priority_score = 3.0) são mais urgentes que peso 1.0 e gap 2.0 (priority_score = 2.0): o peso reflete impacto estratégico no overall.
 
@@ -216,14 +219,15 @@ Sub-score calculado **apenas com questões marcadas `pe = true`** no seed.
 | `capability_scores` | `capability_id`, `score` (NULL se sem resposta), `weight` | idem |
 | `gap_analysis` | `capability_id`, `current_score`, `target_level`, `gap_size`, `priority`, `priority_score` | idem |
 
-`GET /api/scoring/results/{assessment_id}` lê **direto das tabelas materializadas** — não recalcula. Isso garante consistência entre relatórios e roadmaps gerados.
+`GET /api/scoring/results/{assessment_id}` lê **direto das tabelas materializadas**; não recalcula. Isso garante consistência entre relatórios e roadmaps gerados.
 
 ---
 
-## 11. Exemplo end-to-end — Pilar P1
+## 11. Exemplo end-to-end: Pilar P1
 
 ### Cenário
-Capability **P1-C1 — Assistentes de Codificação IA** (5 questões). Avaliação respondida por **2 desenvolvedores** (R1 e R2). Todas as questões têm `weight = 1.0` (default).
+
+Capability **P1-C1: Assistentes de Codificação IA** (5 questões). Avaliação respondida por **2 desenvolvedores** (R1 e R2). Todas as questões têm `weight = 1.0` (default).
 
 ### Respostas reais
 
@@ -235,50 +239,51 @@ Capability **P1-C1 — Assistentes de Codificação IA** (5 questões). Avaliaç
 | `P1-C1-Q4` | Engenharia de prompt e gestão de templates | L2 (2) | L2 (2) | **2.0** |
 | `P1-C1-Q5` | Governança e segurança das ferramentas IA | L3 (3) | L4 (4) | **3.5** |
 
-### Passo 1 — Capability score (P1-C1)
+### Passo 1: Capability score (P1-C1)
 
-```
+```text
 wsum   = (3.5×1.0) + (2.5×1.0) + (1.5×1.0) + (2.0×1.0) + (3.5×1.0)
        = 3.5 + 2.5 + 1.5 + 2.0 + 3.5
        = 13.0
 
 wtotal = 1.0 + 1.0 + 1.0 + 1.0 + 1.0 = 5.0
 
-P1-C1.score = 13.0 / 5.0 = 2.60   →   Rótulo: L3 — Gerenciado
+P1-C1.score = 13.0 / 5.0 = 2.60   →   Rótulo: L3 Gerenciado
 ```
 
-### Passo 2 — Pillar score (P1)
+### Passo 2: Pillar score (P1)
 
 Suponha que P1-C1 é a única capability respondida do pilar P1, com `weight_capability = 1.0`:
 
-```
+```text
 ws = 2.60 × 1.0 = 2.60
 wt = 1.0
-P1.score = 2.60 / 1.0 = 2.60   →   Rótulo: L3 — Gerenciado
+P1.score = 2.60 / 1.0 = 2.60   →   Rótulo: L3 Gerenciado
 ```
 
 > Em assessment real, P1 tem 9 capabilities. O cálculo seria SUMPRODUCT sobre todas que tiverem ao menos 1 resposta.
 
-### Passo 3 — Gap analysis
+### Passo 3: Gap analysis
 
 Default `target_level = 3.0`:
 
-```
+```text
 gap_size       = 3.0 − 2.60 = 0.40
 priority_score = 1.0 × 0.40 = 0.40
 classificação  = P3 (Baixo)   ← pois 0.40 < 0.9
 ```
 
-### Passo 4 — Threshold
+### Passo 4: Threshold
 
 5 questões respondidas << 25 → **`threshold_status = Blocked`** se essa fosse a única capability avaliada. Em produção, espera-se ≥ 40 questões respondidas no assessment inteiro.
 
 ---
 
-## 12. Exemplo end-to-end — Pilar P2
+## 12. Exemplo end-to-end: Pilar P2
 
 ### Cenário
-Capability **P2-C1 — Inteligência de Pipeline CI/CD** (6 questões). Respondida por **1 SRE** + **1 Platform Engineer**. Mistura de pesos: Q1 e Q5 com `weight = 1.5` (questões de impacto direto em DORA metrics).
+
+Capability **P2-C1: Inteligência de Pipeline CI/CD** (6 questões). Respondida por **1 SRE** + **1 Platform Engineer**. Mistura de pesos: Q1 e Q5 com `weight = 1.5` (questões de impacto direto em DORA metrics).
 
 ### Respostas
 
@@ -291,35 +296,35 @@ Capability **P2-C1 — Inteligência de Pipeline CI/CD** (6 questões). Respondi
 | `P2-C1-Q5` | Métricas DORA e insights | **1.5** | L3 (3) | L4 (4) | **3.5** |
 | `P2-C1-Q6` | Triagem automatizada de testes flaky | 1.0 | L2 (2) | L1 (1) | **1.5** |
 
-### Passo 1 — Capability score (P2-C1)
+### Passo 1: Capability score (P2-C1)
 
-```
+```text
 wsum   = (3.5×1.5) + (2.0×1.0) + (1.5×1.0) + (2.5×1.0) + (3.5×1.5) + (1.5×1.0)
        = 5.25 + 2.0 + 1.5 + 2.5 + 5.25 + 1.5
        = 18.00
 
 wtotal = 1.5 + 1.0 + 1.0 + 1.0 + 1.5 + 1.0 = 7.0
 
-P2-C1.score = 18.00 / 7.0 = 2.5714…   →   Rótulo: L3 — Gerenciado
+P2-C1.score = 18.00 / 7.0 = 2.5714…   →   Rótulo: L3 Gerenciado
 ```
 
 > **Observação:** sem os pesos extras em Q1 e Q5, a média simples seria `(3.5+2.0+1.5+2.5+3.5+1.5)/6 = 2.4167` → caía para L2. O peso 1.5 reflete que essas duas dimensões importam mais para o resultado de DevOps maduro.
 
-### Passo 2 — Pillar score (P2) com 2 capabilities
+### Passo 2: Pillar score (P2) com 2 capabilities
 
 Adicione P2-C2 (IaC) com score = 1.80, peso = 1.0:
 
-```
+```text
 ws = (2.5714 × 1.0) + (1.80 × 1.0) = 4.3714
 wt = 1.0 + 1.0 = 2.0
-P2.score = 4.3714 / 2.0 = 2.1857   →   Rótulo: L2 — Definido
+P2.score = 4.3714 / 2.0 = 2.1857   →   Rótulo: L2 Definido
 ```
 
-### Passo 3 — Gap analysis (target customizado)
+### Passo 3: Gap analysis (target customizado)
 
 Para P2-C1, time de SRE definiu `target_level = 3.5` (acima do default):
 
-```
+```text
 gap_size       = 3.5 − 2.5714 = 0.9286
 priority_score = 1.0 × 0.9286 = 0.9286
 classificação  = P2 (Médio)   ← pois 0.9 ≤ 0.9286 < 1.6
@@ -327,10 +332,11 @@ classificação  = P2 (Médio)   ← pois 0.9 ≤ 0.9286 < 1.6
 
 ---
 
-## 13. Exemplo end-to-end — Pilar P3
+## 13. Exemplo end-to-end: Pilar P3
 
 ### Cenário
-Capability **P3-C5 — Aplicações Agênticas** (6 questões). Respondida por **1 Arquiteto** + **1 ML Engineer** + **1 Security**. Q1, Q3 e Q6 com `weight = 2.0` (pesos máximos — fronteira de inovação).
+
+Capability **P3-C5: Aplicações Agênticas** (6 questões). Respondida por **1 Arquiteto** + **1 ML Engineer** + **1 Security**. Q1, Q3 e Q6 com `weight = 2.0` (pesos máximos, fronteira de inovação).
 
 ### Respostas
 
@@ -343,23 +349,23 @@ Capability **P3-C5 — Aplicações Agênticas** (6 questões). Respondida por *
 | `P3-C5-Q5` | Avaliação contínua e safety guardrails | 1.0 | L1 (1) | L2 (2) | L3 (3) | **2.0** |
 | `P3-C5-Q6` | Governança e auditoria de ações de agentes | **2.0** | L1 (1) | L1 (1) | L3 (3) | **1.67** |
 
-### Passo 1 — Capability score (P3-C5)
+### Passo 1: Capability score (P3-C5)
 
-```
+```text
 wsum   = (2.00×2.0) + (1.33×1.0) + (3.00×2.0) + (1.67×1.0) + (2.00×1.0) + (1.67×2.0)
        = 4.00 + 1.33 + 6.00 + 1.67 + 2.00 + 3.34
        = 18.34
 
 wtotal = 2.0 + 1.0 + 2.0 + 1.0 + 1.0 + 2.0 = 9.0
 
-P3-C5.score = 18.34 / 9.0 = 2.0378…   →   Rótulo: L2 — Definido
+P3-C5.score = 18.34 / 9.0 = 2.0378…   →   Rótulo: L2 Definido
 ```
 
-### Passo 2 — Gap analysis (capability estratégica)
+### Passo 2: Gap analysis (capability estratégica)
 
 Liderança definiu `target_level = 4.0` (ambição: liderar no espaço agêntico) e capability tem `weight = 1.5`:
 
-```
+```text
 gap_size       = 4.0 − 2.0378 = 1.9622
 priority_score = 1.5 × 1.9622 = 2.9433
 classificação  = P0 (Crítico)   ← pois 2.9433 ≥ 2.4
@@ -367,9 +373,10 @@ classificação  = P0 (Crítico)   ← pois 2.9433 ≥ 2.4
 
 → Esta capability **entra no roadmap dos próximos 30 dias** com prioridade máxima.
 
-### Passo 3 — Contribuição para overall
+### Passo 3: Contribuição para overall
 
 Se o assessment completo tem 28 capabilities ativas, P3-C5 com `score = 2.0378` e `weight = 1.5` contribui:
+
 - Numerador overall: `+ 2.0378 × 1.5 = +3.0567`
 - Denominador overall: `+ 1.5`
 
@@ -382,12 +389,12 @@ Se o assessment completo tem 28 capabilities ativas, P3-C5 com `score = 2.0378` 
 | Situação | Garantia |
 |---|---|
 | `wtotal = 0` (nenhuma questão respondida) | Retorna `None` (capability) ou `0.0` (pillar/overall). Nunca divide por zero. |
-| Score acima de 4.0 | Impossível por construção — todos os níveis ∈ [0,4] e médias ponderadas preservam o range. |
-| Score abaixo de 0.0 | Impossível — `selected_level ∈ [0,4]`. |
+| Score acima de 4.0 | Impossível por construção: todos os níveis ∈ [0,4] e médias ponderadas preservam o range. |
+| Score abaixo de 0.0 | Impossível: `selected_level ∈ [0,4]`. |
 | `gap_size` negativo (já passou da meta) | Filtrado (não aparece no roadmap). |
 | Multi-respondente com 0 respostas | Capability vira `None`, sem erro. |
 | Respondente fora da audience | Suas respostas para questões não-aplicáveis são **ignoradas no scoring** mas armazenadas para auditoria. |
-| Reprocessamento (recalcular após nova resposta) | Idempotente — `POST /api/scoring/trigger` substitui as 4 tabelas materializadas em uma transação. |
+| Reprocessamento (recalcular após nova resposta) | Idempotente: `POST /api/scoring/trigger` substitui as 4 tabelas materializadas em uma transação. |
 
 ---
 
@@ -396,9 +403,9 @@ Se o assessment completo tem 28 capabilities ativas, P3-C5 com `score = 2.0378` 
 | Termo | Definição |
 |---|---|
 | **Question** | Item de avaliação concreto. ID padrão `P[1-3]-C[1-19]-Q[1-99]`. |
-| **Capability** | Subdomínio funcional. Agrupa 5–7 questões. |
-| **Pillar** | Dimensão estratégica. Agrupa 9–10 capabilities. P1, P2 ou P3. |
-| **Level (L0–L4)** | Maturidade de uma resposta individual. Inteiro 0–4. |
+| **Capability** | Subdomínio funcional. Agrupa 5-7 questões. |
+| **Pillar** | Dimensão estratégica. Agrupa 9-10 capabilities. P1, P2 ou P3. |
+| **Level (L0-L4)** | Maturidade de uma resposta individual. Inteiro 0-4. |
 | **Score** | Resultado contínuo `f64 ∈ [0,4]` produzido por agregação. |
 | **Weight** | Peso da questão (`[0.5, 2.0]`, default 1.0) ou da capability. |
 | **Threshold** | Cobertura mínima de questões respondidas: 25 (warning), 40 (ok). |
@@ -406,11 +413,12 @@ Se o assessment completo tem 28 capabilities ativas, P3-C5 com `score = 2.0378` 
 | **Gap** | `target − current` por capability. |
 | **Priority score** | `weight × gap` que classifica capability em P0/P1/P2/P3. |
 | **Audience** | Públicos-alvo da questão (developer, sre, security…). Filtra visibilidade no formulário. |
-| **`threshold_status`** | `Ok` / `Warning` / `Blocked` — devolvido junto com o resultado. |
+| **`threshold_status`** | `Ok` / `Warning` / `Blocked`: devolvido junto com o resultado. |
 
 ---
 
 **Arquivos relacionados:**
-- 📄 `pontuacao-e-calculo.xlsx` — planilha auditável com fórmulas SUMPRODUCT visíveis (mesmos exemplos deste doc)
-- 🌐 `calculadora-pontuacao.html` — calculadora interativa standalone (selecionar respostas, ver scores ao vivo)
-- 📚 `P1-…md`, `P2-…md`, `P3-…md` — perguntas reais do assessment com KPI/contexto/evidências por nível
+
+- 📄 `pontuacao-e-calculo.xlsx`: planilha auditável com fórmulas SUMPRODUCT visíveis (mesmos exemplos deste doc)
+- 🌐 `calculadora-pontuacao.html`: calculadora interativa standalone (selecionar respostas, ver scores ao vivo)
+- 📚 `P1-…md`, `P2-…md`, `P3-…md`: perguntas reais do assessment com KPI/contexto/evidências por nível

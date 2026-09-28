@@ -1,6 +1,6 @@
 # `survey-devs/`: Developer Survey (anonymous, behavioral, individual)
 
-🌐 English · [Português (Brasil)](README.pt-br.md)
+🌐 English · [Português (Brasil)](README.pt-br.md) · [Español](README.es.md)
 
 This folder contains a survey separate from the main assessment. It measures how developers use GitHub Copilot, agents, instruction files, Copilot Chat modes, AI development practices, governance, and security day to day. It is anonymous.
 

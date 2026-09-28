@@ -1,6 +1,6 @@
 # Rubrica de Maturidade IA: Developer Survey
 
-🌐 [English](RUBRICA-MATURIDADE.md) · Português (Brasil)
+🌐 [English](RUBRICA-MATURIDADE.md) · Português (Brasil) · [Español](RUBRICA-MATURIDADE.es.md)
 
 > **Modelo determinístico** que mapeia respostas do survey para níveis L0-L4 em **7 dimensões**, espelhando a escala do assessment principal de maturidade. Score por time (sem scores individuais no relatório, preserva anonimato).
 
@@ -238,7 +238,7 @@ distribuição(D) = % de respondentes em cada L0-L4
 }
 ```
 
-O exemplo acima mostra os rótulos em PT-BR. A saída legível (o relatório de insights) agora é gerada em **inglês por padrão**, com PT-BR disponível via `--lang pt-br` nos scripts.
+O exemplo acima mostra os rótulos em PT-BR. A saída legível (o relatório de insights) agora é gerada em **inglês por padrão**, com PT-BR e ES disponíveis via `--lang pt-br` e `--lang es` nos scripts.
 
 ## 🔄 Como rodar
 

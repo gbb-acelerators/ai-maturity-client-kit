@@ -1,6 +1,6 @@
 # Step by step: AI Maturity Assessment
 
-🌐 English · [Português (Brasil)](GUIA-PASSO-A-PASSO.pt-br.md)
+🌐 English · [Português (Brasil)](GUIA-PASSO-A-PASSO.pt-br.md) · [Español](GUIA-PASSO-A-PASSO.es.md)
 
 This guide runs the framework v2 assessment from collection to reports. v1 remains available for archived inputs.
 
@@ -33,7 +33,7 @@ make pipeline
 
 Use v2 for new assessments. Use v1 only for historical comparison or existing `respostas.json` files without `metadata.framework_version`.
 
-- v2 spec: [coleta/AI-Maturity-Form-Questions_v2.md](coleta/AI-Maturity-Form-Questions_v2.md).
+- v2 spec: [coleta/AI-Maturity-Form-Questions_v2.md](coleta/AI-Maturity-Form-Questions_v2.md), translated in [PT-BR](coleta/AI-Maturity-Form-Questions_v2.pt-br.md) and [ES](coleta/AI-Maturity-Form-Questions_v2.es.md).
 - v2 form: [formularios/assessment-v2.html](formularios/assessment-v2.html).
 - v2 Forms instructions: [coleta/INSTRUCOES-FORMS.md](coleta/INSTRUCOES-FORMS.md).
 - v2 dimension pages: [referencia/dimensoes/](referencia/dimensoes/).

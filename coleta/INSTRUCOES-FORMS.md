@@ -1,6 +1,6 @@
 # How to create the Microsoft Forms for the AI Maturity Assessment (v2)
 
-🌐 English · [Português (Brasil)](INSTRUCOES-FORMS.pt-br.md)
+🌐 English · [Português (Brasil)](INSTRUCOES-FORMS.pt-br.md) · [Español](INSTRUCOES-FORMS.es.md)
 
 **`ASSESSMENT`** · 📖 [🏠 Index](../README.md) · [« Step-by-step guide](../GUIA-PASSO-A-PASSO.md) · You are here · [» Survey-devs](../survey-devs/INSTRUCOES-FORMS-DEVS.md)
 

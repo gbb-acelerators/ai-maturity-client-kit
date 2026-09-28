@@ -1,6 +1,6 @@
 # `scripts/`: utilitários determinísticos do kit
 
-🌐 [English](README.md) · Português (Brasil)
+🌐 [English](README.md) · Português (Brasil) · [Español](README.es.md)
 
 Estes scripts são a fonte da verdade para importação, scoring, geração de planilha, comparação, cross-checks de evidência, helpers gerados, exemplos, empacotamento e validação. Não calcule saídas do assessment manualmente.
 
@@ -16,10 +16,13 @@ Estes scripts são a fonte da verdade para importação, scoring, geração de p
 | `python3 scripts/run_demo.py` | Renderiza os 5 PDFs v2, planilha e JSONs a partir de dados mock ilustrativos em `saida/demo/` sem tocar em `respostas.json`. |
 | `python3 scripts/scan_repos_ai_config.py` | Grava `saida/repo-scan.json` a partir de clones locais ou de uma organização GitHub. Usado como cross-check de evidência para D4-Q4 e D4-Q5. |
 | `python3 scripts/import_copilot_metrics.py` | Grava `saida/telemetria.json` a partir de exports de métricas de uso do GitHub Copilot. Usado como cross-check de evidência para D4-Q1 e D9-Q1. |
-| `python3 scripts/generate_v2_collection.py` | Gera bancos de perguntas v2, formulário offline e template de importação. |
-| `python3 scripts/generate_v2_tools_html.py` | Gera a calculadora v2 e o wizard do guia de implementação. `make validate-docs` roda com `--check`. |
+| `python3 scripts/generate_v2_collection.py` | Gera bancos de perguntas v2, formulário offline (mais cópias `.pt-br` e `.es` que abrem nesses idiomas) e template de importação. |
+| `python3 scripts/generate_v2_tools_html.py` | Gera a calculadora v2 e o wizard do guia de implementação (mais cópias `.pt-br` e `.es`). `make validate-docs` roda com `--check`. |
 | `python3 scripts/generate_v2_reference.py` | Gera [../referencia/framework-v2.pt-br.md](../referencia/framework-v2.pt-br.md) e [../referencia/dimensoes/](../referencia/dimensoes/). |
-| `python3 scripts/build_kit_docs.py` | Gera [../kit-en/](../kit-en/) a partir dos docs fonte em inglês e checa docs de pacote. |
+| `python3 scripts/sync_spec_translations.py` | Gera as seções 6 e 7 e a lista de referências das cópias PT-BR e ES da especificação v2 a partir de `framework.v2.json`. `make validate-docs` roda com `--check`. |
+| `python3 scripts/build_kit_docs.py` | Gera `kit-en/` e `kit-es/`, os guias rápidos da raiz dos pacotes EN e ES, a partir dos docs em inglês e das cópias `.es.md`. |
+| `python3 scripts/check_language_coverage.py` | Checa que todo doc tem versões EN, PT-BR e ES com os mesmos títulos e seletor de idioma, e lista o que fica em inglês por design. |
+| `python3 scripts/build_language_kits.py` | Gera os ZIPs PT, EN e ES (`make build-kits`). Cada pacote entrega o seu idioma com os nomes base dos arquivos. |
 | `python3 scripts/build_v2_examples.py` | Regenera exemplos em [../referencia/exemplo-saida/](../referencia/exemplo-saida/), incluindo 5 PDFs por idioma, PDF de comparação, planilha, scan de repositórios, telemetria, surveys e amostra de entradas do wizard. |
 | `python3 scripts/test_surveys.py` | Testa parsing e convenções de saída do Developer Survey e Learning Survey. |
 | `python3 scripts/validate_framework_v2.py` | Valida `framework.v2.json` contra especificação, schema e traduções. |
@@ -28,4 +31,4 @@ Fixtures para exemplos e testes ficam em [fixtures/](fixtures/).
 
 ## Targets Make
 
-Use `make install-deps`, `make demo [DEMO_LANG=en|pt-BR|es]`, `make init`, `make init-v1`, `make import XLSX=...`, `make merge DIR=...`, `make scores`, `make workbook`, `make pipeline`, `make compare BEFORE=... AFTER=...`, `make scan-repos REPOS=...`, `make scan-repos ORG=...`, `make telemetry METRICS=...`, `make examples-v2`, `make validate-v2`, `make validate-docs`, `make generate-v2`, `make mock-v2` e `make test`.
+Use `make install-deps`, `make demo [DEMO_LANG=en|pt-BR|es]`, `make init`, `make init-v1`, `make import XLSX=...`, `make merge DIR=...`, `make scores`, `make workbook`, `make pipeline`, `make compare BEFORE=... AFTER=...`, `make scan-repos REPOS=...`, `make scan-repos ORG=...`, `make telemetry METRICS=...`, `make examples-v2`, `make validate-v2`, `make validate-docs`, `make generate-v2`, `make mock-v2`, `make build-kits` e `make test`.

@@ -1,6 +1,6 @@
 # How to build the Microsoft Forms for the Learning & Growth Survey
 
-🌐 English · [Português (Brasil)](INSTRUCOES-FORMS-LEARNING.pt-br.md)
+🌐 English · [Português (Brasil)](INSTRUCOES-FORMS-LEARNING.pt-br.md) · [Español](INSTRUCOES-FORMS-LEARNING.es.md)
 
 **`🅲️ SURVEY-LEARNING`** · _identified_ · 📖 [🏠 Index](../README.md) · [« Survey-devs](../survey-devs/INSTRUCOES-FORMS-DEVS.md) · You are here · [» Wizard](../wizard/README.md)
 
@@ -163,7 +163,7 @@ Generates `survey-learning/respostas-learning.json` (structured).
 /plano-capacitacao
 ```
 
-Generates `saida/plano-capacitacao-<DATE>.md` (in **English by default**; the script accepts `--lang pt-br` for Portuguese (Brazil)) with:
+Generates `saida/plano-capacitacao-<DATE>.md` (in **English by default**; the script accepts `--lang pt-br` for Portuguese (Brazil) and `--lang es` for Spanish) with:
 
 - Top 10 requested topics (with a list of pre-validated attendees)
 - Suggested cohorts per dimension D2-D8

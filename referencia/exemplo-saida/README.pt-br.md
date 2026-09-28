@@ -1,6 +1,6 @@
 # Exemplos de saída
 
-🌐 [English](README.md) · Português (Brasil)
+🌐 [English](README.md) · Português (Brasil) · [Español](README.es.md)
 
 Todos os arquivos daqui são gerados por `python3 scripts/build_v2_examples.py` a partir de entradas ilustrativas: o mock `respostas.v2.json.example` (14 respondentes, Contoso Engineering), os mocks dos surveys complementares, repositórios fixture gerados na hora e `scripts/fixtures/copilot-usage-organization-28-day.mock.json`. Nada disso é dado real de cliente. Não edite estes arquivos à mão.
 

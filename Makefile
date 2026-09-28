@@ -1,4 +1,4 @@
-# AI Maturity Assessment kit — convenience targets
+# AI Maturity Assessment kit: convenience targets
 #
 # All targets are optional shortcuts around the Python entry points so the kit
 # remains usable with `python3` directly. There are no compiled artifacts.
@@ -25,7 +25,7 @@ help:
 	@echo "  make smoke-cross   Smoke test including cross-survey enrichment"
 	@echo "  make validate-docs Validate JSON content, language coverage and package sources"
 	@echo "  make validate-v2   Check framework.v2.json against the spec, schema and translations"
-	@echo "  make generate-v2   Regenerate framework.v2.json, question banks, HTML form and template"
+	@echo "  make generate-v2   Regenerate framework.v2.json, banks, HTML helpers, template and spec copies"
 	@echo "  make mock-v2       Regenerate the illustrative v2 mock (respostas.v2.json.example)"
 	@echo "  make examples-v2   Regenerate referencia/exemplo-saida (v2 PDFs, workbook, surveys, cross-checks)"
 	@echo "  make compare       Compare two rounds (JSON, MD and PDF): BEFORE=old.json AFTER=respostas.json"
@@ -85,6 +85,7 @@ validate-docs:
 	@$(PY) scripts/generate_v2_collection.py --check
 	@$(PY) scripts/generate_v2_reference.py --check
 	@$(PY) scripts/generate_v2_tools_html.py --check
+	@$(PY) scripts/sync_spec_translations.py --check
 	@$(PY) scripts/build_kit_docs.py --check
 	@$(PY) scripts/build_language_kits.py --out dist-validate --clean >/dev/null
 	@rm -rf dist-validate
@@ -98,6 +99,7 @@ generate-v2:
 	@$(PY) scripts/generate_v2_collection.py
 	@$(PY) scripts/generate_v2_reference.py
 	@$(PY) scripts/generate_v2_tools_html.py
+	@$(PY) scripts/sync_spec_translations.py
 	@$(PY) scripts/validate_framework_v2.py
 
 mock-v2:

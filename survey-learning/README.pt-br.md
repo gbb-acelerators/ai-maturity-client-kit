@@ -1,6 +1,6 @@
 # `survey-learning/`: Learning and Growth Survey (identificado, capacitação)
 
-🌐 [English](README.md) · Português (Brasil)
+🌐 [English](README.md) · Português (Brasil) · [Español](README.es.md)
 
 Este survey identificado gera o plano de capacitação usado pela liderança e pelo wizard do guia de implementação. Ele complementa o assessment principal e o Developer Survey anônimo.
 
@@ -43,7 +43,7 @@ Os rótulos do banco de perguntas do Learning Survey usam `L#-Q#`. Quando uma pe
 
 ## O que o plano de capacitação contém
 
-`saida/plano-capacitacao-<date>.md` é escrito em inglês por padrão ou PT-BR com `--lang pt-br`. Ele inclui tópicos solicitados, coortes sugeridas por `DS-D#`, Champions, pares de mentoria, calendário de 90 dias, barreiras, wishlist e ações priorizadas.
+`saida/plano-capacitacao-<date>.md` é escrito em inglês por padrão, ou em PT-BR ou ES com `--lang pt-br` ou `--lang es`. Ele inclui tópicos solicitados, coortes sugeridas por `DS-D#`, Champions, pares de mentoria, calendário de 90 dias, barreiras, wishlist e ações priorizadas.
 
 ## Conexão com o wizard
 

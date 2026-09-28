@@ -1,11 +1,10 @@
+<!-- Generated from coleta/INSTRUCOES-FORMS.es.md by scripts/build_kit_docs.py. Edit the source, not this file. -->
 # Cómo crear Microsoft Forms para el AI Maturity Assessment (v2)
 
-🌐 [English](../kit-en/FORMS-INSTRUCTIONS.md) · Español
-
-**`ASSESSMENT`** · 📖 [🏠 Índice](README.md) · [« Guía paso a paso](PASO-A-PASO.md) · Estás aquí · [» Survey-devs](../survey-devs/INSTRUCOES-FORMS-DEVS.md)
+**`ASSESSMENT`** · 📖 [🏠 Índice](README.md) · [« Guía paso a paso](PASO-A-PASO.md) · Estás aquí · [» Survey-devs](../survey-devs/INSTRUCOES-FORMS-DEVS.es.md)
 
 > [!TIP]
-> Framework v2 tiene **5 preguntas de perfil y 61 preguntas puntuadas en 9 dimensiones** (127 elementos de Forms, cerca de 25 a 40 minutos por persona). Las instrucciones v1 (158 preguntas) están archivadas en [../coleta/v1/INSTRUCOES-FORMS.md](../coleta/v1/INSTRUCOES-FORMS.md).
+> Framework v2 tiene **5 preguntas de perfil y 61 preguntas puntuadas en 9 dimensiones** (127 elementos de Forms, cerca de 25 a 40 minutos por persona). Las instrucciones v1 (158 preguntas) están archivadas en [v1/INSTRUCOES-FORMS.md](../coleta/v1/INSTRUCOES-FORMS.md).
 
 ## Comparación rápida de los 4 caminos
 
@@ -13,12 +12,12 @@
 | --- | --- | --- |
 | **A. Microsoft Forms completo** | 60 a 90 minutos | Varias personas por rol; quieres resultados por persona y flag de brecha de percepción. |
 | **B. Piloto con una dimensión** | 15 minutos | Validar redacción y duración con 3 a 5 personas antes del lanzamiento completo. |
-| **C. Template Excel o SharePoint** | 5 minutos | Workshops, o cuando Forms no está disponible: una fila por persona en [../coleta/template-export-forms.xlsx](../coleta/template-export-forms.xlsx). |
-| **D. Formulario HTML offline** | Ninguno | Una persona por vez, sin Microsoft 365: [../formularios/assessment-v2.html](../formularios/assessment-v2.html) exporta un `respostas.json` por persona. |
+| **C. Template Excel o SharePoint** | 5 minutos | Workshops, o cuando Forms no está disponible: una fila por persona en [template-export-forms.xlsx](../coleta/template-export-forms.xlsx). |
+| **D. Formulario HTML offline** | Ninguno | Una persona por vez, sin Microsoft 365: [formularios/assessment-v2.html](../formularios/assessment-v2.es.html) exporta un `respostas.json` por persona. |
 
 ## Camino A: Microsoft Forms completo
 
-1. Abre el banco de preguntas en tu idioma: [../coleta/perguntas-para-forms.en.md](../coleta/perguntas-para-forms.en.md) (EN), [../coleta/perguntas-para-forms.md](../coleta/perguntas-para-forms.md) (PT-BR) o [../coleta/perguntas-para-forms.es.md](../coleta/perguntas-para-forms.es.md) (ES). Los tres son generados desde [../framework.v2.json](../framework.v2.json) y tienen las mismas preguntas, opciones, anclas y notas de alcance.
+1. Abre el banco de preguntas en tu idioma: [perguntas-para-forms.en.md](../coleta/perguntas-para-forms.en.md) (EN), [perguntas-para-forms.md](../coleta/perguntas-para-forms.md) (PT-BR) o [perguntas-para-forms.es.md](../coleta/perguntas-para-forms.es.md) (ES). Los tres son generados desde [framework.v2.json](../framework.v2.json) y tienen las mismas preguntas, opciones, anclas y notas de alcance.
 2. Ve a <https://forms.office.com>, crea un formulario en blanco y nómbralo `AI-Assisted SDLC Maturity Assessment v2 - <Organización>`.
 3. Pega el [aviso de privacidad](#aviso-de-privacidad-pégalo-en-la-descripción-del-formulario) en la descripción del formulario y llena los corchetes.
 4. Agrega **10 secciones**: Sección 0 (perfil) y D1 a D9.
@@ -53,17 +52,17 @@ El engine reporta cobertura `BLOCKED` porque hay menos de 25 preguntas respondid
 
 ## Camino C: Template Excel o SharePoint
 
-1. Copia [../coleta/template-export-forms.xlsx](../coleta/template-export-forms.xlsx) a SharePoint o OneDrive. Su fila de encabezado tiene el formato exacto del export de Forms: columnas de perfil, columnas de respuesta `D#-Q#` y columnas `Evidence (D#-Q#)`.
+1. Copia [template-export-forms.xlsx](../coleta/template-export-forms.xlsx) a SharePoint o OneDrive. Su fila de encabezado tiene el formato exacto del export de Forms: columnas de perfil, columnas de respuesta `D#-Q#` y columnas `Evidence (D#-Q#)`.
 2. Cada persona llena una fila. Las respuestas deben empezar con `L0` a `L4` o `NA`. `R-Q3` acepta varias opciones separadas por `;`.
 3. Descarga el archivo y ejecuta `make import XLSX=<file>`.
 
-Un ejemplo lleno y sintético es [../coleta/v2-mock-forms-export.xlsx](../coleta/v2-mock-forms-export.xlsx) (14 personas ilustrativas; no es un cliente real).
+Un ejemplo lleno y sintético es [v2-mock-forms-export.xlsx](../coleta/v2-mock-forms-export.xlsx) (14 personas ilustrativas; no es un cliente real).
 
 ## Camino D: Formulario HTML offline más merge
 
 Usa este camino cuando las personas encuestadas no puedan acceder a Microsoft Forms o cuando necesites un flujo rápido de workshop.
 
-1. Envía [../formularios/assessment-v2.html](../formularios/assessment-v2.html) a cada persona, o ábrelo desde el repositorio.
+1. Envía [../formularios/assessment-v2.html](../formularios/assessment-v2.es.html) a cada persona, o ábrelo desde el repositorio.
 2. El formulario se ejecuta offline, soporta EN, PT-BR y ES, muestra la nota de alcance de cada pregunta y exporta una persona por `respostas.json`.
 3. Recolecta los archivos exportados en una carpeta, por ejemplo `exports/`.
 4. Une los archivos:
@@ -99,7 +98,7 @@ Alinea estos puntos con tu equipo de privacidad o legal antes del lanzamiento (L
 
 ## Cómo las respuestas se convierten en scores
 
-El engine ([../scripts/assessment_engine.py](../scripts/assessment_engine.py)) sigue la sección 8 de [../coleta/AI-Maturity-Form-Questions_v2.md](../coleta/AI-Maturity-Form-Questions_v2.md): media agrupada por pregunta, media por dimensión, media ponderada de dimensiones, bandas de nivel semiabiertas, y flags de baja confianza, riesgo de amplificación, brecha de percepción, divergencia entre personas encuestadas, alcance, L3/L4 sin verificación y cobertura de evidencia.
+El engine ([scripts/assessment_engine.py](../scripts/assessment_engine.py)) sigue la sección 8 de [AI-Maturity-Form-Questions_v2.es.md](../coleta/AI-Maturity-Form-Questions_v2.es.md): media agrupada por pregunta, media por dimensión, media ponderada de dimensiones, bandas de nivel semiabiertas, y flags de baja confianza, riesgo de amplificación, brecha de percepción, divergencia entre personas encuestadas, alcance, L3/L4 sin verificación y cobertura de evidencia.
 
 Los cross-checks opcionales de evidencia vienen de `make scan-repos` y `make telemetry`. Aparecen en el PDF de resumen y se listan como riesgos en la guía de implementación cuando desafían una respuesta.
 

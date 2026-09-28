@@ -1,6 +1,6 @@
 # AI Maturity Assessment client kit
 
-🌐 English · [Português (Brasil)](README.pt-br.md)
+🌐 English · [Português (Brasil)](README.pt-br.md) · [Español](README.es.md)
 
 A self-contained kit to run an AI-assisted SDLC maturity self-assessment without depending on a web platform. Framework v2 is the default. Framework v1 remains archived and supported for historical inputs.
 
@@ -11,7 +11,7 @@ See [CHANGELOG.md](CHANGELOG.md) for release history.
 ## What is new in framework v2
 
 - Version: 2.0.1.
-- Source spec: [coleta/AI-Maturity-Form-Questions_v2.md](coleta/AI-Maturity-Form-Questions_v2.md).
+- Source spec: [coleta/AI-Maturity-Form-Questions_v2.md](coleta/AI-Maturity-Form-Questions_v2.md), translated in [PT-BR](coleta/AI-Maturity-Form-Questions_v2.pt-br.md) and [ES](coleta/AI-Maturity-Form-Questions_v2.es.md).
 - Machine model: [framework.v2.json](framework.v2.json), validated by [framework.v2.schema.json](framework.v2.schema.json) and [scripts/validate_framework_v2.py](scripts/validate_framework_v2.py).
 - 5 profile questions and 61 scored questions.
 - 9 dimensions: D1 AI Strategy, Policy and Governance (7), D2 Enablement, Skills and Culture (6), D3 Plan, Specify and Design (6), D4 Code and Context Engineering (8), D5 Review, Quality and Testing (7), D6 Security and AI Supply Chain (7), D7 Deliver and Operate (6), D8 Engineering Foundations (AI amplifiers) (7), D9 Measurement, Value and AI FinOps (7).
@@ -127,6 +127,10 @@ Use `make init-v1` to start a v1 input. The dispatching scripts keep v1 behavior
 | [scripts/](scripts/) | Deterministic import, scoring, workbook, comparison, validation, demo, evidence, packaging, and generation scripts. |
 | [wizard/](wizard/) | Generated trilingual implementation guide wizard and auto-fill script. |
 | [.github/skills/](.github/skills/) | Copilot custom skills that call the deterministic scripts. |
+
+## Languages
+
+English is the main language. Every doc has a Portuguese (Brazil) copy (`X.pt-br.md`) and a Spanish copy (`X.es.md`), linked from the language line at the top. The question banks, the v2 spec, the HTML helpers (offline form, wizard and calculator), the reports and the survey outputs work in EN, PT-BR and ES. The PT and ES packages ship every doc in their language under the base file names. Only the Copilot customization files in `.github/` (English by design), the frozen v1 archive (EN and PT-BR) and the internal v2 plan (`upgrade-framework-v2.prompt.md`) stay out of the Spanish set. `make validate-docs` fails if a copy is missing or its headings drift from the English doc.
 
 ## Validation
 

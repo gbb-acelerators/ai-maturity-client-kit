@@ -1,6 +1,6 @@
 # AI Maturity Rubric: Developer Survey
 
-🌐 English · [Português (Brasil)](RUBRICA-MATURIDADE.pt-br.md)
+🌐 English · [Português (Brasil)](RUBRICA-MATURIDADE.pt-br.md) · [Español](RUBRICA-MATURIDADE.es.md)
 
 > **Deterministic model** that maps survey answers to L0-L4 levels across **7 dimensions**, mirroring the scale of the main maturity assessment. Scored per team (no individual scores in the report, which preserves anonymity).
 
@@ -240,7 +240,7 @@ distribution(D) = % of respondents in each L0-L4
 }
 ```
 
-The sample above shows the PT-BR labels. Human-readable output (the insights report) is now generated in **English by default**, with PT-BR available via `--lang pt-br` on the scripts.
+The sample above shows the PT-BR labels. Human-readable output (the insights report) is now generated in **English by default**, with PT-BR and ES available via `--lang pt-br` and `--lang es` on the scripts.
 
 ## 🔄 How to run
 

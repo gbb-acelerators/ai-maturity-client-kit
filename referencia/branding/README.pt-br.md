@@ -1,6 +1,6 @@
 # `referencia/branding/`: identidade visual
 
-🌐 [English](README.md) · Português (Brasil)
+🌐 [English](README.md) · Português (Brasil) · [Español](README.es.md)
 
 Esta pasta contém os ativos de marca aplicados aos helpers HTML e PDFs voltados para Microsoft neste kit.
 

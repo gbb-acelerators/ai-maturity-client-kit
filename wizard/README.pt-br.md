@@ -1,6 +1,6 @@
 # `wizard/`: Wizard do Guia de Implementação (Parte 4 v2)
 
-🌐 [English](README.md) · Português (Brasil)
+🌐 [English](README.md) · Português (Brasil) · [Español](README.es.md)
 
 **`WIZARD`** · _Parte 4 customizada_ · 📖 [🏠 Índice](../README.pt-br.md) · [« Learning Survey](../survey-learning/INSTRUCOES-FORMS-LEARNING.pt-br.md) · Você está aqui
 
@@ -64,8 +64,7 @@ O Mode D lê o `saida/plano-capacitacao-*.md` mais recente, preenche 7 dos 11 ca
 
 | Arquivo | Uso |
 | --- | --- |
-| [implementation-guide-wizard.html](implementation-guide-wizard.html) | Wizard visual standalone gerado. |
-| [implementation-guide-wizard.pt-br.html](implementation-guide-wizard.pt-br.html) | Entrada em português. O seletor de idioma pode alternar idiomas. |
+| [implementation-guide-wizard.pt-br.html](implementation-guide-wizard.pt-br.html) | Wizard visual standalone gerado, abrindo em português, com seletor de idioma. No repositório, `implementation-guide-wizard.html` segue o idioma do navegador e `implementation-guide-wizard.es.html` abre em espanhol; cada pacote de idioma entrega a sua cópia como `implementation-guide-wizard.html`. |
 | [implementation-guide-inputs.template.json](implementation-guide-inputs.template.json) | Template JSON vazio gerado com `_guide`. |
 | [scripts/auto_fill_from_plano.py](scripts/auto_fill_from_plano.py) | Mode D de auto-fill a partir da saída do Learning Survey. |
 

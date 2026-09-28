@@ -1,6 +1,6 @@
 # Banco de perguntas para Microsoft Forms: AI-Assisted SDLC Maturity Assessment v2
 
-> Gerado a partir de `framework.v2.json` (versão 2.0.1) por `scripts/generate_v2_collection.py`. Não edite à mão. Fonte do texto: [AI-Maturity-Form-Questions_v2.md](AI-Maturity-Form-Questions_v2.md). O banco v1 (158 perguntas) está arquivado em [v1/](v1/).
+> Gerado a partir de `framework.v2.json` (versão 2.0.1) por `scripts/generate_v2_collection.py`. Não edite à mão. Fonte do texto: [AI-Maturity-Form-Questions_v2.pt-br.md](AI-Maturity-Form-Questions_v2.pt-br.md). O banco v1 (158 perguntas) está arquivado em [v1/](v1/).
 
 ## Como montar o formulário
 

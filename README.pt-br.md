@@ -1,6 +1,6 @@
 # Kit AI Maturity Assessment
 
-🌐 [English](README.md) · Português (Brasil)
+🌐 [English](README.md) · Português (Brasil) · [Español](README.es.md)
 
 Kit autônomo para conduzir uma autoavaliação de maturidade do SDLC assistido por IA sem depender de uma plataforma web. O framework v2 é o fluxo padrão. O framework v1 continua arquivado e suportado para entradas históricas.
 
@@ -11,13 +11,13 @@ Veja [CHANGELOG.md](CHANGELOG.md) para o histórico de versões.
 ## O que há de novo no framework v2
 
 - Versão: 2.0.1.
-- Especificação: [coleta/AI-Maturity-Form-Questions_v2.md](coleta/AI-Maturity-Form-Questions_v2.md).
+- Especificação: [coleta/AI-Maturity-Form-Questions_v2.pt-br.md](coleta/AI-Maturity-Form-Questions_v2.pt-br.md), tradução da fonte em inglês [coleta/AI-Maturity-Form-Questions_v2.md](coleta/AI-Maturity-Form-Questions_v2.md).
 - Modelo: [framework.v2.json](framework.v2.json), validado por [framework.v2.schema.json](framework.v2.schema.json) e [scripts/validate_framework_v2.py](scripts/validate_framework_v2.py).
 - 5 perguntas de perfil e 61 perguntas pontuadas.
 - 9 dimensões: D1 Estratégia, Política e Governança de IA (7), D2 Habilitação, Habilidades e Cultura (6), D3 Planejar, Especificar e Desenhar (6), D4 Código e engenharia de contexto (8), D5 Revisão, qualidade e testes (7), D6 Segurança e cadeia de suprimentos de IA (7), D7 Entregar e Operar (6), D8 Fundamentos de Engenharia (amplificadores de IA) (7), D9 Medição, Valor e AI FinOps (7).
 - IDs usam `D#-Q#`. Perguntas de perfil usam `R-Q1` a `R-Q5`.
 - Níveis: L0 Não iniciado, L1 Explorando, L2 Adotando, L3 Escalando, L4 Nativo em IA, mais `NA`.
-- Formulário principal: [formularios/assessment-v2.html](formularios/assessment-v2.html). Ele roda offline, mostra a nota de escopo de cada pergunta e exporta um respondente por `respostas.json`.
+- Formulário principal: [formularios/assessment-v2.html](formularios/assessment-v2.pt-br.html). Ele roda offline, mostra a nota de escopo de cada pergunta e exporta um respondente por `respostas.json`.
 - Instruções do Forms: [coleta/INSTRUCOES-FORMS.pt-br.md](coleta/INSTRUCOES-FORMS.pt-br.md).
 - Páginas de referência por dimensão ficam em [referencia/dimensoes/](referencia/dimensoes/) com páginas EN, PT-BR e ES para D1 a D9.
 
@@ -127,6 +127,10 @@ Use `make init-v1` para iniciar uma entrada v1. Os scripts de despacho preservam
 | [scripts/](scripts/) | Scripts determinísticos de importação, scoring, planilha, comparação, validação, demo, evidências, empacotamento e geração. |
 | [wizard/](wizard/) | Wizard trilingue gerado do guia de implementação e script de auto-fill. |
 | [.github/skills/](.github/skills/) | Skills custom do Copilot que chamam os scripts determinísticos. |
+
+## Idiomas
+
+O inglês é o idioma principal. Todo documento tem uma cópia em português do Brasil (`X.pt-br.md`) e uma em espanhol (`X.es.md`), com links na linha de idioma do topo. Os bancos de perguntas, a especificação v2, os assistentes HTML (formulário offline, wizard e calculadora), os relatórios e as saídas dos surveys funcionam em EN, PT-BR e ES. Os pacotes PT e ES entregam todos os documentos no seu idioma com os nomes base dos arquivos. Ficam fora do conjunto em espanhol apenas os arquivos de customização do Copilot em `.github/` (em inglês por design), o arquivo congelado da v1 (EN e PT-BR) e o registro interno do plano v2 (`upgrade-framework-v2.prompt.md`). `make validate-docs` falha se faltar uma cópia ou se os títulos dela divergirem do documento em inglês.
 
 ## Validação
 

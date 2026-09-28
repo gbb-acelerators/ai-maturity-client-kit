@@ -1,6 +1,6 @@
 # `referencia/branding/`: visual identity
 
-🌐 English · [Português (Brasil)](README.pt-br.md)
+🌐 English · [Português (Brasil)](README.pt-br.md) · [Español](README.es.md)
 
 This folder contains the branding assets applied to Microsoft-facing HTML helpers and PDFs in this kit.
 

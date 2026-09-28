@@ -1,6 +1,6 @@
 # `survey-devs/`: Developer Survey (anônimo, comportamental, individual)
 
-🌐 [English](README.md) · Português (Brasil)
+🌐 [English](README.md) · Português (Brasil) · [Español](README.es.md)
 
 Esta pasta contém um survey separado do assessment principal. Ele mede como desenvolvedores usam GitHub Copilot, agentes, arquivos de instruções, modos do Copilot Chat, práticas de desenvolvimento com IA, governança e segurança no dia a dia. Ele é anônimo.
 

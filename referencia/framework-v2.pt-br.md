@@ -2,7 +2,7 @@
 
 # Framework AI Maturity v2: guia de referência
 
-Gerado a partir de `framework.v2.json` (framework 2.0.1) por `scripts/generate_v2_reference.py`. A fonte da verdade é [a especificação v2](../coleta/AI-Maturity-Form-Questions_v2.md). Não edite este arquivo à mão.
+Gerado a partir de `framework.v2.json` (framework 2.0.1) por `scripts/generate_v2_reference.py`. A fonte da verdade é [a especificação v2](../coleta/AI-Maturity-Form-Questions_v2.md), em inglês, com tradução em [AI-Maturity-Form-Questions_v2.pt-br.md](../coleta/AI-Maturity-Form-Questions_v2.pt-br.md). Não edite este arquivo à mão.
 
 ## Método de pontuação
 
