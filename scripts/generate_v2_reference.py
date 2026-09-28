@@ -5,7 +5,9 @@ Writes referencia/framework-v2.md (EN), referencia/framework-v2.pt-br.md
 and referencia/framework-v2.es.md: scoring method, a worked example
 computed by scripts/engine_v2.py on the illustrative mock, and the full
 catalogue of dimensions and questions with anchors, evidence examples,
-references and v1 lineage. Do not edit the output by hand.
+references and v1 lineage. Also writes one page per dimension in
+referencia/dimensoes/ (D1.md ... D9.md with .pt-br.md and .es.md copies,
+plus an index) for workshops and owners. Do not edit the output by hand.
 
 Usage:
     python3 scripts/generate_v2_reference.py [--check]
@@ -52,7 +54,14 @@ T = {
             "Flags: low confidence (more than {na}% NA), amplification "
             "risk (D5, D6 or D8 one band below overall), perception gap "
             "(executives vs hands-on, at least {n} each), scope caveat, "
-            "unverified L3/L4 (less than {ev}% of answers with evidence).",
+            "unverified L3/L4 (less than {ev}% of answers with evidence), "
+            "respondent divergence (standard deviation of respondent "
+            "dimension scores of {sd} or more, at least {n} respondents).",
+            "Evidence cross-checks, when the files exist: the repository "
+            "scan (RAMP levels [47]) caps D4-Q4 by the share of "
+            "repositories with committed AI configuration, and Copilot "
+            "usage metrics [6] cap D4-Q1 by the adoption phases. The "
+            "report flags answers above what the evidence supports.",
         ],
         "bands": "Level bands",
         "example": "Worked example: {d} on the illustrative mock",
@@ -73,6 +82,21 @@ T = {
         "partial": "partial", "unit": "Unit", "audience": "Audience",
         "pe": "Platform engineering readiness", "yes": "yes",
         "refs": "References", "level": "Level",
+        "scope": "Scope note", "page": "Dimension page",
+        "d_title": "{d}: {name}", "d_index": "Dimension pages",
+        "d_index_intro": "One page per dimension, generated from "
+                         "`framework.v2.json` for workshops and dimension "
+                         "owners. Scores and priorities come from the "
+                         "client's own reports.",
+        "d_nav": "[All dimensions](README.md) · [Reference guide]"
+                 "(../framework-v2.md)",
+        "d_how": "How to use this page: agree the current level of each "
+                 "question with its evidence, then plan the next step "
+                 "from the L3 anchor (or the L4 anchor when L3 already "
+                 "holds).",
+        "d_survey": "Developer Survey context",
+        "d_survey_line": "{ds} informs {qs}.",
+        "d_questions": "Questions", "d_refs": "References cited here",
     },
     "pt-br": {
         "switch": "🌐 [English](framework-v2.md) · Português (Brasil)"
@@ -100,7 +124,15 @@ T = {
             "amplificação (D5, D6 ou D8 uma faixa abaixo do geral), "
             "diferença de percepção (executivos vs hands-on, ao menos {n} "
             "de cada), ressalva de escopo, L3/L4 não verificado (menos de "
-            "{ev}% das respostas com evidência).",
+            "{ev}% das respostas com evidência), divergência entre "
+            "respondentes (desvio padrão das notas de dimensão por "
+            "respondente de {sd} ou mais, com ao menos {n} respondentes).",
+            "Checagens cruzadas, quando os arquivos existem: o scan de "
+            "repositórios (níveis RAMP [47]) limita D4-Q4 pela fração de "
+            "repositórios com configuração de IA versionada, e as métricas "
+            "de uso do Copilot [6] limitam D4-Q1 pelas fases de adoção. O "
+            "relatório sinaliza respostas acima do que a evidência "
+            "sustenta.",
         ],
         "bands": "Faixas de nível",
         "example": "Exemplo resolvido: {d} no mock ilustrativo",
@@ -121,6 +153,21 @@ T = {
         "partial": "parcial", "unit": "Unidade", "audience": "Público",
         "pe": "Prontidão de platform engineering", "yes": "sim",
         "refs": "Referências", "level": "Nível",
+        "scope": "Nota de escopo", "page": "Página da dimensão",
+        "d_title": "{d}: {name}", "d_index": "Páginas por dimensão",
+        "d_index_intro": "Uma página por dimensão, gerada a partir de "
+                         "`framework.v2.json` para workshops e "
+                         "responsáveis por dimensão. Notas e prioridades "
+                         "vêm dos relatórios do próprio cliente.",
+        "d_nav": "[Todas as dimensões](README.pt-br.md) · [Guia de "
+                 "referência](../framework-v2.pt-br.md)",
+        "d_how": "Como usar esta página: acorde o nível atual de cada "
+                 "pergunta com as evidências e planeje o próximo passo a "
+                 "partir da âncora L3 (ou da âncora L4, quando a L3 já é "
+                 "atendida).",
+        "d_survey": "Contexto do Developer Survey",
+        "d_survey_line": "{ds} informa {qs}.",
+        "d_questions": "Perguntas", "d_refs": "Referências citadas aqui",
     },
     "es": {
         "switch": "🌐 [English](framework-v2.md) · [Português (Brasil)]"
@@ -150,7 +197,16 @@ T = {
             "amplificación (D5, D6 o D8 un rango por debajo del general), "
             "brecha de percepción (ejecutivos vs hands-on, al menos {n} "
             "de cada uno), salvedad de alcance, L3/L4 no verificado "
-            "(menos del {ev}% de respuestas con evidencia).",
+            "(menos del {ev}% de respuestas con evidencia), divergencia "
+            "entre personas encuestadas (desviación estándar de los "
+            "puntajes de dimensión por persona de {sd} o más, con al menos "
+            "{n} personas).",
+            "Verificaciones cruzadas, cuando existen los archivos: el "
+            "escaneo de repositorios (niveles RAMP [47]) limita D4-Q4 por "
+            "la fracción de repositorios con configuración de IA "
+            "versionada, y las métricas de uso de Copilot [6] limitan "
+            "D4-Q1 por las fases de adopción. El informe señala respuestas "
+            "por encima de lo que sostiene la evidencia.",
         ],
         "bands": "Rangos de nivel",
         "example": "Ejemplo resuelto: {d} en el mock ilustrativo",
@@ -172,10 +228,107 @@ T = {
         "partial": "parcial", "unit": "Unidad", "audience": "Audiencia",
         "pe": "Preparación de platform engineering", "yes": "sí",
         "refs": "Referencias", "level": "Nivel",
+        "scope": "Nota de alcance", "page": "Página de la dimensión",
+        "d_title": "{d}: {name}", "d_index": "Páginas por dimensión",
+        "d_index_intro": "Una página por dimensión, generada desde "
+                         "`framework.v2.json` para talleres y responsables "
+                         "de dimensión. Los puntajes y prioridades vienen "
+                         "de los informes del propio cliente.",
+        "d_nav": "[Todas las dimensiones](README.es.md) · [Guía de "
+                 "referencia](../framework-v2.es.md)",
+        "d_how": "Cómo usar esta página: acuerden el nivel actual de cada "
+                 "pregunta con sus evidencias y planifiquen el siguiente "
+                 "paso desde el ancla L3 (o el ancla L4 cuando la L3 ya "
+                 "se cumple).",
+        "d_survey": "Contexto del Developer Survey",
+        "d_survey_line": "{ds} informa {qs}.",
+        "d_questions": "Preguntas", "d_refs": "Referencias citadas aquí",
     },
 }
 
 EXAMPLE_DIMENSION = "D8"
+SUFFIX = {"en": ".md", "pt-br": ".pt-br.md", "es": ".es.md"}
+SWITCH = {"en": "🌐 English · [Português (Brasil)]({b}.pt-br.md) · "
+                "[Español]({b}.es.md)",
+          "pt-br": "🌐 [English]({b}.md) · Português (Brasil) · "
+                   "[Español]({b}.es.md)",
+          "es": "🌐 [English]({b}.md) · [Português (Brasil)]"
+                "({b}.pt-br.md) · Español"}
+
+
+def question_block(fw: dict, q: dict, lang: str) -> list[str]:
+    t = T[lang]
+    out = [f"### {q['id']}: {v2.tr(q['title'], lang)}", "",
+           f"> {v2.tr(q['text'], lang)}", ""]
+    if q.get("scope_note"):
+        out += [f"_{t['scope']}: {v2.tr(q['scope_note'], lang)}_", ""]
+    anchors = q["anchors"]
+    if anchors.get("l1_l2"):
+        out.append(f"- **L1-L2:** {v2.tr(anchors['l1_l2'], lang)}")
+    out += [f"- **L3:** {v2.tr(anchors['l3'], lang)}",
+            f"- **L4:** {v2.tr(anchors['l4'], lang)}",
+            f"- **{t['evidence']}:** {v2.tr(q['evidence_examples'], lang)}",
+            f"- **{t['basis']}:** " + " ".join(f"[{n}]" for n in q["basis"]),
+            ""]
+    return out
+
+
+def dimension_page(fw: dict, d: dict, lang: str) -> str:
+    t = T[lang]
+    groups = {g["id"]: g["name"][lang] for g in fw["report_groups"]}
+    names = {s["id"]: s["name"] for s in fw["strategies"]}
+    qids = {q["id"] for q in d["questions"]}
+    out = [SWITCH[lang].format(b=d["id"]), "",
+           f"# {t['d_title'].format(d=d['id'], name=v2.tr(d['name'], lang))}",
+           "", t["d_nav"], "",
+           f"**{t['why']}:** {v2.tr(d['why_it_matters'], lang)}", "",
+           f"**{t['strategies']}:** "
+           + ", ".join(f"{s} {names[s]}" for s in d["strategies"])
+           + f" · **{t['group']}:** {d['group']} ({groups[d['group']]})",
+           "", t["d_how"], "", f"## {t['d_questions']}", ""]
+    cited: set[int] = set()
+    for q in d["questions"]:
+        out += question_block(fw, q, lang)
+        cited.update(q["basis"])
+    survey = [(ds, [q for q in qs if q in qids])
+              for ds, qs in (fw.get("survey_crosswalk") or {}).items()]
+    survey = [(ds, qs) for ds, qs in survey if qs]
+    if survey:
+        out += [f"## {t['d_survey']}", ""]
+        out += [f"- {t['d_survey_line'].format(ds=ds, qs=', '.join(qs))}"
+                for ds, qs in survey]
+        out.append("")
+    out += [f"## {t['d_refs']}", ""]
+    for r in fw["references"]:
+        if r["n"] in cited:
+            out.append(f"- [{r['n']}] {r['text']}")
+    return "\n".join(out).rstrip() + "\n"
+
+
+def dimension_index(fw: dict, lang: str) -> str:
+    t = T[lang]
+    base = {"en": "framework-v2.md", "pt-br": "framework-v2.pt-br.md",
+            "es": "framework-v2.es.md"}[lang]
+    out = [SWITCH[lang].format(b="README"), "", f"# {t['d_index']}", "",
+           t["d_index_intro"], "", f"[{t['title']}](../{base})", "",
+           f"| ID | {t['catalogue']} | {t['group']} | {t['d_questions']} |",
+           "| --- | --- | --- | ---: |"]
+    for d in fw["dimensions"]:
+        page = f"{d['id']}{SUFFIX[lang]}"
+        out.append(f"| [{d['id']}]({page}) | {v2.tr(d['name'], lang)} | "
+                   f"{d['group']} | {len(d['questions'])} |")
+    return "\n".join(out) + "\n"
+
+
+def outputs(fw: dict) -> dict[str, str]:
+    files = {rel: render(fw, lang) for lang, rel in OUT.items()}
+    for lang, suffix in SUFFIX.items():
+        index = "README" + suffix
+        files[f"referencia/dimensoes/{index}"] = dimension_index(fw, lang)
+        for d in fw["dimensions"]:
+            files[f"referencia/dimensoes/{d['id']}{suffix}"] = \
+                dimension_page(fw, d, lang)
+    return files
 
 
 def num(v: float | None, lang: str) -> str:
@@ -207,7 +360,8 @@ def render(fw: dict, lang: str) -> str:
             p2=num(cuts["P2"], lang),
             na=round(sc["low_confidence_na_share"] * 100),
             n=sc["persona_min_n"],
-            ev=round(sc["unverified_evidence_share"] * 100)))
+            ev=round(sc["unverified_evidence_share"] * 100),
+            sd=num(sc["divergence_sd_min"], lang)))
     out += ["", f"### {t['bands']}", "",
             f"| {t['level']} | {t['score']} |", "| --- | --- |"]
     for i, b in enumerate(fw["level_bands"]):
@@ -245,12 +399,17 @@ def render(fw: dict, lang: str) -> str:
     for d in fw["dimensions"]:
         out += [f"### {d['id']}: {v2.tr(d['name'], lang)}", "",
                 f"**{t['why']}:** {v2.tr(d['why_it_matters'], lang)}", "",
+                f"**{t['page']}:** [dimensoes/{d['id']}{SUFFIX[lang]}]"
+                f"(dimensoes/{d['id']}{SUFFIX[lang]})", "",
                 f"**{t['strategies']}:** {', '.join(d['strategies'])} · "
                 f"**{t['group']}:** {d['group']} ({groups[d['group']]})",
                 ""]
         for q in d["questions"]:
             out += [f"#### {q['id']}: {v2.tr(q['title'], lang)}", "",
                     v2.tr(q["text"], lang), ""]
+            if q.get("scope_note"):
+                out += [f"_{t['scope']}: {v2.tr(q['scope_note'], lang)}_",
+                        ""]
             for i, opt in enumerate(fw["options"][lang][:5]):
                 out.append(f"- {opt}")
             anchors = q["anchors"]
@@ -283,20 +442,24 @@ def main() -> int:
     args = ap.parse_args()
     fw = json.loads((ROOT / "framework.v2.json").read_text("utf-8"))
     stale = []
-    for lang, rel in OUT.items():
-        text = render(fw, lang)
+    (ROOT / "referencia" / "dimensoes").mkdir(exist_ok=True)
+    for rel, text in outputs(fw).items():
         path = ROOT / rel
         if args.check:
             if not path.exists() or path.read_text("utf-8") != text:
                 stale.append(rel)
             continue
         path.write_text(text, encoding="utf-8")
-        print(f"✓ {rel}")
+    if not args.check:
+        print(f"✓ referencia/framework-v2 (3 languages) and "
+              f"referencia/dimensoes/ ({len(outputs(fw)) - 3} pages)")
     if stale:
         print("✗ Stale: " + ", ".join(stale)
               + ". Run python3 scripts/generate_v2_reference.py",
               file=sys.stderr)
         return 1
+    if args.check:
+        print("✓ reference guide and dimension pages up to date")
     return 0
 
 

@@ -12,7 +12,8 @@ Generated from `framework.v2.json` (framework 2.0.1) by `scripts/generate_v2_ref
 - Overall: weighted mean of the dimensions with a score (weights 1.0 by default, allowed 0.50 to 2.00).
 - Coverage: OK from 37 questions with a score, WARNING from 25, BLOCKED below.
 - Gap = target (default 3.00) minus score. Priority score = weight × gap: P0 from 2.40, P1 from 1.60, P2 from 0.90, else P3.
-- Flags: low confidence (more than 30% NA), amplification risk (D5, D6 or D8 one band below overall), perception gap (executives vs hands-on, at least 3 each), scope caveat, unverified L3/L4 (less than 50% of answers with evidence).
+- Flags: low confidence (more than 30% NA), amplification risk (D5, D6 or D8 one band below overall), perception gap (executives vs hands-on, at least 3 each), scope caveat, unverified L3/L4 (less than 50% of answers with evidence), respondent divergence (standard deviation of respondent dimension scores of 1.00 or more, at least 3 respondents).
+- Evidence cross-checks, when the files exist: the repository scan (RAMP levels [47]) caps D4-Q4 by the share of repositories with committed AI configuration, and Copilot usage metrics [6] cap D4-Q1 by the adoption phases. The report flags answers above what the evidence supports.
 
 ### Level bands
 
@@ -46,7 +47,9 @@ Overall = mean of the 9 dimension scores = **2.04** (L2 Adopting).
 
 ### D1: AI Strategy, Policy and Governance
 
-**Why it matters:** DORA identifies a "clear and communicated AI stance" as an amplifier of AI benefits [1]; Microsoft CAF requires that "every agent must be observable, governed, and secure" [19].
+**Why it matters:** DORA identifies a "clear and communicated AI stance" as an amplifier of AI benefits [1], [2]; Microsoft CAF states that "every agent must be observable, governed, and secure" [19].
+
+**Dimension page:** [dimensoes/D1.md](dimensoes/D1.md)
 
 **Strategies:** S7, S5, S6 · **Report group:** G1 (Direction, people and value)
 
@@ -97,7 +100,7 @@ Is there a maintained catalog of approved AI tools, features and models for soft
 - L4: New models and tools go through a defined evaluation (quality, cost, security) before enablement; retired ones are removed on schedule.
 
 **Evidence examples:** Copilot policy settings, tool catalog, model evaluation records.  
-**Basis:** [2] [15] [32]  
+**Basis:** [2] [15] [32] [49]  
 **v1 lineage:** None (new in v2)  
 **Unit:** organization · **Audience:** engineering-leader, architect, security
 
@@ -122,6 +125,8 @@ Are data residency, retention, intellectual property and privacy requirements de
 
 Has the organization defined which tasks are developer-led, developer-with-agent, or fully agent-led, and the controls required for each level?
 
+_Scope note: Measures the policy that defines autonomy levels. How tasks are written for agents is D3-Q3; how often work is delegated is D4-Q3._
+
 - L0 - Not started: No practice yet, or AI not permitted for this activity
 - L1 - Exploring: Individual or ad hoc use, no agreed guidance (more than 0% and up to 25% of teams)
 - L2 - Adopting: Team-level practice with written guidance (26-50% of teams)
@@ -131,7 +136,7 @@ Has the organization defined which tasks are developer-led, developer-with-agent
 - L4: The matrix is enforced by platform rules (for example branch protection, required reviewers per path) and updated from incident and quality data.
 
 **Evidence examples:** Autonomy matrix, repository rulesets, change records.  
-**Basis:** [7] [26] [32]  
+**Basis:** [7] [26] [32] [49] [56]  
 **v1 lineage:** None (new in v2)  
 **Unit:** organization · **Audience:** engineering-leader, architect, security
 
@@ -172,6 +177,8 @@ Is every AI agent used in the SDLC (coding agents, review agents, custom agents,
 ### D2: Enablement, Skills and Culture
 
 **Why it matters:** Gartner expects GenAI to require 80% of the engineering workforce to upskill through 2027 [30]; DORA asks about training, peer learning and support for experimentation [2].
+
+**Dimension page:** [dimensoes/D2.md](dimensoes/D2.md)
 
 **Strategies:** S5 · **Report group:** G1 (Direction, people and value)
 
@@ -273,13 +280,15 @@ Do new engineers use AI tools to understand codebases and become productive, wit
 - L4: Ramp-up and skill metrics are compared across cohorts and used to improve onboarding material and instructions.
 
 **Evidence examples:** Onboarding playbook, time-to-first-PR data, skill check results.  
-**Basis:** [6] [48]  
+**Basis:** [27] [48]  
 **v1 lineage:** P1-C5-Q2, P1-C5-Q6, P1-C5-Q7  
 **Unit:** engineers · **Audience:** engineering-leader, developer
 
 ### D3: Plan, Specify and Design
 
 **Why it matters:** in agentic coding, "people make most of the planning decisions (what to do) and Claude makes most of the execution decisions (how to do it)" [24]; the quality of the task definition drives the quality of agent output [8], [27].
+
+**Dimension page:** [dimensoes/D3.md](dimensoes/D3.md)
 
 **Strategies:** S5, S3 · **Report group:** G2 (Plan, build and review)
 
@@ -313,13 +322,15 @@ For non-trivial changes, is a written plan or specification produced and reviewe
 - L4: Specs are the contract for automated verification (tests, checks) and are kept in sync with the code.
 
 **Evidence examples:** Spec files, plan reviews, PRs that reference specs.  
-**Basis:** [24] [27] [58]  
+**Basis:** [23] [24] [27] [58]  
 **v1 lineage:** None (new in v2)  
 **Unit:** teams · **Audience:** product-owner, architect, developer
 
 #### D3-Q3: Task scoping for agents
 
 Are tasks given to coding agents well scoped (small, with clear acceptance criteria and pointers to relevant code) before assignment?
+
+_Scope note: Measures how tasks are scoped for agents. The autonomy policy is D1-Q5; delegation volume is D4-Q3._
 
 - L0 - Not started: No practice yet, or AI not permitted for this activity
 - L1 - Exploring: Individual or ad hoc use, no agreed guidance (more than 0% and up to 25% of teams)
@@ -330,7 +341,7 @@ Are tasks given to coding agents well scoped (small, with clear acceptance crite
 - L4: Agent task success and rework rates are tracked per task type and used to refine the guidance.
 
 **Evidence examples:** Agent task guidelines, issue samples, success-rate data.  
-**Basis:** [1] [8] [49]  
+**Basis:** [1] [8] [24] [49]  
 **v1 lineage:** None (new in v2)  
 **Unit:** teams · **Audience:** product-owner, architect, developer
 
@@ -347,7 +358,7 @@ Is AI used to support design work (option analysis, threat and failure modes, ar
 - L4: Agents check new changes against recorded decisions and flag conflicts automatically.
 
 **Evidence examples:** ADR repository, design review records.  
-**Basis:** [26]  
+**Basis:** [8] [24] [26]  
 **v1 lineage:** P1-C3-Q5, P1-C6-Q5  
 **Unit:** teams · **Audience:** product-owner, architect, developer
 
@@ -364,7 +375,7 @@ Is AI-assisted work tied to clear user outcomes and informed by user feedback?
 - L4: User-outcome metrics are part of the definition of done for AI-assisted delivery.
 
 **Evidence examples:** Product briefs, feedback loop records, outcome dashboards.  
-**Basis:** [1] [3]  
+**Basis:** [1] [2] [3]  
 **v1 lineage:** None (new in v2)  
 **Unit:** teams · **Audience:** product-owner, architect, developer
 
@@ -389,18 +400,22 @@ Are AI tools and agents used to understand, upgrade and migrate legacy code (for
 
 **Why it matters:** GitHub measures adoption depth as a progression from "Code first" to "Agent first" to "Multi-agent" [6]; Anthropic describes context as "a finite resource with diminishing marginal returns" [25].
 
+**Dimension page:** [dimensoes/D4.md](dimensoes/D4.md)
+
 **Strategies:** S5, S6, S4 · **Report group:** G2 (Plan, build and review)
 
 #### D4-Q1: Depth of AI use across surfaces
 
 How deeply do engineers use AI across surfaces: completions and agent edits in the IDE, GitHub agent surfaces (cloud agent, code review, CLI), and several agents together?
 
+_Scope note: Measures how deeply AI is used. Whether that use is measured is D9-Q1._
+
 - L0 - Not started: No practice yet, or AI not permitted for this activity
 - L1 - Exploring: Individual or ad hoc use, no agreed guidance (more than 0% and up to 25% of teams)
 - L2 - Adopting: Team-level practice with written guidance (26-50% of teams)
 - L3 - Scaling: Organization standard, governed and measured (51-90% of teams)
 - L4 - AI-native: Universal (>90%), continuously evaluated and improved, tied to outcomes
-- L1-L2: Mostly completions and chat ("Code first").
+- L1-L2: Mostly completions and agent edits in the IDE ("Code first"); chat-only use counts as Passive in GitHub's cohorts.
 - L3: Many engineers regularly use at least one GitHub agent surface ("Agent first"), confirmed by usage metrics.
 - L4: Multi-agent use is normal ("Multi-agent"), with cohort distribution tracked monthly.
 
@@ -430,6 +445,8 @@ Do engineers use IDE agent mode (or equivalent) for multi-file changes, and revi
 
 Are coding agents (for example Copilot cloud agent) assigned issues and producing pull requests that are merged after human review?
 
+_Scope note: Measures how much work is delegated to coding agents. The autonomy policy is D1-Q5; task scoping is D3-Q3._
+
 - L0 - Not started: No practice yet, or AI not permitted for this activity
 - L1 - Exploring: Individual or ad hoc use, no agreed guidance (more than 0% and up to 25% of teams)
 - L2 - Adopting: Team-level practice with written guidance (26-50% of teams)
@@ -456,7 +473,7 @@ Do repositories contain versioned, reviewed custom instructions for AI tools (fo
 - L4: Instructions are generated from a shared baseline, checked for staleness, and their effect on agent merge rate and code quality is measured, since instruction files alone do not guarantee better results.
 
 **Evidence examples:** Instruction files, coverage across repositories, change history, before/after agent PR metrics.  
-**Basis:** [2] [8] [25] [46] [47]  
+**Basis:** [2] [8] [25] [27] [46] [47] [55]  
 **v1 lineage:** None (new in v2)  
 **Unit:** repositories · **Audience:** developer, platform-engineer
 
@@ -507,7 +524,7 @@ Can AI tools and agents securely use internal sources (code, documentation, wiki
 - L4: Knowledge sources are curated for AI use (freshness, ownership) and retrieval quality is evaluated.
 
 **Evidence examples:** Connector configuration, retrieval evaluations.  
-**Basis:** [1] [2]  
+**Basis:** [1] [2] [19]  
 **v1 lineage:** P1-C3-Q2, P1-C3-Q3  
 **Unit:** teams · **Audience:** developer, platform-engineer · **Platform engineering readiness:** yes
 
@@ -524,13 +541,15 @@ Is model choice matched to task complexity (smaller models for routine work, fro
 - L4: Automatic routing is in place and tuned from cost and quality data.
 
 **Evidence examples:** Model guidance, policy settings, routing configuration.  
-**Basis:** [32]  
+**Basis:** [26] [32]  
 **v1 lineage:** None (new in v2)  
 **Unit:** organization · **Audience:** developer, platform-engineer
 
 ### D5: Review, Quality and Testing
 
 **Why it matters:** DORA links AI-driven change volume to instability unless strong control systems exist [3]; GitHub requires human review before agent PRs merge [7]; 46% of developers distrust AI output accuracy [37].
+
+**Dimension page:** [dimensoes/D5.md](dimensoes/D5.md)
 
 **Strategies:** S5, S7 · **Report group:** G2 (Plan, build and review)
 
@@ -547,7 +566,7 @@ Is AI code review (for example Copilot code review) applied to pull requests, wi
 - L4: Review rules are tuned per repository from suggestion outcomes; review time and escaped defects are tracked; PRs where only AI reviewed AI-authored code are visible and governed.
 
 **Evidence examples:** Repository rulesets, code review adoption metrics, suggestion outcomes.  
-**Basis:** [6] [12] [54] [55]  
+**Basis:** [6] [12] [14] [54] [55]  
 **v1 lineage:** P1-C1-Q2, P1-C4-Q1  
 **Unit:** repositories · **Audience:** developer, qa-test
 
@@ -560,11 +579,11 @@ Do agent-authored pull requests require independent human approval (not the requ
 - L2 - Adopting: Team-level practice with written guidance (26-50% of teams)
 - L3 - Scaling: Organization standard, governed and measured (51-90% of teams)
 - L4 - AI-native: Universal (>90%), continuously evaluated and improved, tied to outcomes
-- L3: Default protections are kept: agent PRs need an independent approver; "Approve and run workflows" is not disabled without a documented risk decision.
+- L3: Default protections are kept: agent PRs need an independent human approver (Copilot approvals, if enabled, do not count); "Approve and run workflows" is not disabled without a documented risk decision.
 - L4: Approval requirements scale with risk (D1-Q5) and are audited; exceptions expire automatically.
 
 **Evidence examples:** Rulesets, branch protection, agent settings.  
-**Basis:** [7] [14] [38] [53] [55] [56]  
+**Basis:** [7] [12] [14] [38] [53] [55] [56]  
 **v1 lineage:** P3-C5-Q5, P2-C9-Q3  
 **Unit:** repositories · **Audience:** developer, qa-test
 
@@ -589,6 +608,8 @@ Do AI-generated and agent-authored changes pass the same required checks (build,
 
 Are changes kept small (limits on PR size, one concern per PR), including changes produced by agents?
 
+_Scope note: Measures the size of AI-assisted changes. How often code is committed and how fast it is rolled back is D8-Q2._
+
 - L0 - Not started: No practice yet, or AI not permitted for this activity
 - L1 - Exploring: Individual or ad hoc use, no agreed guidance (more than 0% and up to 25% of teams)
 - L2 - Adopting: Team-level practice with written guidance (26-50% of teams)
@@ -606,6 +627,8 @@ Are changes kept small (limits on PR size, one concern per PR), including change
 
 Is AI used to generate and maintain tests, with test quality checked (for example coverage of changed code, mutation testing) rather than only test count?
 
+_Scope note: Measures AI used to write and improve tests. Whether automated tests act as a gate is D8-Q7._
+
 - L0 - Not started: No practice yet, or AI not permitted for this activity
 - L1 - Exploring: Individual or ad hoc use, no agreed guidance (more than 0% and up to 25% of teams)
 - L2 - Adopting: Team-level practice with written guidance (26-50% of teams)
@@ -615,13 +638,15 @@ Is AI used to generate and maintain tests, with test quality checked (for exampl
 - L4: Test effectiveness (mutation score, escaped defects) is tracked; flaky tests are detected and quarantined automatically.
 
 **Evidence examples:** Coverage reports, mutation-testing results, flaky-test dashboard.  
-**Basis:** [3]  
+**Basis:** [3] [8] [17]  
 **v1 lineage:** P1-C1-Q4, P2-C6-Q1, P2-C6-Q5, P2-C6-Q6, P2-C6-Q7  
 **Unit:** teams · **Audience:** developer, qa-test
 
 #### D5-Q6: Verification culture and calibrated trust
 
 Do engineers systematically verify AI output (run it, test it, read it) and is trust in AI output measured over time?
+
+_Scope note: Measures review behaviour and trust calibration. How developer experience is surveyed is D9-Q4._
 
 - L0 - Not started: No practice yet, or AI not permitted for this activity
 - L1 - Exploring: Individual or ad hoc use, no agreed guidance (more than 0% and up to 25% of teams)
@@ -632,7 +657,7 @@ Do engineers systematically verify AI output (run it, test it, read it) and is t
 - L4: Trust and accuracy are compared with real defect data, and guidance is updated where they diverge.
 
 **Evidence examples:** Review guidelines, survey results, defect analysis.  
-**Basis:** [3] [35] [37] [48] [52]  
+**Basis:** [3] [23] [35] [37] [48] [52]  
 **v1 lineage:** None (new in v2)  
 **Unit:** teams · **Audience:** developer, qa-test
 
@@ -655,7 +680,9 @@ Is the long-term health of AI-generated code monitored (duplication, churn, comp
 
 ### D6: Security and AI Supply Chain
 
-**Why it matters:** OWASP lists prompt injection (LLM01), supply chain (LLM03) and excessive agency (LLM06) among the top risks [38], and agent goal hijack (ASI01) first for agentic applications [39]; NIST SP 800-218A adds AI-specific practices to the SSDF [40].
+**Why it matters:** OWASP lists prompt injection (LLM01:2025), supply chain (LLM03:2025) and excessive agency (LLM06:2025) among the top risks [38], and agent goal hijack (ASI01) first for agentic applications [39]; NIST SP 800-218A adds practices for AI model development to the SSDF [40].
+
+**Dimension page:** [dimensoes/D6.md](dimensoes/D6.md)
 
 **Strategies:** S7, S6 · **Report group:** G3 (Secure, deliver and foundations)
 
@@ -672,7 +699,7 @@ Are code scanning (SAST), secret scanning with push protection, and dependency r
 - L4: Coverage is near complete and verified automatically; mean time to remediate is tracked.
 
 **Evidence examples:** Security coverage dashboard, remediation time.  
-**Basis:** [13] [40] [52]  
+**Basis:** [7] [13] [40] [52]  
 **v1 lineage:** P1-C4-Q3, P2-C4-Q1, P2-C4-Q2, P2-C4-Q3, P2-C4-Q4, P2-C10-Q1  
 **Unit:** repositories · **Audience:** security, platform-engineer
 
@@ -703,7 +730,7 @@ Are agents protected against prompt injection and goal hijack (untrusted content
 - L3 - Scaling: Organization standard, governed and measured (51-90% of teams)
 - L4 - AI-native: Universal (>90%), continuously evaluated and improved, tied to outcomes
 - L3: Agent firewalls and egress restrictions are kept on; guidance tells teams which content sources are untrusted.
-- L4: Agents are red-teamed regularly against OWASP LLM01 and ASI01 scenarios; findings are tracked to closure.
+- L4: Agents are red-teamed regularly against OWASP LLM01:2025 and ASI01 scenarios; findings are tracked to closure.
 
 **Evidence examples:** Firewall configuration, red-team reports.  
 **Basis:** [7] [38] [39]  
@@ -782,6 +809,8 @@ Are agent sessions and actions (prompts, tool calls, commits, approvals) logged,
 
 **Why it matters:** more AI-generated change needs strong delivery safety nets [3], [5]; Microsoft recommends continuous observation of agent activity [19] and is extending agents to cloud operations [22].
 
+**Dimension page:** [dimensoes/D7.md](dimensoes/D7.md)
+
 **Strategies:** S2, S6 · **Report group:** G3 (Secure, deliver and foundations)
 
 #### D7-Q1: AI in CI/CD pipelines
@@ -831,7 +860,7 @@ Is AI used in incident response (alert correlation, summarization, root-cause hy
 - L4: Operations agents run approved diagnostics automatically; time to restore is compared before and after adoption.
 
 **Evidence examples:** Incident tooling configuration, incident timelines, time-to-restore data.  
-**Basis:** [22]  
+**Basis:** [16] [17] [22]  
 **v1 lineage:** P2-C3-Q6, P2-C7-Q2, P2-C7-Q5  
 **Unit:** services · **Audience:** devops, platform-engineer
 
@@ -890,6 +919,8 @@ Are operational tasks (runbooks, remediation, dependency and patch updates) auto
 
 **Why it matters:** DORA finds that these capabilities amplify the benefits of AI adoption, and that a high-quality internal platform correlates with the ability to unlock AI value [1], [3].
 
+**Dimension page:** [dimensoes/D8.md](dimensoes/D8.md)
+
 **Strategies:** S1, S2, S3 · **Report group:** G3 (Secure, deliver and foundations)
 
 #### D8-Q1: Version control for everything
@@ -912,6 +943,8 @@ Are application code, configuration, build automation, system configuration and 
 #### D8-Q2: Commit frequency and fast rollback
 
 Do engineers commit small changes frequently and rely on fast undo/revert when experimenting with AI output?
+
+_Scope note: Measures commit frequency and rollback speed. The size of AI-assisted changes is D5-Q4._
 
 - L0 - Not started: No practice yet, or AI not permitted for this activity
 - L1 - Exploring: Individual or ad hoc use, no agreed guidance (more than 0% and up to 25% of teams)
@@ -998,6 +1031,8 @@ Is documentation kept as code, current and owned, so it can serve as reliable co
 
 Is automated testing deep and fast enough to catch regressions from high volumes of AI-generated change (unit, integration, end-to-end, contract)?
 
+_Scope note: Measures automated tests as a control system. AI used to write tests is D5-Q5._
+
 - L0 - Not started: No practice yet, or AI not permitted for this activity
 - L1 - Exploring: Individual or ad hoc use, no agreed guidance (more than 0% and up to 25% of teams)
 - L2 - Adopting: Team-level practice with written guidance (26-50% of teams)
@@ -1015,11 +1050,15 @@ Is automated testing deep and fast enough to catch regressions from high volumes
 
 **Why it matters:** controlled studies range from 55.8% faster [33] and 26.08% more completed tasks [34] to 19% slower with a strong perception gap [35], so organizations need their own objective measurement; Gartner predicts AI coding costs will overtake the average developer's salary by 2028 [32].
 
+**Dimension page:** [dimensoes/D9.md](dimensoes/D9.md)
+
 **Strategies:** S5, S2 · **Report group:** G1 (Direction, people and value)
 
 #### D9-Q1: Adoption depth metrics
 
 Is AI adoption tracked with telemetry beyond seat counts (active users, engagement by feature, adoption cohorts)?
+
+_Scope note: Measures whether adoption is tracked. How deeply AI is used is D4-Q1._
 
 - L0 - Not started: No practice yet, or AI not permitted for this activity
 - L1 - Exploring: Individual or ad hoc use, no agreed guidance (more than 0% and up to 25% of teams)
@@ -1072,6 +1111,8 @@ Are PR throughput, time to merge and the share and merge rate of AI- or agent-au
 
 Is developer experience measured regularly (perceived productivity, friction, trust in AI, satisfaction), using a recognized framework such as SPACE or the DORA outcome questions?
 
+_Scope note: Measures the developer experience survey. Review behaviour and trust calibration is D5-Q6._
+
 - L0 - Not started: No practice yet, or AI not permitted for this activity
 - L1 - Exploring: Individual or ad hoc use, no agreed guidance (more than 0% and up to 25% of teams)
 - L2 - Adopting: Team-level practice with written guidance (26-50% of teams)
@@ -1115,7 +1156,7 @@ Are AI costs (seats, premium requests, tokens, agent runs) budgeted, monitored p
 - L4: Cost per outcome (for example per merged PR) is tracked; routing and context practices are tuned to reduce waste.
 
 **Evidence examples:** Cost dashboards, budget alerts, retrospective notes.  
-**Basis:** [32] [38] [45]  
+**Basis:** [19] [32] [38] [45]  
 **v1 lineage:** P3-C9-Q1 (partial)  
 **Unit:** organization · **Audience:** engineering-leader, product-owner
 
@@ -1132,19 +1173,19 @@ Are AI engineering outcomes connected to business value (business case, ROI assu
 - L4: Value is reported on a fixed cadence with measured inputs from D9-Q1 to Q6; investment is adjusted from results.
 
 **Evidence examples:** Business case, value reports.  
-**Basis:** [18] [32]  
+**Basis:** [18] [28] [32]  
 **v1 lineage:** P1-C8-Q6, P3-C9-Q5  
 **Unit:** organization · **Audience:** engineering-leader, product-owner
 
 ## References
 
-1. DORA. _DORA AI Capabilities Model_. Google Cloud, 2025. <https://dora.dev/ai/capabilities-model/>
+1. DORA. _DORA AI Capabilities Model_. Google Cloud, 2025. <https://dora.dev/ai/capabilities-model/report/>
 2. DORA. _DORA AI Capabilities Model: Survey Questions_. Google Cloud, 2025. <https://dora.dev/ai/capabilities-model/questions/>
 3. Google Cloud. _Announcing the 2025 DORA Report: State of AI-Assisted Software Development_. 2025. <https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report>
 4. DORA. _State of AI-assisted Software Development 2025_. <https://dora.dev/research/2025/dora-report/>
-5. Google Cloud. _Announcing the 2024 DORA report_. 2024. <https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report>
-6. GitHub Docs. _GitHub Copilot usage metrics_. <https://docs.github.com/en/copilot/concepts/copilot-metrics>
-7. GitHub Docs. _Risks and mitigations for GitHub Copilot cloud agent_. <https://docs.github.com/en/enterprise-cloud@latest/copilot/concepts/agents/cloud-agent/risks-and-mitigations>
+5. Google Cloud. _Announcing the 2024 DORA report_. 2024-10-22. <https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report>
+6. GitHub Docs. _GitHub Copilot usage metrics_. <https://docs.github.com/en/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics>
+7. GitHub Docs. _Risks and mitigations for GitHub Copilot cloud agent_. <https://docs.github.com/en/enterprise-cloud@latest/copilot/concepts/security-governance-and-network-settings/risks-and-mitigations>
 8. GitHub Docs. _Best practices for using GitHub Copilot to work on tasks_. <https://docs.github.com/enterprise-cloud@latest/copilot/tutorials/cloud-agent/get-the-best-results>
 9. GitHub Docs. _Configuring an MCP server allowlist for your enterprise_. <https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist>
 10. GitHub Docs. _Restrict MCP server access to a custom registry_. <https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-mcp-usage/restrict-based-on-registry>
@@ -1152,19 +1193,19 @@ Are AI engineering outcomes connected to business value (business case, ROI assu
 12. GitHub Docs. _About GitHub Copilot code review_. <https://docs.github.com/copilot/concepts/agents/code-review>
 13. GitHub Docs. _About autofix for code scanning_. <https://docs.github.com/en/code-security/concepts/code-scanning/autofix-for-code-scanning>
 14. GitHub Docs. _Application card: GitHub Copilot Agents_. <https://docs.github.com/en/copilot/responsible-use/agents>
-15. GitHub Docs. _Managing policies and features for GitHub Copilot in your organization_. <https://docs.github.com/copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization>
+15. GitHub Docs. _Managing policies and features for GitHub Copilot in your organization_. <https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies>
 16. Microsoft Azure Blog. _Agentic DevOps: Evolving software development with GitHub Copilot and Microsoft Azure_. 2025. <https://azure.microsoft.com/en-us/blog/agentic-devops-evolving-software-development-with-github-copilot-and-microsoft-azure/>
 17. Microsoft for Developers. _Agentic DevOps in action: Reimagining every phase of the developer lifecycle_. 2025. <https://developer.microsoft.com/blog/reimagining-every-phase-of-the-developer-lifecycle/>
 18. Microsoft Learn. _AI strategy: Cloud Adoption Framework_. <https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/strategy>
 19. Microsoft Learn. _Govern and secure AI agents: Cloud Adoption Framework_. <https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization>
 20. Microsoft Learn. _Responsible AI policies: Cloud Adoption Framework_. <https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/responsible-ai-policies>
-21. Microsoft. _Responsible AI: Principles and approach (Microsoft Responsible AI Standard)_. <https://www.microsoft.com/en-us/ai/principles-and-approach>
+21. Microsoft. _Responsible AI Principles and Approach_. <https://www.microsoft.com/en-us/ai/principles-and-approach>
 22. Microsoft Azure Blog. _Announcing Azure Copilot agents and AI infrastructure innovations_. 2025. <https://azure.microsoft.com/en-us/blog/announcing-azure-copilot-agents-and-ai-infrastructure-innovations/>
 23. Anthropic. _Anthropic Economic Index: AI's impact on software development_. 2025-04-28. <https://www.anthropic.com/research/impact-software-development>
-24. Anthropic. _How Claude Code is used in practice_. <https://www.anthropic.com/research/claude-code-expertise>
-25. Anthropic. _Effective context engineering for AI agents_. <https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents>
-26. Anthropic. _Building effective agents_. <https://www.anthropic.com/engineering/building-effective-agents>
-27. Anthropic. _Best practices for Claude Code_. <https://www.anthropic.com/engineering/claude-code-best-practices>
+24. Anthropic. _How Claude Code is used in practice_. 2026-06-16. <https://www.anthropic.com/research/claude-code-expertise>
+25. Anthropic. _Effective context engineering for AI agents_. 2025-09-29. <https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents>
+26. Anthropic. _Building effective agents_. 2024-12-19. <https://www.anthropic.com/engineering/building-effective-agents>
+27. Anthropic. _Best practices for Claude Code_. Claude Code Docs. <https://code.claude.com/docs/en/best-practices>
 28. Gartner. _Gartner Says 75% of Enterprise Software Engineers Will Use AI Code Assistants by 2028_. 2024-04-11. <https://www.gartner.com/en/newsroom/press-releases/2024-04-11-gartner-says-75-percent-of-enterprise-software-engineers-will-use-ai-code-assistants-by-2028>
 29. Gartner. _Gartner Identifies the Top Strategic Trends in Software Engineering for 2025 and Beyond_. 2025-07-01. <https://www.gartner.com/en/newsroom/press-releases/2025-07-01-gartner-identifies-the-top-strategic-trends-in-software-engineering-for-2025-and-beyond>
 30. Gartner. _Gartner Says Generative AI will Require 80% of Engineering Workforce to Upskill Through 2027_. 2024-10-03. <https://www.gartner.com/en/newsroom/press-releases/2024-10-03-gartner-says-generative-ai-will-require-80-percent-of-engineering-workforce-to-upskill-through-2027>
@@ -1175,13 +1216,13 @@ Are AI engineering outcomes connected to business value (business case, ROI assu
 35. METR. _Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity_. 2025-07-10. <https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/> (paper: <https://arxiv.org/abs/2507.09089>)
 36. METR. _We are Changing our Developer Productivity Experiment Design_. 2026-02-24. <https://metr.org/blog/2026-02-24-uplift-update/>
 37. Stack Overflow. _2025 Developer Survey: AI_. <https://survey.stackoverflow.co/2025/ai>
-38. OWASP GenAI Security Project. _OWASP Top 10 for LLM Applications 2025_. <https://genai.owasp.org/llm-top-10/>
-39. OWASP GenAI Security Project. _OWASP Top 10 for Agentic Applications for 2026_. <https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/>
+38. OWASP GenAI Security Project. _OWASP Top 10 for LLM Applications 2025_. <https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/>
+39. OWASP GenAI Security Project. _OWASP Top 10 for Agentic Applications for 2026_. 2025-12-09. <https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/>
 40. NIST. _SP 800-218A: Secure Software Development Practices for Generative AI and Dual-Use Foundation Models: An SSDF Community Profile_. 2024-07. <https://csrc.nist.gov/pubs/sp/800/218/a/final>
 41. NIST. _AI Risk Management Framework_. <https://www.nist.gov/itl/ai-risk-management-framework>
-42. ISO. _ISO/IEC 42001:2023: Artificial intelligence: Management system_. <https://www.iso.org/standard/81230.html>
+42. ISO. _ISO/IEC 42001:2023: AI management systems_. <https://www.iso.org/standard/42001>
 43. OpenSSF. _SLSA: Supply-chain Levels for Software Artifacts_. <https://slsa.dev/>
-44. Forsgren, N., Storey, M.-A., Maddila, C., Zimmermann, T., Houck, B., Butler, J. _The SPACE of Developer Productivity_. ACM Queue, 2021. <https://queue.acm.org/detail.cfm?id=3454124>
+44. Forsgren, N., Storey, M.-A., Maddila, C., Zimmermann, T., Houck, B., Butler, J. _The SPACE of Developer Productivity_. ACM Queue 19(1), 2021-03-06. <https://queue.acm.org/detail.cfm?id=3454124> (DOI: <https://doi.org/10.1145/3454122.3454124>)
 45. Liu, B., Qiu, H., Goiri, Í., Fonseca, R., Bianchini, R., Choukse, E. _Agentic Coding in the Wild: Characterizing GitHub Copilot Traces at Production Scale_. arXiv:2608.00101, 2026-07-30. <https://arxiv.org/abs/2608.00101>
 46. Arabat, A., Sayagh, M. _Toward Instructions-as-Code: Understanding the Impact of Instruction Files on Agentic Pull Requests_. arXiv:2606.13449, 2026-06-11. <https://arxiv.org/abs/2606.13449>
 47. Denisov-Blanch, Y., Agarwal, S., Azaletskiy, P., He, H., Schaeffer, R., Miranda, B., Vasilescu, B., Koyejo, S. _A Few Pages of Markdown: Committed AI Configuration and Lower Quality Cost after Coding-Agent Adoption_. arXiv:2608.25241, 2026-08-26. <https://arxiv.org/abs/2608.25241>

@@ -12,7 +12,8 @@ Gerado a partir de `framework.v2.json` (framework 2.0.1) por `scripts/generate_v
 - Geral: média ponderada das dimensões com score (pesos 1,0 por padrão, permitido de 0,50 a 2,00).
 - Cobertura: OK a partir de 37 perguntas com score, WARNING a partir de 25, BLOCKED abaixo disso.
 - Gap = alvo (padrão 3,00) menos score. Prioridade = peso × gap: P0 a partir de 2,40, P1 a partir de 1,60, P2 a partir de 0,90, senão P3.
-- Alertas: baixa confiança (mais de 30% NA), risco de amplificação (D5, D6 ou D8 uma faixa abaixo do geral), diferença de percepção (executivos vs hands-on, ao menos 3 de cada), ressalva de escopo, L3/L4 não verificado (menos de 50% das respostas com evidência).
+- Alertas: baixa confiança (mais de 30% NA), risco de amplificação (D5, D6 ou D8 uma faixa abaixo do geral), diferença de percepção (executivos vs hands-on, ao menos 3 de cada), ressalva de escopo, L3/L4 não verificado (menos de 50% das respostas com evidência), divergência entre respondentes (desvio padrão das notas de dimensão por respondente de 1,00 ou mais, com ao menos 3 respondentes).
+- Checagens cruzadas, quando os arquivos existem: o scan de repositórios (níveis RAMP [47]) limita D4-Q4 pela fração de repositórios com configuração de IA versionada, e as métricas de uso do Copilot [6] limitam D4-Q1 pelas fases de adoção. O relatório sinaliza respostas acima do que a evidência sustenta.
 
 ### Faixas de nível
 
@@ -46,7 +47,9 @@ Geral = média dos 9 scores de dimensão = **2,04** (L2 Adotando).
 
 ### D1: Estratégia, política e governança de IA
 
-**Por que importa:** DORA identifica uma "postura de IA clara e comunicada" como amplificadora dos benefícios da IA [1]; o Microsoft CAF exige que "todo agente deve ser observável, governado e seguro" [19].
+**Por que importa:** DORA identifica uma "postura de IA clara e comunicada" como amplificadora dos benefícios da IA [1], [2]; o Microsoft CAF afirma que "todo agente deve ser observável, governado e seguro" [19].
+
+**Página da dimensão:** [dimensoes/D1.pt-br.md](dimensoes/D1.pt-br.md)
 
 **Estratégias:** S7, S5, S6 · **Grupo do relatório:** G1 (Direção, pessoas e valor)
 
@@ -97,7 +100,7 @@ Existe um catálogo mantido de ferramentas, recursos e modelos de IA aprovados p
 - L4: Novos modelos e ferramentas passam por uma avaliação definida (qualidade, custo, segurança) antes da habilitação; os descontinuados são removidos conforme cronograma.
 
 **Exemplos de evidência:** Configurações de política do Copilot, catálogo de ferramentas, registros de avaliação de modelos.  
-**Base:** [2] [15] [32]  
+**Base:** [2] [15] [32] [49]  
 **Origem na v1:** Nenhuma (nova na v2)  
 **Unidade:** organization · **Público:** engineering-leader, architect, security
 
@@ -122,6 +125,8 @@ Requisitos de residência, retenção, propriedade intelectual e privacidade de 
 
 A organização definiu quais tarefas são lideradas pelo desenvolvedor, conduzidas por desenvolvedor com agente, ou totalmente lideradas por agente, e os controles exigidos para cada nível?
 
+_Nota de escopo: Mede a política que define níveis de autonomia. Como as tarefas são escritas para agentes é D3-Q3; com que frequência o trabalho é delegado é D4-Q3._
+
 - L0 - Não iniciado: Nenhuma prática ainda, ou IA não permitida para esta atividade
 - L1 - Explorando: Uso individual ou ad hoc, sem orientação acordada (mais de 0% e até 25% das equipes)
 - L2 - Adotando: Prática no nível da equipe com orientação escrita (26-50% das equipes)
@@ -131,7 +136,7 @@ A organização definiu quais tarefas são lideradas pelo desenvolvedor, conduzi
 - L4: A matriz é aplicada por regras da plataforma (por exemplo branch protection, revisores exigidos por caminho) e atualizada a partir de dados de incidentes e qualidade.
 
 **Exemplos de evidência:** Matriz de autonomia, rulesets de repositório, registros de mudança.  
-**Base:** [7] [26] [32]  
+**Base:** [7] [26] [32] [49] [56]  
 **Origem na v1:** Nenhuma (nova na v2)  
 **Unidade:** organization · **Público:** engineering-leader, architect, security
 
@@ -172,6 +177,8 @@ Todo agente de IA usado no SDLC (coding agents, review agents, custom agents, pi
 ### D2: Capacitação, habilidades e cultura
 
 **Por que importa:** O Gartner espera que GenAI exija que 80% da força de trabalho de engenharia se requalifique até 2027 [30]; DORA pergunta sobre treinamento, aprendizagem entre pares e suporte à experimentação [2].
+
+**Página da dimensão:** [dimensoes/D2.pt-br.md](dimensoes/D2.pt-br.md)
 
 **Estratégias:** S5 · **Grupo do relatório:** G1 (Direção, pessoas e valor)
 
@@ -273,13 +280,15 @@ Novos engenheiros usam ferramentas de IA para entender codebases e se tornarem p
 - L4: Métricas de ramp-up e habilidades são comparadas entre coortes e usadas para melhorar material e instruções de onboarding.
 
 **Exemplos de evidência:** Playbook de onboarding, dados de tempo até primeiro PR, resultados de verificação de habilidades.  
-**Base:** [6] [48]  
+**Base:** [27] [48]  
 **Origem na v1:** P1-C5-Q2, P1-C5-Q6, P1-C5-Q7  
 **Unidade:** engineers · **Público:** engineering-leader, developer
 
 ### D3: Planejar, especificar e desenhar
 
 **Por que importa:** em agentic coding, "as pessoas tomam a maior parte das decisões de planejamento (o que fazer) e Claude toma a maior parte das decisões de execução (como fazer)" [24]; a qualidade da definição da tarefa impulsiona a qualidade da saída do agente [8], [27].
+
+**Página da dimensão:** [dimensoes/D3.pt-br.md](dimensoes/D3.pt-br.md)
 
 **Estratégias:** S5, S3 · **Grupo do relatório:** G2 (Planejar, construir e revisar)
 
@@ -313,13 +322,15 @@ Para mudanças não triviais, um plano ou especificação escrito é produzido e
 - L4: Specs são o contrato para verificação automatizada (testes, checks) e são mantidas sincronizadas com o code.
 
 **Exemplos de evidência:** Arquivos de spec, reviews de plano, PRs que referenciam specs.  
-**Base:** [24] [27] [58]  
+**Base:** [23] [24] [27] [58]  
 **Origem na v1:** Nenhuma (nova na v2)  
 **Unidade:** teams · **Público:** product-owner, architect, developer
 
 #### D3-Q3: Escopo de tarefas para agentes
 
 As tarefas dadas a coding agents são bem delimitadas (pequenas, com critérios de aceite claros e ponteiros para code relevante) antes da atribuição?
+
+_Nota de escopo: Mede como as tarefas são delimitadas para agentes. A política de autonomia é D1-Q5; o volume de delegação é D4-Q3._
 
 - L0 - Não iniciado: Nenhuma prática ainda, ou IA não permitida para esta atividade
 - L1 - Explorando: Uso individual ou ad hoc, sem orientação acordada (mais de 0% e até 25% das equipes)
@@ -330,7 +341,7 @@ As tarefas dadas a coding agents são bem delimitadas (pequenas, com critérios 
 - L4: Sucesso de tarefas de agentes e taxas de retrabalho são rastreados por tipo de tarefa e usados para refinar a orientação.
 
 **Exemplos de evidência:** Diretrizes de tarefas para agentes, exemplos de issues, dados de taxa de sucesso.  
-**Base:** [1] [8] [49]  
+**Base:** [1] [8] [24] [49]  
 **Origem na v1:** Nenhuma (nova na v2)  
 **Unidade:** teams · **Público:** product-owner, architect, developer
 
@@ -347,7 +358,7 @@ IA é usada para apoiar trabalho de design (análise de opções, modos de amea�
 - L4: Agentes verificam novas mudanças contra decisões registradas e sinalizam conflitos automaticamente.
 
 **Exemplos de evidência:** Repositório de ADR, registros de design review.  
-**Base:** [26]  
+**Base:** [8] [24] [26]  
 **Origem na v1:** P1-C3-Q5, P1-C6-Q5  
 **Unidade:** teams · **Público:** product-owner, architect, developer
 
@@ -364,7 +375,7 @@ O trabalho assistido por IA está vinculado a resultados claros para usuários e
 - L4: Métricas de resultado do usuário fazem parte da definition of done para entrega assistida por IA.
 
 **Exemplos de evidência:** Briefs de produto, registros de loop de feedback, dashboards de resultados.  
-**Base:** [1] [3]  
+**Base:** [1] [2] [3]  
 **Origem na v1:** Nenhuma (nova na v2)  
 **Unidade:** teams · **Público:** product-owner, architect, developer
 
@@ -385,9 +396,11 @@ Ferramentas e agentes de IA são usados para entender, fazer upgrade e migrar co
 **Origem na v1:** Nenhuma (nova na v2)  
 **Unidade:** teams · **Público:** product-owner, architect, developer
 
-### D4: Code e engenharia de contexto
+### D4: Código e engenharia de contexto
 
 **Por que importa:** GitHub mede a profundidade de adoção como uma progressão de "Code first" para "Agent first" e "Multi-agent" [6]; a Anthropic descreve contexto como "um recurso finito com retornos marginais decrescentes" [25].
+
+**Página da dimensão:** [dimensoes/D4.pt-br.md](dimensoes/D4.pt-br.md)
 
 **Estratégias:** S5, S6, S4 · **Grupo do relatório:** G2 (Planejar, construir e revisar)
 
@@ -395,12 +408,14 @@ Ferramentas e agentes de IA são usados para entender, fazer upgrade e migrar co
 
 Quão profundamente os engenheiros usam IA entre superfícies: completions e edições de agentes no IDE, superfícies de agentes do GitHub (cloud agent, code review, CLI), e vários agentes juntos?
 
+_Nota de escopo: Mede quão profundamente IA é usada. Se esse uso é medido é D9-Q1._
+
 - L0 - Não iniciado: Nenhuma prática ainda, ou IA não permitida para esta atividade
 - L1 - Explorando: Uso individual ou ad hoc, sem orientação acordada (mais de 0% e até 25% das equipes)
 - L2 - Adotando: Prática no nível da equipe com orientação escrita (26-50% das equipes)
 - L3 - Escalando: Padrão organizacional, governado e medido (51-90% das equipes)
 - L4 - Nativo em IA: Universal (>90%), continuamente avaliado e melhorado, vinculado a resultados
-- L1-L2: Principalmente completions e chat ("Code first").
+- L1-L2: Principalmente completions e edições de agente no IDE ("Code first"); uso só de chat conta como Passive nas coortes do GitHub.
 - L3: Muitos engenheiros usam regularmente pelo menos uma superfície de agente do GitHub ("Agent first"), confirmado por métricas de uso.
 - L4: Uso multi-agent é normal ("Multi-agent"), com distribuição de coortes rastreada mensalmente.
 
@@ -430,6 +445,8 @@ Os engenheiros usam IDE agent mode (ou equivalente) para mudanças multi-file, e
 
 Coding agents (por exemplo Copilot cloud agent) recebem issues e produzem pull requests que são mergeados após review humano?
 
+_Nota de escopo: Mede quanto trabalho é delegado a coding agents. A política de autonomia é D1-Q5; escopo de tarefas é D3-Q3._
+
 - L0 - Não iniciado: Nenhuma prática ainda, ou IA não permitida para esta atividade
 - L1 - Explorando: Uso individual ou ad hoc, sem orientação acordada (mais de 0% e até 25% das equipes)
 - L2 - Adotando: Prática no nível da equipe com orientação escrita (26-50% das equipes)
@@ -456,7 +473,7 @@ Os repositórios contêm custom instructions versionadas e revisadas para ferram
 - L4: Instruções são geradas a partir de uma base compartilhada, verificadas quanto a desatualização, e seu efeito na taxa de merge de agentes e na qualidade de code é medido, já que arquivos de instrução sozinhos não garantem melhores resultados.
 
 **Exemplos de evidência:** Arquivos de instrução, cobertura entre repositórios, histórico de mudanças, métricas antes/depois de PRs de agentes.  
-**Base:** [2] [8] [25] [46] [47]  
+**Base:** [2] [8] [25] [27] [46] [47] [55]  
 **Origem na v1:** Nenhuma (nova na v2)  
 **Unidade:** repositories · **Público:** developer, platform-engineer
 
@@ -507,7 +524,7 @@ Ferramentas e agentes de IA conseguem usar com segurança fontes internas (code,
 - L4: Fontes de conhecimento são curadas para uso por IA (atualização, ownership) e a qualidade de retrieval é avaliada.
 
 **Exemplos de evidência:** Configuração de conectores, avaliações de retrieval.  
-**Base:** [1] [2]  
+**Base:** [1] [2] [19]  
 **Origem na v1:** P1-C3-Q2, P1-C3-Q3  
 **Unidade:** teams · **Público:** developer, platform-engineer · **Prontidão de platform engineering:** sim
 
@@ -524,13 +541,15 @@ A escolha do modelo é combinada à complexidade da tarefa (modelos menores para
 - L4: Roteamento automático está em vigor e é ajustado a partir de dados de custo e qualidade.
 
 **Exemplos de evidência:** Orientação de modelos, configurações de política, configuração de roteamento.  
-**Base:** [32]  
+**Base:** [26] [32]  
 **Origem na v1:** Nenhuma (nova na v2)  
 **Unidade:** organization · **Público:** developer, platform-engineer
 
-### D5: Review, qualidade e testes
+### D5: Revisão, qualidade e testes
 
 **Por que importa:** DORA vincula o volume de mudanças impulsionadas por IA à instabilidade, a menos que existam sistemas de controle fortes [3]; GitHub exige revisão humana antes que PRs de agentes sejam mergeados [7]; 46% dos desenvolvedores desconfiam da precisão da saída de IA [37].
+
+**Página da dimensão:** [dimensoes/D5.pt-br.md](dimensoes/D5.pt-br.md)
 
 **Estratégias:** S5, S7 · **Grupo do relatório:** G2 (Planejar, construir e revisar)
 
@@ -547,7 +566,7 @@ AI code review (por exemplo Copilot code review) é aplicado a pull requests, co
 - L4: Regras de review são ajustadas por repositório a partir dos resultados de sugestões; tempo de review e defeitos escapados são rastreados; PRs em que apenas IA revisou code criado por IA são visíveis e governados.
 
 **Exemplos de evidência:** Rulesets de repositório, métricas de adoção de code review, resultados de sugestões.  
-**Base:** [6] [12] [54] [55]  
+**Base:** [6] [12] [14] [54] [55]  
 **Origem na v1:** P1-C1-Q2, P1-C4-Q1  
 **Unidade:** repositories · **Público:** developer, qa-test
 
@@ -560,11 +579,11 @@ Pull requests criados por agentes exigem aprovação humana independente (não o
 - L2 - Adotando: Prática no nível da equipe com orientação escrita (26-50% das equipes)
 - L3 - Escalando: Padrão organizacional, governado e medido (51-90% das equipes)
 - L4 - Nativo em IA: Universal (>90%), continuamente avaliado e melhorado, vinculado a resultados
-- L3: Proteções padrão são mantidas: PRs de agentes precisam de um aprovador independente; "Approve and run workflows" não é desabilitado sem uma decisão de risco documentada.
+- L3: Proteções padrão são mantidas: PRs de agentes precisam de um aprovador humano independente (aprovações do Copilot, se habilitadas, não contam); "Approve and run workflows" não é desabilitado sem uma decisão de risco documentada.
 - L4: Requisitos de aprovação escalam com o risco (D1-Q5) e são auditados; exceções expiram automaticamente.
 
 **Exemplos de evidência:** Rulesets, branch protection, configurações de agentes.  
-**Base:** [7] [14] [38] [53] [55] [56]  
+**Base:** [7] [12] [14] [38] [53] [55] [56]  
 **Origem na v1:** P3-C5-Q5, P2-C9-Q3  
 **Unidade:** repositories · **Público:** developer, qa-test
 
@@ -589,6 +608,8 @@ Mudanças geradas por IA e criadas por agentes passam pelos mesmos checks exigid
 
 As mudanças são mantidas pequenas (limites de tamanho de PR, uma preocupação por PR), incluindo mudanças produzidas por agentes?
 
+_Nota de escopo: Mede o tamanho das mudanças assistidas por IA. Com que frequência o code é commitado e quão rápido é revertido é D8-Q2._
+
 - L0 - Não iniciado: Nenhuma prática ainda, ou IA não permitida para esta atividade
 - L1 - Explorando: Uso individual ou ad hoc, sem orientação acordada (mais de 0% e até 25% das equipes)
 - L2 - Adotando: Prática no nível da equipe com orientação escrita (26-50% das equipes)
@@ -606,6 +627,8 @@ As mudanças são mantidas pequenas (limites de tamanho de PR, uma preocupação
 
 IA é usada para gerar e manter testes, com qualidade dos testes verificada (por exemplo coverage do code alterado, mutation testing) em vez de apenas contagem de testes?
 
+_Nota de escopo: Mede IA usada para escrever e melhorar testes. Se testes automatizados atuam como gate é D8-Q7._
+
 - L0 - Não iniciado: Nenhuma prática ainda, ou IA não permitida para esta atividade
 - L1 - Explorando: Uso individual ou ad hoc, sem orientação acordada (mais de 0% e até 25% das equipes)
 - L2 - Adotando: Prática no nível da equipe com orientação escrita (26-50% das equipes)
@@ -615,13 +638,15 @@ IA é usada para gerar e manter testes, com qualidade dos testes verificada (por
 - L4: Efetividade dos testes (mutation score, defeitos escapados) é rastreada; flaky tests são detectados e colocados em quarentena automaticamente.
 
 **Exemplos de evidência:** Relatórios de coverage, resultados de mutation testing, dashboard de flaky tests.  
-**Base:** [3]  
+**Base:** [3] [8] [17]  
 **Origem na v1:** P1-C1-Q4, P2-C6-Q1, P2-C6-Q5, P2-C6-Q6, P2-C6-Q7  
 **Unidade:** teams · **Público:** developer, qa-test
 
 #### D5-Q6: Cultura de verificação e confiança calibrada
 
 Os engenheiros verificam sistematicamente a saída de IA (executam, testam, leem) e a confiança na saída de IA é medida ao longo do tempo?
+
+_Nota de escopo: Mede comportamento de review e calibração de confiança. Como developer experience é pesquisada é D9-Q4._
 
 - L0 - Não iniciado: Nenhuma prática ainda, ou IA não permitida para esta atividade
 - L1 - Explorando: Uso individual ou ad hoc, sem orientação acordada (mais de 0% e até 25% das equipes)
@@ -632,7 +657,7 @@ Os engenheiros verificam sistematicamente a saída de IA (executam, testam, leem
 - L4: Confiança e precisão são comparadas com dados reais de defeitos, e a orientação é atualizada onde divergem.
 
 **Exemplos de evidência:** Diretrizes de review, resultados de pesquisa, análise de defeitos.  
-**Base:** [3] [35] [37] [48] [52]  
+**Base:** [3] [23] [35] [37] [48] [52]  
 **Origem na v1:** Nenhuma (nova na v2)  
 **Unidade:** teams · **Público:** developer, qa-test
 
@@ -653,9 +678,11 @@ A saúde de longo prazo do code gerado por IA é monitorada (duplicação, churn
 **Origem na v1:** Nenhuma (nova na v2)  
 **Unidade:** repositories · **Público:** developer, qa-test
 
-### D6: Segurança e AI Supply Chain
+### D6: Segurança e cadeia de suprimentos de IA
 
-**Por que importa:** OWASP lista prompt injection (LLM01), supply chain (LLM03) e agência excessiva (LLM06) entre os principais riscos [38], e agent goal hijack (ASI01) em primeiro lugar para aplicações agentic [39]; NIST SP 800-218A adiciona práticas específicas de IA ao SSDF [40].
+**Por que importa:** OWASP lista prompt injection (LLM01:2025), supply chain (LLM03:2025) e agência excessiva (LLM06:2025) entre os principais riscos [38], e agent goal hijack (ASI01) em primeiro lugar para aplicações agentic [39]; NIST SP 800-218A adiciona ao SSDF práticas para o desenvolvimento de modelos de IA [40].
+
+**Página da dimensão:** [dimensoes/D6.pt-br.md](dimensoes/D6.pt-br.md)
 
 **Estratégias:** S7, S6 · **Grupo do relatório:** G3 (Proteger, entregar e fundações)
 
@@ -672,7 +699,7 @@ Code scanning (SAST), secret scanning com push protection e dependency review s�
 - L4: A cobertura é quase completa e verificada automaticamente; mean time to remediate é rastreado.
 
 **Exemplos de evidência:** Dashboard de cobertura de segurança, tempo de remediação.  
-**Base:** [13] [40] [52]  
+**Base:** [7] [13] [40] [52]  
 **Origem na v1:** P1-C4-Q3, P2-C4-Q1, P2-C4-Q2, P2-C4-Q3, P2-C4-Q4, P2-C10-Q1  
 **Unidade:** repositories · **Público:** security, platform-engineer
 
@@ -703,7 +730,7 @@ Agentes são protegidos contra prompt injection e goal hijack (conteúdo não co
 - L3 - Escalando: Padrão organizacional, governado e medido (51-90% das equipes)
 - L4 - Nativo em IA: Universal (>90%), continuamente avaliado e melhorado, vinculado a resultados
 - L3: Agent firewalls e restrições de egress permanecem ativados; a orientação informa às equipes quais fontes de conteúdo não são confiáveis.
-- L4: Agentes passam regularmente por red team contra cenários OWASP LLM01 e ASI01; achados são rastreados até o fechamento.
+- L4: Agentes passam regularmente por red team contra cenários OWASP LLM01:2025 e ASI01; achados são rastreados até o fechamento.
 
 **Exemplos de evidência:** Configuração de firewall, relatórios de red team.  
 **Base:** [7] [38] [39]  
@@ -782,6 +809,8 @@ Sessões e ações de agentes (prompts, tool calls, commits, aprovações) são 
 
 **Por que importa:** mais mudanças geradas por IA precisam de redes de segurança fortes na entrega [3], [5]; a Microsoft recomenda observação contínua da atividade de agentes [19] e está estendendo agentes para operações de cloud [22].
 
+**Página da dimensão:** [dimensoes/D7.pt-br.md](dimensoes/D7.pt-br.md)
+
 **Estratégias:** S2, S6 · **Grupo do relatório:** G3 (Proteger, entregar e fundações)
 
 #### D7-Q1: IA em pipelines CI/CD
@@ -831,7 +860,7 @@ IA é usada em resposta a incidentes (correlação de alertas, sumarização, hi
 - L4: Agentes de operações executam diagnósticos aprovados automaticamente; tempo de restauração é comparado antes e depois da adoção.
 
 **Exemplos de evidência:** Configuração de ferramentas de incidentes, timelines de incidentes, dados de tempo de restauração.  
-**Base:** [22]  
+**Base:** [16] [17] [22]  
 **Origem na v1:** P2-C3-Q6, P2-C7-Q2, P2-C7-Q5  
 **Unidade:** services · **Público:** devops, platform-engineer
 
@@ -890,6 +919,8 @@ Tarefas operacionais (runbooks, remediação, atualizações de dependências e 
 
 **Por que importa:** DORA constata que essas capacidades amplificam os benefícios da adoção de IA, e que uma plataforma interna de alta qualidade se correlaciona com a capacidade de desbloquear valor de IA [1], [3].
 
+**Página da dimensão:** [dimensoes/D8.pt-br.md](dimensoes/D8.pt-br.md)
+
 **Estratégias:** S1, S2, S3 · **Grupo do relatório:** G3 (Proteger, entregar e fundações)
 
 #### D8-Q1: Controle de versão para tudo
@@ -912,6 +943,8 @@ Application code, configuração, automação de build, configuração de sistem
 #### D8-Q2: Frequência de commit e rollback rápido
 
 Os engenheiros fazem commit de mudanças pequenas com frequência e contam com undo/revert rápido ao experimentar com saída de IA?
+
+_Nota de escopo: Mede frequência de commit e velocidade de rollback. O tamanho das mudanças assistidas por IA é D5-Q4._
 
 - L0 - Não iniciado: Nenhuma prática ainda, ou IA não permitida para esta atividade
 - L1 - Explorando: Uso individual ou ad hoc, sem orientação acordada (mais de 0% e até 25% das equipes)
@@ -998,6 +1031,8 @@ A documentação é mantida como code, atual e com ownership, para que sirva com
 
 Testes automatizados são profundos e rápidos o suficiente para capturar regressões de altos volumes de mudanças geradas por IA (unit, integration, end-to-end, contract)?
 
+_Nota de escopo: Mede testes automatizados como sistema de controle. IA usada para escrever testes é D5-Q5._
+
 - L0 - Não iniciado: Nenhuma prática ainda, ou IA não permitida para esta atividade
 - L1 - Explorando: Uso individual ou ad hoc, sem orientação acordada (mais de 0% e até 25% das equipes)
 - L2 - Adotando: Prática no nível da equipe com orientação escrita (26-50% das equipes)
@@ -1015,11 +1050,15 @@ Testes automatizados são profundos e rápidos o suficiente para capturar regres
 
 **Por que importa:** estudos controlados variam de 55.8% mais rápido [33] e 26.08% mais tarefas concluídas [34] a 19% mais lento com uma forte lacuna de percepção [35], portanto as organizações precisam de sua própria medição objetiva; o Gartner prevê que os custos de AI coding ultrapassarão o salário médio de um desenvolvedor até 2028 [32].
 
+**Página da dimensão:** [dimensoes/D9.pt-br.md](dimensoes/D9.pt-br.md)
+
 **Estratégias:** S5, S2 · **Grupo do relatório:** G1 (Direção, pessoas e valor)
 
 #### D9-Q1: Métricas de profundidade de adoção
 
 A adoção de IA é rastreada com telemetria além da contagem de seats (usuários ativos, engajamento por feature, coortes de adoção)?
+
+_Nota de escopo: Mede se a adoção é rastreada. Quão profundamente IA é usada é D4-Q1._
 
 - L0 - Não iniciado: Nenhuma prática ainda, ou IA não permitida para esta atividade
 - L1 - Explorando: Uso individual ou ad hoc, sem orientação acordada (mais de 0% e até 25% das equipes)
@@ -1072,6 +1111,8 @@ Throughput de PR, tempo até merge e a parcela e taxa de merge de PRs criados po
 
 Developer experience é medida regularmente (produtividade percebida, fricção, confiança em IA, satisfação), usando um framework reconhecido como SPACE ou as perguntas de resultado do DORA?
 
+_Nota de escopo: Mede a pesquisa de developer experience. Comportamento de review e calibração de confiança é D5-Q6._
+
 - L0 - Não iniciado: Nenhuma prática ainda, ou IA não permitida para esta atividade
 - L1 - Explorando: Uso individual ou ad hoc, sem orientação acordada (mais de 0% e até 25% das equipes)
 - L2 - Adotando: Prática no nível da equipe com orientação escrita (26-50% das equipes)
@@ -1115,7 +1156,7 @@ Custos de IA (seats, premium requests, tokens, runs de agentes) são orçados, m
 - L4: Custo por resultado (por exemplo por PR mergeado) é rastreado; práticas de roteamento e contexto são ajustadas para reduzir desperdício.
 
 **Exemplos de evidência:** Dashboards de custo, alertas de orçamento, notas de retrospectiva.  
-**Base:** [32] [38] [45]  
+**Base:** [19] [32] [38] [45]  
 **Origem na v1:** P3-C9-Q1 (parcial)  
 **Unidade:** organization · **Público:** engineering-leader, product-owner
 
@@ -1132,19 +1173,19 @@ Resultados de engenharia com IA são conectados a valor de negócio (business ca
 - L4: Valor é reportado em uma cadência fixa com insumos medidos de D9-Q1 a Q6; investimento é ajustado a partir dos resultados.
 
 **Exemplos de evidência:** Business case, relatórios de valor.  
-**Base:** [18] [32]  
+**Base:** [18] [28] [32]  
 **Origem na v1:** P1-C8-Q6, P3-C9-Q5  
 **Unidade:** organization · **Público:** engineering-leader, product-owner
 
 ## Referências
 
-1. DORA. _DORA AI Capabilities Model_. Google Cloud, 2025. <https://dora.dev/ai/capabilities-model/>
+1. DORA. _DORA AI Capabilities Model_. Google Cloud, 2025. <https://dora.dev/ai/capabilities-model/report/>
 2. DORA. _DORA AI Capabilities Model: Survey Questions_. Google Cloud, 2025. <https://dora.dev/ai/capabilities-model/questions/>
 3. Google Cloud. _Announcing the 2025 DORA Report: State of AI-Assisted Software Development_. 2025. <https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report>
 4. DORA. _State of AI-assisted Software Development 2025_. <https://dora.dev/research/2025/dora-report/>
-5. Google Cloud. _Announcing the 2024 DORA report_. 2024. <https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report>
-6. GitHub Docs. _GitHub Copilot usage metrics_. <https://docs.github.com/en/copilot/concepts/copilot-metrics>
-7. GitHub Docs. _Risks and mitigations for GitHub Copilot cloud agent_. <https://docs.github.com/en/enterprise-cloud@latest/copilot/concepts/agents/cloud-agent/risks-and-mitigations>
+5. Google Cloud. _Announcing the 2024 DORA report_. 2024-10-22. <https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report>
+6. GitHub Docs. _GitHub Copilot usage metrics_. <https://docs.github.com/en/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics>
+7. GitHub Docs. _Risks and mitigations for GitHub Copilot cloud agent_. <https://docs.github.com/en/enterprise-cloud@latest/copilot/concepts/security-governance-and-network-settings/risks-and-mitigations>
 8. GitHub Docs. _Best practices for using GitHub Copilot to work on tasks_. <https://docs.github.com/enterprise-cloud@latest/copilot/tutorials/cloud-agent/get-the-best-results>
 9. GitHub Docs. _Configuring an MCP server allowlist for your enterprise_. <https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist>
 10. GitHub Docs. _Restrict MCP server access to a custom registry_. <https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-mcp-usage/restrict-based-on-registry>
@@ -1152,19 +1193,19 @@ Resultados de engenharia com IA são conectados a valor de negócio (business ca
 12. GitHub Docs. _About GitHub Copilot code review_. <https://docs.github.com/copilot/concepts/agents/code-review>
 13. GitHub Docs. _About autofix for code scanning_. <https://docs.github.com/en/code-security/concepts/code-scanning/autofix-for-code-scanning>
 14. GitHub Docs. _Application card: GitHub Copilot Agents_. <https://docs.github.com/en/copilot/responsible-use/agents>
-15. GitHub Docs. _Managing policies and features for GitHub Copilot in your organization_. <https://docs.github.com/copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization>
+15. GitHub Docs. _Managing policies and features for GitHub Copilot in your organization_. <https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies>
 16. Microsoft Azure Blog. _Agentic DevOps: Evolving software development with GitHub Copilot and Microsoft Azure_. 2025. <https://azure.microsoft.com/en-us/blog/agentic-devops-evolving-software-development-with-github-copilot-and-microsoft-azure/>
 17. Microsoft for Developers. _Agentic DevOps in action: Reimagining every phase of the developer lifecycle_. 2025. <https://developer.microsoft.com/blog/reimagining-every-phase-of-the-developer-lifecycle/>
 18. Microsoft Learn. _AI strategy: Cloud Adoption Framework_. <https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/strategy>
 19. Microsoft Learn. _Govern and secure AI agents: Cloud Adoption Framework_. <https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization>
 20. Microsoft Learn. _Responsible AI policies: Cloud Adoption Framework_. <https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/responsible-ai-policies>
-21. Microsoft. _Responsible AI: Principles and approach (Microsoft Responsible AI Standard)_. <https://www.microsoft.com/en-us/ai/principles-and-approach>
+21. Microsoft. _Responsible AI Principles and Approach_. <https://www.microsoft.com/en-us/ai/principles-and-approach>
 22. Microsoft Azure Blog. _Announcing Azure Copilot agents and AI infrastructure innovations_. 2025. <https://azure.microsoft.com/en-us/blog/announcing-azure-copilot-agents-and-ai-infrastructure-innovations/>
 23. Anthropic. _Anthropic Economic Index: AI's impact on software development_. 2025-04-28. <https://www.anthropic.com/research/impact-software-development>
-24. Anthropic. _How Claude Code is used in practice_. <https://www.anthropic.com/research/claude-code-expertise>
-25. Anthropic. _Effective context engineering for AI agents_. <https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents>
-26. Anthropic. _Building effective agents_. <https://www.anthropic.com/engineering/building-effective-agents>
-27. Anthropic. _Best practices for Claude Code_. <https://www.anthropic.com/engineering/claude-code-best-practices>
+24. Anthropic. _How Claude Code is used in practice_. 2026-06-16. <https://www.anthropic.com/research/claude-code-expertise>
+25. Anthropic. _Effective context engineering for AI agents_. 2025-09-29. <https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents>
+26. Anthropic. _Building effective agents_. 2024-12-19. <https://www.anthropic.com/engineering/building-effective-agents>
+27. Anthropic. _Best practices for Claude Code_. Claude Code Docs. <https://code.claude.com/docs/en/best-practices>
 28. Gartner. _Gartner Says 75% of Enterprise Software Engineers Will Use AI Code Assistants by 2028_. 2024-04-11. <https://www.gartner.com/en/newsroom/press-releases/2024-04-11-gartner-says-75-percent-of-enterprise-software-engineers-will-use-ai-code-assistants-by-2028>
 29. Gartner. _Gartner Identifies the Top Strategic Trends in Software Engineering for 2025 and Beyond_. 2025-07-01. <https://www.gartner.com/en/newsroom/press-releases/2025-07-01-gartner-identifies-the-top-strategic-trends-in-software-engineering-for-2025-and-beyond>
 30. Gartner. _Gartner Says Generative AI will Require 80% of Engineering Workforce to Upskill Through 2027_. 2024-10-03. <https://www.gartner.com/en/newsroom/press-releases/2024-10-03-gartner-says-generative-ai-will-require-80-percent-of-engineering-workforce-to-upskill-through-2027>
@@ -1175,13 +1216,13 @@ Resultados de engenharia com IA são conectados a valor de negócio (business ca
 35. METR. _Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity_. 2025-07-10. <https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/> (paper: <https://arxiv.org/abs/2507.09089>)
 36. METR. _We are Changing our Developer Productivity Experiment Design_. 2026-02-24. <https://metr.org/blog/2026-02-24-uplift-update/>
 37. Stack Overflow. _2025 Developer Survey: AI_. <https://survey.stackoverflow.co/2025/ai>
-38. OWASP GenAI Security Project. _OWASP Top 10 for LLM Applications 2025_. <https://genai.owasp.org/llm-top-10/>
-39. OWASP GenAI Security Project. _OWASP Top 10 for Agentic Applications for 2026_. <https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/>
+38. OWASP GenAI Security Project. _OWASP Top 10 for LLM Applications 2025_. <https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/>
+39. OWASP GenAI Security Project. _OWASP Top 10 for Agentic Applications for 2026_. 2025-12-09. <https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/>
 40. NIST. _SP 800-218A: Secure Software Development Practices for Generative AI and Dual-Use Foundation Models: An SSDF Community Profile_. 2024-07. <https://csrc.nist.gov/pubs/sp/800/218/a/final>
 41. NIST. _AI Risk Management Framework_. <https://www.nist.gov/itl/ai-risk-management-framework>
-42. ISO. _ISO/IEC 42001:2023: Artificial intelligence: Management system_. <https://www.iso.org/standard/81230.html>
+42. ISO. _ISO/IEC 42001:2023: AI management systems_. <https://www.iso.org/standard/42001>
 43. OpenSSF. _SLSA: Supply-chain Levels for Software Artifacts_. <https://slsa.dev/>
-44. Forsgren, N., Storey, M.-A., Maddila, C., Zimmermann, T., Houck, B., Butler, J. _The SPACE of Developer Productivity_. ACM Queue, 2021. <https://queue.acm.org/detail.cfm?id=3454124>
+44. Forsgren, N., Storey, M.-A., Maddila, C., Zimmermann, T., Houck, B., Butler, J. _The SPACE of Developer Productivity_. ACM Queue 19(1), 2021-03-06. <https://queue.acm.org/detail.cfm?id=3454124> (DOI: <https://doi.org/10.1145/3454122.3454124>)
 45. Liu, B., Qiu, H., Goiri, Í., Fonseca, R., Bianchini, R., Choukse, E. _Agentic Coding in the Wild: Characterizing GitHub Copilot Traces at Production Scale_. arXiv:2608.00101, 2026-07-30. <https://arxiv.org/abs/2608.00101>
 46. Arabat, A., Sayagh, M. _Toward Instructions-as-Code: Understanding the Impact of Instruction Files on Agentic Pull Requests_. arXiv:2606.13449, 2026-06-11. <https://arxiv.org/abs/2606.13449>
 47. Denisov-Blanch, Y., Agarwal, S., Azaletskiy, P., He, H., Schaeffer, R., Miranda, B., Vasilescu, B., Koyejo, S. _A Few Pages of Markdown: Committed AI Configuration and Lower Quality Cost after Coding-Agent Adoption_. arXiv:2608.25241, 2026-08-26. <https://arxiv.org/abs/2608.25241>

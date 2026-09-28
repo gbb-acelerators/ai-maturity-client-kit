@@ -12,7 +12,8 @@ Generado desde `framework.v2.json` (framework 2.0.1) por `scripts/generate_v2_re
 - General: media ponderada de las dimensiones con puntaje (pesos 1,0 por defecto, permitido de 0,50 a 2,00).
 - Cobertura: OK desde 37 preguntas con puntaje, WARNING desde 25, BLOCKED por debajo.
 - Brecha = objetivo (por defecto 3,00) menos puntaje. Prioridad = peso × brecha: P0 desde 2,40, P1 desde 1,60, P2 desde 0,90, si no P3.
-- Alertas: baja confianza (más del 30% NA), riesgo de amplificación (D5, D6 o D8 un rango por debajo del general), brecha de percepción (ejecutivos vs hands-on, al menos 3 de cada uno), salvedad de alcance, L3/L4 no verificado (menos del 50% de respuestas con evidencia).
+- Alertas: baja confianza (más del 30% NA), riesgo de amplificación (D5, D6 o D8 un rango por debajo del general), brecha de percepción (ejecutivos vs hands-on, al menos 3 de cada uno), salvedad de alcance, L3/L4 no verificado (menos del 50% de respuestas con evidencia), divergencia entre personas encuestadas (desviación estándar de los puntajes de dimensión por persona de 1,00 o más, con al menos 3 personas).
+- Verificaciones cruzadas, cuando existen los archivos: el escaneo de repositorios (niveles RAMP [47]) limita D4-Q4 por la fracción de repositorios con configuración de IA versionada, y las métricas de uso de Copilot [6] limitan D4-Q1 por las fases de adopción. El informe señala respuestas por encima de lo que sostiene la evidencia.
 
 ### Rangos de nivel
 
@@ -46,7 +47,9 @@ General = media de los 9 puntajes de dimensión = **2,04** (L2 Adoptando).
 
 ### D1: Estrategia, política y gobernanza de IA
 
-**Por qué importa:** DORA identifica una "postura de IA clara y comunicada" como amplificadora de los beneficios de la IA [1]; Microsoft CAF exige que "todo agente debe ser observable, gobernado y seguro" [19].
+**Por qué importa:** DORA identifica una "postura de IA clara y comunicada" como amplificadora de los beneficios de la IA [1], [2]; Microsoft CAF afirma que "todo agente debe ser observable, gobernado y seguro" [19].
+
+**Página de la dimensión:** [dimensoes/D1.es.md](dimensoes/D1.es.md)
 
 **Estrategias:** S7, S5, S6 · **Grupo del informe:** G1 (Dirección, personas y valor)
 
@@ -97,7 +100,7 @@ General = media de los 9 puntajes de dimensión = **2,04** (L2 Adoptando).
 - L4: Los nuevos modelos y herramientas pasan por una evaluación definida (calidad, costo, seguridad) antes de habilitarse; los retirados se eliminan según cronograma.
 
 **Ejemplos de evidencia:** Configuraciones de política de Copilot, catálogo de herramientas, registros de evaluación de modelos.  
-**Base:** [2] [15] [32]  
+**Base:** [2] [15] [32] [49]  
 **Origen en v1:** Ninguno (nueva en v2)  
 **Unidad:** organization · **Audiencia:** engineering-leader, architect, security
 
@@ -122,6 +125,8 @@ General = media de los 9 puntajes de dimensión = **2,04** (L2 Adoptando).
 
 ¿La organización definió qué tareas son lideradas por desarrollador, realizadas por desarrollador con agente, o totalmente lideradas por agente, y los controles requeridos para cada nivel?
 
+_Nota de alcance: Mide la política que define niveles de autonomía. Cómo se escriben las tareas para agentes es D3-Q3; con qué frecuencia se delega el trabajo es D4-Q3._
+
 - L0 - No iniciado: Aún no hay práctica, o IA no está permitida para esta actividad
 - L1 - Explorando: Uso individual o ad hoc, sin orientación acordada (más de 0% y hasta 25% de los equipos)
 - L2 - Adoptando: Práctica a nivel de equipo con orientación escrita (26-50% de los equipos)
@@ -131,7 +136,7 @@ General = media de los 9 puntajes de dimensión = **2,04** (L2 Adoptando).
 - L4: La matriz se aplica mediante reglas de plataforma (por ejemplo branch protection, revisores requeridos por ruta) y se actualiza a partir de datos de incidentes y calidad.
 
 **Ejemplos de evidencia:** Matriz de autonomía, rulesets de repositorio, registros de cambios.  
-**Base:** [7] [26] [32]  
+**Base:** [7] [26] [32] [49] [56]  
 **Origen en v1:** Ninguno (nueva en v2)  
 **Unidad:** organization · **Audiencia:** engineering-leader, architect, security
 
@@ -172,6 +177,8 @@ General = media de los 9 puntajes de dimensión = **2,04** (L2 Adoptando).
 ### D2: Habilitación, habilidades y cultura
 
 **Por qué importa:** Gartner espera que GenAI requiera que 80% de la fuerza laboral de ingeniería se capacite en nuevas habilidades hasta 2027 [30]; DORA pregunta sobre capacitación, aprendizaje entre pares y apoyo para la experimentación [2].
+
+**Página de la dimensión:** [dimensoes/D2.es.md](dimensoes/D2.es.md)
 
 **Estrategias:** S5 · **Grupo del informe:** G1 (Dirección, personas y valor)
 
@@ -273,13 +280,15 @@ General = media de los 9 puntajes de dimensión = **2,04** (L2 Adoptando).
 - L4: Las métricas de ramp-up y habilidades se comparan entre cohortes y se usan para mejorar material e instrucciones de onboarding.
 
 **Ejemplos de evidencia:** Playbook de onboarding, datos de tiempo hasta primer PR, resultados de verificación de habilidades.  
-**Base:** [6] [48]  
+**Base:** [27] [48]  
 **Origen en v1:** P1-C5-Q2, P1-C5-Q6, P1-C5-Q7  
 **Unidad:** engineers · **Audiencia:** engineering-leader, developer
 
 ### D3: Planificar, especificar y diseñar
 
 **Por qué importa:** en agentic coding, "las personas toman la mayoría de las decisiones de planificación (qué hacer) y Claude toma la mayoría de las decisiones de ejecución (cómo hacerlo)" [24]; la calidad de la definición de la tarea impulsa la calidad de la salida del agente [8], [27].
+
+**Página de la dimensión:** [dimensoes/D3.es.md](dimensoes/D3.es.md)
 
 **Estrategias:** S5, S3 · **Grupo del informe:** G2 (Planificar, construir y revisar)
 
@@ -313,13 +322,15 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 - L4: Las specs son el contrato para verificación automatizada (pruebas, checks) y se mantienen sincronizadas con el code.
 
 **Ejemplos de evidencia:** Archivos de spec, reviews de plan, PRs que referencian specs.  
-**Base:** [24] [27] [58]  
+**Base:** [23] [24] [27] [58]  
 **Origen en v1:** Ninguno (nueva en v2)  
 **Unidad:** teams · **Audiencia:** product-owner, architect, developer
 
 #### D3-Q3: Alcance de tareas para agentes
 
 ¿Las tareas dadas a coding agents están bien delimitadas (pequeñas, con criterios de aceptación claros y punteros a code relevante) antes de asignarse?
+
+_Nota de alcance: Mide cómo se delimitan las tareas para agentes. La política de autonomía es D1-Q5; el volumen de delegación es D4-Q3._
 
 - L0 - No iniciado: Aún no hay práctica, o IA no está permitida para esta actividad
 - L1 - Explorando: Uso individual o ad hoc, sin orientación acordada (más de 0% y hasta 25% de los equipos)
@@ -330,7 +341,7 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 - L4: El éxito de tareas de agentes y las tasas de retrabajo se rastrean por tipo de tarea y se usan para refinar la orientación.
 
 **Ejemplos de evidencia:** Directrices de tareas para agentes, ejemplos de issues, datos de tasa de éxito.  
-**Base:** [1] [8] [49]  
+**Base:** [1] [8] [24] [49]  
 **Origen en v1:** Ninguno (nueva en v2)  
 **Unidad:** teams · **Audiencia:** product-owner, architect, developer
 
@@ -347,7 +358,7 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 - L4: Los agentes verifican nuevos cambios contra decisiones registradas y señalan conflictos automáticamente.
 
 **Ejemplos de evidencia:** Repositorio de ADR, registros de design review.  
-**Base:** [26]  
+**Base:** [8] [24] [26]  
 **Origen en v1:** P1-C3-Q5, P1-C6-Q5  
 **Unidad:** teams · **Audiencia:** product-owner, architect, developer
 
@@ -364,7 +375,7 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 - L4: Las métricas de resultado del usuario son parte de la definition of done para entrega asistida por IA.
 
 **Ejemplos de evidencia:** Briefs de producto, registros de loop de feedback, dashboards de resultados.  
-**Base:** [1] [3]  
+**Base:** [1] [2] [3]  
 **Origen en v1:** Ninguno (nueva en v2)  
 **Unidad:** teams · **Audiencia:** product-owner, architect, developer
 
@@ -385,9 +396,11 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 **Origen en v1:** Ninguno (nueva en v2)  
 **Unidad:** teams · **Audiencia:** product-owner, architect, developer
 
-### D4: Code e ingeniería de contexto
+### D4: Código e ingeniería de contexto
 
 **Por qué importa:** GitHub mide la profundidad de adopción como una progresión de "Code first" a "Agent first" y "Multi-agent" [6]; Anthropic describe el contexto como "un recurso finito con retornos marginales decrecientes" [25].
+
+**Página de la dimensión:** [dimensoes/D4.es.md](dimensoes/D4.es.md)
 
 **Estrategias:** S5, S6, S4 · **Grupo del informe:** G2 (Planificar, construir y revisar)
 
@@ -395,12 +408,14 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 
 ¿Qué tan profundamente usan IA los ingenieros entre superficies: completions y ediciones de agentes en el IDE, superficies de agentes de GitHub (cloud agent, code review, CLI), y varios agentes juntos?
 
+_Nota de alcance: Mide qué tan profundamente se usa IA. Si ese uso se mide es D9-Q1._
+
 - L0 - No iniciado: Aún no hay práctica, o IA no está permitida para esta actividad
 - L1 - Explorando: Uso individual o ad hoc, sin orientación acordada (más de 0% y hasta 25% de los equipos)
 - L2 - Adoptando: Práctica a nivel de equipo con orientación escrita (26-50% de los equipos)
 - L3 - Escalando: Estándar de la organización, gobernado y medido (51-90% de los equipos)
 - L4 - Nativo en IA: Universal (>90%), evaluado y mejorado continuamente, vinculado a resultados
-- L1-L2: Principalmente completions y chat ("Code first").
+- L1-L2: Principalmente completions y ediciones de agente en el IDE ("Code first"); el uso solo de chat cuenta como Passive en las cohortes de GitHub.
 - L3: Muchos ingenieros usan regularmente al menos una superficie de agente de GitHub ("Agent first"), confirmado por métricas de uso.
 - L4: El uso multi-agent es normal ("Multi-agent"), con distribución de cohortes rastreada mensualmente.
 
@@ -430,6 +445,8 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 
 ¿Se asignan issues a coding agents (por ejemplo Copilot cloud agent) y estos producen pull requests que se mergean después de review humano?
 
+_Nota de alcance: Mide cuánto trabajo se delega a coding agents. La política de autonomía es D1-Q5; el alcance de tareas es D3-Q3._
+
 - L0 - No iniciado: Aún no hay práctica, o IA no está permitida para esta actividad
 - L1 - Explorando: Uso individual o ad hoc, sin orientación acordada (más de 0% y hasta 25% de los equipos)
 - L2 - Adoptando: Práctica a nivel de equipo con orientación escrita (26-50% de los equipos)
@@ -456,7 +473,7 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 - L4: Las instrucciones se generan a partir de una base compartida, se verifican por obsolescencia, y se mide su efecto en la tasa de merge de agentes y calidad de code, ya que los archivos de instrucciones por sí solos no garantizan mejores resultados.
 
 **Ejemplos de evidencia:** Archivos de instrucciones, cobertura entre repositorios, historial de cambios, métricas antes/después de PRs de agentes.  
-**Base:** [2] [8] [25] [46] [47]  
+**Base:** [2] [8] [25] [27] [46] [47] [55]  
 **Origen en v1:** Ninguno (nueva en v2)  
 **Unidad:** repositories · **Audiencia:** developer, platform-engineer
 
@@ -507,7 +524,7 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 - L4: Las fuentes de conocimiento se curan para uso de IA (actualidad, ownership) y se evalúa la calidad de retrieval.
 
 **Ejemplos de evidencia:** Configuración de conectores, evaluaciones de retrieval.  
-**Base:** [1] [2]  
+**Base:** [1] [2] [19]  
 **Origen en v1:** P1-C3-Q2, P1-C3-Q3  
 **Unidad:** teams · **Audiencia:** developer, platform-engineer · **Preparación de platform engineering:** sí
 
@@ -524,13 +541,15 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 - L4: El enrutamiento automático está implementado y se ajusta con datos de costo y calidad.
 
 **Ejemplos de evidencia:** Orientación de modelos, configuraciones de política, configuración de enrutamiento.  
-**Base:** [32]  
+**Base:** [26] [32]  
 **Origen en v1:** Ninguno (nueva en v2)  
 **Unidad:** organization · **Audiencia:** developer, platform-engineer
 
-### D5: Review, calidad y pruebas
+### D5: Revisión, calidad y pruebas
 
 **Por qué importa:** DORA vincula el volumen de cambios impulsados por IA con la inestabilidad, a menos que existan sistemas de control sólidos [3]; GitHub exige revisión humana antes de que se mergeen PRs de agentes [7]; 46% de los desarrolladores desconfían de la precisión de la salida de IA [37].
+
+**Página de la dimensión:** [dimensoes/D5.es.md](dimensoes/D5.es.md)
 
 **Estrategias:** S5, S7 · **Grupo del informe:** G2 (Planificar, construir y revisar)
 
@@ -547,7 +566,7 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 - L4: Las reglas de review se ajustan por repositorio a partir de los resultados de sugerencias; se rastrean tiempo de review y defectos escapados; los PRs donde solo IA revisó code creado por IA son visibles y gobernados.
 
 **Ejemplos de evidencia:** Rulesets de repositorio, métricas de adopción de code review, resultados de sugerencias.  
-**Base:** [6] [12] [54] [55]  
+**Base:** [6] [12] [14] [54] [55]  
 **Origen en v1:** P1-C1-Q2, P1-C4-Q1  
 **Unidad:** repositories · **Audiencia:** developer, qa-test
 
@@ -560,11 +579,11 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 - L2 - Adoptando: Práctica a nivel de equipo con orientación escrita (26-50% de los equipos)
 - L3 - Escalando: Estándar de la organización, gobernado y medido (51-90% de los equipos)
 - L4 - Nativo en IA: Universal (>90%), evaluado y mejorado continuamente, vinculado a resultados
-- L3: Se mantienen las protecciones predeterminadas: los PRs de agentes necesitan un aprobador independiente; "Approve and run workflows" no se deshabilita sin una decisión de riesgo documentada.
+- L3: Se mantienen las protecciones por defecto: los PRs de agentes necesitan una aprobación humana independiente (las aprobaciones de Copilot, si están habilitadas, no cuentan); "Approve and run workflows" no se desactiva sin una decisión de riesgo documentada.
 - L4: Los requisitos de aprobación escalan con el riesgo (D1-Q5) y se auditan; las excepciones expiran automáticamente.
 
 **Ejemplos de evidencia:** Rulesets, branch protection, configuraciones de agentes.  
-**Base:** [7] [14] [38] [53] [55] [56]  
+**Base:** [7] [12] [14] [38] [53] [55] [56]  
 **Origen en v1:** P3-C5-Q5, P2-C9-Q3  
 **Unidad:** repositories · **Audiencia:** developer, qa-test
 
@@ -589,6 +608,8 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 
 ¿Los cambios se mantienen pequeños (límites de tamaño de PR, un tema por PR), incluidos los cambios producidos por agentes?
 
+_Nota de alcance: Mide el tamaño de cambios asistidos por IA. Con qué frecuencia se commitea code y qué tan rápido se revierte es D8-Q2._
+
 - L0 - No iniciado: Aún no hay práctica, o IA no está permitida para esta actividad
 - L1 - Explorando: Uso individual o ad hoc, sin orientación acordada (más de 0% y hasta 25% de los equipos)
 - L2 - Adoptando: Práctica a nivel de equipo con orientación escrita (26-50% de los equipos)
@@ -606,6 +627,8 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 
 ¿Se usa IA para generar y mantener pruebas, con calidad de pruebas verificada (por ejemplo coverage del code cambiado, mutation testing) en vez de solo conteo de pruebas?
 
+_Nota de alcance: Mide IA usada para escribir y mejorar pruebas. Si las pruebas automatizadas actúan como gate es D8-Q7._
+
 - L0 - No iniciado: Aún no hay práctica, o IA no está permitida para esta actividad
 - L1 - Explorando: Uso individual o ad hoc, sin orientación acordada (más de 0% y hasta 25% de los equipos)
 - L2 - Adoptando: Práctica a nivel de equipo con orientación escrita (26-50% de los equipos)
@@ -615,13 +638,15 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 - L4: La efectividad de pruebas (mutation score, defectos escapados) se rastrea; flaky tests se detectan y se ponen en cuarentena automáticamente.
 
 **Ejemplos de evidencia:** Informes de coverage, resultados de mutation testing, dashboard de flaky tests.  
-**Base:** [3]  
+**Base:** [3] [8] [17]  
 **Origen en v1:** P1-C1-Q4, P2-C6-Q1, P2-C6-Q5, P2-C6-Q6, P2-C6-Q7  
 **Unidad:** teams · **Audiencia:** developer, qa-test
 
 #### D5-Q6: Cultura de verificación y confianza calibrada
 
 ¿Los ingenieros verifican sistemáticamente la salida de IA (la ejecutan, la prueban, la leen) y se mide la confianza en la salida de IA con el tiempo?
+
+_Nota de alcance: Mide comportamiento de review y calibración de confianza. Cómo se encuesta developer experience es D9-Q4._
 
 - L0 - No iniciado: Aún no hay práctica, o IA no está permitida para esta actividad
 - L1 - Explorando: Uso individual o ad hoc, sin orientación acordada (más de 0% y hasta 25% de los equipos)
@@ -632,7 +657,7 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 - L4: La confianza y la precisión se comparan con datos reales de defectos, y la orientación se actualiza donde divergen.
 
 **Ejemplos de evidencia:** Directrices de review, resultados de encuesta, análisis de defectos.  
-**Base:** [3] [35] [37] [48] [52]  
+**Base:** [3] [23] [35] [37] [48] [52]  
 **Origen en v1:** Ninguno (nueva en v2)  
 **Unidad:** teams · **Audiencia:** developer, qa-test
 
@@ -653,9 +678,11 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 **Origen en v1:** Ninguno (nueva en v2)  
 **Unidad:** repositories · **Audiencia:** developer, qa-test
 
-### D6: Seguridad y AI Supply Chain
+### D6: Seguridad y cadena de suministro de IA
 
-**Por qué importa:** OWASP enumera prompt injection (LLM01), supply chain (LLM03) y agencia excesiva (LLM06) entre los principales riesgos [38], y agent goal hijack (ASI01) en primer lugar para aplicaciones agentic [39]; NIST SP 800-218A agrega prácticas específicas de IA al SSDF [40].
+**Por qué importa:** OWASP enumera prompt injection (LLM01:2025), supply chain (LLM03:2025) y agencia excesiva (LLM06:2025) entre los principales riesgos [38], y agent goal hijack (ASI01) en primer lugar para aplicaciones agentic [39]; NIST SP 800-218A agrega al SSDF prácticas para el desarrollo de modelos de IA [40].
+
+**Página de la dimensión:** [dimensoes/D6.es.md](dimensoes/D6.es.md)
 
 **Estrategias:** S7, S6 · **Grupo del informe:** G3 (Proteger, entregar y fundamentos)
 
@@ -672,7 +699,7 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 - L4: La cobertura es casi completa y se verifica automáticamente; mean time to remediate se rastrea.
 
 **Ejemplos de evidencia:** Dashboard de cobertura de seguridad, tiempo de remediación.  
-**Base:** [13] [40] [52]  
+**Base:** [7] [13] [40] [52]  
 **Origen en v1:** P1-C4-Q3, P2-C4-Q1, P2-C4-Q2, P2-C4-Q3, P2-C4-Q4, P2-C10-Q1  
 **Unidad:** repositories · **Audiencia:** security, platform-engineer
 
@@ -703,7 +730,7 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 - L3 - Escalando: Estándar de la organización, gobernado y medido (51-90% de los equipos)
 - L4 - Nativo en IA: Universal (>90%), evaluado y mejorado continuamente, vinculado a resultados
 - L3: Agent firewalls y restricciones de egress se mantienen activados; la orientación indica a los equipos qué fuentes de contenido no son confiables.
-- L4: Los agentes pasan regularmente por red team contra escenarios OWASP LLM01 y ASI01; los hallazgos se rastrean hasta el cierre.
+- L4: Los agentes pasan regularmente por red team contra escenarios OWASP LLM01:2025 y ASI01; los hallazgos se rastrean hasta el cierre.
 
 **Ejemplos de evidencia:** Configuración de firewall, informes de red team.  
 **Base:** [7] [38] [39]  
@@ -782,6 +809,8 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 
 **Por qué importa:** más cambios generados por IA necesitan redes de seguridad sólidas en la entrega [3], [5]; Microsoft recomienda observación continua de la actividad de agentes [19] y está extendiendo agentes a operaciones de cloud [22].
 
+**Página de la dimensión:** [dimensoes/D7.es.md](dimensoes/D7.es.md)
+
 **Estrategias:** S2, S6 · **Grupo del informe:** G3 (Proteger, entregar y fundamentos)
 
 #### D7-Q1: IA en pipelines CI/CD
@@ -831,7 +860,7 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 - L4: Los agentes de operaciones ejecutan diagnósticos aprobados automáticamente; el tiempo de restauración se compara antes y después de la adopción.
 
 **Ejemplos de evidencia:** Configuración de herramientas de incidentes, timelines de incidentes, datos de tiempo de restauración.  
-**Base:** [22]  
+**Base:** [16] [17] [22]  
 **Origen en v1:** P2-C3-Q6, P2-C7-Q2, P2-C7-Q5  
 **Unidad:** services · **Audiencia:** devops, platform-engineer
 
@@ -890,6 +919,8 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 
 **Por qué importa:** DORA encuentra que estas capacidades amplifican los beneficios de la adopción de IA, y que una plataforma interna de alta calidad se correlaciona con la capacidad de desbloquear valor de IA [1], [3].
 
+**Página de la dimensión:** [dimensoes/D8.es.md](dimensoes/D8.es.md)
+
 **Estrategias:** S1, S2, S3 · **Grupo del informe:** G3 (Proteger, entregar y fundamentos)
 
 #### D8-Q1: Control de versiones para todo
@@ -912,6 +943,8 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 #### D8-Q2: Frecuencia de commit y rollback rápido
 
 ¿Los ingenieros hacen commit de cambios pequeños con frecuencia y confían en undo/revert rápido al experimentar con salida de IA?
+
+_Nota de alcance: Mide frecuencia de commit y velocidad de rollback. El tamaño de cambios asistidos por IA es D5-Q4._
 
 - L0 - No iniciado: Aún no hay práctica, o IA no está permitida para esta actividad
 - L1 - Explorando: Uso individual o ad hoc, sin orientación acordada (más de 0% y hasta 25% de los equipos)
@@ -998,6 +1031,8 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 
 ¿Las pruebas automatizadas son suficientemente profundas y rápidas para detectar regresiones de altos volúmenes de cambios generados por IA (unit, integration, end-to-end, contract)?
 
+_Nota de alcance: Mide pruebas automatizadas como sistema de control. IA usada para escribir pruebas es D5-Q5._
+
 - L0 - No iniciado: Aún no hay práctica, o IA no está permitida para esta actividad
 - L1 - Explorando: Uso individual o ad hoc, sin orientación acordada (más de 0% y hasta 25% de los equipos)
 - L2 - Adoptando: Práctica a nivel de equipo con orientación escrita (26-50% de los equipos)
@@ -1015,11 +1050,15 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 
 **Por qué importa:** estudios controlados van desde 55.8% más rápido [33] y 26.08% más tareas completadas [34] hasta 19% más lento con una fuerte brecha de percepción [35], por lo que las organizaciones necesitan su propia medición objetiva; Gartner predice que los costos de AI coding superarán el salario promedio de un desarrollador para 2028 [32].
 
+**Página de la dimensión:** [dimensoes/D9.es.md](dimensoes/D9.es.md)
+
 **Estrategias:** S5, S2 · **Grupo del informe:** G1 (Dirección, personas y valor)
 
 #### D9-Q1: Métricas de profundidad de adopción
 
 ¿La adopción de IA se rastrea con telemetría más allá del conteo de seats (usuarios activos, engagement por feature, cohortes de adopción)?
+
+_Nota de alcance: Mide si la adopción se rastrea. Qué tan profundamente se usa IA es D4-Q1._
 
 - L0 - No iniciado: Aún no hay práctica, o IA no está permitida para esta actividad
 - L1 - Explorando: Uso individual o ad hoc, sin orientación acordada (más de 0% y hasta 25% de los equipos)
@@ -1072,6 +1111,8 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 
 ¿Developer experience se mide regularmente (productividad percibida, fricción, confianza en IA, satisfacción), usando un framework reconocido como SPACE o las preguntas de resultado de DORA?
 
+_Nota de alcance: Mide la encuesta de developer experience. Comportamiento de review y calibración de confianza es D5-Q6._
+
 - L0 - No iniciado: Aún no hay práctica, o IA no está permitida para esta actividad
 - L1 - Explorando: Uso individual o ad hoc, sin orientación acordada (más de 0% y hasta 25% de los equipos)
 - L2 - Adoptando: Práctica a nivel de equipo con orientación escrita (26-50% de los equipos)
@@ -1115,7 +1156,7 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 - L4: Se rastrea el costo por resultado (por ejemplo por PR mergeado); las prácticas de enrutamiento y contexto se ajustan para reducir desperdicio.
 
 **Ejemplos de evidencia:** Dashboards de costo, alertas de presupuesto, notas de retrospectiva.  
-**Base:** [32] [38] [45]  
+**Base:** [19] [32] [38] [45]  
 **Origen en v1:** P3-C9-Q1 (parcial)  
 **Unidad:** organization · **Audiencia:** engineering-leader, product-owner
 
@@ -1132,19 +1173,19 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 - L4: El valor se informa con una cadencia fija con insumos medidos de D9-Q1 a Q6; la inversión se ajusta a partir de los resultados.
 
 **Ejemplos de evidencia:** Business case, informes de valor.  
-**Base:** [18] [32]  
+**Base:** [18] [28] [32]  
 **Origen en v1:** P1-C8-Q6, P3-C9-Q5  
 **Unidad:** organization · **Audiencia:** engineering-leader, product-owner
 
 ## Referencias
 
-1. DORA. _DORA AI Capabilities Model_. Google Cloud, 2025. <https://dora.dev/ai/capabilities-model/>
+1. DORA. _DORA AI Capabilities Model_. Google Cloud, 2025. <https://dora.dev/ai/capabilities-model/report/>
 2. DORA. _DORA AI Capabilities Model: Survey Questions_. Google Cloud, 2025. <https://dora.dev/ai/capabilities-model/questions/>
 3. Google Cloud. _Announcing the 2025 DORA Report: State of AI-Assisted Software Development_. 2025. <https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report>
 4. DORA. _State of AI-assisted Software Development 2025_. <https://dora.dev/research/2025/dora-report/>
-5. Google Cloud. _Announcing the 2024 DORA report_. 2024. <https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report>
-6. GitHub Docs. _GitHub Copilot usage metrics_. <https://docs.github.com/en/copilot/concepts/copilot-metrics>
-7. GitHub Docs. _Risks and mitigations for GitHub Copilot cloud agent_. <https://docs.github.com/en/enterprise-cloud@latest/copilot/concepts/agents/cloud-agent/risks-and-mitigations>
+5. Google Cloud. _Announcing the 2024 DORA report_. 2024-10-22. <https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report>
+6. GitHub Docs. _GitHub Copilot usage metrics_. <https://docs.github.com/en/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics>
+7. GitHub Docs. _Risks and mitigations for GitHub Copilot cloud agent_. <https://docs.github.com/en/enterprise-cloud@latest/copilot/concepts/security-governance-and-network-settings/risks-and-mitigations>
 8. GitHub Docs. _Best practices for using GitHub Copilot to work on tasks_. <https://docs.github.com/enterprise-cloud@latest/copilot/tutorials/cloud-agent/get-the-best-results>
 9. GitHub Docs. _Configuring an MCP server allowlist for your enterprise_. <https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-enterprise-allowlist>
 10. GitHub Docs. _Restrict MCP server access to a custom registry_. <https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-mcp-usage/restrict-based-on-registry>
@@ -1152,19 +1193,19 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 12. GitHub Docs. _About GitHub Copilot code review_. <https://docs.github.com/copilot/concepts/agents/code-review>
 13. GitHub Docs. _About autofix for code scanning_. <https://docs.github.com/en/code-security/concepts/code-scanning/autofix-for-code-scanning>
 14. GitHub Docs. _Application card: GitHub Copilot Agents_. <https://docs.github.com/en/copilot/responsible-use/agents>
-15. GitHub Docs. _Managing policies and features for GitHub Copilot in your organization_. <https://docs.github.com/copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization>
+15. GitHub Docs. _Managing policies and features for GitHub Copilot in your organization_. <https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies>
 16. Microsoft Azure Blog. _Agentic DevOps: Evolving software development with GitHub Copilot and Microsoft Azure_. 2025. <https://azure.microsoft.com/en-us/blog/agentic-devops-evolving-software-development-with-github-copilot-and-microsoft-azure/>
 17. Microsoft for Developers. _Agentic DevOps in action: Reimagining every phase of the developer lifecycle_. 2025. <https://developer.microsoft.com/blog/reimagining-every-phase-of-the-developer-lifecycle/>
 18. Microsoft Learn. _AI strategy: Cloud Adoption Framework_. <https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/strategy>
 19. Microsoft Learn. _Govern and secure AI agents: Cloud Adoption Framework_. <https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization>
 20. Microsoft Learn. _Responsible AI policies: Cloud Adoption Framework_. <https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/responsible-ai-policies>
-21. Microsoft. _Responsible AI: Principles and approach (Microsoft Responsible AI Standard)_. <https://www.microsoft.com/en-us/ai/principles-and-approach>
+21. Microsoft. _Responsible AI Principles and Approach_. <https://www.microsoft.com/en-us/ai/principles-and-approach>
 22. Microsoft Azure Blog. _Announcing Azure Copilot agents and AI infrastructure innovations_. 2025. <https://azure.microsoft.com/en-us/blog/announcing-azure-copilot-agents-and-ai-infrastructure-innovations/>
 23. Anthropic. _Anthropic Economic Index: AI's impact on software development_. 2025-04-28. <https://www.anthropic.com/research/impact-software-development>
-24. Anthropic. _How Claude Code is used in practice_. <https://www.anthropic.com/research/claude-code-expertise>
-25. Anthropic. _Effective context engineering for AI agents_. <https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents>
-26. Anthropic. _Building effective agents_. <https://www.anthropic.com/engineering/building-effective-agents>
-27. Anthropic. _Best practices for Claude Code_. <https://www.anthropic.com/engineering/claude-code-best-practices>
+24. Anthropic. _How Claude Code is used in practice_. 2026-06-16. <https://www.anthropic.com/research/claude-code-expertise>
+25. Anthropic. _Effective context engineering for AI agents_. 2025-09-29. <https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents>
+26. Anthropic. _Building effective agents_. 2024-12-19. <https://www.anthropic.com/engineering/building-effective-agents>
+27. Anthropic. _Best practices for Claude Code_. Claude Code Docs. <https://code.claude.com/docs/en/best-practices>
 28. Gartner. _Gartner Says 75% of Enterprise Software Engineers Will Use AI Code Assistants by 2028_. 2024-04-11. <https://www.gartner.com/en/newsroom/press-releases/2024-04-11-gartner-says-75-percent-of-enterprise-software-engineers-will-use-ai-code-assistants-by-2028>
 29. Gartner. _Gartner Identifies the Top Strategic Trends in Software Engineering for 2025 and Beyond_. 2025-07-01. <https://www.gartner.com/en/newsroom/press-releases/2025-07-01-gartner-identifies-the-top-strategic-trends-in-software-engineering-for-2025-and-beyond>
 30. Gartner. _Gartner Says Generative AI will Require 80% of Engineering Workforce to Upskill Through 2027_. 2024-10-03. <https://www.gartner.com/en/newsroom/press-releases/2024-10-03-gartner-says-generative-ai-will-require-80-percent-of-engineering-workforce-to-upskill-through-2027>
@@ -1175,13 +1216,13 @@ Para cambios no triviales, ¿se produce y revisa un plan o especificación por e
 35. METR. _Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity_. 2025-07-10. <https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/> (paper: <https://arxiv.org/abs/2507.09089>)
 36. METR. _We are Changing our Developer Productivity Experiment Design_. 2026-02-24. <https://metr.org/blog/2026-02-24-uplift-update/>
 37. Stack Overflow. _2025 Developer Survey: AI_. <https://survey.stackoverflow.co/2025/ai>
-38. OWASP GenAI Security Project. _OWASP Top 10 for LLM Applications 2025_. <https://genai.owasp.org/llm-top-10/>
-39. OWASP GenAI Security Project. _OWASP Top 10 for Agentic Applications for 2026_. <https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/>
+38. OWASP GenAI Security Project. _OWASP Top 10 for LLM Applications 2025_. <https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/>
+39. OWASP GenAI Security Project. _OWASP Top 10 for Agentic Applications for 2026_. 2025-12-09. <https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/>
 40. NIST. _SP 800-218A: Secure Software Development Practices for Generative AI and Dual-Use Foundation Models: An SSDF Community Profile_. 2024-07. <https://csrc.nist.gov/pubs/sp/800/218/a/final>
 41. NIST. _AI Risk Management Framework_. <https://www.nist.gov/itl/ai-risk-management-framework>
-42. ISO. _ISO/IEC 42001:2023: Artificial intelligence: Management system_. <https://www.iso.org/standard/81230.html>
+42. ISO. _ISO/IEC 42001:2023: AI management systems_. <https://www.iso.org/standard/42001>
 43. OpenSSF. _SLSA: Supply-chain Levels for Software Artifacts_. <https://slsa.dev/>
-44. Forsgren, N., Storey, M.-A., Maddila, C., Zimmermann, T., Houck, B., Butler, J. _The SPACE of Developer Productivity_. ACM Queue, 2021. <https://queue.acm.org/detail.cfm?id=3454124>
+44. Forsgren, N., Storey, M.-A., Maddila, C., Zimmermann, T., Houck, B., Butler, J. _The SPACE of Developer Productivity_. ACM Queue 19(1), 2021-03-06. <https://queue.acm.org/detail.cfm?id=3454124> (DOI: <https://doi.org/10.1145/3454122.3454124>)
 45. Liu, B., Qiu, H., Goiri, Í., Fonseca, R., Bianchini, R., Choukse, E. _Agentic Coding in the Wild: Characterizing GitHub Copilot Traces at Production Scale_. arXiv:2608.00101, 2026-07-30. <https://arxiv.org/abs/2608.00101>
 46. Arabat, A., Sayagh, M. _Toward Instructions-as-Code: Understanding the Impact of Instruction Files on Agentic Pull Requests_. arXiv:2606.13449, 2026-06-11. <https://arxiv.org/abs/2606.13449>
 47. Denisov-Blanch, Y., Agarwal, S., Azaletskiy, P., He, H., Schaeffer, R., Miranda, B., Vasilescu, B., Koyejo, S. _A Few Pages of Markdown: Committed AI Configuration and Lower Quality Cost after Coding-Agent Adoption_. arXiv:2608.25241, 2026-08-26. <https://arxiv.org/abs/2608.25241>
