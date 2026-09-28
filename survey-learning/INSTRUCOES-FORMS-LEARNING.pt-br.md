@@ -1,6 +1,6 @@
 # Como criar o Microsoft Forms para o Learning & Growth Survey
 
-🌐 [English](INSTRUCOES-FORMS-LEARNING.md) · Português (Brasil)
+🌐 [English](INSTRUCOES-FORMS-LEARNING.md) · Português (Brasil) · [Español](INSTRUCOES-FORMS-LEARNING.es.md)
 
 **`🅲️ SURVEY-LEARNING`** · _identificado_ · 📖 [🏠 Índice](../README.pt-br.md) · [« Survey-devs](../survey-devs/INSTRUCOES-FORMS-DEVS.pt-br.md) · Você está aqui · [» Wizard](../wizard/README.md)
 
@@ -163,7 +163,7 @@ Gera `survey-learning/respostas-learning.json` (estruturado).
 /plano-capacitacao
 ```
 
-Gera `saida/plano-capacitacao-<DATE>.md` com:
+Gera `saida/plano-capacitacao-<DATE>.md` (em **inglês por padrão**; o script aceita `--lang pt-br` para português (Brasil) e `--lang es` para espanhol) com:
 
 - Top 10 tópicos demandados (com lista de inscritos pré-validados)
 - Cohorts sugeridos por dimensão D2-D8

@@ -1,6 +1,6 @@
 # `wizard/scripts/`
 
-🌐 English · [Português (Brasil)](README.pt-br.md)
+🌐 English · [Português (Brasil)](README.pt-br.md) · [Español](README.es.md)
 
 📖 **Navigation:** [🏠 Index](../../README.md) · [« Wizard](../README.md)
 

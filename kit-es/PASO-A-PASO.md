@@ -1,6 +1,5 @@
+<!-- Generated from GUIA-PASSO-A-PASSO.es.md by scripts/build_kit_docs.py. Edit the source, not this file. -->
 # Paso a paso: AI Maturity Assessment
-
-🌐 [English](../kit-en/STEP-BY-STEP.md) · Español
 
 Esta guía ejecuta la evaluación framework v2 desde la recolección hasta los reportes. v1 sigue disponible para entradas archivadas.
 
@@ -33,11 +32,11 @@ make pipeline
 
 Usa v2 para nuevas evaluaciones. Usa v1 solo para comparación histórica o archivos `respostas.json` sin `metadata.framework_version`.
 
-- Especificación v2: [../coleta/AI-Maturity-Form-Questions_v2.md](../coleta/AI-Maturity-Form-Questions_v2.md).
-- Formulario v2: [../formularios/assessment-v2.html](../formularios/assessment-v2.html).
-- Instrucciones Forms v2: [INSTRUCCIONES-FORMS.md](INSTRUCCIONES-FORMS.md).
-- Páginas de dimensión v2: [../referencia/dimensoes/README.es.md](../referencia/dimensoes/README.es.md).
-- Archivo v1: [../coleta/v1/](../coleta/v1/), [../formularios/v1/](../formularios/v1/), [../referencia/v1/](../referencia/v1/).
+- Especificación v2: [coleta/AI-Maturity-Form-Questions_v2.es.md](../coleta/AI-Maturity-Form-Questions_v2.es.md), traducción de la fuente en inglés [coleta/AI-Maturity-Form-Questions_v2.md](../coleta/AI-Maturity-Form-Questions_v2.md).
+- Formulario v2: [formularios/assessment-v2.html](../formularios/assessment-v2.es.html).
+- Instrucciones Forms v2: [coleta/INSTRUCOES-FORMS.md](INSTRUCCIONES-FORMS.md).
+- Páginas de dimensión v2: [referencia/dimensoes/](../referencia/dimensoes/README.es.md).
+- Archivo v1: [coleta/v1/](../coleta/v1/), [formularios/v1/](../formularios/v1/), [referencia/v1/](../referencia/v1/).
 
 ## 2. Prepara entradas
 
@@ -53,7 +52,7 @@ También puedes importar un export de Microsoft Forms:
 make import XLSX=respostas-forms.xlsx
 ```
 
-También puedes usar el formulario offline. Cada persona abre [../formularios/assessment-v2.html](../formularios/assessment-v2.html), exporta un `respostas.json` y lo envía al facilitador. Coloca los exports en una carpeta y ejecuta:
+También puedes usar el formulario offline. Cada persona abre [formularios/assessment-v2.html](../formularios/assessment-v2.es.html), exporta un `respostas.json` y lo envía al facilitador. Coloca los exports en una carpeta y ejecuta:
 
 ```bash
 make merge DIR=exports/
@@ -176,4 +175,4 @@ make validate-docs
 make test
 ```
 
-Consulta [../CHANGELOG.md](../CHANGELOG.md) para el historial de versiones.
+Consulta [CHANGELOG.md](../CHANGELOG.es.md) para el historial de versiones.

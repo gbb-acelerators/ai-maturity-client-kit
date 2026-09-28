@@ -1,6 +1,6 @@
 # Passo a passo: AI Maturity Assessment
 
-🌐 [English](GUIA-PASSO-A-PASSO.md) · Português (Brasil)
+🌐 [English](GUIA-PASSO-A-PASSO.md) · Português (Brasil) · [Español](GUIA-PASSO-A-PASSO.es.md)
 
 Este guia executa o assessment v2 da coleta aos relatórios. O v1 continua disponível para entradas arquivadas.
 
@@ -33,8 +33,8 @@ make pipeline
 
 Use v2 para novos assessments. Use v1 somente para comparação histórica ou arquivos `respostas.json` sem `metadata.framework_version`.
 
-- Especificação v2: [coleta/AI-Maturity-Form-Questions_v2.md](coleta/AI-Maturity-Form-Questions_v2.md).
-- Formulário v2: [formularios/assessment-v2.html](formularios/assessment-v2.html).
+- Especificação v2: [coleta/AI-Maturity-Form-Questions_v2.pt-br.md](coleta/AI-Maturity-Form-Questions_v2.pt-br.md), tradução da fonte em inglês [coleta/AI-Maturity-Form-Questions_v2.md](coleta/AI-Maturity-Form-Questions_v2.md).
+- Formulário v2: [formularios/assessment-v2.html](formularios/assessment-v2.pt-br.html).
 - Instruções Forms v2: [coleta/INSTRUCOES-FORMS.pt-br.md](coleta/INSTRUCOES-FORMS.pt-br.md).
 - Páginas de dimensão v2: [referencia/dimensoes/](referencia/dimensoes/).
 - Arquivo v1: [coleta/v1/](coleta/v1/), [formularios/v1/](formularios/v1/), [referencia/v1/](referencia/v1/).
@@ -53,7 +53,7 @@ Você pode importar uma exportação do Microsoft Forms:
 make import XLSX=respostas-forms.xlsx
 ```
 
-Você também pode usar o formulário offline. Cada respondente abre [formularios/assessment-v2.html](formularios/assessment-v2.html), exporta um `respostas.json` e envia ao facilitador. Coloque os exports em uma pasta e rode:
+Você também pode usar o formulário offline. Cada respondente abre [formularios/assessment-v2.html](formularios/assessment-v2.pt-br.html), exporta um `respostas.json` e envia ao facilitador. Coloque os exports em uma pasta e rode:
 
 ```bash
 make merge DIR=exports/

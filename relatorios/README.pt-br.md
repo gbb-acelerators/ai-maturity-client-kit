@@ -1,6 +1,6 @@
 # `relatorios/`: renderização de relatórios
 
-🌐 [English](README.md) · Português (Brasil)
+🌐 [English](README.md) · Português (Brasil) · [Español](README.es.md)
 
 O dispatcher de relatórios suporta v2 por padrão e v1 para entradas arquivadas.
 

@@ -1,6 +1,6 @@
 # Identidade visual paulasilva-ms (Microsoft)
 
-🌐 [English](IDENTITY.md) · Português (Brasil)
+🌐 [English](IDENTITY.md) · Português (Brasil) · [Español](IDENTITY.es.md)
 
 Identidade aplicada aos artefatos visuais voltados para Microsoft neste kit.
 

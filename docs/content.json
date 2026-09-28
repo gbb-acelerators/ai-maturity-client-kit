@@ -395,8 +395,8 @@
             "code": "Cliente Exemplo S.A."
           },
           {
-            "label": "Documentação PT-BR",
-            "code": "~3000 linhas"
+            "label": "Docs em PT-BR + bancos e spec nos 3 idiomas",
+            "code": "incluídos"
           }
         ]
       },
@@ -787,7 +787,7 @@
             "code": "Cliente Exemplo S.A."
           },
           {
-            "label": "English docs + canonical question banks",
+            "label": "English docs + banks and spec in 3 languages",
             "code": "included"
           }
         ]
@@ -1179,7 +1179,7 @@
             "code": "Cliente Exemplo S.A."
           },
           {
-            "label": "Docs en Español + bancos canonicos",
+            "label": "Docs en español + bancos y spec en 3 idiomas",
             "code": "incluidos"
           }
         ]

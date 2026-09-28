@@ -1,6 +1,6 @@
 # `survey-learning/`: Learning and Growth Survey (identified, capacitation)
 
-🌐 English · [Português (Brasil)](README.pt-br.md)
+🌐 English · [Português (Brasil)](README.pt-br.md) · [Español](README.es.md)
 
 This identified survey generates the capacitation plan used by leadership and by the implementation guide wizard. It complements the main assessment and the anonymous Developer Survey.
 
@@ -43,7 +43,7 @@ Learning Survey question bank labels use `L#-Q#`. Where a question refers to Dev
 
 ## What the capacitation plan contains
 
-`saida/plano-capacitacao-<date>.md` is written in English by default or PT-BR with `--lang pt-br`. It includes requested topics, suggested cohorts per `DS-D#`, Champions, mentor pairs, a 90-day calendar, barriers, wishlist, and prioritized actions.
+`saida/plano-capacitacao-<date>.md` is written in English by default, or in PT-BR or ES with `--lang pt-br` or `--lang es`. It includes requested topics, suggested cohorts per `DS-D#`, Champions, mentor pairs, a 90-day calendar, barriers, wishlist, and prioritized actions.
 
 ## Connection with the wizard
 

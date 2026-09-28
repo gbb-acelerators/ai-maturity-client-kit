@@ -1,5 +1,7 @@
 # Changelog
 
+🌐 English · [Português (Brasil)](CHANGELOG.pt-br.md) · [Español](CHANGELOG.es.md)
+
 All notable changes to the AI Maturity client kit. Dates are ISO 8601.
 
 ## [2.0.1] - 2026-09-28 (framework v2)
@@ -79,6 +81,22 @@ All notable changes to the AI Maturity client kit. Dates are ISO 8601.
   `coleta/v2-mock-forms-export.xlsx`), `CHANGELOG.md` and a dev
   container.
 
+- Complete Portuguese (Brazil) and Spanish versions of every doc, with
+  English as the main language: each `X.md` has `X.pt-br.md` and
+  `X.es.md` with the same headings and a three-language switcher line.
+  New Spanish copies of every folder guide, `CHANGELOG.pt-br.md`,
+  `CHANGELOG.es.md`, and PT-BR and ES copies of the v2 spec
+  (`coleta/AI-Maturity-Form-Questions_v2.pt-br.md`, `.es.md`).
+- `scripts/sync_spec_translations.py` generates sections 6 and 7 and the
+  reference list of the spec copies from `framework.v2.json`, and checks
+  that the English sections round-trip; `make generate-v2` and
+  `make validate-docs` run it.
+- Copies of the offline form, the wizard and the calculator that open in
+  Portuguese and Spanish (`*.pt-br.html`, `*.es.html`). The offline form
+  now follows the browser language, like the wizard and the calculator.
+- `scripts/test_i18n_docs.py` covers the package language swap, the spec
+  copies and the docs coverage.
+
 ### Changed
 
 - Developer Survey dimensions are `DS-D2` to `DS-D8` in outputs and in
@@ -107,6 +125,19 @@ All notable changes to the AI Maturity client kit. Dates are ISO 8601.
 - `scripts/import_forms_excel.py` detects v2 exports and keeps each
   respondent, profile answers in any of the three languages, and explicit
   NA answers.
+
+- The ES package ships every doc in Spanish under the base file names,
+  as the PT package does in Portuguese. `kit-es/` is generated from the
+  `.es.md` copies, and no package ships the `kit-en/` or `kit-es/`
+  folders. The v2 spec and the question banks ship in the three languages
+  in every package.
+- `scripts/check_language_coverage.py` requires the PT-BR and ES copies of
+  every doc in scope, with matching headings and switcher lines, and lists
+  what stays in English by design: `.github/`, the frozen v1 archive
+  (EN and PT-BR), the internal v2 plan and generated outputs.
+- Spanish generated texts (question bank, reference guide) use the "tú"
+  register, and the Spanish bank links the Spanish Forms instructions.
+  The PT-BR scoring reference no longer uses em or en dashes.
 
 ### Fixed
 

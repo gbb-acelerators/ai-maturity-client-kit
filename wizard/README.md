@@ -1,6 +1,6 @@
 # `wizard/`: Implementation Guide Wizard (v2 Part 4)
 
-🌐 English · [Português (Brasil)](README.pt-br.md)
+🌐 English · [Português (Brasil)](README.pt-br.md) · [Español](README.es.md)
 
 **`WIZARD`** · _Custom Part 4_ · 📖 [🏠 Index](../README.md) · [« Learning Survey](../survey-learning/INSTRUCOES-FORMS-LEARNING.md) · You are here
 
@@ -64,8 +64,7 @@ Mode D reads the latest `saida/plano-capacitacao-*.md`, fills 7 of the 11 fields
 
 | File | Purpose |
 | --- | --- |
-| [implementation-guide-wizard.html](implementation-guide-wizard.html) | Generated standalone visual wizard. |
-| [implementation-guide-wizard.pt-br.html](implementation-guide-wizard.pt-br.html) | Portuguese entry point. The language selector can switch languages. |
+| [implementation-guide-wizard.html](implementation-guide-wizard.html) | Generated standalone visual wizard. It opens in the browser language and has a language selector. The repository copies `implementation-guide-wizard.pt-br.html` and `implementation-guide-wizard.es.html` open in Portuguese and Spanish; each language package ships its copy under this name. |
 | [implementation-guide-inputs.template.json](implementation-guide-inputs.template.json) | Generated empty JSON template with `_guide`. |
 | [scripts/auto_fill_from_plano.py](scripts/auto_fill_from_plano.py) | Mode D auto-fill from Learning Survey output. |
 

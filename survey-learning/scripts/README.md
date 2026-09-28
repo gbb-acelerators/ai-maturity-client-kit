@@ -1,6 +1,6 @@
 # `survey-learning/scripts/`
 
-🌐 English · [Português (Brasil)](README.pt-br.md)
+🌐 English · [Português (Brasil)](README.pt-br.md) · [Español](README.es.md)
 
 📖 **Navigation:** [🏠 Index](../../README.md) · [« Learning Survey](../README.md)
 

@@ -1,12 +1,12 @@
 # `formularios/`: formulários do assessment
 
-🌐 [English](README.md) · Português (Brasil)
+🌐 [English](README.md) · Português (Brasil) · [Español](README.es.md)
 
 O framework v2 é o padrão para novos assessments.
 
 | Ativo | Uso |
 | --- | --- |
-| [assessment-v2.html](assessment-v2.html) | Formulário offline v2 gerado em PT-BR, EN e ES. Ele roda sem internet, mostra a nota de escopo de cada pergunta e exporta um respondente por `respostas.json`. |
+| [assessment-v2.pt-br.html](assessment-v2.pt-br.html) | Formulário offline v2 gerado em PT-BR, EN e ES, abrindo em português. Ele roda sem internet, mostra a nota de escopo de cada pergunta e exporta um respondente por `respostas.json`. No repositório, `assessment-v2.html` segue o idioma do navegador e `assessment-v2.es.html` abre em espanhol; cada pacote de idioma entrega a sua cópia como `assessment-v2.html`. |
 | [v1/](v1/) | Formulários visuais v1 arquivados para assessments históricos. |
 
 Use o fluxo offline quando o Microsoft Forms não estiver disponível ou quando um workshop precisar de coleta local:
@@ -17,7 +17,7 @@ make merge DIR=exports/
 make pipeline
 ```
 
-O formulário v2 segue [../coleta/AI-Maturity-Form-Questions_v2.md](../coleta/AI-Maturity-Form-Questions_v2.md): 5 perguntas de perfil (`R-Q1` a `R-Q5`) e 61 perguntas pontuadas (`D#-Q#`) em 9 dimensões.
+O formulário v2 segue [../coleta/AI-Maturity-Form-Questions_v2.pt-br.md](../coleta/AI-Maturity-Form-Questions_v2.pt-br.md): 5 perguntas de perfil (`R-Q1` a `R-Q5`) e 61 perguntas pontuadas (`D#-Q#`) em 9 dimensões.
 
 Arquivos HTML v1 arquivados ficam em [v1/](v1/), incluindo:
 

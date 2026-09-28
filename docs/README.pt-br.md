@@ -1,6 +1,6 @@
-# `docs/` — Mini-site (GitHub Pages)
+# `docs/`: Mini-site (GitHub Pages)
 
-🌐 [English](README.md) · Português (Brasil)
+🌐 [English](README.md) · Português (Brasil) · [Español](README.es.md)
 
 📖 **Navegação:** [🏠 Índice](../README.pt-br.md)
 
@@ -71,7 +71,7 @@ https://paulasilvatech.github.io/ai-maturity-client-kit/downloads/ai-maturity-ki
 
 Esses links continuam públicos junto com o site, mesmo se o repositório voltar a ser privado.
 
-Idiomas dos pacotes: o ZIP PT entrega as cópias em português (`*.pt-br.md`, `*.pt-br.html`) com os nomes base; os ZIPs EN e ES entregam os docs do repositório em inglês mais os guias de `kit-en/` ou `kit-es/`. Os relatórios gerados saem em inglês por padrão em todos os pacotes (defina `metadata.language` como `"pt-BR"` ou `"es"` para mudar).
+Idiomas dos pacotes: cada ZIP entrega o seu idioma com os nomes base dos arquivos. O ZIP PT entrega as cópias em português (`*.pt-br.md`, `*.pt-br.html`), o ZIP ES as cópias em espanhol (`*.es.md`, `*.es.html`) e o ZIP EN os docs em inglês; os ZIPs EN e ES somam os guias rápidos de `kit-en/` ou `kit-es/` na raiz. Os bancos de perguntas e a especificação v2 vão nos três idiomas em todos os ZIPs. Os relatórios gerados saem em inglês por padrão em todos os pacotes (defina `metadata.language` como `"pt-BR"` ou `"es"` para mudar).
 
 ## Deploy
 

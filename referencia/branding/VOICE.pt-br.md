@@ -1,6 +1,6 @@
 # Brand Voice (paulasilva-ms)
 
-🌐 [English](VOICE.md) · Português (Brasil)
+🌐 [English](VOICE.md) · Português (Brasil) · [Español](VOICE.es.md)
 
 Voz unificada do design system. Todo conteúdo escrito sob identidade Microsoft segue estas regras.
 

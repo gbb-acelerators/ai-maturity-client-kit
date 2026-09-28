@@ -1,25 +1,24 @@
+<!-- Generated from README.es.md by scripts/build_kit_docs.py. Edit the source, not this file. -->
 # Kit cliente AI Maturity Assessment
-
-🌐 [English](../kit-en/README.md) · Español
 
 Un kit autónomo para ejecutar una autoevaluación de madurez del SDLC asistido por IA sin depender de una plataforma web. Framework v2 es el valor predeterminado. Framework v1 sigue archivado y soportado para entradas históricas.
 
 Rol de la autora: Global Developer Solutions Advisor.
 
-Consulta [../CHANGELOG.md](../CHANGELOG.md) para el historial de versiones.
+Consulta [CHANGELOG.md](../CHANGELOG.es.md) para el historial de versiones.
 
 ## Qué hay de nuevo en framework v2
 
 - Versión: 2.0.1.
-- Especificación fuente: [../coleta/AI-Maturity-Form-Questions_v2.md](../coleta/AI-Maturity-Form-Questions_v2.md).
-- Modelo de máquina: [../framework.v2.json](../framework.v2.json), validado por [../framework.v2.schema.json](../framework.v2.schema.json) y [../scripts/validate_framework_v2.py](../scripts/validate_framework_v2.py).
+- Especificación: [coleta/AI-Maturity-Form-Questions_v2.es.md](../coleta/AI-Maturity-Form-Questions_v2.es.md), traducción de la fuente en inglés [coleta/AI-Maturity-Form-Questions_v2.md](../coleta/AI-Maturity-Form-Questions_v2.md).
+- Modelo de máquina: [framework.v2.json](../framework.v2.json), validado por [framework.v2.schema.json](../framework.v2.schema.json) y [scripts/validate_framework_v2.py](../scripts/validate_framework_v2.py).
 - 5 preguntas de perfil y 61 preguntas puntuadas.
 - 9 dimensiones: D1 Estrategia, Política y Gobernanza de IA (7), D2 Habilitación, Habilidades y Cultura (6), D3 Planificar, Especificar y Diseñar (6), D4 Código e ingeniería de contexto (8), D5 Revisión, calidad y pruebas (7), D6 Seguridad y cadena de suministro de IA (7), D7 Entregar y Operar (6), D8 Fundamentos de Ingeniería (amplificadores de IA) (7), D9 Medición, Valor y AI FinOps (7).
 - Los IDs usan `D#-Q#`. Los IDs de perfil usan `R-Q1` a `R-Q5`.
 - Niveles: L0 No iniciado, L1 Explorando, L2 Adoptando, L3 Escalando, L4 Nativo en IA, más `NA`.
-- Formulario principal: [../formularios/assessment-v2.html](../formularios/assessment-v2.html). Se ejecuta offline, muestra la nota de alcance de cada pregunta y exporta una persona por `respostas.json`.
-- Configuración de Forms: [INSTRUCCIONES-FORMS.md](INSTRUCCIONES-FORMS.md).
-- Las páginas de referencia por dimensión están en [../referencia/dimensoes/README.es.md](../referencia/dimensoes/README.es.md), con páginas EN, PT-BR y ES para D1 a D9.
+- Formulario principal: [formularios/assessment-v2.html](../formularios/assessment-v2.es.html). Se ejecuta offline, muestra la nota de alcance de cada pregunta y exporta una persona por `respostas.json`.
+- Configuración de Forms: [coleta/INSTRUCOES-FORMS.md](INSTRUCCIONES-FORMS.md).
+- Las páginas de referencia por dimensión están en [referencia/dimensoes/](../referencia/dimensoes/README.es.md), con páginas EN, PT-BR y ES para D1 a D9.
 
 ## Quickstart
 
@@ -108,11 +107,11 @@ Developer Survey y Learning and Growth Survey son señales complementarias. Los 
 
 ## Archivo v1
 
-v1 sigue soportado para archivos sin `metadata.framework_version`, o con versión `1.x`. Usa [../framework.json](../framework.json), 158 preguntas, 3 pilares y activos archivados:
+v1 sigue soportado para archivos sin `metadata.framework_version`, o con versión `1.x`. Usa [framework.json](../framework.json), 158 preguntas, 3 pilares y activos archivados:
 
-- [../coleta/v1/](../coleta/v1/)
-- [../formularios/v1/](../formularios/v1/)
-- [../referencia/v1/](../referencia/v1/)
+- [coleta/v1/](../coleta/v1/)
+- [formularios/v1/](../formularios/v1/)
+- [referencia/v1/](../referencia/v1/)
 
 Usa `make init-v1` para iniciar una entrada v1. Los scripts de despacho mantienen el comportamiento v1 sin cambios.
 
@@ -120,13 +119,17 @@ Usa `make init-v1` para iniciar una entrada v1. Los scripts de despacho mantiene
 
 | Ruta | Propósito |
 | --- | --- |
-| [../coleta/](../coleta/) | Instrucciones v2, especificación v2, bancos generados, guía de merge offline y archivo v1. |
-| [../formularios/](../formularios/) | Formulario offline v2 y formularios visuales v1 archivados. |
-| [../referencia/](../referencia/) | Guía del framework, calculadora v2, páginas por dimensión, branding y ejemplos. |
-| [../relatorios/](../relatorios/) | Renderer, templates, localización, PDF de comparación y parser de entradas del wizard. |
-| [../scripts/](../scripts/) | Scripts determinísticos de importación, scoring, workbook, comparación, validación, demo, evidencia, empaquetado y generación. |
-| [../wizard/](../wizard/) | Wizard trilingüe generado de la guía de implementación y script de auto-fill. |
-| [../.github/skills/](../.github/skills/) | Skills custom de Copilot que llaman scripts determinísticos. |
+| [coleta/](../coleta/) | Instrucciones v2, especificación v2, bancos generados, guía de merge offline y archivo v1. |
+| [formularios/](../formularios/) | Formulario offline v2 y formularios visuales v1 archivados. |
+| [referencia/](../referencia/) | Guía del framework, calculadora v2, páginas por dimensión, branding y ejemplos. |
+| [relatorios/](../relatorios/) | Renderer, templates, localización, PDF de comparación y parser de entradas del wizard. |
+| [scripts/](../scripts/) | Scripts determinísticos de importación, scoring, workbook, comparación, validación, demo, evidencia, empaquetado y generación. |
+| [wizard/](../wizard/) | Wizard trilingüe generado de la guía de implementación y script de auto-fill. |
+| [.github/skills/](../.github/skills/) | Skills custom de Copilot que llaman scripts determinísticos. |
+
+## Idiomas
+
+El inglés es el idioma principal. Cada documento tiene una copia en portugués de Brasil (`X.pt-br.md`) y una en español (`X.es.md`), enlazadas en la línea de idioma del inicio. Los bancos de preguntas, la especificación v2, los asistentes HTML (formulario offline, wizard y calculadora), los informes y las salidas de las encuestas funcionan en EN, PT-BR y ES. Los paquetes PT y ES entregan todos los documentos en su idioma con los nombres base de los archivos. Solo quedan fuera del conjunto en español los archivos de customización de Copilot en `.github/` (en inglés por diseño), el archivo congelado de v1 (EN y PT-BR) y el registro interno del plan v2 (`upgrade-framework-v2.prompt.md`). `make validate-docs` falla si falta una copia o si sus títulos se apartan del documento en inglés.
 
 ## Validación
 

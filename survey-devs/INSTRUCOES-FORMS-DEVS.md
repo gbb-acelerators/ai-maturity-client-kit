@@ -1,6 +1,6 @@
 # How to build the Microsoft Forms for the Developer Survey
 
-🌐 English · [Português (Brasil)](INSTRUCOES-FORMS-DEVS.pt-br.md)
+🌐 English · [Português (Brasil)](INSTRUCOES-FORMS-DEVS.pt-br.md) · [Español](INSTRUCOES-FORMS-DEVS.es.md)
 
 **`🅱️ SURVEY-DEVS`** · _anonymous_ · 📖 [🏠 Index](../README.md) · [« Main collection](../coleta/INSTRUCOES-FORMS.md) · You are here · [» Learning Survey](../survey-learning/INSTRUCOES-FORMS-LEARNING.md)
 

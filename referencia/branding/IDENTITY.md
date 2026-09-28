@@ -1,6 +1,6 @@
 # paulasilva-ms visual identity (Microsoft)
 
-🌐 English · [Português (Brasil)](IDENTITY.pt-br.md)
+🌐 English · [Português (Brasil)](IDENTITY.pt-br.md) · [Español](IDENTITY.es.md)
 
 Identity applied to Microsoft-facing visual artifacts in this kit.
 

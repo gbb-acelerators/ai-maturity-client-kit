@@ -1,9 +1,9 @@
 # AI Maturity Assessment Scoring and Calculation
 
-🌐 English · [Português (Brasil)](pontuacao-e-calculo.pt-br.md)
+🌐 English · [Português (Brasil)](pontuacao-e-calculo.pt-br.md) · [Español](pontuacao-e-calculo.es.md)
 
 > **Framework v1 (158 questions, 3 pillars).** For framework v2 (9 dimensions, 61 questions), see [framework-v2.md](framework-v2.md). v1 files still score with these rules.
-
+>
 > **Technical reference document**: describes precisely how each answer becomes a score, how capabilities/pillars/overall are aggregated, threshold rules, multi-respondent handling, gap analysis, and the PE score. The kit implements these formulas in [`scripts/assessment_engine.py`](../scripts/assessment_engine.py) (golden tests in `scripts/test_assessment_engine.py`).
 
 **Algorithm version:** 1.0.0 · **Last code audit:** 2026-05-08
@@ -32,9 +32,9 @@
 
 ## 1. Three-layer conceptual model
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
-│                    OVERALL SCORE (0–4)                      │
+│                    OVERALL SCORE (0-4)                      │
 │    = weighted average of ALL capabilities (not pillars)     │
 └─────────────────────────────────────────────────────────────┘
                 ▲
@@ -78,6 +78,7 @@ The scale is **discrete at input (integer 0-4)**, but the aggregations produce *
 ## 3. Official formulas
 
 ### 3.1 Capability score
+>
 > Reference code: [`scoring.rs:205-225`](../scripts/assessment_engine.py)
 
 $$
@@ -89,6 +90,7 @@ $$
 - Default weights: **1.0**. Allowed range: **[0.5, 2.0]**.
 
 ### 3.2 Pillar score
+>
 > Reference code: [`scoring.rs:227-247`](../scripts/assessment_engine.py)
 
 $$
@@ -98,6 +100,7 @@ $$
 Only capabilities with `score = Some(_)` participate (capabilities without any answer are skipped).
 
 ### 3.3 Overall score
+>
 > Reference code: [`scoring.rs:250-263`](../scripts/assessment_engine.py)
 
 $$
@@ -172,7 +175,7 @@ Applied to any score (capability, pillar, or overall):
 
 For each capability:
 
-```
+```text
 target_level   = target_overrides.get(capability_id) or 3.0 (default L3)
 gap_size       = target_level − current_score
 priority_score = peso_capability × gap_size
@@ -224,6 +227,7 @@ Sub-score calculated **only with questions flagged `pe = true`** in the seed.
 ## 11. End-to-end example: Pillar P1
 
 ### Scenario
+
 Capability **P1-C1: AI Coding Assistants** (5 questions). Assessment answered by **2 developers** (R1 and R2). All questions have `weight = 1.0` (default).
 
 ### Real answers
@@ -238,7 +242,7 @@ Capability **P1-C1: AI Coding Assistants** (5 questions). Assessment answered by
 
 ### Step 1: Capability score (P1-C1)
 
-```
+```text
 wsum   = (3.5×1.0) + (2.5×1.0) + (1.5×1.0) + (2.0×1.0) + (3.5×1.0)
        = 3.5 + 2.5 + 1.5 + 2.0 + 3.5
        = 13.0
@@ -252,7 +256,7 @@ P1-C1.score = 13.0 / 5.0 = 2.60   →   Label: L3 Managed
 
 Suppose P1-C1 is the only answered capability of pillar P1, with `weight_capability = 1.0`:
 
-```
+```text
 ws = 2.60 × 1.0 = 2.60
 wt = 1.0
 P1.score = 2.60 / 1.0 = 2.60   →   Label: L3 Managed
@@ -264,7 +268,7 @@ P1.score = 2.60 / 1.0 = 2.60   →   Label: L3 Managed
 
 Default `target_level = 3.0`:
 
-```
+```text
 gap_size       = 3.0 − 2.60 = 0.40
 priority_score = 1.0 × 0.40 = 0.40
 classification = P3 (Low)   ← because 0.40 < 0.9
@@ -279,6 +283,7 @@ classification = P3 (Low)   ← because 0.40 < 0.9
 ## 12. End-to-end example: Pillar P2
 
 ### Scenario
+
 Capability **P2-C1: CI/CD Pipeline Intelligence** (6 questions). Answered by **1 SRE** + **1 Platform Engineer**. Mixed weights: Q1 and Q5 with `weight = 1.5` (questions with direct impact on DORA metrics).
 
 ### Answers
@@ -294,7 +299,7 @@ Capability **P2-C1: CI/CD Pipeline Intelligence** (6 questions). Answered by **1
 
 ### Step 1: Capability score (P2-C1)
 
-```
+```text
 wsum   = (3.5×1.5) + (2.0×1.0) + (1.5×1.0) + (2.5×1.0) + (3.5×1.5) + (1.5×1.0)
        = 5.25 + 2.0 + 1.5 + 2.5 + 5.25 + 1.5
        = 18.00
@@ -310,7 +315,7 @@ P2-C1.score = 18.00 / 7.0 = 2.5714…   →   Label: L3 Managed
 
 Add P2-C2 (IaC) with score = 1.80, weight = 1.0:
 
-```
+```text
 ws = (2.5714 × 1.0) + (1.80 × 1.0) = 4.3714
 wt = 1.0 + 1.0 = 2.0
 P2.score = 4.3714 / 2.0 = 2.1857   →   Label: L2 Defined
@@ -320,7 +325,7 @@ P2.score = 4.3714 / 2.0 = 2.1857   →   Label: L2 Defined
 
 For P2-C1, the SRE team set `target_level = 3.5` (above the default):
 
-```
+```text
 gap_size       = 3.5 − 2.5714 = 0.9286
 priority_score = 1.0 × 0.9286 = 0.9286
 classification = P2 (Medium)   ← because 0.9 ≤ 0.9286 < 1.6
@@ -331,6 +336,7 @@ classification = P2 (Medium)   ← because 0.9 ≤ 0.9286 < 1.6
 ## 13. End-to-end example: Pillar P3
 
 ### Scenario
+
 Capability **P3-C5: Agentic Applications** (6 questions). Answered by **1 Architect** + **1 ML Engineer** + **1 Security**. Q1, Q3, and Q6 with `weight = 2.0` (maximum weights: the innovation frontier).
 
 ### Answers
@@ -346,7 +352,7 @@ Capability **P3-C5: Agentic Applications** (6 questions). Answered by **1 Archit
 
 ### Step 1: Capability score (P3-C5)
 
-```
+```text
 wsum   = (2.00×2.0) + (1.33×1.0) + (3.00×2.0) + (1.67×1.0) + (2.00×1.0) + (1.67×2.0)
        = 4.00 + 1.33 + 6.00 + 1.67 + 2.00 + 3.34
        = 18.34
@@ -360,7 +366,7 @@ P3-C5.score = 18.34 / 9.0 = 2.0378…   →   Label: L2 Defined
 
 Leadership set `target_level = 4.0` (ambition: lead in the agentic space), and the capability has `weight = 1.5`:
 
-```
+```text
 gap_size       = 4.0 − 2.0378 = 1.9622
 priority_score = 1.5 × 1.9622 = 2.9433
 classification = P0 (Critical)   ← because 2.9433 ≥ 2.4
@@ -371,6 +377,7 @@ classification = P0 (Critical)   ← because 2.9433 ≥ 2.4
 ### Step 3: Contribution to the overall
 
 If the full assessment has 28 active capabilities, P3-C5 with `score = 2.0378` and `weight = 1.5` contributes:
+
 - Overall numerator: `+ 2.0378 × 1.5 = +3.0567`
 - Overall denominator: `+ 1.5`
 
@@ -412,6 +419,7 @@ If the full assessment has 28 active capabilities, P3-C5 with `score = 2.0378` a
 ---
 
 **Related files:**
+
 - 📄 `pontuacao-e-calculo.xlsx`: auditable workbook with visible SUMPRODUCT formulas (same examples as this doc)
 - 🌐 `calculadora-pontuacao.html`: standalone interactive calculator (select answers, see scores live)
 - 📚 `P1-…md`, `P2-…md`, `P3-…md`: real assessment questions with KPI/context/evidence per level

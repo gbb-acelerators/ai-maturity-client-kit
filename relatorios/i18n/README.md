@@ -1,6 +1,6 @@
 # `relatorios/i18n/`
 
-🌐 English · [Português (Brasil)](README.pt-br.md)
+🌐 English · [Português (Brasil)](README.pt-br.md) · [Español](README.es.md)
 
 📖 **Navigation:** [🏠 Index](../../README.md) · [« Reports](../README.md)
 
@@ -37,6 +37,7 @@ python3 -c "import json; a=set(json.load(open('relatorios/i18n/en.json'))); b=se
 ## Key convention
 
 Hierarchical by context: `<file>.<section>.<element>`. Examples:
+
 - `score_justification.title`
 - `roadmap_part_pillar.section.h1_initiatives`
 - `common.priority.p0`

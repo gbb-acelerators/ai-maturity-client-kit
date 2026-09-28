@@ -1,6 +1,6 @@
 # Como criar o Microsoft Forms para o AI Maturity Assessment (v2)
 
-🌐 [English](INSTRUCOES-FORMS.md) · Português (Brasil)
+🌐 [English](INSTRUCOES-FORMS.md) · Português (Brasil) · [Español](INSTRUCOES-FORMS.es.md)
 
 **`ASSESSMENT`** · 📖 [🏠 Índice](../README.pt-br.md) · [« Guia passo a passo](../GUIA-PASSO-A-PASSO.pt-br.md) · Você está aqui · [» Survey-devs](../survey-devs/INSTRUCOES-FORMS-DEVS.md)
 
@@ -14,7 +14,7 @@
 | **A. Microsoft Forms completo** | 60 a 90 minutos | Vários respondentes por papel; você quer resultados por persona e flag de lacuna de percepção. |
 | **B. Piloto com uma dimensão** | 15 minutos | Validar redação e duração com 3 a 5 pessoas antes do lançamento completo. |
 | **C. Template Excel ou SharePoint** | 5 minutos | Workshops, ou quando Forms não está disponível: uma linha por respondente em [template-export-forms.xlsx](template-export-forms.xlsx). |
-| **D. Formulário HTML offline** | Nenhum | Um respondente por vez, sem Microsoft 365: [formularios/assessment-v2.html](../formularios/assessment-v2.html) exporta um `respostas.json` por respondente. |
+| **D. Formulário HTML offline** | Nenhum | Um respondente por vez, sem Microsoft 365: [formularios/assessment-v2.html](../formularios/assessment-v2.pt-br.html) exporta um `respostas.json` por respondente. |
 
 ## Caminho A: Microsoft Forms completo
 
@@ -63,7 +63,7 @@ Um exemplo preenchido e sintético é [v2-mock-forms-export.xlsx](v2-mock-forms-
 
 Use este caminho quando respondentes não puderem acessar o Microsoft Forms ou quando você precisar de um fluxo rápido de workshop.
 
-1. Envie [../formularios/assessment-v2.html](../formularios/assessment-v2.html) para cada respondente, ou abra a partir do repositório.
+1. Envie [../formularios/assessment-v2.html](../formularios/assessment-v2.pt-br.html) para cada respondente, ou abra a partir do repositório.
 2. O formulário roda offline, suporta EN, PT-BR e ES, mostra a nota de escopo de cada pergunta e exporta um respondente por `respostas.json`.
 3. Colete os arquivos exportados em uma pasta, por exemplo `exports/`.
 4. Una os arquivos:
@@ -99,7 +99,7 @@ Combine estes pontos com seu time de privacidade ou jurídico antes do lançamen
 
 ## Como respostas viram scores
 
-O engine ([scripts/assessment_engine.py](../scripts/assessment_engine.py)) segue a seção 8 de [AI-Maturity-Form-Questions_v2.md](AI-Maturity-Form-Questions_v2.md): média agrupada por pergunta, média por dimensão, média ponderada das dimensões, bandas de nível semiabertas, e as flags de baixa confiança, risco de amplificação, lacuna de percepção, divergência entre respondentes, escopo, L3/L4 sem verificação e cobertura de evidência.
+O engine ([scripts/assessment_engine.py](../scripts/assessment_engine.py)) segue a seção 8 de [AI-Maturity-Form-Questions_v2.pt-br.md](AI-Maturity-Form-Questions_v2.pt-br.md): média agrupada por pergunta, média por dimensão, média ponderada das dimensões, bandas de nível semiabertas, e as flags de baixa confiança, risco de amplificação, lacuna de percepção, divergência entre respondentes, escopo, L3/L4 sem verificação e cobertura de evidência.
 
 Cross-checks opcionais de evidência vêm de `make scan-repos` e `make telemetry`. Eles aparecem no PDF de sumário e são listados como riscos no guia de implementação quando desafiam uma resposta.
 

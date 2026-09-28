@@ -1,6 +1,6 @@
 # `relatorios/`: report rendering
 
-🌐 English · [Português (Brasil)](README.pt-br.md)
+🌐 English · [Português (Brasil)](README.pt-br.md) · [Español](README.es.md)
 
 The report dispatcher supports v2 by default and v1 for archived inputs.
 

@@ -1,5 +1,7 @@
 # AI-Assisted SDLC Maturity Assessment: Question Bank v2.0.1
 
+🌐 English · [Português (Brasil)](AI-Maturity-Form-Questions_v2.pt-br.md) · [Español](AI-Maturity-Form-Questions_v2.es.md)
+
 > Microsoft Forms question bank to assess how mature an organization is at using AI, and AI agents, across the software development lifecycle (SDLC).
 > This version replaces the v1 question bank (158 questions), which stays available for historical comparison in [v1/perguntas-para-forms.md](v1/perguntas-para-forms.md) and in [framework.json](../framework.json). The machine-readable source for v2 is [framework.v2.json](../framework.v2.json), generated from this file by `scripts/spec_to_framework_v2.py`.
 
@@ -171,7 +173,7 @@ Read every question as "to what extent is this true?": the options measure how f
 3. Add **10 sections** with `+ Add new` → `Section`: Section 0 (profile) and one per dimension (D1 to D9).
 4. Section 0: add the five profile questions as **Choice** with the options listed in [section 6](#6-section-0-respondent-profile), each title starting with its ID (for example `R-Q1: Which option best describes your primary role?`). `R-Q3` allows multiple answers. They are not scored. Add the privacy notice from `coleta/INSTRUCOES-FORMS.md` to the form description.
 5. For each scored question, add two elements:
-   - **Choice** (single answer). Start the title with the question ID and a colon, then the question text in bold below, for example `D4-Q3: Are well-scoped tasks delegated to a coding agent ...`. The importer finds each column by this ID, so the prefix is required. Use the six options from [section 4](#4-answer-scale).
+   - **Choice** (single answer). Start the title with the question ID and a colon, then the question text in bold below, for example `D4-Q3: Are coding agents (for example Copilot cloud agent) assigned issues ...`. The importer finds each column by this ID, so the prefix is required. Use the six options from [section 4](#4-answer-scale).
    - **Long Text** (optional) labelled `Evidence (<ID>)`, for example `Evidence (D4-Q3)`, with the placeholder `Tool, % coverage, metric, time window, link`.
 6. Add the calibration anchors (**L3 looks like**, **L4 looks like**) and, where there is one, the **scope note** to the question subtitle so respondents see them.
 7. `Settings` → `Anyone can respond` if sharing by link, or restrict to the organization.
