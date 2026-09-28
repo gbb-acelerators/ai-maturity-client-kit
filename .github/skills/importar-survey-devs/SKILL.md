@@ -1,6 +1,6 @@
 ---
 name: importar-survey-devs
-description: Imports Developer Survey Microsoft Forms exports using the existing survey-devs tooling. Use for "import survey-devs", "importar survey de devs", "developer survey import".
+description: Imports Developer Survey Microsoft Forms exports using the existing survey-devs tooling. Use for "import survey-devs", "importar survey de devs", "developer survey import", "importar la encuesta de desarrolladores".
 ---
 
 # Skill: Import Developer Survey

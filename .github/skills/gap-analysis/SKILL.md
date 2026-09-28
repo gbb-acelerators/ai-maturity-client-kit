@@ -1,6 +1,6 @@
 ---
 name: gap-analysis
-description: Computes v2 dimension gaps and priorities, or archived v1 capability gaps, by invoking scripts/assessment_engine.py. Use for "gap analysis", "analise de gaps", "prioritize gaps", "where are my gaps".
+description: Computes v2 dimension gaps and priorities, or archived v1 capability gaps, by invoking scripts/assessment_engine.py. Use for "gap analysis", "analise de gaps", "prioritize gaps", "where are my gaps", "análisis de brechas", "priorizar brechas".
 ---
 
 # Skill: Gap analysis

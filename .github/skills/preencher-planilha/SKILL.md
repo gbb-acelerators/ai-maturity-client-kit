@@ -1,6 +1,6 @@
 ---
 name: preencher-planilha
-description: Populates the auditable scoring workbook from respostas.json by invoking scripts/fill_workbook.py. Supports v2 and archived v1 through the dispatcher. Use for "preencher planilha", "fill spreadsheet", "Excel auditavel", "populate scoring workbook".
+description: Populates the auditable scoring workbook from respostas.json by invoking scripts/fill_workbook.py. Supports v2 and archived v1 through the dispatcher. Use for "preencher planilha", "fill spreadsheet", "Excel auditavel", "populate scoring workbook", "llenar la planilla", "workbook auditable".
 argument-hint: optional path different from respostas.json
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: ai-maturity-reports
-description: Orchestrates the AI Maturity Assessment reporting pipeline with v2 as default and v1 archived support. Use for "run assessment pipeline", "AI maturity reports", "pipeline completo".
+description: Orchestrates the AI Maturity Assessment reporting pipeline with v2 as default and v1 archived support. Use for "run assessment pipeline", "AI maturity reports", "pipeline completo", "informes de madurez", "ejecutar el pipeline completo".
 ---
 
 # Skill: AI maturity reports

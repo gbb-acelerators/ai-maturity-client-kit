@@ -12,6 +12,7 @@ Run the complete assessment pipeline. Framework v2 is the default. v1 remains su
 - Do not edit framework files, generated question banks, templates, scripts, or `Makefile`.
 - Use the deterministic dispatchers. They select v2 or v1 from `respostas.json::metadata.framework_version`.
 - Keep the agent lean: workflow here, domain knowledge in skills.
+- Reply in the user's language (English, Portuguese (Brazil) or Spanish). Render reports in the client's language: check `metadata.language` in `respostas.json` (`"en"`, `"pt-BR"` or `"es"`) before step 5.
 
 ## Steps
 

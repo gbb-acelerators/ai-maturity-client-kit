@@ -1,6 +1,6 @@
 ---
 name: importar-respostas-excel
-description: Imports Microsoft Forms Excel exports or offline HTML exports into respostas.json. Uses deterministic import and merge scripts. Use for "importar Forms", "import Excel", "respostas-forms.xlsx", "merge offline exports".
+description: Imports Microsoft Forms Excel exports or offline HTML exports into respostas.json. Uses deterministic import and merge scripts. Use for "importar Forms", "import Excel", "respostas-forms.xlsx", "merge offline exports", "importar respuestas de Forms", "combinar exportaciones offline".
 argument-hint: path to Microsoft Forms .xlsx export or offline exports folder
 ---
 

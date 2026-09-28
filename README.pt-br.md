@@ -106,6 +106,27 @@ O Developer Survey e o Learning and Growth Survey são sinais complementares. Re
 - A rubrica do survey mantém as bandas v1, então compare por score, não pelo nome do nível.
 - Scripts de survey escrevem EN, PT-BR ou ES (`--lang en|pt-br|es`). Os bancos do Developer Survey traduzem as opções de resposta em todos os idiomas; `survey-devs/options.json` as mapeia para as mesmas opções canônicas, então a nota não depende do idioma do formulário.
 
+## Comandos do Copilot Chat
+
+Abra a pasta do kit no VS Code com o GitHub Copilot e use o Copilot Chat no modo Agent. O assistente responde no seu idioma (inglês, português do Brasil ou espanhol) e gera as saídas no idioma do cliente (`metadata.language` em `respostas.json`, `--lang` nos scripts dos surveys). Os arquivos de instrução em [.github/](.github/) ficam em inglês por design: quem lê é o modelo, não o cliente.
+
+| Comando | O que faz |
+| --- | --- |
+| `@ai-maturity-assistant` | Agente concierge: verifica o workspace e executa ou sugere o próximo passo. |
+| `/pipeline-completo` | Pipeline completo, do `respostas.json` até a planilha e os PDFs. |
+| `/ai-maturity-reports` | Wrapper do pipeline de relatórios (v2 por padrão, entradas v1 arquivadas suportadas). |
+| `/importar-respostas-excel` | Importa um export do Microsoft Forms ou une exports do formulário offline em `respostas.json`. |
+| `/calcular-scores` | Calcula os scores com o engine determinístico. |
+| `/gap-analysis` | Calcula gaps e prioridades de P0 a P3. |
+| `/recomendar-estrategias` | Mapeia as prioridades para as estratégias S1 a S7. |
+| `/preencher-planilha` | Preenche a planilha auditável. |
+| `/wizard-implementacao` | Coleta as 11 entradas do guia de implementação (wizard, manual ou auto-fill). |
+| `/gerar-relatorio` | Gera os relatórios em PDF. |
+| `/importar-survey-devs` | Importa o Developer Survey anônimo. |
+| `/insights-developer-survey` | Gera o relatório de insights do Developer Survey. |
+| `/importar-survey-learning` | Importa o Learning and Growth Survey. |
+| `/plano-capacitacao` | Gera o plano de capacitação a partir do Learning Survey. |
+
 ## Arquivo v1
 
 O v1 continua suportado para arquivos sem `metadata.framework_version`, ou com versão `1.x`. Ele usa [framework.json](framework.json), 158 perguntas, 3 pilares e ativos arquivados:
@@ -130,7 +151,7 @@ Use `make init-v1` para iniciar uma entrada v1. Os scripts de despacho preservam
 
 ## Idiomas
 
-O inglês é o idioma principal. Todo documento tem uma cópia em português do Brasil (`X.pt-br.md`) e uma em espanhol (`X.es.md`), com links na linha de idioma do topo. Os bancos de perguntas, a especificação v2, os assistentes HTML (formulário offline, wizard e calculadora), os relatórios e as saídas dos surveys funcionam em EN, PT-BR e ES. Os pacotes PT e ES entregam todos os documentos no seu idioma com os nomes base dos arquivos. Ficam fora do conjunto em espanhol apenas os arquivos de customização do Copilot em `.github/` (em inglês por design), o arquivo congelado da v1 (EN e PT-BR) e o registro interno do plano v2 (`upgrade-framework-v2.prompt.md`). `make validate-docs` falha se faltar uma cópia ou se os títulos dela divergirem do documento em inglês.
+O inglês é o idioma principal. Todo documento tem uma cópia em português do Brasil (`X.pt-br.md`) e uma em espanhol (`X.es.md`), com links na linha de idioma do topo. Os bancos de perguntas, a especificação v2, os assistentes HTML (formulário offline, wizard e calculadora), os relatórios e as saídas dos surveys funcionam em EN, PT-BR e ES. Os pacotes PT e ES entregam todos os documentos no seu idioma com os nomes base dos arquivos. O material arquivado da v1 (docs de referência, instruções de Forms, bancos de perguntas, formulários visuais e calculadora) e o registro do plano de upgrade para a v2 também estão nos três idiomas. Só os arquivos de customização do Copilot em `.github/` ficam em inglês, por design; mesmo assim o assistente responde no idioma de quem usa (veja [Comandos do Copilot Chat](#comandos-do-copilot-chat)). `make validate-docs` falha se faltar uma cópia ou se os títulos dela divergirem do documento em inglês.
 
 ## Validação
 

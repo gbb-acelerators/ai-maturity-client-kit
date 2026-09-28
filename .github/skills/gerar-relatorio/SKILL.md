@@ -1,6 +1,6 @@
 ---
 name: gerar-relatorio
-description: Renders v2 executive PDFs, or archived v1 PDFs, by invoking relatorios/scripts/build_payload_and_render.py. Use for "gerar relatorio", "generate report PDFs", "executive report", "PDF final".
+description: Renders v2 executive PDFs, or archived v1 PDFs, by invoking relatorios/scripts/build_payload_and_render.py. Use for "gerar relatorio", "generate report PDFs", "executive report", "PDF final", "generar informe", "informe ejecutivo en PDF".
 ---
 
 # Skill: Generate reports

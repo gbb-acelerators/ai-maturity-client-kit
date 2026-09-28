@@ -105,6 +105,27 @@ Developer Survey y Learning and Growth Survey son señales complementarias. Los 
 - La rúbrica del survey conserva las bandas v1, así que compara por score, no por nombre de nivel.
 - Los scripts de survey escriben EN, PT-BR o ES (`--lang en|pt-br|es`). Los bancos del Developer Survey traducen las opciones de respuesta en todos los idiomas; `survey-devs/options.json` las asigna a las mismas opciones canónicas, así que el puntaje no depende del idioma del formulario.
 
+## Comandos de Copilot Chat
+
+Abre la carpeta del kit en VS Code con GitHub Copilot y usa Copilot Chat en modo Agent. El asistente responde en tu idioma (inglés, portugués de Brasil o español) y genera las salidas en el idioma del cliente (`metadata.language` en `respostas.json`, `--lang` en los scripts de las encuestas). Los archivos de instrucciones en [.github/](../.github/) quedan en inglés por diseño: los lee el modelo, no el cliente.
+
+| Comando | Qué hace |
+| --- | --- |
+| `@ai-maturity-assistant` | Agente concierge: revisa el workspace y ejecuta o sugiere el siguiente paso. |
+| `/pipeline-completo` | Pipeline completo, desde `respostas.json` hasta el workbook y los PDFs. |
+| `/ai-maturity-reports` | Wrapper del pipeline de informes (v2 por defecto, entradas v1 archivadas soportadas). |
+| `/importar-respostas-excel` | Importa una exportación de Microsoft Forms o combina exportaciones del formulario offline en `respostas.json`. |
+| `/calcular-scores` | Calcula los puntajes con el engine determinístico. |
+| `/gap-analysis` | Calcula brechas y prioridades de P0 a P3. |
+| `/recomendar-estrategias` | Asocia las prioridades con las estrategias S1 a S7. |
+| `/preencher-planilha` | Llena el workbook auditable. |
+| `/wizard-implementacao` | Recoge las 11 entradas de la guía de implementación (wizard, manual o auto-fill). |
+| `/gerar-relatorio` | Genera los informes en PDF. |
+| `/importar-survey-devs` | Importa el Developer Survey anónimo. |
+| `/insights-developer-survey` | Genera el informe de insights del Developer Survey. |
+| `/importar-survey-learning` | Importa el Learning and Growth Survey. |
+| `/plano-capacitacao` | Genera el plan de capacitación a partir del Learning Survey. |
+
 ## Archivo v1
 
 v1 sigue soportado para archivos sin `metadata.framework_version`, o con versión `1.x`. Usa [framework.json](../framework.json), 158 preguntas, 3 pilares y activos archivados:
@@ -129,7 +150,7 @@ Usa `make init-v1` para iniciar una entrada v1. Los scripts de despacho mantiene
 
 ## Idiomas
 
-El inglés es el idioma principal. Cada documento tiene una copia en portugués de Brasil (`X.pt-br.md`) y una en español (`X.es.md`), enlazadas en la línea de idioma del inicio. Los bancos de preguntas, la especificación v2, los asistentes HTML (formulario offline, wizard y calculadora), los informes y las salidas de las encuestas funcionan en EN, PT-BR y ES. Los paquetes PT y ES entregan todos los documentos en su idioma con los nombres base de los archivos. Solo quedan fuera del conjunto en español los archivos de customización de Copilot en `.github/` (en inglés por diseño), el archivo congelado de v1 (EN y PT-BR) y el registro interno del plan v2 (`upgrade-framework-v2.prompt.md`). `make validate-docs` falla si falta una copia o si sus títulos se apartan del documento en inglés.
+El inglés es el idioma principal. Cada documento tiene una copia en portugués de Brasil (`X.pt-br.md`) y una en español (`X.es.md`), enlazadas en la línea de idioma del inicio. Los bancos de preguntas, la especificación v2, los asistentes HTML (formulario offline, wizard y calculadora), los informes y las salidas de las encuestas funcionan en EN, PT-BR y ES. Los paquetes PT y ES entregan todos los documentos en su idioma con los nombres base de los archivos. El material archivado de v1 (docs de referencia, instrucciones de Forms, bancos de preguntas, formularios visuales y calculadora) y el registro del plan de actualización a v2 también están en los tres idiomas. Solo los archivos de customización de Copilot en `.github/` quedan en inglés, por diseño; aun así el asistente responde en el idioma de quien lo usa (ver [Comandos de Copilot Chat](#comandos-de-copilot-chat)). `make validate-docs` falla si falta una copia o si sus títulos se apartan del documento en inglés.
 
 ## Validación
 
