@@ -1,9 +1,9 @@
 <!-- paulasilva-ms identity: Paula Silva | Global Developer Solutions Advisor · paulasilva@microsoft.com -->
 <!-- paulasilva-ms Design System v1.7.0 -->
 
-# Developer Survey — Relatório de Insights
+# Developer Survey: Relatório de Insights
 
-**Data:** 2026-05-08  ·  **Respondentes:** 5 (anônimos)  ·  **Versão da rubrica:** 1.0
+**Data:** 2026-09-28  ·  **Respondentes:** 5 (anônimos)  ·  **Versão da rubrica:** 1.0
 **Autor:** Paula Silva | Global Developer Solutions Advisor  ·  **Contato:** paulasilva@microsoft.com
 
 ---
@@ -12,31 +12,31 @@
 
 ### 🎯 Maturidade IA do Time (rubrica determinística)
 
-> **Overall: 2.22 (L2 — Definido)**
+> **Overall: 2.22 (L2 Definido)**
 > Baseado em 5 respondentes, 7 dimensões, escala L0-L4 (mesma do assessment principal)
 
 | Dimensão | Score | Rótulo | % devs em L3+L4 |
 |---|---|---|---|
-| D2 Copilot Adoption | **0.80** | L1 — Em Desenvolvimento | 0% |
-| D3 MS/GH Tooling Breadth | **2.40** | L2 — Definido | 80% |
-| D4 AI Dev Practices | **2.68** | L3 — Gerenciado | 80% |
-| D5 Agent Concepts Mastery | **2.56** | L3 — Gerenciado | 80% |
-| D6 Instructions Maturity | **2.31** | L2 — Definido | 40% |
-| D7 Best Practices | **2.91** | L3 — Gerenciado | 60% |
-| D8 Security & Governance | **1.92** | L2 — Definido | 20% |
+| DS-D2 Copilot Adoption | **0.80** | L1 Em Desenvolvimento | 0% |
+| DS-D3 MS/GH Tooling Breadth | **2.40** | L2 Definido | 80% |
+| DS-D4 AI Dev Practices | **2.68** | L3 Gerenciado | 80% |
+| DS-D5 Agent Concepts Mastery | **2.56** | L3 Gerenciado | 80% |
+| DS-D6 Instructions Maturity | **2.31** | L2 Definido | 40% |
+| DS-D7 Best Practices | **2.91** | L3 Gerenciado | 60% |
+| DS-D8 Security & Governance | **1.92** | L2 Definido | 20% |
 
 ### 🏆 3 dimensões mais fortes
-- **D7** Best Practices — score **2.91** (L3 — Gerenciado)
-- **D4** AI Dev Practices — score **2.68** (L3 — Gerenciado)
-- **D5** Agent Concepts Mastery — score **2.56** (L3 — Gerenciado)
+- **DS-D7** Best Practices: score **2.91** (L3 Gerenciado)
+- **DS-D4** AI Dev Practices: score **2.68** (L3 Gerenciado)
+- **DS-D5** Agent Concepts Mastery: score **2.56** (L3 Gerenciado)
 
 ### ⚠️ 3 maiores gaps (oportunidades de roadmap)
-- 🔴 **D2** Copilot Adoption — score **0.80** (L1 — Em Desenvolvimento)
-- 🔴 **D8** Security & Governance — score **1.92** (L2 — Definido)
-- 🔴 **D6** Instructions Maturity — score **2.31** (L2 — Definido)
+- 🔴 **DS-D2** Copilot Adoption: score **0.80** (L1 Em Desenvolvimento)
+- 🔴 **DS-D8** Security & Governance: score **1.92** (L2 Definido)
+- 🔴 **DS-D6** Instructions Maturity: score **2.31** (L2 Definido)
 
 ### 💡 3 insights principais
-1. **Underutilization de Coding Agent:** apenas 20% conhece/usa Coding Agent autônomo (S2-Q3) — tópico de workshop urgente
+1. **Underutilization de Coding Agent:** apenas 20% conhece/usa Coding Agent autônomo (S2-Q3): tópico de workshop urgente
 
 ---
 
@@ -52,7 +52,7 @@
 
 ---
 
-## 3 · GitHub Copilot — Adoção e Modos (S2)
+## 3 · GitHub Copilot: Adoção e Modos (S2)
 
 ### Cobertura de licenças (S2-Q1)
 | Tipo | N | % |
@@ -79,7 +79,7 @@
 | Não uso o Chat — só completion inline | 2 | 40% |
 | Copilot Coding Agent (autônomo no GitHub.com — assigna issue, abre PR sozinho) | 1 | 20% |
 
-### Features ativas (S2-Q5, multi-select) — Top 8
+### Features ativas (S2-Q5, multi-select): Top 8
 | Feature | N | % devs |
 |---|---|---|
 | Copilot Coding Agent (tarefas autônomas) | 2 | 40% |
@@ -148,7 +148,7 @@
 | **S5-Q6** A2A protocol | Conheço o conceito=2, Não conheço=2, Uso (ex.: Foundry A2A Tool)=1 |
 | **S5-Q9** Personas Agentic DevOps | Não conheço=3, Conheço o conceito=1, Sim — adoto explicitamente=1 |
 
-**Insight:** apenas 60% conhece MCP — conceitos avançados (A2A, handoffs, subagentes, personas) são desconhecidos pela maioria. Oportunidade de workshop técnico.
+**Insight:** apenas 60% conhece MCP: conceitos avançados (A2A, handoffs, subagentes, personas) são desconhecidos pela maioria. Oportunidade de workshop técnico.
 
 ---
 
@@ -227,21 +227,21 @@
 
 Se você rodou o assessment principal, compare:
 
-| Dimensão (survey) | Capability (assessment) | Validar |
+| Dimensão do survey | Perguntas do assessment v2 | Validar |
 |---|---|---|
-| **D2** Copilot Adoption | P1-C1 Assistentes IA | Score declarado vs. adoção real |
-| **D3** MS/GH Tooling | P3-C3, P3-C5 | Sofisticação técnica |
-| **D4** AI Dev Practices | P1-C2, P1-C8 | Práticas estruturadas |
-| **D5** Agent Concepts | P3-C5 | Conhecimento avançado |
-| **D6** Instructions | P1-C7 | Manutenção contexto IA |
-| **D7** Best Practices | P1-C5, P1-C8 | Cultura de adoção |
-| **D8** Security & Governance | P2-C4, P2-C10 | Governance real |
+| **DS-D2** Copilot Adoption | D4-Q1, D4-Q2, D9-Q1 | Profundidade de uso declarada vs. uso real dos devs |
+| **DS-D3** MS/GH Tooling Breadth | D4-Q3, D4-Q6, D3-Q2, D6-Q1 | Amplitude de ferramentas no dia a dia |
+| **DS-D4** AI Dev Practices | D3-Q2, D5-Q5, D2-Q6 | Práticas estruturadas no trabalho diário |
+| **DS-D5** Agent Concepts Mastery | D2-Q4, D4-Q5 | Conhecimento avançado por trás das práticas com agentes |
+| **DS-D6** Instructions Maturity | D4-Q4, D4-Q5 | Instructions mantidas, não criadas uma vez só |
+| **DS-D7** Best Practices | D2-Q2, D9-Q4 | Cultura de adoção |
+| **DS-D8** Security & Governance | D1-Q2, D6-Q1, D6-Q4, D6-Q5, D6-Q7 | Governança na prática |
 
-> **Padrão clássico:** liderança avalia P1-C1 como L3, mas survey D2 mostra L1 → **dissonância** entre estratégia e prática.
+> **Procure dissonâncias:** se o assessment dá L3 para D4-Q1 mas o Developer Survey mostra DS-D2 em L1, estratégia e prática discordam. Discuta isso antes de apresentar qualquer um dos resultados. O survey nunca altera as notas do v2.
 
 ---
 
-*Relatório gerado pela skill `/insights-developer-survey` · Rubrica determinística v1.0 · 2026-05-08*
+*Relatório gerado pela skill `/insights-developer-survey` · Rubrica determinística v1.0 · 2026-09-28*
 
 
 ---
