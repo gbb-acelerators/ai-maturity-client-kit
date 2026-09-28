@@ -1,17 +1,17 @@
 # Banco de preguntas para Microsoft Forms: AI-Assisted SDLC Maturity Assessment v2
 
-> Generado a partir de `framework.v2.json` (versión 2.0.1) por `scripts/generate_v2_collection.py`. No lo edite a mano. Fuente del texto: [AI-Maturity-Form-Questions_v2.md](AI-Maturity-Form-Questions_v2.md). El banco v1 (158 preguntas) está archivado en [v1/](v1/).
+> Generado a partir de `framework.v2.json` (versión 2.0.1) por `scripts/generate_v2_collection.py`. No lo edites a mano. Fuente del texto: [AI-Maturity-Form-Questions_v2.es.md](AI-Maturity-Form-Questions_v2.es.md). El banco v1 (158 preguntas) está archivado en [v1/](v1/).
 
 ## Cómo armar el formulario
 
-1. Vaya a <https://forms.office.com> y cree un formulario en blanco. Título sugerido: `AI-Assisted SDLC Maturity Assessment v2 - <Organización>`.
-2. Pegue el aviso de privacidad de [../kit-es/INSTRUCCIONES-FORMS.md](../kit-es/INSTRUCCIONES-FORMS.md) en la descripción del formulario.
-3. Agregue **10 secciones**: Sección 0 (perfil) y una por dimensión, D1 a D9.
-4. Sección 0: agregue las 5 preguntas de perfil como **Choice**. `R-Q3` permite varias respuestas. No puntúan.
-5. Para cada pregunta puntuada agregue 2 elementos: un **Choice** (respuesta única) cuyo título empieza con el ID y dos puntos (por ejemplo `D4-Q3: ...`), con las 6 opciones de abajo en orden; y un **Long Text** opcional con el título `Evidence (<ID>)`.
-6. Pegue las líneas **L3 se ve así** y **L4 se ve así** en el subtítulo de la pregunta.
-7. Comparta el enlace. Busque al menos 3 personas por rol (`R-Q1`).
-8. `Responses` > `Open in Excel`, descargue el archivo y ejecute `make import XLSX=<archivo>`.
+1. Ve a <https://forms.office.com> y crea un formulario en blanco. Título sugerido: `AI-Assisted SDLC Maturity Assessment v2 - <Organización>`.
+2. Pega el aviso de privacidad de [INSTRUCOES-FORMS.es.md](INSTRUCOES-FORMS.es.md) en la descripción del formulario.
+3. Agrega **10 secciones**: Sección 0 (perfil) y una por dimensión, D1 a D9.
+4. Sección 0: agrega las 5 preguntas de perfil como **Choice**. `R-Q3` permite varias respuestas. No puntúan.
+5. Para cada pregunta puntuada agrega 2 elementos: un **Choice** (respuesta única) cuyo título empieza con el ID y dos puntos (por ejemplo `D4-Q3: ...`), con las 6 opciones de abajo en orden; y un **Long Text** opcional con el título `Evidence (<ID>)`.
+6. Pega las líneas **L3 se ve así** y **L4 se ve así** en el subtítulo de la pregunta.
+7. Comparte el enlace. Busca al menos 3 personas por rol (`R-Q1`).
+8. `Responses` > `Open in Excel`, descarga el archivo y ejecuta `make import XLSX=<archivo>`.
 
 Total de elementos: 5 de perfil + 61 puntuadas + 61 campos opcionales de evidencia = 127 elementos.
 
@@ -24,14 +24,14 @@ Total de elementos: 5 de perfil + 61 puntuadas + 61 campos opcionales de evidenc
 - **L4 - Nativo en IA: Universal (>90%), evaluado y mejorado continuamente, vinculado a resultados**
 - **NA - No sé / No aplica**
 
-> Mantenga el prefijo `L0` a `L4` y `NA` al inicio de cada opción y el ID al inicio de cada título: el importador depende de ambos. Mantenga también la etiqueta `Evidence (<ID>)` en inglés.
+> Mantén el prefijo `L0` a `L4` y `NA` al inicio de cada opción y el ID al inicio de cada título: el importador depende de ambos. Mantén también la etiqueta `Evidence (<ID>)` en inglés.
 
 ## Cómo responder
 
-- Lea cada pregunta como "¿en qué medida esto es cierto?".
-- Responda en el nivel más alto en que **todas** las partes de la pregunta son ciertas.
-- Si cobertura, gobernanza y medición indican niveles distintos, elija el menor.
-- Elija `L0` cuando la práctica podría aplicar pero todavía no existe; elija `NA` solo cuando no sabe o la actividad no existe en su alcance.
+- Lee cada pregunta como "¿en qué medida esto es cierto?".
+- Responde en el nivel más alto en que **todas** las partes de la pregunta son ciertas.
+- Si cobertura, gobernanza y medición indican niveles distintos, elige el menor.
+- Elige `L0` cuando la práctica podría aplicar pero todavía no existe; elige `NA` solo cuando no sabes o la actividad no existe en tu alcance.
 
 ---
 
@@ -110,7 +110,7 @@ _7 preguntas. Por qué importa: DORA identifica una "postura de IA clara y comun
 
 **D1-Q1: ¿Existe una estrategia documentada de IA para ingeniería de software, patrocinada por liderazgo, que declare objetivos explícitos y se comunique a todos los equipos de ingeniería?**
 
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** Estrategia publicada y revisada al menos anualmente; los objetivos (por ejemplo entrega, calidad, developer experience) tienen responsables; la mayoría de los ingenieros puede decir dónde encontrarla.
 - **L4 se ve así:** La estrategia se revisa a partir de resultados medidos (D9) y se vincula a OKRs de negocio; el progreso se informa al liderazgo con una cadencia fija.
 - **Ejemplos de evidencia:** Documento de estrategia, comunicación de liderazgo, entradas de OKR.
@@ -120,7 +120,7 @@ _7 preguntas. Por qué importa: DORA identifica una "postura de IA clara y comun
 
 **D1-Q2: ¿Está claro para los ingenieros cómo pueden y no pueden usar IA en el trabajo, incluidos qué datos pueden compartirse con herramientas de IA?**
 
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** La política escrita de uso aceptable cubre code, datos de clientes, secretos e IP de terceros; es parte del onboarding; las excepciones tienen un responsable.
 - **L4 se ve así:** La política se aplica mediante controles técnicos (por ejemplo content exclusion, prevención de pérdida de datos, allowlists) y se audita; las violaciones disparan alertas automatizadas.
 - **Ejemplos de evidencia:** Enlace de la política, checklist de onboarding, configuración de controles.
@@ -130,7 +130,7 @@ _7 preguntas. Por qué importa: DORA identifica una "postura de IA clara y comun
 
 **D1-Q3: ¿Existe un catálogo mantenido de herramientas, funciones y modelos de IA aprobados para desarrollo de software, gestionado mediante políticas enterprise o de la organización?**
 
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** Las políticas enterprise/de la organización habilitan solo funciones y modelos aprobados; el catálogo lista responsable, manejo de datos y fecha de revisión para cada herramienta.
 - **L4 se ve así:** Los nuevos modelos y herramientas pasan por una evaluación definida (calidad, costo, seguridad) antes de habilitarse; los retirados se eliminan según cronograma.
 - **Ejemplos de evidencia:** Configuraciones de política de Copilot, catálogo de herramientas, registros de evaluación de modelos.
@@ -140,7 +140,7 @@ _7 preguntas. Por qué importa: DORA identifica una "postura de IA clara y comun
 
 **D1-Q4: ¿Los requisitos de residencia, retención, propiedad intelectual y privacidad de datos están definidos y aplicados a las herramientas y agentes de IA usados en el SDLC?**
 
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** Los requisitos se documentan por herramienta; repositorios o archivos sensibles se excluyen del contexto de IA; la retención de logs y memoria sigue la política.
 - **L4 se ve así:** El cumplimiento se evalúa continuamente (por ejemplo con un compliance manager) y se mapea a regulaciones como el EU AI Act cuando aplica.
 - **Ejemplos de evidencia:** Registros de procesamiento de datos, configuraciones de exclusión, política de retención.
@@ -151,7 +151,7 @@ _7 preguntas. Por qué importa: DORA identifica una "postura de IA clara y comun
 **D1-Q5: ¿La organización definió qué tareas son lideradas por desarrollador, realizadas por desarrollador con agente, o totalmente lideradas por agente, y los controles requeridos para cada nivel?**
 
 - **Nota de alcance:** Mide la política que define niveles de autonomía. Cómo se escriben las tareas para agentes es D3-Q3; con qué frecuencia se delega el trabajo es D4-Q3.
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** Una matriz publicada mapea tipos de tarea (por ejemplo upgrades de dependencias, generación de pruebas, trabajo de feature, cambios en producción) a niveles de autonomía y aprobaciones requeridas.
 - **L4 se ve así:** La matriz se aplica mediante reglas de plataforma (por ejemplo branch protection, revisores requeridos por ruta) y se actualiza a partir de datos de incidentes y calidad.
 - **Ejemplos de evidencia:** Matriz de autonomía, rulesets de repositorio, registros de cambios.
@@ -161,7 +161,7 @@ _7 preguntas. Por qué importa: DORA identifica una "postura de IA clara y comun
 
 **D1-Q6: ¿El uso de IA en ingeniería de software está gobernado por un estándar de IA responsable y un framework de riesgo reconocido (por ejemplo Microsoft Responsible AI Standard, NIST AI RMF, ISO/IEC 42001)?**
 
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** Se adopta un framework nombrado; los riesgos relacionados con IA están en el registro de riesgos con responsables y revisiones.
 - **L4 se ve así:** Los controles del framework se auditan interna o externamente; los resultados retroalimentan política y tooling.
 - **Ejemplos de evidencia:** Mapeo del framework, entradas del registro de riesgos, informes de auditoría.
@@ -171,7 +171,7 @@ _7 preguntas. Por qué importa: DORA identifica una "postura de IA clara y comun
 
 **D1-Q7: ¿Todo agente de IA usado en el SDLC (coding agents, review agents, custom agents, pipeline agents) está registrado con un responsable, un propósito, una identidad distinta y un alcance de acceso definido?**
 
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** Un único inventario lista todos los agentes con responsable, plataforma y permisos; cada agente se ejecuta bajo su propia identidad, no una cuenta humana compartida.
 - **L4 se ve así:** Los agentes no registrados ("shadow") se detectan automáticamente; el ciclo de vida de identidad (creación, revisión, eliminación) está automatizado.
 - **Ejemplos de evidencia:** Inventario de agentes, configuración de identidad (por ejemplo Microsoft Entra Agent ID), revisiones de acceso.
@@ -227,7 +227,7 @@ _6 preguntas. Por qué importa: Gartner espera que GenAI requiera que 80% de la 
 
 **D2-Q5: ¿Se actualizaron descripciones de puesto, frameworks de carrera y expectativas de desempeño para ingeniería asistida por IA y agentic engineering (por ejemplo dirigir agentes, revisar salida de IA, ingeniería de IA)?**
 
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** Se publican perfiles de rol actualizados; las evaluaciones de desempeño reconocen el uso efectivo de IA y la calidad del review, no el volumen bruto de salida.
 - **L4 se ve así:** Existen roles dedicados (por ejemplo ingeniero de IA, responsable de plataforma de agentes) con una ruta clara de crecimiento.
 - **Ejemplos de evidencia:** Framework de carrera, descripciones de rol.
@@ -373,7 +373,7 @@ _8 preguntas. Por qué importa: GitHub mide la profundidad de adopción como una
 
 **D4-Q6: ¿Los MCP servers y otras herramientas de agentes se gobiernan mediante una allowlist o registry, con herramientas acotadas y responsables nombrados?**
 
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** Se aplica una allowlist enterprise de MCP o un registry customizado; cada server tiene un responsable, una security review y herramientas limitadas.
 - **L4 se ve así:** Las tool calls se registran y revisan; los nuevos servers pasan security checks automatizados antes de agregarse.
 - **Ejemplos de evidencia:** Política de allowlist o registry, configuración de MCP, registros de review.
@@ -393,7 +393,7 @@ _8 preguntas. Por qué importa: GitHub mide la profundidad de adopción como una
 
 **D4-Q8: ¿La elección del modelo se ajusta a la complejidad de la tarea (modelos más pequeños para trabajo rutinario, frontier models para trabajo complejo), mediante orientación o enrutamiento automático?**
 
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** La orientación escrita mapea tipos de tarea a modelos; los modelos predeterminados se establecen por política.
 - **L4 se ve así:** El enrutamiento automático está implementado y se ajusta con datos de costo y calidad.
 - **Ejemplos de evidencia:** Orientación de modelos, configuraciones de política, configuración de enrutamiento.
@@ -508,7 +508,7 @@ _7 preguntas. Por qué importa: OWASP enumera prompt injection (LLM01:2025), sup
 
 **D6-Q3: ¿Los agentes están protegidos contra prompt injection y goal hijack (contenido no confiable tratado como datos, instrucciones ocultas filtradas, egress de red restringido)?**
 
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** Agent firewalls y restricciones de egress se mantienen activados; la orientación indica a los equipos qué fuentes de contenido no son confiables.
 - **L4 se ve así:** Los agentes pasan regularmente por red team contra escenarios OWASP LLM01:2025 y ASI01; los hallazgos se rastrean hasta el cierre.
 - **Ejemplos de evidencia:** Configuración de firewall, informes de red team.
@@ -518,7 +518,7 @@ _7 preguntas. Por qué importa: OWASP enumera prompt injection (LLM01:2025), sup
 
 **D6-Q4: ¿Los agentes se ejecutan con least privilege (tokens con alcance, sin secretos de producción, branches restringidos, entornos en sandbox)?**
 
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** Los permisos de agentes se documentan y revisan; los agentes no pueden acceder a credenciales de producción ni hacer push a protected branches.
 - **L4 se ve así:** Los permisos son just-in-time y limitados en el tiempo; el acceso se revisa automáticamente.
 - **Ejemplos de evidencia:** Configuración de entorno de agentes, alcances de token, revisiones de acceso.
@@ -548,7 +548,7 @@ _7 preguntas. Por qué importa: OWASP enumera prompt injection (LLM01:2025), sup
 
 **D6-Q7: ¿Las sesiones y acciones de agentes (prompts, tool calls, commits, aprobaciones) se registran, son atribuibles a una identidad y se retienen según la política?**
 
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** La actividad de agentes se registra centralmente y se vincula con el usuario solicitante y la identidad del agente.
 - **L4 se ve así:** Los logs alimentan detección de anomalías; las auditorías pueden reconstruir cualquier cambio de agente de punta a punta.
 - **Ejemplos de evidencia:** Configuración de audit log, ejemplo de investigación.
@@ -594,7 +594,7 @@ _6 preguntas. Por qué importa: más cambios generados por IA necesitan redes de
 
 **D7-Q4: ¿Los agentes de IA en el SDLC son observables (traces de runs y tool calls, latencia, fallas, costo), por ejemplo mediante OpenTelemetry?**
 
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** Los runs de agentes emiten telemetría al stack central de observabilidad; los dashboards muestran fallas y costo por agente.
 - **L4 se ve así:** Las alertas se disparan por drift de agentes, picos de error o anomalías de costo; los hallazgos alimentan gobernanza (D1).
 - **Ejemplos de evidencia:** Dashboards de telemetría, reglas de alerta.
@@ -651,7 +651,7 @@ _7 preguntas. Por qué importa: DORA encuentra que estas capacidades amplifican 
 
 **D8-Q3: ¿Existe una internal developer platform fácil de usar, que abstrae infraestructura y hace que la ruta segura y conforme sea la predeterminada para humanos y agentes?**
 
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** Un equipo dedicado de plataforma ofrece golden paths de self-service usados por la mayoría de los equipos; el equipo actúa sobre el feedback.
 - **L4 se ve así:** Los agentes usan las mismas APIs y guardrails de plataforma que los humanos; la satisfacción con la plataforma se mide y mejora.
 - **Ejemplos de evidencia:** Catálogo de plataforma, golden paths, encuesta de satisfacción.
@@ -661,7 +661,7 @@ _7 preguntas. Por qué importa: DORA encuentra que estas capacidades amplifican 
 
 **D8-Q4: ¿Los ingenieros y herramientas de IA pueden encontrar y usar datos internos confiables (no aislados en silos, de buena calidad, respondibles rápidamente)?**
 
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** Los datos clave están catalogados con responsables e indicadores de calidad; la mayoría de las preguntas puede responderse en una hora.
 - **L4 se ve así:** La calidad de datos se monitorea automáticamente; existen linaje y contratos para datos críticos.
 - **Ejemplos de evidencia:** Catálogo de datos, dashboards de calidad.
@@ -709,7 +709,7 @@ _7 preguntas. Por qué importa: estudios controlados van desde 55.8% más rápid
 **D9-Q1: ¿La adopción de IA se rastrea con telemetría más allá del conteo de seats (usuarios activos, engagement por feature, cohortes de adopción)?**
 
 - **Nota de alcance:** Mide si la adopción se rastrea. Qué tan profundamente se usa IA es D4-Q1.
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** Las métricas de uso (por ejemplo la API o dashboard de métricas de uso de Copilot) se revisan mensualmente por el liderazgo de ingeniería.
 - **L4 se ve así:** El movimiento de cohortes es un objetivo gestionado; las acciones de habilitación se evalúan por su efecto en las cohortes.
 - **Ejemplos de evidencia:** Dashboards de uso, informes de tendencia de cohortes.
@@ -729,7 +729,7 @@ _7 preguntas. Por qué importa: estudios controlados van desde 55.8% más rápid
 
 **D9-Q3: ¿Se rastrean el throughput de PR, el tiempo hasta merge y la proporción y tasa de merge de PRs creados por IA o agentes?**
 
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** Las métricas de ciclo de vida de PR se reportan por organización; los PRs creados por agentes se identifican por separado, incluida su tasa de correcciones post-merge.
 - **L4 se ve así:** Las métricas de flujo se vinculan con métricas de calidad (D5) para que el flujo más rápido no se compre con inestabilidad.
 - **Ejemplos de evidencia:** Métricas de ciclo de vida de PR, informes de PRs de agentes, análisis de correcciones de seguimiento.
@@ -740,7 +740,7 @@ _7 preguntas. Por qué importa: estudios controlados van desde 55.8% más rápid
 **D9-Q4: ¿Developer experience se mide regularmente (productividad percibida, fricción, confianza en IA, satisfacción), usando un framework reconocido como SPACE o las preguntas de resultado de DORA?**
 
 - **Nota de alcance:** Mide la encuesta de developer experience. Comportamiento de review y calibración de confianza es D5-Q6.
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** Una encuesta se realiza al menos dos veces al año con buena participación; los resultados se comparten y generan acciones.
 - **L4 se ve así:** Los resultados de encuestas se combinan con telemetría (D9-Q1 a Q3) para encontrar y eliminar fricción.
 - **Ejemplos de evidencia:** Instrumento de encuesta, tasa de participación, log de acciones.
@@ -750,7 +750,7 @@ _7 preguntas. Por qué importa: estudios controlados van desde 55.8% más rápid
 
 **D9-Q5: ¿El impacto de IA se estima con comparaciones controladas o basadas en cohortes (por ejemplo piloto versus control, cohortes de adopción, antes/después con un baseline) en vez de solo estimaciones autorreportadas?**
 
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** Se ejecutó y documentó al menos una comparación controlada o de cohorte, con sus limitaciones.
 - **L4 se ve así:** Las comparaciones se ejecutan continuamente para herramientas y prácticas principales; las decisiones las citan.
 - **Ejemplos de evidencia:** Diseño del estudio, resultados, registros de decisión.
@@ -760,7 +760,7 @@ _7 preguntas. Por qué importa: estudios controlados van desde 55.8% más rápid
 
 **D9-Q6: ¿Los costos de IA (seats, premium requests, tokens, runs de agentes) se presupuestan, monitorean por equipo y caso de uso, con thresholds y revisiones regulares?**
 
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** Existen presupuestos y thresholds de alerta por organización o equipo; los workflows de alto consumo se revisan en retrospectivas.
 - **L4 se ve así:** Se rastrea el costo por resultado (por ejemplo por PR mergeado); las prácticas de enrutamiento y contexto se ajustan para reducir desperdicio.
 - **Ejemplos de evidencia:** Dashboards de costo, alertas de presupuesto, notas de retrospectiva.
@@ -770,7 +770,7 @@ _7 preguntas. Por qué importa: estudios controlados van desde 55.8% más rápid
 
 **D9-Q7: ¿Los resultados de ingeniería con IA se conectan con valor de negocio (business case, supuestos de ROI, OKRs) y se revisan con stakeholders de finanzas o negocio?**
 
-- **Unidad de cobertura:** práctica de toda la organización (use las columnas de gobernanza y medición)
+- **Unidad de cobertura:** práctica de toda la organización (usa las columnas de gobernanza y medición)
 - **L3 se ve así:** Existe un business case con supuestos explícitos y se revisa al menos anualmente.
 - **L4 se ve así:** El valor se informa con una cadencia fija con insumos medidos de D9-Q1 a Q6; la inversión se ajusta a partir de los resultados.
 - **Ejemplos de evidencia:** Business case, informes de valor.

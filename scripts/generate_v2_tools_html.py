@@ -3,20 +3,21 @@
 
 Writes, from one source and in three languages (EN, PT-BR, ES):
 
-- wizard/implementation-guide-wizard.html (+ .pt-br.html)
+- wizard/implementation-guide-wizard.html (+ .pt-br.html, .es.html)
   Collects the implementation guide inputs (governance, dimension
   owners, change management, risks, first 90 days) and exports
   implementation-guide-inputs.json for relatorios/scripts.
 - wizard/implementation-guide-inputs.template.json
   The same fields for manual editing, with guidance in _guide and
   empty values, so no example text reaches a client report.
-- referencia/calculadora-pontuacao.html (+ .pt-br.html)
+- referencia/calculadora-pontuacao.html (+ .pt-br.html, .es.html)
   What-if calculator for section 8 of the v2 spec: dimension scores,
   weights and targets give the overall score, level, gaps, priorities,
   horizons, amplification risk and the recommended strategies.
 
-The base file picks the browser language (or ?lang=); the .pt-br copy
-opens in Portuguese. Both run offline and send nothing over the network.
+The base file picks the browser language (or ?lang=); the .pt-br and .es
+copies open in Portuguese and Spanish. All run offline and send nothing
+over the network.
 
 Usage:
     python3 scripts/generate_v2_tools_html.py [--check]
@@ -712,7 +713,8 @@ def outputs() -> dict[Path, str]:
     wizard_app = WIZARD_APP.replace("__KEYS__", json.dumps(WIZARD_KEYS))
     files = {ROOT / "wizard/implementation-guide-inputs.template.json":
              template_json()}
-    for suffix, default in (("", "auto"), (".pt-br", "pt-br")):
+    for suffix, default in (("", "auto"), (".pt-br", "pt-br"),
+                            (".es", "es")):
         files[ROOT / f"wizard/implementation-guide-wizard{suffix}.html"] = \
             page(fw, WIZARD, wizard_app, default,
                  WIZARD["en"]["title"], "wizard/README.md", "", False)
@@ -729,7 +731,8 @@ def main() -> int:
                     help="fail if a generated file is out of date")
     args = ap.parse_args()
     stale = []
-    for path, text in outputs().items():
+    files = outputs()
+    for path, text in files.items():
         if args.check:
             if not path.exists() or path.read_text("utf-8") != text:
                 stale.append(path.relative_to(ROOT))
@@ -741,7 +744,7 @@ def main() -> int:
               ".py):\n  " + "\n  ".join(map(str, stale)), file=sys.stderr)
         return 1
     if args.check:
-        print("✓ 5 generated helper files up to date")
+        print(f"✓ {len(files)} generated helper files up to date")
     return 0
 
 

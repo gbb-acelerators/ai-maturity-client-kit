@@ -1,18 +1,21 @@
 #!/usr/bin/env python3
-"""Generate kit-en/ from the canonical English docs.
+"""Generate kit-en/ and kit-es/ from the canonical docs.
 
-The repository docs are English (with .pt-br copies). The EN package
-ships them under English names, so kit-en/ is generated here instead of
-being maintained by hand:
+The repository docs are English, with `X.pt-br.md` and `X.es.md` copies
+next to them. The EN and ES packages also ship the three quickstart docs
+at the package root under names in their own language, so kit-en/ and
+kit-es/ are generated here instead of being maintained by hand:
 
-    README.md                  -> kit-en/README.md
-    GUIA-PASSO-A-PASSO.md      -> kit-en/STEP-BY-STEP.md
-    coleta/INSTRUCOES-FORMS.md -> kit-en/FORMS-INSTRUCTIONS.md
+    README.md                     -> kit-en/README.md
+    GUIA-PASSO-A-PASSO.md         -> kit-en/STEP-BY-STEP.md
+    coleta/INSTRUCOES-FORMS.md    -> kit-en/FORMS-INSTRUCTIONS.md
+    README.es.md                  -> kit-es/README.md
+    GUIA-PASSO-A-PASSO.es.md      -> kit-es/PASO-A-PASO.md
+    coleta/INSTRUCOES-FORMS.es.md -> kit-es/INSTRUCCIONES-FORMS.md
 
-Relative links are rebased so they keep working from kit-en/. The
-Spanish copies in kit-es/ are translations of the same three sources;
-scripts/check_language_coverage.py checks that their headings stay in
-step with the English sources.
+Relative links are rebased so they keep working from kit-en/ and
+kit-es/. scripts/check_language_coverage.py checks that every `.pt-br`
+and `.es` copy keeps the headings of its English source.
 
 Usage:
     python3 scripts/build_kit_docs.py [--check]
@@ -26,16 +29,19 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCES = {
-    "README.md": "kit-en/README.md",
-    "GUIA-PASSO-A-PASSO.md": "kit-en/STEP-BY-STEP.md",
-    "coleta/INSTRUCOES-FORMS.md": "kit-en/FORMS-INSTRUCTIONS.md",
+KITS = {
+    "kit-en": {
+        "README.md": "kit-en/README.md",
+        "GUIA-PASSO-A-PASSO.md": "kit-en/STEP-BY-STEP.md",
+        "coleta/INSTRUCOES-FORMS.md": "kit-en/FORMS-INSTRUCTIONS.md",
+    },
+    "kit-es": {
+        "README.es.md": "kit-es/README.md",
+        "GUIA-PASSO-A-PASSO.es.md": "kit-es/PASO-A-PASO.md",
+        "coleta/INSTRUCOES-FORMS.es.md": "kit-es/INSTRUCCIONES-FORMS.md",
+    },
 }
-ES_TWINS = {
-    "README.md": "kit-es/README.md",
-    "GUIA-PASSO-A-PASSO.md": "kit-es/PASO-A-PASO.md",
-    "coleta/INSTRUCOES-FORMS.md": "kit-es/INSTRUCCIONES-FORMS.md",
-}
+SOURCES = {src: dst for kit in KITS.values() for src, dst in kit.items()}
 LINK_RE = re.compile(r"(\]\()([^)\s]+)(\))")
 SKIP_RE = re.compile(r"^(?:[a-z]+:|#|/|<)")
 SWITCHER_RE = re.compile(r"^🌐 .*\n\n?", re.MULTILINE)
@@ -70,20 +76,22 @@ def rebase_links(text: str, src: str, dst: str,
 
 def outputs() -> dict[Path, str]:
     files = {}
-    for src, dst in SOURCES.items():
-        text = (ROOT / src).read_text(encoding="utf-8")
-        text = SWITCHER_RE.sub("", text, count=1)
-        text = rebase_links(text, src, dst, SOURCES)
-        note = (f"<!-- Generated from {src} by scripts/build_kit_docs.py. "
-                f"Edit the source, not this file. -->\n")
-        files[ROOT / dst] = note + text
+    for kit in KITS.values():
+        for src, dst in kit.items():
+            text = (ROOT / src).read_text(encoding="utf-8")
+            text = SWITCHER_RE.sub("", text, count=1)
+            text = rebase_links(text, src, dst, kit)
+            note = (f"<!-- Generated from {src} by "
+                    f"scripts/build_kit_docs.py. Edit the source, not "
+                    f"this file. -->\n")
+            files[ROOT / dst] = note + text
     return files
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--check", action="store_true",
-                    help="fail if kit-en/ is out of date")
+                    help="fail if kit-en/ or kit-es/ is out of date")
     args = ap.parse_args()
     stale = []
     for path, text in outputs().items():
@@ -98,7 +106,7 @@ def main() -> int:
               + ", ".join(stale), file=sys.stderr)
         return 1
     if args.check:
-        print("✓ kit-en/ matches the English sources")
+        print("✓ kit-en/ and kit-es/ match their sources")
     return 0
 
 

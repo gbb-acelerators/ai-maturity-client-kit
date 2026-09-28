@@ -7,7 +7,10 @@ Outputs (never edit them by hand, rerun this script):
 - coleta/perguntas-para-forms.es.md   (ES)
 - coleta/template-export-forms.xlsx   (Forms export shape, v2 columns)
 - formularios/assessment-v2.html      (offline form, 3 languages,
-                                        exports respostas.json)
+                                        exports respostas.json; picks the
+                                        browser language)
+- formularios/assessment-v2.pt-br.html (the same form, opens in PT-BR)
+- formularios/assessment-v2.es.html    (the same form, opens in ES)
 
 Usage:
     python3 scripts/generate_v2_collection.py          # write files
@@ -26,6 +29,7 @@ BANKS = {"pt-br": "coleta/perguntas-para-forms.md",
          "en": "coleta/perguntas-para-forms.en.md",
          "es": "coleta/perguntas-para-forms.es.md"}
 HTML_OUT = "formularios/assessment-v2.html"
+HTML_COPIES = {"": "auto", ".pt-br": "pt-br", ".es": "es"}
 XLSX_OUT = "coleta/template-export-forms.xlsx"
 
 UI = {
@@ -116,9 +120,9 @@ UI = {
         "generated": "Gerado a partir de `framework.v2.json` (versão "
                      "{version}) por `scripts/generate_v2_collection.py`. "
                      "Não edite à mão. Fonte do texto: "
-                     "[AI-Maturity-Form-Questions_v2.md]"
-                     "(AI-Maturity-Form-Questions_v2.md). O banco v1 (158 "
-                     "perguntas) está arquivado em [v1/](v1/).",
+                     "[AI-Maturity-Form-Questions_v2.pt-br.md]"
+                     "(AI-Maturity-Form-Questions_v2.pt-br.md). O banco v1 "
+                     "(158 perguntas) está arquivado em [v1/](v1/).",
         "how": "Como montar o formulário",
         "steps": [
             "Acesse <https://forms.office.com> e crie um formulário em "
@@ -200,52 +204,50 @@ UI = {
                  "SDLC Maturity Assessment v2",
         "generated": "Generado a partir de `framework.v2.json` (versión "
                      "{version}) por `scripts/generate_v2_collection.py`. "
-                     "No lo edite a mano. Fuente del texto: "
-                     "[AI-Maturity-Form-Questions_v2.md]"
-                     "(AI-Maturity-Form-Questions_v2.md). El banco v1 "
+                     "No lo edites a mano. Fuente del texto: "
+                     "[AI-Maturity-Form-Questions_v2.es.md]"
+                     "(AI-Maturity-Form-Questions_v2.es.md). El banco v1 "
                      "(158 preguntas) está archivado en [v1/](v1/).",
         "how": "Cómo armar el formulario",
         "steps": [
-            "Vaya a <https://forms.office.com> y cree un formulario en "
+            "Ve a <https://forms.office.com> y crea un formulario en "
             "blanco. Título sugerido: `AI-Assisted SDLC Maturity "
             "Assessment v2 - <Organización>`.",
-            "Pegue el aviso de privacidad de "
-            "[../kit-es/INSTRUCCIONES-FORMS.md]"
-            "(../kit-es/INSTRUCCIONES-FORMS.md) en la descripción del "
-            "formulario.",
-            "Agregue **10 secciones**: Sección 0 (perfil) y una por "
+            "Pega el aviso de privacidad de [INSTRUCOES-FORMS.es.md]"
+            "(INSTRUCOES-FORMS.es.md) en la descripción del formulario.",
+            "Agrega **10 secciones**: Sección 0 (perfil) y una por "
             "dimensión, D1 a D9.",
-            "Sección 0: agregue las 5 preguntas de perfil como "
+            "Sección 0: agrega las 5 preguntas de perfil como "
             "**Choice**. `R-Q3` permite varias respuestas. No puntúan.",
-            "Para cada pregunta puntuada agregue 2 elementos: un "
+            "Para cada pregunta puntuada agrega 2 elementos: un "
             "**Choice** (respuesta única) cuyo título empieza con el ID y "
             "dos puntos (por ejemplo `D4-Q3: ...`), con las 6 opciones de "
             "abajo en orden; y un **Long Text** opcional con el título "
             "`Evidence (<ID>)`.",
-            "Pegue las líneas **L3 se ve así** y **L4 se ve así** en el "
+            "Pega las líneas **L3 se ve así** y **L4 se ve así** en el "
             "subtítulo de la pregunta.",
-            "Comparta el enlace. Busque al menos 3 personas por rol "
+            "Comparte el enlace. Busca al menos 3 personas por rol "
             "(`R-Q1`).",
-            "`Responses` > `Open in Excel`, descargue el archivo y "
-            "ejecute `make import XLSX=<archivo>`.",
+            "`Responses` > `Open in Excel`, descarga el archivo y "
+            "ejecuta `make import XLSX=<archivo>`.",
         ],
         "count": "Total de elementos: 5 de perfil + 61 puntuadas + 61 "
                  "campos opcionales de evidencia = 127 elementos.",
         "options": "Las 6 opciones de toda pregunta puntuada",
-        "prefix_warn": "Mantenga el prefijo `L0` a `L4` y `NA` al inicio "
+        "prefix_warn": "Mantén el prefijo `L0` a `L4` y `NA` al inicio "
                        "de cada opción y el ID al inicio de cada título: "
-                       "el importador depende de ambos. Mantenga también "
+                       "el importador depende de ambos. Mantén también "
                        "la etiqueta `Evidence (<ID>)` en inglés.",
         "rules": "Cómo responder",
         "rule_items": [
-            "Lea cada pregunta como \"¿en qué medida esto es cierto?\".",
-            "Responda en el nivel más alto en que **todas** las partes de "
+            "Lee cada pregunta como \"¿en qué medida esto es cierto?\".",
+            "Responde en el nivel más alto en que **todas** las partes de "
             "la pregunta son ciertas.",
             "Si cobertura, gobernanza y medición indican niveles "
-            "distintos, elija el menor.",
-            "Elija `L0` cuando la práctica podría aplicar pero todavía no "
-            "existe; elija `NA` solo cuando no sabe o la actividad no "
-            "existe en su alcance.",
+            "distintos, elige el menor.",
+            "Elige `L0` cuando la práctica podría aplicar pero todavía no "
+            "existe; elige `NA` solo cuando no sabes o la actividad no "
+            "existe en tu alcance.",
         ],
         "section0": "Sección 0: Perfil de la persona que responde (no "
                     "puntúa)",
@@ -256,7 +258,7 @@ UI = {
         "unit": "Unidad de cobertura",
         "units": {"teams": "equipos", "engineers": "ingenieros",
                   "repositories": "repositorios", "services": "servicios",
-                  "organization": "práctica de toda la organización (use "
+                  "organization": "práctica de toda la organización (usa "
                                   "las columnas de gobernanza y medición)"},
         "l1_l2": "L1 a L2 se ven así",
         "l3": "L3 se ve así",
@@ -340,7 +342,7 @@ MS_LOGO = (
     '<rect x="12" y="12" width="10" height="10" fill="#FFB900"/></svg>')
 
 HTML_TEMPLATE = """<!doctype html>
-<html lang="en">
+<html lang="en" data-default-lang="__DEFAULT__">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -410,7 +412,17 @@ const UI = __UI__;
 const KEY = "ai-maturity-v2-" + FW.version;
 let state = JSON.parse(localStorage.getItem(KEY) || '{"answers":{},'
   + '"profile":{}}');
-let lang = localStorage.getItem(KEY + "-lang") || "en";
+function pickLang() {
+  const q = new URLSearchParams(location.search).get("lang");
+  if (q && UI[q]) return q;
+  const d = document.documentElement.dataset.defaultLang;
+  if (d && d !== "auto" && UI[d]) return d;
+  const s = localStorage.getItem(KEY + "-lang");
+  if (s && UI[s]) return s;
+  const n = (navigator.language || "en").toLowerCase();
+  return n.startsWith("pt") ? "pt-br" : n.startsWith("es") ? "es" : "en";
+}
+let lang = pickLang();
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({"&":"&amp;",
   "<":"&lt;", ">":"&gt;", '"':"&quot;"}[c]));
@@ -572,7 +584,7 @@ render();
 """
 
 
-def html_form(fw: dict) -> str:
+def html_form(fw: dict, default: str = "auto") -> str:
     slim = {
         "version": fw["version"],
         "options": fw["options"],
@@ -599,6 +611,7 @@ def html_form(fw: dict) -> str:
     return (HTML_TEMPLATE.replace("__DATA__", data)
             .replace("__UI__", json.dumps(ui, ensure_ascii=False))
             .replace("__LOGO__", MS_LOGO)
+            .replace("__DEFAULT__", default)
             .replace("__VERSION__", html.escape(fw["version"])))
 
 
@@ -638,7 +651,9 @@ def write_xlsx(fw: dict, path: Path) -> None:
 
 def outputs(fw: dict) -> dict[str, str]:
     out = {path: bank_md(fw, lang) for lang, path in BANKS.items()}
-    out[HTML_OUT] = html_form(fw)
+    for suffix, default in HTML_COPIES.items():
+        out[HTML_OUT.replace(".html", f"{suffix}.html")] = \
+            html_form(fw, default)
     return out
 
 

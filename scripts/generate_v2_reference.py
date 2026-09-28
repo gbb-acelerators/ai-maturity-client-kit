@@ -105,7 +105,10 @@ T = {
         "intro": "Gerado a partir de `framework.v2.json` (framework {v}) "
                  "por `scripts/generate_v2_reference.py`. A fonte da "
                  "verdade é [a especificação v2](../coleta/AI-Maturity-"
-                 "Form-Questions_v2.md). Não edite este arquivo à mão.",
+                 "Form-Questions_v2.md), em inglês, com tradução em "
+                 "[AI-Maturity-Form-Questions_v2.pt-br.md](../coleta/"
+                 "AI-Maturity-Form-Questions_v2.pt-br.md). Não edite este "
+                 "arquivo à mão.",
         "method": "Método de pontuação",
         "rules": [
             "Valor da resposta: L0 a L4 = 0 a 4. Respostas NA e em "
@@ -176,7 +179,10 @@ T = {
         "intro": "Generado desde `framework.v2.json` (framework {v}) por "
                  "`scripts/generate_v2_reference.py`. La fuente de verdad "
                  "es [la especificación v2](../coleta/AI-Maturity-Form-"
-                 "Questions_v2.md). No edite este archivo a mano.",
+                 "Questions_v2.md), en inglés, con traducción en "
+                 "[AI-Maturity-Form-Questions_v2.es.md](../coleta/"
+                 "AI-Maturity-Form-Questions_v2.es.md). No edites este "
+                 "archivo a mano.",
         "method": "Método de puntuación",
         "rules": [
             "Valor de la respuesta: L0 a L4 = 0 a 4. Las respuestas NA y "

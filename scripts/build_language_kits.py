@@ -4,9 +4,14 @@
 Packaging rule:
 - Copilot customization files under .github/ stay in English in every package.
 - Client-facing documentation in each package must match the selected language.
-- Repository docs are English; the Portuguese copy of `X.md` / `X.html` lives
-  next to it as `X.pt-br.md` / `X.pt-br.html`. The PT package ships those
-  copies under the base names, and no package ships `*.pt-br.*` names.
+- Repository docs are English; the Portuguese and Spanish copies of `X.md` /
+  `X.html` live next to it as `X.pt-br.*` and `X.es.*`. The PT and ES packages
+  ship those copies under the base names, and no package ships the copy
+  names (links to them are rewritten to the base names).
+- Multi-language assets ship in every package under their own names: the
+  question banks (Portuguese base plus `.en` / `.es`) and the v2 spec (the
+  English source parsed by scripts/spec_to_framework_v2.py plus its
+  `.pt-br` / `.es` translations).
 - Shared scripts, templates, JSON schemas, workbooks, and renderers are reused.
 """
 
@@ -14,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import posixpath
 import re
 import shutil
 import sys
@@ -26,6 +32,17 @@ from build_kit_docs import rebase_links  # noqa: E402
 ROOT = Path(__file__).resolve().parents[1]
 
 PT_BR_TAG = ".pt-br"
+ES_TAG = ".es"
+LANGUAGE_TAGS = {"pt": PT_BR_TAG, "es": ES_TAG}
+
+# Every language version ships under its own name in every package. The
+# English spec stays under its name because scripts/spec_to_framework_v2.py
+# parses it.
+KEEP_NAMES = {
+    "coleta/AI-Maturity-Form-Questions_v2.md",
+    "coleta/AI-Maturity-Form-Questions_v2.pt-br.md",
+    "coleta/AI-Maturity-Form-Questions_v2.es.md",
+}
 
 COMMON_EXCLUDED_PARTS = {
     ".git",
@@ -95,9 +112,10 @@ SHARED_CLIENT_ASSETS = [
     "coleta/perguntas-para-forms.en.md",
     "coleta/perguntas-para-forms.es.md",
     "coleta/AI-Maturity-Form-Questions_v2.md",
+    "coleta/AI-Maturity-Form-Questions_v2.pt-br.md",
+    "coleta/AI-Maturity-Form-Questions_v2.es.md",
     "coleta/v1",
     "referencia/framework-v2.md",
-    "referencia/framework-v2.es.md",
     "survey-devs/perguntas-para-forms-devs.md",
     "survey-devs/perguntas-para-forms-devs.en.md",
     "survey-devs/perguntas-para-forms-devs.es.md",
@@ -118,6 +136,9 @@ SHARED_CLIENT_ASSETS = [
     "referencia/calculadora-pontuacao.html",
 ]
 
+# Sources of the package-root quickstarts, never shipped as folders.
+KIT_DOC_FOLDERS = ("kit-en/", "kit-es/")
+
 LANGUAGE_DOCS = {
     "pt": [],
     "en": [
@@ -135,25 +156,40 @@ LANGUAGE_DOCS = {
 LANGUAGE_NOTES = {
     "pt": """# Notas de idioma do pacote PT-BR
 
-- Documentação de cliente: Português (Brasil). No repositório os documentos
-  são em inglês, com cópias `.pt-br`; este pacote entrega as versões em
-  português com os nomes base (`README.md`, `GUIA-PASSO-A-PASSO.md` etc.).
+- Documentação de cliente: Português (Brasil), inclusive os guias de todas
+  as pastas. No repositório os documentos são em inglês, com cópias
+  `.pt-br` e `.es`; este pacote entrega as versões em português com os
+  nomes base (`README.md`, `GUIA-PASSO-A-PASSO.md` etc.).
+- A especificação v2 e os bancos de perguntas vêm nos três idiomas, para
+  montar o formulário no idioma do cliente:
+  `coleta/AI-Maturity-Form-Questions_v2.pt-br.md` (português),
+  `coleta/AI-Maturity-Form-Questions_v2.md` (inglês, a fonte lida por
+  `scripts/spec_to_framework_v2.py`) e `.es.md`;
+  `coleta/perguntas-para-forms.md` (português), `.en.md` e `.es.md`.
 - Relatórios são gerados em inglês por padrão. Para PT-BR, defina
   `metadata.language` como `"pt-BR"` em `respostas.json`. Os relatórios dos
   surveys aceitam `--lang pt-br` (ou `en`, `es`).
 - Os assistentes HTML (formulário offline, wizard e calculadora) têm
   seletor de idioma e abrem em português neste pacote.
-- Arquivos de customização do Copilot em `.github/`: mantidos em inglês por
-  design, para economizar contexto e melhorar compatibilidade.
+- Ficam em inglês por design: os arquivos de customização do Copilot em
+  `.github/` (economizam contexto e melhoram a compatibilidade) e o
+  registro interno do plano v2 (`upgrade-framework-v2.prompt.md`).
 - JSONs, scripts, templates e workbooks são recursos executáveis ou
   estruturados compartilhados por todos os idiomas.
 """,
     "en": """# Language Notes for the English Package
 
 - Client-facing documentation: English, including every folder guide.
-  Portuguese copies (`.pt-br` files) ship only in the PT-BR package.
+  The Portuguese and Spanish copies (`.pt-br` and `.es` files) ship in the
+  PT-BR and ES packages under the base names.
 - `README.md`, `STEP-BY-STEP.md` and `FORMS-INSTRUCTIONS.md` at the root are
   the English quickstart, step-by-step guide and Forms instructions.
+- The v2 spec and the question banks ship in the three languages, to build
+  the form in the client's language:
+  `coleta/AI-Maturity-Form-Questions_v2.md` (English source, parsed by
+  `scripts/spec_to_framework_v2.py`), `.pt-br.md` and `.es.md`;
+  `coleta/perguntas-para-forms.en.md` (English), `.es.md` and
+  `perguntas-para-forms.md` (Portuguese).
 - Reports default to English. Set `metadata.language` to `"pt-BR"` or `"es"`
   in `respostas.json` for other languages. Survey reports accept
   `--lang en`, `--lang pt-br` or `--lang es`.
@@ -166,20 +202,33 @@ LANGUAGE_NOTES = {
 """,
     "es": """# Notas de idioma del paquete Español
 
-- Documentación orientada al cliente en español: `README.md`,
-  `PASO-A-PASO.md`, `INSTRUCCIONES-FORMS.md`, el banco de preguntas
-  (`coleta/perguntas-para-forms.es.md`), la guía de referencia
-  (`referencia/framework-v2.es.md`) y las páginas por dimensión
-  (`referencia/dimensoes/*.es.md`). Las demás guías de las carpetas van en
-  inglés.
+- Documentación orientada al cliente en español, incluidas las guías de
+  todas las carpetas. En el repositorio los documentos están en inglés, con
+  copias `.pt-br` y `.es`; este paquete entrega las versiones en español con
+  los nombres base (`README.md`, `GUIA-PASSO-A-PASSO.md`, etc.).
+- `README.md`, `PASO-A-PASO.md` e `INSTRUCCIONES-FORMS.md` en la raíz son la
+  guía rápida, el paso a paso y las instrucciones de Forms en español.
+- La especificación v2 y los bancos de preguntas van en los tres idiomas,
+  para armar el formulario en el idioma del cliente:
+  `coleta/AI-Maturity-Form-Questions_v2.es.md` (español),
+  `coleta/AI-Maturity-Form-Questions_v2.md` (inglés, la fuente que lee
+  `scripts/spec_to_framework_v2.py`) y `.pt-br.md`;
+  `coleta/perguntas-para-forms.es.md` (español), `.en.md` y
+  `perguntas-para-forms.md` (portugués).
 - Los informes se generan en inglés por defecto. Define `metadata.language`
-  como `"es"` en `respostas.json` para español. Los informes de los surveys
-  complementarios aceptan `--lang en`, `--lang pt-br` o `--lang es`.
+  como `"es"` en `respostas.json` para español. Los informes de las
+  encuestas complementarias aceptan `--lang en`, `--lang pt-br` o
+  `--lang es`.
 - Los asistentes HTML (formulario offline, wizard y calculadora) tienen
-  selector de idioma y siguen el idioma del navegador.
-- Archivos de customización de Copilot en `.github/`: se mantienen en inglés
-  intencionalmente en todos los paquetes.
-- JSONs, scripts, templates y workbooks compartidos son activos ejecutables
+  selector de idioma y abren en español en este paquete.
+- Quedan en inglés por diseño: los archivos de customización de Copilot en
+  `.github/` y el registro interno del plan v2
+  (`upgrade-framework-v2.prompt.md`). El archivo histórico de framework v1
+  se conserva como se publicó: `referencia/v1/` y
+  `coleta/v1/INSTRUCOES-FORMS.md` en inglés, `formularios/v1/` en
+  portugués. El banco v1 en español está en
+  `coleta/v1/perguntas-para-forms.es.md`.
+- JSONs, scripts, plantillas y workbooks compartidos son activos ejecutables
   o estructurados reutilizados por todos los idiomas.
 """,
 }
@@ -193,9 +242,7 @@ ARCHIVE_NAMES = {
 LOCALIZED_TEXT_SUFFIXES = {".md", ".html"}
 UNTRANSFORMED_PREFIXES = (".github/", "relatorios/templates/")
 # Only link targets: Markdown `](...)` and HTML `href="..."`.
-PT_BR_LINK_RE = re.compile(
-    r'((?:\]\(|href=")[^)"\s]*?)\.pt-br\.(md|html)'
-)
+COPY_LINK_RE = re.compile(r'(\]\(|href=")([^)"\s]+)')
 MD_SWITCHER_MARKER = "Português (Brasil)"
 HTML_SWITCHER_RE = re.compile(
     r'^\s*<a href="[^"]*" hreflang="[^"]*"[^>]*>[^<]*</a>\s*$'
@@ -206,12 +253,50 @@ def normalized(path: Path) -> str:
     return path.as_posix()
 
 
-def is_pt_br_copy(rel: str) -> bool:
-    return f"{PT_BR_TAG}." in Path(rel).name
+def tagged(rel: str, tag: str) -> str:
+    """`a/X.md` + `.es` -> `a/X.es.md`."""
+    stem, ext = posixpath.splitext(rel)
+    return f"{stem}{tag}{ext}"
 
 
-def pt_br_sibling(source: Path) -> Path:
-    return source.with_name(f"{source.stem}{PT_BR_TAG}{source.suffix}")
+def family_base(rel: str) -> str | None:
+    """English base of a translated copy (`X.pt-br.*` or `X.es.*`).
+
+    Spanish files count as copies only when the Portuguese copy exists
+    too, so the Portuguese-based question banks (`X.md` + `X.es.md`) keep
+    their Spanish file. Names in KEEP_NAMES are never copies.
+    """
+    if rel in KEEP_NAMES:
+        return None
+    name = posixpath.basename(rel)
+    for tag in (PT_BR_TAG, ES_TAG):
+        marker = f"{tag}."
+        if marker not in name:
+            continue
+        base = posixpath.join(posixpath.dirname(rel),
+                              name.replace(marker, ".", 1))
+        if tag == PT_BR_TAG:
+            return base
+        pt_copy = ROOT / tagged(base, PT_BR_TAG)
+        if (ROOT / base).is_file() and pt_copy.is_file():
+            return base
+    return None
+
+
+def is_translated_copy(rel: str) -> bool:
+    return family_base(rel) is not None
+
+
+def package_source(source: Path, lang: str) -> Path:
+    """The file whose content ships under `source`'s name in `lang`."""
+    tag = LANGUAGE_TAGS.get(lang)
+    rel = normalized(source.relative_to(ROOT))
+    if not tag or rel in KEEP_NAMES:
+        return source
+    copy = ROOT / tagged(rel, tag)
+    if copy.is_file() and family_base(tagged(rel, tag)) == rel:
+        return copy
+    return source
 
 
 def is_common_excluded(rel: str) -> bool:
@@ -220,8 +305,10 @@ def is_common_excluded(rel: str) -> bool:
         return True
     if Path(rel).name in COMMON_EXCLUDED_NAMES:
         return True
-    # PT copies are shipped under their base names by write_source().
-    if is_pt_br_copy(rel):
+    # Translated copies ship under their base names (write_source()).
+    if is_translated_copy(rel):
+        return True
+    if rel.startswith(KIT_DOC_FOLDERS):
         return True
     if rel.startswith(".github/workflows/"):
         return True
@@ -256,7 +343,9 @@ def strip_language_switchers(text: str, suffix: str) -> str:
     drop_next_blank = False
     for line in text.splitlines(keepends=True):
         if is_switcher_line(line, suffix):
-            drop_next_blank = bool(kept) and not kept[-1].strip()
+            # Drop one of the blank lines around it (or the blank line
+            # after a switcher on the first line).
+            drop_next_blank = not kept or not kept[-1].strip()
             continue
         if drop_next_blank and not line.strip():
             drop_next_blank = False
@@ -266,10 +355,32 @@ def strip_language_switchers(text: str, suffix: str) -> str:
     return "".join(kept)
 
 
-def localize_text(text: str, suffix: str, lang: str) -> str:
-    # No package ships .pt-br names: PT gets the Portuguese content under
-    # the base name, the others get the English file with that name.
-    text = PT_BR_LINK_RE.sub(r"\1.\2", text)
+def rewrite_copy_links(text: str, arcname: str) -> str:
+    """Point links to translated copies at the base names.
+
+    No package ships copy names: each one has its own language under the
+    base name.
+    """
+    folder = posixpath.dirname(arcname)
+
+    def fix(match: re.Match) -> str:
+        target = match.group(2)
+        if re.match(r"^(?:[a-z]+:|#|/|<)", target):
+            return match.group(0)
+        path, sep, frag = target.partition("#")
+        resolved = posixpath.normpath(posixpath.join(folder, path))
+        base = family_base(resolved)
+        if base is None:
+            return match.group(0)
+        new_path = posixpath.join(posixpath.dirname(path),
+                                  posixpath.basename(base))
+        return f"{match.group(1)}{new_path}{sep}{frag}"
+
+    return COPY_LINK_RE.sub(fix, text)
+
+
+def localize_text(text: str, suffix: str, lang: str, arcname: str) -> str:
+    text = rewrite_copy_links(text, arcname)
     return strip_language_switchers(text, suffix)
 
 
@@ -285,16 +396,13 @@ def write_source(
     if rel.startswith(UNTRANSFORMED_PREFIXES) and source.suffix != ".md":
         zf.write(source, arcname)
         return
-    if lang == "pt":
-        sibling = pt_br_sibling(source)
-        if sibling.is_file():
-            source = sibling
+    source = package_source(source, lang)
     suffix = source.suffix.lower()
     if suffix not in LOCALIZED_TEXT_SUFFIXES:
         zf.write(source, arcname)
         return
     text = source.read_text(encoding="utf-8")
-    zf.writestr(arcname, localize_text(text, suffix, lang))
+    zf.writestr(arcname, localize_text(text, suffix, lang, arcname))
 
 
 def add_file(
@@ -307,7 +415,7 @@ def add_file(
     source = ROOT / source_rel
     if not source.exists() or not source.is_file():
         return
-    if is_pt_br_copy(source_rel):
+    if is_translated_copy(source_rel):
         return
     write_source(zf, source, dest_rel or source_rel, lang)
 
@@ -415,18 +523,18 @@ def add_documentation(zf: zipfile.ZipFile, lang: str) -> None:
     for source, dest in LANGUAGE_DOCS[lang]:
         text = (ROOT / source).read_text(encoding="utf-8")
         text = rebase_links(text, source, dest, rename)
-        zf.writestr(dest, localize_text(text, ".md", lang))
+        zf.writestr(dest, localize_text(text, ".md", lang, dest))
     # 2. Every other repository doc, so that links keep working: the PT
-    #    package gets the .pt-br copies under the base names, the other
-    #    packages get the English docs.
+    #    and ES packages get the .pt-br / .es copies under the base names,
+    #    the EN package gets the English docs.
     excluded_prefixes = (".github/", ".git/", "docs/", "saida/", "dist/")
     for file_path in sorted(ROOT.rglob("*.md")):
         rel = normalized(file_path.relative_to(ROOT))
         if rel.startswith(excluded_prefixes) or is_common_excluded(rel):
             continue
         add_file(zf, rel, lang=lang)
-    # 3. HTML helpers: one trilingual file each; the PT package gets the
-    #    copy that opens in Portuguese.
+    # 3. HTML helpers: one trilingual file each; the PT and ES packages
+    #    get the copy that opens in their language.
     add_tree(zf, "formularios", lang=lang)
     add_tree(zf, "referencia/v1", lang=lang)
     add_file(zf, "wizard/implementation-guide-wizard.html", lang=lang)
@@ -458,12 +566,13 @@ def broken_links(zf: zipfile.ZipFile) -> list[str]:
     return bad
 
 
-def assert_no_pt_br_names(zf: zipfile.ZipFile, archive_path: Path) -> None:
-    leaked = [name for name in zf.namelist() if is_pt_br_copy(name)]
+def assert_no_copy_names(zf: zipfile.ZipFile, archive_path: Path) -> None:
+    leaked = [name for name in zf.namelist() if is_translated_copy(name)]
     if leaked:
         joined = "\n  - ".join(leaked)
         raise RuntimeError(
-            f"{archive_path.name} contains .pt-br names:\n  - {joined}"
+            f"{archive_path.name} contains translated copy names:\n"
+            f"  - {joined}"
         )
 
 
@@ -483,7 +592,7 @@ def build_archive(lang: str, output_dir: Path) -> Path:
         add_shared_client_assets(zf, lang)
         add_reference_examples(zf, lang)
         add_documentation(zf, lang)
-        assert_no_pt_br_names(zf, archive_path)
+        assert_no_copy_names(zf, archive_path)
         bad = broken_links(zf)
         if bad:
             joined = "\n  - ".join(bad)
