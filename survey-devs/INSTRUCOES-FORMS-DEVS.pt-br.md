@@ -7,9 +7,9 @@
 > [!IMPORTANT]
 > Survey **anônimo** de **75 perguntas** em 9 seções para entender como os desenvolvedores da sua organização usam GitHub Copilot, modos do Copilot Chat (Ask/Edit/Agent/**Coding Agent**), **Copilot Spaces**, **Microsoft Foundry**, agentes IA + **MCP / A2A**, instructions files, práticas (TDD/SDD com Spec Kit), **personas Agentic DevOps** (System Designer / Agent Operator), governança e segurança (incl. **JIT permissions** e **escopo+red-lines de agents**). Tempo estimado por respondente: **22-28 min**.
 
-**Versão 2.0 (2026-05-08)** — termos atualizados com docs oficiais Microsoft/GitHub mais recentes.
+**Versão 2.0 (2026-05-08)**: termos atualizados com docs oficiais Microsoft/GitHub mais recentes.
 
-**Diferente do assessment principal** (Likert L0-L4 organizacional). Este é **comportamental individual** — quanto mais devs respondem, mais rica a foto.
+**Diferente do assessment principal** (Likert L0-L4 organizacional). Este é **comportamental individual**: quanto mais devs respondem, mais rica a foto.
 
 ---
 
@@ -23,9 +23,10 @@
 
 ---
 
-## 🔐 Anonimato — CRÍTICO
+## 🔐 Anonimato: CRÍTICO
 
 Este survey é **anônimo por design**:
+
 - ❌ Não pedimos nome, email, ID corporativo
 - ✅ Coletamos só: cargo, tempo de experiência, padrões de uso, opiniões
 - ✅ Devs respondem com mais honestidade quando sabem que é anônimo
@@ -38,7 +39,7 @@ Este survey é **anônimo por design**:
 | # | Seção | Foco | Perguntas |
 |---|---|---|---|
 | **S1** | Perfil do respondente | Cargo, experiência, stack, modelo de trabalho | 7 |
-| **S2** | GitHub Copilot — Adoção e Modos | Licença, frequência, **Ask / Edit / Agent / Coding Agent (autônomo)**, features (incl. **Spaces**), ganho | 9 |
+| **S2** | GitHub Copilot: Adoção e Modos | Licença, frequência, **Ask / Edit / Agent / Coding Agent (autônomo)**, features (incl. **Spaces**), ganho | 9 |
 | **S3** | Outras ferramentas Microsoft / GitHub AI | **Microsoft Foundry** (ex-Azure AI Foundry), **Foundry Agent Service**, **Copilot Spaces**, **Coding Agent**, GHAS, **Spec Kit**, **MCP** | 7 |
 | **S4** | Práticas de Desenvolvimento com IA | **TDD com IA**, **SDD com Spec Kit**, pair programming, refactoring, debugging, onboarding | 9 |
 | **S5** | Conceitos e Estrutura de Agentes | Agente vs assistente, modos Copilot, **custom agents/skills/prompts**, **A2A**, handoffs, subagentes, **personas Agentic DevOps** (System Designer / Agent Operator), **TESTAR agents antes de usar** | 11 |
@@ -56,16 +57,16 @@ Este survey é **anônimo por design**:
 
 1. Acesse <https://forms.office.com>
 2. Clique em **+ New Form**
-3. Título sugerido: `Developer Survey — Como minha equipe usa GitHub & IA hoje`
+3. Título sugerido: `Developer Survey: Como minha equipe usa GitHub & IA hoje`
 4. Subtítulo (cole isso):
 
-```
+```text
 Survey ANÔNIMO (20-25 min) sobre suas práticas com GitHub Copilot,
 modos do Copilot Chat (Ask/Edit/Agent), agentes IA, instructions files,
 melhores práticas de IA + Dev e segurança.
 
 Suas respostas vão alimentar o roadmap de adoção de IA no time.
-NÃO pedimos nome ou email — apenas cargo, tempo de experiência e padrões.
+NÃO pedimos nome ou email: apenas cargo, tempo de experiência e padrões.
 
 Tempo estimado: 20-25 min.
 ```
@@ -76,11 +77,11 @@ Tempo estimado: 20-25 min.
 
 | Setting | Valor |
 |---|---|
-| **Anonymous responses** | ☑ **MARCADO** (CRÍTICO — sem isso captura email!) |
+| **Anonymous responses** | ☑ **MARCADO** (CRÍTICO: sem isso captura email!) |
 | **Who can respond** | "Anyone with the link" (se cross-org) ou "Only people in my organization" |
 | **One response per person** | ☐ DESMARCADO (queremos múltiplos) |
 | **Accept responses** | ☑ MARCADO |
-| **Email notification** | ☑ MARCADO (opcional — você é avisado a cada resposta) |
+| **Email notification** | ☑ MARCADO (opcional: você é avisado a cada resposta) |
 | **Customize thank you message** | "Obrigado! Suas respostas estão sendo agregadas com as do time." |
 
 > 🔍 **Como confirmar anonimato:** após criar, abra o link em janela anônima. Se NÃO aparecer "Logged in as [seu email]" no topo, está anônimo.
@@ -89,21 +90,22 @@ Tempo estimado: 20-25 min.
 
 No Forms, botão **+ Add new** → ícone de seção (ou "Add section"):
 
-```
-Section 1: S1 — Perfil do respondente            (7 questões)
-Section 2: S2 — GitHub Copilot                   (9 questões)
-Section 3: S3 — Outras ferramentas Microsoft/GH  (7 questões)
-Section 4: S4 — Práticas de Desenvolvimento     (9 questões)
-Section 5: S5 — Conceitos de Agentes             (11 questões)
-Section 6: S6 — Markdown / Instructions          (6 questões)
-Section 7: S7 — Usabilidade                      (9 questões)
-Section 8: S8 — Segurança e Governança          (13 questões)
-Section 9: S9 — Pain Points & Wishlist           (4 questões)
+```text
+Section 1: S1: Perfil do respondente            (7 questões)
+Section 2: S2: GitHub Copilot                   (9 questões)
+Section 3: S3: Outras ferramentas Microsoft/GH  (7 questões)
+Section 4: S4: Práticas de Desenvolvimento     (9 questões)
+Section 5: S5: Conceitos de Agentes             (11 questões)
+Section 6: S6: Markdown / Instructions          (6 questões)
+Section 7: S7: Usabilidade                      (9 questões)
+Section 8: S8: Segurança e Governança          (13 questões)
+Section 9: S9: Pain Points & Wishlist           (4 questões)
 ```
 
 ### Passo 4 · Adicionar as 75 perguntas
 
-Use o documento [`perguntas-para-forms-devs.md`](perguntas-para-forms-devs.md) como **fonte de copy/paste**. Cada pergunta tem:
+Use o banco no idioma dos respondentes como **fonte de copy/paste**: português [`perguntas-para-forms-devs.md`](perguntas-para-forms-devs.md), inglês [`perguntas-para-forms-devs.en.md`](perguntas-para-forms-devs.en.md) ou espanhol [`perguntas-para-forms-devs.es.md`](perguntas-para-forms-devs.es.md). As opções de resposta estão traduzidas em todos os bancos; [`options.json`](options.json) as mapeia para as mesmas opções canônicas, então a nota não depende do idioma do formulário. Cada pergunta tem:
+
 - **Tipo** (`choice`, `multi`, `text`)
 - **ID** (`S2-Q1`, `S5-Q3`, etc.)
 - **Texto da pergunta**
@@ -117,9 +119,11 @@ Use o documento [`perguntas-para-forms-devs.md`](perguntas-para-forms-devs.md) c
    - `text` (Long Text) → **Long answer**
 
 2. **TÍTULO da pergunta DEVE começar com o ID + dois pontos**:
-   ```
+
+   ```text
    S2-Q1: Você tem licença GitHub Copilot ativa?
    ```
+
    > ⚠️ **CRÍTICO:** o ID é usado pela skill `/importar-survey-devs` para mapear de volta ao schema. Não remova nem altere o formato `SX-QY:`.
 
 3. **Opções** (para choice/multi): cole as opções listadas no MD, **uma por linha**, na ordem.
@@ -129,11 +133,11 @@ Use o documento [`perguntas-para-forms-devs.md`](perguntas-para-forms-devs.md) c
 ### Passo 5 · Compartilhar
 
 1. Botão **+ Send / Collect responses** no topo
-2. Escolher **Link** (não Email — quebra anonimato)
+2. Escolher **Link** (não Email: quebra anonimato)
 3. Copiar URL
 4. Compartilhar via:
    - **Slack/Teams:** canal #engineering ou #copilot-users
-   - **Email para todos os devs:** "Survey anônimo de 20 min — sua opinião conta"
+   - **Email para todos os devs:** "Survey anônimo de 20 min, sua opinião conta"
    - **All-hands:** projetar QR code da URL para devs scanearem
 5. **Deadline sugerido:** 2 semanas. Lembrar 1× por semana.
 
@@ -154,11 +158,12 @@ Use o documento [`perguntas-para-forms-devs.md`](perguntas-para-forms-devs.md) c
 
 No Copilot Chat (modo Agent):
 
-```
+```text
 /importar-survey-devs
 ```
 
 A skill:
+
 - Detecta `respostas-survey-devs.xlsx`
 - Parseia 75 perguntas × N respondentes
 - Gera `survey-devs/respostas-devs.json`
@@ -166,11 +171,12 @@ A skill:
 
 Depois:
 
-```
+```text
 /insights-developer-survey
 ```
 
-Gera relatório agregado em `saida/insights-developer-survey-<DATE>.md` com:
+Gera relatório agregado em `saida/insights-developer-survey-<DATE>.md` (em inglês por padrão; os scripts aceitam `--lang pt-br` e `--lang es`) com:
+
 - Distribuição de cargos
 - Top 5 features mais usadas do Copilot
 - % adoção por modo (Ask/Edit/Agent/Workspace)
@@ -182,12 +188,12 @@ Gera relatório agregado em `saida/insights-developer-survey-<DATE>.md` com:
 
 ---
 
-## 🅱️ Caminho alternativo — Excel/SharePoint direto (sem Forms)
+## 🅱️ Caminho alternativo: Excel/SharePoint direto (sem Forms)
 
 Mais rápido se a equipe é pequena (3-5 devs) e técnica.
 
 1. Abra `survey-devs/template-export-forms-devs.xlsx`
-2. Apague as 5 linhas de respondentes mockados (linhas 2-6) — manter linha 1 (headers)
+2. Apague as 5 linhas de respondentes mockados (linhas 2-6): manter linha 1 (headers)
 3. Salve como `respostas-survey-devs.xlsx` e suba no SharePoint com link "Anyone can edit"
 4. Cada dev preenche **uma linha** com suas respostas (texto livre nas células de resposta)
 5. Quando todos preencherem: baixe → mova para raiz do kit → `/importar-survey-devs`
@@ -199,23 +205,28 @@ Mais rápido se a equipe é pequena (3-5 devs) e técnica.
 ## 💡 Boas práticas da coleta
 
 ### Lance com contexto
+
 Não jogue o link no Slack sem contexto. Crie momento:
 
 > "Pessoal, antes de definirmos a estratégia de IA na engenharia para o próximo trimestre, queremos ouvir como vocês usam IA hoje. Survey anônimo de 20-25 min com 75 perguntas (Copilot, agentes, segurança…). Suas respostas vão diretamente no roadmap. Link: <URL>. Deadline: 2 semanas."
 
 ### Garanta anonimato (de verdade)
+
 - Confirme que Settings → Anonymous está MARCADO
 - Não force login MS365 (caso compartilhe externamente)
-- No relatório agregado nunca cite respondentes específicos — só padrões
+- No relatório agregado nunca cite respondentes específicos: só padrões
 
 ### Lembre periodicamente
+
 - D+3: lembrete suave no canal
 - D+7: recap "X respostas até agora, faltam Y dias"
 - D+10: 1-on-1 com líderes para empurrar
 - D+14: deadline final + começa análise
 
 ### Compartilhe os insights
+
 Devs respondem mais um próximo survey se virem que o anterior gerou ação. Após `/insights-developer-survey`:
+
 - Apresente em all-hands
 - Gere quick wins (workshop, prompt library, etc.)
 - Trimestralmente repita para medir evolução
@@ -252,15 +263,15 @@ Devs respondem mais um próximo survey se virem que o anterior gerou ação. Ap�
 ## Travou em algum desses passos?
 
 <details>
-<summary><strong>FAQ — dúvidas comuns no Developer Survey (anônimo)</strong></summary>
+<summary><strong>FAQ: dúvidas comuns no Developer Survey (anônimo)</strong></summary>
 
 | Sintoma | Causa provável | Como resolver |
 |---|---|---|
 | Excel exportado tem **Email** e **Name** preenchidos | **Anonymous responses** NÃO foi marcado no Forms | Settings do Forms → ✅ **Anonymous responses** → recoletar |
 | Devs reclamam que é longo demais (20-25 min) | Muitas questões marcadas como required | Marque required **apenas em S1** (perfil); demais opcionais |
-| Tenho menos de 5 respondentes | Insights ficam pouco confiáveis | Mínimo absoluto: 3. Ideal: 5+. Ótimo: 15+ — estenda a campanha 1 semana |
-| Skill calcula maturidade mas número parece baixo | Rubrica determinística L0-L4 — reflete realidade | Veja [`RUBRICA-MATURIDADE.md`](RUBRICA-MATURIDADE.md) para entender a escala |
-| Quero pular este survey | Tudo bem — é opcional | Pule direto para o Learning Survey ou só rode o Assessment principal |
+| Tenho menos de 5 respondentes | Insights ficam pouco confiáveis | Mínimo absoluto: 3. Ideal: 5+. Ótimo: 15+: estenda a campanha 1 semana |
+| Skill calcula maturidade mas número parece baixo | Rubrica determinística L0-L4: reflete realidade | Veja [`RUBRICA-MATURIDADE.md`](RUBRICA-MATURIDADE.md) para entender a escala |
+| Quero pular este survey | Tudo bem: é opcional | Pule direto para o Learning Survey ou só rode o Assessment principal |
 
 </details>
 

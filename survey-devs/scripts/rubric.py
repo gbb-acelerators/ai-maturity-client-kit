@@ -12,12 +12,20 @@ Principles:
 Each `score_DX(responses)` returns a float in [0.0, 4.0], or None when
 coverage is insufficient.
 
-Match strings are Portuguese on purpose: they must equal the answer
-options exported from the Microsoft Forms survey.
+Match strings are the canonical Portuguese options. Answers exported from
+the English or Spanish Forms, or from older Portuguese Forms whose options
+used dashes, are first mapped back to the canonical option with
+survey-devs/options.json (canonical_responses), so every language scores
+the same way.
 """
+import json
+import re
+import unicodedata
+from pathlib import Path
 from typing import Optional
 
-SUPPORTED_LANGS = ("en", "pt-br")
+SUPPORTED_LANGS = ("en", "pt-br", "es")
+OPTIONS_PATH = Path(__file__).resolve().parents[1] / "options.json"
 
 LEVEL_LABELS = {
     "en": [
@@ -34,14 +42,86 @@ LEVEL_LABELS = {
         "L3 Gerenciado",
         "L4 Otimizando",
     ],
+    "es": [
+        "L0 Inicial",
+        "L1 En desarrollo",
+        "L2 Definido",
+        "L3 Gestionado",
+        "L4 Optimizando",
+    ],
 }
 
-NO_DATA_LABEL = {"en": "No data", "pt-br": "Sem dados"}
-OVERALL_NAME = {"en": "Overall Maturity", "pt-br": "Maturidade Overall"}
+NO_DATA_LABEL = {"en": "No data", "pt-br": "Sem dados",
+                 "es": "Sin datos"}
+OVERALL_NAME = {"en": "Overall Maturity", "pt-br": "Maturidade Overall",
+                "es": "Madurez general"}
 
 
 def _lang(lang: str) -> str:
     return lang if lang in SUPPORTED_LANGS else "en"
+
+
+def fold(text: Optional[str]) -> str:
+    """Lowercase, drop accents and separator punctuation for matching.
+
+    "Sim, trato como par" and "Sim, trato como par" fold to the same
+    text, so option wording can change without breaking older exports.
+    """
+    value = unicodedata.normalize("NFKD", str(text or "").lower())
+    value = "".join(ch for ch in value if not unicodedata.combining(ch))
+    value = re.sub(r"[\u2014\u2013:,;.!?()\[\]\"'/-]+", " ", value)
+    return " ".join(value.split())
+
+
+def _load_options() -> dict:
+    if not OPTIONS_PATH.exists():
+        return {}
+    return json.loads(OPTIONS_PATH.read_text(encoding="utf-8"))
+
+
+OPTIONS = _load_options()
+_CANONICAL = {
+    qid: {fold(opt[lang]): opt["pt"] for opt in opts
+          for lang in ("pt", "en", "es") if opt.get(lang)}
+    for qid, opts in OPTIONS.items()
+}
+
+
+def canonical_value(qid: str, value) -> Optional[str]:
+    """Map one exported answer (any language) to the canonical option."""
+    if value is None:
+        return None
+    table = _CANONICAL.get(qid)
+    text = str(value).strip()
+    if not table or not text:
+        return text
+    if ";" in text:
+        parts = [p.strip() for p in text.split(";") if p.strip()]
+        sep = "; " if "; " in text else ";"
+        return sep.join(table.get(fold(p), p) for p in parts)
+    return table.get(fold(text), text)
+
+
+def canonical_responses(responses: dict) -> dict:
+    """Copy of a respondent's responses with canonical option values."""
+    out = {}
+    for qid, entry in (responses or {}).items():
+        if isinstance(entry, dict) and "value" in entry:
+            out[qid] = {**entry,
+                        "value": canonical_value(qid, entry["value"])}
+        else:
+            out[qid] = entry
+    return out
+
+
+def display_option(qid: str, value: str, lang: str = "en") -> str:
+    """The canonical option in the report language (falls back to it)."""
+    key = {"pt-br": "pt", "en": "en", "es": "es"}.get(_lang(lang), "en")
+    target = fold(value)
+    for opt in OPTIONS.get(qid, []):
+        if fold(opt["pt"]) == target:
+            return opt.get(key) or opt["pt"]
+    return value
 
 
 # =========================================================
@@ -66,11 +146,11 @@ def _multi(responses: dict, qid: str) -> list[str]:
 
 
 def _matches(answer: Optional[str], *patterns: str) -> bool:
-    """Case-insensitive substring match: answer contains ANY pattern."""
+    """Folded substring match: answer contains ANY pattern."""
     if not answer:
         return False
-    a = answer.lower()
-    return any(p.lower() in a for p in patterns)
+    a = fold(answer)
+    return any(fold(p) in a for p in patterns)
 
 
 def _multi_count(items: list[str], *patterns: str) -> int:
@@ -79,7 +159,7 @@ def _multi_count(items: list[str], *patterns: str) -> int:
 
 
 # =========================================================
-# D2 — Copilot Adoption Maturity
+# D2: Copilot Adoption Maturity
 # =========================================================
 # Signals: license + frequency + mode breadth + features + perceived gain
 
@@ -141,7 +221,7 @@ def score_D2(responses: dict) -> Optional[float]:
 
 
 # =========================================================
-# D3 — MS/GH Tooling Breadth
+# D3: MS/GH Tooling Breadth
 # =========================================================
 # Counts advanced tools in USE (Foundry, Spaces, Coding Agent, MCP, etc.)
 
@@ -201,7 +281,7 @@ def score_D3(responses: dict) -> Optional[float]:
 
 
 # =========================================================
-# D4 — AI Dev Practices Maturity
+# D4: AI Dev Practices Maturity
 # =========================================================
 # TDD with AI + SDD + pair programming + AI across all dev phases
 
@@ -236,7 +316,7 @@ def score_D4(responses: dict) -> Optional[float]:
     score += min(n_moments * 0.4, 2.0)  # cap 2.0
 
     # Pair programmer mindset
-    if _matches(pair, "Sim — trato como par"): score += 1.5
+    if _matches(pair, "Sim, trato como par"): score += 1.5
     elif _matches(pair, "Às vezes"): score += 0.5
 
     # Refactoring
@@ -256,7 +336,7 @@ def score_D4(responses: dict) -> Optional[float]:
 
 
 # =========================================================
-# D5 — Agent Concepts Mastery
+# D5: Agent Concepts Mastery
 # =========================================================
 # Knowledge of key concepts + created primitives + tests agents
 
@@ -264,15 +344,15 @@ def score_D5(responses: dict) -> Optional[float]:
     """Agent Concepts Mastery (L0-L4)."""
     # Key concepts (S5 Q1-Q8 + Q9 personas)
     concept_questions = [
-        ("S5-Q1", ["Sim — explico claramente"]),         # AI agent
-        ("S5-Q2", ["Sim — uso conscientemente"]),        # Modes
+        ("S5-Q1", ["Sim, explico claramente"]),         # AI agent
+        ("S5-Q2", ["Sim, uso conscientemente"]),        # Modes
         ("S5-Q3", ["Já criei", "Já usei"]),              # Custom agents
         ("S5-Q4", ["Conheço e uso", "Conheço mas não uso"]),  # Skills
-        ("S5-Q5", ["Sim — várias", "Sim — uma ou duas"]),  # Prompt files
+        ("S5-Q5", ["Sim, várias", "Sim, uma ou duas"]),  # Prompt files
         ("S5-Q6", ["Uso", "Conheço o conceito"]),        # A2A
         ("S5-Q7", ["Uso", "Conheço o conceito"]),        # Handoffs
         ("S5-Q8", ["Uso", "Conheço o conceito"]),        # Subagents
-        ("S5-Q9", ["Sim — adoto", "Conheço o conceito"]),  # Personas
+        ("S5-Q9", ["Sim, adoto", "Conheço o conceito"]),  # Personas
     ]
 
     answered = 0
@@ -301,7 +381,7 @@ def score_D5(responses: dict) -> Optional[float]:
     # Bonus: tests agents (S5-Q10)
     tests = _ans(responses, "S5-Q10")
     test_bonus = 0
-    if _matches(tests, "Sempre — tenho test suite"): test_bonus = 1.0
+    if _matches(tests, "Sempre, tenho test suite"): test_bonus = 1.0
     elif _matches(tests, "Frequentemente"): test_bonus = 0.5
     elif _matches(tests, "Não crio agents"): test_bonus = 0  # neutral
 
@@ -316,7 +396,7 @@ def score_D5(responses: dict) -> Optional[float]:
 
 
 # =========================================================
-# D6 — Instructions Files Maturity
+# D6: Instructions Files Maturity
 # =========================================================
 
 def score_D6(responses: dict) -> Optional[float]:
@@ -371,7 +451,7 @@ def score_D6(responses: dict) -> Optional[float]:
 
 
 # =========================================================
-# D7 — Best Practices
+# D7: Best Practices
 # =========================================================
 
 def score_D7(responses: dict) -> Optional[float]:
@@ -393,10 +473,10 @@ def score_D7(responses: dict) -> Optional[float]:
     score += min(n_sources * 0.3, 1.5)
 
     # Champion
-    if _matches(champion, "Sim — eu sou", "Sim — outra pessoa"):
+    if _matches(champion, "Sim, eu sou", "Sim, outra pessoa"):
         score += 1.5
     elif _matches(champion, "Não, mas precisava"): score += 0
-    elif _matches(champion, "Não — cada um se vira"): score -= 0.5
+    elif _matches(champion, "Não, cada um se vira"): score -= 0.5
 
     # Internal channel
     if _matches(channel, "ativo (>5"): score += 1
@@ -424,7 +504,7 @@ def score_D7(responses: dict) -> Optional[float]:
 
 
 # =========================================================
-# D8 — Security & Governance Maturity
+# D8: Security & Governance Maturity
 # =========================================================
 # Critical: red flags weigh negatively
 
@@ -479,7 +559,7 @@ def score_D8(responses: dict) -> Optional[float]:
 
     # Code scanning gate
     if _matches(scan_in_pr, "gate obrigatório"): score += 1
-    elif _matches(scan_in_pr, "Sim — opcional"): score += 0.5
+    elif _matches(scan_in_pr, "Sim, opcional"): score += 0.5
 
     # SBOM
     if _matches(sbom, "automatizado"): score += 0.5
@@ -495,7 +575,7 @@ def score_D8(responses: dict) -> Optional[float]:
 
     # JIT permissions
     if _matches(jit, "JIT obrigatório"): score += 1
-    elif _matches(jit, "Sim — opcional"): score += 0.5
+    elif _matches(jit, "Sim, opcional"): score += 0.5
 
     # DLP
     if _matches(dlp, "bloqueia ativamente"): score += 0.5
@@ -565,9 +645,32 @@ DIMENSION_DESCRIPTIONS_PT = {
 }
 
 
+DIMENSION_DESCRIPTIONS_ES = {
+    "DS-D2": "Adopción y profundidad de uso de GitHub Copilot: frecuencia, "
+             "modos (Ask/Edit/Agent/Coding Agent), funcionalidades y ganancia "
+             "medida",
+    "DS-D3": "Amplitud de uso del ecosistema Microsoft/GitHub: Foundry, "
+             "Spaces, Coding Agent, MCP, Spec Kit y GHAS",
+    "DS-D4": "Prácticas estructuradas de IA: TDD, SDD, programación en "
+             "pareja, depuración y onboarding",
+    "DS-D5": "Conocimiento de conceptos avanzados (agentes, MCP, A2A, "
+             "handoffs, subagentes y personas de Agentic DevOps), creación de "
+             "primitivas y pruebas",
+    "DS-D6": "Madurez de archivos de instrucciones: copilot-instructions.md, "
+             "AGENTS.md, CLAUDE.md, mantenimiento y una biblioteca compartida "
+             "de prompts",
+    "DS-D7": "Cultura y usabilidad: Champions, métricas DORA/DX, comunidad y "
+             "compartir conocimiento",
+    "DS-D8": "Política de IA, GHAS, scanners, SBOM, alcance y límites rojos "
+             "de agentes, permisos JIT, auditoría y capacitación",
+}
+
+
 def dimension_description(did: str, desc_en: str, lang: str = "en") -> str:
     if _lang(lang) == "pt-br":
         return DIMENSION_DESCRIPTIONS_PT.get(did, desc_en)
+    if _lang(lang) == "es":
+        return DIMENSION_DESCRIPTIONS_ES.get(did, desc_en)
     return desc_en
 
 
@@ -586,6 +689,7 @@ def label_for(score: Optional[float], lang: str = "en") -> str:
 
 def score_respondent(responses: dict, lang: str = "en") -> dict:
     """Compute all 7 dimensions for a single respondent."""
+    responses = canonical_responses(responses)
     out = {}
     for did, name, fn, _ in DIMENSIONS:
         s = fn(responses)

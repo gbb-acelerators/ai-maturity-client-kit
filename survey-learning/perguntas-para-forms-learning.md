@@ -1,4 +1,4 @@
-# Perguntas para Microsoft Forms — Learning & Growth Survey
+# Perguntas para Microsoft Forms: Learning & Growth Survey
 
 > **Survey IDENTIFICADO** (nome + email) de 32 perguntas em 7 seções. Tempo estimado: **5-8 min**. Foca em o que devs querem APRENDER + formato preferido + barreiras + Champions.
 
@@ -11,7 +11,7 @@
 ## Como criar o Forms
 
 1. Acesse <https://forms.office.com> → **+ New Form**
-2. Título: `Learning & Growth IA — O que você quer aprender nos próximos 6 meses?`
+2. Título: `Learning & Growth IA: O que você quer aprender nos próximos 6 meses?`
 3. Subtítulo:
 
    ```text
@@ -25,19 +25,19 @@
    > **Aviso de privacidade.** Este survey coleta seu nome, e-mail, cargo e squad para planejar capacitação, convidar você para workshops e montar a Champions Network. As respostas não são usadas em avaliação de desempenho. Controlador e contato: `<time / e-mail>`. Acesso: `<quem vê respostas individuais>`. Retenção: `<prazo>`, depois excluídas. Você pode pedir acesso, correção ou exclusão das suas respostas em `<contato>`. Ao enviar, você concorda com este uso.
 
 4. **Settings** (⚙️):
-   - ☐ **Anonymous responses** (DESMARCADO — survey identificado)
+   - ☐ **Anonymous responses** (DESMARCADO, survey identificado)
    - ☑ **Only people in my organization** (recomendado)
    - ☑ **One response per person** (1 por dev)
    - ☑ **Accept responses**
    - ☑ Email notification of each response (você acompanha em tempo real)
 5. Adicione 7 seções (uma por L1..L7):
-   - **L1 — Identificação** (4 perguntas)
-   - **L2 — Auto-percepção de maturidade IA** (7 perguntas)
-   - **L3 — Onde quer crescer (priorização pessoal)** (2 perguntas)
-   - **L4 — Tópicos específicos que quer aprender** (5 perguntas)
-   - **L5 — Formato e cadência preferidos** (4 perguntas)
-   - **L6 — Champions e mentoria** (5 perguntas)
-   - **L7 — Barreiras e Wishlist** (5 perguntas)
+   - **L1: Identificação** (4 perguntas)
+   - **L2: Auto-percepção de maturidade IA** (7 perguntas)
+   - **L3: Onde quer crescer (priorização pessoal)** (2 perguntas)
+   - **L4: Tópicos específicos que quer aprender** (5 perguntas)
+   - **L5: Formato e cadência preferidos** (4 perguntas)
+   - **L6: Champions e mentoria** (5 perguntas)
+   - **L7: Barreiras e Wishlist** (5 perguntas)
 
 6. Para cada pergunta abaixo:
    - **`choice`** → Choice (Single answer)
@@ -57,21 +57,21 @@
 
 ---
 
-## L1 — Identificação
+## L1: Identificação
 
-_Survey IDENTIFICADO — vamos usar seu nome/email para CONVIDAR você para os workshops/cohorts certos. Não compartilhamos respostas individuais publicamente._
+_Survey IDENTIFICADO: vamos usar seu nome/email para CONVIDAR você para os workshops/cohorts certos. Não compartilhamos respostas individuais publicamente._
 
 _4 perguntas nesta seção._
 
-### Pergunta `L1-Q1` — _Short Text (1 linha)_
+### Pergunta `L1-Q1`: _Short Text (1 linha)_
 
 > **L1-Q1: Seu nome completo:**
 
-### Pergunta `L1-Q2` — _Short Text (1 linha)_
+### Pergunta `L1-Q2`: _Short Text (1 linha)_
 
 > **L1-Q2: Email corporativo (para convites de workshops):**
 
-### Pergunta `L1-Q3` — _Choice (single answer)_
+### Pergunta `L1-Q3`: _Choice (single answer)_
 
 > **L1-Q3: Cargo:**
 
@@ -89,7 +89,7 @@ Opções:
 - DevOps / DevEx
 - Outro
 
-### Pergunta `L1-Q4` — _Choice (single answer)_
+### Pergunta `L1-Q4`: _Choice (single answer)_
 
 > **L1-Q4: Time / Squad:**
 
@@ -100,105 +100,105 @@ Opções:
 
 ---
 
-## L2 — Auto-percepção de maturidade IA
+## L2: Auto-percepção de maturidade IA
 
-_Avalie sua confiança HOJE em cada uma das 7 dimensões da rubrica de maturidade. Honestidade conta — quanto mais real, melhor o plano._
+_Avalie sua confiança HOJE em cada uma das 7 dimensões da rubrica de maturidade. Honestidade conta: quanto mais real, melhor o plano._
 
 _7 perguntas nesta seção._
 
-### Pergunta `L2-Q1` — _Choice (single answer)_
+### Pergunta `L2-Q1`: _Choice (single answer)_
 
 > **L2-Q1: **DS-D2 Copilot Adoption** (modos Ask/Edit/Agent/Coding Agent, features, ganho mensurado): qual seu nível?**
 
 Opções:
 
-- L0 — Nunca usei ou não conheço
-- L1 — Sei o básico (inline completion)
-- L2 — Uso Ask/Edit no dia-a-dia
-- L3 — Uso Agent + Spaces, mensuro ganho
-- L4 — Domino Coding Agent autônomo, prompt library do time
+- L0: Nunca usei ou não conheço
+- L1: Sei o básico (inline completion)
+- L2: Uso Ask/Edit no dia-a-dia
+- L3: Uso Agent + Spaces, mensuro ganho
+- L4: Domino Coding Agent autônomo, prompt library do time
 
-### Pergunta `L2-Q2` — _Choice (single answer)_
+### Pergunta `L2-Q2`: _Choice (single answer)_
 
 > **L2-Q2: **DS-D3 Microsoft/GitHub Tooling** (Foundry, Spaces, Coding Agent, MCP, Spec Kit, GHAS): qual seu nível?**
 
 Opções:
 
-- L0 — Não conheço o ecossistema
-- L1 — Conheço de nome
-- L2 — Uso 2-3 ferramentas básicas
-- L3 — Uso 4+ ferramentas avançadas
-- L4 — Domino o ecossistema completo (incl. Foundry/MCP)
+- L0: Não conheço o ecossistema
+- L1: Conheço de nome
+- L2: Uso 2-3 ferramentas básicas
+- L3: Uso 4+ ferramentas avançadas
+- L4: Domino o ecossistema completo (incl. Foundry/MCP)
 
-### Pergunta `L2-Q3` — _Choice (single answer)_
+### Pergunta `L2-Q3`: _Choice (single answer)_
 
 > **L2-Q3: **DS-D4 AI Dev Practices** (TDD com IA, SDD, pair programming, debugging com IA): qual seu nível?**
 
 Opções:
 
-- L0 — Nenhuma prática estruturada
-- L1 — Uso IA pontualmente
-- L2 — TDD ou SDD ocasional
-- L3 — Trato IA como pair em várias fases
-- L4 — Pair programmer mindset completo + SDD com Spec Kit
+- L0: Nenhuma prática estruturada
+- L1: Uso IA pontualmente
+- L2: TDD ou SDD ocasional
+- L3: Trato IA como pair em várias fases
+- L4: Pair programmer mindset completo + SDD com Spec Kit
 
-### Pergunta `L2-Q4` — _Choice (single answer)_
+### Pergunta `L2-Q4`: _Choice (single answer)_
 
 > **L2-Q4: **DS-D5 Agent Concepts** (custom agents, skills, prompts, MCP, A2A, handoffs, subagentes, personas Agentic DevOps): qual seu nível?**
 
 Opções:
 
-- L0 — Não sei o que é um agente
-- L1 — Conheço só o básico
-- L2 — Conheço modos do Copilot
-- L3 — Já criei custom agents/skills/prompts
-- L4 — Domino MCP, A2A, subagentes, testo agents
+- L0: Não sei o que é um agente
+- L1: Conheço só o básico
+- L2: Conheço modos do Copilot
+- L3: Já criei custom agents/skills/prompts
+- L4: Domino MCP, A2A, subagentes, testo agents
 
-### Pergunta `L2-Q5` — _Choice (single answer)_
+### Pergunta `L2-Q5`: _Choice (single answer)_
 
 > **L2-Q5: **DS-D6 Instructions / Memory** (copilot-instructions.md, AGENTS.md, CLAUDE.md, Spaces, prompt library): qual seu nível?**
 
 Opções:
 
-- L0 — Não uso instructions files
-- L1 — Tenho 1 arquivo básico
-- L2 — Uso e atualizo ocasionalmente
-- L3 — Time mantém ativamente
-- L4 — Prompt library compartilhada + Spaces colaborativos
+- L0: Não uso instructions files
+- L1: Tenho 1 arquivo básico
+- L2: Uso e atualizo ocasionalmente
+- L3: Time mantém ativamente
+- L4: Prompt library compartilhada + Spaces colaborativos
 
-### Pergunta `L2-Q6` — _Choice (single answer)_
+### Pergunta `L2-Q6`: _Choice (single answer)_
 
 > **L2-Q6: **DS-D7 Best Practices** (Champion, métricas DORA/DX, comunidade, compartilha prompts): qual seu nível?**
 
 Opções:
 
-- L0 — Não tenho cultura de IA estruturada
-- L1 — Auto-aprendizado isolado
-- L2 — Tenho Champion no time
-- L3 — Mensuro DORA/DX + compartilho com colegas
-- L4 — Comunidade ativa + revisão regular de adoção
+- L0: Não tenho cultura de IA estruturada
+- L1: Auto-aprendizado isolado
+- L2: Tenho Champion no time
+- L3: Mensuro DORA/DX + compartilho com colegas
+- L4: Comunidade ativa + revisão regular de adoção
 
-### Pergunta `L2-Q7` — _Choice (single answer)_
+### Pergunta `L2-Q7`: _Choice (single answer)_
 
 > **L2-Q7: **DS-D8 Security & Governance** (política IA, GHAS, SBOM, JIT permissions, red-lines de agents, audit): qual seu nível?**
 
 Opções:
 
-- L0 — Sem política, sem ferramentas
-- L1 — Política informal
-- L2 — GHAS ativo + política básica
-- L3 — Scanners obrigatórios + SBOM + treinamento
-- L4 — JIT permissions + red-lines docs + audit revisado
+- L0: Sem política, sem ferramentas
+- L1: Política informal
+- L2: GHAS ativo + política básica
+- L3: Scanners obrigatórios + SBOM + treinamento
+- L4: JIT permissions + red-lines docs + audit revisado
 
 ---
 
-## L3 — Onde quer crescer (priorização pessoal)
+## L3: Onde quer crescer (priorização pessoal)
 
 _Pensando nos próximos 6 meses, em que dimensões você MAIS quer evoluir?_
 
 _2 perguntas nesta seção._
 
-### Pergunta `L3-Q1` — _Choice (multiple answers)_
+### Pergunta `L3-Q1`: _Choice (multiple answers)_
 
 > **L3-Q1: Selecione as **3 dimensões PRIORITÁRIAS** para você crescer nos próximos 6 meses (escolha exatamente 3):**
 
@@ -212,19 +212,19 @@ Opções:
 - DS-D7 Best Practices (DORA, comunidade, mentoria)
 - DS-D8 Security & Governance (GHAS, SBOM, red-lines)
 
-### Pergunta `L3-Q2` — _Long Text (resposta livre)_
+### Pergunta `L3-Q2`: _Long Text (resposta livre)_
 
-> **L3-Q2: Por que escolheu essas 3 dimensões? (1-2 frases — opcional mas ajuda muito)**
+> **L3-Q2: Por que escolheu essas 3 dimensões? (1-2 frases: opcional mas ajuda muito)**
 
 ---
 
-## L4 — Tópicos específicos que quer aprender
+## L4: Tópicos específicos que quer aprender
 
 _Marque TODOS os tópicos que você gostaria de aprender ou aprofundar._
 
 _5 perguntas nesta seção._
 
-### Pergunta `L4-Q1` — _Choice (multiple answers)_
+### Pergunta `L4-Q1`: _Choice (multiple answers)_
 
 > **L4-Q1: Quais tópicos de **GitHub Copilot** você quer dominar?**
 
@@ -233,7 +233,7 @@ Opções:
 - Modo Ask (perguntas eficazes)
 - Modo Edit (edição multi-arquivo)
 - Modo Agent (autônomo no IDE)
-- Coding Agent (autônomo no GitHub.com — assigna issue, abre PR)
+- Coding Agent (autônomo no GitHub.com, assigna issue, abre PR)
 - Copilot Spaces (contexto compartilhado)
 - PR review com Copilot
 - Test generation
@@ -241,13 +241,13 @@ Opções:
 - Copilot CLI
 - Já domino tudo isso
 
-### Pergunta `L4-Q2` — _Choice (multiple answers)_
+### Pergunta `L4-Q2`: _Choice (multiple answers)_
 
 > **L4-Q2: Quais tópicos de **Microsoft Foundry / Azure AI** você quer aprender?**
 
 Opções:
 
-- Microsoft Foundry — visão geral
+- Microsoft Foundry, visão geral
 - Foundry Agent Service (criar agentes)
 - Azure OpenAI Service (API direta)
 - Embeddings + RAG
@@ -258,7 +258,7 @@ Opções:
 - Foundry Memory (long-term context)
 - Não tenho interesse em Foundry hoje
 
-### Pergunta `L4-Q3` — _Choice (multiple answers)_
+### Pergunta `L4-Q3`: _Choice (multiple answers)_
 
 > **L4-Q3: Quais tópicos de **práticas com IA** você quer aprender?**
 
@@ -274,7 +274,7 @@ Opções:
 - Onboarding em projeto novo com IA + Spaces
 - Documentação automática
 
-### Pergunta `L4-Q4` — _Choice (multiple answers)_
+### Pergunta `L4-Q4`: _Choice (multiple answers)_
 
 > **L4-Q4: Quais tópicos de **agentes e primitives** você quer aprender?**
 
@@ -290,7 +290,7 @@ Opções:
 - Testar agents (test suites para prompts/skills)
 - Guardrails / red-lines de agents
 
-### Pergunta `L4-Q5` — _Choice (multiple answers)_
+### Pergunta `L4-Q5`: _Choice (multiple answers)_
 
 > **L4-Q5: Quais tópicos de **segurança e governança** você quer aprender?**
 
@@ -308,13 +308,13 @@ Opções:
 
 ---
 
-## L5 — Formato e cadência preferidos
+## L5: Formato e cadência preferidos
 
 _Como você aprende melhor?_
 
 _4 perguntas nesta seção._
 
-### Pergunta `L5-Q1` — _Choice (multiple answers)_
+### Pergunta `L5-Q1`: _Choice (multiple answers)_
 
 > **L5-Q1: Quais formatos de aprendizado funcionam melhor para você?**
 
@@ -332,7 +332,7 @@ Opções:
 - Show & tell de colegas
 - Documentação escrita + tentativa-e-erro
 
-### Pergunta `L5-Q2` — _Choice (single answer)_
+### Pergunta `L5-Q2`: _Choice (single answer)_
 
 > **L5-Q2: Quanto tempo por SEMANA você dedicaria a aprender IA/Copilot?**
 
@@ -344,7 +344,7 @@ Opções:
 - 4-6h/semana
 - Mais de 6h/semana
 
-### Pergunta `L5-Q3` — _Choice (multiple answers)_
+### Pergunta `L5-Q3`: _Choice (multiple answers)_
 
 > **L5-Q3: Que horário/dia funciona melhor para workshops síncronos?**
 
@@ -355,9 +355,9 @@ Opções:
 - Sexta tarde (low-stress)
 - Almoço (lunch & learn)
 - Após expediente (com hora extra)
-- Não consigo síncrono — só self-paced
+- Não consigo síncrono, só self-paced
 
-### Pergunta `L5-Q4` — _Choice (single answer)_
+### Pergunta `L5-Q4`: _Choice (single answer)_
 
 > **L5-Q4: Prefere cohorts (grupo fixo aprendendo junto) ou self-paced (no seu ritmo)?**
 
@@ -370,62 +370,62 @@ Opções:
 
 ---
 
-## L6 — Champions e mentoria
+## L6: Champions e mentoria
 
 _Sobre comunidade interna e mentoria._
 
 _5 perguntas nesta seção._
 
-### Pergunta `L6-Q1` — _Choice (single answer)_
+### Pergunta `L6-Q1`: _Choice (single answer)_
 
 > **L6-Q1: Você se candidataria como **Champion de IA** no seu time/empresa (ajudar outros, organizar workshops)?**
 
 Opções:
 
-- Sim — quero ser Champion ativo
-- Sim — mas só se tiver suporte/treino dedicado
-- Talvez — preciso pensar
+- Sim, quero ser Champion ativo
+- Sim, mas só se tiver suporte/treino dedicado
+- Talvez, preciso pensar
 - Não tenho interesse hoje
 
-### Pergunta `L6-Q2` — _Long Text (resposta livre)_
+### Pergunta `L6-Q2`: _Long Text (resposta livre)_
 
 > **L6-Q2: Quem no seu time/empresa você considera **referência em IA** hoje? (nome opcional, ajuda a mapear champions naturais)**
 
-### Pergunta `L6-Q3` — _Choice (single answer)_
+### Pergunta `L6-Q3`: _Choice (single answer)_
 
 > **L6-Q3: Você gostaria de mentoria 1:1 com alguém mais experiente em IA?**
 
 Opções:
 
-- Sim — mentor sênior em IA
-- Sim — peer mentoring (mesmo nível, troca mútua)
-- Não — prefiro auto-aprendizado
+- Sim, mentor sênior em IA
+- Sim, peer mentoring (mesmo nível, troca mútua)
+- Não, prefiro auto-aprendizado
 - Outro (especifique no campo livre)
 
-### Pergunta `L6-Q4` — _Choice (single answer)_
+### Pergunta `L6-Q4`: _Choice (single answer)_
 
 > **L6-Q4: Você se ofereceria para mentorar/ensinar OUTRAS pessoas em algum tópico?**
 
 Opções:
 
-- Sim — em vários tópicos
-- Sim — em 1 tópico específico
-- Talvez — depende do tópico
+- Sim, em vários tópicos
+- Sim, em 1 tópico específico
+- Talvez, depende do tópico
 - Não me sinto pronto
 
-### Pergunta `L6-Q5` — _Long Text (resposta livre)_
+### Pergunta `L6-Q5`: _Long Text (resposta livre)_
 
 > **L6-Q5: Se respondeu sim à anterior, em QUE tópico(s) você se sentiria confortável mentorando?**
 
 ---
 
-## L7 — Barreiras e Wishlist
+## L7: Barreiras e Wishlist
 
 _O que te impede de aprender mais? E que workshop você gostaria de organizar/atender?_
 
 _5 perguntas nesta seção._
 
-### Pergunta `L7-Q1` — _Choice (multiple answers)_
+### Pergunta `L7-Q1`: _Choice (multiple answers)_
 
 > **L7-Q1: Quais BARREIRAS te impedem de aprender mais sobre IA hoje?**
 
@@ -441,27 +441,27 @@ Opções:
 - Não sei por onde começar
 - Não vejo prioridade clara da liderança
 - Falta de orçamento para cursos pagos
-- Tudo bem — sem barreiras significativas
+- Tudo bem, sem barreiras significativas
 
-### Pergunta `L7-Q2` — _Long Text (resposta livre)_
+### Pergunta `L7-Q2`: _Long Text (resposta livre)_
 
 > **L7-Q2: Que **workshop interno** você gostaria que existisse (mesmo se for ambicioso)?**
 
-### Pergunta `L7-Q3` — _Long Text (resposta livre)_
+### Pergunta `L7-Q3`: _Long Text (resposta livre)_
 
 > **L7-Q3: Que **palestrante externo** (interno/parceiro/comunidade) você gostaria de trazer?**
 
-### Pergunta `L7-Q4` — _Long Text (resposta livre)_
+### Pergunta `L7-Q4`: _Long Text (resposta livre)_
 
 > **L7-Q4: Algo mais que queira compartilhar sobre seu desejo de aprendizado em IA?**
 
-### Pergunta `L7-Q5` — _Choice (single answer)_
+### Pergunta `L7-Q5`: _Choice (single answer)_
 
 > **L7-Q5: Você quer receber o **plano de capacitação consolidado** (resultado deste survey) por email?**
 
 Opções:
 
-- Sim — quero ver o plano e os workshops sugeridos
+- Sim, quero ver o plano e os workshops sugeridos
 - Não, obrigado
 
 ---

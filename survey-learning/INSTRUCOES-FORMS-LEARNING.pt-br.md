@@ -5,13 +5,13 @@
 **`🅲️ SURVEY-LEARNING`** · _identificado_ · 📖 [🏠 Índice](../README.pt-br.md) · [« Survey-devs](../survey-devs/INSTRUCOES-FORMS-DEVS.pt-br.md) · Você está aqui · [» Wizard](../wizard/README.md)
 
 > [!WARNING]
-> Diferente dos outros 2 surveys, este é **IDENTIFICADO** (nome + email obrigatórios). É 32 perguntas em 7 seções para construir o **roadmap de capacitação personalizado** da equipe — workshops, cohorts, Champions Network, mentoria. Tempo estimado por dev: **5-8 min**.
+> Diferente dos outros 2 surveys, este é **IDENTIFICADO** (nome + email obrigatórios). É 32 perguntas em 7 seções para construir o **roadmap de capacitação personalizado** da equipe: workshops, cohorts, Champions Network, mentoria. Tempo estimado por dev: **5-8 min**.
 
 **Diferente dos outros 2 surveys:**
 
 - Assessment principal: maturidade organizacional (Likert L0-L4 declarada por liderança)
 - Developer Survey: comportamento real ANÔNIMO
-- **Este Learning Survey: roadmap de capacitação IDENTIFICADO** — precisa nome+email para convidar pessoas certas para workshops certos
+- **Este Learning Survey: roadmap de capacitação IDENTIFICADO**: precisa nome+email para convidar pessoas certas para workshops certos
 
 ---
 
@@ -41,7 +41,7 @@ Se sua organização preferir **anonimato puro**: rode o **Developer Survey** (`
 | **L1** | Identificação | Nome, email, cargo, time | 4 |
 | **L2** | Auto-percepção de maturidade | Auto-avaliação L0-L4 nas 7 dimensões D2-D8 | 7 |
 | **L3** | Onde quer crescer | Top 3 dimensões prioritárias (próximos 6 meses) + por quê | 2 |
-| **L4** | Tópicos específicos | Copilot, Foundry, práticas (TDD/SDD), agents, segurança — checkbox | 5 |
+| **L4** | Tópicos específicos | Copilot, Foundry, práticas (TDD/SDD), agents, segurança: checkbox | 5 |
 | **L5** | Formato e cadência | Workshop hands-on, cohort, self-paced, horários, tempo/semana | 4 |
 | **L6** | Champions e mentoria | Quer ser Champion? Mentoria? Quem é referência? | 5 |
 | **L7** | Barreiras e Wishlist | O que impede + workshops desejados + palestrantes | 5 |
@@ -54,7 +54,7 @@ Se sua organização preferir **anonimato puro**: rode o **Developer Survey** (`
 ### Passo 1 · Criar formulário
 
 1. Acesse <https://forms.office.com> → **+ New Form**
-2. Título: `Learning & Growth IA — O que você quer aprender nos próximos 6 meses?`
+2. Título: `Learning & Growth IA: O que você quer aprender nos próximos 6 meses?`
 3. Subtítulo (cole):
 
 ```text
@@ -62,7 +62,7 @@ Survey de 5-8 min sobre seu plano de capacitação em IA.
 
 ⚠️ IDENTIFICADO: vamos usar seu nome+email para CONVIDAR você para os
 workshops/cohorts certos. As respostas individuais NÃO serão compartilhadas
-publicamente — apenas insights agregados + listas de inscritos por workshop.
+publicamente: apenas insights agregados + listas de inscritos por workshop.
 
 Resultado: plano de capacitação personalizado + cohorts + Champions Network.
 ```
@@ -84,13 +84,13 @@ Resultado: plano de capacitação personalizado + cohorts + Champions Network.
 ### Passo 3 · Criar 7 seções
 
 ```text
-Section 1: L1 — Identificação                  (4 questões)
-Section 2: L2 — Auto-percepção (D2-D8)         (7 questões)
-Section 3: L3 — Onde quer crescer              (2 questões)
-Section 4: L4 — Tópicos específicos            (5 questões)
-Section 5: L5 — Formato e cadência             (4 questões)
-Section 6: L6 — Champions e mentoria           (5 questões)
-Section 7: L7 — Barreiras e Wishlist           (5 questões)
+Section 1: L1: Identificação                  (4 questões)
+Section 2: L2: Auto-percepção (D2-D8)         (7 questões)
+Section 3: L3: Onde quer crescer              (2 questões)
+Section 4: L4: Tópicos específicos            (5 questões)
+Section 5: L5: Formato e cadência             (4 questões)
+Section 6: L6: Champions e mentoria           (5 questões)
+Section 7: L7: Barreiras e Wishlist           (5 questões)
 ```
 
 ### Passo 4 · Adicionar as 32 perguntas
@@ -115,7 +115,7 @@ Use [`perguntas-para-forms-learning.md`](perguntas-para-forms-learning.md) como 
 
 ### Passo 5 · Customizar L1-Q4 (lista de squads)
 
-A pergunta L1-Q4 ("Time / Squad") tem placeholder `[Lista a customizar pela org]` — substitua pelos nomes reais dos squads da sua organização. Exemplo:
+A pergunta L1-Q4 ("Time / Squad") tem placeholder `[Lista a customizar pela org]`: substitua pelos nomes reais dos squads da sua organização. Exemplo:
 
 ```text
 - Squad Pagamentos
@@ -130,7 +130,7 @@ A pergunta L1-Q4 ("Time / Squad") tem placeholder `[Lista a customizar pela org]
 
 1. **+ Send / Collect responses** → **Link**
 2. Compartilhar com **TODOS os devs**:
-   - Email do líder de engenharia: "Nas próximas 2 semanas, queremos ouvir o que vocês querem aprender em IA — survey de 5-8 min, IDENTIFICADO. Resultado: plano de capacitação personalizado."
+   - Email do líder de engenharia: "Nas próximas 2 semanas, queremos ouvir o que vocês querem aprender em IA, survey de 5-8 min, IDENTIFICADO. Resultado: plano de capacitação personalizado."
    - Slack/Teams canal #engineering
    - All-hands (apresentar o link)
 
@@ -176,7 +176,7 @@ Gera `saida/plano-capacitacao-<DATE>.md` com:
 
 ### Passo 10 · ⭐ Auto-fill do wizard (Mode D)
 
-Depois de gerar o plano, ao rodar `/wizard-implementacao`, o Copilot Agent **detecta automaticamente** o `saida/plano-capacitacao-*.md` e oferece **Mode D — Auto-fill** que preenche **7 dos 11 campos** do wizard automaticamente:
+Depois de gerar o plano, ao rodar `/wizard-implementacao`, o Copilot Agent **detecta automaticamente** o `saida/plano-capacitacao-*.md` e oferece **Mode D: Auto-fill** que preenche **7 dos 11 campos** do wizard automaticamente:
 
 | Input do wizard (Parte 4 do PDF) | Vem de |
 |---|---|
@@ -207,7 +207,7 @@ A skill detecta:
 
 ---
 
-## 🅱️ Caminho alternativo — Excel/SharePoint direto
+## 🅱️ Caminho alternativo: Excel/SharePoint direto
 
 Para times pequenos (3-5 devs):
 
@@ -250,7 +250,7 @@ Este survey trata dados pessoais (nome, e-mail, cargo, squad, autoavaliação). 
 ### Transparência do plano
 
 - Apresentar o `plano-capacitacao-DATA.md` em all-hands
-- Pessoas que pediram workshop X recebem convite — fechar o loop
+- Pessoas que pediram workshop X recebem convite: fechar o loop
 - Champions identificados são reconhecidos publicamente (com consentimento)
 
 ---
@@ -285,13 +285,13 @@ Este survey trata dados pessoais (nome, e-mail, cargo, squad, autoavaliação). 
 ## Travou em algum desses passos?
 
 <details>
-<summary><strong>FAQ — dúvidas comuns no Learning & Growth Survey (identificado)</strong></summary>
+<summary><strong>FAQ: dúvidas comuns no Learning & Growth Survey (identificado)</strong></summary>
 
 | Sintoma | Causa provável | Como resolver |
 |---|---|---|
 | Excel chega sem nome/email | **Anonymous responses** está marcado (este survey precisa ser identificado) | Settings do Forms → ❌ DESmarcar **Anonymous responses** |
 | Como uso o plano para convidar pessoas? | O plano traz nome+email por workshop | Copie lista de inscritos do markdown → cole em Outlook/Teams meeting invite |
-| Champions Network está vazio no plano gerado | Ninguém respondeu "sim" em L6-Q1 | Sem Champions auto-declarados — use ranking por dimensão como proxy |
+| Champions Network está vazio no plano gerado | Ninguém respondeu "sim" em L6-Q1 | Sem Champions auto-declarados: use ranking por dimensão como proxy |
 | Cohorts estão vazios em algumas dimensões | Menos de 3 respondentes por dimensão | Peça reforço na campanha ou aceite cohorts menores |
 | Posso re-rodar o plano se mais respostas chegarem? | Sim, é idempotente | Re-exporte Excel → `/importar-survey-learning` → `/plano-capacitacao` |
 
@@ -303,7 +303,7 @@ Este survey trata dados pessoais (nome, e-mail, cargo, squad, autoavaliação). 
 
 | ← ANTERIOR | PRÓXIMO → |
 |:---|---:|
-| **[Developer Survey (anônimo)](../survey-devs/INSTRUCOES-FORMS-DEVS.pt-br.md)** | **[Wizard — Parte 4](../wizard/README.md)** |
+| **[Developer Survey (anônimo)](../survey-devs/INSTRUCOES-FORMS-DEVS.pt-br.md)** | **[Wizard: Parte 4](../wizard/README.md)** |
 | 75 perguntas anônimas: Copilot, agentes, governança. | Personalizar Steering Committee, RACI, ADKAR, Quick Wins do PDF executivo. |
 
 ↑ [Voltar ao Índice do kit](../README.pt-br.md)

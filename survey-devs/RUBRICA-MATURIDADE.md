@@ -118,7 +118,7 @@ Weighted sum (max ~10 points), mapped to 0-4:
 
 **(c) Agent tests (S5-Q10)** (15% of the weight):
 
-- "Sempre — test suite" [always, with a test suite] → +1.0
+- "Sempre, test suite" [always, with a test suite] → +1.0
 - "Frequentemente" [frequently] → +0.5
 - "Não crio agents" [I do not create agents] → 0 (neutral)
 
@@ -151,7 +151,7 @@ Weighted sum (max ~10 points), mapped to 0-4:
 | Question | Signal | Points |
 |---|---|---|
 | `S7-Q1` Learning sources (multi) | n_sources × 0.3 (cap 1.5) | up to +1.5 |
-| `S7-Q2` Champion | "Sim — eu sou" [yes, it is me] / "outra pessoa" [someone else] | +1.5 |
+| `S7-Q2` Champion | "Sim, eu sou" [yes, it is me] / "outra pessoa" [someone else] | +1.5 |
 |  | "Cada um se vira" [everyone figures it out alone] | -0.5 |
 | `S7-Q3` Internal channel | ">5 mensagens/sem" [>5 messages/week] | +1 |
 |  | "pouco ativo" [not very active] | +0.5 |
@@ -218,14 +218,14 @@ distribution(D) = % of respondents in each L0-L4
   },
   "team_overall": {
     "score": 2.22,
-    "label": "L2 — Definido",
+    "label": "L2: Definido",
     "respondents_with_overall": 12
   },
   "dimensions": {
     "DS-D2": {
       "name": "Copilot Adoption",
       "team_score": 0.80,
-      "label": "L1 — Em Desenvolvimento",
+      "label": "L1: Em Desenvolvimento",
       "respondents_with_score": 12,
       "distribution_count": {"L0": 5, "L1": 5, "L2": 2, "L3": 0, "L4": 0},
       "distribution_pct": {"L0": 41.7, "L1": 41.7, "L2": 16.7, "L3": 0, "L4": 0}

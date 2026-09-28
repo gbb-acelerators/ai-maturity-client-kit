@@ -69,4 +69,4 @@ The insights report section 12 links to v2 questions, not v1 capabilities. The v
 6. Re-run make pipeline if you want the v2 summary PDF to include Developer Survey context.
 ```
 
-Scripts write EN by default or PT-BR with `--lang pt-br`. They do not write Spanish outputs.
+Scripts write EN by default, PT-BR with `--lang pt-br` or Spanish with `--lang es`. The EN and ES question banks translate the answer options; [options.json](options.json) maps the options of all three languages (and older Portuguese forms whose options had dashes) to the same canonical option before scoring, so the result does not depend on the form language.

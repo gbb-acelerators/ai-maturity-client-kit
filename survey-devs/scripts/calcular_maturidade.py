@@ -54,6 +54,7 @@ STRINGS = {
                 "report.",
     },
     "pt-br": {
+        "empty": "-",
         "missing": "❌ Input não encontrado: {path}",
         "run_import": "   Rode /importar-survey-devs primeiro.",
         "computing": "\n📊 Calculando maturidade IA: {n} respondentes "
@@ -73,6 +74,28 @@ STRINGS = {
         "rank_item": "   {i}. {did} {name}: {score:.2f} ({label})",
         "next": "Próximo: /insights-developer-survey gera o relatório "
                 "completo em PT-BR.",
+    },
+    "es": {
+        "missing": "❌ Input no encontrado: {path}",
+        "run_import": "   Ejecuta /importar-survey-devs primero.",
+        "computing": "\n📊 Calculando madurez de IA: {n} encuestados "
+                     "(anónimos)\n",
+        "none": "❌ No hay encuestados.",
+        "output": "✓ Output: {path}\n",
+        "title": "MADUREZ DE IA DEL EQUIPO (n={n} devs anónimos)",
+        "overall": "\n🎯 General: {score:.2f} ({label})\n",
+        "no_overall": "\n⚠ No hay cobertura suficiente para calcular el "
+                      "resultado general.\n",
+        "col_dim": "Dimensión",
+        "col_label": "Etiqueta",
+        "col_dist": "Distribución (% devs)",
+        "no_data": "Sin datos",
+        "empty": "-",
+        "top": "🏆 Top 3 dimensiones más fuertes:",
+        "bottom": "⚠ Top 3 dimensiones más débiles (oportunidades):",
+        "rank_item": "   {i}. {did} {name}: {score:.2f} ({label})",
+        "next": "Siguiente: /insights-developer-survey genera el informe "
+                "completo.",
     },
 }
 

@@ -69,4 +69,4 @@ A seção 12 do relatório de insights aponta para perguntas v2, não para capac
 6. Rode make pipeline novamente se quiser que o PDF de sumário v2 inclua contexto do Developer Survey.
 ```
 
-Os scripts escrevem EN por padrão ou PT-BR com `--lang pt-br`. Eles não escrevem saídas em espanhol.
+Os scripts escrevem EN por padrão, PT-BR com `--lang pt-br` ou espanhol com `--lang es`. Os bancos EN e ES traduzem as opções de resposta; [options.json](options.json) mapeia as opções dos três idiomas (e de formulários antigos em português com travessões nas opções) para a mesma opção canônica antes de pontuar, então o resultado não depende do idioma do formulário.

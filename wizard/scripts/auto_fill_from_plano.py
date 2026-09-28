@@ -27,17 +27,17 @@ import branding  # noqa: E402
 
 SUPPORTED_LANGS = ("en", "pt-br", "es")
 
-# Heading patterns accept both the English and the Portuguese plan.
+# Heading patterns accept the English, Portuguese and Spanish plan.
 # An optional emoji may precede the heading text.
 EMOJI = r"(?:\S+ )?"
-H_SUMMARY = r"1 · (?:Sumário Executivo|Executive Summary)"
+H_SUMMARY = r"1 · (?:Sumário Executivo|Executive Summary|Resumen ejecutivo)"
 H_COHORTS = r"3 · (?:Cohorts sugeridos|Suggested cohorts)"
 H_CHAMPIONS = r"4 · Champions Network"
-H_CALENDAR = r"5 · (?:Calendário sugerido|Suggested calendar)"
-H_FORMAT = r"6 · (?:Formato e cadência|Preferred format)"
-H_BARRIERS = r"7 · (?:Barreiras|Barriers)"
+H_CALENDAR = r"5 · (?:Calendário sugerido|Calendario sugerido|Suggested calendar)"
+H_FORMAT = r"6 · (?:Formato e cadência|Formato y cadencia|Preferred format)"
+H_BARRIERS = r"7 · (?:Barreiras|Barreras|Barriers)"
 H_SCHEDULE = rf"11 · {EMOJI}(?:Cronograma|30-day schedule)"
-H_ACTIVE = r"### 🥇 (?:Ativos|Active)"
+H_ACTIVE = r"### 🥇 (?:Ativos|Activos|Active)"
 H_FORMATS_SUB = r"### (?:Formatos|Formats)"
 # "1. **topic** — N devs" (PT) or "1. **topic**: N devs" (EN)
 TOPIC_LINE = r"^\d+\.\s+\*\*(.+?)\*\*(?: —|:) (\d+) devs"
@@ -295,7 +295,7 @@ def extract_active_people(plano_md: str) -> list[tuple[str, str]]:
     if not active_block:
         return []
     rows = re.findall(
-        r"^\|\s*([^|]+?)\s*\|\s*([^|@]+@[^|\s]+)\s*\|",
+        r"^\|\s*([^|]+?)\s*\|\s*<?([^|@<>\s]+@[^|\s<>]+)>?\s*\|",
         active_block.group(1),
         re.MULTILINE,
     )

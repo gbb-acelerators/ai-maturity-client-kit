@@ -24,7 +24,7 @@ Os rótulos do banco de perguntas do Learning Survey usam `L#-Q#`. Quando uma pe
 | [INSTRUCOES-FORMS-LEARNING.md](INSTRUCOES-FORMS-LEARNING.md) | Como montar o Microsoft Forms identificado. |
 | [perguntas-para-forms-learning.md](perguntas-para-forms-learning.md) | Banco canônico em PT-BR. |
 | [perguntas-para-forms-learning.en.md](perguntas-para-forms-learning.en.md) | Banco de perguntas em inglês. |
-| [perguntas-para-forms-learning.es.md](perguntas-para-forms-learning.es.md) | Banco de perguntas em espanhol para coleta. Scripts ainda escrevem saídas apenas em EN ou PT-BR. |
+| [perguntas-para-forms-learning.es.md](perguntas-para-forms-learning.es.md) | Banco de perguntas em espanhol para coleta. Os scripts escrevem EN, PT-BR ou ES (`--lang es`). |
 | [template-export-forms-learning.xlsx](template-export-forms-learning.xlsx) | Template Excel. |
 | [respostas-mock-learning.json](respostas-mock-learning.json) | JSON estruturado de exemplo. |
 | [scripts/](scripts/) | Gerador do plano de capacitação. |

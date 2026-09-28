@@ -1,4 +1,4 @@
-# Rubrica de Maturidade IA — Developer Survey
+# Rubrica de Maturidade IA: Developer Survey
 
 🌐 [English](RUBRICA-MATURIDADE.md) · Português (Brasil)
 
@@ -11,21 +11,21 @@
 
 ## 🎯 Princípios
 
-1. **Determinística** — mesma resposta sempre produz o mesmo nível. Sem LLM, sem aleatoriedade.
-2. **Auditável** — cada regra documentada neste arquivo, código replica 1:1.
-3. **Conservadora** — na dúvida, desce o nível (evita inflar maturidade declarada).
-4. **Anônimo** — calcula por respondente individualmente, mas **só agregados** saem no relatório (média, distribuição).
+1. **Determinística**: mesma resposta sempre produz o mesmo nível. Sem LLM, sem aleatoriedade.
+2. **Auditável**: cada regra documentada neste arquivo, código replica 1:1.
+3. **Conservadora**: na dúvida, desce o nível (evita inflar maturidade declarada).
+4. **Anônimo**: calcula por respondente individualmente, mas **só agregados** saem no relatório (média, distribuição).
 5. **Faixas do v1**: usa as faixas L0-L4 do assessment v1 (Inicial a Otimizando). O framework v2 usa outras faixas (largura 0,8) e outros nomes de nível, então compare os resultados do survey e do v2 pela nota e pelas perguntas v2 listadas abaixo, não pelo nome do nível.
 
 ## 🧭 Escala (faixas do assessment v1)
 
 | Faixa | Rótulo | Descrição |
 |---|---|---|
-| `< 0.5` | **L0 — Inicial** | Sem prática, sem conhecimento, sem ferramenta |
-| `[0.5, 1.5)` | **L1 — Em Desenvolvimento** | Adoção pontual, conhecimento básico |
-| `[1.5, 2.5)` | **L2 — Definido** | Uso regular, conhece conceitos chave |
-| `[2.5, 3.5)` | **L3 — Gerenciado** | Adoção ampla, conhece avançados, mede impacto |
-| `≥ 3.5` | **L4 — Otimizando** | Domínio completo, cria primitivos, otimização contínua |
+| `< 0.5` | **L0 Inicial** | Sem prática, sem conhecimento, sem ferramenta |
+| `[0.5, 1.5)` | **L1 Em Desenvolvimento** | Adoção pontual, conhecimento básico |
+| `[1.5, 2.5)` | **L2 Definido** | Uso regular, conhece conceitos chave |
+| `[2.5, 3.5)` | **L3 Gerenciado** | Adoção ampla, conhece avançados, mede impacto |
+| `≥ 3.5` | **L4 Otimizando** | Domínio completo, cria primitivos, otimização contínua |
 
 > **IDs:** as dimensões do survey são `DS-D2` a `DS-D8`. O prefixo `DS-` as separa das dimensões `D1` a `D9` do assessment v2, que têm outros significados. `survey_crosswalk` em [framework.v2.json](../framework.v2.json) lista as perguntas v2 que cada dimensão do survey ajuda a validar; o survey nunca altera as notas do v2.
 
@@ -41,11 +41,11 @@
 | **DS-D7** | **Best Practices** | S7 (9 q) | Champion, métricas DORA/DX, comunidade, compartilhamento |
 | **DS-D8** | **Security & Governance** | S8 (13 q) | Política, GHAS, scanners, SBOM, JIT, red-lines, audit, treinamento |
 
-> **Excluídas do score:** S1 (perfil — só categoriza) e S9 (texto livre — vira quotes).
+> **Excluídas do score:** S1 (perfil: só categoriza) e S9 (texto livre: vira quotes).
 
 ## ⚖️ Regras detalhadas por dimensão
 
-### DS-D2 — Copilot Adoption
+### DS-D2: Copilot Adoption
 
 | Resposta-chave | Sinaliza |
 |---|---|
@@ -56,7 +56,7 @@
 | Acima + `S2-Q3: usa Agent ou Coding Agent` + `S2-Q5: 4+ features` + ganho positivo | **L3** |
 | Acima + `S2-Q3: Coding Agent` + `S2-Q5: Spaces` + `S2-Q7: ganho >40%` + `S2-Q5: 5+ features` | **L4** |
 
-### DS-D3 — MS/GH Tooling Breadth
+### DS-D3: MS/GH Tooling Breadth
 
 Score ponto-a-ponto: `n_tools (S3-Q1) + advanced_signals (S3-Q3, Q4, Q6, Q2)`
 
@@ -75,7 +75,7 @@ Score ponto-a-ponto: `n_tools (S3-Q1) + advanced_signals (S3-Q3, Q4, Q6, Q2)`
 - `score 1-2` → **L1**
 - `score 0` → **L0**
 
-### DS-D4 — AI Dev Practices
+### DS-D4: AI Dev Practices
 
 Soma ponderada (max ~10 pontos), mapeada para 0-4:
 
@@ -96,7 +96,7 @@ Soma ponderada (max ~10 pontos), mapeada para 0-4:
 
 **Mapping:** `score / 10 × 4` → arredondado.
 
-### DS-D5 — Agent Concepts Mastery
+### DS-D5: Agent Concepts Mastery
 
 3 componentes:
 
@@ -116,7 +116,7 @@ Soma ponderada (max ~10 pontos), mapeada para 0-4:
 
 **(c) Testes de agents (S5-Q10)** (15% do peso):
 
-- "Sempre — test suite" → +1.0
+- "Sempre, test suite" → +1.0
 - "Frequentemente" → +0.5
 - "Não crio agents" → 0 (neutro)
 
@@ -124,7 +124,7 @@ Soma ponderada (max ~10 pontos), mapeada para 0-4:
 
 **Cobertura mínima:** se `<5` perguntas respondidas → retorna `None` (não scored).
 
-### DS-D6 — Instructions Maturity
+### DS-D6: Instructions Maturity
 
 | Pergunta | Sinal | Pontos |
 |---|---|---|
@@ -144,12 +144,12 @@ Soma ponderada (max ~10 pontos), mapeada para 0-4:
 
 **Mapping:** `score / 9 × 4`.
 
-### DS-D7 — Best Practices
+### DS-D7: Best Practices
 
 | Pergunta | Sinal | Pontos |
 |---|---|---|
 | `S7-Q1` Learning sources (multi) | n_fontes × 0.3 (cap 1.5) | até +1.5 |
-| `S7-Q2` Champion | "Sim — eu sou" / "outra pessoa" | +1.5 |
+| `S7-Q2` Champion | "Sim, eu sou" / "outra pessoa" | +1.5 |
 |  | "Cada um se vira" | -0.5 |
 | `S7-Q3` Internal channel | ">5 mensagens/sem" | +1 |
 |  | "pouco ativo" | +0.5 |
@@ -162,7 +162,7 @@ Soma ponderada (max ~10 pontos), mapeada para 0-4:
 
 **Mapping:** `score / 8 × 4`.
 
-### DS-D8 — Security & Governance (CRÍTICO — conservadora)
+### DS-D8: Security & Governance (CRÍTICO: conservadora)
 
 Maior número de regras + penalizações por red flags:
 
@@ -216,14 +216,14 @@ distribuição(D) = % de respondentes em cada L0-L4
   },
   "team_overall": {
     "score": 2.22,
-    "label": "L2 — Definido",
+    "label": "L2: Definido",
     "respondents_with_overall": 12
   },
   "dimensions": {
     "DS-D2": {
       "name": "Copilot Adoption",
       "team_score": 0.80,
-      "label": "L1 — Em Desenvolvimento",
+      "label": "L1: Em Desenvolvimento",
       "respondents_with_score": 12,
       "distribution_count": {"L0": 5, "L1": 5, "L2": 2, "L3": 0, "L4": 0},
       "distribution_pct": {"L0": 41.7, "L1": 41.7, "L2": 16.7, "L3": 0, "L4": 0}

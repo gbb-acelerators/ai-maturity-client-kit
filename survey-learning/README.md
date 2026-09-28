@@ -24,7 +24,7 @@ Learning Survey question bank labels use `L#-Q#`. Where a question refers to Dev
 | [INSTRUCOES-FORMS-LEARNING.md](INSTRUCOES-FORMS-LEARNING.md) | How to build the identified Microsoft Forms. |
 | [perguntas-para-forms-learning.md](perguntas-para-forms-learning.md) | Canonical PT-BR question bank. |
 | [perguntas-para-forms-learning.en.md](perguntas-para-forms-learning.en.md) | English question bank. |
-| [perguntas-para-forms-learning.es.md](perguntas-para-forms-learning.es.md) | Spanish question bank for collection. Scripts still write EN or PT-BR outputs only. |
+| [perguntas-para-forms-learning.es.md](perguntas-para-forms-learning.es.md) | Spanish question bank for collection. The scripts write EN, PT-BR or ES (`--lang es`). |
 | [template-export-forms-learning.xlsx](template-export-forms-learning.xlsx) | Excel template. |
 | [respostas-mock-learning.json](respostas-mock-learning.json) | Sample structured JSON. |
 | [scripts/](scripts/) | Capacitation plan generator. |

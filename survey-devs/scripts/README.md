@@ -10,9 +10,9 @@ Scripts that compute developer AI maturity from the anonymous Developer Survey.
 
 | File | Purpose |
 | --- | --- |
-| [rubric.py](rubric.py) | Deterministic rubric across `DS-D2` to `DS-D8`. Maps answers to scores. The score bands match the v1 survey rubric. |
+| [rubric.py](rubric.py) | Deterministic rubric across `DS-D2` to `DS-D8`. Maps answers (from Forms in EN, PT-BR or ES, through [../options.json](../options.json)) to scores. The score bands match the v1 survey rubric. |
 | [calcular_maturidade.py](calcular_maturidade.py) | Reads `survey-devs/respostas-devs.json` and generates `saida/maturidade-developer-survey-<date>.json` with `DS-D#` keys. |
-| [gerar_insights.py](gerar_insights.py) | Generates `saida/insights-developer-survey-<date>.md`. Section 12 links survey signals to v2 questions. English by default; pass `--lang pt-br` for PT-BR. |
+| [gerar_insights.py](gerar_insights.py) | Generates `saida/insights-developer-survey-<date>.md`. Section 12 links survey signals to v2 questions. English by default; pass `--lang pt-br` or `--lang es`. Option tables are shown in the report language. |
 
 ## Usage
 
@@ -20,6 +20,7 @@ Scripts that compute developer AI maturity from the anonymous Developer Survey.
 python3 survey-devs/scripts/calcular_maturidade.py
 python3 survey-devs/scripts/gerar_insights.py
 python3 survey-devs/scripts/gerar_insights.py --lang pt-br
+python3 survey-devs/scripts/gerar_insights.py --lang es
 ```
 
 Survey outputs are context for v2 reports. They never change v2 scores.

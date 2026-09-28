@@ -75,6 +75,7 @@ SHARED_RUNTIME_ROOTS = [
     "coleta/v1/template-export-forms.xlsx",
     "survey-devs/scripts",
     "survey-devs/respostas-mock-devs.json",
+    "survey-devs/options.json",
     "survey-devs/template-export-forms-devs.xlsx",
     "survey-learning/scripts",
     "survey-learning/respostas-mock-learning.json",
@@ -139,7 +140,7 @@ LANGUAGE_NOTES = {
   português com os nomes base (`README.md`, `GUIA-PASSO-A-PASSO.md` etc.).
 - Relatórios são gerados em inglês por padrão. Para PT-BR, defina
   `metadata.language` como `"pt-BR"` em `respostas.json`. Os relatórios dos
-  surveys aceitam `--lang pt-br`.
+  surveys aceitam `--lang pt-br` (ou `en`, `es`).
 - Os assistentes HTML (formulário offline, wizard e calculadora) têm
   seletor de idioma e abrem em português neste pacote.
 - Arquivos de customização do Copilot em `.github/`: mantidos em inglês por
@@ -155,7 +156,7 @@ LANGUAGE_NOTES = {
   the English quickstart, step-by-step guide and Forms instructions.
 - Reports default to English. Set `metadata.language` to `"pt-BR"` or `"es"`
   in `respostas.json` for other languages. Survey reports accept
-  `--lang en` or `--lang pt-br`.
+  `--lang en`, `--lang pt-br` or `--lang es`.
 - The HTML helpers (offline form, wizard, calculator) have a language
   selector and follow the browser language.
 - Copilot customization files in `.github/`: intentionally kept in English
@@ -173,7 +174,7 @@ LANGUAGE_NOTES = {
   inglés.
 - Los informes se generan en inglés por defecto. Define `metadata.language`
   como `"es"` en `respostas.json` para español. Los informes de los surveys
-  complementarios aceptan `--lang en` o `--lang pt-br`.
+  complementarios aceptan `--lang en`, `--lang pt-br` o `--lang es`.
 - Los asistentes HTML (formulario offline, wizard y calculadora) tienen
   selector de idioma y siguen el idioma del navegador.
 - Archivos de customización de Copilot en `.github/`: se mantienen en inglés
