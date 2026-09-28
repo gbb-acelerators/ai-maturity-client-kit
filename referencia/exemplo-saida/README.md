@@ -17,7 +17,7 @@ The folder root holds the PT-BR example. [en/](en/) and [es/](es/) hold the same
 | `v2_implementation_guide.pdf` | Governance, phased plan by priority, change management, risks from the flags, success metrics and the first 90 days |
 | `comparacao-rodadas.pdf` | Round comparison from the v1 example to the v2 mock (indicative baseline through the v1 lineage) |
 
-The PT-BR and EN implementation guides use wizard inputs filled by `wizard/scripts/auto_fill_from_plano.py` from the Learning and Growth Survey mock. The ES guide has no wizard inputs, so it shows the "to fill with the client" markers: the survey scripts write EN and PT-BR only.
+The implementation guides in all three languages use wizard inputs filled by `wizard/scripts/auto_fill_from_plano.py` from the Learning and Growth Survey mock. For the EN and ES examples the survey mocks are answered as if the forms were built in that language (options translated through the banks and `survey-devs/options.json`); free-text answers stay as written.
 
 ## Data files
 

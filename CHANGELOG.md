@@ -40,6 +40,13 @@ All notable changes to the AI Maturity client kit. Dates are ISO 8601.
   the survey context when a survey result exists.
 - CI workflow (`.github/workflows/ci.yml`) for tests, generated files,
   packages, smoke tests and the demo.
+- Developer Survey in three languages: the EN and ES banks translate the
+  answer options, and `survey-devs/options.json` maps every language (and
+  older Portuguese options with dashes) to the same canonical option, so
+  scores do not depend on the form language. The insights show options in
+  the report language.
+- Spanish output for the survey scripts (`--lang es`) and Spanish plan
+  headings in the wizard auto-fill; the ES example now shows the full flow.
 
 - Framework v2: 9 dimensions, 61 questions and 5 profile questions
   (`R-Q1` to `R-Q5`), generated from
@@ -86,6 +93,9 @@ All notable changes to the AI Maturity client kit. Dates are ISO 8601.
 - PT-BR and ES: translated profile options, clearer dimension names (D4,
   D5, D6) and comma decimals in the PDFs.
 - Every HTML helper uses the Microsoft four-square logo.
+- Survey banks, export templates and survey docs no longer use em or en
+  dashes; generated survey Markdown passes Markdown lint and shows emails
+  as links.
 - Spec v2.0.1: form titles start with the question ID; scoring rules made
   precise (half-open bands, empty dimensions, weights, coverage,
   perception-gap groups, minimum sample, scope caveat, evidence rule);
@@ -105,6 +115,8 @@ All notable changes to the AI Maturity client kit. Dates are ISO 8601.
 - EN and ES packages shipped their root guides with broken `../` links.
 - The Developer Survey insights linked to v1 capabilities; they now link
   to v2 questions.
+- `calcular_maturidade.py --lang pt-br` failed on a dimension without data
+  (missing text key).
 - Six `SKILL.md` files had invalid YAML front matter.
 - `referencia/pontuacao-e-calculo.xlsx` stored explanatory text as broken
   formulas.

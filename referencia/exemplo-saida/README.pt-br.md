@@ -17,7 +17,7 @@ A raiz da pasta tem o exemplo em PT-BR. [en/](en/) e [es/](es/) têm os mesmos P
 | `v2_implementation_guide.pdf` | Governança, plano por fases conforme a prioridade, gestão da mudança, riscos vindos das flags, métricas de sucesso e os primeiros 90 dias |
 | `comparacao-rodadas.pdf` | Comparação entre rodadas do exemplo v1 para o mock v2 (linha de base indicativa pela linhagem v1) |
 
-Os guias de implementação em PT-BR e EN usam entradas do wizard preenchidas por `wizard/scripts/auto_fill_from_plano.py` a partir do mock do Learning and Growth Survey. O guia em ES não tem entradas do wizard e por isso mostra as marcações "a completar con el cliente": os scripts dos surveys só geram EN e PT-BR.
+Os guias de implementação nos três idiomas usam entradas do wizard preenchidas por `wizard/scripts/auto_fill_from_plano.py` a partir do mock do Learning and Growth Survey. Nos exemplos EN e ES, os mocks dos surveys são respondidos como se os formulários tivessem sido montados nesse idioma (opções traduzidas pelos bancos e por `survey-devs/options.json`); respostas de texto livre ficam como foram escritas.
 
 ## Arquivos de dados
 

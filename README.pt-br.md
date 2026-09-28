@@ -104,7 +104,7 @@ O Developer Survey e o Learning and Growth Survey são sinais complementares. Re
 - `framework.v2.json` contém o crosswalk de cada `DS-D#` para as perguntas v2 que ele ajuda a validar.
 - O PDF de sumário v2 mostra contexto do Developer Survey quando `saida/maturidade-developer-survey-*.json` existe.
 - A rubrica do survey mantém as bandas v1, então compare por score, não pelo nome do nível.
-- Scripts de survey escrevem apenas EN ou PT-BR.
+- Scripts de survey escrevem EN, PT-BR ou ES (`--lang en|pt-br|es`). Os bancos do Developer Survey traduzem as opções de resposta em todos os idiomas; `survey-devs/options.json` as mapeia para as mesmas opções canônicas, então a nota não depende do idioma do formulário.
 
 ## Arquivo v1
 

@@ -164,7 +164,7 @@ Developer Survey e Learning and Growth Survey fornecem contexto. Eles não mudam
 - Dimensões do Developer Survey são `DS-D2` a `DS-D8` nas saídas.
 - O PDF de sumário v2 mostra contexto do Developer Survey quando `saida/maturidade-developer-survey-*.json` existe.
 - A saída do Learning Survey pode alimentar o Mode D do wizard de implementação.
-- Scripts de survey escrevem apenas EN ou PT-BR.
+- Scripts de survey escrevem EN, PT-BR ou ES (`--lang en|pt-br|es`) e pontuam da mesma forma formulários montados em qualquer um dos três idiomas.
 
 ## 11. Valide as fontes do repositório
 

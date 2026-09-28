@@ -11,6 +11,10 @@ Use existing survey-devs tooling. Do not mix its dimensions into assessment scor
 
 Developer Survey outputs use `DS-D2` to `DS-D8`. Forms with older `D2` style text still parse. When the Developer Survey appears beside the v2 assessment, call its dimensions `DS-D#`.
 
+## Form languages
+
+The survey can be built from the PT-BR, EN or ES bank. Each bank shows the answer options in its language; `survey-devs/options.json` maps every option (and older Portuguese options with dashes) back to the same canonical option before scoring, so results do not depend on the form language. Keep the exported option text as it is; never translate answers by hand.
+
 ## Procedure
 
 Run the repository script or Make target documented under [survey-devs/](../../../survey-devs/). Keep outputs in `saida/` and report respondent count, warnings, and next step.

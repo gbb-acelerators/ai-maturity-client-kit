@@ -164,7 +164,7 @@ Developer Survey and Learning and Growth Survey provide context. They do not cha
 - Developer Survey dimensions are `DS-D2` to `DS-D8` in outputs.
 - The v2 summary PDF shows Developer Survey context when `saida/maturidade-developer-survey-*.json` exists.
 - Learning Survey output can feed the implementation guide wizard Mode D.
-- Survey scripts write EN or PT-BR only.
+- Survey scripts write EN, PT-BR or ES (`--lang en|pt-br|es`), and score forms built in any of the three languages the same way.
 
 ## 11. Validate repository sources
 

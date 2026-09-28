@@ -11,4 +11,4 @@ Versión en español de los seis PDFs de referencia del framework v2, generados 
 | `v2_implementation_guide.pdf` | Guía de implementación sin entradas del wizard: muestra qué completar con el cliente |
 | `comparacao-rodadas.pdf` | Comparación entre rondas del ejemplo v1 al mock v2 (indicativa) |
 
-Los scripts de los surveys complementarios generan EN y PT-BR, por eso este ejemplo no trae contexto del Developer Survey ni entradas del wizard. El ejemplo v1 archivado (5 PDFs) está en [../v1/es/](../v1/es/).
+Este ejemplo también trae el contexto del Developer Survey y las entradas del wizard completadas a partir del plan de capacitación, con los mocks de los surveys respondidos como si los formularios estuvieran en español. El ejemplo v1 archivado (5 PDFs) está en [../v1/es/](../v1/es/).

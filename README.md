@@ -104,7 +104,7 @@ The Developer Survey and Learning and Growth Survey are companion signals. Surve
 - `framework.v2.json` contains the survey crosswalk from each `DS-D#` to the v2 questions it helps validate.
 - The v2 summary PDF shows Developer Survey context when `saida/maturidade-developer-survey-*.json` exists.
 - The survey rubric keeps the v1 score bands, so compare by score, not by level name.
-- Survey scripts write EN or PT-BR only.
+- Survey scripts write EN, PT-BR or ES (`--lang en|pt-br|es`). The Developer Survey banks translate the answer options in every language; `survey-devs/options.json` maps them back to the same canonical options, so scores do not depend on the form language.
 
 ## v1 archive
 

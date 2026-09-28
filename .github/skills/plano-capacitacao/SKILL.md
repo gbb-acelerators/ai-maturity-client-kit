@@ -13,7 +13,7 @@ Use the existing survey-learning scripts and outputs. Do not derive cohorts, ran
 python3 survey-learning/scripts/gerar_plano_capacitacao.py
 ```
 
-Pass `--lang pt-br` for PT-BR. Survey scripts write EN or PT-BR only.
+Pass `--lang pt-br` or `--lang es` for PT-BR or Spanish output (default EN).
 
 ## Dimension names
 

@@ -11,6 +11,10 @@ The Developer Survey is a companion signal for v2. It is not a scoring input.
 
 Use the existing survey-devs scripts and generated JSON or Markdown artifacts. Do not score responses by hand.
 
+## Languages
+
+`python3 survey-devs/scripts/gerar_insights.py --lang en|pt-br|es` writes the report in that language and shows answer options in it, whatever language the form used.
+
 ## Dimension naming
 
 Developer Survey dimensions are `DS-D2` to `DS-D8`. Reserve `D1` to `D9` for the v2 assessment.

@@ -70,7 +70,7 @@ Reports and skills should surface these signals when present in script output: l
 - Developer Survey dimensions are `DS-D2` to `DS-D8` in outputs.
 - `framework.v2.json` contains the crosswalk from `DS-D#` to v2 questions.
 - Survey results never change v2 scores.
-- Survey scripts write EN or PT-BR only.
+- Survey scripts write EN, PT-BR or ES (`--lang en|pt-br|es`). The EN and ES banks translate the Developer Survey options; `survey-devs/options.json` maps every language back to the canonical option before scoring.
 
 ## Docs and links
 
