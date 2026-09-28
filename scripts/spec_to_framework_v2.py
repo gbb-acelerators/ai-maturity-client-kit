@@ -238,6 +238,9 @@ def build() -> tuple[dict, list[str]]:
         "technologies_per_strategy": conf["technologies_per_strategy"],
         "report_groups": conf["report_groups"],
         "personas": conf["personas"],
+        "survey_crosswalk": {k: v for k, v in
+                             conf.get("survey_crosswalk", {}).items()
+                             if not k.startswith("_")},
         "profile_questions": spec["profile"],
         "dimensions": dims,
         "references": spec["references"],

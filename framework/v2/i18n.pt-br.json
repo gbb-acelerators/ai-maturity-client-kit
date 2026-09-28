@@ -10,7 +10,7 @@
   "dimensions": {
     "D1": {
       "name": "Estratégia, política e governança de IA",
-      "why_it_matters": "DORA identifica uma \"postura de IA clara e comunicada\" como amplificadora dos benefícios da IA [1]; o Microsoft CAF exige que \"todo agente deve ser observável, governado e seguro\" [19]."
+      "why_it_matters": "DORA identifica uma \"postura de IA clara e comunicada\" como amplificadora dos benefícios da IA [1], [2]; o Microsoft CAF afirma que \"todo agente deve ser observável, governado e seguro\" [19]."
     },
     "D2": {
       "name": "Capacitação, habilidades e cultura",
@@ -21,16 +21,16 @@
       "why_it_matters": "em agentic coding, \"as pessoas tomam a maior parte das decisões de planejamento (o que fazer) e Claude toma a maior parte das decisões de execução (como fazer)\" [24]; a qualidade da definição da tarefa impulsiona a qualidade da saída do agente [8], [27]."
     },
     "D4": {
-      "name": "Code e engenharia de contexto",
+      "name": "Código e engenharia de contexto",
       "why_it_matters": "GitHub mede a profundidade de adoção como uma progressão de \"Code first\" para \"Agent first\" e \"Multi-agent\" [6]; a Anthropic descreve contexto como \"um recurso finito com retornos marginais decrescentes\" [25]."
     },
     "D5": {
-      "name": "Review, qualidade e testes",
+      "name": "Revisão, qualidade e testes",
       "why_it_matters": "DORA vincula o volume de mudanças impulsionadas por IA à instabilidade, a menos que existam sistemas de controle fortes [3]; GitHub exige revisão humana antes que PRs de agentes sejam mergeados [7]; 46% dos desenvolvedores desconfiam da precisão da saída de IA [37]."
     },
     "D6": {
-      "name": "Segurança e AI Supply Chain",
-      "why_it_matters": "OWASP lista prompt injection (LLM01), supply chain (LLM03) e agência excessiva (LLM06) entre os principais riscos [38], e agent goal hijack (ASI01) em primeiro lugar para aplicações agentic [39]; NIST SP 800-218A adiciona práticas específicas de IA ao SSDF [40]."
+      "name": "Segurança e cadeia de suprimentos de IA",
+      "why_it_matters": "OWASP lista prompt injection (LLM01:2025), supply chain (LLM03:2025) e agência excessiva (LLM06:2025) entre os principais riscos [38], e agent goal hijack (ASI01) em primeiro lugar para aplicações agentic [39]; NIST SP 800-218A adiciona ao SSDF práticas para o desenvolvimento de modelos de IA [40]."
     },
     "D7": {
       "name": "Entregar e operar",
@@ -186,7 +186,7 @@
       "text": "Quão profundamente os engenheiros usam IA entre superfícies: completions e edições de agentes no IDE, superfícies de agentes do GitHub (cloud agent, code review, CLI), e vários agentes juntos?",
       "l3": "Muitos engenheiros usam regularmente pelo menos uma superfície de agente do GitHub (\"Agent first\"), confirmado por métricas de uso.",
       "l4": "Uso multi-agent é normal (\"Multi-agent\"), com distribuição de coortes rastreada mensalmente.",
-      "l1_l2": "Principalmente completions e chat (\"Code first\").",
+      "l1_l2": "Principalmente completions e edições de agente no IDE (\"Code first\"); uso só de chat conta como Passive nas coortes do GitHub.",
       "evidence_examples": "Dashboard ou API de métricas de uso do Copilot: distribuição de coortes de adoção, usuários ativos diários/semanais.",
       "scope_note": "Mede quão profundamente IA é usada. Se esse uso é medido é D9-Q1."
     },
@@ -250,7 +250,7 @@
     "D5-Q2": {
       "title": "Human-in-the-loop para mudanças de agentes",
       "text": "Pull requests criados por agentes exigem aprovação humana independente (não o solicitante), com workflow runs aprovadas antes de executarem?",
-      "l3": "Proteções padrão são mantidas: PRs de agentes precisam de um aprovador independente; \"Approve and run workflows\" não é desabilitado sem uma decisão de risco documentada.",
+      "l3": "Proteções padrão são mantidas: PRs de agentes precisam de um aprovador humano independente (aprovações do Copilot, se habilitadas, não contam); \"Approve and run workflows\" não é desabilitado sem uma decisão de risco documentada.",
       "l4": "Requisitos de aprovação escalam com o risco (D1-Q5) e são auditados; exceções expiram automaticamente.",
       "evidence_examples": "Rulesets, branch protection, configurações de agentes."
     },
@@ -310,7 +310,7 @@
       "title": "Defesas contra prompt injection para agentes",
       "text": "Agentes são protegidos contra prompt injection e goal hijack (conteúdo não confiável tratado como dados, instruções ocultas filtradas, saída de rede restrita)?",
       "l3": "Agent firewalls e restrições de egress permanecem ativados; a orientação informa às equipes quais fontes de conteúdo não são confiáveis.",
-      "l4": "Agentes passam regularmente por red team contra cenários OWASP LLM01 e ASI01; achados são rastreados até o fechamento.",
+      "l4": "Agentes passam regularmente por red team contra cenários OWASP LLM01:2025 e ASI01; achados são rastreados até o fechamento.",
       "evidence_examples": "Configuração de firewall, relatórios de red team."
     },
     "D6-Q4": {
@@ -491,14 +491,14 @@
       "title": "Função principal",
       "text": "Qual opção descreve melhor sua função principal?",
       "options": [
-        "Software engineer / developer",
-        "Engineering manager / tech lead",
-        "Arquiteto",
-        "Platform / DevOps / SRE engineer",
-        "Security / AppSec",
-        "QA / test engineer",
-        "Product / program manager",
-        "Executive (CTO, VP, Director)",
+        "Engenheiro(a) de software / desenvolvedor(a)",
+        "Gerente de engenharia / tech lead",
+        "Arquiteto(a)",
+        "Engenheiro(a) de plataforma / DevOps / SRE",
+        "Segurança / AppSec",
+        "Engenheiro(a) de QA / testes",
+        "Gerente de produto / programa",
+        "Executivo(a) (CTO, VP, Diretor(a))",
         "Outro"
       ]
     },
@@ -513,15 +513,15 @@
       ]
     },
     "R-Q3": {
-      "title": "Principais ferramentas de AI coding",
+      "title": "Principais ferramentas de IA para código",
       "text": "Quais ferramentas de IA você usa pelo menos semanalmente para trabalho de software? (múltiplas respostas)",
       "options": [
-        "GitHub Copilot no IDE (completions, chat, agent mode)",
+        "GitHub Copilot no IDE (autocompletar, chat, modo agente)",
         "GitHub Copilot cloud agent / code review / CLI",
         "Claude Code ou Claude em outros clientes",
         "Ferramentas internas baseadas em Microsoft Foundry / Azure OpenAI",
-        "Outras ferramentas comerciais de AI coding",
-        "Modelos internos ou self-hosted",
+        "Outras ferramentas comerciais de IA para código",
+        "Modelos internos ou auto-hospedados",
         "Nenhuma"
       ]
     },
@@ -536,8 +536,8 @@
       ]
     },
     "R-Q5": {
-      "title": "Tempo hands-on",
-      "text": "Em uma semana típica, quanto do seu tempo é hands-on construindo (code, configuração, testes)?",
+      "title": "Tempo prático (hands-on)",
+      "text": "Em uma semana típica, quanto do seu tempo é prático, construindo (código, configuração, testes)?",
       "options": [
         "Menos de 20%",
         "20-50%",

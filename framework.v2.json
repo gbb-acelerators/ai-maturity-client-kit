@@ -74,6 +74,7 @@
     },
     "strategy_min_cumulative": 0.9,
     "persona_min_n": 3,
+    "divergence_sd_min": 1.0,
     "amplifier_dimensions": [
       "D5",
       "D6",
@@ -294,6 +295,43 @@
       "More than 80%"
     ]
   },
+  "survey_crosswalk": {
+    "DS-D2": [
+      "D4-Q1",
+      "D4-Q2",
+      "D9-Q1"
+    ],
+    "DS-D3": [
+      "D4-Q3",
+      "D4-Q6",
+      "D3-Q2",
+      "D6-Q1"
+    ],
+    "DS-D4": [
+      "D3-Q2",
+      "D5-Q5",
+      "D2-Q6"
+    ],
+    "DS-D5": [
+      "D2-Q4",
+      "D4-Q5"
+    ],
+    "DS-D6": [
+      "D4-Q4",
+      "D4-Q5"
+    ],
+    "DS-D7": [
+      "D2-Q2",
+      "D9-Q4"
+    ],
+    "DS-D8": [
+      "D1-Q2",
+      "D6-Q1",
+      "D6-Q4",
+      "D6-Q5",
+      "D6-Q7"
+    ]
+  },
   "profile_questions": [
     {
       "id": "R-Q1",
@@ -321,25 +359,25 @@
           "Other"
         ],
         "pt-br": [
-          "Software engineer / developer",
-          "Engineering manager / tech lead",
-          "Arquiteto",
-          "Platform / DevOps / SRE engineer",
-          "Security / AppSec",
-          "QA / test engineer",
-          "Product / program manager",
-          "Executive (CTO, VP, Director)",
+          "Engenheiro(a) de software / desenvolvedor(a)",
+          "Gerente de engenharia / tech lead",
+          "Arquiteto(a)",
+          "Engenheiro(a) de plataforma / DevOps / SRE",
+          "Segurança / AppSec",
+          "Engenheiro(a) de QA / testes",
+          "Gerente de produto / programa",
+          "Executivo(a) (CTO, VP, Diretor(a))",
           "Outro"
         ],
         "es": [
-          "Software engineer / developer",
-          "Engineering manager / tech lead",
-          "Arquitecto",
-          "Platform / DevOps / SRE engineer",
-          "Security / AppSec",
-          "QA / test engineer",
-          "Product / program manager",
-          "Executive (CTO, VP, Director)",
+          "Ingeniero(a) de software / desarrollador(a)",
+          "Gerente de ingeniería / tech lead",
+          "Arquitecto(a)",
+          "Ingeniero(a) de plataforma / DevOps / SRE",
+          "Seguridad / AppSec",
+          "Ingeniero(a) de QA / pruebas",
+          "Gerente de producto / programa",
+          "Ejecutivo(a) (CTO, VP, Director(a))",
           "Otro"
         ]
       }
@@ -382,8 +420,8 @@
       "id": "R-Q3",
       "title": {
         "en": "Primary AI coding tools",
-        "pt-br": "Principais ferramentas de AI coding",
-        "es": "Herramientas principales de AI coding"
+        "pt-br": "Principais ferramentas de IA para código",
+        "es": "Herramientas principales de IA para código"
       },
       "text": {
         "en": "Which AI tools do you use at least weekly for software work? (multiple answers)",
@@ -402,21 +440,21 @@
           "None"
         ],
         "pt-br": [
-          "GitHub Copilot no IDE (completions, chat, agent mode)",
+          "GitHub Copilot no IDE (autocompletar, chat, modo agente)",
           "GitHub Copilot cloud agent / code review / CLI",
           "Claude Code ou Claude em outros clientes",
           "Ferramentas internas baseadas em Microsoft Foundry / Azure OpenAI",
-          "Outras ferramentas comerciais de AI coding",
-          "Modelos internos ou self-hosted",
+          "Outras ferramentas comerciais de IA para código",
+          "Modelos internos ou auto-hospedados",
           "Nenhuma"
         ],
         "es": [
-          "GitHub Copilot en el IDE (completions, chat, agent mode)",
+          "GitHub Copilot en el IDE (autocompletado, chat, modo agente)",
           "GitHub Copilot cloud agent / code review / CLI",
           "Claude Code o Claude en otros clientes",
           "Herramientas internas basadas en Microsoft Foundry / Azure OpenAI",
-          "Otras herramientas comerciales de AI coding",
-          "Modelos internos o self-hosted",
+          "Otras herramientas comerciales de IA para código",
+          "Modelos internos o autoalojados",
           "Ninguna"
         ]
       }
@@ -459,13 +497,13 @@
       "id": "R-Q5",
       "title": {
         "en": "Hands-on time",
-        "pt-br": "Tempo hands-on",
-        "es": "Tiempo hands-on"
+        "pt-br": "Tempo prático (hands-on)",
+        "es": "Tiempo práctico (hands-on)"
       },
       "text": {
         "en": "In a typical week, how much of your time is hands-on building (code, configuration, tests)?",
-        "pt-br": "Em uma semana típica, quanto do seu tempo é hands-on construindo (code, configuração, testes)?",
-        "es": "En una semana típica, ¿cuánto de tu tiempo es hands-on construyendo (code, configuración, pruebas)?"
+        "pt-br": "Em uma semana típica, quanto do seu tempo é prático, construindo (código, configuração, testes)?",
+        "es": "En una semana típica, ¿cuánto de tu tiempo es práctico, construyendo (código, configuración, pruebas)?"
       },
       "multi": false,
       "options": {
@@ -499,9 +537,9 @@
         "es": "Estrategia, política y gobernanza de IA"
       },
       "why_it_matters": {
-        "en": "DORA identifies a \"clear and communicated AI stance\" as an amplifier of AI benefits [1]; Microsoft CAF requires that \"every agent must be observable, governed, and secure\" [19].",
-        "pt-br": "DORA identifica uma \"postura de IA clara e comunicada\" como amplificadora dos benefícios da IA [1]; o Microsoft CAF exige que \"todo agente deve ser observável, governado e seguro\" [19].",
-        "es": "DORA identifica una \"postura de IA clara y comunicada\" como amplificadora de los beneficios de la IA [1]; Microsoft CAF exige que \"todo agente debe ser observable, gobernado y seguro\" [19]."
+        "en": "DORA identifies a \"clear and communicated AI stance\" as an amplifier of AI benefits [1], [2]; Microsoft CAF states that \"every agent must be observable, governed, and secure\" [19].",
+        "pt-br": "DORA identifica uma \"postura de IA clara e comunicada\" como amplificadora dos benefícios da IA [1], [2]; o Microsoft CAF afirma que \"todo agente deve ser observável, governado e seguro\" [19].",
+        "es": "DORA identifica una \"postura de IA clara y comunicada\" como amplificadora de los beneficios de la IA [1], [2]; Microsoft CAF afirma que \"todo agente debe ser observable, gobernado y seguro\" [19]."
       },
       "weight": 1.0,
       "group": "G1",
@@ -641,9 +679,10 @@
           "basis": [
             2,
             15,
-            32
+            32,
+            49
           ],
-          "basis_text": "[2], [15], [32]",
+          "basis_text": "[2], [15], [32], [49]",
           "v1_lineage": [],
           "weight": 1.0,
           "unit": "organization",
@@ -737,9 +776,11 @@
           "basis": [
             7,
             26,
-            32
+            32,
+            49,
+            56
           ],
-          "basis_text": "[32], [7], [26]",
+          "basis_text": "[32], [7], [26], [49] (counterpoint: [56])",
           "v1_lineage": [],
           "scope_note": {
             "en": "Measures the policy that defines autonomy levels. How tasks are written for agents is D3-Q3; how often work is delegated is D4-Q3.",
@@ -1141,10 +1182,10 @@
             "es": "Playbook de onboarding, datos de tiempo hasta primer PR, resultados de verificación de habilidades."
           },
           "basis": [
-            6,
+            27,
             48
           ],
-          "basis_text": "[6], [48]",
+          "basis_text": "[27], [48]",
           "v1_lineage": [
             {
               "id": "P1-C5-Q2",
@@ -1264,11 +1305,12 @@
             "es": "Archivos de spec, reviews de plan, PRs que referencian specs."
           },
           "basis": [
+            23,
             24,
             27,
             58
           ],
-          "basis_text": "[24], [27], [58]",
+          "basis_text": "[24], [27], [58], [23]",
           "v1_lineage": [],
           "weight": 1.0,
           "unit": "teams",
@@ -1312,9 +1354,10 @@
           "basis": [
             1,
             8,
+            24,
             49
           ],
-          "basis_text": "[8], [1], [49]",
+          "basis_text": "[8], [1], [24], [49]",
           "v1_lineage": [],
           "scope_note": {
             "en": "Measures how tasks are scoped for agents. The autonomy policy is D1-Q5; delegation volume is D4-Q3.",
@@ -1361,9 +1404,11 @@
             "es": "Repositorio de ADR, registros de design review."
           },
           "basis": [
+            8,
+            24,
             26
           ],
-          "basis_text": "[26]",
+          "basis_text": "[24], [26], [8]",
           "v1_lineage": [
             {
               "id": "P1-C3-Q5",
@@ -1415,9 +1460,10 @@
           },
           "basis": [
             1,
+            2,
             3
           ],
-          "basis_text": "[1], [3]",
+          "basis_text": "[1], [2], [3]",
           "v1_lineage": [],
           "weight": 1.0,
           "unit": "teams",
@@ -1480,8 +1526,8 @@
       "id": "D4",
       "name": {
         "en": "Code and Context Engineering",
-        "pt-br": "Code e engenharia de contexto",
-        "es": "Code e ingeniería de contexto"
+        "pt-br": "Código e engenharia de contexto",
+        "es": "Código e ingeniería de contexto"
       },
       "why_it_matters": {
         "en": "GitHub measures adoption depth as a progression from \"Code first\" to \"Agent first\" to \"Multi-agent\" [6]; Anthropic describes context as \"a finite resource with diminishing marginal returns\" [25].",
@@ -1520,9 +1566,9 @@
               "es": "El uso multi-agent es normal (\"Multi-agent\"), con distribución de cohortes rastreada mensualmente."
             },
             "l1_l2": {
-              "en": "Mostly completions and chat (\"Code first\").",
-              "pt-br": "Principalmente completions e chat (\"Code first\").",
-              "es": "Principalmente completions y chat (\"Code first\")."
+              "en": "Mostly completions and agent edits in the IDE (\"Code first\"); chat-only use counts as Passive in GitHub's cohorts.",
+              "pt-br": "Principalmente completions e edições de agente no IDE (\"Code first\"); uso só de chat conta como Passive nas coortes do GitHub.",
+              "es": "Principalmente completions y ediciones de agente en el IDE (\"Code first\"); el uso solo de chat cuenta como Passive en las cohortes de GitHub."
             }
           },
           "evidence_examples": {
@@ -1693,10 +1739,12 @@
             2,
             8,
             25,
+            27,
             46,
-            47
+            47,
+            55
           ],
-          "basis_text": "[8], [25], [2], [46], [47]",
+          "basis_text": "[8], [25], [2], [27], [46], [47], [55]",
           "v1_lineage": [],
           "weight": 1.0,
           "unit": "repositories",
@@ -1786,7 +1834,7 @@
             10,
             38
           ],
-          "basis_text": "[9], [10], [38] (LLM03, LLM06)",
+          "basis_text": "[9], [10], [38] (LLM03:2025, LLM06:2025)",
           "v1_lineage": [
             {
               "id": "P3-C5-Q4",
@@ -1833,9 +1881,10 @@
           },
           "basis": [
             1,
-            2
+            2,
+            19
           ],
-          "basis_text": "[1], [2] (AI-accessible internal data)",
+          "basis_text": "[1], [2] (AI-accessible internal data), [19]",
           "v1_lineage": [
             {
               "id": "P1-C3-Q2",
@@ -1885,9 +1934,10 @@
             "es": "Orientación de modelos, configuraciones de política, configuración de enrutamiento."
           },
           "basis": [
+            26,
             32
           ],
-          "basis_text": "[32]",
+          "basis_text": "[32], [26]",
           "v1_lineage": [],
           "weight": 1.0,
           "unit": "organization",
@@ -1904,8 +1954,8 @@
       "id": "D5",
       "name": {
         "en": "Review, Quality and Testing",
-        "pt-br": "Review, qualidade e testes",
-        "es": "Review, calidad y pruebas"
+        "pt-br": "Revisão, qualidade e testes",
+        "es": "Revisión, calidad y pruebas"
       },
       "why_it_matters": {
         "en": "DORA links AI-driven change volume to instability unless strong control systems exist [3]; GitHub requires human review before agent PRs merge [7]; 46% of developers distrust AI output accuracy [37].",
@@ -1951,10 +2001,11 @@
           "basis": [
             6,
             12,
+            14,
             54,
             55
           ],
-          "basis_text": "[6], [12], [54], [55]",
+          "basis_text": "[6], [12], [14], [54], [55]",
           "v1_lineage": [
             {
               "id": "P1-C1-Q2",
@@ -1988,9 +2039,9 @@
           },
           "anchors": {
             "l3": {
-              "en": "Default protections are kept: agent PRs need an independent approver; \"Approve and run workflows\" is not disabled without a documented risk decision.",
-              "pt-br": "Proteções padrão são mantidas: PRs de agentes precisam de um aprovador independente; \"Approve and run workflows\" não é desabilitado sem uma decisão de risco documentada.",
-              "es": "Se mantienen las protecciones predeterminadas: los PRs de agentes necesitan un aprobador independiente; \"Approve and run workflows\" no se deshabilita sin una decisión de riesgo documentada."
+              "en": "Default protections are kept: agent PRs need an independent human approver (Copilot approvals, if enabled, do not count); \"Approve and run workflows\" is not disabled without a documented risk decision.",
+              "pt-br": "Proteções padrão são mantidas: PRs de agentes precisam de um aprovador humano independente (aprovações do Copilot, se habilitadas, não contam); \"Approve and run workflows\" não é desabilitado sem uma decisão de risco documentada.",
+              "es": "Se mantienen las protecciones por defecto: los PRs de agentes necesitan una aprobación humana independiente (las aprobaciones de Copilot, si están habilitadas, no cuentan); \"Approve and run workflows\" no se desactiva sin una decisión de riesgo documentada."
             },
             "l4": {
               "en": "Approval requirements scale with risk (D1-Q5) and are audited; exceptions expire automatically.",
@@ -2005,13 +2056,14 @@
           },
           "basis": [
             7,
+            12,
             14,
             38,
             53,
             55,
             56
           ],
-          "basis_text": "[7], [14], [38] (LLM06), [53], [55] (counterpoint: [56])",
+          "basis_text": "[7], [12], [14], [38] (LLM06:2025), [53], [55] (counterpoint: [56])",
           "v1_lineage": [
             {
               "id": "P3-C5-Q5",
@@ -2174,9 +2226,11 @@
             "es": "Informes de coverage, resultados de mutation testing, dashboard de flaky tests."
           },
           "basis": [
-            3
+            3,
+            8,
+            17
           ],
-          "basis_text": "[3]",
+          "basis_text": "[3], [8], [17]",
           "v1_lineage": [
             {
               "id": "P1-C1-Q4",
@@ -2244,12 +2298,13 @@
           },
           "basis": [
             3,
+            23,
             35,
             37,
             48,
             52
           ],
-          "basis_text": "[3], [37], [35], [48], [52]",
+          "basis_text": "[3], [37], [35], [48], [52], [23]",
           "v1_lineage": [],
           "scope_note": {
             "en": "Measures review behaviour and trust calibration. How developer experience is surveyed is D9-Q4.",
@@ -2317,13 +2372,13 @@
       "id": "D6",
       "name": {
         "en": "Security and AI Supply Chain",
-        "pt-br": "Segurança e AI Supply Chain",
-        "es": "Seguridad y AI Supply Chain"
+        "pt-br": "Segurança e cadeia de suprimentos de IA",
+        "es": "Seguridad y cadena de suministro de IA"
       },
       "why_it_matters": {
-        "en": "OWASP lists prompt injection (LLM01), supply chain (LLM03) and excessive agency (LLM06) among the top risks [38], and agent goal hijack (ASI01) first for agentic applications [39]; NIST SP 800-218A adds AI-specific practices to the SSDF [40].",
-        "pt-br": "OWASP lista prompt injection (LLM01), supply chain (LLM03) e agência excessiva (LLM06) entre os principais riscos [38], e agent goal hijack (ASI01) em primeiro lugar para aplicações agentic [39]; NIST SP 800-218A adiciona práticas específicas de IA ao SSDF [40].",
-        "es": "OWASP enumera prompt injection (LLM01), supply chain (LLM03) y agencia excesiva (LLM06) entre los principales riesgos [38], y agent goal hijack (ASI01) en primer lugar para aplicaciones agentic [39]; NIST SP 800-218A agrega prácticas específicas de IA al SSDF [40]."
+        "en": "OWASP lists prompt injection (LLM01:2025), supply chain (LLM03:2025) and excessive agency (LLM06:2025) among the top risks [38], and agent goal hijack (ASI01) first for agentic applications [39]; NIST SP 800-218A adds practices for AI model development to the SSDF [40].",
+        "pt-br": "OWASP lista prompt injection (LLM01:2025), supply chain (LLM03:2025) e agência excessiva (LLM06:2025) entre os principais riscos [38], e agent goal hijack (ASI01) em primeiro lugar para aplicações agentic [39]; NIST SP 800-218A adiciona ao SSDF práticas para o desenvolvimento de modelos de IA [40].",
+        "es": "OWASP enumera prompt injection (LLM01:2025), supply chain (LLM03:2025) y agencia excesiva (LLM06:2025) entre los principales riesgos [38], y agent goal hijack (ASI01) en primer lugar para aplicaciones agentic [39]; NIST SP 800-218A agrega al SSDF prácticas para el desarrollo de modelos de IA [40]."
       },
       "weight": 1.0,
       "group": "G3",
@@ -2362,11 +2417,12 @@
             "es": "Dashboard de cobertura de seguridad, tiempo de remediación."
           },
           "basis": [
+            7,
             13,
             40,
             52
           ],
-          "basis_text": "[13], [40], [52]",
+          "basis_text": "[7], [13], [40], [52] (push protection and dependency review on every repository are a kit design choice)",
           "v1_lineage": [
             {
               "id": "P1-C4-Q3",
@@ -2465,9 +2521,9 @@
               "es": "Agent firewalls y restricciones de egress se mantienen activados; la orientación indica a los equipos qué fuentes de contenido no son confiables."
             },
             "l4": {
-              "en": "Agents are red-teamed regularly against OWASP LLM01 and ASI01 scenarios; findings are tracked to closure.",
-              "pt-br": "Agentes passam regularmente por red team contra cenários OWASP LLM01 e ASI01; achados são rastreados até o fechamento.",
-              "es": "Los agentes pasan regularmente por red team contra escenarios OWASP LLM01 y ASI01; los hallazgos se rastrean hasta el cierre."
+              "en": "Agents are red-teamed regularly against OWASP LLM01:2025 and ASI01 scenarios; findings are tracked to closure.",
+              "pt-br": "Agentes passam regularmente por red team contra cenários OWASP LLM01:2025 e ASI01; achados são rastreados até o fechamento.",
+              "es": "Los agentes pasan regularmente por red team contra escenarios OWASP LLM01:2025 y ASI01; los hallazgos se rastrean hasta el cierre."
             }
           },
           "evidence_examples": {
@@ -2480,7 +2536,7 @@
             38,
             39
           ],
-          "basis_text": "[7], [38] (LLM01), [39] (ASI01)",
+          "basis_text": "[7], [38] (LLM01:2025), [39] (ASI01)",
           "v1_lineage": [],
           "weight": 1.0,
           "unit": "organization",
@@ -2526,7 +2582,7 @@
             38,
             39
           ],
-          "basis_text": "[7], [19], [38] (LLM06), [39]",
+          "basis_text": "[7], [19], [38] (LLM06:2025), [39]",
           "v1_lineage": [
             {
               "id": "P3-C6-Q2",
@@ -2581,7 +2637,7 @@
             43,
             52
           ],
-          "basis_text": "[38] (LLM03), [40], [43], [52]",
+          "basis_text": "[38] (LLM03:2025), [40], [43], [52]",
           "v1_lineage": [
             {
               "id": "P2-C8-Q2",
@@ -2774,7 +2830,7 @@
             16,
             17
           ],
-          "basis_text": "[16], [17]",
+          "basis_text": "[16], [17] (general SDLC scope; no cited source covers AI in CI/CD pipelines specifically)",
           "v1_lineage": [
             {
               "id": "P2-C1-Q1",
@@ -2893,9 +2949,11 @@
             "es": "Configuración de herramientas de incidentes, timelines de incidentes, datos de tiempo de restauración."
           },
           "basis": [
+            16,
+            17,
             22
           ],
-          "basis_text": "[22]",
+          "basis_text": "[16], [17], [22]",
           "v1_lineage": [
             {
               "id": "P2-C3-Q6",
@@ -3867,11 +3925,12 @@
             "es": "Dashboards de costo, alertas de presupuesto, notas de retrospectiva."
           },
           "basis": [
+            19,
             32,
             38,
             45
           ],
-          "basis_text": "[32], [38] (LLM10), [45]",
+          "basis_text": "[32], [38] (LLM10:2025), [45], [19]",
           "v1_lineage": [
             {
               "id": "P3-C9-Q1",
@@ -3918,9 +3977,10 @@
           },
           "basis": [
             18,
+            28,
             32
           ],
-          "basis_text": "[18], [32]",
+          "basis_text": "[18], [28], [32]",
           "v1_lineage": [
             {
               "id": "P1-C8-Q6",
@@ -3946,8 +4006,8 @@
   "references": [
     {
       "n": 1,
-      "text": "DORA. _DORA AI Capabilities Model_. Google Cloud, 2025. <https://dora.dev/ai/capabilities-model/>",
-      "url": "https://dora.dev/ai/capabilities-model/"
+      "text": "DORA. _DORA AI Capabilities Model_. Google Cloud, 2025. <https://dora.dev/ai/capabilities-model/report/>",
+      "url": "https://dora.dev/ai/capabilities-model/report/"
     },
     {
       "n": 2,
@@ -3966,18 +4026,18 @@
     },
     {
       "n": 5,
-      "text": "Google Cloud. _Announcing the 2024 DORA report_. 2024. <https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report>",
+      "text": "Google Cloud. _Announcing the 2024 DORA report_. 2024-10-22. <https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report>",
       "url": "https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report"
     },
     {
       "n": 6,
-      "text": "GitHub Docs. _GitHub Copilot usage metrics_. <https://docs.github.com/en/copilot/concepts/copilot-metrics>",
-      "url": "https://docs.github.com/en/copilot/concepts/copilot-metrics"
+      "text": "GitHub Docs. _GitHub Copilot usage metrics_. <https://docs.github.com/en/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics>",
+      "url": "https://docs.github.com/en/copilot/concepts/billing-and-usage/copilot-usage-metrics/copilot-metrics"
     },
     {
       "n": 7,
-      "text": "GitHub Docs. _Risks and mitigations for GitHub Copilot cloud agent_. <https://docs.github.com/en/enterprise-cloud@latest/copilot/concepts/agents/cloud-agent/risks-and-mitigations>",
-      "url": "https://docs.github.com/en/enterprise-cloud@latest/copilot/concepts/agents/cloud-agent/risks-and-mitigations"
+      "text": "GitHub Docs. _Risks and mitigations for GitHub Copilot cloud agent_. <https://docs.github.com/en/enterprise-cloud@latest/copilot/concepts/security-governance-and-network-settings/risks-and-mitigations>",
+      "url": "https://docs.github.com/en/enterprise-cloud@latest/copilot/concepts/security-governance-and-network-settings/risks-and-mitigations"
     },
     {
       "n": 8,
@@ -4016,8 +4076,8 @@
     },
     {
       "n": 15,
-      "text": "GitHub Docs. _Managing policies and features for GitHub Copilot in your organization_. <https://docs.github.com/copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization>",
-      "url": "https://docs.github.com/copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization"
+      "text": "GitHub Docs. _Managing policies and features for GitHub Copilot in your organization_. <https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies>",
+      "url": "https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies"
     },
     {
       "n": 16,
@@ -4046,7 +4106,7 @@
     },
     {
       "n": 21,
-      "text": "Microsoft. _Responsible AI: Principles and approach (Microsoft Responsible AI Standard)_. <https://www.microsoft.com/en-us/ai/principles-and-approach>",
+      "text": "Microsoft. _Responsible AI Principles and Approach_. <https://www.microsoft.com/en-us/ai/principles-and-approach>",
       "url": "https://www.microsoft.com/en-us/ai/principles-and-approach"
     },
     {
@@ -4061,23 +4121,23 @@
     },
     {
       "n": 24,
-      "text": "Anthropic. _How Claude Code is used in practice_. <https://www.anthropic.com/research/claude-code-expertise>",
+      "text": "Anthropic. _How Claude Code is used in practice_. 2026-06-16. <https://www.anthropic.com/research/claude-code-expertise>",
       "url": "https://www.anthropic.com/research/claude-code-expertise"
     },
     {
       "n": 25,
-      "text": "Anthropic. _Effective context engineering for AI agents_. <https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents>",
+      "text": "Anthropic. _Effective context engineering for AI agents_. 2025-09-29. <https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents>",
       "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
     },
     {
       "n": 26,
-      "text": "Anthropic. _Building effective agents_. <https://www.anthropic.com/engineering/building-effective-agents>",
+      "text": "Anthropic. _Building effective agents_. 2024-12-19. <https://www.anthropic.com/engineering/building-effective-agents>",
       "url": "https://www.anthropic.com/engineering/building-effective-agents"
     },
     {
       "n": 27,
-      "text": "Anthropic. _Best practices for Claude Code_. <https://www.anthropic.com/engineering/claude-code-best-practices>",
-      "url": "https://www.anthropic.com/engineering/claude-code-best-practices"
+      "text": "Anthropic. _Best practices for Claude Code_. Claude Code Docs. <https://code.claude.com/docs/en/best-practices>",
+      "url": "https://code.claude.com/docs/en/best-practices"
     },
     {
       "n": 28,
@@ -4131,12 +4191,12 @@
     },
     {
       "n": 38,
-      "text": "OWASP GenAI Security Project. _OWASP Top 10 for LLM Applications 2025_. <https://genai.owasp.org/llm-top-10/>",
-      "url": "https://genai.owasp.org/llm-top-10/"
+      "text": "OWASP GenAI Security Project. _OWASP Top 10 for LLM Applications 2025_. <https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/>",
+      "url": "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/"
     },
     {
       "n": 39,
-      "text": "OWASP GenAI Security Project. _OWASP Top 10 for Agentic Applications for 2026_. <https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/>",
+      "text": "OWASP GenAI Security Project. _OWASP Top 10 for Agentic Applications for 2026_. 2025-12-09. <https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/>",
       "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/"
     },
     {
@@ -4151,8 +4211,8 @@
     },
     {
       "n": 42,
-      "text": "ISO. _ISO/IEC 42001:2023: Artificial intelligence: Management system_. <https://www.iso.org/standard/81230.html>",
-      "url": "https://www.iso.org/standard/81230.html"
+      "text": "ISO. _ISO/IEC 42001:2023: AI management systems_. <https://www.iso.org/standard/42001>",
+      "url": "https://www.iso.org/standard/42001"
     },
     {
       "n": 43,
@@ -4161,7 +4221,7 @@
     },
     {
       "n": 44,
-      "text": "Forsgren, N., Storey, M.-A., Maddila, C., Zimmermann, T., Houck, B., Butler, J. _The SPACE of Developer Productivity_. ACM Queue, 2021. <https://queue.acm.org/detail.cfm?id=3454124>",
+      "text": "Forsgren, N., Storey, M.-A., Maddila, C., Zimmermann, T., Houck, B., Butler, J. _The SPACE of Developer Productivity_. ACM Queue 19(1), 2021-03-06. <https://queue.acm.org/detail.cfm?id=3454124> (DOI: <https://doi.org/10.1145/3454122.3454124>)",
       "url": "https://queue.acm.org/detail.cfm?id=3454124"
     },
     {

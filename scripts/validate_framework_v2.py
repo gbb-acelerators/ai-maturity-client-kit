@@ -86,6 +86,13 @@ def check(fw: dict) -> tuple[list[str], int, int]:
     text = json.dumps(fw, ensure_ascii=False)
     if "\u2014" in text or "\u2013" in text:
         errors.append("em dash or en dash found (kit writing rules)")
+    known = {q["id"] for d in fw["dimensions"] for q in d["questions"]}
+    for sid, qids in (fw.get("survey_crosswalk") or {}).items():
+        if not sid.startswith("DS-D"):
+            errors.append(f"survey_crosswalk key {sid} must start with DS-D")
+        bad = [q for q in qids if q not in known]
+        if bad:
+            errors.append(f"survey_crosswalk {sid}: unknown {bad}")
     return errors, cons, ret
 
 

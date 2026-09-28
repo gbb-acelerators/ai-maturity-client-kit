@@ -72,6 +72,7 @@
     },
     "strategy_min_cumulative": 0.9,
     "persona_min_n": 3,
+    "divergence_sd_min": 1.0,
     "amplifier_dimensions": [
       "D5",
       "D6",
@@ -563,5 +564,43 @@
     "D9-Q7": {
       "unit": "organization"
     }
+  },
+  "survey_crosswalk": {
+    "_comment": "Developer Survey dimensions (DS-D#) and the v2 questions they help validate. Used by survey-devs/scripts/gerar_insights.py and the v2 summary report. Cross-reference only: survey results never change v2 scores.",
+    "DS-D2": [
+      "D4-Q1",
+      "D4-Q2",
+      "D9-Q1"
+    ],
+    "DS-D3": [
+      "D4-Q3",
+      "D4-Q6",
+      "D3-Q2",
+      "D6-Q1"
+    ],
+    "DS-D4": [
+      "D3-Q2",
+      "D5-Q5",
+      "D2-Q6"
+    ],
+    "DS-D5": [
+      "D2-Q4",
+      "D4-Q5"
+    ],
+    "DS-D6": [
+      "D4-Q4",
+      "D4-Q5"
+    ],
+    "DS-D7": [
+      "D2-Q2",
+      "D9-Q4"
+    ],
+    "DS-D8": [
+      "D1-Q2",
+      "D6-Q1",
+      "D6-Q4",
+      "D6-Q5",
+      "D6-Q7"
+    ]
   }
 }

@@ -114,6 +114,7 @@
         "coverage_warning_min",
         "priority_cuts",
         "persona_min_n",
+        "divergence_sd_min",
         "amplifier_dimensions"
       ]
     },
