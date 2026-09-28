@@ -268,19 +268,19 @@ UI = {
                        "enlace",
         "html_title": "AI-Assisted SDLC Maturity Assessment v2",
         "html_intro": "Formulario offline. Las respuestas quedan en este "
-                      "navegador. Use Exportar para descargar un "
+                      "navegador. Usa Exportar para descargar un "
                       "respostas.json para el kit (una persona por "
                       "archivo).",
         "org": "Organización",
-        "name": "Su nombre (opcional)",
+        "name": "Tu nombre (opcional)",
         "export_json": "Exportar respostas.json",
         "export_csv": "Exportar CSV",
         "progress": "respondidas",
-        "summary": "Su autoevaluación (una persona, indicativa)",
+        "summary": "Tu autoevaluación (una persona, indicativa)",
         "summary_note": "Mismas reglas que el engine: NA y en blanco excluidos, dimensión = media de sus preguntas, general = media de las dimensiones. El resultado oficial viene de scripts/assessment_engine.py sobre todas las personas.",
         "overall": "General",
         "privacy": "Privacidad: esta página no envía nada por la red. El "
-                   "archivo exportado contiene solo lo que usted escriba "
+                   "archivo exportado contiene solo lo que escribas "
                    "aquí.",
     },
 }
@@ -480,6 +480,8 @@ function render() {
       const a = state.answers[q.id] || {};
       h += '<div class="q"><div><span class="qid">' + q.id + '</span> '
         + esc(q.text[lang]) + '</div>';
+      if (q.scope_note) h += '<div class="anc"><b>' + esc(t.scope)
+        + ':</b> ' + esc(q.scope_note[lang]) + '</div>';
       if (q.anchors.l1_l2) h += '<div class="anc"><b>' + esc(t.l1_l2)
         + ':</b> ' + esc(q.anchors.l1_l2[lang]) + '</div>';
       h += '<div class="anc"><b>' + esc(t.l3) + ':</b> '
@@ -583,7 +585,8 @@ def html_form(fw: dict) -> str:
             {"id": d["id"], "name": d["name"],
              "why_it_matters": d["why_it_matters"],
              "questions": [{"id": q["id"], "text": q["text"],
-                            "anchors": q["anchors"]}
+                            "anchors": q["anchors"],
+                            "scope_note": q.get("scope_note")}
                            for q in d["questions"]]}
             for d in fw["dimensions"]],
     }
@@ -591,7 +594,7 @@ def html_form(fw: dict) -> str:
         "html_title", "html_intro", "privacy", "org", "name",
         "export_json", "export_csv", "progress", "section0", "l1_l2",
         "l3", "l4", "placeholder", "summary", "summary_note",
-        "overall")} for lang in UI}
+        "overall", "scope")} for lang in UI}
     data = json.dumps(slim, ensure_ascii=False).replace("</", "<\\/")
     return (HTML_TEMPLATE.replace("__DATA__", data)
             .replace("__UI__", json.dumps(ui, ensure_ascii=False))

@@ -43,14 +43,14 @@ Total de elementos: 5 de perfil + 61 pontuados + 61 campos opcionais de evidênc
 
 _Choice, resposta única_
 
-- Software engineer / developer
-- Engineering manager / tech lead
-- Arquiteto
-- Platform / DevOps / SRE engineer
-- Security / AppSec
-- QA / test engineer
-- Product / program manager
-- Executive (CTO, VP, Director)
+- Engenheiro(a) de software / desenvolvedor(a)
+- Gerente de engenharia / tech lead
+- Arquiteto(a)
+- Engenheiro(a) de plataforma / DevOps / SRE
+- Segurança / AppSec
+- Engenheiro(a) de QA / testes
+- Gerente de produto / programa
+- Executivo(a) (CTO, VP, Diretor(a))
 - Outro
 
 ### R-Q2: Escopo das suas respostas
@@ -64,18 +64,18 @@ _Choice, resposta única_
 - Uma unidade de negócio
 - Toda a organização
 
-### R-Q3: Principais ferramentas de AI coding
+### R-Q3: Principais ferramentas de IA para código
 
 **R-Q3: Quais ferramentas de IA você usa pelo menos semanalmente para trabalho de software? (múltiplas respostas)**
 
 _Choice, várias respostas_
 
-- GitHub Copilot no IDE (completions, chat, agent mode)
+- GitHub Copilot no IDE (autocompletar, chat, modo agente)
 - GitHub Copilot cloud agent / code review / CLI
 - Claude Code ou Claude em outros clientes
 - Ferramentas internas baseadas em Microsoft Foundry / Azure OpenAI
-- Outras ferramentas comerciais de AI coding
-- Modelos internos ou self-hosted
+- Outras ferramentas comerciais de IA para código
+- Modelos internos ou auto-hospedados
 - Nenhuma
 
 ### R-Q4: Experiência profissional
@@ -89,9 +89,9 @@ _Choice, resposta única_
 - 6-10
 - Mais de 10
 
-### R-Q5: Tempo hands-on
+### R-Q5: Tempo prático (hands-on)
 
-**R-Q5: Em uma semana típica, quanto do seu tempo é hands-on construindo (code, configuração, testes)?**
+**R-Q5: Em uma semana típica, quanto do seu tempo é prático, construindo (código, configuração, testes)?**
 
 _Choice, resposta única_
 
@@ -104,7 +104,7 @@ _Choice, resposta única_
 
 ## Seção D1: Estratégia, política e governança de IA
 
-_7 perguntas. Por que importa: DORA identifica uma "postura de IA clara e comunicada" como amplificadora dos benefícios da IA [1]; o Microsoft CAF exige que "todo agente deve ser observável, governado e seguro" [19]._
+_7 perguntas. Por que importa: DORA identifica uma "postura de IA clara e comunicada" como amplificadora dos benefícios da IA [1], [2]; o Microsoft CAF afirma que "todo agente deve ser observável, governado e seguro" [19]._
 
 ### D1-Q1: Estratégia de IA para engenharia de software
 
@@ -312,7 +312,7 @@ _6 perguntas. Por que importa: em agentic coding, "as pessoas tomam a maior part
 
 ---
 
-## Seção D4: Code e engenharia de contexto
+## Seção D4: Código e engenharia de contexto
 
 _8 perguntas. Por que importa: GitHub mede a profundidade de adoção como uma progressão de "Code first" para "Agent first" e "Multi-agent" [6]; a Anthropic descreve contexto como "um recurso finito com retornos marginais decrescentes" [25]._
 
@@ -322,7 +322,7 @@ _8 perguntas. Por que importa: GitHub mede a profundidade de adoção como uma p
 
 - **Nota de escopo:** Mede quão profundamente IA é usada. Se esse uso é medido é D9-Q1.
 - **Unidade de cobertura:** engenheiros
-- **L1 a L2 se parecem com:** Principalmente completions e chat ("Code first").
+- **L1 a L2 se parecem com:** Principalmente completions e edições de agente no IDE ("Code first"); uso só de chat conta como Passive nas coortes do GitHub.
 - **L3 se parece com:** Muitos engenheiros usam regularmente pelo menos uma superfície de agente do GitHub ("Agent first"), confirmado por métricas de uso.
 - **L4 se parece com:** Uso multi-agent é normal ("Multi-agent"), com distribuição de coortes rastreada mensalmente.
 - **Exemplos de evidência:** Dashboard ou API de métricas de uso do Copilot: distribuição de coortes de adoção, usuários ativos diários/semanais.
@@ -401,7 +401,7 @@ _8 perguntas. Por que importa: GitHub mede a profundidade de adoção como uma p
 
 ---
 
-## Seção D5: Review, qualidade e testes
+## Seção D5: Revisão, qualidade e testes
 
 _7 perguntas. Por que importa: DORA vincula o volume de mudanças impulsionadas por IA à instabilidade, a menos que existam sistemas de controle fortes [3]; GitHub exige revisão humana antes que PRs de agentes sejam mergeados [7]; 46% dos desenvolvedores desconfiam da precisão da saída de IA [37]._
 
@@ -420,7 +420,7 @@ _7 perguntas. Por que importa: DORA vincula o volume de mudanças impulsionadas 
 **D5-Q2: Pull requests criados por agentes exigem aprovação humana independente (não o solicitante), com workflow runs aprovadas antes de executarem?**
 
 - **Unidade de cobertura:** repositórios
-- **L3 se parece com:** Proteções padrão são mantidas: PRs de agentes precisam de um aprovador independente; "Approve and run workflows" não é desabilitado sem uma decisão de risco documentada.
+- **L3 se parece com:** Proteções padrão são mantidas: PRs de agentes precisam de um aprovador humano independente (aprovações do Copilot, se habilitadas, não contam); "Approve and run workflows" não é desabilitado sem uma decisão de risco documentada.
 - **L4 se parece com:** Requisitos de aprovação escalam com o risco (D1-Q5) e são auditados; exceções expiram automaticamente.
 - **Exemplos de evidência:** Rulesets, branch protection, configurações de agentes.
 - **Campo de evidência:** `Evidence (D5-Q2)` · _Ferramenta, % de cobertura, métrica, período, link_
@@ -480,9 +480,9 @@ _7 perguntas. Por que importa: DORA vincula o volume de mudanças impulsionadas 
 
 ---
 
-## Seção D6: Segurança e AI Supply Chain
+## Seção D6: Segurança e cadeia de suprimentos de IA
 
-_7 perguntas. Por que importa: OWASP lista prompt injection (LLM01), supply chain (LLM03) e agência excessiva (LLM06) entre os principais riscos [38], e agent goal hijack (ASI01) em primeiro lugar para aplicações agentic [39]; NIST SP 800-218A adiciona práticas específicas de IA ao SSDF [40]._
+_7 perguntas. Por que importa: OWASP lista prompt injection (LLM01:2025), supply chain (LLM03:2025) e agência excessiva (LLM06:2025) entre os principais riscos [38], e agent goal hijack (ASI01) em primeiro lugar para aplicações agentic [39]; NIST SP 800-218A adiciona ao SSDF práticas para o desenvolvimento de modelos de IA [40]._
 
 ### D6-Q1: Scanning de base em todo repositório
 
@@ -510,7 +510,7 @@ _7 perguntas. Por que importa: OWASP lista prompt injection (LLM01), supply chai
 
 - **Unidade de cobertura:** prática da organização inteira (use as colunas de governança e medição)
 - **L3 se parece com:** Agent firewalls e restrições de egress permanecem ativados; a orientação informa às equipes quais fontes de conteúdo não são confiáveis.
-- **L4 se parece com:** Agentes passam regularmente por red team contra cenários OWASP LLM01 e ASI01; achados são rastreados até o fechamento.
+- **L4 se parece com:** Agentes passam regularmente por red team contra cenários OWASP LLM01:2025 e ASI01; achados são rastreados até o fechamento.
 - **Exemplos de evidência:** Configuração de firewall, relatórios de red team.
 - **Campo de evidência:** `Evidence (D6-Q3)` · _Ferramenta, % de cobertura, métrica, período, link_
 

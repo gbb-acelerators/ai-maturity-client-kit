@@ -104,7 +104,7 @@ _Choice, single answer_
 
 ## Section D1: AI Strategy, Policy and Governance
 
-_7 questions. Why it matters: DORA identifies a "clear and communicated AI stance" as an amplifier of AI benefits [1]; Microsoft CAF requires that "every agent must be observable, governed, and secure" [19]._
+_7 questions. Why it matters: DORA identifies a "clear and communicated AI stance" as an amplifier of AI benefits [1], [2]; Microsoft CAF states that "every agent must be observable, governed, and secure" [19]._
 
 ### D1-Q1: AI strategy for software engineering
 
@@ -322,7 +322,7 @@ _8 questions. Why it matters: GitHub measures adoption depth as a progression fr
 
 - **Scope note:** Measures how deeply AI is used. Whether that use is measured is D9-Q1.
 - **Coverage unit:** engineers
-- **L1 to L2 look like:** Mostly completions and chat ("Code first").
+- **L1 to L2 look like:** Mostly completions and agent edits in the IDE ("Code first"); chat-only use counts as Passive in GitHub's cohorts.
 - **L3 looks like:** Many engineers regularly use at least one GitHub agent surface ("Agent first"), confirmed by usage metrics.
 - **L4 looks like:** Multi-agent use is normal ("Multi-agent"), with cohort distribution tracked monthly.
 - **Evidence examples:** Copilot usage metrics dashboard or API: adoption cohort distribution, daily/weekly active users.
@@ -420,7 +420,7 @@ _7 questions. Why it matters: DORA links AI-driven change volume to instability 
 **D5-Q2: Do agent-authored pull requests require independent human approval (not the requester), with workflow runs approved before they execute?**
 
 - **Coverage unit:** repositories
-- **L3 looks like:** Default protections are kept: agent PRs need an independent approver; "Approve and run workflows" is not disabled without a documented risk decision.
+- **L3 looks like:** Default protections are kept: agent PRs need an independent human approver (Copilot approvals, if enabled, do not count); "Approve and run workflows" is not disabled without a documented risk decision.
 - **L4 looks like:** Approval requirements scale with risk (D1-Q5) and are audited; exceptions expire automatically.
 - **Evidence examples:** Rulesets, branch protection, agent settings.
 - **Evidence field:** `Evidence (D5-Q2)` · _Tool, % coverage, metric, time window, link_
@@ -482,7 +482,7 @@ _7 questions. Why it matters: DORA links AI-driven change volume to instability 
 
 ## Section D6: Security and AI Supply Chain
 
-_7 questions. Why it matters: OWASP lists prompt injection (LLM01), supply chain (LLM03) and excessive agency (LLM06) among the top risks [38], and agent goal hijack (ASI01) first for agentic applications [39]; NIST SP 800-218A adds AI-specific practices to the SSDF [40]._
+_7 questions. Why it matters: OWASP lists prompt injection (LLM01:2025), supply chain (LLM03:2025) and excessive agency (LLM06:2025) among the top risks [38], and agent goal hijack (ASI01) first for agentic applications [39]; NIST SP 800-218A adds practices for AI model development to the SSDF [40]._
 
 ### D6-Q1: Baseline scanning on every repository
 
@@ -510,7 +510,7 @@ _7 questions. Why it matters: OWASP lists prompt injection (LLM01), supply chain
 
 - **Coverage unit:** organization-wide practice (use the governance and measurement columns)
 - **L3 looks like:** Agent firewalls and egress restrictions are kept on; guidance tells teams which content sources are untrusted.
-- **L4 looks like:** Agents are red-teamed regularly against OWASP LLM01 and ASI01 scenarios; findings are tracked to closure.
+- **L4 looks like:** Agents are red-teamed regularly against OWASP LLM01:2025 and ASI01 scenarios; findings are tracked to closure.
 - **Evidence examples:** Firewall configuration, red-team reports.
 - **Evidence field:** `Evidence (D6-Q3)` · _Tool, % coverage, metric, time window, link_
 
