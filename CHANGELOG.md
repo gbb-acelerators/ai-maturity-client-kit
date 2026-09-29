@@ -28,6 +28,9 @@ score.
   type, as section 2.1 of the spec states for Pinna et al. [49].
   `framework.v2.json`, the question banks, the forms, the calculator, the
   wizard, the reference pages and the examples are regenerated.
+- The README explains how to get the kit (site, ZIPs, clone, requirements)
+  and lists every output and folder. The site shows the version and the
+  evidence cross-checks, and a new FAQ entry explains them.
 
 ### Fixed
 

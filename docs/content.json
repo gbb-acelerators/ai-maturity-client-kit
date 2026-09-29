@@ -156,7 +156,7 @@
             "variant": "a",
             "badge": "A ASSESSMENT",
             "title": "AI Maturity Assessment",
-            "subtitle": "Organizational baseline · framework v2 · Likert L0 to L4",
+            "subtitle": "Baseline organizacional · framework v2 · escala L0 a L4",
             "meta": [
               {
                 "value": "61",
@@ -182,7 +182,7 @@
             "variant": "b",
             "badge": "B SURVEY-DEVS",
             "title": "Developer Survey",
-            "subtitle": "Anônimo · comportamental · 7 dimensões D2-D8",
+            "subtitle": "Anônimo · comportamental · 7 dimensões DS-D2 a DS-D8",
             "meta": [
               {
                 "value": "75",
@@ -200,7 +200,7 @@
             "items": [
               "Copilot · modos Ask / Edit / Agent / Coding Agent",
               "Foundry · MCP · A2A · agentes IA",
-              "Governanca · GHAS · red-lines",
+              "Governança · GHAS · red-lines",
               "Rubrica determinística L0 a L4"
             ]
           },
@@ -224,10 +224,10 @@
               }
             ],
             "items": [
-              "Top 10 topicos demandados com inscritos",
-              "Cohorts por dimensão D2-D8",
+              "Top 10 tópicos demandados com inscritos",
+              "Cohorts por dimensão DS-D2 a DS-D8",
               "Champions Network em 3 tiers",
-              "Calendario 90 dias de workshops"
+              "Calendário de 90 dias de workshops"
             ]
           }
         ]
@@ -323,7 +323,7 @@
       "faq": {
         "eyebrow": "Travou em algum passo?",
         "title": "FAQ",
-        "lede": "Duvidas mais comuns nos primeiros 15 minutos com o kit.",
+        "lede": "Dúvidas mais comuns nos primeiros 15 minutos com o kit.",
         "items": [
           {
             "summary": "Qual survey devo rodar primeiro?",
@@ -352,6 +352,10 @@
           {
             "summary": "Posso customizar o branding dos PDFs?",
             "answerHtml": "O kit usa a identidade <strong>paulasilva-ms</strong>, com paleta Microsoft 4 cores. Para customizar, edite <code>reports/scripts/branding.py</code> com suas constantes e re-renderize. Os templates Jinja2 em <code>reports/templates/</code> consomem essas variáveis automaticamente."
+          },
+          {
+            "summary": "Como checo as respostas contra evidências?",
+            "answerHtml": "Três checagens opcionais comparam as respostas com dados reais, sem mudar as notas: <code>make scan-repos</code> (configuração de IA versionada nos repositórios, para D4-Q4 e D4-Q5), <code>make telemetry</code> (métricas de uso do GitHub Copilot, para D4-Q1 e D9-Q1) e <code>make dora</code> (métricas DORA por serviço com baseline, para D9-Q2). A seção 2.2 do PDF de sumário mostra o resultado, e o guia de implementação lista como riscos as respostas acima da evidência."
           },
           {
             "summary": "Como funciona a integração entre o assessment v2 e os surveys?",
@@ -397,6 +401,14 @@
           {
             "label": "Docs em PT-BR + bancos e spec nos 3 idiomas",
             "code": "incluídos"
+          },
+          {
+            "label": "Cross-checks de evidência",
+            "code": "repos · Copilot · DORA"
+          },
+          {
+            "label": "Versão",
+            "code": "kit 2.1.0 · framework 2.0.2"
           }
         ]
       },
@@ -414,7 +426,7 @@
         "repositoryText": "github.com/gbb-acelerators/ai-maturity-client-kit",
         "contributorsLabel": "Contribuidores",
         "contributorsText": "Paula Silva + GitHub Copilot",
-        "editionsLabel": "Edicoes",
+        "editionsLabel": "Edições",
         "editionsText": "Kits em PT-BR, inglês e espanhol",
         "connectLabel": "Conectar"
       }
@@ -455,7 +467,7 @@
         "titleBefore": "AI Maturity Assessment with",
         "titleAccent": "GitHub Copilot",
         "titleAfter": "",
-        "lede": "Run your organization AI maturity assessment without depending on a web platform. The kit includes framework v2, companion surveys, demo, offline merge, evidence cross-checks, 5 v2 PDFs, and a capacitation plan with registered names and emails.",
+        "lede": "Run your organization's AI maturity assessment without depending on a web platform. The kit includes framework v2, companion surveys, demo, offline merge, evidence cross-checks, 5 v2 PDFs, and a training plan with registered names and emails.",
         "primaryCta": "Download the kit (.zip)",
         "secondaryCta": "Quick start in 3 steps",
         "cardTitle": "What you get",
@@ -477,7 +489,7 @@
           {
             "iconClass": "yellow",
             "icon": "CAP",
-            "title": "Capacitation plan",
+            "title": "Training plan",
             "subtitle": "Champions, cohorts, workshops with attendees",
             "metric": ".md"
           },
@@ -548,7 +560,7 @@
             "variant": "a",
             "badge": "A ASSESSMENT",
             "title": "AI Maturity Assessment",
-            "subtitle": "Organizational baseline · framework v2 · Likert L0 to L4",
+            "subtitle": "Organizational baseline · framework v2 · L0 to L4 scale",
             "meta": [
               {
                 "value": "61",
@@ -574,7 +586,7 @@
             "variant": "b",
             "badge": "B SURVEY-DEVS",
             "title": "Developer Survey",
-            "subtitle": "Anonymous · behavioral · 7 dimensions D2-D8",
+            "subtitle": "Anonymous · behavioral · 7 dimensions DS-D2 to DS-D8",
             "meta": [
               {
                 "value": "75",
@@ -600,7 +612,7 @@
             "variant": "c",
             "badge": "C SURVEY-LEARNING",
             "title": "Learning & Growth Survey",
-            "subtitle": "Identified · capacitation · name + email required",
+            "subtitle": "Identified · training · name + email required",
             "meta": [
               {
                 "value": "32",
@@ -617,7 +629,7 @@
             ],
             "items": [
               "Top 10 demanded topics with attendees",
-              "Cohorts per dimension D2-D8",
+              "Cohorts per dimension DS-D2 to DS-D8",
               "3-tier Champions Network",
               "90-day workshop calendar"
             ]
@@ -632,7 +644,7 @@
           {
             "num": "1",
             "title": "Download and open",
-            "body": "Download the ZIP published from the main branch, extract the folder, open it in VS Code, and validate prerequisites with smoke test.",
+            "body": "Download the ZIP published from the main branch, extract the folder, open it in VS Code, and validate the prerequisites with the smoke test.",
             "command": "# from the extracted folder\nmake smoke"
           },
           {
@@ -746,6 +758,10 @@
             "answerHtml": "The kit uses the <strong>paulasilva-ms</strong> identity with the Microsoft 4-color palette. To customize, edit <code>reports/scripts/branding.py</code> with your constants and re-render. The Jinja2 templates in <code>reports/templates/</code> consume these variables automatically."
           },
           {
+            "summary": "How do I check the answers against evidence?",
+            "answerHtml": "Three optional checks compare the answers with real data and never change the scores: <code>make scan-repos</code> (AI configuration committed to the repositories, for D4-Q4 and D4-Q5), <code>make telemetry</code> (GitHub Copilot usage metrics, for D4-Q1 and D9-Q1) and <code>make dora</code> (per-service DORA metrics with a baseline, for D9-Q2). Section 2.2 of the summary PDF shows the result, and the implementation guide lists answers above the evidence as risks."
+          },
+          {
             "summary": "How do the assessment v2 + surveys integrate?",
             "answerHtml": "Each survey output feeds the next: the <strong>Learning Survey</strong> generates a plan that the <strong>wizard auto-fill mode D</strong> uses to fill 7 of the 11 implementation guide fields. The <strong>Developer Survey</strong> computes real maturity per dimension, cross-checkable against leadership-declared maturity in the Assessment Summary PDF."
           }
@@ -789,6 +805,14 @@
           {
             "label": "English docs + banks and spec in 3 languages",
             "code": "included"
+          },
+          {
+            "label": "Evidence cross-checks",
+            "code": "repos · Copilot · DORA"
+          },
+          {
+            "label": "Version",
+            "code": "kit 2.1.0 · framework 2.0.2"
           }
         ]
       },
@@ -940,11 +964,11 @@
             "variant": "a",
             "badge": "A ASSESSMENT",
             "title": "AI Maturity Assessment",
-            "subtitle": "Organizational baseline · framework v2 · Likert L0 to L4",
+            "subtitle": "Línea base organizacional · framework v2 · escala L0 a L4",
             "meta": [
               {
                 "value": "61",
-                "label": "questions"
+                "label": "preguntas"
               },
               {
                 "value": "60-90 min",
@@ -966,7 +990,7 @@
             "variant": "b",
             "badge": "B SURVEY-DEVS",
             "title": "Developer Survey",
-            "subtitle": "Anónimo · comportamental · 7 dimensiones D2-D8",
+            "subtitle": "Anónimo · comportamental · 7 dimensiones DS-D2 a DS-D8",
             "meta": [
               {
                 "value": "75",
@@ -1009,9 +1033,9 @@
             ],
             "items": [
               "Top 10 temas demandados con inscritos",
-              "Cohorts por dimensión D2-D8",
+              "Cohorts por dimensión DS-D2 a DS-D8",
               "Champions Network en 3 niveles",
-              "Calendario 90 dias de talleres"
+              "Calendario de 90 días de talleres"
             ]
           }
         ]
@@ -1105,9 +1129,9 @@
         ]
       },
       "faq": {
-        "eyebrow": "Atascado en algun paso?",
+        "eyebrow": "¿Atascado en algún paso?",
         "title": "FAQ",
-        "lede": "Dudas mas comunes en los primeros 15 minutos con el kit.",
+        "lede": "Dudas más comunes en los primeros 15 minutos con el kit.",
         "items": [
           {
             "summary": "¿Qué encuesta debo ejecutar primero?",
@@ -1136,6 +1160,10 @@
           {
             "summary": "¿Puedo personalizar el branding de los PDFs?",
             "answerHtml": "El kit usa la identidad <strong>paulasilva-ms</strong>, con paleta Microsoft 4 colores. Para personalizar, edita <code>reports/scripts/branding.py</code> con tus constantes y re-renderiza. Los templates Jinja2 en <code>reports/templates/</code> consumen estas variables automáticamente."
+          },
+          {
+            "summary": "¿Cómo verifico las respuestas con evidencia?",
+            "answerHtml": "Tres verificaciones opcionales comparan las respuestas con datos reales y nunca cambian los puntajes: <code>make scan-repos</code> (configuración de IA versionada en los repositorios, para D4-Q4 y D4-Q5), <code>make telemetry</code> (métricas de uso de GitHub Copilot, para D4-Q1 y D9-Q1) y <code>make dora</code> (métricas DORA por servicio con baseline, para D9-Q2). La sección 2.2 del PDF de resumen muestra el resultado, y la guía de implementación lista como riesgos las respuestas por encima de la evidencia."
           },
           {
             "summary": "¿Cómo se integran la evaluación v2 y las encuestas?",
@@ -1181,6 +1209,14 @@
           {
             "label": "Docs en español + bancos y spec en 3 idiomas",
             "code": "incluidos"
+          },
+          {
+            "label": "Cross-checks de evidencia",
+            "code": "repos · Copilot · DORA"
+          },
+          {
+            "label": "Versión",
+            "code": "kit 2.1.0 · framework 2.0.2"
           }
         ]
       },

@@ -29,6 +29,9 @@ combinando y puntuando.
   regeneraron `framework.v2.json`, los bancos de preguntas, los
   formularios, la calculadora, el wizard, las páginas de referencia y los
   ejemplos.
+- El README explica cómo obtener el kit (sitio, ZIPs, clon, requisitos) y
+  lista todas las salidas y carpetas. El sitio muestra la versión y los
+  cross-checks de evidencia, y una nueva pregunta del FAQ los explica.
 
 ### Corregido
 

@@ -78,11 +78,12 @@ Idiomas de los paquetes: cada ZIP incluye su idioma bajo los nombres de archivo 
 El workflow [`.github/workflows/pages.yml`](../.github/workflows/pages.yml):
 
 1. Hace checkout del repositorio.
-2. Construye los tres ZIPs en `docs/downloads/`.
-3. Sube la carpeta `docs/` como artefacto de GitHub Pages.
-4. Publica el sitio.
+2. Verifica que los bancos de preguntas, las páginas de referencia, los helpers HTML y las traducciones de la especificación generados estén actualizados.
+3. Construye los tres ZIPs en `docs/downloads/`.
+4. Sube la carpeta `docs/` como artefacto de GitHub Pages.
+5. Publica el sitio.
 
-Cualquier push que toque `docs/**` o el workflow de Pages dispara un nuevo deploy.
+Cada push a `main` dispara un nuevo deploy, igual que una ejecución manual del workflow.
 
 ## Branding
 
