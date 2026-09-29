@@ -11,7 +11,7 @@ This folder contains a survey separate from the main assessment. It measures how
 | Audience | Leadership, architects, and Tech Leads | Individual developers | Individual developers |
 | Anonymous? | No | Yes | No, identified by name and email |
 | Focus | Organizational maturity, v2 D1 to D9 | Real individual adoption and practice, `DS-D2` to `DS-D8` | What people want to learn |
-| Output | 5 v2 PDFs, workbook, JSONs | Insights report and computed maturity JSON | Capacitation plan and Champions |
+| Output | 5 v2 PDFs, workbook, JSONs | Insights report and computed maturity JSON | Training plan and Champions |
 | Scoring impact | Source of v2 scores | Context only | Context and wizard auto-fill only |
 
 Survey results never change v2 assessment scores.

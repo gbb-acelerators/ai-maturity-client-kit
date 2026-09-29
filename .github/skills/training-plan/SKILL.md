@@ -1,9 +1,9 @@
 ---
 name: training-plan
-description: Generates a prioritized learning and capacitation plan from the Learning and Growth Survey. Use for "plano de capacitacao", "training plan", "learning roadmap", "plan de capacitación".
+description: Generates a prioritized learning and training plan from the Learning and Growth Survey. Use for "plano de capacitacao", "training plan", "learning roadmap", "plan de capacitación".
 ---
 
-# Skill: Capacitation plan
+# Skill: Training plan
 
 Use the existing survey-learning scripts and outputs. Do not derive cohorts, rankings, or mentor matches by hand when scripts exist.
 

@@ -10,7 +10,7 @@
 
 - Developer Survey: anonymous behavioral baseline
 
-- **This Learning Survey: IDENTIFIED capacitation roadmap** (name + email required to invite people to the right workshops)
+- **This Learning Survey: IDENTIFIED training roadmap** (name + email required to invite people to the right workshops)
 
 ## How to Create the Form
 
@@ -18,7 +18,7 @@
 2. Title: `AI Learning & Growth: What do you want to learn in the next 6 months?`
 3. Subtitle:
 
-   > 5-8 min survey about your AI capacitation plan. IDENTIFIED (we need name + email to invite you to the right workshops). Output: personalized capacitation plan + cohorts + Champions Network.
+   > 5-8 min survey about your AI training plan. IDENTIFIED (we need name + email to invite you to the right workshops). Output: personalized training plan + cohorts + Champions Network.
 
    Add this privacy notice below the subtitle (fill in the angle brackets with your privacy or legal team):
 
@@ -581,7 +581,7 @@ Options:
 
 ### Question `L7-Q5`: _Choice (single answer)_
 
-> **L7-Q5: Do you want to receive the consolidated capacitation plan (result of this survey) by email?**
+> **L7-Q5: Do you want to receive the consolidated training plan (result of this survey) by email?**
 
 Options:
 
@@ -609,4 +609,4 @@ Options:
    /training-plan
    ```
 
-4. Receive the prioritized capacitation plan in `output/training-plan-<date>.md`
+4. Receive the prioritized training plan in `output/training-plan-<date>.md`

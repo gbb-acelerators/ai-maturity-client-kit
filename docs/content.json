@@ -2,7 +2,8 @@
   "repositoryUrl": "https://github.com/gbb-acelerators/ai-maturity-client-kit",
   "siteUrl": "https://gbb-acelerators.github.io/ai-maturity-client-kit/",
   "hubUrl": "https://agenticdevopsplatform.ai/",
-  "contactLinkedIn": "mailto:paulasilva@microsoft.com",
+  "contactEmail": "mailto:paulasilva@microsoft.com",
+  "linkedinUrl": "https://www.linkedin.com/in/paulanunes/",
   "profileImage": "assets/paula-about.jpg",
   "downloads": {
     "pt-BR": "downloads/ai-maturity-kit-pt.zip",
@@ -131,7 +132,7 @@
             "kind": "core",
             "num": "4",
             "name": "/implementation-wizard",
-            "hint": "11 campos, Parte 4"
+            "hint": "11 campos, guia de implementação"
           },
           {
             "kind": "core",
@@ -150,7 +151,7 @@
       "surveys": {
         "eyebrow": "Escolha o escopo",
         "title": "Assessment v2 + surveys complementares",
-        "lede": "Rode 1, 2 ou os 3 baseado no objetivo. Cada survey informa o próximo, e o agente concierge cruza os resultados automaticamente.",
+        "lede": "Rode 1, 2 ou os 3 baseado no objetivo. Cada resultado alimenta o próximo, e o agente concierge cruza os resultados automaticamente.",
         "cards": [
           {
             "variant": "a",
@@ -296,7 +297,7 @@
           },
           {
             "cmd": "/implementation-wizard",
-            "desc": "11 campos, PDF da Parte 4"
+            "desc": "11 campos para o guia de implementação"
           },
           {
             "cmd": "/generate-report",
@@ -417,7 +418,7 @@
         "title": "Quem construiu isto, e por quê.",
         "paragraphs": [
           "Sou Paula Silva, engenheira de software AI-native e Global Developer Solutions Advisor. Meu trabalho cobre toda a jornada de transformação com IA, da modernização de aplicações e sistemas legados a arquitetura agêntica e engenharia de plataforma, ajudando times enterprise a adotar desenvolvimento assistido por IA em escala. GitHub Copilot é uma ferramenta nessa prática, não o todo.",
-          "O AI Maturity Assessment Kit empacota o fluxo de assessment em uma experiência conduzida pelo cliente: três surveys, pontuação auditável, análise de gaps, recomendações de estratégia e relatórios executivos que podem ser gerados sem depender de uma plataforma web.",
+          "O AI Maturity Assessment Kit empacota o fluxo de assessment em uma experiência conduzida pelo cliente: o assessment e dois surveys complementares, pontuação auditável, análise de gaps, recomendações de estratégia e relatórios executivos que podem ser gerados sem depender de uma plataforma web.",
           "Ele foi desenhado para ajudar líderes e times de desenvolvimento a construir uma visão compartilhada de maturidade, necessidades de capacitação, gaps de governança e quick wins, mantendo o processo transparente, reproduzível e pronto para adaptação ao cliente."
         ],
         "contactLabel": "Contato",
@@ -535,7 +536,7 @@
             "kind": "core",
             "num": "4",
             "name": "/implementation-wizard",
-            "hint": "11 fields Part 4"
+            "hint": "11 fields, implementation guide"
           },
           {
             "kind": "core",
@@ -553,8 +554,8 @@
       },
       "surveys": {
         "eyebrow": "Choose your scope",
-        "title": "3 complementary surveys",
-        "lede": "Run 1, 2, or all 3 based on your goal. Each survey informs the next, and the concierge agent cross-validates the results automatically.",
+        "title": "Assessment v2 + 2 complementary surveys",
+        "lede": "Run 1, 2, or all 3 based on your goal. Each result feeds the next, and the concierge agent cross-validates the results automatically.",
         "cards": [
           {
             "variant": "a",
@@ -700,7 +701,7 @@
           },
           {
             "cmd": "/implementation-wizard",
-            "desc": "11 fields for the Part 4 PDF"
+            "desc": "11 fields for the implementation guide"
           },
           {
             "cmd": "/generate-report",
@@ -821,7 +822,7 @@
         "title": "Who built this, and why.",
         "paragraphs": [
           "I am Paula Silva, an AI-native software engineer and Global Developer Solutions Advisor. My work spans the full AI transformation journey, from application and legacy modernization to agentic architecture and platform engineering, helping enterprise teams adopt AI-assisted development at scale. GitHub Copilot is one tool in that practice, not the whole of it.",
-          "The AI Maturity Assessment Kit packages the assessment workflow into a client-run experience: three surveys, auditable scoring, gap analysis, strategy recommendations, and executive reports that can be generated without waiting for a web platform.",
+          "The AI Maturity Assessment Kit packages the assessment workflow into a client-run experience: the assessment and two companion surveys, auditable scoring, gap analysis, strategy recommendations, and executive reports that can be generated without waiting for a web platform.",
           "It is designed to help leaders and developer teams build a shared view of maturity, training needs, governance gaps, and quick wins while keeping the process transparent, reproducible, and ready for client adaptation."
         ],
         "contactLabel": "Contact",
@@ -939,7 +940,7 @@
             "kind": "core",
             "num": "4",
             "name": "/implementation-wizard",
-            "hint": "11 campos, Parte 4"
+            "hint": "11 campos, guía de implementación"
           },
           {
             "kind": "core",
@@ -957,8 +958,8 @@
       },
       "surveys": {
         "eyebrow": "Elige el alcance",
-        "title": "3 encuestas complementarias",
-        "lede": "Ejecuta 1, 2 o las 3 según tu objetivo. Cada encuesta informa la siguiente, y el agente concierge cruza los resultados automáticamente.",
+        "title": "Evaluación + 2 encuestas complementarias",
+        "lede": "Ejecuta 1, 2 o los 3 según tu objetivo. Cada resultado alimenta el siguiente, y el agente concierge cruza los resultados automáticamente.",
         "cards": [
           {
             "variant": "a",
@@ -1104,7 +1105,7 @@
           },
           {
             "cmd": "/implementation-wizard",
-            "desc": "11 campos, PDF de la Parte 4"
+            "desc": "11 campos para la guía de implementación"
           },
           {
             "cmd": "/generate-report",
@@ -1225,7 +1226,7 @@
         "title": "Quién construyó esto, y por qué.",
         "paragraphs": [
           "Soy Paula Silva, ingeniera de software AI-native y Global Developer Solutions Advisor. Mi trabajo abarca todo el recorrido de transformación con IA, desde la modernización de aplicaciones y sistemas legacy hasta la arquitectura agéntica y la ingeniería de plataforma, ayudando a equipos enterprise a adoptar el desarrollo asistido por IA a escala. GitHub Copilot es una herramienta en esa práctica, no el todo.",
-          "El AI Maturity Assessment Kit empaqueta el flujo de assessment en una experiencia ejecutada por el cliente: tres encuestas, puntuación auditable, análisis de gaps, recomendaciones de estrategia e informes ejecutivos que pueden generarse sin depender de una plataforma web.",
+          "El AI Maturity Assessment Kit empaqueta el flujo de assessment en una experiencia ejecutada por el cliente: la evaluación y dos encuestas complementarias, puntuación auditable, análisis de gaps, recomendaciones de estrategia e informes ejecutivos que pueden generarse sin depender de una plataforma web.",
           "Está diseñado para ayudar a líderes y equipos de desarrollo a construir una visión compartida de madurez, necesidades de capacitación, gaps de gobernanza y quick wins, manteniendo el proceso transparente, reproducible y listo para adaptarse al cliente."
         ],
         "contactLabel": "Contacto",

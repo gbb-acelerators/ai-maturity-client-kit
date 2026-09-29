@@ -2,7 +2,7 @@
 
 🌐 [English](question-bank-devs.md) · [Português (Brasil)](question-bank-devs.pt-br.md) · Español
 
-75 preguntas en 9 secciones. Tiempo estimado: **20-25 min**. ANÓNIMO, no pedimos nombre ni email del respondente.
+75 preguntas en 9 secciones. Tiempo estimado: **20-25 min**. ANÓNIMO, no pedimos nombre ni email de la persona encuestada.
 
 **Nota de ejecución:** Este banco localizado traduce las instrucciones, los títulos de las preguntas y las opciones de respuesta. `survey-devs/options.json` asigna cada opción en español, inglés y portugués a la misma opción canónica, así que el puntaje funciona con un formulario creado en cualquiera de los tres idiomas (los formularios antiguos en portugués con guiones en las opciones también se leen). Mantén todos los IDs (`Sx-Qy:`) sin cambios en Microsoft Forms.
 
@@ -10,9 +10,9 @@
 
 1. Ve a <https://forms.office.com> -> **+ New Form**.
 2. Título sugerido: `Developer Survey: Cómo mi equipo usa GitHub e IA hoy`.
-3. Subtítulo sugerido: Survey anónimo (15-25 min) sobre tus prácticas con GitHub Copilot, modos de Copilot Chat (Ask/Edit/Agent), agentes IA, instruction files, mejores prácticas de IA + Dev, y seguridad. Tus respuestas alimentarán el roadmap de adopción de IA del equipo.
+3. Subtítulo sugerido: Survey anónimo (20-25 min) sobre tus prácticas con GitHub Copilot, modos de Copilot Chat (Ask/Edit/Agent), agentes IA, instruction files, mejores prácticas de IA + Dev, y seguridad. Tus respuestas alimentarán el roadmap de adopción de IA del equipo.
 4. Configuración: habilita **Anonymous responses**, deshabilita **One response per person**, y deja **Accept responses** habilitado.
-5. Agrega 9 secciones: S1 Perfil del respondente, S2 GitHub Copilot Adopción y Modos, S3 Otras herramientas Microsoft / GitHub AI, S4 Prácticas de Desarrollo con IA, S5 Conceptos y Estructura de Agentes, S6 Markdown / Memory / Instructions, S7 Usabilidad y Best Practices, S8 Seguridad y Gobernanza, S9 Pain Points & Wishlist.
+5. Agrega 9 secciones: S1 Perfil del encuestado, S2 GitHub Copilot Adopción y Modos, S3 Otras herramientas Microsoft / GitHub AI, S4 Prácticas de Desarrollo con IA, S5 Conceptos y Estructura de Agentes, S6 Markdown / Memory / Instructions, S7 Usabilidad y Best Practices, S8 Seguridad y Gobernanza, S9 Pain Points & Wishlist.
 6. Para cada pregunta abajo, agrega el tipo correspondiente en Forms: `choice`, `multi`, o `text`.
 7. El **TÍTULO** de cada pregunta debe comenzar con el ID + dos puntos. Ejemplo: `S2-Q1: ¿Tienes una licencia activa de GitHub Copilot?`
 8. El ID es usado por `/import-survey-devs` para mapear de vuelta. NO LO REMUEVAS.
@@ -21,7 +21,7 @@
 
 ---
 
-## S1: Perfil del respondente
+## S1: Perfil del encuestado
 
 _Preguntas básicas sobre ti y tu contexto. Anónimo: no pediremos nombre ni email._
 

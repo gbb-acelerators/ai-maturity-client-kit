@@ -73,6 +73,16 @@ score.
   site, its SEO tags and the docs now use
   `https://gbb-acelerators.github.io/ai-maturity-client-kit/`; the old
   Pages URL returns 404.
+- The site linked the LinkedIn card to the email address, called the
+  assessment and the two surveys "3 surveys", and described the
+  implementation wizard as "Part 4" (a v1 term). The LinkedIn card now
+  opens LinkedIn, the section reads "Assessment v2 + 2 complementary
+  surveys", and the wizard points to the implementation guide.
+- English docs, skills and report strings said "capacitation plan"; they
+  now say "training plan". The Developer Survey banks suggested a
+  15-25 min subtitle; it is now 20-25 min, like the rest of the docs.
+- Spanish copies used the Portuguese word "respondente"; they now say
+  "encuestado".
 
 ## [2.0.2] - 2026-09-29 (English file and folder names)
 

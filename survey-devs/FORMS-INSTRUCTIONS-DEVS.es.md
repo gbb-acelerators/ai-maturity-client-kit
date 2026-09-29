@@ -38,7 +38,7 @@ Esta encuesta es **anónima por diseño**:
 
 | # | Sección | Foco | Preguntas |
 |---|---|---|---|
-| **S1** | Perfil del respondente | Cargo, experiencia, stack, modelo de trabajo | 7 |
+| **S1** | Perfil del encuestado | Cargo, experiencia, stack, modelo de trabajo | 7 |
 | **S2** | GitHub Copilot: Adopción y Modos | Licencia, frecuencia, **Ask / Edit / Agent / Coding Agent (autónomo)**, features (incl. **Spaces**), ganancia | 9 |
 | **S3** | Otras herramientas Microsoft / GitHub AI | **Microsoft Foundry** (antes Azure AI Foundry), **Foundry Agent Service**, **Copilot Spaces**, **Coding Agent**, GHAS, **Spec Kit**, **MCP** | 7 |
 | **S4** | Prácticas de Desarrollo con IA | **TDD con IA**, **SDD con Spec Kit**, pair programming, refactoring, debugging, onboarding | 9 |
@@ -91,7 +91,7 @@ Tiempo estimado: 20-25 min.
 En Forms, botón **+ Add new** → icono de sección (o "Add section"):
 
 ```text
-Section 1: S1 Perfil del respondente                       (7 preguntas)
+Section 1: S1 Perfil del encuestado                       (7 preguntas)
 Section 2: S2 GitHub Copilot Adopción y Modos              (9 preguntas)
 Section 3: S3 Otras herramientas Microsoft / GitHub AI     (7 preguntas)
 Section 4: S4 Prácticas de Desarrollo con IA               (9 preguntas)

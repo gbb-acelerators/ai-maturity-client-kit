@@ -5,7 +5,7 @@ description: Imports Learning and Growth Survey Microsoft Forms exports using th
 
 # Skill: Import Learning and Growth Survey
 
-Use existing survey-learning tooling. The Learning Survey is identified and supports the capacitation plan and implementation guide wizard.
+Use existing survey-learning tooling. The Learning Survey is identified and supports the training plan and implementation guide wizard.
 
 ## Dimension names
 

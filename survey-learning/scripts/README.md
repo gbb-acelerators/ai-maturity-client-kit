@@ -4,7 +4,7 @@
 
 📖 **Navigation:** [🏠 Index](../../README.md) · [« Learning Survey](../README.md)
 
-Scripts that build the capacitation plan from the identified Learning and Growth Survey.
+Scripts that build the training plan from the identified Learning and Growth Survey.
 
 ## Contents
 
