@@ -75,7 +75,7 @@ v1 inputs still use the archived 158 question, 3 pillar flow and produce the exi
 
 ```text
 Pipeline complete.
-Framework: v2.0.1 or v1 archived flow
+Framework: v2.0.2 or v1 archived flow
 Coverage: <status> (<answered>/<applicable>)
 JSON outputs: scores.json, gaps.json, recommendations.json
 Workbook: <file>

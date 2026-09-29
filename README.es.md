@@ -10,7 +10,7 @@ Consulta [CHANGELOG.md](CHANGELOG.es.md) para el historial de versiones.
 
 ## Qué hay de nuevo en framework v2
 
-- Versión: 2.0.1.
+- Versión: 2.0.2.
 - Especificación: [collection/AI-Maturity-Form-Questions_v2.es.md](collection/AI-Maturity-Form-Questions_v2.es.md), traducción de la fuente en inglés [collection/AI-Maturity-Form-Questions_v2.md](collection/AI-Maturity-Form-Questions_v2.md).
 - Modelo de máquina: [framework.v2.json](framework.v2.json), validado por [framework.v2.schema.json](framework.v2.schema.json) y [scripts/validate_framework_v2.py](scripts/validate_framework_v2.py).
 - 5 preguntas de perfil y 61 preguntas puntuadas.

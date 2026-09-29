@@ -64,7 +64,7 @@
       "title": "Herramientas y modelos aprobados",
       "text": "¿Existe un catálogo mantenido de herramientas, funciones y modelos de IA aprobados para desarrollo de software, gestionado mediante políticas enterprise o de la organización?",
       "l3": "Las políticas enterprise/de la organización habilitan solo funciones y modelos aprobados; el catálogo lista responsable, manejo de datos y fecha de revisión para cada herramienta.",
-      "l4": "Los nuevos modelos y herramientas pasan por una evaluación definida (calidad, costo, seguridad) antes de habilitarse; los retirados se eliminan según cronograma.",
+      "l4": "Los nuevos modelos y herramientas pasan por una evaluación definida por tipo de tarea (calidad, costo, seguridad) antes de habilitarse; los retirados se eliminan según cronograma.",
       "evidence_examples": "Configuraciones de política de Copilot, catálogo de herramientas, registros de evaluación de modelos."
     },
     "D1-Q4": {

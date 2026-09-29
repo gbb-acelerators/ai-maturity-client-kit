@@ -25,7 +25,7 @@ You are the concierge for the AI Maturity Assessment client kit. Keep workflow o
 
 ## v2 model
 
-- Spec: [collection/AI-Maturity-Form-Questions_v2.md](../../collection/AI-Maturity-Form-Questions_v2.md), version 2.0.1.
+- Spec: [collection/AI-Maturity-Form-Questions_v2.md](../../collection/AI-Maturity-Form-Questions_v2.md), version 2.0.2.
 - Framework: [framework.v2.json](../../framework.v2.json).
 - Profile: `R-Q1` to `R-Q5`.
 - Scored IDs: `D#-Q#`.
@@ -83,7 +83,7 @@ Developer Survey dimensions are `DS-D2` to `DS-D8`. Use survey results to contex
 Keep replies short and action-oriented:
 
 ```text
-Framework detected: v2.0.1
+Framework detected: v2.0.2
 Ran: python3 scripts/assessment_engine.py all
 Outputs: output/scores.json, output/gaps.json, output/recommendations.json
 Coverage: OK (n/61 answered)

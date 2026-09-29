@@ -4,7 +4,11 @@
 
 Todas as alterações relevantes no kit de cliente AI Maturity. As datas estão em ISO 8601.
 
-## [Unreleased]
+## [2.1.0] - 2026-09-29 (cross-check de métricas DORA, framework 2.0.2)
+
+O framework passa para 2.0.2 (veja Alterado). A escala e a pontuação não
+mudam, e respostas coletadas com a 2.0.1 continuam sendo importadas,
+mescladas e pontuadas.
 
 ### Adicionado
 
@@ -17,6 +21,14 @@ Todas as alterações relevantes no kit de cliente AI Maturity. As datas estão 
   implementação lista a divergência como risco. Ele checa a cobertura da
   medição, não o desempenho de entrega. Os exemplos usam
   `scripts/fixtures/dora-metrics.mock.csv`.
+
+### Alterado
+
+- Framework 2.0.2: a âncora L4 do D1-Q3 pede uma avaliação por tipo de
+  tarefa, como a seção 2.1 da spec afirma para Pinna et al. [49].
+  `framework.v2.json`, os bancos de perguntas, os formulários, a
+  calculadora, o wizard, as páginas de referência e os exemplos foram
+  regenerados.
 
 ### Corrigido
 
@@ -32,6 +44,8 @@ Todas as alterações relevantes no kit de cliente AI Maturity. As datas estão 
 - Vários docs PT-BR apontavam para a cópia em inglês de uma página que
   tem versão PT-BR.
 - O log de importação do Forms usava travessão para valores vazios.
+- A seção 10 da spec v2 listava ações de tooling pendentes que o kit já
+  implementa; agora ela cita o script que atende cada item.
 - `.github/copilot-instructions.md` mostrava flags erradas nos scripts
   de evidência (`--repos`, `--metrics`); agora usa `--path` e o arquivo
   de métricas como argumento posicional, como o Makefile.

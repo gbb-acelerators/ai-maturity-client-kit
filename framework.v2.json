@@ -1,6 +1,6 @@
 {
   "$schema": "./framework.v2.schema.json",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "source": "collection/AI-Maturity-Form-Questions_v2.md",
   "level_names": {
     "en": {
@@ -666,9 +666,9 @@
               "es": "Las políticas enterprise/de la organización habilitan solo funciones y modelos aprobados; el catálogo lista responsable, manejo de datos y fecha de revisión para cada herramienta."
             },
             "l4": {
-              "en": "New models and tools go through a defined evaluation (quality, cost, security) before enablement; retired ones are removed on schedule.",
-              "pt-br": "Novos modelos e ferramentas passam por uma avaliação definida (qualidade, custo, segurança) antes da habilitação; os descontinuados são removidos conforme cronograma.",
-              "es": "Los nuevos modelos y herramientas pasan por una evaluación definida (calidad, costo, seguridad) antes de habilitarse; los retirados se eliminan según cronograma."
+              "en": "New models and tools go through a defined evaluation per task type (quality, cost, security) before enablement; retired ones are removed on schedule.",
+              "pt-br": "Novos modelos e ferramentas passam por uma avaliação definida por tipo de tarefa (qualidade, custo, segurança) antes da habilitação; os descontinuados são removidos conforme cronograma.",
+              "es": "Los nuevos modelos y herramientas pasan por una evaluación definida por tipo de tarea (calidad, costo, seguridad) antes de habilitarse; los retirados se eliminan según cronograma."
             }
           },
           "evidence_examples": {

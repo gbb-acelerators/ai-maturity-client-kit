@@ -4,7 +4,7 @@ This repository is the AI Maturity Assessment client kit. Framework v2 is the de
 
 ## Default framework
 
-- v2 source spec: [collection/AI-Maturity-Form-Questions_v2.md](../collection/AI-Maturity-Form-Questions_v2.md), version 2.0.1.
+- v2 source spec: [collection/AI-Maturity-Form-Questions_v2.md](../collection/AI-Maturity-Form-Questions_v2.md), version 2.0.2.
 - Generated model: [framework.v2.json](../framework.v2.json), schema [framework.v2.schema.json](../framework.v2.schema.json).
 - Structure: 5 profile questions (`R-Q1` to `R-Q5`) plus 9 scored dimensions and 61 scored questions.
 - Dimensions: D1 AI Strategy, Policy and Governance (7), D2 Enablement, Skills and Culture (6), D3 Plan, Specify and Design (6), D4 Code and Context Engineering (8), D5 Review, Quality and Testing (7), D6 Security and AI Supply Chain (7), D7 Deliver and Operate (6), D8 Engineering Foundations (AI amplifiers) (7), D9 Measurement, Value and AI FinOps (7).

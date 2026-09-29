@@ -2,7 +2,7 @@
 
 🌐 [English](question-bank.md) · Português (Brasil) · [Español](question-bank.es.md)
 
-> Gerado a partir de `framework.v2.json` (versão 2.0.1) por `scripts/generate_v2_collection.py`. Não edite à mão. Fonte do texto: [AI-Maturity-Form-Questions_v2.pt-br.md](AI-Maturity-Form-Questions_v2.pt-br.md). O banco v1 (158 perguntas) está arquivado em [v1/](v1/).
+> Gerado a partir de `framework.v2.json` (versão 2.0.2) por `scripts/generate_v2_collection.py`. Não edite à mão. Fonte do texto: [AI-Maturity-Form-Questions_v2.pt-br.md](AI-Maturity-Form-Questions_v2.pt-br.md). O banco v1 (158 perguntas) está arquivado em [v1/](v1/).
 
 ## Como montar o formulário
 
@@ -134,7 +134,7 @@ _7 perguntas. Por que importa: DORA identifica uma "postura de IA clara e comuni
 
 - **Unidade de cobertura:** prática da organização inteira (use as colunas de governança e medição)
 - **L3 se parece com:** Políticas enterprise/da organização habilitam apenas recursos e modelos aprovados; o catálogo lista responsável, tratamento de dados e data de revisão para cada ferramenta.
-- **L4 se parece com:** Novos modelos e ferramentas passam por uma avaliação definida (qualidade, custo, segurança) antes da habilitação; os descontinuados são removidos conforme cronograma.
+- **L4 se parece com:** Novos modelos e ferramentas passam por uma avaliação definida por tipo de tarefa (qualidade, custo, segurança) antes da habilitação; os descontinuados são removidos conforme cronograma.
 - **Exemplos de evidência:** Configurações de política do Copilot, catálogo de ferramentas, registros de avaliação de modelos.
 - **Campo de evidência:** `Evidence (D1-Q3)` · _Ferramenta, % de cobertura, métrica, período, link_
 

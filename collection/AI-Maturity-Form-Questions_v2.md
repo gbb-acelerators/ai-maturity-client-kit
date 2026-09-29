@@ -1,4 +1,4 @@
-# AI-Assisted SDLC Maturity Assessment: Question Bank v2.0.1
+# AI-Assisted SDLC Maturity Assessment: Question Bank v2.0.2
 
 🌐 English · [Português (Brasil)](AI-Maturity-Form-Questions_v2.pt-br.md) · [Español](AI-Maturity-Form-Questions_v2.es.md)
 
@@ -7,8 +7,8 @@
 
 | Field | Value |
 | --- | --- |
-| Version | 2.0.1 |
-| Date | 2026-09-27 |
+| Version | 2.0.2 |
+| Date | 2026-09-29 |
 | Status | Approved for use in the kit |
 | Supersedes | v1 question bank (3 pillars, 28 capabilities, 158 questions) |
 | Scope | AI-assisted and agentic software engineering: plan, code, review, test, secure, deliver, operate, measure |
@@ -279,7 +279,7 @@ _7 questions. Why it matters: DORA identifies a "clear and communicated AI stanc
 > **Is there a maintained catalog of approved AI tools, features and models for software development, managed through enterprise or organization policies?**
 
 - **L3 looks like:** Enterprise/organization policies enable only approved features and models; the catalog lists owner, data handling and review date for each tool.
-- **L4 looks like:** New models and tools go through a defined evaluation (quality, cost, security) before enablement; retired ones are removed on schedule.
+- **L4 looks like:** New models and tools go through a defined evaluation per task type (quality, cost, security) before enablement; retired ones are removed on schedule.
 - **Evidence examples:** Copilot policy settings, tool catalog, model evaluation records.
 - **Basis:** [2], [15], [32], [49]
 - **v1 lineage:** New
@@ -980,14 +980,14 @@ The per-question lineage is in the **v1 lineage** line of each v2 question.
 
 ## 10. Import and tooling compatibility
 
-| Item | v1 | v2 | Action needed |
+| Item | v1 | v2 | Kit support |
 | --- | --- | --- | --- |
-| Option prefixes | `L0` to `L4`, `NA` | Unchanged | None. |
-| Question ID pattern | `P#-C#-Q#` | `D#-Q#` (scored), `R-Q#` (profile) | If `/import-responses` matches the v1 pattern, extend it to accept `D#-Q#` and `R-Q#`. |
-| Evidence field label | `Evidence (<ID>)` | Unchanged pattern | None. |
-| Profile questions | None | `R-Q1` to `R-Q5`, not scored, `R-Q3` is multiple choice | Importer must store them as segment attributes and exclude them from scoring. |
-| Grouping | Pillar → capability | Dimension | Update `responses.json` aggregation and downstream reports (`/full-pipeline`) to group by `D1` to `D9`. |
-| Historical comparison | None | Section 9 table | Use the lineage lines to compare a v1 result with a v2 result per capability. |
+| Option prefixes | `L0` to `L4`, `NA` | Unchanged | No change needed. |
+| Question ID pattern | `P#-C#-Q#` | `D#-Q#` (scored), `R-Q#` (profile) | `scripts/import_forms_excel.py` reads `D#-Q#` and `R-Q#` columns as v2 and `P#-C#-Q#` columns as v1. |
+| Evidence field label | `Evidence (<ID>)` | Unchanged pattern | No change needed. |
+| Profile questions | None | `R-Q1` to `R-Q5`, not scored, `R-Q3` is multiple choice | The importer stores them in each respondent's `profile`; the engine uses them for persona results and flags, never for scores. |
+| Grouping | Pillar → capability | Dimension | The engine, the workbook and the reports group by `D1` to `D9`; the reports gather the dimensions into groups G1 to G3. |
+| Historical comparison | None | Section 9 table | `scripts/compare_rounds.py` (`make compare`) compares a v1 result with a v2 result through the lineage lines, as an indicative baseline. |
 
 ---
 
@@ -1005,6 +1005,11 @@ The per-question lineage is in the **v1 lineage** line of each v2 question.
 ---
 
 ## Changelog
+
+### 2.0.2 (2026-09-29)
+
+- D1-Q3: the L4 anchor asks for an evaluation per task type, as section 2.1 states for Pinna et al. [49]. This raises the L4 bar for D1-Q3 slightly; the other questions, the scale and the scoring are unchanged.
+- Section 10 states how the kit supports each item instead of listing pending actions.
 
 ### 2.0.1 (2026-09-27)
 
