@@ -34,6 +34,11 @@ score.
 
 ### Fixed
 
+- The site showed figures from older versions: it now says 25-40 min per
+  respondent for the assessment, 20-25 min for the Developer Survey, at
+  least 5 respondents for the Learning Survey, and the real sizes of the
+  PDFs and the workbook. Its PT-BR and ES text is corrected, and the
+  Developer Survey instructions use one time estimate.
 - PT-BR and ES Developer Survey insights now use a decimal comma.
 - The v1 scoring guide called the PE score "Production Engineering";
   the code and reports mean Platform Engineering readiness, and the

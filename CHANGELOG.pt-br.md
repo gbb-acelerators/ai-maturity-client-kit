@@ -35,6 +35,11 @@ mescladas e pontuadas.
 
 ### Corrigido
 
+- O site mostrava números de versões antigas: agora diz 25-40 min por
+  respondente no assessment, 20-25 min no Developer Survey, pelo menos 5
+  respondentes no Learning Survey e os tamanhos reais dos PDFs e da
+  planilha. Os textos em PT-BR e ES foram corrigidos, e as instruções do
+  Developer Survey usam uma única estimativa de tempo.
 - Os insights do Developer Survey em PT-BR e ES agora usam vírgula
   decimal.
 - O guia de scoring v1 chamava o PE score de "Production Engineering";

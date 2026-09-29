@@ -5,7 +5,7 @@
 **`🅱️ SURVEY-DEVS`** · _anónimo_ · 📖 [🏠 Índice](../README.es.md) · [« Recolección principal](../collection/FORMS-INSTRUCTIONS.es.md) · Estás aquí · [» Learning Survey](../survey-learning/FORMS-INSTRUCTIONS-LEARNING.es.md)
 
 > [!IMPORTANT]
-> Encuesta **anónima** de **75 preguntas** en 9 secciones para entender cómo los desarrolladores de tu organización usan GitHub Copilot, modos de Copilot Chat (Ask/Edit/Agent/**Coding Agent**), **Copilot Spaces**, **Microsoft Foundry**, agentes IA + **MCP / A2A**, instruction files, prácticas (TDD/SDD con Spec Kit), **personas Agentic DevOps** (System Designer / Agent Operator), gobernanza y seguridad (incl. **JIT permissions** y **alcance+red-lines de agentes**). Tiempo estimado por persona encuestada: **22-28 min**.
+> Encuesta **anónima** de **75 preguntas** en 9 secciones para entender cómo los desarrolladores de tu organización usan GitHub Copilot, modos de Copilot Chat (Ask/Edit/Agent/**Coding Agent**), **Copilot Spaces**, **Microsoft Foundry**, agentes IA + **MCP / A2A**, instruction files, prácticas (TDD/SDD con Spec Kit), **personas Agentic DevOps** (System Designer / Agent Operator), gobernanza y seguridad (incl. **JIT permissions** y **alcance+red-lines de agentes**). Tiempo estimado por persona encuestada: **20-25 min**.
 
 **Versión 2.0 (2026-05-08)**: términos actualizados con la documentación oficial más reciente de Microsoft/GitHub.
 

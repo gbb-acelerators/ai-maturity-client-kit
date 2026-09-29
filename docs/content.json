@@ -38,7 +38,7 @@
       },
       "footer": {
         "aboutTitle": "AI Maturity Assessment Kit",
-        "aboutText": "Kit autosserviço para conduzir assessment de maturidade IA com GitHub Copilot, assessment v2, surveys complementares e 5 PDFs v2.",
+        "aboutText": "Kit autosserviço para conduzir um assessment de maturidade em IA com GitHub Copilot: framework v2, surveys complementares e 5 PDFs v2.",
         "linksTitle": "Menu",
         "contactTitle": "Contato",
         "contactLabel": "Email",
@@ -59,11 +59,11 @@
         "download": "Download"
       },
       "hero": {
-        "eyebrow": "Kit autosserviço · PT-BR",
+        "eyebrow": "Kit autosserviço · multilíngue",
         "titleBefore": "AI Maturity Assessment com",
         "titleAccent": "GitHub Copilot",
         "titleAfter": "",
-        "lede": "Conduza o assessment de maturidade IA da sua organização sem depender da plataforma web. O kit inclui assessment v2, surveys complementares, demo, merge offline, cross-checks de evidência, 5 PDFs v2 e plano de capacitação com nomes e emails dos inscritos.",
+        "lede": "Conduza o assessment de maturidade em IA da sua organização sem depender de uma plataforma web. O kit inclui o framework v2, surveys complementares, demo, merge offline, cross-checks de evidência, 5 PDFs v2 e um plano de capacitação com nomes e emails dos inscritos.",
         "primaryCta": "Baixar o kit (.zip)",
         "secondaryCta": "Quick start em 3 passos",
         "cardTitle": "O que você recebe",
@@ -73,14 +73,14 @@
             "icon": "PDF",
             "title": "5 PDFs executivos v2",
             "subtitle": "Resumo, 3 roadmaps por grupo e o guia de implementação",
-            "metric": "~2 MB"
+            "metric": "~300 KB"
           },
           {
             "iconClass": "green",
             "icon": "XLS",
             "title": "XLSX auditável",
             "subtitle": "Fórmulas recalculam cada nota a partir das respostas",
-            "metric": "~80 KB"
+            "metric": "~20 KB"
           },
           {
             "iconClass": "yellow",
@@ -113,7 +113,7 @@
             "kind": "core",
             "num": "1",
             "name": "/calculate-scores",
-            "hint": "engine v2 determinístico"
+            "hint": "Engine v2 determinístico"
           },
           {
             "kind": "core",
@@ -125,7 +125,7 @@
             "kind": "core",
             "num": "3",
             "name": "/recommend-strategies",
-            "hint": "S1 - S7 + tecnologias"
+            "hint": "S1 a S7 + tecnologias"
           },
           {
             "kind": "core",
@@ -149,7 +149,7 @@
       },
       "surveys": {
         "eyebrow": "Escolha o escopo",
-        "title": "assessment v2 + surveys complementares",
+        "title": "Assessment v2 + surveys complementares",
         "lede": "Rode 1, 2 ou os 3 baseado no objetivo. Cada survey informa o próximo, e o agente concierge cruza os resultados automaticamente.",
         "cards": [
           {
@@ -163,12 +163,12 @@
                 "label": "perguntas"
               },
               {
-                "value": "60-90 min",
-                "label": "coletar"
+                "value": "25-40 min",
+                "label": "por respondente"
               },
               {
                 "value": "5 PDFs",
-                "label": "output"
+                "label": "saída"
               }
             ],
             "items": [
@@ -189,7 +189,7 @@
                 "label": "perguntas"
               },
               {
-                "value": "22-28 min",
+                "value": "20-25 min",
                 "label": "por dev"
               },
               {
@@ -219,14 +219,14 @@
                 "label": "por dev"
               },
               {
-                "value": "3+",
+                "value": "5+",
                 "label": "respondentes"
               }
             ],
             "items": [
               "Top 10 tópicos demandados com inscritos",
               "Cohorts por dimensão DS-D2 a DS-D8",
-              "Champions Network em 3 tiers",
+              "Champions Network em 3 níveis",
               "Calendário de 90 dias de workshops"
             ]
           }
@@ -240,8 +240,8 @@
           {
             "num": "1",
             "title": "Baixar e abrir",
-            "body": "Baixe o ZIP publicado a partir da branch main, extraia a pasta, abra no VS Code e valide pre-requisitos com smoke test.",
-            "command": "# na pasta extraida\nmake smoke"
+            "body": "Baixe o ZIP publicado a partir da branch main, extraia a pasta, abra no VS Code e valide os pré-requisitos com o smoke test.",
+            "command": "# na pasta extraída\nmake smoke"
           },
           {
             "num": "2",
@@ -280,11 +280,11 @@
           },
           {
             "cmd": "/fill-workbook",
-            "desc": "Excel auditável"
+            "desc": "Planilha auditável"
           },
           {
             "cmd": "/calculate-scores",
-            "desc": "engine v2 determinístico"
+            "desc": "Engine v2 determinístico"
           },
           {
             "cmd": "/gap-analysis",
@@ -327,7 +327,7 @@
         "items": [
           {
             "summary": "Qual survey devo rodar primeiro?",
-            "answerHtml": "Para consultoria séria, rode os 3 nessa ordem: <strong>Developer Survey</strong> anônimo, <strong>Learning Survey</strong> identificado, <strong>Assessment principal</strong> com liderança informada. Para baseline rápido apenas do board, rode só o Assessment principal. O agente <code>@ai-maturity-assistant</code> te guia na escolha."
+            "answerHtml": "Para consultoria séria, rode os 3 nessa ordem: <strong>Developer Survey</strong> anônimo, <strong>Learning Survey</strong> identificado, <strong>Assessment principal</strong> com liderança informada. Para um baseline rápido só para o board, rode apenas o Assessment principal. O agente <code>@ai-maturity-assistant</code> te guia na escolha."
           },
           {
             "summary": "Os comandos /calculate-scores e /gap-analysis não aparecem ao digitar /",
@@ -347,11 +347,11 @@
           },
           {
             "summary": "Preciso instalar dependências Python?",
-            "answerHtml": "Sim: <code>jinja2</code>, <code>weasyprint</code> e <code>openpyxl</code>, mais <code>jsonschema</code> (opcional, para o validador do framework). Rode <code>make install-deps</code> ou abra o repositório no dev container, que instala tudo. No macOS o WeasyPrint precisa de <code>brew install pango</code>; no Linux/WSL, do pacote <code>libpango-1.0-0</code>."
+            "answerHtml": "Sim: <code>jinja2</code>, <code>weasyprint</code> e <code>openpyxl</code>, mais <code>jsonschema</code> (opcional, para o validador do framework). Rode <code>make install-deps</code> ou abra o repositório no dev container, que instala tudo. No macOS o WeasyPrint também precisa de <code>brew install pango</code>; no Linux ou WSL, dos pacotes <code>libpango-1.0-0</code>, <code>libpangoft2-1.0-0</code>, <code>libharfbuzz-subset0</code> e <code>fonts-dejavu-core</code>."
           },
           {
             "summary": "Posso customizar o branding dos PDFs?",
-            "answerHtml": "O kit usa a identidade <strong>paulasilva-ms</strong>, com paleta Microsoft 4 cores. Para customizar, edite <code>reports/scripts/branding.py</code> com suas constantes e re-renderize. Os templates Jinja2 em <code>reports/templates/</code> consomem essas variáveis automaticamente."
+            "answerHtml": "O kit usa a identidade <strong>paulasilva-ms</strong>, com paleta Microsoft 4 cores. Para customizar, edite <code>reports/scripts/branding.py</code> com suas constantes e gere os PDFs de novo. Os templates Jinja2 em <code>reports/templates/</code> consomem essas variáveis automaticamente."
           },
           {
             "summary": "Como checo as respostas contra evidências?",
@@ -359,7 +359,7 @@
           },
           {
             "summary": "Como funciona a integração entre o assessment v2 e os surveys?",
-            "answerHtml": "Cada survey output alimenta o próximo: o <strong>Learning Survey</strong> gera um plano que o <strong>wizard auto-fill modo D</strong> usa para preencher 7 dos 11 campos do guia de implementação. O <strong>Developer Survey</strong> calcula maturidade real por dimensão, cruzável com a maturidade declarada da liderança no PDF de Assessment Summary."
+            "answerHtml": "O resultado de cada survey alimenta o próximo: o <strong>Learning Survey</strong> gera um plano que o <strong>wizard auto-fill modo D</strong> usa para preencher 7 dos 11 campos do guia de implementação. O <strong>Developer Survey</strong> calcula maturidade real por dimensão, que pode ser comparada com a maturidade declarada pela liderança no PDF de sumário do assessment."
           }
         ]
       },
@@ -375,7 +375,7 @@
             "code": "61 perguntas"
           },
           {
-            "label": "assessment v2 + surveys (Forms + JSON)",
+            "label": "Assessment v2 + surveys (Forms + JSON)",
             "code": "75 + 32 q"
           },
           {
@@ -416,7 +416,7 @@
         "eyebrow": "Sobre",
         "title": "Quem construiu isto, e por quê.",
         "paragraphs": [
-          "Sou Paula Silva, engenheira de software AI-native e Global Developer Solutions Advisor. Meu trabalho cobre toda a jornada de transformação com IA, da modernização de aplicações e sistemas legados a arquitetura agêntica e engenharia de plataforma, ajudando times enterprise a adotar desenvolvimento assistido por IA em escala. GitHub Copilot e uma ferramenta nessa prática, não o todo.",
+          "Sou Paula Silva, engenheira de software AI-native e Global Developer Solutions Advisor. Meu trabalho cobre toda a jornada de transformação com IA, da modernização de aplicações e sistemas legados a arquitetura agêntica e engenharia de plataforma, ajudando times enterprise a adotar desenvolvimento assistido por IA em escala. GitHub Copilot é uma ferramenta nessa prática, não o todo.",
           "O AI Maturity Assessment Kit empacota o fluxo de assessment em uma experiência conduzida pelo cliente: três surveys, pontuação auditável, análise de gaps, recomendações de estratégia e relatórios executivos que podem ser gerados sem depender de uma plataforma web.",
           "Ele foi desenhado para ajudar líderes e times de desenvolvimento a construir uma visão compartilhada de maturidade, necessidades de capacitação, gaps de governança e quick wins, mantendo o processo transparente, reproduzível e pronto para adaptação ao cliente."
         ],
@@ -463,7 +463,7 @@
         "download": "Download"
       },
       "hero": {
-        "eyebrow": "Self-service kit · multi-language",
+        "eyebrow": "Self-service kit · multilingual",
         "titleBefore": "AI Maturity Assessment with",
         "titleAccent": "GitHub Copilot",
         "titleAfter": "",
@@ -477,14 +477,14 @@
             "icon": "PDF",
             "title": "5 executive PDFs",
             "subtitle": "Summary, 3 grouped roadmaps and the implementation guide",
-            "metric": "~2 MB"
+            "metric": "~300 KB"
           },
           {
             "iconClass": "green",
             "icon": "XLS",
             "title": "Auditable XLSX",
             "subtitle": "Formulas recompute every score from the answers",
-            "metric": "~80 KB"
+            "metric": "~20 KB"
           },
           {
             "iconClass": "yellow",
@@ -505,7 +505,7 @@
       "pipeline": {
         "eyebrow": "How it works",
         "title": "Pipeline in one line",
-        "lede": "You fill a JSON or Microsoft Forms Excel. The concierge agent invokes the skills in order. In about 5 minutes you get the 5 v2 PDFs ready to present.",
+        "lede": "You fill in a JSON file or a Microsoft Forms Excel export. The concierge agent invokes the skills in order. In about 5 minutes you get the 5 v2 PDFs ready to present.",
         "steps": [
           {
             "kind": "in",
@@ -567,8 +567,8 @@
                 "label": "questions"
               },
               {
-                "value": "60-90 min",
-                "label": "collect"
+                "value": "25-40 min",
+                "label": "per respondent"
               },
               {
                 "value": "5 PDFs",
@@ -593,7 +593,7 @@
                 "label": "questions"
               },
               {
-                "value": "22-28 min",
+                "value": "20-25 min",
                 "label": "per dev"
               },
               {
@@ -623,7 +623,7 @@
                 "label": "per dev"
               },
               {
-                "value": "3+",
+                "value": "5+",
                 "label": "respondents"
               }
             ],
@@ -700,7 +700,7 @@
           },
           {
             "cmd": "/implementation-wizard",
-            "desc": "11 fields Part 4 PDF"
+            "desc": "11 fields for the Part 4 PDF"
           },
           {
             "cmd": "/generate-report",
@@ -742,7 +742,7 @@
             "answerHtml": "Custom skills work on Free with message limits. For the full flow, with 61 questions, 5 PDFs, and cross-survey, we recommend <strong>Copilot Pro, Business, or Enterprise</strong>. Confirm with your org if there are restrictions on custom skills in enterprise plans."
           },
           {
-            "summary": "Are there sample data to test without filling everything?",
+            "summary": "Is there sample data to test without filling everything in?",
             "answerHtml": "Yes. <code>make demo</code> renders the 5 v2 PDFs from the illustrative mock (Contoso Engineering, 14 respondents) into <code>output/demo/</code> without touching your <code>responses.json</code>. To run the full flow on the mock, run <code>make init</code> (it copies <code>responses.v2.json.example</code>) and then <code>/full-pipeline</code>. Both surveys also ship with mock respondents."
           },
           {
@@ -751,7 +751,7 @@
           },
           {
             "summary": "Do I need to install Python dependencies?",
-            "answerHtml": "Yes: <code>jinja2</code>, <code>weasyprint</code>, and <code>openpyxl</code>, plus <code>jsonschema</code> (optional, for the framework validator). Run <code>make install-deps</code>, or open the repository in the dev container, which installs everything. On macOS WeasyPrint also needs <code>brew install pango</code>; on Linux/WSL, the <code>libpango-1.0-0</code> package."
+            "answerHtml": "Yes: <code>jinja2</code>, <code>weasyprint</code>, and <code>openpyxl</code>, plus <code>jsonschema</code> (optional, for the framework validator). Run <code>make install-deps</code>, or open the repository in the dev container, which installs everything. On macOS WeasyPrint also needs <code>brew install pango</code>; on Linux or WSL, the <code>libpango-1.0-0</code>, <code>libpangoft2-1.0-0</code>, <code>libharfbuzz-subset0</code> and <code>fonts-dejavu-core</code> packages."
           },
           {
             "summary": "Can I customize the PDF branding?",
@@ -762,7 +762,7 @@
             "answerHtml": "Three optional checks compare the answers with real data and never change the scores: <code>make scan-repos</code> (AI configuration committed to the repositories, for D4-Q4 and D4-Q5), <code>make telemetry</code> (GitHub Copilot usage metrics, for D4-Q1 and D9-Q1) and <code>make dora</code> (per-service DORA metrics with a baseline, for D9-Q2). Section 2.2 of the summary PDF shows the result, and the implementation guide lists answers above the evidence as risks."
           },
           {
-            "summary": "How do the assessment v2 + surveys integrate?",
+            "summary": "How do the v2 assessment and the surveys work together?",
             "answerHtml": "Each survey output feeds the next: the <strong>Learning Survey</strong> generates a plan that the <strong>wizard auto-fill mode D</strong> uses to fill 7 of the 11 implementation guide fields. The <strong>Developer Survey</strong> computes real maturity per dimension, cross-checkable against leadership-declared maturity in the Assessment Summary PDF."
           }
         ]
@@ -779,7 +779,7 @@
             "code": "61 questions"
           },
           {
-            "label": "assessment v2 + surveys (Forms + JSON)",
+            "label": "Assessment v2 + surveys (Forms + JSON)",
             "code": "75 + 32 q"
           },
           {
@@ -846,8 +846,8 @@
       },
       "footer": {
         "aboutTitle": "AI Maturity Assessment Kit",
-        "aboutText": "Kit de autoservicio para ejecutar una evaluación de madurez en IA con GitHub Copilot, framework v2, surveys complementarios y 5 PDFs v2.",
-        "linksTitle": "Menu",
+        "aboutText": "Kit de autoservicio para ejecutar una evaluación de madurez en IA con GitHub Copilot, framework v2, encuestas complementarias y 5 PDFs v2.",
+        "linksTitle": "Menú",
         "contactTitle": "Contacto",
         "contactLabel": "Email",
         "hubKicker": "Visitar el sitio completo",
@@ -860,35 +860,35 @@
       },
       "nav": {
         "pipeline": "Pipeline",
-        "surveys": "3 Encuestas",
+        "surveys": "Evaluación + encuestas",
         "quickstart": "Inicio rápido",
         "skills": "Skills",
         "faq": "FAQ",
         "download": "Descargar"
       },
       "hero": {
-        "eyebrow": "Kit autoservicio · multi-idioma",
+        "eyebrow": "Kit de autoservicio · multilingüe",
         "titleBefore": "AI Maturity Assessment con",
         "titleAccent": "GitHub Copilot",
         "titleAfter": "",
-        "lede": "Realiza la evaluación de madurez de IA de tu organización sin depender de una plataforma web. El kit incluye framework v2, surveys complementarios, demo, merge offline, cross-checks de evidencia, 5 PDFs v2 y plan de capacitación con nombres y emails de los inscritos.",
+        "lede": "Realiza la evaluación de madurez de IA de tu organización sin depender de una plataforma web. El kit incluye el framework v2, encuestas complementarias, demo, merge offline, cross-checks de evidencia, 5 PDFs v2 y un plan de capacitación con nombres y emails de los inscritos.",
         "primaryCta": "Descargar el kit (.zip)",
         "secondaryCta": "Inicio rápido en 3 pasos",
-        "cardTitle": "Qué recibes",
+        "cardTitle": "Lo que recibes",
         "cardRows": [
           {
             "iconClass": "blue",
             "icon": "PDF",
             "title": "5 PDFs ejecutivos",
             "subtitle": "Resumen, 3 roadmaps por grupo y la guía de implementación",
-            "metric": "~2 MB"
+            "metric": "~300 KB"
           },
           {
             "iconClass": "green",
             "icon": "XLS",
             "title": "XLSX auditable",
-            "subtitle": "Las fórmulas recalculan cada puntaje desde las respuestas",
-            "metric": "~80 KB"
+            "subtitle": "Las fórmulas recalculan cada puntaje a partir de las respuestas",
+            "metric": "~20 KB"
           },
           {
             "iconClass": "yellow",
@@ -901,7 +901,7 @@
             "iconClass": "red",
             "icon": "WIZ",
             "title": "Wizard personalizable",
-            "subtitle": "RACI, ADKAR, Quick Wins via HTML / JSON",
+            "subtitle": "RACI, ADKAR, Quick Wins vía HTML / JSON",
             "metric": "11 campos"
           }
         ]
@@ -915,7 +915,7 @@
             "kind": "in",
             "num": "INPUT",
             "name": "responses.json",
-            "hint": "o .xlsx del Forms"
+            "hint": "o .xlsx de Forms"
           },
           {
             "kind": "core",
@@ -971,12 +971,12 @@
                 "label": "preguntas"
               },
               {
-                "value": "60-90 min",
-                "label": "recolectar"
+                "value": "25-40 min",
+                "label": "por persona"
               },
               {
                 "value": "5 PDFs",
-                "label": "output"
+                "label": "salida"
               }
             ],
             "items": [
@@ -997,12 +997,12 @@
                 "label": "preguntas"
               },
               {
-                "value": "22-28 min",
+                "value": "20-25 min",
                 "label": "por dev"
               },
               {
                 "value": "5+",
-                "label": "respondentes"
+                "label": "encuestados"
               }
             ],
             "items": [
@@ -1027,8 +1027,8 @@
                 "label": "por dev"
               },
               {
-                "value": "3+",
-                "label": "respondentes"
+                "value": "5+",
+                "label": "encuestados"
               }
             ],
             "items": [
@@ -1043,13 +1043,13 @@
       "quickstart": {
         "eyebrow": "En 3 pasos",
         "title": "Inicio rápido",
-        "lede": "No requiere plataforma web ni instalacion compleja. Funciona directo en VS Code con GitHub Copilot Chat en modo Agent.",
+        "lede": "No requiere plataforma web ni instalación compleja. Funciona directo en VS Code con GitHub Copilot Chat en modo Agent.",
         "steps": [
           {
             "num": "1",
             "title": "Descargar y abrir",
-            "body": "Descarga el ZIP publicado desde la branch main, extrae la carpeta, abre en VS Code y valida prerequisitos con smoke test.",
-            "command": "# desde la carpeta extraida\nmake smoke"
+            "body": "Descarga el ZIP publicado desde la rama main, extrae la carpeta, ábrela en VS Code y valida los prerrequisitos con el smoke test.",
+            "command": "# desde la carpeta extraída\nmake smoke"
           },
           {
             "num": "2",
@@ -1076,7 +1076,7 @@
           },
           {
             "cmd": "/full-pipeline",
-            "desc": "Orquesta JSON a 5 PDFs"
+            "desc": "Orquesta del JSON a los 5 PDFs"
           },
           {
             "cmd": "/ai-maturity-reports",
@@ -1088,7 +1088,7 @@
           },
           {
             "cmd": "/fill-workbook",
-            "desc": "Hoja auditable"
+            "desc": "Hoja de cálculo auditable"
           },
           {
             "cmd": "/calculate-scores",
@@ -1135,11 +1135,11 @@
         "items": [
           {
             "summary": "¿Qué encuesta debo ejecutar primero?",
-            "answerHtml": "Para consultoría seria, ejecuta las 3 en este orden: <strong>Developer Survey</strong> anónimo, <strong>Learning Survey</strong> identificado, y <strong>Assessment principal</strong> con liderazgo informado. Para baseline rápido del board, ejecuta solo el Assessment principal. El agente <code>@ai-maturity-assistant</code> te guía en la elección."
+            "answerHtml": "Para consultoría seria, ejecuta las 3 en este orden: la <strong>Developer Survey</strong> anónima, la <strong>Learning Survey</strong> identificada y el <strong>Assessment principal</strong> con el liderazgo informado. Para una línea base rápida para el board, ejecuta solo el Assessment principal. El agente <code>@ai-maturity-assistant</code> te guía en la elección."
           },
           {
             "summary": "Los comandos /calculate-scores y /gap-analysis no aparecen al escribir /",
-            "answerHtml": "Copilot Chat necesita estar en <strong>modo Agent</strong>. Haz clic en el dropdown junto al icono de Copilot y elige <strong>Agent</strong>. Si aún no aparece, recarga la ventana de VS Code con <code>Cmd/Ctrl+Shift+P</code> y <code>Developer: Reload Window</code>."
+            "answerHtml": "Copilot Chat necesita estar en <strong>modo Agent</strong>. Haz clic en el menú desplegable junto al icono de Copilot y elige <strong>Agent</strong>. Si aún no aparece, recarga la ventana de VS Code con <code>Cmd/Ctrl+Shift+P</code> y <code>Developer: Reload Window</code>."
           },
           {
             "summary": "¿Copilot Free funciona o necesito Pro / Business / Enterprise?",
@@ -1147,19 +1147,19 @@
           },
           {
             "summary": "¿Hay datos de ejemplo para probar sin llenar todo?",
-            "answerHtml": "Sí. <code>make demo</code> genera los 5 PDFs v2 a partir del mock ilustrativo (Contoso Engineering, 14 encuestados) en <code>output/demo/</code>, sin tocar tu <code>responses.json</code>. Para ejecutar el flujo completo sobre el mock, ejecuta <code>make init</code> (copia <code>responses.v2.json.example</code>) y luego <code>/full-pipeline</code>. Las 2 encuestas también incluyen respondentes mock."
+            "answerHtml": "Sí. <code>make demo</code> genera los 5 PDFs v2 a partir del mock ilustrativo (Contoso Engineering, 14 encuestados) en <code>output/demo/</code>, sin tocar tu <code>responses.json</code>. Para ejecutar el flujo completo sobre el mock, ejecuta <code>make init</code> (copia <code>responses.v2.json.example</code>) y luego <code>/full-pipeline</code>. Las 2 encuestas también incluyen respuestas de ejemplo (mock)."
           },
           {
-            "summary": "¿Cómo agrego múltiples respondentes del Forms?",
-            "answerHtml": "La skill <code>/import-responses</code> conserva cada respondente del Excel de Microsoft Forms, y las exportaciones del formulario offline se combinan con <code>make merge</code>. El engine calcula el promedio agrupado por pregunta, los puntajes por persona y la alerta de divergencia entre respondentes. Mínimo recomendado: 3 respondentes por rol en el assessment principal, 5 en el Developer Survey."
+            "summary": "¿Cómo combino las respuestas de varias personas en Forms?",
+            "answerHtml": "La skill <code>/import-responses</code> conserva a cada persona encuestada del Excel de Microsoft Forms, y las exportaciones del formulario offline se combinan con <code>make merge</code>. El engine calcula el promedio agrupado por pregunta, los puntajes por persona y la alerta de divergencia entre personas encuestadas. Mínimo recomendado: 3 personas encuestadas por rol en el assessment principal y 5 en la Developer Survey."
           },
           {
             "summary": "¿Necesito instalar dependencias de Python?",
-            "answerHtml": "Sí: <code>jinja2</code>, <code>weasyprint</code> y <code>openpyxl</code>, más <code>jsonschema</code> (opcional, para el validador del framework). Ejecuta <code>make install-deps</code> o abre el repositorio en el dev container, que instala todo. En macOS WeasyPrint además necesita <code>brew install pango</code>; en Linux/WSL, el paquete <code>libpango-1.0-0</code>."
+            "answerHtml": "Sí: <code>jinja2</code>, <code>weasyprint</code> y <code>openpyxl</code>, más <code>jsonschema</code> (opcional, para el validador del framework). Ejecuta <code>make install-deps</code> o abre el repositorio en el dev container, que instala todo. En macOS WeasyPrint además necesita <code>brew install pango</code>; en Linux o WSL, los paquetes <code>libpango-1.0-0</code>, <code>libpangoft2-1.0-0</code>, <code>libharfbuzz-subset0</code> y <code>fonts-dejavu-core</code>."
           },
           {
             "summary": "¿Puedo personalizar el branding de los PDFs?",
-            "answerHtml": "El kit usa la identidad <strong>paulasilva-ms</strong>, con paleta Microsoft 4 colores. Para personalizar, edita <code>reports/scripts/branding.py</code> con tus constantes y re-renderiza. Los templates Jinja2 en <code>reports/templates/</code> consumen estas variables automáticamente."
+            "answerHtml": "El kit usa la identidad <strong>paulasilva-ms</strong>, con paleta Microsoft 4 colores. Para personalizar, edita <code>reports/scripts/branding.py</code> con tus constantes y vuelve a generar los PDFs. Los templates Jinja2 en <code>reports/templates/</code> consumen estas variables automáticamente."
           },
           {
             "summary": "¿Cómo verifico las respuestas con evidencia?",
@@ -1167,14 +1167,14 @@
           },
           {
             "summary": "¿Cómo se integran la evaluación v2 y las encuestas?",
-            "answerHtml": "Cada output alimenta el siguiente: la <strong>Learning Survey</strong> genera un plan que el <strong>wizard auto-fill modo D</strong> usa para llenar 7 de los 11 campos de la guía de implementación. La <strong>Developer Survey</strong> calcula madurez real por dimensión, cruzable contra la madurez declarada por el liderazgo en el PDF de Assessment Summary."
+            "answerHtml": "Cada resultado alimenta el siguiente: la <strong>Learning Survey</strong> genera un plan que el <strong>wizard auto-fill modo D</strong> usa para llenar 7 de los 11 campos de la guía de implementación. La <strong>Developer Survey</strong> calcula madurez real por dimensión, que se puede contrastar con la madurez declarada por el liderazgo en el PDF de resumen del assessment."
           }
         ]
       },
       "download": {
         "eyebrow": "Listo para usar",
         "title": "Descarga el kit ahora",
-        "lede": "Descarga el paquete publicado desde la branch main. El cliente no necesita acceso al repositorio GitHub para usar el kit.",
+        "lede": "Descarga el paquete publicado desde la rama main. El cliente no necesita acceso al repositorio GitHub para usar el kit.",
         "primaryCta": "Descargar ZIP (ES)",
         "panelTitle": "Contenido del ZIP",
         "panelItems": [
@@ -1183,7 +1183,7 @@
             "code": "61 preguntas"
           },
           {
-            "label": "3 encuestas (Forms + JSON)",
+            "label": "Evaluación v2 + encuestas (Forms + JSON)",
             "code": "75 + 32 p"
           },
           {
@@ -1224,9 +1224,9 @@
         "eyebrow": "Acerca de",
         "title": "Quién construyó esto, y por qué.",
         "paragraphs": [
-          "Soy Paula Silva, ingeniera de software AI-native y Global Developer Solutions Advisor. Mi trabajo abarca toda la jornada de transformación con IA, desde la modernización de aplicaciones y sistemas legacy hasta la arquitectura agéntica y la ingeniería de plataforma, ayudando a equipos enterprise a adoptar el desarrollo asístido por IA a escala. GitHub Copilot es una herramienta en esa práctica, no el todo.",
+          "Soy Paula Silva, ingeniera de software AI-native y Global Developer Solutions Advisor. Mi trabajo abarca todo el recorrido de transformación con IA, desde la modernización de aplicaciones y sistemas legacy hasta la arquitectura agéntica y la ingeniería de plataforma, ayudando a equipos enterprise a adoptar el desarrollo asistido por IA a escala. GitHub Copilot es una herramienta en esa práctica, no el todo.",
           "El AI Maturity Assessment Kit empaqueta el flujo de assessment en una experiencia ejecutada por el cliente: tres encuestas, puntuación auditable, análisis de gaps, recomendaciones de estrategia e informes ejecutivos que pueden generarse sin depender de una plataforma web.",
-          "Esta diseñado para ayudar a líderes y equipos de desarrollo a construir una visión compartida de madurez, necesidades de capacitación, gaps de gobernanza y quick wins, manteniendo el proceso transparente, reproducible y listo para adaptarse al cliente."
+          "Está diseñado para ayudar a líderes y equipos de desarrollo a construir una visión compartida de madurez, necesidades de capacitación, gaps de gobernanza y quick wins, manteniendo el proceso transparente, reproducible y listo para adaptarse al cliente."
         ],
         "contactLabel": "Contacto",
         "contactText": "linkedin.com/in/paulanunes",
