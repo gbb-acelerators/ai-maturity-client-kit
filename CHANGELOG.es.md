@@ -35,6 +35,11 @@ combinando y puntuando.
 
 ### Corregido
 
+- El sitio mostraba cifras de versiones anteriores: ahora indica 25-40 min
+  por persona en el assessment, 20-25 min en la Developer Survey, al menos
+  5 personas en la Learning Survey y los tamaños reales de los PDFs y del
+  workbook. Se corrigieron los textos en PT-BR y ES, y las instrucciones de
+  la Developer Survey usan una sola estimación de tiempo.
 - Los insights de la Developer Survey en PT-BR y ES ahora usan coma
   decimal.
 - La guía de scoring v1 llamaba al PE score "Production Engineering";
