@@ -142,7 +142,7 @@ STRINGS = {
         "rec_champion": "Build a Champions Network (3-5 devs per team)",
         "why_champion": "{pct:.0f}% without a Champion",
         "h_recs": "| Priority | Action | Rationale |",
-        "learning_tip": "> 💡 For a detailed capacitation plan with "
+        "learning_tip": "> 💡 For a detailed training plan with "
                         "Champions, cohorts, and a calendar, also run "
                         "the **Learning & Growth Survey** "
                         "(`survey-learning/`) and the "

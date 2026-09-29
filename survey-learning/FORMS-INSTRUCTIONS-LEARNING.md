@@ -5,13 +5,13 @@
 **`🅲️ SURVEY-LEARNING`** · _identified_ · 📖 [🏠 Index](../README.md) · [« Survey-devs](../survey-devs/FORMS-INSTRUCTIONS-DEVS.md) · You are here · [» Wizard](../wizard/README.md)
 
 > [!WARNING]
-> Unlike the other 2 surveys, this one is **IDENTIFIED** (name + email required). It has 32 questions in 7 sections to build the team's **personalized capacitation roadmap**: workshops, cohorts, Champions Network, and mentoring. Estimated time per developer: **5-8 min**.
+> Unlike the other 2 surveys, this one is **IDENTIFIED** (name + email required). It has 32 questions in 7 sections to build the team's **personalized training roadmap**: workshops, cohorts, Champions Network, and mentoring. Estimated time per developer: **5-8 min**.
 
 **Different from the other 2 surveys:**
 
 - Main assessment: organizational maturity (Likert L0-L4 declared by leadership)
 - Developer Survey: ANONYMOUS real behavior
-- **This Learning Survey: IDENTIFIED capacitation roadmap**: it needs name+email to invite the right people to the right workshops
+- **This Learning Survey: IDENTIFIED training roadmap**: it needs name+email to invite the right people to the right workshops
 
 ---
 
@@ -58,13 +58,13 @@ If your organization prefers **pure anonymity**: run the **Developer Survey** (`
 3. Subtitle (paste):
 
 ```text
-5-8 min survey about your AI capacitation plan.
+5-8 min survey about your AI training plan.
 
 ⚠️ IDENTIFIED: we will use your name+email to INVITE you to the right
 workshops/cohorts. Individual answers will NOT be shared publicly,
 only aggregated insights + attendee lists per workshop.
 
-Result: personalized capacitation plan + cohorts + Champions Network.
+Result: personalized training plan + cohorts + Champions Network.
 ```
 
 ### Step 2 · ⚠️ CONFIGURE as IDENTIFIED (not anonymous)
@@ -130,7 +130,7 @@ Question L1-Q4 ("Team / Squad") has a placeholder (`[Customize with the organiza
 
 1. **+ Send / Collect responses** → **Link**
 2. Share with **ALL developers**:
-   - Email from the engineering leader: "Over the next 2 weeks, we want to hear what you want to learn about AI: a 5-8 min IDENTIFIED survey. Result: a personalized capacitation plan."
+   - Email from the engineering leader: "Over the next 2 weeks, we want to hear what you want to learn about AI: a 5-8 min IDENTIFIED survey. Result: a personalized training plan."
    - Slack/Teams channel #engineering
    - All-hands (present the link)
 
@@ -229,7 +229,7 @@ cp survey-learning/template-export-forms-learning.xlsx survey-learning-responses
 
 Communicate before launching:
 
-> "Your answers will be used to: (1) build our capacitation roadmap, (2) invite you to the specific workshops you asked for, and (3) build the Champions Network. They will **NOT** be used for performance review, comparison between developers, or shared with external clients."
+> "Your answers will be used to: (1) build our training roadmap, (2) invite you to the specific workshops you asked for, and (3) build the Champions Network. They will **NOT** be used for performance review, comparison between developers, or shared with external clients."
 
 ### Privacy and data protection (LGPD / GDPR)
 

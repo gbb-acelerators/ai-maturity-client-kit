@@ -248,10 +248,10 @@
 
     const [statement = '', ...bodyParagraphs] = about.paragraphs || [];
     const body = bodyParagraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('');
-    const contactUrl = data.contactLinkedIn || '#';
+    const linkedinUrl = data.linkedinUrl || '#';
     const profileImage = resolveAsset(data.profileImage || 'assets/paula-about.jpg');
     const connectLinks = [
-      { icon: 'in', title: 'LinkedIn', meta: '/paulanunes', href: contactUrl },
+      { icon: 'in', title: 'LinkedIn', meta: '/paulanunes', href: linkedinUrl },
       { icon: 'gh', title: 'GitHub Projects', meta: '@paulasilvatech', href: 'https://github.com/paulasilvatech' },
       { icon: 'gh', title: 'GitHub Personal', meta: '@paulanunes85', href: 'https://github.com/paulanunes85' }
     ].map((link) => `
@@ -290,7 +290,7 @@
   function renderFooter(content, data) {
     const footer = content.footer || {};
     const navItems = Object.entries(content.nav).map(([id, label]) => `<a href="#${id}">${escapeHtml(label)}</a>`).join('');
-    const contactUrl = data.contactLinkedIn || '#';
+    const contactUrl = data.contactEmail || '#';
     const footerLegal = footer.legal ? `<p class="footer__legal">${escapeHtml(footer.legal)}</p>` : '';
     return `
       <footer class="footer">
@@ -321,7 +321,7 @@
               <h5>${escapeHtml(footer.contactTitle || 'Contact')}</h5>
               <div class="footer__author">${escapeHtml(content.brand.role)}</div>
               <div class="footer__links">
-                <a href="${escapeHtml(contactUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(footer.contactLabel || 'LinkedIn')}</a>
+                <a href="${escapeHtml(contactUrl)}">${escapeHtml(footer.contactLabel || 'Email')}</a>
                 <a href="${escapeHtml(data.repositoryUrl || '#')}" target="_blank" rel="noopener noreferrer">${escapeHtml(footer.repositoryLabel || 'Repository')}</a>
               </div>
             </div>

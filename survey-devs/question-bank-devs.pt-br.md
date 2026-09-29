@@ -11,7 +11,7 @@
 3. Subtítulo:
 
    ```text
-   Survey anônimo (15-25 min) sobre suas práticas com GitHub Copilot,
+   Survey anônimo (20-25 min) sobre suas práticas com GitHub Copilot,
    modos do Copilot Chat (Ask/Edit/Agent), agentes IA, instructions files,
    melhores práticas de IA + Dev e segurança.
    Suas respostas vão alimentar o roadmap de adoção de IA no time.

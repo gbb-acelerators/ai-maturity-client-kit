@@ -76,6 +76,17 @@ mescladas e pontuadas.
   site, suas tags de SEO e os docs agora usam
   `https://gbb-acelerators.github.io/ai-maturity-client-kit/`; a URL
   antiga do Pages retorna 404.
+- O site ligava o cartão do LinkedIn ao email, chamava o assessment e os
+  dois surveys de "3 surveys" e descrevia o wizard como "Parte 4" (termo
+  do v1). O cartão do LinkedIn agora abre o LinkedIn, a seção diz
+  "Assessment v2 + surveys complementares" e o wizard aponta para o guia
+  de implementação.
+- Os docs, skills e textos de relatório em inglês diziam "capacitation
+  plan"; agora dizem "training plan". Os bancos do Developer Survey
+  sugeriam um subtítulo de 15-25 min; agora é 20-25 min, como o resto dos
+  docs.
+- As cópias em espanhol usavam a palavra "respondente"; agora usam
+  "encuestado".
 
 ## [2.0.2] - 2026-09-29 (nomes de arquivos e pastas em inglês)
 

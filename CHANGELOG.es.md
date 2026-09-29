@@ -72,12 +72,23 @@ combinando y puntuando.
 - El quick start y el FAQ del sitio aún describían el ejemplo v1
   (`cp responses.json.example`, Cliente Exemplo S.A.) y la importación v1
   que promedia las filas. Ahora muestran `make demo`, `make init`,
-  `make import` y `make merge`, y la importación v2 que conserva cada
-  respondente.
+  `make import` y `make merge`, y la importación v2 que conserva a cada
+  persona encuestada.
 - El repositorio pasó a `gbb-acelerators/ai-maturity-client-kit`. El
   sitio, sus etiquetas SEO y los docs ahora usan
   `https://gbb-acelerators.github.io/ai-maturity-client-kit/`; la URL
   anterior de Pages devuelve 404.
+- El sitio enlazaba la tarjeta de LinkedIn al email, llamaba "3
+  encuestas" a la evaluación y las dos encuestas, y describía el wizard
+  como "Parte 4" (término de v1). La tarjeta de LinkedIn ahora abre
+  LinkedIn, la sección dice "Evaluación + 2 encuestas complementarias" y
+  el wizard apunta a la guía de implementación.
+- Los docs, skills y textos de informes en inglés decían "capacitation
+  plan"; ahora dicen "training plan". Los bancos del Developer Survey
+  sugerían un subtítulo de 15-25 min; ahora es 20-25 min, como el resto
+  de los docs.
+- Las copias en español usaban la palabra portuguesa "respondente";
+  ahora dicen "encuestado".
 
 ## [2.0.2] - 2026-09-29 (nombres de archivos y carpetas en inglés)
 

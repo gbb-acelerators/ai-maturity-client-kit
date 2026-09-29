@@ -1,8 +1,8 @@
-# `survey-learning/`: Learning and Growth Survey (identified, capacitation)
+# `survey-learning/`: Learning and Growth Survey (identified, training)
 
 🌐 English · [Português (Brasil)](README.pt-br.md) · [Español](README.es.md)
 
-This identified survey generates the capacitation plan used by leadership and by the implementation guide wizard. It complements the main assessment and the anonymous Developer Survey.
+This identified survey generates the training plan used by leadership and by the implementation guide wizard. It complements the main assessment and the anonymous Developer Survey.
 
 ## Difference vs. the other surveys
 
@@ -27,7 +27,7 @@ Learning Survey question bank labels use `L#-Q#`. Where a question refers to Dev
 | [question-bank-learning.es.md](question-bank-learning.es.md) | Spanish question bank. The scripts write EN, PT-BR or ES (`--lang es`). |
 | [template-export-forms-learning.xlsx](template-export-forms-learning.xlsx) | Excel template. |
 | [mock-responses-learning.json](mock-responses-learning.json) | Sample structured JSON. |
-| [scripts/](scripts/) | Capacitation plan generator. |
+| [scripts/](scripts/) | Training plan generator. |
 
 ## Usage flow
 
@@ -41,7 +41,7 @@ Learning Survey question bank labels use `L#-Q#`. Where a question refers to Dev
 7. Run make pipeline to refresh v2_implementation_guide.pdf.
 ```
 
-## What the capacitation plan contains
+## What the training plan contains
 
 `output/training-plan-<date>.md` is written in English by default, or in PT-BR or ES with `--lang pt-br` or `--lang es`. It includes requested topics, suggested cohorts per `DS-D#`, Champions, mentor pairs, a 90-day calendar, barriers, wishlist, and prioritized actions.
 
