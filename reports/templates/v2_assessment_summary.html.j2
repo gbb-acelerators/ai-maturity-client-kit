@@ -75,7 +75,7 @@
   {% else %}<p class="text-muted">{{ t('v2.no_personas') }}</p>{% endif %}
 
   <h2>2.2 {{ t('v2.cross.title') }}</h2>
-  {% if not checks.repo and not checks.telemetry %}<p class="text-muted">{{ t('v2.cross.none') }}</p>{% endif %}
+  {% if not checks.repo and not checks.telemetry and not checks.delivery %}<p class="text-muted">{{ t('v2.cross.none') }}</p>{% endif %}
   {% if checks.repo %}{% set r = checks.repo %}
   <h3>{{ t('v2.cross.repo') }}</h3>
   <p>{{ t('v2.cross.repo_text', n=r.repositories, l1=r.levels.L1, l2=r.levels.L2, l3=r.levels.L3, l4=r.levels.L4, share=((r.share_l2_or_higher * 100) | round | int), implied=r.d4q4.implied_level) }}
@@ -91,6 +91,13 @@
   {{ t('v2.cross.tel_d9') }}</p>
   <p>{{ t('v2.cross.assessed', qid='D4-Q1', score=num(m.d4q1.score), level=(m.d4q1.level or '-')) }} {{ t('v2.cross.assessed', qid='D9-Q1', score=num(m.d9q1.score), level=(m.d9q1.level or '-')) }}
   {% if m.d4q1.flag %}<span class="tag-unverified">{{ t('v2.cross.flag', qid='D4-Q1') }}</span>{% else %}<span class="text-muted">{{ t('v2.cross.ok') }}</span>{% endif %}</p>
+  {% endif %}
+  {% if checks.delivery %}{% set dm = checks.delivery %}
+  <h3>{{ t('v2.cross.dora') }}</h3>
+  <p>{{ t('v2.cross.dora_text', listed=dm.services_listed, measured=dm.services_measured, compared=dm.services_compared) }}
+  {% if dm.services_total %}{{ t('v2.cross.dora_share', total=dm.services_total, share=(((dm.shares.compared or 0) * 100) | round | int), implied=dm.d9q2.implied_level) }}{% else %}{{ t('v2.cross.dora_no_total') }}{% endif %}</p>
+  <p>{{ t('v2.cross.assessed', qid='D9-Q2', score=num(dm.d9q2.score), level=(dm.d9q2.level or '-')) }}
+  {% if dm.d9q2.flag %}<span class="tag-unverified">{{ t('v2.cross.flag', qid='D9-Q2') }}</span>{% elif dm.services_total %}<span class="text-muted">{{ t('v2.cross.ok') }}</span>{% endif %}</p>
   {% endif %}
 
   {% if survey %}

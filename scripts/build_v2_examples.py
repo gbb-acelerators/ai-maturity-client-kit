@@ -6,7 +6,8 @@ Runs the real scripts on illustrative inputs, once per language:
 - the engine, the v2 workbook and the five v2 PDFs on the mock
   responses.v2.json.example
 - the evidence cross-checks: a repository scan of generated fixture
-  repositories and scripts/fixtures/copilot-usage-*.mock.json
+  repositories, scripts/fixtures/copilot-usage-*.mock.json and
+  scripts/fixtures/dora-metrics.mock.csv
 - the companion surveys on their mocks, answered as if the Forms were
   built in each language (option answers translated through the banks
   and survey-devs/options.json), and the wizard auto-fill from the
@@ -19,7 +20,8 @@ Outputs:
 - PT-BR PDFs, workbook and survey examples at the folder root
 - EN and ES PDFs in en/ and es/
 - scores.json, gaps.json, recommendations.json, payload_v2.json,
-  repo-scan.json and telemetry.json (EN) at the folder root
+  repo-scan.json, telemetry.json and dora-metrics.json (EN) at the
+  folder root
 
 The archived v1 example in reference/sample-output/v1/ is not touched.
 Requires jinja2, weasyprint, openpyxl and git.
@@ -49,6 +51,8 @@ PDFS = ["v2_assessment_summary", "v2_roadmap_g1", "v2_roadmap_g2",
 TELEMETRY = ROOT / "scripts" / "fixtures" / \
     "copilot-usage-organization-28-day.mock.json"
 SEATS = "200"
+DORA = ROOT / "scripts" / "fixtures" / "dora-metrics.mock.csv"
+SERVICES = "12"
 # Fixture repositories: name -> list of (path, number of commits).
 FIXTURE_REPOS = {
     "service-01": [], "service-02": [], "service-03": [],
@@ -189,6 +193,8 @@ def main() -> int:
                     "illustrative fixture repositories")
                 run("scripts/import_copilot_metrics.py", str(TELEMETRY),
                     "--seats", SEATS, "--out", str(out))
+                run("scripts/import_dora_metrics.py", str(DORA),
+                    "--services", SERVICES, "--out", str(out))
                 if lang in SURVEY_LANG:
                     run_surveys(kit, out, SURVEY_LANG[lang])
                 run("scripts/assessment_engine.py", "all", "--responses",
@@ -223,6 +229,7 @@ def main() -> int:
                     for name in ("scores.json", "gaps.json",
                                  "recommendations.json", "payload_v2.json",
                                  "repo-scan.json", "telemetry.json",
+                                 "dora-metrics.json",
                                  "round-comparison.json"):
                         shutil.copy(out / name, DEST / name)
             print(f"✓ {lang}: {target.relative_to(ROOT)}")

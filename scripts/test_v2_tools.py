@@ -202,6 +202,37 @@ class V2ToolsTest(unittest.TestCase):
         self.assertIn("telemetry_gap", kinds)
         self.assertIn(47, {r["n"] for r in payload["references"]})
 
+    def test_dora_metrics_crosscheck(self) -> None:
+        import build_report_v2
+        import import_dora_metrics as dora
+        csv_path = self.tmp / "dora.csv"
+        header = "service,period," + ",".join(dora.METRICS)
+        csv_path.write_text("\n".join([
+            header,
+            "a,current,5,24,0.1,2", "a,baseline,2,72,0.2,8",
+            "b,current,3,48,0.15,4", "c,current,1,,0.3,6",
+        ]) + "\n")
+        services = dora.collect(dora.read_rows(csv_path))
+        summary = dora.summarize(services, 8)
+        self.assertEqual(summary["services_measured"], 2)
+        self.assertEqual(summary["services_compared"], 1)
+        self.assertEqual(summary["shares"]["compared"], 0.125)
+        self.assertEqual(summary["medians"]["current"]["lead_time_hours"],
+                         36.0)
+        (self.out / "dora-metrics.json").write_text(json.dumps(summary))
+        payload = build_report_v2.build_payload(self.kit, self.out)
+        check = payload["checks"]["delivery"]["d9q2"]
+        self.assertEqual(check["implied_level"], "L1")
+        kinds = [r["kind"] for r in payload["impl"]["risks"]]
+        self.assertEqual("delivery_gap" in kinds, check["flag"])
+        no_total = dora.summarize(services, None)
+        self.assertIsNone(no_total["shares"]["compared"])
+        (self.out / "dora-metrics.json").write_text(json.dumps(no_total))
+        payload = build_report_v2.build_payload(self.kit, self.out)
+        check = payload["checks"]["delivery"]["d9q2"]
+        self.assertIsNone(check["implied_level"])
+        self.assertFalse(check["flag"])
+
     def test_repo_scan_github_api_paths(self) -> None:
         import scan_repos_ai_config as scan
         calls = []
