@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Keep the PT-BR and ES copies of the v2 spec in step with the source.
 
-The English spec (coleta/AI-Maturity-Form-Questions_v2.md) is the source
-of truth. Its translations are coleta/AI-Maturity-Form-Questions_v2.pt-br.md
-and coleta/AI-Maturity-Form-Questions_v2.es.md:
+The English spec (collection/AI-Maturity-Form-Questions_v2.md) is the source
+of truth. Its translations are
+collection/AI-Maturity-Form-Questions_v2.pt-br.md and
+collection/AI-Maturity-Form-Questions_v2.es.md:
 
 - the prose (sections 1 to 5, 8 to 11 and the changelog) is translated by
   hand in those files;
@@ -29,10 +30,10 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SPEC = "coleta/AI-Maturity-Form-Questions_v2.md"
+SPEC = "collection/AI-Maturity-Form-Questions_v2.md"
 COPIES = {
-    "pt-br": "coleta/AI-Maturity-Form-Questions_v2.pt-br.md",
-    "es": "coleta/AI-Maturity-Form-Questions_v2.es.md",
+    "pt-br": "collection/AI-Maturity-Form-Questions_v2.pt-br.md",
+    "es": "collection/AI-Maturity-Form-Questions_v2.es.md",
 }
 
 LABELS = {

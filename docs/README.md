@@ -71,7 +71,7 @@ https://paulasilvatech.github.io/ai-maturity-client-kit/downloads/ai-maturity-ki
 
 These links stay public with the site, even if the repository goes back to private.
 
-Package languages: each ZIP ships its language under the base file names. The PT ZIP ships the Portuguese copies (`*.pt-br.md`, `*.pt-br.html`), the ES ZIP the Spanish copies (`*.es.md`, `*.es.html`) and the EN ZIP the English docs; the EN and ES ZIPs add the `kit-en/` or `kit-es/` quickstarts at the root. The question banks and the v2 spec ship in the three languages in every ZIP. Generated reports default to English in every package (set `metadata.language` to `"pt-BR"` or `"es"` to change it).
+Package languages: each ZIP ships its language under the base file names. The PT ZIP ships the Portuguese copies (`*.pt-br.md`, `*.pt-br.html`), the ES ZIP the Spanish copies (`*.es.md`, `*.es.html`) and the EN ZIP the English docs, so every ZIP has the same file and folder names. The question banks and the v2 spec ship in the three languages in every ZIP. Generated reports default to English in every package (set `metadata.language` to `"pt-BR"` or `"es"` to change it).
 
 ## Deploy
 

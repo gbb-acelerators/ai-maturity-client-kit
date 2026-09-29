@@ -44,27 +44,28 @@ As dimensões do Developer Survey agora são nomeadas `DS-D2` a `DS-D8` nas chav
 | `DS-D7` | D2-Q2, D9-Q4 |
 | `DS-D8` | D1-Q2, D6-Q1, D6-Q4, D6-Q5, D6-Q7 |
 
-A seção 12 do relatório de insights aponta para perguntas v2, não para capacidades v1. O PDF de sumário v2 mostra contexto do Developer Survey quando `saida/maturidade-developer-survey-*.json` existe.
+A seção 12 do relatório de insights aponta para perguntas v2, não para capacidades v1. O PDF de sumário v2 mostra contexto do Developer Survey quando `output/developer-survey-maturity-*.json` existe.
 
 ## Arquivos nesta pasta
 
 | Arquivo | O que é |
 | --- | --- |
-| [INSTRUCOES-FORMS-DEVS.md](INSTRUCOES-FORMS-DEVS.md) | Guia passo a passo para montar o Microsoft Forms. |
-| [perguntas-para-forms-devs.en.md](perguntas-para-forms-devs.en.md) | Banco de perguntas em inglês. |
-| [perguntas-para-forms-devs.md](perguntas-para-forms-devs.md) | Banco canônico em PT-BR. |
+| [FORMS-INSTRUCTIONS-DEVS.md](FORMS-INSTRUCTIONS-DEVS.md) | Guia passo a passo para montar o Microsoft Forms. |
+| [question-bank-devs.md](question-bank-devs.md) | Banco de perguntas em inglês. |
+| [question-bank-devs.pt-br.md](question-bank-devs.pt-br.md) | Banco de perguntas em português (Brasil); as opções dele são os valores canônicos de [options.json](options.json). |
+| [question-bank-devs.es.md](question-bank-devs.es.md) | Banco de perguntas em espanhol. |
 | [template-export-forms-devs.xlsx](template-export-forms-devs.xlsx) | Template Excel no formato de export do Forms. |
-| [respostas-mock-devs.json](respostas-mock-devs.json) | JSON estruturado de exemplo para smoke tests. |
-| [RUBRICA-MATURIDADE.md](RUBRICA-MATURIDADE.md) | Rubrica determinística. Ela mantém as bandas v1, então compare por score, não pelo nome do nível. |
+| [mock-responses-devs.json](mock-responses-devs.json) | JSON estruturado de exemplo para smoke tests. |
+| [MATURITY-RUBRIC.md](MATURITY-RUBRIC.md) | Rubrica determinística. Ela mantém as bandas v1, então compare por score, não pelo nome do nível. |
 | [scripts/](scripts/) | Scripts de importação, scoring e insights. |
 
 ## Fluxo de uso
 
 ```text
-1. Monte o Forms com INSTRUCOES-FORMS-DEVS.md.
+1. Monte o Forms com FORMS-INSTRUCTIONS-DEVS.md.
 2. Colete respostas anonimamente.
 3. Exporte para Excel.
-4. Rode /importar-survey-devs.
+4. Rode /import-survey-devs.
 5. Rode /insights-developer-survey.
 6. Rode make pipeline novamente se quiser que o PDF de sumário v2 inclua contexto do Developer Survey.
 ```

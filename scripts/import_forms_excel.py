@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Import a Microsoft Forms Excel export into respostas.json.
+"""Import a Microsoft Forms Excel export into responses.json.
 
-Deterministic implementation of the /importar-respostas-excel skill:
+Deterministic implementation of the /import-responses skill:
 maps question columns by ID prefix, parses the L0-L4 / NA options,
 averages levels across respondents (no rounding), concatenates evidence,
-backs up the previous respostas.json, and writes an import log to saida/.
+backs up the previous responses.json, and writes an import log to output/.
 
 The framework version is detected from the column IDs: `P#-C#-Q#`
 columns import as v1 (averaged responses), `D#-Q#` and `R-Q#` columns
@@ -12,7 +12,7 @@ import as v2 (one entry per respondent with the profile answers, which
 the v2 engine needs for persona scores and flags).
 
 Usage:
-    python3 scripts/import_forms_excel.py [respostas-forms.xlsx]
+    python3 scripts/import_forms_excel.py [forms-responses.xlsx]
     python3 scripts/import_forms_excel.py FILE --organization "Contoso"
 """
 from __future__ import annotations
@@ -47,7 +47,7 @@ LOG_TEXT = {
         "respondents": "Respondents",
         "processed": "Questions found in the file",
         "answered": "Questions with at least 1 answer",
-        "backup": "Backup of the previous respostas.json",
+        "backup": "Backup of the previous responses.json",
         "none": "none (no previous file)",
         "coverage": "Coverage per respondent",
         "cols": "| Respondent | Email | Answered | Evidence |",
@@ -55,7 +55,7 @@ LOG_TEXT = {
         "no_alerts": "No alerts.",
         "next": "Next step",
         "next_text": "Run `python3 scripts/assessment_engine.py all` "
-                     "(or `/pipeline-completo`).",
+                     "(or `/full-pipeline`).",
         "unknown": "row {row} ({name}): unrecognized value at {qid}: "
                    "{value!r}, treated as null",
         "unanswered": "{n} question(s) with no answer from any "
@@ -72,7 +72,7 @@ LOG_TEXT = {
         "respondents": "Respondentes",
         "processed": "Perguntas encontradas no arquivo",
         "answered": "Perguntas com ao menos 1 resposta",
-        "backup": "Backup do respostas.json anterior",
+        "backup": "Backup do responses.json anterior",
         "none": "nenhum (não havia arquivo)",
         "coverage": "Cobertura por respondente",
         "cols": "| Respondente | E-mail | Respondidas | Evidências |",
@@ -80,7 +80,7 @@ LOG_TEXT = {
         "no_alerts": "Nenhum alerta.",
         "next": "Próximo passo",
         "next_text": "Rode `python3 scripts/assessment_engine.py all` "
-                     "(ou `/pipeline-completo`).",
+                     "(ou `/full-pipeline`).",
         "unknown": "linha {row} ({name}): valor não reconhecido em {qid}: "
                    "{value!r}, tratado como null",
         "unanswered": "{n} pergunta(s) sem resposta de nenhum respondente "
@@ -217,7 +217,7 @@ def base_respostas(target: Path) -> dict:
     if target.exists():
         return json.loads(target.read_text(encoding="utf-8"))
     example = json.loads(
-        (ROOT / "respostas.json.example").read_text(encoding="utf-8"))
+        (ROOT / "responses.json.example").read_text(encoding="utf-8"))
     data = copy.deepcopy(example)
     data["metadata"] = {"language": "en"}
     data["target_overrides"] = {}
@@ -486,9 +486,11 @@ def run(args) -> int:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("xlsx", nargs="?",
-                    default=str(ROOT / "respostas-forms.xlsx"))
-    ap.add_argument("--respostas", default=str(ROOT / "respostas.json"))
-    ap.add_argument("--log-dir", default=str(ROOT / "saida"))
+                    default=str(ROOT / "forms-responses.xlsx"))
+    ap.add_argument("--responses", "--respostas", dest="respostas",
+                    default=str(ROOT / "responses.json"),
+                    help="output file (default: responses.json)")
+    ap.add_argument("--log-dir", default=str(ROOT / "output"))
     ap.add_argument("--organization", default=None)
     ap.add_argument("--lang", choices=("en", "pt-br"), default=None,
                     help="Log language (default: metadata.language)")

@@ -10,14 +10,14 @@ Scripts que construyen el plan de capacitación desde el Learning and Growth Sur
 
 | Archivo | Propósito |
 | --- | --- |
-| [gerar_plano_capacitacao.py](gerar_plano_capacitacao.py) | Lee `survey-learning/respostas-learning.json` y genera `saida/plano-capacitacao-<date>.md`: temas solicitados, cohorts por `DS-D#`, Champions, pares de mentoría, calendario de 90 días, barreras, wishlist y acciones priorizadas. Inglés por defecto; pasa `--lang pt-br` o `--lang es`. |
+| [generate_training_plan.py](generate_training_plan.py) | Lee `survey-learning/responses-learning.json` y genera `output/training-plan-<date>.md`: temas solicitados, cohorts por `DS-D#`, Champions, pares de mentoría, calendario de 90 días, barreras, wishlist y acciones priorizadas. Inglés por defecto; pasa `--lang pt-br` o `--lang es`. |
 
 ## Uso
 
 ```bash
-python3 survey-learning/scripts/gerar_plano_capacitacao.py
-python3 survey-learning/scripts/gerar_plano_capacitacao.py --lang pt-br
-python3 survey-learning/scripts/gerar_plano_capacitacao.py --lang es
+python3 survey-learning/scripts/generate_training_plan.py
+python3 survey-learning/scripts/generate_training_plan.py --lang pt-br
+python3 survey-learning/scripts/generate_training_plan.py --lang es
 ```
 
-Después de generar el plan, ejecuta `python3 wizard/scripts/auto_fill_from_plano.py --lang en` o usa `/wizard-implementacao` Modo D para poblar 7 de los 11 campos de la guía de implementación.
+Después de generar el plan, ejecuta `python3 wizard/scripts/auto_fill_from_plan.py --lang en` o usa `/implementation-wizard` Modo D para poblar 7 de los 11 campos de la guía de implementación.

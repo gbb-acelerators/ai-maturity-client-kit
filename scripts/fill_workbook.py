@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-"""Populate the auditable scoring workbook from respostas.json.
+"""Populate the auditable scoring workbook from responses.json.
 
-Deterministic implementation of the /preencher-planilha skill. Copies
-referencia/pontuacao-e-calculo.xlsx to saida/, fills the three teaching
+Deterministic implementation of the /fill-workbook skill. Copies
+reference/scoring-and-calculation.xlsx to output/, fills the three teaching
 sheets, and adds full sheets (every question, capability, and pillar)
-whose formulas follow referencia/pontuacao-e-calculo.md: only answered
+whose formulas follow reference/scoring-and-calculation.md: only answered
 questions count, weights come from framework.json, and targets from
-respostas.json::target_overrides.
+responses.json::target_overrides.
 
 Usage:
     python3 scripts/fill_workbook.py
-    python3 scripts/fill_workbook.py --respostas X.json --out DIR
+    python3 scripts/fill_workbook.py --responses X.json --out DIR
 """
 from __future__ import annotations
 
@@ -21,7 +21,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-TEMPLATE = ROOT / "referencia" / "pontuacao-e-calculo.xlsx"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from kit_files import responses_file  # noqa: E402
+TEMPLATE = ROOT / "reference" / "scoring-and-calculation.xlsx"
 DEFAULT_TARGET = 3.0
 
 HEADERS = {
@@ -259,7 +261,7 @@ def run(args) -> int:
     src = Path(args.respostas)
     if not src.exists():
         print(f"✗ {src} not found. Run `make init` or "
-              f"/importar-respostas-excel first.", file=sys.stderr)
+              f"/import-responses first.", file=sys.stderr)
         return 1
     respostas = json.loads(src.read_text(encoding="utf-8"))
     version = str(respostas.get("metadata", {}).get("framework_version")
@@ -294,7 +296,7 @@ def run(args) -> int:
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
     date = datetime.date.today().isoformat()
-    out = out_dir / f"pontuacao-preenchida-{date}.xlsx"
+    out = out_dir / f"scoring-v1-{date}.xlsx"
     wb.save(out)
     status = ("OK" if answered >= 40 else
               "WARNING" if answered >= 25 else "BLOCKED")
@@ -306,9 +308,14 @@ def run(args) -> int:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--respostas", default=str(ROOT / "respostas.json"))
-    ap.add_argument("--out", default=str(ROOT / "saida"))
-    return run(ap.parse_args())
+    ap.add_argument("--responses", "--respostas", dest="respostas",
+                    default=None,
+                    help="input file (default: responses.json)")
+    ap.add_argument("--out", default=str(ROOT / "output"))
+    args = ap.parse_args()
+    if not args.respostas:
+        args.respostas = str(responses_file(ROOT))
+    return run(args)
 
 
 if __name__ == "__main__":

@@ -24,7 +24,7 @@ except ImportError:  # pragma: no cover
 
 
 def _args(xlsx: Path, out: Path, **extra) -> argparse.Namespace:
-    values = {"xlsx": str(xlsx), "respostas": str(out / "respostas.json"),
+    values = {"xlsx": str(xlsx), "respostas": str(out / "responses.json"),
               "log_dir": str(out), "organization": "Contoso",
               "lang": None, "allow_partial": False}
     values.update(extra)
@@ -57,7 +57,7 @@ class ImportFormsExcelTest(unittest.TestCase):
         return path
 
     def _data(self) -> dict:
-        return json.loads((self.tmp / "respostas.json").read_text("utf-8"))
+        return json.loads((self.tmp / "responses.json").read_text("utf-8"))
 
     def test_mean_without_rounding_and_prefixed_evidence(self) -> None:
         q = self.qids[0]
@@ -99,13 +99,13 @@ class ImportFormsExcelTest(unittest.TestCase):
         self.assertEqual(self._data()["responses"][q]["level"], 1.0)
 
     def test_backup_and_preserved_targets(self) -> None:
-        target = self.tmp / "respostas.json"
+        target = self.tmp / "responses.json"
         previous = json.loads(
-            (ROOT / "respostas.json.example").read_text("utf-8"))
+            (ROOT / "responses.json.example").read_text("utf-8"))
         target.write_text(json.dumps(previous), encoding="utf-8")
         path = self._workbook([{"name": "Ana", self.qids[0]: "L2"}])
         imp.run(_args(path, self.tmp))
-        self.assertTrue(list(self.tmp.glob("respostas.json.backup-*")))
+        self.assertTrue(list(self.tmp.glob("responses.json.backup-*")))
         data = self._data()
         self.assertEqual(data["target_overrides"],
                          previous["target_overrides"])
@@ -121,7 +121,7 @@ class ImportFormsExcelTest(unittest.TestCase):
             imp.run(_args(path, self.tmp))
 
     def test_template_export_matches_engine_expectations(self) -> None:
-        path = ROOT / "coleta" / "v1" / "template-export-forms.xlsx"
+        path = ROOT / "collection" / "v1" / "template-export-forms.xlsx"
         self.assertEqual(imp.run(_args(path, self.tmp)), 0)
         data = self._data()
         self.assertEqual(len(data["metadata"]["respondents"]), 3)

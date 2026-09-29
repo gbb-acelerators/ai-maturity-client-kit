@@ -4,6 +4,54 @@
 
 Todas as alterações relevantes no kit de cliente AI Maturity. As datas estão em ISO 8601.
 
+## [2.0.2] - 2026-09-29 (nomes de arquivos e pastas em inglês)
+
+O framework (perguntas, escala e pontuação) não muda: continua 2.0.1.
+
+### Alterado
+
+- Todos os nomes de arquivos e pastas estão em inglês. As cópias de
+  idioma só acrescentam `.pt-br` ou `.es` antes da extensão. Renomeações:
+
+| Antes | Agora |
+| --- | --- |
+| `coleta/` | `collection/` |
+| `formularios/` | `forms/` |
+| `referencia/`, `referencia/dimensoes/`, `referencia/exemplo-saida/` | `reference/`, `reference/dimensions/`, `reference/sample-output/` |
+| `relatorios/` | `reports/` |
+| `saida/` | `output/` |
+| `respostas.json`, `respostas.json.example`, `respostas.v2.json.example` | `responses.json`, `responses.json.example`, `responses.v2.json.example` |
+| `respostas-forms.xlsx`, `respostas-survey-devs.xlsx`, `respostas-survey-learning.xlsx` | `forms-responses.xlsx`, `survey-devs-responses.xlsx`, `survey-learning-responses.xlsx` |
+| `GUIA-PASSO-A-PASSO.md` | `STEP-BY-STEP.md` |
+| `INSTRUCOES-FORMS.md`, `INSTRUCOES-FORMS-DEVS.md`, `INSTRUCOES-FORMS-LEARNING.md` | `FORMS-INSTRUCTIONS.md`, `FORMS-INSTRUCTIONS-DEVS.md`, `FORMS-INSTRUCTIONS-LEARNING.md` |
+| `perguntas-para-forms.md` (PT-BR), `.en.md`, `.es.md` e os bancos `-devs` e `-learning` | `question-bank.md` (EN), `.pt-br.md`, `.es.md` e os bancos `-devs` e `-learning` |
+| `RUBRICA-MATURIDADE.md` | `MATURITY-RUBRIC.md` |
+| `pontuacao-e-calculo.md` e `.xlsx`, `calculadora-pontuacao.html` | `scoring-and-calculation.md` e `.xlsx`, `scoring-calculator.html` |
+| v1 `P1-produtividade-do-desenvolvedor`, `P2-ciclo-de-vida-devops`, `P3-plataforma-de-aplicações` | `P1-developer-productivity`, `P2-devops-lifecycle`, `P3-application-platform` |
+| `recomendacoes.json`, `telemetria.json`, `comparacao-rodadas.*` | `recommendations.json`, `telemetry.json`, `round-comparison.*` |
+| `pontuacao-v2-<date>.xlsx`, `pontuacao-preenchida-<date>.xlsx` | `scoring-v2-<date>.xlsx`, `scoring-v1-<date>.xlsx` |
+| `maturidade-developer-survey-<date>.json`, `plano-capacitacao-<date>.md`, `*-EXEMPLO.*` | `developer-survey-maturity-<date>.json`, `training-plan-<date>.md`, `*-EXAMPLE.*` |
+| `merge_offline_respostas.py`, `calcular_maturidade.py`, `gerar_insights.py`, `gerar_plano_capacitacao.py`, `auto_fill_from_plano.py` | `merge_offline_responses.py`, `calculate_maturity.py`, `generate_insights.py`, `generate_training_plan.py`, `auto_fill_from_plan.py` |
+| `/calcular-scores`, `/gerar-relatorio`, `/importar-respostas-excel`, `/importar-survey-devs`, `/importar-survey-learning` | `/calculate-scores`, `/generate-report`, `/import-responses`, `/import-survey-devs`, `/import-survey-learning` |
+| `/plano-capacitacao`, `/preencher-planilha`, `/recomendar-estrategias`, `/wizard-implementacao`, `/pipeline-completo` | `/training-plan`, `/fill-workbook`, `/recommend-strategies`, `/implementation-wizard`, `/full-pipeline` |
+| `make clean-saida`, `--respostas`, `--plano` | `make clean-output`, `--responses`, `--plan` (as flags antigas continuam funcionando) |
+
+- Os bancos de perguntas seguem a convenção dos docs: o arquivo base é
+  em inglês, com cópias `.pt-br.md` e `.es.md` e uma linha de idioma.
+  Todo pacote continua levando os três bancos.
+- `kit-en/`, `kit-es/` e `scripts/build_kit_docs.py` foram removidos:
+  todos os pacotes agora têm os mesmos nomes de arquivos e pastas, com o
+  seu idioma nos nomes base.
+
+### Compatibilidade
+
+- Um `respostas.json` de um kit antigo continua sendo lido quando não
+  existe `responses.json` (os scripts mostram um aviso pedindo para
+  renomear).
+- O `.gitignore` e o gerador de pacotes continuam excluindo os nomes
+  antigos dos arquivos do cliente e a antiga pasta `saida/`, então dados
+  antigos de clientes nunca entram em commits nem em pacotes.
+
 ## [2.0.1] - 2026-09-28 (framework v2)
 
 ### Adicionado
@@ -21,7 +69,7 @@ Todas as alterações relevantes no kit de cliente AI Maturity. As datas estão 
   seção 8 (pesos, alvos, prioridades, estratégias, risco de amplificação) com
   um teste de paridade contra o motor. O template
   `wizard/implementation-guide-inputs.template.json` mantém orientação em
-  `_guide` e valores vazios. `auto_fill_from_plano.py` oferece suporte a ES e
+  `_guide` e valores vazios. `auto_fill_from_plan.py` oferece suporte a ES e
   converte o calendário e as coortes em tabelas.
 - Checagens cruzadas de evidência: `scripts/scan_repos_ai_config.py`
   (`make scan-repos`) posiciona repositórios nos níveis RAMP [47] e limita
@@ -32,11 +80,11 @@ Todas as alterações relevantes no kit de cliente AI Maturity. As datas estão 
 - Flag de divergência entre respondentes (desvio padrão dos scores de dimensão
   por respondente de 1.0 ou mais, com ao menos 3 respondentes).
 - PDF de comparação de rodadas (`make compare` renderiza
-  `comparacao-rodadas.pdf`).
-- `make demo` renderiza os cinco PDFs de v2 a partir do mock em `saida/demo/`;
-  `make merge` combina exportações de formulários offline em `respostas.json`;
+  `round-comparison.pdf`).
+- `make demo` renderiza os cinco PDFs de v2 a partir do mock em `output/demo/`;
+  `make merge` combina exportações de formulários offline em `responses.json`;
   `make examples-v2` regenera os exemplos de referência.
-- Páginas de referência por dimensão em `referencia/dimensoes/` (EN, PT-BR,
+- Páginas de referência por dimensão em `reference/dimensions/` (EN, PT-BR,
   ES) e notas de escopo no guia de referência e no formulário offline.
 - `survey_crosswalk` em `framework.v2.json` vincula cada dimensão do Developer
   Survey às perguntas de v2 que ela ajuda a validar; o PDF de resumo mostra o
@@ -54,7 +102,7 @@ Todas as alterações relevantes no kit de cliente AI Maturity. As datas estão 
 
 - Framework v2: 9 dimensões, 61 perguntas e 5 perguntas de perfil (`R-Q1` a
   `R-Q5`), gerado a partir de
-  [coleta/AI-Maturity-Form-Questions_v2.md](coleta/AI-Maturity-Form-Questions_v2.md)
+  [collection/AI-Maturity-Form-Questions_v2.md](collection/AI-Maturity-Form-Questions_v2.md)
   para `framework.v2.json` por `scripts/spec_to_framework_v2.py`, com as
   decisões de design do kit em `framework/v2/config.json` e traduções em
   `framework/v2/i18n.{pt-br,es}.json`. JSON Schema em
@@ -62,7 +110,7 @@ Todas as alterações relevantes no kit de cliente AI Maturity. As datas estão 
   contagens, IDs, citações, a partição de rastreabilidade de v1, paridade de
   idioma e desatualização.
 - Motor v2 (`scripts/engine_v2.py`), selecionado por
-  `metadata.framework_version` em `respostas.json`: respostas por respondente,
+  `metadata.framework_version` em `responses.json`: respostas por respondente,
   médias agrupadas de perguntas, pesos de dimensão (0.5 a 2.0), status de
   cobertura, baixa confiança, risco de amplificação, gap de percepção e flags
   de escopo, cobertura de evidência com perguntas L3/L4 não verificadas, um top
@@ -70,23 +118,23 @@ Todas as alterações relevantes no kit de cliente AI Maturity. As datas estão 
   referências da especificação.
 - Ativos de coleta v2 de `scripts/generate_v2_collection.py`: bancos de
   perguntas em PT-BR, EN e ES, o formulário offline
-  `formularios/assessment-v2.html` e o template de exportação do Forms.
-- Relatórios v2 (`relatorios/scripts/build_report_v2.py`): resumo de avaliação
+  `forms/assessment-v2.html` e o template de exportação do Forms.
+- Relatórios v2 (`reports/scripts/build_report_v2.py`): resumo de avaliação
   com heatmap de personas e flags, mais um roadmap por grupo de dimensões (G1 a
   G3). `make pipeline` escolhe v1 ou v2 automaticamente.
 - Workbook auditável v2 (`scripts/fill_workbook_v2.py`): cada score é uma
   fórmula sobre as respostas brutas, ao lado do valor do motor.
 - Comparação de rodadas (`scripts/compare_rounds.py`, `make compare`): v2 a
   v2, v1 a v1 e uma baseline indicativa de v1 a v2 por meio da linhagem de v1.
-- Mock ilustrativo v2 (`respostas.v2.json.example`,
-  `coleta/v2-mock-forms-export.xlsx`), `CHANGELOG.md` e um dev container.
+- Mock ilustrativo v2 (`responses.v2.json.example`,
+  `collection/v2-mock-forms-export.xlsx`), `CHANGELOG.md` e um dev container.
 
 - Versões completas em português do Brasil e em espanhol de todos os
   documentos, com o inglês como idioma principal: cada `X.md` tem
   `X.pt-br.md` e `X.es.md` com os mesmos títulos e uma linha de seletor com
   os três idiomas. Novas cópias em espanhol de todos os guias de pasta,
   `CHANGELOG.pt-br.md`, `CHANGELOG.es.md` e cópias PT-BR e ES da
-  especificação v2 (`coleta/AI-Maturity-Form-Questions_v2.pt-br.md`,
+  especificação v2 (`collection/AI-Maturity-Form-Questions_v2.pt-br.md`,
   `.es.md`).
 - `scripts/sync_spec_translations.py` gera as seções 6 e 7 e a lista de
   referências das cópias da especificação a partir de `framework.v2.json` e
@@ -98,9 +146,9 @@ Todas as alterações relevantes no kit de cliente AI Maturity. As datas estão 
 - `scripts/test_i18n_docs.py` cobre a troca de idioma dos pacotes, as cópias
   da especificação e a cobertura dos documentos.
 - O material arquivado da v1 nos três idiomas: referências dos pilares
-  em espanhol (`referencia/v1/P1` a `P3` `.es.md`) e instruções de Forms
-  (`coleta/v1/INSTRUCOES-FORMS.es.md`); cópias em inglês e espanhol dos
-  formulários visuais da v1 (`formularios/v1/*.html`, `*.es.html`, com o
+  em espanhol (`reference/v1/P1` a `P3` `.es.md`) e instruções de Forms
+  (`collection/v1/FORMS-INSTRUCTIONS.es.md`); cópias em inglês e espanhol dos
+  formulários visuais da v1 (`forms/v1/*.html`, `*.es.html`, com o
   original em português em `*.pt-br.html`) e uma calculadora v1 em
   espanhol. Os docs e formulários v1 em PT-BR agora também traduzem o
   contexto e as evidências sugeridas, que estavam em inglês; os nomes de
@@ -169,15 +217,15 @@ Todas as alterações relevantes no kit de cliente AI Maturity. As datas estão 
 - Os pacotes EN e ES enviavam seus guias raiz com links `../` quebrados.
 - Os insights do Developer Survey apontavam para capacidades de v1; agora
   apontam para perguntas de v2.
-- `calcular_maturidade.py --lang pt-br` falhava em uma dimensão sem dados
+- `calculate_maturity.py --lang pt-br` falhava em uma dimensão sem dados
   (chave de texto ausente).
 - Seis arquivos `SKILL.md` tinham front matter YAML inválido.
-- `referencia/pontuacao-e-calculo.xlsx` armazenava texto explicativo como
+- `reference/scoring-and-calculation.xlsx` armazenava texto explicativo como
   fórmulas quebradas.
 - A calculadora v1 e o banco de perguntas v1 em inglês mostravam as
   perguntas em português; algumas perguntas v1 em inglês listavam o
   público "Arquiteto".
-- Os READMEs do exemplo v1 em `referencia/exemplo-saida/v1/en/` e `es/`
+- Os READMEs do exemplo v1 em `reference/sample-output/v1/en/` e `es/`
   estavam no idioma errado ou apontavam para caminhos antigos.
 - A calculadora v1 nunca atualizava os scores dos pilares e o geral depois
   da primeira resposta (os cards dos pilares perdiam as classes de
@@ -189,9 +237,9 @@ Todas as alterações relevantes no kit de cliente AI Maturity. As datas estão 
 
 ### Arquivado
 
-- Bancos de perguntas, instruções e template de v1 em `coleta/v1/`, os
-  formulários HTML de v1 em `formularios/v1/`, as referências de pilares de v1
-  e a calculadora de v1 em `referencia/v1/`. Arquivos v1 ainda são pontuados e
+- Bancos de perguntas, instruções e template de v1 em `collection/v1/`, os
+  formulários HTML de v1 em `forms/v1/`, as referências de pilares de v1
+  e a calculadora de v1 em `reference/v1/`. Arquivos v1 ainda são pontuados e
   renderizados sem alterações.
 
 ## [1.x] - 2026-05 to 2026-09

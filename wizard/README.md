@@ -2,9 +2,9 @@
 
 🌐 English · [Português (Brasil)](README.pt-br.md) · [Español](README.es.md)
 
-**`WIZARD`** · _Custom Part 4_ · 📖 [🏠 Index](../README.md) · [« Learning Survey](../survey-learning/INSTRUCOES-FORMS-LEARNING.md) · You are here
+**`WIZARD`** · _Custom Part 4_ · 📖 [🏠 Index](../README.md) · [« Learning Survey](../survey-learning/FORMS-INSTRUCTIONS-LEARNING.md) · You are here
 
-This folder contains the generated trilingual wizard and JSON template used to personalize `saida/v2_implementation_guide.pdf`. The wizard runs offline and migrates old v1 browser storage.
+This folder contains the generated trilingual wizard and JSON template used to personalize `output/v2_implementation_guide.pdf`. The wizard runs offline and migrates old v1 browser storage.
 
 > [!NOTE]
 > Output in every mode: `implementation-guide-inputs.json` at the kit root. `make pipeline` detects it automatically and merges it into `payload_v2.json`.
@@ -50,15 +50,15 @@ The generated template has empty values and guidance in `_guide` for EN, PT-BR, 
 
 ### C. Conversation in Copilot Chat
 
-Use `/wizard-implementacao` when you want Copilot to gather the fields in conversation and save the JSON after confirmation.
+Use `/implementation-wizard` when you want Copilot to gather the fields in conversation and save the JSON after confirmation.
 
 ### D. Auto-fill from the Learning Survey plan
 
 ```bash
-python3 wizard/scripts/auto_fill_from_plano.py --lang en
+python3 wizard/scripts/auto_fill_from_plan.py --lang en
 ```
 
-Mode D reads the latest `saida/plano-capacitacao-*.md`, fills 7 of the 11 fields from the Learning Survey training plan, and marks the rest as fill-in items. It uses active Champions for the steering committee, the calendar for communication, cohorts for training, ADKAR notes, and quick wins.
+Mode D reads the latest `output/training-plan-*.md`, fills 7 of the 11 fields from the Learning Survey training plan, and marks the rest as fill-in items. It uses active Champions for the steering committee, the calendar for communication, cohorts for training, ADKAR notes, and quick wins.
 
 ## Files
 
@@ -66,7 +66,7 @@ Mode D reads the latest `saida/plano-capacitacao-*.md`, fills 7 of the 11 fields
 | --- | --- |
 | [implementation-guide-wizard.html](implementation-guide-wizard.html) | Generated standalone visual wizard. It opens in the browser language and has a language selector. The repository copies `implementation-guide-wizard.pt-br.html` and `implementation-guide-wizard.es.html` open in Portuguese and Spanish; each language package ships its copy under this name. |
 | [implementation-guide-inputs.template.json](implementation-guide-inputs.template.json) | Generated empty JSON template with `_guide`. |
-| [scripts/auto_fill_from_plano.py](scripts/auto_fill_from_plano.py) | Mode D auto-fill from Learning Survey output. |
+| [scripts/auto_fill_from_plan.py](scripts/auto_fill_from_plan.py) | Mode D auto-fill from Learning Survey output. |
 
 ## After filling in
 
@@ -85,6 +85,6 @@ v1 Part 4 also reads the new file and ignores fields it does not use.
 
 ## Related documentation
 
-- Orchestrating skill: [../.github/skills/wizard-implementacao/SKILL.md](../.github/skills/wizard-implementacao/SKILL.md)
-- How the JSON reaches the PDF: [../relatorios/scripts/wizard_inputs.py](../relatorios/scripts/wizard_inputs.py)
-- v2 implementation guide template: [../relatorios/templates/v2_implementation_guide.html.j2](../relatorios/templates/v2_implementation_guide.html.j2)
+- Orchestrating skill: [../.github/skills/implementation-wizard/SKILL.md](../.github/skills/implementation-wizard/SKILL.md)
+- How the JSON reaches the PDF: [../reports/scripts/wizard_inputs.py](../reports/scripts/wizard_inputs.py)
+- v2 implementation guide template: [../reports/templates/v2_implementation_guide.html.j2](../reports/templates/v2_implementation_guide.html.j2)

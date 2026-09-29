@@ -1,0 +1,1031 @@
+{
+  "metadata": {
+    "computed_at": "2026-09-29T13:59:14Z",
+    "organization": "Contoso Engineering (illustrative mock)",
+    "framework_version": "2.0.1",
+    "respondents": 14,
+    "language": "en"
+  },
+  "overall": {
+    "score": 2.038,
+    "level": "L2",
+    "label": "L2 Adopting",
+    "pe_score": 1.936,
+    "pe_label": "L2 Adopting"
+  },
+  "threshold": {
+    "status": "OK",
+    "answered": 61,
+    "applicable": 61
+  },
+  "dimensions": [
+    {
+      "id": "D1",
+      "name": "AI Strategy, Policy and Governance",
+      "group": "G1",
+      "weight": 1.0,
+      "score": 2.817,
+      "level": "L3",
+      "label": "L3 Scaling",
+      "answered": 7,
+      "applicable": 7,
+      "na_share": 0.051,
+      "low_confidence": false,
+      "strategies": [
+        "S7",
+        "S5",
+        "S6"
+      ]
+    },
+    {
+      "id": "D2",
+      "name": "Enablement, Skills and Culture",
+      "group": "G1",
+      "weight": 1.0,
+      "score": 2.277,
+      "level": "L2",
+      "label": "L2 Adopting",
+      "answered": 6,
+      "applicable": 6,
+      "na_share": 0.024,
+      "low_confidence": false,
+      "strategies": [
+        "S5"
+      ]
+    },
+    {
+      "id": "D3",
+      "name": "Plan, Specify and Design",
+      "group": "G2",
+      "weight": 1.0,
+      "score": 2.087,
+      "level": "L2",
+      "label": "L2 Adopting",
+      "answered": 6,
+      "applicable": 6,
+      "na_share": 0.06,
+      "low_confidence": false,
+      "strategies": [
+        "S5",
+        "S3"
+      ]
+    },
+    {
+      "id": "D4",
+      "name": "Code and Context Engineering",
+      "group": "G2",
+      "weight": 1.0,
+      "score": 2.721,
+      "level": "L3",
+      "label": "L3 Scaling",
+      "answered": 8,
+      "applicable": 8,
+      "na_share": 0.071,
+      "low_confidence": false,
+      "strategies": [
+        "S5",
+        "S6",
+        "S4"
+      ]
+    },
+    {
+      "id": "D5",
+      "name": "Review, Quality and Testing",
+      "group": "G2",
+      "weight": 1.0,
+      "score": 2.096,
+      "level": "L2",
+      "label": "L2 Adopting",
+      "answered": 7,
+      "applicable": 7,
+      "na_share": 0.051,
+      "low_confidence": false,
+      "strategies": [
+        "S5",
+        "S7"
+      ]
+    },
+    {
+      "id": "D6",
+      "name": "Security and AI Supply Chain",
+      "group": "G3",
+      "weight": 1.0,
+      "score": 1.895,
+      "level": "L2",
+      "label": "L2 Adopting",
+      "answered": 7,
+      "applicable": 7,
+      "na_share": 0.418,
+      "low_confidence": true,
+      "strategies": [
+        "S7",
+        "S6"
+      ]
+    },
+    {
+      "id": "D7",
+      "name": "Deliver and Operate",
+      "group": "G3",
+      "weight": 1.0,
+      "score": 1.752,
+      "level": "L2",
+      "label": "L2 Adopting",
+      "answered": 6,
+      "applicable": 6,
+      "na_share": 0.048,
+      "low_confidence": false,
+      "strategies": [
+        "S2",
+        "S6"
+      ]
+    },
+    {
+      "id": "D8",
+      "name": "Engineering Foundations (AI amplifiers)",
+      "group": "G3",
+      "weight": 1.0,
+      "score": 1.088,
+      "level": "L1",
+      "label": "L1 Exploring",
+      "answered": 7,
+      "applicable": 7,
+      "na_share": 0.041,
+      "low_confidence": false,
+      "strategies": [
+        "S1",
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "id": "D9",
+      "name": "Measurement, Value and AI FinOps",
+      "group": "G1",
+      "weight": 1.0,
+      "score": 1.611,
+      "level": "L2",
+      "label": "L2 Adopting",
+      "answered": 7,
+      "applicable": 7,
+      "na_share": 0.061,
+      "low_confidence": false,
+      "strategies": [
+        "S5",
+        "S2"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "D1-Q1",
+      "dimension_id": "D1",
+      "score": 2.769,
+      "level": "L3",
+      "n": 13,
+      "na": 1,
+      "evidence_n": 5,
+      "unverified": true
+    },
+    {
+      "id": "D1-Q2",
+      "dimension_id": "D1",
+      "score": 2.929,
+      "level": "L3",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 7,
+      "unverified": false
+    },
+    {
+      "id": "D1-Q3",
+      "dimension_id": "D1",
+      "score": 2.75,
+      "level": "L3",
+      "n": 12,
+      "na": 2,
+      "evidence_n": 2,
+      "unverified": true
+    },
+    {
+      "id": "D1-Q4",
+      "dimension_id": "D1",
+      "score": 3.077,
+      "level": "L3",
+      "n": 13,
+      "na": 1,
+      "evidence_n": 5,
+      "unverified": true
+    },
+    {
+      "id": "D1-Q5",
+      "dimension_id": "D1",
+      "score": 2.692,
+      "level": "L3",
+      "n": 13,
+      "na": 1,
+      "evidence_n": 5,
+      "unverified": true
+    },
+    {
+      "id": "D1-Q6",
+      "dimension_id": "D1",
+      "score": 2.714,
+      "level": "L3",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 7,
+      "unverified": false
+    },
+    {
+      "id": "D1-Q7",
+      "dimension_id": "D1",
+      "score": 2.786,
+      "level": "L3",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 5,
+      "unverified": true
+    },
+    {
+      "id": "D2-Q1",
+      "dimension_id": "D2",
+      "score": 2.154,
+      "level": "L2",
+      "n": 13,
+      "na": 1,
+      "evidence_n": 5,
+      "unverified": false
+    },
+    {
+      "id": "D2-Q2",
+      "dimension_id": "D2",
+      "score": 2.357,
+      "level": "L2",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 6,
+      "unverified": false
+    },
+    {
+      "id": "D2-Q3",
+      "dimension_id": "D2",
+      "score": 2.571,
+      "level": "L3",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 7,
+      "unverified": false
+    },
+    {
+      "id": "D2-Q4",
+      "dimension_id": "D2",
+      "score": 2.214,
+      "level": "L2",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 5,
+      "unverified": false
+    },
+    {
+      "id": "D2-Q5",
+      "dimension_id": "D2",
+      "score": 2.214,
+      "level": "L2",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 7,
+      "unverified": false
+    },
+    {
+      "id": "D2-Q6",
+      "dimension_id": "D2",
+      "score": 2.154,
+      "level": "L2",
+      "n": 13,
+      "na": 1,
+      "evidence_n": 5,
+      "unverified": false
+    },
+    {
+      "id": "D3-Q1",
+      "dimension_id": "D3",
+      "score": 2.0,
+      "level": "L2",
+      "n": 13,
+      "na": 1,
+      "evidence_n": 2,
+      "unverified": false
+    },
+    {
+      "id": "D3-Q2",
+      "dimension_id": "D3",
+      "score": 2.0,
+      "level": "L2",
+      "n": 12,
+      "na": 2,
+      "evidence_n": 6,
+      "unverified": false
+    },
+    {
+      "id": "D3-Q3",
+      "dimension_id": "D3",
+      "score": 2.154,
+      "level": "L2",
+      "n": 13,
+      "na": 1,
+      "evidence_n": 3,
+      "unverified": false
+    },
+    {
+      "id": "D3-Q4",
+      "dimension_id": "D3",
+      "score": 2.154,
+      "level": "L2",
+      "n": 13,
+      "na": 1,
+      "evidence_n": 4,
+      "unverified": false
+    },
+    {
+      "id": "D3-Q5",
+      "dimension_id": "D3",
+      "score": 2.071,
+      "level": "L2",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 4,
+      "unverified": false
+    },
+    {
+      "id": "D3-Q6",
+      "dimension_id": "D3",
+      "score": 2.143,
+      "level": "L2",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 7,
+      "unverified": false
+    },
+    {
+      "id": "D4-Q1",
+      "dimension_id": "D4",
+      "score": 2.615,
+      "level": "L3",
+      "n": 13,
+      "na": 1,
+      "evidence_n": 5,
+      "unverified": true
+    },
+    {
+      "id": "D4-Q2",
+      "dimension_id": "D4",
+      "score": 2.643,
+      "level": "L3",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 7,
+      "unverified": false
+    },
+    {
+      "id": "D4-Q3",
+      "dimension_id": "D4",
+      "score": 2.667,
+      "level": "L3",
+      "n": 12,
+      "na": 2,
+      "evidence_n": 4,
+      "unverified": true
+    },
+    {
+      "id": "D4-Q4",
+      "dimension_id": "D4",
+      "score": 2.5,
+      "level": "L3",
+      "n": 12,
+      "na": 2,
+      "evidence_n": 5,
+      "unverified": true
+    },
+    {
+      "id": "D4-Q5",
+      "dimension_id": "D4",
+      "score": 2.786,
+      "level": "L3",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 4,
+      "unverified": true
+    },
+    {
+      "id": "D4-Q6",
+      "dimension_id": "D4",
+      "score": 2.786,
+      "level": "L3",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 5,
+      "unverified": true
+    },
+    {
+      "id": "D4-Q7",
+      "dimension_id": "D4",
+      "score": 3.083,
+      "level": "L3",
+      "n": 12,
+      "na": 2,
+      "evidence_n": 3,
+      "unverified": true
+    },
+    {
+      "id": "D4-Q8",
+      "dimension_id": "D4",
+      "score": 2.692,
+      "level": "L3",
+      "n": 13,
+      "na": 1,
+      "evidence_n": 7,
+      "unverified": false
+    },
+    {
+      "id": "D5-Q1",
+      "dimension_id": "D5",
+      "score": 2.071,
+      "level": "L2",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 6,
+      "unverified": false
+    },
+    {
+      "id": "D5-Q2",
+      "dimension_id": "D5",
+      "score": 2.071,
+      "level": "L2",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 6,
+      "unverified": false
+    },
+    {
+      "id": "D5-Q3",
+      "dimension_id": "D5",
+      "score": 2.0,
+      "level": "L2",
+      "n": 13,
+      "na": 1,
+      "evidence_n": 2,
+      "unverified": false
+    },
+    {
+      "id": "D5-Q4",
+      "dimension_id": "D5",
+      "score": 2.167,
+      "level": "L2",
+      "n": 12,
+      "na": 2,
+      "evidence_n": 7,
+      "unverified": false
+    },
+    {
+      "id": "D5-Q5",
+      "dimension_id": "D5",
+      "score": 2.308,
+      "level": "L2",
+      "n": 13,
+      "na": 1,
+      "evidence_n": 2,
+      "unverified": false
+    },
+    {
+      "id": "D5-Q6",
+      "dimension_id": "D5",
+      "score": 1.769,
+      "level": "L2",
+      "n": 13,
+      "na": 1,
+      "evidence_n": 8,
+      "unverified": false
+    },
+    {
+      "id": "D5-Q7",
+      "dimension_id": "D5",
+      "score": 2.286,
+      "level": "L2",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 2,
+      "unverified": false
+    },
+    {
+      "id": "D6-Q1",
+      "dimension_id": "D6",
+      "score": 2.0,
+      "level": "L2",
+      "n": 7,
+      "na": 7,
+      "evidence_n": 4,
+      "unverified": false
+    },
+    {
+      "id": "D6-Q2",
+      "dimension_id": "D6",
+      "score": 2.091,
+      "level": "L2",
+      "n": 11,
+      "na": 3,
+      "evidence_n": 5,
+      "unverified": false
+    },
+    {
+      "id": "D6-Q3",
+      "dimension_id": "D6",
+      "score": 2.25,
+      "level": "L2",
+      "n": 8,
+      "na": 6,
+      "evidence_n": 6,
+      "unverified": false
+    },
+    {
+      "id": "D6-Q4",
+      "dimension_id": "D6",
+      "score": 1.714,
+      "level": "L2",
+      "n": 7,
+      "na": 7,
+      "evidence_n": 3,
+      "unverified": false
+    },
+    {
+      "id": "D6-Q5",
+      "dimension_id": "D6",
+      "score": 1.5,
+      "level": "L1",
+      "n": 4,
+      "na": 10,
+      "evidence_n": 1,
+      "unverified": false
+    },
+    {
+      "id": "D6-Q6",
+      "dimension_id": "D6",
+      "score": 1.625,
+      "level": "L2",
+      "n": 8,
+      "na": 6,
+      "evidence_n": 1,
+      "unverified": false
+    },
+    {
+      "id": "D6-Q7",
+      "dimension_id": "D6",
+      "score": 2.083,
+      "level": "L2",
+      "n": 12,
+      "na": 2,
+      "evidence_n": 4,
+      "unverified": false
+    },
+    {
+      "id": "D7-Q1",
+      "dimension_id": "D7",
+      "score": 1.692,
+      "level": "L2",
+      "n": 13,
+      "na": 1,
+      "evidence_n": 4,
+      "unverified": false
+    },
+    {
+      "id": "D7-Q2",
+      "dimension_id": "D7",
+      "score": 1.833,
+      "level": "L2",
+      "n": 12,
+      "na": 2,
+      "evidence_n": 8,
+      "unverified": false
+    },
+    {
+      "id": "D7-Q3",
+      "dimension_id": "D7",
+      "score": 1.714,
+      "level": "L2",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 6,
+      "unverified": false
+    },
+    {
+      "id": "D7-Q4",
+      "dimension_id": "D7",
+      "score": 1.571,
+      "level": "L1",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 5,
+      "unverified": false
+    },
+    {
+      "id": "D7-Q5",
+      "dimension_id": "D7",
+      "score": 1.846,
+      "level": "L2",
+      "n": 13,
+      "na": 1,
+      "evidence_n": 7,
+      "unverified": false
+    },
+    {
+      "id": "D7-Q6",
+      "dimension_id": "D7",
+      "score": 1.857,
+      "level": "L2",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 6,
+      "unverified": false
+    },
+    {
+      "id": "D8-Q1",
+      "dimension_id": "D8",
+      "score": 1.071,
+      "level": "L1",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 8,
+      "unverified": false
+    },
+    {
+      "id": "D8-Q2",
+      "dimension_id": "D8",
+      "score": 1.231,
+      "level": "L1",
+      "n": 13,
+      "na": 1,
+      "evidence_n": 3,
+      "unverified": false
+    },
+    {
+      "id": "D8-Q3",
+      "dimension_id": "D8",
+      "score": 1.286,
+      "level": "L1",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 5,
+      "unverified": false
+    },
+    {
+      "id": "D8-Q4",
+      "dimension_id": "D8",
+      "score": 0.923,
+      "level": "L1",
+      "n": 13,
+      "na": 1,
+      "evidence_n": 6,
+      "unverified": false
+    },
+    {
+      "id": "D8-Q5",
+      "dimension_id": "D8",
+      "score": 1.0,
+      "level": "L1",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 2,
+      "unverified": false
+    },
+    {
+      "id": "D8-Q6",
+      "dimension_id": "D8",
+      "score": 1.357,
+      "level": "L1",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 8,
+      "unverified": false
+    },
+    {
+      "id": "D8-Q7",
+      "dimension_id": "D8",
+      "score": 0.75,
+      "level": "L0",
+      "n": 12,
+      "na": 2,
+      "evidence_n": 9,
+      "unverified": false
+    },
+    {
+      "id": "D9-Q1",
+      "dimension_id": "D9",
+      "score": 1.786,
+      "level": "L2",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 7,
+      "unverified": false
+    },
+    {
+      "id": "D9-Q2",
+      "dimension_id": "D9",
+      "score": 1.615,
+      "level": "L2",
+      "n": 13,
+      "na": 1,
+      "evidence_n": 6,
+      "unverified": false
+    },
+    {
+      "id": "D9-Q3",
+      "dimension_id": "D9",
+      "score": 1.333,
+      "level": "L1",
+      "n": 12,
+      "na": 2,
+      "evidence_n": 3,
+      "unverified": false
+    },
+    {
+      "id": "D9-Q4",
+      "dimension_id": "D9",
+      "score": 1.571,
+      "level": "L1",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 7,
+      "unverified": false
+    },
+    {
+      "id": "D9-Q5",
+      "dimension_id": "D9",
+      "score": 1.643,
+      "level": "L2",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 8,
+      "unverified": false
+    },
+    {
+      "id": "D9-Q6",
+      "dimension_id": "D9",
+      "score": 1.786,
+      "level": "L2",
+      "n": 14,
+      "na": 0,
+      "evidence_n": 7,
+      "unverified": false
+    },
+    {
+      "id": "D9-Q7",
+      "dimension_id": "D9",
+      "score": 1.545,
+      "level": "L1",
+      "n": 11,
+      "na": 3,
+      "evidence_n": 5,
+      "unverified": false
+    }
+  ],
+  "personas": [
+    {
+      "persona": "Engineering manager / tech lead",
+      "n": 2,
+      "low_sample": true,
+      "dimension_scores": {
+        "D1": 2.857,
+        "D2": 2.333,
+        "D3": 2.167,
+        "D4": 2.938,
+        "D5": 2.429,
+        "D6": 2.286,
+        "D7": 1.917,
+        "D8": 1.143,
+        "D9": 1.786
+      }
+    },
+    {
+      "persona": "Executive (CTO, VP, Director)",
+      "n": 3,
+      "low_sample": false,
+      "dimension_scores": {
+        "D1": 3.452,
+        "D2": 2.694,
+        "D3": 2.583,
+        "D4": 3.167,
+        "D5": 2.595,
+        "D6": 2.381,
+        "D7": 2.333,
+        "D8": 1.905,
+        "D9": 2.095
+      }
+    },
+    {
+      "persona": "Platform / DevOps / SRE engineer",
+      "n": 2,
+      "low_sample": true,
+      "dimension_scores": {
+        "D1": 2.786,
+        "D2": 2.5,
+        "D3": 1.833,
+        "D4": 2.438,
+        "D5": 1.929,
+        "D6": 1.714,
+        "D7": 1.5,
+        "D8": 0.857,
+        "D9": 1.357
+      }
+    },
+    {
+      "persona": "Product / program manager",
+      "n": 1,
+      "low_sample": true,
+      "dimension_scores": {
+        "D1": 3.286,
+        "D2": 3.0,
+        "D3": 2.8,
+        "D4": 3.0,
+        "D5": 2.333,
+        "D6": 2.0,
+        "D7": 2.333,
+        "D8": 1.429,
+        "D9": 2.0
+      }
+    },
+    {
+      "persona": "Security / AppSec",
+      "n": 1,
+      "low_sample": true,
+      "dimension_scores": {
+        "D1": 2.429,
+        "D2": 2.0,
+        "D3": 1.667,
+        "D4": 2.4,
+        "D5": 1.429,
+        "D6": 1.25,
+        "D7": 1.5,
+        "D8": 1.0,
+        "D9": 1.0
+      }
+    },
+    {
+      "persona": "Software engineer / developer",
+      "n": 5,
+      "low_sample": false,
+      "dimension_scores": {
+        "D1": 2.379,
+        "D2": 1.833,
+        "D3": 1.817,
+        "D4": 2.513,
+        "D5": 1.864,
+        "D6": 1.583,
+        "D7": 1.417,
+        "D8": 0.721,
+        "D9": 1.364
+      }
+    }
+  ],
+  "flags": {
+    "low_confidence": [
+      "D6"
+    ],
+    "amplification_risk": [
+      {
+        "dimension_id": "D8",
+        "level": "L1",
+        "overall_level": "L2"
+      }
+    ],
+    "perception_gap": {
+      "executive_n": 3,
+      "hands_on_n": 8,
+      "min_n": 3,
+      "dimensions": [
+        {
+          "dimension_id": "D1",
+          "executive_score": 3.452,
+          "hands_on_score": 2.5
+        },
+        {
+          "dimension_id": "D2",
+          "executive_score": 2.694,
+          "hands_on_score": 2.018
+        },
+        {
+          "dimension_id": "D3",
+          "executive_score": 2.583,
+          "hands_on_score": 1.801
+        },
+        {
+          "dimension_id": "D5",
+          "executive_score": 2.595,
+          "hands_on_score": 1.8
+        },
+        {
+          "dimension_id": "D6",
+          "executive_score": 2.381,
+          "hands_on_score": 1.586
+        },
+        {
+          "dimension_id": "D7",
+          "executive_score": 2.333,
+          "hands_on_score": 1.446
+        },
+        {
+          "dimension_id": "D8",
+          "executive_score": 1.905,
+          "hands_on_score": 0.786
+        },
+        {
+          "dimension_id": "D9",
+          "executive_score": 2.095,
+          "hands_on_score": 1.315
+        }
+      ],
+      "status": "evaluated"
+    },
+    "respondent_divergence": [],
+    "scope_caveat": {
+      "mix": {
+        "The whole organization": 4,
+        "Several teams in one business unit": 2,
+        "A single team": 5,
+        "One business unit": 3
+      },
+      "single_team_share": 0.357,
+      "flagged": false
+    }
+  },
+  "evidence": {
+    "answered": 774,
+    "with_evidence": 314,
+    "share": 0.406,
+    "unverified_questions": [
+      "D1-Q1",
+      "D1-Q3",
+      "D1-Q4",
+      "D1-Q5",
+      "D1-Q7",
+      "D4-Q1",
+      "D4-Q3",
+      "D4-Q4",
+      "D4-Q5",
+      "D4-Q6",
+      "D4-Q7"
+    ]
+  },
+  "backlog": [
+    {
+      "question_id": "D8-Q7",
+      "dimension_id": "D8",
+      "title": "Automated testing as a control system",
+      "score": 0.75,
+      "l3_anchor": "Most services have layered automated tests that run on every PR within agreed time budgets.",
+      "basis": [
+        3
+      ]
+    },
+    {
+      "question_id": "D8-Q4",
+      "dimension_id": "D8",
+      "title": "Healthy data ecosystem",
+      "score": 0.923,
+      "l3_anchor": "Key data is cataloged with owners and quality indicators; most questions can be answered within an hour.",
+      "basis": [
+        1,
+        2
+      ]
+    },
+    {
+      "question_id": "D8-Q5",
+      "dimension_id": "D8",
+      "title": "Reproducible environments for humans and agents",
+      "score": 1.0,
+      "l3_anchor": "Most repositories define a reproducible environment; agents use the same definition.",
+      "basis": [
+        8
+      ]
+    },
+    {
+      "question_id": "D8-Q1",
+      "dimension_id": "D8",
+      "title": "Version control for everything",
+      "score": 1.071,
+      "l3_anchor": "All five asset types are versioned for most services.",
+      "basis": [
+        1,
+        2
+      ]
+    },
+    {
+      "question_id": "D8-Q2",
+      "dimension_id": "D8",
+      "title": "Commit frequency and fast rollback",
+      "score": 1.231,
+      "l3_anchor": "Most engineers commit at least daily; reverting a change is routine and fast.",
+      "basis": [
+        2
+      ]
+    }
+  ]
+}

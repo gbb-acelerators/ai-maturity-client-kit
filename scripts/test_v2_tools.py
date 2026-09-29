@@ -11,12 +11,12 @@ from types import SimpleNamespace
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-sys.path.insert(0, str(ROOT / "relatorios" / "scripts"))
+sys.path.insert(0, str(ROOT / "reports" / "scripts"))
 
 import assessment_engine as engine  # noqa: E402
 import compare_rounds  # noqa: E402
 
-MOCK = ROOT / "respostas.v2.json.example"
+MOCK = ROOT / "responses.v2.json.example"
 
 
 class V2ToolsTest(unittest.TestCase):
@@ -24,22 +24,22 @@ class V2ToolsTest(unittest.TestCase):
         self.tmp = Path(tempfile.mkdtemp())
         self.addCleanup(shutil.rmtree, self.tmp)
         self.kit = self.tmp / "kit"
-        self.out = self.kit / "saida"
+        self.out = self.kit / "output"
         self.out.mkdir(parents=True)
         shutil.copy(ROOT / "framework.v2.json", self.kit)
-        shutil.copy(MOCK, self.kit / "respostas.json")
+        shutil.copy(MOCK, self.kit / "responses.json")
         self.assertEqual(
-            engine.run("all", self.kit / "respostas.json", self.out), 0)
+            engine.run("all", self.kit / "responses.json", self.out), 0)
         self.scores = json.loads((self.out / "scores.json").read_text())
 
     def test_workbook_carries_engine_values(self) -> None:
         import openpyxl
 
         import fill_workbook_v2
-        args = SimpleNamespace(respostas=str(self.kit / "respostas.json"),
+        args = SimpleNamespace(respostas=str(self.kit / "responses.json"),
                                out=str(self.out))
         self.assertEqual(fill_workbook_v2.run(args), 0)
-        path = next(self.out.glob("pontuacao-v2-*.xlsx"))
+        path = next(self.out.glob("scoring-v2-*.xlsx"))
         wb = openpyxl.load_workbook(path)
         self.assertEqual(
             wb.sheetnames,
@@ -62,7 +62,7 @@ class V2ToolsTest(unittest.TestCase):
                             for u in result["units"]))
 
     def test_compare_v1_to_v2_uses_lineage(self) -> None:
-        before = json.loads((ROOT / "respostas.json.example").read_text())
+        before = json.loads((ROOT / "responses.json.example").read_text())
         after = json.loads(MOCK.read_text())
         result = compare_rounds.compare_v1_v2(before, after)
         self.assertIsNone(result["overall"]["delta"])
@@ -134,7 +134,7 @@ class V2ToolsTest(unittest.TestCase):
         have = {d["id"]: f"P{d['priority']}" for d in got["dims"]
                 if d["priority"] is not None}
         self.assertEqual(have, want)
-        recs = json.loads((self.out / "recomendacoes.json").read_text())
+        recs = json.loads((self.out / "recommendations.json").read_text())
         self.assertEqual(
             [s["id"] for s in got["strategies"] if s["recommended"]],
             [s["strategy_id"] for s in recs["ranked_strategies"]])
@@ -144,7 +144,7 @@ class V2ToolsTest(unittest.TestCase):
              for a in self.scores["flags"]["amplification_risk"]])
 
     def test_merge_offline_exports(self) -> None:
-        import merge_offline_respostas as merge
+        import merge_offline_responses as merge
         mock = json.loads(MOCK.read_text("utf-8"))
         folder = self.tmp / "exports"
         folder.mkdir()
@@ -181,7 +181,7 @@ class V2ToolsTest(unittest.TestCase):
         summary = tel.summarize(tel.read_records(report), 200)
         self.assertEqual(summary["population"], 140)
         self.assertEqual(summary["shares"]["monthly_active_of_seats"], 0.6)
-        (self.out / "telemetria.json").write_text(json.dumps(summary))
+        (self.out / "telemetry.json").write_text(json.dumps(summary))
         self.assertEqual(scan.classify(".github/copilot-instructions.md"),
                          ("rules", 2))
         self.assertEqual(scan.classify(".github/agents/x.agent.md"),

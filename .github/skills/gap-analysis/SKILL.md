@@ -27,14 +27,14 @@ python3 scripts/assessment_engine.py all
 
 ## Flags to report
 
-Report low confidence, amplification risk, perception gap, respondent divergence, scope caveat, unverified L3/L4, evidence cross-check warnings, persona summaries, and backlog items when present in `saida/gaps.json` or related output.
+Report low confidence, amplification risk, perception gap, respondent divergence, scope caveat, unverified L3/L4, evidence cross-check warnings, persona summaries, and backlog items when present in `output/gaps.json` or related output.
 
 ## v2 output
 
-- `saida/gaps.json`
+- `output/gaps.json`
 - Top gaps by dimension and question.
 - Backlog questions with L3 anchors, evidence to collect, and KPI where present.
 
 ## Chat response
 
-Summarize the P0 to P3 distribution, top priorities, coverage status, and flags. Include the next command: `python3 relatorios/scripts/build_payload_and_render.py` after recommendations are ready.
+Summarize the P0 to P3 distribution, top priorities, coverage status, and flags. Include the next command: `python3 reports/scripts/build_payload_and_render.py` after recommendations are ready.

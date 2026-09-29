@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """One-command demo: the v2 reports from the illustrative mock.
 
-Copies respostas.v2.json.example to a temporary kit, runs the engine,
+Copies responses.v2.json.example to a temporary kit, runs the engine,
 the auditable workbook and the five v2 PDFs, and writes everything to
-saida/demo/. Your respostas.json and saida/ results are not touched.
+output/demo/. Your responses.json and output/ results are not touched.
 
 Usage:
-    python3 scripts/run_demo.py [--lang en|pt-BR|es] [--out saida/demo]
+    python3 scripts/run_demo.py [--lang en|pt-BR|es] [--out output/demo]
 """
 from __future__ import annotations
 
@@ -29,25 +29,25 @@ def run(*cmd: str) -> None:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--lang", default="en", choices=("en", "pt-BR", "es"))
-    ap.add_argument("--out", default=str(ROOT / "saida" / "demo"))
+    ap.add_argument("--out", default=str(ROOT / "output" / "demo"))
     args = ap.parse_args()
     out = Path(args.out)
     with tempfile.TemporaryDirectory() as tmp:
         kit = Path(tmp)
-        work = kit / "saida"
-        data = json.loads((ROOT / "respostas.v2.json.example").read_text(
+        work = kit / "output"
+        data = json.loads((ROOT / "responses.v2.json.example").read_text(
             encoding="utf-8"))
         data["metadata"]["language"] = args.lang
-        respostas = kit / "respostas.json"
+        respostas = kit / "responses.json"
         respostas.write_text(json.dumps(data, ensure_ascii=False, indent=2),
                              encoding="utf-8")
         shutil.copy(ROOT / "framework.v2.json", kit)
         try:
-            run("scripts/assessment_engine.py", "all", "--respostas",
+            run("scripts/assessment_engine.py", "all", "--responses",
                 str(respostas), "--out", str(work))
-            run("scripts/fill_workbook_v2.py", "--respostas",
+            run("scripts/fill_workbook_v2.py", "--responses",
                 str(respostas), "--out", str(work))
-            run("relatorios/scripts/build_report_v2.py", "--kit", str(kit),
+            run("reports/scripts/build_report_v2.py", "--kit", str(kit),
                 "--out", str(work))
         except subprocess.CalledProcessError as exc:
             print(f"✗ {' '.join(exc.cmd[1:2])} failed. Run make "
@@ -57,7 +57,7 @@ def main() -> int:
         out.mkdir(parents=True, exist_ok=True)
         keep = sorted(work.glob("*.pdf")) + sorted(work.glob("*.xlsx")) + \
             [work / n for n in ("scores.json", "gaps.json",
-                                "recomendacoes.json")]
+                                "recommendations.json")]
         for path in keep:
             shutil.copy(path, out / path.name)
     print(f"✓ Demo ({args.lang}) in {out}:")

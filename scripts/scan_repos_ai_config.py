@@ -28,7 +28,7 @@ Sources:
                       through the REST API with GITHUB_TOKEN or GH_TOKEN
                       (default branch only)
 
-Writes saida/repo-scan.json. The v2 reports compare it with the D4-Q4
+Writes output/repo-scan.json. The v2 reports compare it with the D4-Q4
 and D4-Q5 answers when the file is present.
 
 Usage:
@@ -272,7 +272,7 @@ def main() -> int:
     ap.add_argument("--github-org", help="GitHub organization to scan")
     ap.add_argument("--max-repos", type=int, default=500)
     ap.add_argument("--include-archived", action="store_true")
-    ap.add_argument("--out", default=str(ROOT / "saida"))
+    ap.add_argument("--out", default=str(ROOT / "output"))
     ap.add_argument("--label", help="note stored in the metadata, for "
                     "example 'illustrative fixture repositories'")
     args = ap.parse_args()

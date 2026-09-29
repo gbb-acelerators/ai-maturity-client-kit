@@ -44,27 +44,28 @@ Las dimensiones del Developer Survey ahora se llaman `DS-D2` a `DS-D8` en las cl
 | `DS-D7` | D2-Q2, D9-Q4 |
 | `DS-D8` | D1-Q2, D6-Q1, D6-Q4, D6-Q5, D6-Q7 |
 
-La sección 12 del informe de insights enlaza a preguntas v2, no a capacidades v1. El PDF de resumen v2 muestra contexto del Developer Survey cuando existe `saida/maturidade-developer-survey-*.json`.
+La sección 12 del informe de insights enlaza a preguntas v2, no a capacidades v1. El PDF de resumen v2 muestra contexto del Developer Survey cuando existe `output/developer-survey-maturity-*.json`.
 
 ## Archivos en esta carpeta
 
 | Archivo | Qué es |
 | --- | --- |
-| [INSTRUCOES-FORMS-DEVS.es.md](INSTRUCOES-FORMS-DEVS.es.md) | Guía paso a paso para construir el Microsoft Forms. |
-| [perguntas-para-forms-devs.en.md](perguntas-para-forms-devs.en.md) | Banco de preguntas en inglés. |
-| [perguntas-para-forms-devs.es.md](perguntas-para-forms-devs.es.md) | Banco de preguntas en español. |
+| [FORMS-INSTRUCTIONS-DEVS.es.md](FORMS-INSTRUCTIONS-DEVS.es.md) | Guía paso a paso para construir el Microsoft Forms. |
+| [question-bank-devs.md](question-bank-devs.md) | Banco de preguntas en inglés. |
+| [question-bank-devs.pt-br.md](question-bank-devs.pt-br.md) | Banco de preguntas en portugués (Brasil); sus opciones son los valores canónicos de [options.json](options.json). |
+| [question-bank-devs.es.md](question-bank-devs.es.md) | Banco de preguntas en español. |
 | [template-export-forms-devs.xlsx](template-export-forms-devs.xlsx) | Plantilla Excel en el formato de exportación de Forms. |
-| [respostas-mock-devs.json](respostas-mock-devs.json) | JSON estructurado de ejemplo para smoke tests. |
-| [RUBRICA-MATURIDADE.es.md](RUBRICA-MATURIDADE.es.md) | Rúbrica determinística. Mantiene las bandas v1, así que compara por puntaje, no por nombre de nivel. |
+| [mock-responses-devs.json](mock-responses-devs.json) | JSON estructurado de ejemplo para smoke tests. |
+| [MATURITY-RUBRIC.es.md](MATURITY-RUBRIC.es.md) | Rúbrica determinística. Mantiene las bandas v1, así que compara por puntaje, no por nombre de nivel. |
 | [scripts/](scripts/) | Scripts de importación, puntuación e insights. |
 
 ## Flujo de uso
 
 ```text
-1. Construye el Forms con INSTRUCOES-FORMS-DEVS.es.md.
+1. Construye el Forms con FORMS-INSTRUCTIONS-DEVS.es.md.
 2. Recopila respuestas de forma anónima.
 3. Exporta a Excel.
-4. Ejecuta /importar-survey-devs.
+4. Ejecuta /import-survey-devs.
 5. Ejecuta /insights-developer-survey.
 6. Vuelve a ejecutar make pipeline si quieres que el PDF de resumen v2 incluya contexto del Developer Survey.
 ```

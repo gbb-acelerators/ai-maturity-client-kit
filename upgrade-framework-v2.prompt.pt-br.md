@@ -7,7 +7,7 @@ agent: agent
 
 🌐 [English](upgrade-framework-v2.prompt.md) · Português (Brasil) · [Español](upgrade-framework-v2.prompt.es.md)
 
-> **Status (2026-09-28): executado** na branch `feature/framework-v2`. A especificação é v2.0.1 ([coleta/AI-Maturity-Form-Questions_v2.pt-br.md](coleta/AI-Maturity-Form-Questions_v2.pt-br.md)); as decisões D-1 a D-8 e o restante das mudanças estão listados em [CHANGELOG.pt-br.md](CHANGELOG.pt-br.md). Mantenha este arquivo como o registro do plano; execute-o novamente apenas para uma nova versão major do framework.
+> **Status (2026-09-28): executado** na branch `feature/framework-v2`. A especificação é v2.0.1 ([collection/AI-Maturity-Form-Questions_v2.pt-br.md](collection/AI-Maturity-Form-Questions_v2.pt-br.md)); as decisões D-1 a D-8 e o restante das mudanças estão listados em [CHANGELOG.pt-br.md](CHANGELOG.pt-br.md). Mantenha este arquivo como o registro do plano; execute-o novamente apenas para uma nova versão major do framework.
 
 ## Papel
 
@@ -17,7 +17,7 @@ Você é um engenheiro sênior e redator técnico atualizando o repositório **A
 
 | Entrada | Localização |
 | --- | --- |
-| Especificação v2 (fonte da verdade) | `coleta/AI-Maturity-Form-Questions_v2.md` (v2.0.1) |
+| Especificação v2 (fonte da verdade) | `collection/AI-Maturity-Form-Questions_v2.md` (v2.0.1) |
 | Repositório do framework | este repositório (branch `develop`) |
 | Remoto | `paulasilvatech/ai-maturity-client-kit` |
 
@@ -40,17 +40,17 @@ A árvore de trabalho já tem mudanças não commitadas não relacionadas (`.DS_
 | Área | Arquivos | Mudança esperada |
 | --- | --- | --- |
 | Dados do framework | `framework.json` (v1.0.0: `level_names`, `strategies`, `technologies_per_strategy`, `pillars` → `capabilities` → `questions` com `id`, `weight`, `pe`, `audience`, `kpi`) | Adicionar modelo de dados v2 (veja a Decisão D-1) |
-| Dados de resposta | `respostas.json`, `respostas.json.example` (`metadata`, `target_overrides` indexados por capability, `responses` indexadas por ID de pergunta com `level`, `evidence`, `text_*`) | Exemplo v2 indexado por `D#-Q#`, respostas de perfil, `framework_version` |
-| Entradas de implementação | `implementation-guide-inputs.json`, `wizard/implementation-guide-inputs.template.json`, `wizard/implementation-guide-wizard.html`, `wizard/scripts/auto_fill_from_plano.py` | Mapear para dimensões |
-| Coleta (PT/EN/ES) | `coleta/perguntas-para-forms{,.en,.es}.md`, `coleta/INSTRUCOES-FORMS.md`, `coleta/README.md`, `coleta/template-export-forms.xlsx`, `kit-en/FORMS-INSTRUCTIONS.md`, `kit-es/INSTRUCCIONES-FORMS.md` | Regenerar a partir dos dados v2; 10 seções, 127 elementos |
-| Formulários HTML | `formularios/P1-*.html`, `formularios/P2-*.html`, `formularios/P3-*.html`, `formularios/README.md` | Substituir por formulários v2 (perfil + D1-D9) |
-| Referência de pontuação | `referencia/pontuacao-e-calculo.md`, `referencia/pontuacao-e-calculo.xlsx`, `referencia/calculadora-pontuacao.html` | Regras e flags v2 (engine atual: weighted capabilities, overall = SUMPRODUCT sobre todas as capabilities, pesos 1.0 em [0.5, 2.0], `priority_score = peso_capability × gap_size`) |
-| Docs de referência de pilares | `referencia/P1-*.md`, `referencia/P2-*.md`, `referencia/P3-*.md`, `referencia/README.md` | Docs de referência por dimensão com base de pesquisa |
-| Saídas de exemplo | `referencia/exemplo-saida/**` (scores, gaps, recommendations, payload, PDFs, XLSX, pastas EN/ES) | Regenerar a partir de um mock v2; nunca editar à mão |
-| Relatórios | `relatorios/scripts/{build_payload_and_render,render_reports,render_smoke,branding}.py`, `relatorios/templates/*.j2`, `relatorios/templates/_print.css`, `relatorios/i18n/{pt-br,en,es}.json`, `relatorios/sample_payload.json` | Dimensões, flags, visão por persona, cobertura de evidência, referências |
-| Customização do Copilot | `.github/copilot-instructions.md`, `.github/agents/ai-maturity-assistant.agent.md`, `.github/prompts/pipeline-completo.prompt.md`, `.github/skills/*/SKILL.md` (12 skills: `importar-respostas-excel`, `calcular-scores`, `gap-analysis`, `recomendar-estrategias`, `gerar-relatorio`, `ai-maturity-reports`, `preencher-planilha`, `wizard-implementacao`, `importar-survey-devs`, `insights-developer-survey`, `importar-survey-learning`, `plano-capacitacao`) | Atualizar toda referência a pillar/capability e padrão de ID |
-| Surveys complementares | `survey-devs/**` (incl. `RUBRICA-MATURIDADE.md`, `scripts/rubric.py`), `survey-learning/**` | Apenas criar referências cruzadas; evitar perguntas duplicadas (veja D-6) |
-| Docs e site | `README.md`, `GUIA-PASSO-A-PASSO.md`, `kit-en/{README,STEP-BY-STEP}.md`, `kit-es/{README,PASO-A-PASO}.md`, `docs/{content.json,index.html,en/index.html,es/index.html,app.js,README.md}` | Estrutura, contagens e fluxo v2 |
+| Dados de resposta | `responses.json`, `responses.json.example` (`metadata`, `target_overrides` indexados por capability, `responses` indexadas por ID de pergunta com `level`, `evidence`, `text_*`) | Exemplo v2 indexado por `D#-Q#`, respostas de perfil, `framework_version` |
+| Entradas de implementação | `implementation-guide-inputs.json`, `wizard/implementation-guide-inputs.template.json`, `wizard/implementation-guide-wizard.html`, `wizard/scripts/auto_fill_from_plan.py` | Mapear para dimensões |
+| Coleta (PT/EN/ES) | `collection/question-bank{,.pt-br,.es}.md`, `collection/FORMS-INSTRUCTIONS.md`, `collection/README.md`, `collection/template-export-forms.xlsx` | Regenerar a partir dos dados v2; 10 seções, 127 elementos |
+| Formulários HTML | `forms/P1-*.html`, `forms/P2-*.html`, `forms/P3-*.html`, `forms/README.md` | Substituir por formulários v2 (perfil + D1-D9) |
+| Referência de pontuação | `reference/scoring-and-calculation.md`, `reference/scoring-and-calculation.xlsx`, `reference/scoring-calculator.html` | Regras e flags v2 (engine atual: weighted capabilities, overall = SUMPRODUCT sobre todas as capabilities, pesos 1.0 em [0.5, 2.0], `priority_score = peso_capability × gap_size`) |
+| Docs de referência de pilares | `reference/P1-*.md`, `reference/P2-*.md`, `reference/P3-*.md`, `reference/README.md` | Docs de referência por dimensão com base de pesquisa |
+| Saídas de exemplo | `reference/sample-output/**` (scores, gaps, recommendations, payload, PDFs, XLSX, pastas EN/ES) | Regenerar a partir de um mock v2; nunca editar à mão |
+| Relatórios | `reports/scripts/{build_payload_and_render,render_reports,render_smoke,branding}.py`, `reports/templates/*.j2`, `reports/templates/_print.css`, `reports/i18n/{pt-br,en,es}.json`, `reports/sample_payload.json` | Dimensões, flags, visão por persona, cobertura de evidência, referências |
+| Customização do Copilot | `.github/copilot-instructions.md`, `.github/agents/ai-maturity-assistant.agent.md`, `.github/prompts/full-pipeline.prompt.md`, `.github/skills/*/SKILL.md` (12 skills: `import-responses`, `calculate-scores`, `gap-analysis`, `recommend-strategies`, `generate-report`, `ai-maturity-reports`, `fill-workbook`, `implementation-wizard`, `import-survey-devs`, `insights-developer-survey`, `import-survey-learning`, `training-plan`) | Atualizar toda referência a pillar/capability e padrão de ID |
+| Surveys complementares | `survey-devs/**` (incl. `MATURITY-RUBRIC.md`, `scripts/rubric.py`), `survey-learning/**` | Apenas criar referências cruzadas; evitar perguntas duplicadas (veja D-6) |
+| Docs e site | `README.md`, `STEP-BY-STEP.md`, `docs/{content.json,index.html,en/index.html,es/index.html,app.js,README.md}` | Estrutura, contagens e fluxo v2 |
 | Ferramental | `Makefile` (`smoke`, `smoke-cross`, `validate-docs`, `build-kits`, `pipeline`), `scripts/{smoke_test,check_language_coverage,build_language_kits}.py`, `.github/workflows/{pages,release-zips}.yml` | Estender checks para v2 |
 
 ## Requisitos adicionais (da auditoria de 2026-09)
@@ -62,24 +62,24 @@ Estes itens estavam faltando na primeira versão deste plano e fazem parte da at
 - **IDs das perguntas nos títulos do Forms (C3).** Todo título de pergunta do Forms começa com seu ID (`D4-Q3: ...`, `R-Q1: ...`).
 - **Sem colisões de ID (C4).** As dimensões do Developer Survey são nomeadas `DS-D2` a `DS-D8`; `D1` a `D9` são reservados para o assessment.
 - **Uma regra de faixa por versão (C5).** A v2 usa faixas semiabertas de largura 0,8 sem gaps; o survey complementar mantém as faixas v1 e é comparado por score.
-- **Privacidade (C8).** Os Forms incluem aviso de consentimento e retenção; respostas de perfil são dados pessoais; saídas ficam fora do git (`respostas.json` e `implementation-guide-inputs.json` não são rastreados).
+- **Privacidade (C8).** Os Forms incluem aviso de consentimento e retenção; respostas de perfil são dados pessoais; saídas ficam fora do git (`responses.json` e `implementation-guide-inputs.json` não são rastreados).
 - **Amostra mínima por persona.** Resultados por persona e de diferença de percepção precisam de pelo menos 3 respondentes por grupo; grupos menores são marcados como amostra baixa.
 
 ## Regras inegociáveis
 
 1. **Integridade factual.** Não invente métricas, benchmarks, percentuais nem descobertas de pesquisa. Toda afirmação de dados em docs, skills ou relatórios deve vir das referências v2 (com o mesmo link). Se você precisar de uma nova fonte, verifique-a na web primeiro, adicione-a às referências e me informe.
-2. **Compatibilidade retroativa.** Arquivos de resposta v1 e o exemplo v1 existente ainda devem importar, pontuar e renderizar. Detecte a versão a partir de `framework_version` nos metadados de `respostas.json` (use v1 como padrão quando ausente). Arquive o conteúdo v1; não o exclua.
+2. **Compatibilidade retroativa.** Arquivos de resposta v1 e o exemplo v1 existente ainda devem importar, pontuar e renderizar. Detecte a versão a partir de `framework_version` nos metadados de `responses.json` (use v1 como padrão quando ausente). Arquive o conteúdo v1; não o exclua.
 3. **Escala e IDs.** Mantenha exatamente os prefixos de opção `L0`-`L4`/`NA` e o padrão de rótulo `Evidence (<ID>)`. IDs são `D#-Q#` (pontuados) e `R-Q#` (perfil).
 4. **Fonte única da verdade.** Gere listas de perguntas, formulários, traduções e templates a partir do arquivo de dados v2 com scripts. Não mantenha três cópias de idioma à mão.
 5. **Paridade trilíngue.** PT-BR, EN e ES devem ter as mesmas perguntas, âncoras e opções. Mantenha o texto em inglês da especificação como canônico; traduza PT-BR e ES fielmente; `scripts/check_language_coverage.py` deve passar.
-6. **Branding.** Siga `referencia/branding/` (IDENTITY, VOICE, tokens). Em material voltado à Microsoft, use o logotipo oficial de quatro quadrados da Microsoft e o título "Global Developer Solutions Advisor"; nunca o logotipo pessoal `</>`.
+6. **Branding.** Siga `reference/branding/` (IDENTITY, VOICE, tokens). Em material voltado à Microsoft, use o logotipo oficial de quatro quadrados da Microsoft e o título "Global Developer Solutions Advisor"; nunca o logotipo pessoal `</>`.
 7. **Segurança do Git.** Trabalhe em uma nova branch `feature/framework-v2` criada a partir de `develop`. Faça commit por fase com mensagens claras. Não faça push, force-push, reescrita de histórico nem exclua branches. Pergunte antes de excluir ou mover qualquer arquivo rastreado.
 8. **Saídas geradas.** Regenere PDFs, XLSX e exemplos JSON com os scripts do repo; nunca edite artefatos gerados à mão.
 9. **Estilo Python.** PEP 8, type hints onde o arquivo já os usa, linhas ≤ 79 caracteres, sem novas dependências sem perguntar.
 
 ## Fase 0: descoberta e plano (pare para aprovação)
 
-1. Leia a especificação v2, `framework.json`, `respostas.json.example`, `referencia/pontuacao-e-calculo.md`, todo `SKILL.md`, o arquivo do agente, o prompt de pipeline, `Makefile` e os scripts de relatório.
+1. Leia a especificação v2, `framework.json`, `responses.json.example`, `reference/scoring-and-calculation.md`, todo `SKILL.md`, o arquivo do agente, o prompt de pipeline, `Makefile` e os scripts de relatório.
 2. Crie um inventário de impacto: grep por `P[0-9]-C[0-9]+-Q[0-9]+`, `P1`/`P2`/`P3`, `pillar`/`pilar`, `capabilit`, `158`, `28 capabilities`, `3 pillars`, nomes de nível (`Inicial`, `Em Desenvolvimento`, `Definido`, `Gerenciado`, `Otimizando`). Liste cada arquivo com a mudança necessária.
 3. Apresente o plano e minhas decisões em aberto abaixo, cada uma com sua recomendação e trade-offs. **Aguarde minhas respostas antes da Fase 1.**
 
@@ -93,7 +93,7 @@ Decisões em aberto:
 | D-4 | Valores de `audience` das perguntas | Derivar das personas de `R-Q1` e do vocabulário de público existente; mostrar o mapeamento |
 | D-5 | Campo `pe` | Explicar seu significado atual a partir do código; propor valores v2 ou removê-lo |
 | D-6 | Sobreposição com `survey-devs` e `survey-learning` | Criar referência cruzada (por exemplo D2, D5-Q6, D9-Q4) em vez de duplicar perguntas |
-| D-7 | Layout de arquivo v1 | Mover artefatos v1 para caminhos `v1/` (por exemplo `coleta/v1/`, `formularios/v1/`) e manter links funcionando |
+| D-7 | Layout de arquivo v1 | Mover artefatos v1 para caminhos `v1/` (por exemplo `collection/v1/`, `forms/v1/`) e manter links funcionando |
 | D-8 | Nomes de nível em PT-BR/ES | Propor traduções para Not started / Exploring / Adopting / Scaling / AI-native |
 
 ## Fase 1: modelo de dados
@@ -105,30 +105,30 @@ Decisões em aberto:
 
 ## Fase 2: coleta
 
-- Escreva um gerador que produza `coleta/perguntas-para-forms{,.en,.es}.md` a partir de `framework.v2.json`, seguindo o layout da especificação (Seção 0 perfil, depois D1-D9, âncoras no subtítulo da pergunta, campo de evidência por pergunta).
+- Escreva um gerador que produza `collection/question-bank{,.pt-br,.es}.md` a partir de `framework.v2.json`, seguindo o layout da especificação (Seção 0 perfil, depois D1-D9, âncoras no subtítulo da pergunta, campo de evidência por pergunta).
 - Atualize as instruções do Forms em PT/EN/ES: 10 seções, 127 elementos, as seis opções na ordem, orientação ao respondente (≥3 respondentes por persona).
-- Atualize `coleta/template-export-forms.xlsx` para o formato de exportação v2 (colunas de perfil, colunas de resposta `D#-Q#`, colunas `Evidence (D#-Q#)`).
-- Substitua `formularios/*.html` por formulários v2; mantenha v1 no caminho de arquivo da D-7.
-- Crie um `respostas.json.example` v2 e um mock multipersona realista para testes. Rotule todos os dados mock como ilustrativos.
+- Atualize `collection/template-export-forms.xlsx` para o formato de exportação v2 (colunas de perfil, colunas de resposta `D#-Q#`, colunas `Evidence (D#-Q#)`).
+- Substitua `forms/*.html` por formulários v2; mantenha v1 no caminho de arquivo da D-7.
+- Crie um `responses.json.example` v2 e um mock multipersona realista para testes. Rotule todos os dados mock como ilustrativos.
 
 ## Fase 3: importação e pontuação
 
-- `importar-respostas-excel`: detectar v1 vs v2 por IDs de coluna; analisar `D#-Q#` e `R-Q#`; dar suporte a multisseleção em `R-Q3`; mapear prefixos de opção para 0-4/null; agregar por respondente e por persona; gravar `framework_version` em `respostas.json`.
-- `calcular-scores` mais `referencia/pontuacao-e-calculo.{md,xlsx}` e `calculadora-pontuacao.html`: implementar a seção 8 da especificação (scores de dimensão, geral, faixas, flags de baixa confiança, risco de amplificação e diferença de percepção, cobertura de evidência, scores por persona). Manter o caminho v1 funcionando.
-- `gap-analysis` e `recomendar-estrategias`: trabalhar por dimensão; recomendações começam pelas perguntas com menor score e citam suas âncoras L3; recomendações devem citar referências da especificação, não benchmarks inventados.
+- `import-responses`: detectar v1 vs v2 por IDs de coluna; analisar `D#-Q#` e `R-Q#`; dar suporte a multisseleção em `R-Q3`; mapear prefixos de opção para 0-4/null; agregar por respondente e por persona; gravar `framework_version` em `responses.json`.
+- `calculate-scores` mais `reference/scoring-and-calculation.{md,xlsx}` e `scoring-calculator.html`: implementar a seção 8 da especificação (scores de dimensão, geral, faixas, flags de baixa confiança, risco de amplificação e diferença de percepção, cobertura de evidência, scores por persona). Manter o caminho v1 funcionando.
+- `gap-analysis` e `recommend-strategies`: trabalhar por dimensão; recomendações começam pelas perguntas com menor score e citam suas âncoras L3; recomendações devem citar referências da especificação, não benchmarks inventados.
 
 ## Fase 4: relatórios
 
 - Atualize `build_payload_and_render.py`, templates e arquivos de i18n para dimensões, flags, heatmap de personas (dimensões × personas), cobertura de evidência e um apêndice de referências.
 - Substitua o template de roadmap por pilar por um template por dimensão (ou agrupado); proponha o agrupamento antes de construí-lo.
-- Regenere `relatorios/sample_payload.json` e todo `referencia/exemplo-saida/**` (PT/EN/ES) a partir do mock v2. Mantenha o exemplo v1 no caminho de arquivo.
+- Regenere `reports/sample_payload.json` e todo `reference/sample-output/**` (PT/EN/ES) a partir do mock v2. Mantenha o exemplo v1 no caminho de arquivo.
 
 ## Fase 5: customização do Copilot e docs
 
-- Atualize `.github/copilot-instructions.md`, o agente, `pipeline-completo.prompt.md` e todas as 12 skills. Siga o padrão existente: agente enxuto com o workflow, conhecimento de domínio nas skills.
-- Atualize `wizard-implementacao` e as entradas do wizard; vincule `plano-capacitacao` a D2; faça `insights-developer-survey` criar referência cruzada para D2/D5/D9 em vez de duplicar.
-- Substitua `referencia/P1..P3-*.md` por docs de referência por dimensão que incluam o texto "por que importa", âncoras e base de pesquisa da especificação.
-- Atualize `README.md`, `GUIA-PASSO-A-PASSO.md`, `kit-en/*`, `kit-es/*` e o site de docs (`docs/content.json` e os três `index.html`) com contagens e fluxo v2. Adicione uma entrada de changelog (pergunte onde se não houver CHANGELOG).
+- Atualize `.github/copilot-instructions.md`, o agente, `full-pipeline.prompt.md` e todas as 12 skills. Siga o padrão existente: agente enxuto com o workflow, conhecimento de domínio nas skills.
+- Atualize `implementation-wizard` e as entradas do wizard; vincule `training-plan` a D2; faça `insights-developer-survey` criar referência cruzada para D2/D5/D9 em vez de duplicar.
+- Substitua `reference/P1..P3-*.md` por docs de referência por dimensão que incluam o texto "por que importa", âncoras e base de pesquisa da especificação.
+- Atualize `README.md`, `STEP-BY-STEP.md` e o site de docs (`docs/content.json` e os três `index.html`) com contagens e fluxo v2. Adicione uma entrada de changelog (pergunte onde se não houver CHANGELOG).
 
 ## Fase 6: validação (tudo deve passar)
 

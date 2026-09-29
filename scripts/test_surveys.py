@@ -18,8 +18,8 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "survey-devs" / "scripts"))
 sys.path.insert(0, str(ROOT / "survey-learning" / "scripts"))
 
-import gerar_insights  # noqa: E402
-import gerar_plano_capacitacao as plano  # noqa: E402
+import generate_insights  # noqa: E402
+import generate_training_plan as plano  # noqa: E402
 import rubric  # noqa: E402
 
 FW = json.loads((ROOT / "framework.v2.json").read_text("utf-8"))
@@ -40,8 +40,8 @@ class SurveyIdTest(unittest.TestCase):
         for qids in crosswalk.values():
             self.assertTrue(qids)
             self.assertTrue(set(qids) <= QIDS)
-        rows = gerar_insights.crosswalk_rows(
-            gerar_insights.STRINGS["en"], ROOT)
+        rows = generate_insights.crosswalk_rows(
+            generate_insights.STRINGS["en"], ROOT)
         self.assertEqual(len(rows), 7)
         self.assertIn("D4-Q4", rows[4])
 
@@ -59,12 +59,12 @@ class SurveyIdTest(unittest.TestCase):
 
 OPTIONS = json.loads((ROOT / "survey-devs" / "options.json").read_text(
     "utf-8"))
-MOCK_DEVS = json.loads((ROOT / "survey-devs" / "respostas-mock-devs.json")
+MOCK_DEVS = json.loads((ROOT / "survey-devs" / "mock-responses-devs.json")
                        .read_text("utf-8"))
 
 
 def bank_options(suffix: str) -> dict[str, list[str]]:
-    text = (ROOT / "survey-devs" / f"perguntas-para-forms-devs{suffix}.md"
+    text = (ROOT / "survey-devs" / f"question-bank-devs{suffix}.md"
             ).read_text("utf-8")
     out = {}
     for block in re.split(r"\n### (?:Question|Pergunta|Pregunta) `",
@@ -102,7 +102,7 @@ def team_scores(data: dict) -> tuple:
 
 class DeveloperSurveyOptionsTest(unittest.TestCase):
     def test_banks_follow_options_file(self) -> None:
-        for suffix, lang in (("", "pt"), (".en", "en"), (".es", "es")):
+        for suffix, lang in ((".pt-br", "pt"), ("", "en"), (".es", "es")):
             bank = bank_options(suffix)
             self.assertEqual(sorted(bank), sorted(OPTIONS), suffix)
             for qid, opts in OPTIONS.items():
@@ -130,12 +130,12 @@ class DeveloperSurveyOptionsTest(unittest.TestCase):
 
     def test_insights_show_options_in_report_language(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
-            src = Path(tmp) / "respostas-devs.json"
+            src = Path(tmp) / "responses-devs.json"
             src.write_text(json.dumps(translated(MOCK_DEVS, "es"),
                                       ensure_ascii=False), encoding="utf-8")
             subprocess.run(
                 [sys.executable, str(ROOT / "survey-devs" / "scripts" /
-                                     "gerar_insights.py"),
+                                     "generate_insights.py"),
                  "--input", str(src), "--out", tmp, "--lang", "en"],
                 check=True, capture_output=True)
             report = next(Path(tmp).glob("insights-developer-survey-*.md"))

@@ -2,8 +2,8 @@
 """End-to-end smoke test for the AI Maturity Assessment kit.
 
 Runs `scripts/assessment_engine.py all` and then
-`relatorios/scripts/build_payload_and_render.py --no-render` against the
-bundled example data and asserts the resulting `saida/payload.json` has the
+`reports/scripts/build_payload_and_render.py --no-render` against the
+bundled example data and asserts the resulting `output/payload.json` has the
 expected shape (organization, scores, capabilities, gap_analysis, optional
 cross_survey_data when complementary survey artifacts are present).
 
@@ -25,17 +25,17 @@ import sys
 from pathlib import Path
 
 KIT = Path(__file__).resolve().parent.parent
-SAIDA = KIT / "saida"
-EXEMPLOS = KIT / "referencia" / "exemplo-saida"
+SAIDA = KIT / "output"
+EXEMPLOS = KIT / "reference" / "sample-output"
 EXEMPLOS_V1 = EXEMPLOS / "v1"
 
 # Files we will mutate; everything is restored on exit.
 SENTINEL_FILES = [
-    KIT / "respostas.json",
+    KIT / "responses.json",
     KIT / "implementation-guide-inputs.json",
     SAIDA / "scores.json",
     SAIDA / "gaps.json",
-    SAIDA / "recomendacoes.json",
+    SAIDA / "recommendations.json",
     SAIDA / "payload.json",
 ]
 
@@ -82,20 +82,20 @@ def stage_example_inputs(with_cross: bool) -> dict[str, Path | None]:
     for f in SENTINEL_FILES:
         state[f"backup:{f.relative_to(KIT)}"] = _backup(f)
 
-    shutil.copy2(KIT / "respostas.json.example", KIT / "respostas.json")
-    _ok("Copied respostas.json.example → respostas.json")
+    shutil.copy2(KIT / "responses.json.example", KIT / "responses.json")
+    _ok("Copied responses.json.example → responses.json")
     shutil.copy2(
-        EXEMPLOS / "implementation-guide-inputs-EXEMPLO.json",
+        EXEMPLOS / "implementation-guide-inputs-EXAMPLE.json",
         KIT / "implementation-guide-inputs.json",
     )
-    _ok("Copied implementation-guide-inputs-EXEMPLO.json")
+    _ok("Copied implementation-guide-inputs-EXAMPLE.json")
 
     staged: list[Path] = []
     if with_cross:
         for src_name, dest_name in [
-            ("maturidade-developer-survey-EXEMPLO.json", "maturidade-developer-survey-smoketest.json"),
-            ("insights-developer-survey-EXEMPLO.md", "insights-developer-survey-smoketest.md"),
-            ("plano-capacitacao-EXEMPLO.md", "plano-capacitacao-smoketest.md"),
+            ("developer-survey-maturity-EXAMPLE.json", "developer-survey-maturity-smoketest.json"),
+            ("insights-developer-survey-EXAMPLE.md", "insights-developer-survey-smoketest.md"),
+            ("training-plan-EXAMPLE.md", "training-plan-smoketest.md"),
         ]:
             src = EXEMPLOS / src_name
             if not src.exists():
@@ -104,7 +104,7 @@ def stage_example_inputs(with_cross: bool) -> dict[str, Path | None]:
             shutil.copy2(src, dest)
             staged.append(dest)
         if staged:
-            _ok(f"Staged {len(staged)} cross-survey artifact(s) in saida/")
+            _ok(f"Staged {len(staged)} cross-survey artifact(s) in output/")
     state["staged"] = staged  # type: ignore[assignment]
     return state
 
@@ -138,7 +138,7 @@ def run_engine() -> None:
 def run_build() -> None:
     _info("Running build_payload_and_render.py --no-render")
     result = subprocess.run(
-        [sys.executable, "relatorios/scripts/build_payload_and_render.py", "--no-render"],
+        [sys.executable, "reports/scripts/build_payload_and_render.py", "--no-render"],
         cwd=str(KIT),
         capture_output=True,
         text=True,
@@ -221,16 +221,16 @@ def smoke_v2() -> None:
     import tempfile
 
     _info("Framework v2: engine + build_payload_and_render.py --no-render "
-          "on respostas.v2.json.example")
+          "on responses.v2.json.example")
     with tempfile.TemporaryDirectory() as tmp:
         kit = Path(tmp)
-        out = kit / "saida"
-        shutil.copy2(KIT / "respostas.v2.json.example", kit / "respostas.json")
+        out = kit / "output"
+        shutil.copy2(KIT / "responses.v2.json.example", kit / "responses.json")
         shutil.copy2(KIT / "framework.v2.json", kit / "framework.v2.json")
         for cmd in (
             [str(KIT / "scripts" / "assessment_engine.py"), "all",
-             "--respostas", str(kit / "respostas.json"), "--out", str(out)],
-            [str(KIT / "relatorios" / "scripts" /
+             "--responses", str(kit / "responses.json"), "--out", str(out)],
+            [str(KIT / "reports" / "scripts" /
                  "build_payload_and_render.py"),
              "--kit", str(kit), "--out", str(out), "--no-render"],
         ):
