@@ -6,11 +6,23 @@ A self-contained kit to run an AI-assisted SDLC maturity self-assessment without
 
 Author role: Global Developer Solutions Advisor.
 
-See [CHANGELOG.md](CHANGELOG.md) for release history.
+Current release: kit 2.1.0 with framework 2.0.2. See [CHANGELOG.md](CHANGELOG.md) for release history.
+
+## Get the kit
+
+- Site: <https://gbb-acelerators.github.io/ai-maturity-client-kit/> (English, Portuguese (Brazil) and Spanish).
+- Download a ready-to-use package, no GitHub account needed: [English](https://gbb-acelerators.github.io/ai-maturity-client-kit/downloads/ai-maturity-kit-en.zip), [Português (Brasil)](https://gbb-acelerators.github.io/ai-maturity-client-kit/downloads/ai-maturity-kit-pt.zip), [Español](https://gbb-acelerators.github.io/ai-maturity-client-kit/downloads/ai-maturity-kit-es.zip). Each package ships its language under the base file names.
+- Or clone the repository: `git clone https://github.com/gbb-acelerators/ai-maturity-client-kit.git`.
+
+Requirements:
+
+- Python 3 (CI uses 3.12). `make install-deps` installs `jinja2`, `weasyprint`, `openpyxl` and `jsonschema`. WeasyPrint also needs the Pango libraries: `brew install pango` on macOS, or the packages CI installs on Linux and WSL (`libpango-1.0-0`, `libpangoft2-1.0-0`, `libharfbuzz-subset0`, `fonts-dejavu-core`).
+- Or open the cloned repository in its dev container (`.devcontainer/`), which installs everything and runs the tests.
+- For the Copilot Chat commands: VS Code with GitHub Copilot, in Agent mode.
 
 ## What is new in framework v2
 
-- Version: 2.0.2.
+- Version: 2.0.2 (see the [spec changelog](collection/AI-Maturity-Form-Questions_v2.md#changelog)).
 - Source spec: [collection/AI-Maturity-Form-Questions_v2.md](collection/AI-Maturity-Form-Questions_v2.md), translated in [PT-BR](collection/AI-Maturity-Form-Questions_v2.pt-br.md) and [ES](collection/AI-Maturity-Form-Questions_v2.es.md).
 - Machine model: [framework.v2.json](framework.v2.json), validated by [framework.v2.schema.json](framework.v2.schema.json) and [scripts/validate_framework_v2.py](scripts/validate_framework_v2.py).
 - 5 profile questions and 61 scored questions.
@@ -73,6 +85,11 @@ python3 reports/scripts/build_payload_and_render.py
 | `output/v2_roadmap_g3.pdf` | G3: D6, D7, D8. |
 | `output/v2_implementation_guide.pdf` | Part 4 for v2: governance, RACI, phased plan, change management, risks, metrics, first 90 days, and references. |
 | `output/round-comparison.pdf` | Comparison report from `make compare BEFORE=old.json AFTER=responses.json`. |
+| `output/repo-scan.json` | Repository scan for the D4 cross-check (`make scan-repos`). |
+| `output/telemetry.json` | Copilot usage metrics summary for the D4-Q1 and D9-Q1 cross-checks (`make telemetry`). |
+| `output/dora-metrics.json` | DORA metrics coverage for the D9-Q2 cross-check (`make dora`). |
+| `output/developer-survey-maturity-<date>.json`, `output/insights-developer-survey-<date>.md` | Developer Survey maturity and insights. |
+| `output/training-plan-<date>.md` | Training plan from the Learning and Growth Survey. |
 
 `make pipeline` renders the 5 v2 PDFs. v1 still renders its archived 5 PDF set.
 
@@ -145,11 +162,16 @@ Use `make init-v1` to start a v1 input. The dispatching scripts keep v1 behavior
 | --- | --- |
 | [collection/](collection/) | v2 form instructions, v2 spec, generated question banks, offline merge guidance, and v1 archive. |
 | [forms/](forms/) | v2 offline form and archived v1 visual forms. |
+| [framework/v2/](framework/v2/) | PT-BR and ES translations and the kit design choices that `make generate-v2` merges into `framework.v2.json`. |
 | [reference/](reference/) | Framework guide, v2 calculator, per-dimension pages, branding, and examples. |
 | [reports/](reports/) | Report renderer, templates, localization, comparison PDF, and wizard input parser. |
 | [scripts/](scripts/) | Deterministic import, scoring, workbook, comparison, validation, demo, evidence, packaging, and generation scripts. |
+| [survey-devs/](survey-devs/) | Anonymous Developer Survey: question banks, Forms instructions, rubric, scripts, and mock. |
+| [survey-learning/](survey-learning/) | Identified Learning and Growth Survey: question banks, Forms instructions, scripts, and mock. |
 | [wizard/](wizard/) | Generated trilingual implementation guide wizard and auto-fill script. |
-| [.github/skills/](.github/skills/) | Copilot custom skills that call the deterministic scripts. |
+| [.github/](.github/) | Copilot agent, prompt and skills that call the deterministic scripts. The repository also keeps the CI, Pages and release workflows here. |
+| `docs/` | GitHub Pages site (repository only): landing page in EN, PT-BR and ES, and the public ZIP downloads built at deploy time. |
+| `output/` | Generated files. Git ignores them and the packages leave them out. |
 
 ## Languages
 
@@ -160,6 +182,8 @@ English is the main language. Every doc has a Portuguese (Brazil) copy (`X.pt-br
 ```bash
 make validate-docs
 make test
+make smoke
+make smoke-cross
 ```
 
-CI is configured for tests, documentation validation, smoke rendering, and demo checks on push and pull requests to `main` and `develop`. GitHub Actions may be blocked by repository billing, so treat local validation as required.
+CI runs the tests, the documentation and generated-file checks, the v1 and v2 smoke tests and the demo on every push and pull request to `main` and `develop`. Every push to `main` also deploys the site with fresh ZIP downloads, and a push that changes kit files publishes a `kits-<run>` release with the same ZIPs. Run the checks locally before you push.

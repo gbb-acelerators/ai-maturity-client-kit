@@ -78,11 +78,12 @@ Package languages: each ZIP ships its language under the base file names. The PT
 The workflow [`.github/workflows/pages.yml`](../.github/workflows/pages.yml):
 
 1. Checks out the repository.
-2. Builds the three ZIPs in `docs/downloads/`.
-3. Uploads the `docs/` folder as the GitHub Pages artifact.
-4. Publishes the site.
+2. Checks that the generated question banks, reference pages, HTML helpers and spec translations are current.
+3. Builds the three ZIPs in `docs/downloads/`.
+4. Uploads the `docs/` folder as the GitHub Pages artifact.
+5. Publishes the site.
 
-Any push that touches `docs/**` or the Pages workflow triggers a new deploy.
+Every push to `main` triggers a new deploy, and so does a manual run of the workflow.
 
 ## Branding
 
