@@ -1,7 +1,7 @@
 {
   "$schema": "./framework.v2.schema.json",
   "version": "2.0.1",
-  "source": "coleta/AI-Maturity-Form-Questions_v2.md",
+  "source": "collection/AI-Maturity-Form-Questions_v2.md",
   "level_names": {
     "en": {
       "L0": "Not started",

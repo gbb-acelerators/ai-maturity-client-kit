@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 """Deterministic scoring engine for the AI Maturity Assessment.
 
-Implements referencia/pontuacao-e-calculo.md: capability, pillar, and
+Implements reference/scoring-and-calculation.md: capability, pillar, and
 overall scores (SUMPRODUCT), coverage threshold, PE score, gap analysis,
-and strategy recommendations. When respostas.json declares
+and strategy recommendations. When responses.json declares
 metadata.framework_version 2.x, the v2 rules in scripts/engine_v2.py
-(section 8 of coleta/AI-Maturity-Form-Questions_v2.md) are used
-instead; files without framework_version are treated as v1. The skills /calcular-scores, /gap-analysis,
-and /recomendar-estrategias call this script instead of computing in chat.
+(section 8 of collection/AI-Maturity-Form-Questions_v2.md) are used
+instead; files without framework_version are treated as v1. The skills /calculate-scores, /gap-analysis,
+and /recommend-strategies call this script instead of computing in chat.
 
 Usage:
     python3 scripts/assessment_engine.py all
     python3 scripts/assessment_engine.py scores
     python3 scripts/assessment_engine.py gaps
     python3 scripts/assessment_engine.py recommendations
-    python3 scripts/assessment_engine.py all --respostas X.json --out DIR
+    python3 scripts/assessment_engine.py all --responses X.json --out DIR
 """
 from __future__ import annotations
 
@@ -25,6 +25,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from kit_files import responses_file  # noqa: E402
 DEFAULT_TARGET = 3.0
 GAP_EPSILON = 1e-9
 
@@ -396,7 +398,7 @@ def compute_recommendations(
     return {
         "metadata": {
             "computed_at": now_iso(),
-            "based_on": "saida/gaps.json",
+            "based_on": "output/gaps.json",
         },
         "ranked_strategies": [
             {"rank": i, **s} for i, s in enumerate(ranked, start=1)
@@ -445,9 +447,9 @@ def run_v2(step: str, respostas: dict, out_dir: Path) -> int:
         if step in ("recommendations", "all"):
             gaps = load_json(out_dir / "gaps.json")
             recs = v2.compute_recommendations(fw, gaps, respostas, locale)
-            write_json(out_dir / "recomendacoes.json", recs)
+            write_json(out_dir / "recommendations.json", recs)
             top = [s["strategy_id"] for s in recs["ranked_strategies"][:3]]
-            print(f"✓ recomendacoes.json (v2): top strategies {top}")
+            print(f"✓ recommendations.json (v2): top strategies {top}")
     except v2.InputErrorV2 as exc:
         raise InputError(str(exc))
     return 0
@@ -460,7 +462,7 @@ def run(step: str, respostas_path: Path, out_dir: Path) -> int:
     framework = load_json(ROOT / "framework.json")
     rf = respostas.get("metadata", {}).get("framework_version")
     if rf and rf != framework.get("version"):
-        print(f"⚠️ respostas.json targets framework {rf}, framework.json "
+        print(f"⚠️ responses.json targets framework {rf}, framework.json "
               f"is {framework.get('version')}. Revalidate answers.")
     if step in ("scores", "all"):
         scores = compute_scores(framework, respostas)
@@ -482,9 +484,9 @@ def run(step: str, respostas_path: Path, out_dir: Path) -> int:
     if step in ("recommendations", "all"):
         gaps = load_json(out_dir / "gaps.json")
         recs = compute_recommendations(gaps, framework, respostas)
-        write_json(out_dir / "recomendacoes.json", recs)
+        write_json(out_dir / "recommendations.json", recs)
         top = [s["strategy_id"] for s in recs["ranked_strategies"][:3]]
-        print(f"✓ recomendacoes.json: top strategies {top}")
+        print(f"✓ recommendations.json: top strategies {top}")
     return 0
 
 
@@ -492,11 +494,15 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("step", choices=("scores", "gaps", "recommendations",
                                      "all"))
-    ap.add_argument("--respostas", default=str(ROOT / "respostas.json"))
-    ap.add_argument("--out", default=str(ROOT / "saida"))
+    ap.add_argument("--responses", "--respostas", dest="respostas",
+                    default=None,
+                    help="input file (default: responses.json)")
+    ap.add_argument("--out", default=str(ROOT / "output"))
     args = ap.parse_args()
     try:
-        return run(args.step, Path(args.respostas), Path(args.out))
+        src = Path(args.respostas) if args.respostas else \
+            responses_file(ROOT)
+        return run(args.step, src, Path(args.out))
     except (InputError, FileNotFoundError) as exc:
         print(f"✗ {exc}", file=sys.stderr)
         return 1

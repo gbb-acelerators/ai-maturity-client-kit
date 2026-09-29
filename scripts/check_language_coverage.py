@@ -9,59 +9,57 @@ Every group is required: a missing file fails the check.
   line, including the archived v1 docs. NOT_TRANSLATED lists what stays
   out of scope, and why.
 - HTML helpers follow the same rule: `X.html`, `X.pt-br.html`, `X.es.html`.
+- Question banks follow the same rule and every package ships all three
+  (see scripts/build_language_kits.py).
 - The framework v2 group also checks that framework.v2.json carries every
   text in EN, PT-BR and ES (see scripts/validate_framework_v2.py for the
   full check).
 """
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
 PT_BR_TAG = ".pt-br"
 ES_TAG = ".es"
-EXCLUDED_PARTS = {".git", "dist", "saida", "node_modules"}
+EXCLUDED_PARTS = {".git", "dist", "output", "saida", "node_modules"}
 
 # English docs that have no PT-BR/ES copies, and why.
 NOT_TRANSLATED = {
     ".github/": "model-facing Copilot files stay in English by design (the "
                 "assistant answers in the user's language)",
-    "kit-en/": "generated from the English quickstart docs",
-    "kit-es/": "generated from the Spanish (.es.md) quickstart docs",
     "docs/downloads/": "package downloads",
-    "referencia/exemplo-saida/en/": "generated example outputs (English)",
-    "referencia/exemplo-saida/es/": "generated example outputs (Spanish)",
-    "referencia/exemplo-saida/v1/": "generated v1 example outputs",
+    "reference/sample-output/en/": "generated example outputs (English)",
+    "reference/sample-output/es/": "generated example outputs (Spanish)",
+    "reference/sample-output/v1/": "generated v1 example outputs",
 }
 # Folders whose HTML helpers need .pt-br.html and .es.html copies.
-HTML_HELPER_ROOTS = ("formularios", "wizard", "referencia")
-# Question banks (Portuguese base with .en and .es versions, checked in
-# the question bank groups) and generated example outputs.
-LANGUAGE_BASED_NAMES = ("perguntas-para-forms", "-EXEMPLO.md")
+HTML_HELPER_ROOTS = ("forms", "wizard", "reference")
+# Generated example outputs written in Portuguese.
+EXAMPLE_SUFFIX = "-EXAMPLE.md"
+# File and folder names are English. These Portuguese words (from the
+# names used before kit 2.0.2) must not come back.
+PORTUGUESE_NAME_WORDS = re.compile(
+    r"coleta|formulario|referencia|relatorio|saida|dimensoes|exemplo|"
+    r"resposta|pergunta|instruco|guia|passo|rubrica|maturidade|pontuacao|"
+    r"calculo|calculadora|produtividade|desenvolvedor|ciclo-de|plataforma|"
+    r"aplicac|comparacao|rodada|telemetria|recomendac|preenchid|plano|"
+    r"capacitacao|calcular|gerar|importar|preencher|planilha|recomendar|"
+    r"estrategia|implementacao|completo|paso|instruccion",
+    re.IGNORECASE)
+NAME_SCAN_EXCLUDED = {".git", "dist", "output", "saida", "node_modules",
+                      "__pycache__", "downloads"}
+# Client files of older kits: read or ignored, never shipped.
+LEGACY_CLIENT_FILE = re.compile(r"^respostas([.-].*)?\.(json|xlsx)(\..*)?$")
 
-REQUIRED_LOCALIZED_QUESTION_BANKS = [
-    "coleta/perguntas-para-forms.en.md",
-    "coleta/perguntas-para-forms.es.md",
-    "survey-learning/perguntas-para-forms-learning.en.md",
-    "survey-learning/perguntas-para-forms-learning.es.md",
-    "survey-devs/perguntas-para-forms-devs.en.md",
-    "survey-devs/perguntas-para-forms-devs.es.md",
-]
-
-REQUIRED_SHARED_CANONICAL_BANKS = [
-    "coleta/perguntas-para-forms.md",
-    "survey-devs/perguntas-para-forms-devs.md",
-    "survey-learning/perguntas-para-forms-learning.md",
-]
-
-REQUIRED_LANGUAGE_PACKAGE_DOCS = [
-    "kit-en/README.md",
-    "kit-en/STEP-BY-STEP.md",
-    "kit-en/FORMS-INSTRUCTIONS.md",
-    "kit-es/README.md",
-    "kit-es/PASO-A-PASO.md",
-    "kit-es/INSTRUCCIONES-FORMS.md",
+REQUIRED_QUESTION_BANKS = [
+    f"{bank}{suffix}.md"
+    for bank in ("collection/question-bank", "collection/v1/question-bank",
+                 "survey-devs/question-bank-devs",
+                 "survey-learning/question-bank-learning")
+    for suffix in ("", ".pt-br", ".es")
 ]
 
 REQUIRED_FRAMEWORK_V2 = [
@@ -73,29 +71,29 @@ REQUIRED_FRAMEWORK_V2 = [
     "wizard/implementation-guide-inputs.template.json",
 ] + [
     f"{base}{suffix}.html"
-    for base in ("formularios/assessment-v2",
+    for base in ("forms/assessment-v2",
                  "wizard/implementation-guide-wizard",
-                 "referencia/calculadora-pontuacao")
+                 "reference/scoring-calculator")
     for suffix in ("", ".pt-br", ".es")
 ] + [
-    f"coleta/{name}{suffix}.md"
-    for name in ("INSTRUCOES-FORMS", "AI-Maturity-Form-Questions_v2")
+    f"collection/{name}{suffix}.md"
+    for name in ("FORMS-INSTRUCTIONS", "AI-Maturity-Form-Questions_v2")
     for suffix in ("", ".pt-br", ".es")
 ] + [
-    f"referencia/framework-v2{suffix}" for suffix in
+    f"reference/framework-v2{suffix}" for suffix in
     (".md", ".pt-br.md", ".es.md")
 ] + [
-    f"referencia/dimensoes/{name}{suffix}"
+    f"reference/dimensions/{name}{suffix}"
     for name in ["README"] + [f"D{n}" for n in range(1, 10)]
     for suffix in (".md", ".pt-br.md", ".es.md")
 ]
 
 REQUIRED_REFERENCE_OUTPUTS = [
-    f"referencia/exemplo-saida/{sub}{name}.pdf"
+    f"reference/sample-output/{sub}{name}.pdf"
     for sub in ("", "en/", "es/")
     for name in ("v2_assessment_summary", "v2_roadmap_g1",
                  "v2_roadmap_g2", "v2_roadmap_g3",
-                 "v2_implementation_guide", "comparacao-rodadas")
+                 "v2_implementation_guide", "round-comparison")
 ]
 
 
@@ -182,10 +180,7 @@ def not_translated(rel: str) -> str | None:
     for prefix, reason in NOT_TRANSLATED.items():
         if rel.startswith(prefix):
             return reason
-    if LANGUAGE_BASED_NAMES[0] in rel:
-        return ("question banks: Portuguese base with .en and .es "
-                "versions")
-    if rel.endswith(LANGUAGE_BASED_NAMES[1]):
+    if rel.endswith(EXAMPLE_SUFFIX):
         return "generated example outputs (Portuguese)"
     return None
 
@@ -279,20 +274,54 @@ def print_html_helpers() -> int:
     return missing
 
 
+def repository_paths() -> list[str]:
+    """Tracked files and their folders (all files outside git)."""
+    import subprocess
+
+    try:
+        out = subprocess.run(
+            ["git", "-c", "core.quotepath=false", "ls-files"], cwd=ROOT,
+            capture_output=True, text=True, check=True).stdout
+        files = [line for line in out.split("\n") if line]
+    except (OSError, subprocess.CalledProcessError):
+        files = [p.relative_to(ROOT).as_posix()
+                 for p in ROOT.rglob("*") if p.is_file()]
+    paths = set(files)
+    for rel in files:
+        parts = rel.split("/")[:-1]
+        paths.update("/".join(parts[:i]) for i in range(1, len(parts) + 1))
+    return sorted(paths)
+
+
+def portuguese_names() -> list[str]:
+    """Repository paths whose file or folder name is not English."""
+    found = []
+    for rel in repository_paths():
+        parts = rel.split("/")
+        if set(parts) & NAME_SCAN_EXCLUDED or \
+                LEGACY_CLIENT_FILE.match(parts[-1]):
+            continue
+        if PORTUGUESE_NAME_WORDS.search(parts[-1]):
+            found.append(rel)
+    return found
+
+
+def print_english_names() -> int:
+    found = portuguese_names()
+    print("\nFile and folder names in English")
+    for rel in found:
+        print(f"  NOT ENGLISH {rel}")
+    if not found:
+        print("  OK every file and folder name is English")
+    return len(found)
+
+
 def main() -> int:
     print("AI Maturity kit language coverage")
     required_missing = 0
     required_missing += print_group(
-        "Required package docs",
-        REQUIRED_LANGUAGE_PACKAGE_DOCS,
-    )
-    required_missing += print_group(
-        "Canonical question banks included in all packages",
-        REQUIRED_SHARED_CANONICAL_BANKS,
-    )
-    required_missing += print_group(
-        "Localized survey question banks",
-        REQUIRED_LOCALIZED_QUESTION_BANKS,
+        "Question banks (EN, PT-BR, ES) included in all packages",
+        REQUIRED_QUESTION_BANKS,
     )
     required_missing += print_group(
         "Framework v2 sources and collection assets",
@@ -305,6 +334,7 @@ def main() -> int:
     )
     required_missing += print_translated_docs()
     required_missing += print_html_helpers()
+    required_missing += print_english_names()
 
     print("\nSummary")
     print(f"  Required missing: {required_missing}")

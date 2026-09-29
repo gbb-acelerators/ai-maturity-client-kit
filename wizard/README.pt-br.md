@@ -2,9 +2,9 @@
 
 🌐 [English](README.md) · Português (Brasil) · [Español](README.es.md)
 
-**`WIZARD`** · _Parte 4 customizada_ · 📖 [🏠 Índice](../README.pt-br.md) · [« Learning Survey](../survey-learning/INSTRUCOES-FORMS-LEARNING.pt-br.md) · Você está aqui
+**`WIZARD`** · _Parte 4 customizada_ · 📖 [🏠 Índice](../README.pt-br.md) · [« Learning Survey](../survey-learning/FORMS-INSTRUCTIONS-LEARNING.pt-br.md) · Você está aqui
 
-Esta pasta contém o wizard trilingue gerado e o template JSON usados para personalizar `saida/v2_implementation_guide.pdf`. O wizard roda offline e migra o armazenamento do navegador usado no v1.
+Esta pasta contém o wizard trilingue gerado e o template JSON usados para personalizar `output/v2_implementation_guide.pdf`. O wizard roda offline e migra o armazenamento do navegador usado no v1.
 
 > [!NOTE]
 > Saída em todos os modos: `implementation-guide-inputs.json` na raiz do kit. `make pipeline` detecta automaticamente e mescla em `payload_v2.json`.
@@ -50,15 +50,15 @@ O template gerado tem valores vazios e orientação em `_guide` para EN, PT-BR e
 
 ### C. Conversa no Copilot Chat
 
-Use `/wizard-implementacao` quando quiser que o Copilot colete os campos em conversa e salve o JSON depois da confirmação.
+Use `/implementation-wizard` quando quiser que o Copilot colete os campos em conversa e salve o JSON depois da confirmação.
 
 ### D. Auto-fill a partir do plano do Learning Survey
 
 ```bash
-python3 wizard/scripts/auto_fill_from_plano.py --lang pt-br
+python3 wizard/scripts/auto_fill_from_plan.py --lang pt-br
 ```
 
-O Mode D lê o `saida/plano-capacitacao-*.md` mais recente, preenche 7 dos 11 campos a partir do plano de capacitação do Learning Survey e marca o restante como itens a preencher. Ele usa Champions ativos para o steering committee, calendário para comunicação, coortes para treinamento, notas ADKAR e quick wins.
+O Mode D lê o `output/training-plan-*.md` mais recente, preenche 7 dos 11 campos a partir do plano de capacitação do Learning Survey e marca o restante como itens a preencher. Ele usa Champions ativos para o steering committee, calendário para comunicação, coortes para treinamento, notas ADKAR e quick wins.
 
 ## Arquivos
 
@@ -66,7 +66,7 @@ O Mode D lê o `saida/plano-capacitacao-*.md` mais recente, preenche 7 dos 11 ca
 | --- | --- |
 | [implementation-guide-wizard.pt-br.html](implementation-guide-wizard.pt-br.html) | Wizard visual standalone gerado, abrindo em português, com seletor de idioma. No repositório, `implementation-guide-wizard.html` segue o idioma do navegador e `implementation-guide-wizard.es.html` abre em espanhol; cada pacote de idioma entrega a sua cópia como `implementation-guide-wizard.html`. |
 | [implementation-guide-inputs.template.json](implementation-guide-inputs.template.json) | Template JSON vazio gerado com `_guide`. |
-| [scripts/auto_fill_from_plano.py](scripts/auto_fill_from_plano.py) | Mode D de auto-fill a partir da saída do Learning Survey. |
+| [scripts/auto_fill_from_plan.py](scripts/auto_fill_from_plan.py) | Mode D de auto-fill a partir da saída do Learning Survey. |
 
 ## Depois de preencher
 
@@ -85,6 +85,6 @@ A Parte 4 v1 também lê o novo arquivo e ignora campos que não usa.
 
 ## Documentação relacionada
 
-- Skill orquestradora: [../.github/skills/wizard-implementacao/SKILL.md](../.github/skills/wizard-implementacao/SKILL.md)
-- Como o JSON chega ao PDF: [../relatorios/scripts/wizard_inputs.py](../relatorios/scripts/wizard_inputs.py)
-- Template v2 do guia de implementação: [../relatorios/templates/v2_implementation_guide.html.j2](../relatorios/templates/v2_implementation_guide.html.j2)
+- Skill orquestradora: [../.github/skills/implementation-wizard/SKILL.md](../.github/skills/implementation-wizard/SKILL.md)
+- Como o JSON chega ao PDF: [../reports/scripts/wizard_inputs.py](../reports/scripts/wizard_inputs.py)
+- Template v2 do guia de implementação: [../reports/templates/v2_implementation_guide.html.j2](../reports/templates/v2_implementation_guide.html.j2)

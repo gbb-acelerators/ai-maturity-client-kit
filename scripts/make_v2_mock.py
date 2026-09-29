@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Generate the illustrative v2 mock (multi-persona) used for tests.
 
-Writes respostas.v2.json.example and a Microsoft Forms shaped export
-(coleta/v2-mock-forms-export.xlsx) with the same answers, so the
+Writes responses.v2.json.example and a Microsoft Forms shaped export
+(collection/v2-mock-forms-export.xlsx) with the same answers, so the
 importer, engine and reports can be tested end to end. Every value is
 synthetic and labelled as illustrative; it describes no real client.
 
@@ -133,10 +133,10 @@ def write_forms_export(data: dict, path: Path) -> None:
 
 def main() -> int:
     data = build()
-    out = ROOT / "respostas.v2.json.example"
+    out = ROOT / "responses.v2.json.example"
     out.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n",
                    encoding="utf-8")
-    xlsx = ROOT / "coleta" / "v2-mock-forms-export.xlsx"
+    xlsx = ROOT / "collection" / "v2-mock-forms-export.xlsx"
     write_forms_export(data, xlsx)
     print(f"✓ {out.name}: {len(data['respondents'])} mock respondents")
     print(f"✓ {xlsx.relative_to(ROOT)}")

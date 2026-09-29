@@ -8,10 +8,9 @@ Packaging rule:
   `X.html` live next to it as `X.pt-br.*` and `X.es.*`. The PT and ES packages
   ship those copies under the base names, and no package ships the copy
   names (links to them are rewritten to the base names).
-- Multi-language assets ship in every package under their own names: the
-  question banks (Portuguese base plus `.en` / `.es`) and the v2 spec (the
-  English source parsed by scripts/spec_to_framework_v2.py plus its
-  `.pt-br` / `.es` translations).
+- Multi-language assets ship in every package under their own names, so a
+  form can be built in any language: the question banks and the v2 spec
+  (the English source is parsed by scripts/spec_to_framework_v2.py).
 - Shared scripts, templates, JSON schemas, workbooks, and renderers are reused.
 """
 
@@ -26,23 +25,16 @@ import sys
 import zipfile
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-from build_kit_docs import rebase_links  # noqa: E402
-
 ROOT = Path(__file__).resolve().parents[1]
 
 PT_BR_TAG = ".pt-br"
 ES_TAG = ".es"
 LANGUAGE_TAGS = {"pt": PT_BR_TAG, "es": ES_TAG}
 
-# Every language version ships under its own name in every package. The
-# English spec stays under its name because scripts/spec_to_framework_v2.py
-# parses it.
-KEEP_NAMES = {
-    "coleta/AI-Maturity-Form-Questions_v2.md",
-    "coleta/AI-Maturity-Form-Questions_v2.pt-br.md",
-    "coleta/AI-Maturity-Form-Questions_v2.es.md",
-}
+# Every language version of these files ships under its own name in every
+# package (question banks and the v2 spec). The English spec also keeps its
+# name because scripts/spec_to_framework_v2.py parses it.
+MULTILINGUAL_STEMS = ("question-bank", "AI-Maturity-Form-Questions_v2")
 
 COMMON_EXCLUDED_PARTS = {
     ".git",
@@ -50,7 +42,8 @@ COMMON_EXCLUDED_PARTS = {
     "__pycache__",
     "dist",
     "build",
-    "saida",
+    "output",
+    "saida",  # output folder of kits before 2.0.2
 }
 
 COMMON_EXCLUDED_NAMES = {
@@ -59,8 +52,15 @@ COMMON_EXCLUDED_NAMES = {
 }
 
 GENERATED_OR_CLIENT_INPUTS = {
-    "respostas.json",
+    "responses.json",
     "implementation-guide-inputs.json",
+    "forms-responses.xlsx",
+    "survey-devs-responses.xlsx",
+    "survey-learning-responses.xlsx",
+    "survey-devs/responses-devs.json",
+    "survey-learning/responses-learning.json",
+    # Names used by kits before 2.0.2.
+    "respostas.json",
     "respostas-forms.xlsx",
     "respostas-survey-devs.xlsx",
     "respostas-survey-learning.xlsx",
@@ -80,78 +80,61 @@ SHARED_RUNTIME_ROOTS = [
     "framework.v2.json",
     "framework.v2.schema.json",
     "framework",
-    "respostas.json.example",
-    "respostas.v2.json.example",
+    "responses.json.example",
+    "responses.v2.json.example",
     "Makefile",
     "scripts",
-    "relatorios/templates",
-    "relatorios/scripts",
-    "relatorios/i18n",
-    "relatorios/sample_payload.json",
-    "coleta/template-export-forms.xlsx",
-    "coleta/v1/template-export-forms.xlsx",
+    "reports/templates",
+    "reports/scripts",
+    "reports/i18n",
+    "reports/sample_payload.json",
+    "collection/template-export-forms.xlsx",
+    "collection/v1/template-export-forms.xlsx",
     "survey-devs/scripts",
-    "survey-devs/respostas-mock-devs.json",
+    "survey-devs/mock-responses-devs.json",
     "survey-devs/options.json",
     "survey-devs/template-export-forms-devs.xlsx",
     "survey-learning/scripts",
-    "survey-learning/respostas-mock-learning.json",
+    "survey-learning/mock-responses-learning.json",
     "survey-learning/template-export-forms-learning.xlsx",
     "wizard/scripts",
     "wizard/implementation-guide-inputs.template.json",
-    "referencia/pontuacao-e-calculo.xlsx",
-    "referencia/branding/tokens-paulasilva-ms.css",
-    "coleta/v2-mock-forms-export.xlsx",
+    "reference/scoring-and-calculation.xlsx",
+    "reference/branding/tokens-paulasilva-ms.css",
+    "collection/v2-mock-forms-export.xlsx",
     "CHANGELOG.md",
 ]
 
 SHARED_CLIENT_ASSETS = [
     # Question banks referenced by every language package. The canonical IDs
     # remain unchanged so Microsoft Forms exports keep parsing correctly.
-    "coleta/perguntas-para-forms.md",
-    "coleta/perguntas-para-forms.en.md",
-    "coleta/perguntas-para-forms.es.md",
-    "coleta/AI-Maturity-Form-Questions_v2.md",
-    "coleta/AI-Maturity-Form-Questions_v2.pt-br.md",
-    "coleta/AI-Maturity-Form-Questions_v2.es.md",
-    "coleta/v1",
-    "referencia/framework-v2.md",
-    "survey-devs/perguntas-para-forms-devs.md",
-    "survey-devs/perguntas-para-forms-devs.en.md",
-    "survey-devs/perguntas-para-forms-devs.es.md",
-    "survey-learning/perguntas-para-forms-learning.md",
-    "survey-learning/perguntas-para-forms-learning.en.md",
-    "survey-learning/perguntas-para-forms-learning.es.md",
+    "collection/question-bank.pt-br.md",
+    "collection/question-bank.md",
+    "collection/question-bank.es.md",
+    "collection/AI-Maturity-Form-Questions_v2.md",
+    "collection/AI-Maturity-Form-Questions_v2.pt-br.md",
+    "collection/AI-Maturity-Form-Questions_v2.es.md",
+    "collection/v1",
+    "reference/framework-v2.md",
+    "survey-devs/question-bank-devs.pt-br.md",
+    "survey-devs/question-bank-devs.md",
+    "survey-devs/question-bank-devs.es.md",
+    "survey-learning/question-bank-learning.pt-br.md",
+    "survey-learning/question-bank-learning.md",
+    "survey-learning/question-bank-learning.es.md",
     # Source docs and references used by translated guides and fallback flows.
-    "coleta/INSTRUCOES-FORMS.md",
-    "survey-devs/INSTRUCOES-FORMS-DEVS.md",
+    "collection/FORMS-INSTRUCTIONS.md",
+    "survey-devs/FORMS-INSTRUCTIONS-DEVS.md",
     "survey-devs/README.md",
-    "survey-devs/RUBRICA-MATURIDADE.md",
-    "survey-learning/INSTRUCOES-FORMS-LEARNING.md",
+    "survey-devs/MATURITY-RUBRIC.md",
+    "survey-learning/FORMS-INSTRUCTIONS-LEARNING.md",
     "survey-learning/README.md",
     "wizard/README.md",
     # Visual helpers referenced by the quickstarts.
-    "formularios",
+    "forms",
     "wizard/implementation-guide-wizard.html",
-    "referencia/calculadora-pontuacao.html",
+    "reference/scoring-calculator.html",
 ]
-
-# Sources of the package-root quickstarts, never shipped as folders.
-KIT_DOC_FOLDERS = ("kit-en/", "kit-es/")
-
-LANGUAGE_DOCS = {
-    "pt": [],
-    "en": [
-        ("kit-en/README.md", "README.md"),
-        ("kit-en/STEP-BY-STEP.md", "STEP-BY-STEP.md"),
-        ("kit-en/FORMS-INSTRUCTIONS.md", "FORMS-INSTRUCTIONS.md"),
-    ],
-    "es": [
-        ("kit-es/README.md", "README.md"),
-        ("kit-es/PASO-A-PASO.md", "PASO-A-PASO.md"),
-        ("kit-es/INSTRUCCIONES-FORMS.md", "INSTRUCCIONES-FORMS.md"),
-    ],
-}
 
 LANGUAGE_NOTES = {
     "pt": """# Notas de idioma do pacote PT-BR
@@ -159,15 +142,16 @@ LANGUAGE_NOTES = {
 - Documentação de cliente: Português (Brasil), inclusive os guias de todas
   as pastas. No repositório os documentos são em inglês, com cópias
   `.pt-br` e `.es`; este pacote entrega as versões em português com os
-  nomes base (`README.md`, `GUIA-PASSO-A-PASSO.md` etc.).
+  nomes base (`README.md`, `STEP-BY-STEP.md` etc.).
 - A especificação v2 e os bancos de perguntas vêm nos três idiomas, para
   montar o formulário no idioma do cliente:
-  `coleta/AI-Maturity-Form-Questions_v2.pt-br.md` (português),
-  `coleta/AI-Maturity-Form-Questions_v2.md` (inglês, a fonte lida por
+  `collection/AI-Maturity-Form-Questions_v2.pt-br.md` (português),
+  `collection/AI-Maturity-Form-Questions_v2.md` (inglês, a fonte lida por
   `scripts/spec_to_framework_v2.py`) e `.es.md`;
-  `coleta/perguntas-para-forms.md` (português), `.en.md` e `.es.md`.
+  `collection/question-bank.pt-br.md` (português),
+  `collection/question-bank.md` (inglês) e `.es.md`.
 - Relatórios são gerados em inglês por padrão. Para PT-BR, defina
-  `metadata.language` como `"pt-BR"` em `respostas.json`. Os relatórios dos
+  `metadata.language` como `"pt-BR"` em `responses.json`. Os relatórios dos
   surveys aceitam `--lang pt-br` (ou `en`, `es`).
 - Os assistentes HTML (formulário offline, wizard e calculadora) têm
   seletor de idioma e abrem em português neste pacote. O material
@@ -184,16 +168,17 @@ LANGUAGE_NOTES = {
 - Client-facing documentation: English, including every folder guide.
   The Portuguese and Spanish copies (`.pt-br` and `.es` files) ship in the
   PT-BR and ES packages under the base names.
-- `README.md`, `STEP-BY-STEP.md` and `FORMS-INSTRUCTIONS.md` at the root are
-  the English quickstart, step-by-step guide and Forms instructions.
+- `README.md` and `STEP-BY-STEP.md` at the root are the English quickstart
+  and step-by-step guide; the Forms instructions are in
+  `collection/FORMS-INSTRUCTIONS.md`.
 - The v2 spec and the question banks ship in the three languages, to build
   the form in the client's language:
-  `coleta/AI-Maturity-Form-Questions_v2.md` (English source, parsed by
+  `collection/AI-Maturity-Form-Questions_v2.md` (English source, parsed by
   `scripts/spec_to_framework_v2.py`), `.pt-br.md` and `.es.md`;
-  `coleta/perguntas-para-forms.en.md` (English), `.es.md` and
-  `perguntas-para-forms.md` (Portuguese).
+  `collection/question-bank.md` (English), `.pt-br.md` (Portuguese) and
+  `.es.md` (Spanish).
 - Reports default to English. Set `metadata.language` to `"pt-BR"` or `"es"`
-  in `respostas.json` for other languages. Survey reports accept
+  in `responses.json` for other languages. Survey reports accept
   `--lang en`, `--lang pt-br` or `--lang es`.
 - The HTML helpers (offline form, wizard, calculator) have a language
   selector and follow the browser language. The archived v1 material
@@ -209,18 +194,19 @@ LANGUAGE_NOTES = {
 - Documentación orientada al cliente en español, incluidas las guías de
   todas las carpetas. En el repositorio los documentos están en inglés, con
   copias `.pt-br` y `.es`; este paquete entrega las versiones en español con
-  los nombres base (`README.md`, `GUIA-PASSO-A-PASSO.md`, etc.).
-- `README.md`, `PASO-A-PASO.md` e `INSTRUCCIONES-FORMS.md` en la raíz son la
-  guía rápida, el paso a paso y las instrucciones de Forms en español.
+  los nombres base (`README.md`, `STEP-BY-STEP.md`, etc.).
+- `README.md` y `STEP-BY-STEP.md` en la raíz son la guía rápida y el paso a
+  paso en español; las instrucciones de Forms están en
+  `collection/FORMS-INSTRUCTIONS.md`.
 - La especificación v2 y los bancos de preguntas van en los tres idiomas,
   para armar el formulario en el idioma del cliente:
-  `coleta/AI-Maturity-Form-Questions_v2.es.md` (español),
-  `coleta/AI-Maturity-Form-Questions_v2.md` (inglés, la fuente que lee
+  `collection/AI-Maturity-Form-Questions_v2.es.md` (español),
+  `collection/AI-Maturity-Form-Questions_v2.md` (inglés, la fuente que lee
   `scripts/spec_to_framework_v2.py`) y `.pt-br.md`;
-  `coleta/perguntas-para-forms.es.md` (español), `.en.md` y
-  `perguntas-para-forms.md` (portugués).
+  `collection/question-bank.es.md` (español),
+  `collection/question-bank.md` (inglés) y `.pt-br.md` (portugués).
 - Los informes se generan en inglés por defecto. Define `metadata.language`
-  como `"es"` en `respostas.json` para español. Los informes de las
+  como `"es"` en `responses.json` para español. Los informes de las
   encuestas complementarias aceptan `--lang en`, `--lang pt-br` o
   `--lang es`.
 - Los asistentes HTML (formulario offline, wizard y calculadora) tienen
@@ -242,7 +228,7 @@ ARCHIVE_NAMES = {
 }
 
 LOCALIZED_TEXT_SUFFIXES = {".md", ".html"}
-UNTRANSFORMED_PREFIXES = (".github/", "relatorios/templates/")
+UNTRANSFORMED_PREFIXES = (".github/", "reports/templates/")
 # Only link targets: Markdown `](...)` and HTML `href="..."`.
 COPY_LINK_RE = re.compile(r'(\]\(|href=")([^)"\s]+)')
 MD_SWITCHER_MARKER = "Português (Brasil)"
@@ -261,14 +247,17 @@ def tagged(rel: str, tag: str) -> str:
     return f"{stem}{tag}{ext}"
 
 
+def is_multilingual(rel: str) -> bool:
+    return posixpath.basename(rel).startswith(MULTILINGUAL_STEMS)
+
+
 def family_base(rel: str) -> str | None:
     """English base of a translated copy (`X.pt-br.*` or `X.es.*`).
 
-    Spanish files count as copies only when the Portuguese copy exists
-    too, so the Portuguese-based question banks (`X.md` + `X.es.md`) keep
-    their Spanish file. Names in KEEP_NAMES are never copies.
+    A Spanish file counts as a copy only when the Portuguese copy exists
+    too. Multilingual assets are never copies.
     """
-    if rel in KEEP_NAMES:
+    if is_multilingual(rel):
         return None
     name = posixpath.basename(rel)
     for tag in (PT_BR_TAG, ES_TAG):
@@ -293,7 +282,7 @@ def package_source(source: Path, lang: str) -> Path:
     """The file whose content ships under `source`'s name in `lang`."""
     tag = LANGUAGE_TAGS.get(lang)
     rel = normalized(source.relative_to(ROOT))
-    if not tag or rel in KEEP_NAMES:
+    if not tag or is_multilingual(rel):
         return source
     copy = ROOT / tagged(rel, tag)
     if copy.is_file() and family_base(tagged(rel, tag)) == rel:
@@ -309,8 +298,6 @@ def is_common_excluded(rel: str) -> bool:
         return True
     # Translated copies ship under their base names (write_source()).
     if is_translated_copy(rel):
-        return True
-    if rel.startswith(KIT_DOC_FOLDERS):
         return True
     if rel.startswith(".github/workflows/"):
         return True
@@ -328,7 +315,7 @@ def should_include_runtime_file(rel: str) -> bool:
     if path.suffix.lower() == ".md":
         return rel.startswith(".github/")
     if path.suffix.lower() in {".html", ".htm"}:
-        return rel.startswith("relatorios/templates/")
+        return rel.startswith("reports/templates/")
     return True
 
 
@@ -486,7 +473,6 @@ def validate_packaging_sources() -> None:
         COPILOT_CUSTOMIZATION_ROOTS
         + SHARED_RUNTIME_ROOTS
         + SHARED_CLIENT_ASSETS
-        + [source for docs in LANGUAGE_DOCS.values() for source, _ in docs]
     )
     missing = [path for path in required if not (ROOT / path).exists()]
     if missing:
@@ -497,11 +483,11 @@ def validate_packaging_sources() -> None:
 
 
 def add_reference_examples(zf: zipfile.ZipFile, lang: str) -> None:
-    # The current (v2) example sits in referencia/exemplo-saida and the
+    # The current (v2) example sits in reference/sample-output and the
     # archived v1 example in its v1/ subfolder. JSON outputs are
     # language-neutral; PDFs, workbooks and notes ship per language
     # (PT at the folder root, EN and ES in en/ and es/).
-    for base in ("referencia/exemplo-saida", "referencia/exemplo-saida/v1"):
+    for base in ("reference/sample-output", "reference/sample-output/v1"):
         example_dir = ROOT / base
         if not example_dir.is_dir():
             continue
@@ -519,28 +505,20 @@ def add_reference_examples(zf: zipfile.ZipFile, lang: str) -> None:
 
 
 def add_documentation(zf: zipfile.ZipFile, lang: str) -> None:
-    # 1. The package-root guides of the package language (kit-en/ and
-    #    kit-es/ copies move to the root with their links rebased).
-    rename = dict(LANGUAGE_DOCS[lang])
-    for source, dest in LANGUAGE_DOCS[lang]:
-        text = (ROOT / source).read_text(encoding="utf-8")
-        text = rebase_links(text, source, dest, rename)
-        zf.writestr(dest, localize_text(text, ".md", lang, dest))
-    # 2. Every other repository doc, so that links keep working: the PT
-    #    and ES packages get the .pt-br / .es copies under the base names,
-    #    the EN package gets the English docs.
-    excluded_prefixes = (".github/", ".git/", "docs/", "saida/", "dist/")
+    # 1. Every repository doc: the PT and ES packages get the .pt-br / .es
+    #    copies under the base names, the EN package gets the English docs.
+    excluded_prefixes = (".github/", ".git/", "docs/", "output/", "dist/")
     for file_path in sorted(ROOT.rglob("*.md")):
         rel = normalized(file_path.relative_to(ROOT))
         if rel.startswith(excluded_prefixes) or is_common_excluded(rel):
             continue
         add_file(zf, rel, lang=lang)
-    # 3. HTML helpers: one trilingual file each; the PT and ES packages
+    # 2. HTML helpers: one trilingual file each; the PT and ES packages
     #    get the copy that opens in their language.
-    add_tree(zf, "formularios", lang=lang)
-    add_tree(zf, "referencia/v1", lang=lang)
+    add_tree(zf, "forms", lang=lang)
+    add_tree(zf, "reference/v1", lang=lang)
     add_file(zf, "wizard/implementation-guide-wizard.html", lang=lang)
-    add_file(zf, "referencia/calculadora-pontuacao.html", lang=lang)
+    add_file(zf, "reference/scoring-calculator.html", lang=lang)
     zf.writestr("PACKAGE-LANGUAGE-NOTES.md", LANGUAGE_NOTES[lang])
 
 

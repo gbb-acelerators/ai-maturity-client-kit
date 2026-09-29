@@ -44,27 +44,28 @@ Developer Survey dimensions are now named `DS-D2` to `DS-D8` in JSON keys, insig
 | `DS-D7` | D2-Q2, D9-Q4 |
 | `DS-D8` | D1-Q2, D6-Q1, D6-Q4, D6-Q5, D6-Q7 |
 
-The insights report section 12 links to v2 questions, not v1 capabilities. The v2 summary PDF shows Developer Survey context when `saida/maturidade-developer-survey-*.json` exists.
+The insights report section 12 links to v2 questions, not v1 capabilities. The v2 summary PDF shows Developer Survey context when `output/developer-survey-maturity-*.json` exists.
 
 ## Files in this folder
 
 | File | What it is |
 | --- | --- |
-| [INSTRUCOES-FORMS-DEVS.md](INSTRUCOES-FORMS-DEVS.md) | Step-by-step guide to build the Microsoft Forms. |
-| [perguntas-para-forms-devs.en.md](perguntas-para-forms-devs.en.md) | Question bank in English. |
-| [perguntas-para-forms-devs.md](perguntas-para-forms-devs.md) | Canonical PT-BR question bank. |
+| [FORMS-INSTRUCTIONS-DEVS.md](FORMS-INSTRUCTIONS-DEVS.md) | Step-by-step guide to build the Microsoft Forms. |
+| [question-bank-devs.md](question-bank-devs.md) | English question bank. |
+| [question-bank-devs.pt-br.md](question-bank-devs.pt-br.md) | Portuguese (Brazil) question bank; its options are the canonical values in [options.json](options.json). |
+| [question-bank-devs.es.md](question-bank-devs.es.md) | Spanish question bank. |
 | [template-export-forms-devs.xlsx](template-export-forms-devs.xlsx) | Excel template in the Forms export format. |
-| [respostas-mock-devs.json](respostas-mock-devs.json) | Sample structured JSON for smoke tests. |
-| [RUBRICA-MATURIDADE.md](RUBRICA-MATURIDADE.md) | Deterministic rubric. It keeps the v1 score bands, so compare by score, not by level name. |
+| [mock-responses-devs.json](mock-responses-devs.json) | Sample structured JSON for smoke tests. |
+| [MATURITY-RUBRIC.md](MATURITY-RUBRIC.md) | Deterministic rubric. It keeps the v1 score bands, so compare by score, not by level name. |
 | [scripts/](scripts/) | Import, scoring, and insights scripts. |
 
 ## Usage flow
 
 ```text
-1. Build the Forms with INSTRUCOES-FORMS-DEVS.md.
+1. Build the Forms with FORMS-INSTRUCTIONS-DEVS.md.
 2. Collect responses anonymously.
 3. Export to Excel.
-4. Run /importar-survey-devs.
+4. Run /import-survey-devs.
 5. Run /insights-developer-survey.
 6. Re-run make pipeline if you want the v2 summary PDF to include Developer Survey context.
 ```

@@ -1,27 +1,27 @@
 #!/usr/bin/env python3
-"""Regenerate the v2 reference example in referencia/exemplo-saida/.
+"""Regenerate the v2 reference example in reference/sample-output/.
 
 Runs the real scripts on illustrative inputs, once per language:
 
 - the engine, the v2 workbook and the five v2 PDFs on the mock
-  respostas.v2.json.example
+  responses.v2.json.example
 - the evidence cross-checks: a repository scan of generated fixture
   repositories and scripts/fixtures/copilot-usage-*.mock.json
 - the companion surveys on their mocks, answered as if the Forms were
   built in each language (option answers translated through the banks
   and survey-devs/options.json), and the wizard auto-fill from the
   training plan, so the implementation guide shows the full flow
-- the round comparison PDF from the v1 example (respostas.json.example)
+- the round comparison PDF from the v1 example (responses.json.example)
   to the v2 mock, an indicative baseline through the v1 lineage
 
 Outputs:
 
 - PT-BR PDFs, workbook and survey examples at the folder root
 - EN and ES PDFs in en/ and es/
-- scores.json, gaps.json, recomendacoes.json, payload_v2.json,
-  repo-scan.json and telemetria.json (EN) at the folder root
+- scores.json, gaps.json, recommendations.json, payload_v2.json,
+  repo-scan.json and telemetry.json (EN) at the folder root
 
-The archived v1 example in referencia/exemplo-saida/v1/ is not touched.
+The archived v1 example in reference/sample-output/v1/ is not touched.
 Requires jinja2, weasyprint, openpyxl and git.
 
 Usage:
@@ -39,13 +39,13 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DEST = ROOT / "referencia" / "exemplo-saida"
+DEST = ROOT / "reference" / "sample-output"
 LANGS = {"pt-BR": DEST, "en": DEST / "en", "es": DEST / "es"}
 SURVEY_LANG = {"pt-BR": "pt-br", "en": "en", "es": "es"}
-BANK_KEY = {"pt-br": "", "en": ".en", "es": ".es"}
+BANK_KEY = {"pt-br": ".pt-br", "en": "", "es": ".es"}
 OPT_KEY = {"pt-br": "pt", "en": "en", "es": "es"}
 PDFS = ["v2_assessment_summary", "v2_roadmap_g1", "v2_roadmap_g2",
-        "v2_roadmap_g3", "v2_implementation_guide", "comparacao-rodadas"]
+        "v2_roadmap_g3", "v2_implementation_guide", "round-comparison"]
 TELEMETRY = ROOT / "scripts" / "fixtures" / \
     "copilot-usage-organization-28-day.mock.json"
 SEATS = "200"
@@ -135,51 +135,51 @@ def localized_mock(mock: Path, tables: dict[str, dict[str, str]],
 
 
 def survey_mocks(kit: Path, lang: str) -> tuple[Path, Path]:
-    devs = ROOT / "survey-devs" / "respostas-mock-devs.json"
-    learning = ROOT / "survey-learning" / "respostas-mock-learning.json"
+    devs = ROOT / "survey-devs" / "mock-responses-devs.json"
+    learning = ROOT / "survey-learning" / "mock-responses-learning.json"
     if lang == "pt-br":
         return devs, learning
     options = json.loads((ROOT / "survey-devs" / "options.json").read_text(
         encoding="utf-8"))
     devs_tables = {q: {o["pt"]: o[OPT_KEY[lang]] for o in opts}
                    for q, opts in options.items()}
-    base = ROOT / "survey-learning" / "perguntas-para-forms-learning"
-    pt_bank = bank_options(Path(f"{base}.md"))
+    base = ROOT / "survey-learning" / "question-bank-learning"
+    pt_bank = bank_options(Path(f"{base}.pt-br.md"))
     lang_bank = bank_options(Path(f"{base}{BANK_KEY[lang]}.md"))
     learning_tables = {q: dict(zip(opts, lang_bank.get(q, opts)))
                        for q, opts in pt_bank.items()}
-    return (localized_mock(devs, devs_tables, kit / "respostas-devs.json"),
+    return (localized_mock(devs, devs_tables, kit / "responses-devs.json"),
             localized_mock(learning, learning_tables,
-                           kit / "respostas-learning.json"))
+                           kit / "responses-learning.json"))
 
 
 def run_surveys(kit: Path, out: Path, lang: str) -> None:
     devs, learning = survey_mocks(kit, lang)
-    run("survey-devs/scripts/calcular_maturidade.py", "--input",
+    run("survey-devs/scripts/calculate_maturity.py", "--input",
         str(devs), "--out", str(out), "--lang", lang)
-    run("survey-devs/scripts/gerar_insights.py", "--input",
+    run("survey-devs/scripts/generate_insights.py", "--input",
         str(devs), "--out", str(out), "--lang", lang)
-    run("survey-learning/scripts/gerar_plano_capacitacao.py", "--input",
+    run("survey-learning/scripts/generate_training_plan.py", "--input",
         str(learning), "--out", str(out), "--lang", lang)
-    plan = next(out.glob("plano-capacitacao-*.md"))
-    run("wizard/scripts/auto_fill_from_plano.py", "--plano", str(plan),
+    plan = next(out.glob("training-plan-*.md"))
+    run("wizard/scripts/auto_fill_from_plan.py", "--plan", str(plan),
         "--out", str(kit / "implementation-guide-inputs.json"),
         "--lang", lang)
 
 
 def main() -> int:
-    mock = json.loads((ROOT / "respostas.v2.json.example").read_text(
+    mock = json.loads((ROOT / "responses.v2.json.example").read_text(
         encoding="utf-8"))
     with tempfile.TemporaryDirectory() as fixtures:
         repos = make_fixture_repos(Path(fixtures) / "repos")
         for lang, target in LANGS.items():
             with tempfile.TemporaryDirectory() as tmp:
                 kit = Path(tmp)
-                out = kit / "saida"
+                out = kit / "output"
                 out.mkdir()
                 data = json.loads(json.dumps(mock))
                 data["metadata"]["language"] = lang
-                respostas = kit / "respostas.json"
+                respostas = kit / "responses.json"
                 respostas.write_text(
                     json.dumps(data, ensure_ascii=False, indent=2),
                     encoding="utf-8")
@@ -191,39 +191,39 @@ def main() -> int:
                     "--seats", SEATS, "--out", str(out))
                 if lang in SURVEY_LANG:
                     run_surveys(kit, out, SURVEY_LANG[lang])
-                run("scripts/assessment_engine.py", "all", "--respostas",
+                run("scripts/assessment_engine.py", "all", "--responses",
                     str(respostas), "--out", str(out))
-                run("scripts/fill_workbook_v2.py", "--respostas",
+                run("scripts/fill_workbook_v2.py", "--responses",
                     str(respostas), "--out", str(out))
-                run("relatorios/scripts/build_report_v2.py", "--kit",
+                run("reports/scripts/build_report_v2.py", "--kit",
                     str(kit), "--out", str(out))
-                run("scripts/compare_rounds.py", "respostas.json.example",
+                run("scripts/compare_rounds.py", "responses.json.example",
                     str(respostas), "--out", str(out), "--pdf")
                 target.mkdir(parents=True, exist_ok=True)
                 for name in PDFS:
                     shutil.copy(out / f"{name}.pdf", target / f"{name}.pdf")
                 if lang == "pt-BR":
-                    for old in target.glob("pontuacao-v2-*.xlsx"):
+                    for old in target.glob("scoring-v2-*.xlsx"):
                         old.unlink()
-                    book = next(out.glob("pontuacao-v2-*.xlsx"))
-                    shutil.copy(book, target / "pontuacao-v2-EXEMPLO.xlsx")
+                    book = next(out.glob("scoring-v2-*.xlsx"))
+                    shutil.copy(book, target / "scoring-v2-EXAMPLE.xlsx")
                     for pattern, name in (
-                        ("maturidade-developer-survey-*.json",
-                         "maturidade-developer-survey-EXEMPLO.json"),
+                        ("developer-survey-maturity-*.json",
+                         "developer-survey-maturity-EXAMPLE.json"),
                         ("insights-developer-survey-*.md",
-                         "insights-developer-survey-EXEMPLO.md"),
-                        ("plano-capacitacao-*.md",
-                         "plano-capacitacao-EXEMPLO.md"),
+                         "insights-developer-survey-EXAMPLE.md"),
+                        ("training-plan-*.md",
+                         "training-plan-EXAMPLE.md"),
                     ):
                         shutil.copy(next(out.glob(pattern)), DEST / name)
                     shutil.copy(kit / "implementation-guide-inputs.json",
                                 DEST / "implementation-guide-inputs-"
-                                       "EXEMPLO.json")
+                                       "EXAMPLE.json")
                 if lang == "en":
                     for name in ("scores.json", "gaps.json",
-                                 "recomendacoes.json", "payload_v2.json",
-                                 "repo-scan.json", "telemetria.json",
-                                 "comparacao-rodadas.json"):
+                                 "recommendations.json", "payload_v2.json",
+                                 "repo-scan.json", "telemetry.json",
+                                 "round-comparison.json"):
                         shutil.copy(out / name, DEST / name)
             print(f"✓ {lang}: {target.relative_to(ROOT)}")
     return 0

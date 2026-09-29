@@ -6,11 +6,11 @@ Writes, from one source and in three languages (EN, PT-BR, ES):
 - wizard/implementation-guide-wizard.html (+ .pt-br.html, .es.html)
   Collects the implementation guide inputs (governance, dimension
   owners, change management, risks, first 90 days) and exports
-  implementation-guide-inputs.json for relatorios/scripts.
+  implementation-guide-inputs.json for reports/scripts.
 - wizard/implementation-guide-inputs.template.json
   The same fields for manual editing, with guidance in _guide and
   empty values, so no example text reaches a client report.
-- referencia/calculadora-pontuacao.html (+ .pt-br.html, .es.html)
+- reference/scoring-calculator.html (+ .pt-br.html, .es.html)
   What-if calculator for section 8 of the v2 spec: dimension scores,
   weights and targets give the overall score, level, gaps, priorities,
   horizons, amplification risk and the recommended strategies.
@@ -288,7 +288,7 @@ CALC_UI = {
     "en": {
         "title": "Scoring calculator (framework v2)",
         "intro": "What-if view of the v2 scoring rules (spec section 8). "
-                 "Enter dimension scores, or load saida/scores.json, then "
+                 "Enter dimension scores, or load output/scores.json, then "
                  "change weights and targets to see how the overall "
                  "score, priorities and strategies move. The official "
                  "result comes from scripts/assessment_engine.py.",
@@ -318,7 +318,7 @@ CALC_UI = {
         "title": "Calculadora de pontuação (framework v2)",
         "intro": "Simulação das regras de pontuação v2 (seção 8 da "
                  "especificação). Informe as notas por dimensão, ou "
-                 "carregue saida/scores.json, e altere pesos e metas para "
+                 "carregue output/scores.json, e altere pesos e metas para "
                  "ver como mudam a nota geral, as prioridades e as "
                  "estratégias. O resultado oficial vem de "
                  "scripts/assessment_engine.py.",
@@ -349,7 +349,7 @@ CALC_UI = {
         "title": "Calculadora de puntaje (framework v2)",
         "intro": "Simulación de las reglas de puntaje v2 (sección 8 de la "
                  "especificación). Ingresa los puntajes por dimensión, o "
-                 "carga saida/scores.json, y cambia pesos y objetivos para "
+                 "carga output/scores.json, y cambia pesos y objetivos para "
                  "ver cómo se mueven el puntaje general, las prioridades y "
                  "las estrategias. El resultado oficial viene de "
                  "scripts/assessment_engine.py.",
@@ -718,9 +718,9 @@ def outputs() -> dict[Path, str]:
         files[ROOT / f"wizard/implementation-guide-wizard{suffix}.html"] = \
             page(fw, WIZARD, wizard_app, default,
                  WIZARD["en"]["title"], "wizard/README.md", "", False)
-        files[ROOT / f"referencia/calculadora-pontuacao{suffix}.html"] = \
+        files[ROOT / f"reference/scoring-calculator{suffix}.html"] = \
             page(fw, CALC_UI, CALC_APP, default, CALC_UI["en"]["title"],
-                 "coleta/AI-Maturity-Form-Questions_v2.md, section 8",
+                 "collection/AI-Maturity-Form-Questions_v2.md, section 8",
                  CALC_JS, True)
     return files
 

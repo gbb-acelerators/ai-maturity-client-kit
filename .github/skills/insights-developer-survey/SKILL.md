@@ -13,7 +13,7 @@ Use the existing survey-devs scripts and generated JSON or Markdown artifacts. D
 
 ## Languages
 
-`python3 survey-devs/scripts/gerar_insights.py --lang en|pt-br|es` writes the report in that language and shows answer options in it, whatever language the form used.
+`python3 survey-devs/scripts/generate_insights.py --lang en|pt-br|es` writes the report in that language and shows answer options in it, whatever language the form used.
 
 ## Dimension naming
 
@@ -35,4 +35,4 @@ The insights report section 12 links to v2 questions, not v1 capabilities.
 
 ## Output
 
-Write or reference `saida/insights-developer-survey-<date>.md` and `saida/maturidade-developer-survey-<date>.json`. Re-run `make pipeline` if the user wants Developer Survey context in the v2 summary PDF.
+Write or reference `output/insights-developer-survey-<date>.md` and `output/developer-survey-maturity-<date>.json`. Re-run `make pipeline` if the user wants Developer Survey context in the v2 summary PDF.

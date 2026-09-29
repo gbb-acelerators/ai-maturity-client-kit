@@ -2,15 +2,15 @@
 """Generate the v2 collection artifacts from framework.v2.json.
 
 Outputs (never edit them by hand, rerun this script):
-- coleta/perguntas-para-forms.md      (PT-BR, canonical kit language)
-- coleta/perguntas-para-forms.en.md   (EN)
-- coleta/perguntas-para-forms.es.md   (ES)
-- coleta/template-export-forms.xlsx   (Forms export shape, v2 columns)
-- formularios/assessment-v2.html      (offline form, 3 languages,
-                                        exports respostas.json; picks the
-                                        browser language)
-- formularios/assessment-v2.pt-br.html (the same form, opens in PT-BR)
-- formularios/assessment-v2.es.html    (the same form, opens in ES)
+- collection/question-bank.md           (EN)
+- collection/question-bank.pt-br.md     (PT-BR)
+- collection/question-bank.es.md        (ES)
+- collection/template-export-forms.xlsx (Forms export shape, v2 columns)
+- forms/assessment-v2.html              (offline form, 3 languages,
+                                         exports responses.json; picks the
+                                         browser language)
+- forms/assessment-v2.pt-br.html        (the same form, opens in PT-BR)
+- forms/assessment-v2.es.html           (the same form, opens in ES)
 
 Usage:
     python3 scripts/generate_v2_collection.py          # write files
@@ -25,12 +25,20 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-BANKS = {"pt-br": "coleta/perguntas-para-forms.md",
-         "en": "coleta/perguntas-para-forms.en.md",
-         "es": "coleta/perguntas-para-forms.es.md"}
-HTML_OUT = "formularios/assessment-v2.html"
+BANKS = {"en": "collection/question-bank.md",
+         "pt-br": "collection/question-bank.pt-br.md",
+         "es": "collection/question-bank.es.md"}
+SWITCHER = {
+    "en": "🌐 English · [Português (Brasil)](question-bank.pt-br.md) · "
+          "[Español](question-bank.es.md)",
+    "pt-br": "🌐 [English](question-bank.md) · Português (Brasil) · "
+             "[Español](question-bank.es.md)",
+    "es": "🌐 [English](question-bank.md) · [Português (Brasil)]"
+          "(question-bank.pt-br.md) · Español",
+}
+HTML_OUT = "forms/assessment-v2.html"
 HTML_COPIES = {"": "auto", ".pt-br": "pt-br", ".es": "es"}
-XLSX_OUT = "coleta/template-export-forms.xlsx"
+XLSX_OUT = "collection/template-export-forms.xlsx"
 
 UI = {
     "en": {
@@ -47,8 +55,8 @@ UI = {
             "Go to <https://forms.office.com> and create a blank form. "
             "Suggested title: `AI-Assisted SDLC Maturity Assessment v2 - "
             "<Organization>`.",
-            "Paste the privacy notice from [INSTRUCOES-FORMS.md]"
-            "(INSTRUCOES-FORMS.md) into the form description.",
+            "Paste the privacy notice from [FORMS-INSTRUCTIONS.md]"
+            "(FORMS-INSTRUCTIONS.md) into the form description.",
             "Add **10 sections**: Section 0 (profile) and one per "
             "dimension, D1 to D9.",
             "Section 0: add the 5 profile questions as **Choice**. `R-Q3` "
@@ -101,11 +109,11 @@ UI = {
         "placeholder": "Tool, % coverage, metric, time window, link",
         "html_title": "AI-Assisted SDLC Maturity Assessment v2",
         "html_intro": "Offline form. Answers stay in this browser. Use "
-                      "Export to download a respostas.json for the kit "
+                      "Export to download a responses.json for the kit "
                       "(one respondent per file).",
         "org": "Organization",
         "name": "Your name (optional)",
-        "export_json": "Export respostas.json",
+        "export_json": "Export responses.json",
         "export_csv": "Export CSV",
         "progress": "answered",
         "summary": "Your self-score (one respondent, indicative)",
@@ -128,8 +136,8 @@ UI = {
             "Acesse <https://forms.office.com> e crie um formulário em "
             "branco. Título sugerido: `AI-Assisted SDLC Maturity "
             "Assessment v2 - <Organização>`.",
-            "Cole o aviso de privacidade de [INSTRUCOES-FORMS.pt-br.md]"
-            "(INSTRUCOES-FORMS.pt-br.md) na descrição do formulário.",
+            "Cole o aviso de privacidade de [FORMS-INSTRUCTIONS.pt-br.md]"
+            "(FORMS-INSTRUCTIONS.pt-br.md) na descrição do formulário.",
             "Adicione **10 seções**: Seção 0 (perfil) e uma por dimensão, "
             "D1 a D9.",
             "Seção 0: adicione as 5 perguntas de perfil como **Choice**. "
@@ -185,11 +193,11 @@ UI = {
         "html_title": "AI-Assisted SDLC Maturity Assessment v2",
         "html_intro": "Formulário offline. As respostas ficam neste "
                       "navegador. Use Exportar para baixar um "
-                      "respostas.json para o kit (um respondente por "
+                      "responses.json para o kit (um respondente por "
                       "arquivo).",
         "org": "Organização",
         "name": "Seu nome (opcional)",
-        "export_json": "Exportar respostas.json",
+        "export_json": "Exportar responses.json",
         "export_csv": "Exportar CSV",
         "progress": "respondidas",
         "summary": "Sua autoavaliação (um respondente, indicativa)",
@@ -213,8 +221,8 @@ UI = {
             "Ve a <https://forms.office.com> y crea un formulario en "
             "blanco. Título sugerido: `AI-Assisted SDLC Maturity "
             "Assessment v2 - <Organización>`.",
-            "Pega el aviso de privacidad de [INSTRUCOES-FORMS.es.md]"
-            "(INSTRUCOES-FORMS.es.md) en la descripción del formulario.",
+            "Pega el aviso de privacidad de [FORMS-INSTRUCTIONS.es.md]"
+            "(FORMS-INSTRUCTIONS.es.md) en la descripción del formulario.",
             "Agrega **10 secciones**: Sección 0 (perfil) y una por "
             "dimensión, D1 a D9.",
             "Sección 0: agrega las 5 preguntas de perfil como "
@@ -271,11 +279,11 @@ UI = {
         "html_title": "AI-Assisted SDLC Maturity Assessment v2",
         "html_intro": "Formulario offline. Las respuestas quedan en este "
                       "navegador. Usa Exportar para descargar un "
-                      "respostas.json para el kit (una persona por "
+                      "responses.json para el kit (una persona por "
                       "archivo).",
         "org": "Organización",
         "name": "Tu nombre (opcional)",
-        "export_json": "Exportar respostas.json",
+        "export_json": "Exportar responses.json",
         "export_csv": "Exportar CSV",
         "progress": "respondidas",
         "summary": "Tu autoevaluación (una persona, indicativa)",
@@ -294,7 +302,7 @@ def load_fw() -> dict:
 
 def bank_md(fw: dict, lang: str) -> str:
     t = UI[lang]
-    out = [f"# {t['title']}", "",
+    out = [f"# {t['title']}", "", SWITCHER[lang], "",
            f"> {t['generated'].format(version=fw['version'])}", "",
            f"## {t['how']}", ""]
     out += [f"{i}. {s}" for i, s in enumerate(t["steps"], start=1)]
@@ -404,7 +412,7 @@ Advisor</span></span><span class="grow"></span>
 <div id="form"></div>
 <section id="summary"></section>
 </main>
-<footer>framework v__VERSION__ · coleta/AI-Maturity-Form-Questions_v2.md
+<footer>framework v__VERSION__ · collection/AI-Maturity-Form-Questions_v2.md
 </footer>
 <script>
 const FW = __DATA__;
@@ -562,7 +570,7 @@ $("json").onclick = () => {
     dimension_weights: {}, respondents: [{id: "R01",
     name: state.name || "Respondent 01", email: "", profile: state.profile,
     answers}]};
-  download("respostas.json", JSON.stringify(out, null, 2),
+  download("responses.json", JSON.stringify(out, null, 2),
     "application/json");
 };
 $("csv").onclick = () => {
@@ -640,7 +648,7 @@ def write_xlsx(fw: dict, path: Path) -> None:
         "importer maps columns by the ID prefix.",
         "Scored columns: L0 to L4 or NA (prefix at the start). R-Q3 "
         "accepts several options separated by ';'.",
-        "An illustrative filled example is coleta/v2-mock-forms-export"
+        "An illustrative filled example is collection/v2-mock-forms-export"
         ".xlsx (synthetic data).",
         "Generated by scripts/generate_v2_collection.py.",
     ):

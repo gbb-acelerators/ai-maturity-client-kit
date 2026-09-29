@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compare two assessment rounds (v1 or v2 respostas.json files).
+"""Compare two assessment rounds (v1 or v2 responses.json files).
 
 - v2 → v2: overall, dimension and question deltas (same questions).
 - v1 → v2: indicative baseline through the v1 lineage in
@@ -9,8 +9,8 @@
   a like-for-like trend.
 - v1 → v1: overall, pillar and question deltas.
 
-Writes saida/comparacao-rodadas.json and saida/comparacao-rodadas.md;
-with --pdf also saida/comparacao-rodadas.pdf in the language of the AFTER
+Writes output/round-comparison.json and output/round-comparison.md;
+with --pdf also output/round-comparison.pdf in the language of the AFTER
 round (or --lang).
 
 Usage:
@@ -189,7 +189,7 @@ def to_markdown(result: dict) -> str:
 def render_pdf(result: dict, after: dict, out: Path,
                lang: str | None) -> Path:
     """Client-facing PDF of the comparison, with the v2 report style."""
-    sys.path.insert(0, str(ROOT / "relatorios" / "scripts"))
+    sys.path.insert(0, str(ROOT / "reports" / "scripts"))
     import branding
     import build_report_v2 as rep
 
@@ -217,16 +217,16 @@ def render_pdf(result: dict, after: dict, out: Path,
     }
     env = rep.make_env(locale)
     return rep.render_pdf(env, "v2_round_comparison.html.j2", context, out,
-                          "comparacao-rodadas")
+                          "round-comparison")
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("before")
     ap.add_argument("after")
-    ap.add_argument("--out", default=str(ROOT / "saida"))
+    ap.add_argument("--out", default=str(ROOT / "output"))
     ap.add_argument("--pdf", action="store_true",
-                    help="also render comparacao-rodadas.pdf")
+                    help="also render round-comparison.pdf")
     ap.add_argument("--lang", choices=("en", "pt-br", "es"))
     args = ap.parse_args()
     before, after = load(Path(args.before)), load(Path(args.after))
@@ -243,12 +243,12 @@ def main() -> int:
         return 1
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-    (out / "comparacao-rodadas.json").write_text(
+    (out / "round-comparison.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8")
-    (out / "comparacao-rodadas.md").write_text(to_markdown(result),
+    (out / "round-comparison.md").write_text(to_markdown(result),
                                                encoding="utf-8")
-    print(f"✓ {out / 'comparacao-rodadas.md'} ({result['mode']})")
+    print(f"✓ {out / 'round-comparison.md'} ({result['mode']})")
     if args.pdf:
         pdf = render_pdf(result, after, out, args.lang)
         print(f"✓ {pdf}")

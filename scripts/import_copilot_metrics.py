@@ -16,7 +16,7 @@ Phase 3 "Multi-agent"). Licensed seats are not part of these reports;
 pass them with --seats or --seats-file (the response of the Copilot
 user management API, which has ``total_seats``).
 
-Writes saida/telemetria.json. The v2 reports compare it with D4-Q1 and
+Writes output/telemetry.json. The v2 reports compare it with D4-Q1 and
 D9-Q1 when the file is present.
 
 Usage:
@@ -130,7 +130,7 @@ def main() -> int:
     group = ap.add_mutually_exclusive_group()
     group.add_argument("--seats", type=int, help="licensed Copilot seats")
     group.add_argument("--seats-file", help="Copilot seats API response")
-    ap.add_argument("--out", default=str(ROOT / "saida"))
+    ap.add_argument("--out", default=str(ROOT / "output"))
     args = ap.parse_args()
     records = []
     for name in args.files:
@@ -157,10 +157,10 @@ def main() -> int:
     }
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-    (out / "telemetria.json").write_text(
+    (out / "telemetry.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8")
-    print(f"✓ {out / 'telemetria.json'}: day {summary['report_day']}, "
+    print(f"✓ {out / 'telemetry.json'}: day {summary['report_day']}, "
           f"phases {summary['phases']}")
     return 0
 

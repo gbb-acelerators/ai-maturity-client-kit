@@ -10,7 +10,7 @@ Esta encuesta identificada genera el plan de capacitación usado por el liderazg
 | --- | --- | --- | --- |
 | Audiencia | Liderazgo | Desarrolladores anónimos | Desarrolladores identificados |
 | Foco | Madurez organizacional, D1 a D9 | Comportamiento y práctica, `DS-D2` a `DS-D8` | Demanda de aprendizaje y Champions |
-| Salida | 5 PDFs v2 | Insights y JSON de madurez | `saida/plano-capacitacao-<date>.md` |
+| Salida | 5 PDFs v2 | Insights y JSON de madurez | `output/training-plan-<date>.md` |
 | Impacto en el puntaje | Fuente de puntajes v2 | Solo contexto | Solo contexto y auto-fill del wizard |
 
 ## IDs del Learning Survey
@@ -21,29 +21,29 @@ Las etiquetas del banco de preguntas del Learning Survey usan `L#-Q#`. Cuando un
 
 | Archivo | Qué es |
 | --- | --- |
-| [INSTRUCOES-FORMS-LEARNING.md](INSTRUCOES-FORMS-LEARNING.es.md) | Cómo crear el Microsoft Forms identificado. |
-| [perguntas-para-forms-learning.md](perguntas-para-forms-learning.es.md) | Banco canónico en PT-BR. |
-| [perguntas-para-forms-learning.en.md](perguntas-para-forms-learning.es.md) | Banco de preguntas en inglés. |
-| [perguntas-para-forms-learning.es.md](perguntas-para-forms-learning.es.md) | Banco de preguntas en español para recolección. Los scripts escriben EN, PT-BR o ES (`--lang es`). |
+| [FORMS-INSTRUCTIONS-LEARNING.md](FORMS-INSTRUCTIONS-LEARNING.es.md) | Cómo crear el Microsoft Forms identificado. |
+| [question-bank-learning.md](question-bank-learning.md) | Banco de preguntas en inglés. |
+| [question-bank-learning.pt-br.md](question-bank-learning.pt-br.md) | Banco de preguntas en portugués (Brasil). |
+| [question-bank-learning.es.md](question-bank-learning.es.md) | Banco de preguntas en español. Los scripts escriben EN, PT-BR o ES (`--lang es`). |
 | [template-export-forms-learning.xlsx](template-export-forms-learning.xlsx) | Plantilla Excel. |
-| [respostas-mock-learning.json](respostas-mock-learning.json) | JSON estructurado de ejemplo. |
+| [mock-responses-learning.json](mock-responses-learning.json) | JSON estructurado de ejemplo. |
 | [scripts/](scripts/) | Generador del plan de capacitación. |
 
 ## Flujo de uso
 
 ```text
-1. Crea el Forms con INSTRUCOES-FORMS-LEARNING.md.
+1. Crea el Forms con FORMS-INSTRUCTIONS-LEARNING.md.
 2. Compártelo con los desarrolladores.
 3. Exporta respuestas a Excel.
-4. Ejecuta /importar-survey-learning.
-5. Ejecuta /plano-capacitacao.
-6. Ejecuta /wizard-implementacao Mode D, o ejecuta wizard/scripts/auto_fill_from_plano.py.
+4. Ejecuta /import-survey-learning.
+5. Ejecuta /training-plan.
+6. Ejecuta /implementation-wizard Mode D, o ejecuta wizard/scripts/auto_fill_from_plan.py.
 7. Ejecuta make pipeline para actualizar v2_implementation_guide.pdf.
 ```
 
 ## Qué contiene el plan de capacitación
 
-`saida/plano-capacitacao-<date>.md` se escribe en inglés de forma predeterminada, o en PT-BR o ES con `--lang pt-br` o `--lang es`. Incluye temas solicitados, cohorts sugeridos por `DS-D#`, Champions, pares de mentoría, un calendario de 90 días, barreras, wishlist y acciones priorizadas.
+`output/training-plan-<date>.md` se escribe en inglés de forma predeterminada, o en PT-BR o ES con `--lang pt-br` o `--lang es`. Incluye temas solicitados, cohorts sugeridos por `DS-D#`, Champions, pares de mentoría, un calendario de 90 días, barreras, wishlist y acciones priorizadas.
 
 ## Conexión con el wizard
 

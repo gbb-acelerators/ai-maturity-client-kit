@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build framework.v2.json from the v2 question bank (single source).
 
-The English text comes from coleta/AI-Maturity-Form-Questions_v2.md.
+The English text comes from collection/AI-Maturity-Form-Questions_v2.md.
 PT-BR and ES text comes from framework/v2/i18n.<lang>.json. Kit design
 choices (units, audiences, strategies, report groups, level names) are
 in framework/v2/config.json.
@@ -19,7 +19,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SPEC = ROOT / "coleta" / "AI-Maturity-Form-Questions_v2.md"
+SPEC = ROOT / "collection" / "AI-Maturity-Form-Questions_v2.md"
 CONF_DIR = ROOT / "framework" / "v2"
 OUT = ROOT / "framework.v2.json"
 LANGS = ("pt-br", "es")
@@ -228,7 +228,7 @@ def build() -> tuple[dict, list[str]]:
     fw = {
         "$schema": "./framework.v2.schema.json",
         "version": spec["version"],
-        "source": "coleta/AI-Maturity-Form-Questions_v2.md",
+        "source": "collection/AI-Maturity-Form-Questions_v2.md",
         "level_names": conf["level_names"],
         "level_bands": conf["level_bands"],
         "coverage_bands": conf["coverage_bands"],

@@ -20,7 +20,7 @@ import engine_v2 as v2  # noqa: E402
 import validate_framework_v2 as val  # noqa: E402
 
 FW = json.loads((ROOT / "framework.v2.json").read_text("utf-8"))
-MOCK = json.loads((ROOT / "respostas.v2.json.example").read_text("utf-8"))
+MOCK = json.loads((ROOT / "responses.v2.json.example").read_text("utf-8"))
 QIDS = [q["id"] for d in FW["dimensions"] for q in d["questions"]]
 
 
@@ -184,9 +184,9 @@ class ImporterRoundTripTest(unittest.TestCase):
         import import_forms_excel as imp
 
         with tempfile.TemporaryDirectory() as tmp:
-            out = Path(tmp) / "respostas.json"
+            out = Path(tmp) / "responses.json"
             args = SimpleNamespace(
-                xlsx=str(ROOT / "coleta" / "v2-mock-forms-export.xlsx"),
+                xlsx=str(ROOT / "collection" / "v2-mock-forms-export.xlsx"),
                 respostas=str(out), log_dir=tmp, organization="X",
                 lang=None, allow_partial=False)
             self.assertEqual(imp.run(args), 0)

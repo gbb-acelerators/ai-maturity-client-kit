@@ -566,7 +566,7 @@
     }
   },
   "survey_crosswalk": {
-    "_comment": "Developer Survey dimensions (DS-D#) and the v2 questions they help validate. Used by survey-devs/scripts/gerar_insights.py and the v2 summary report. Cross-reference only: survey results never change v2 scores.",
+    "_comment": "Developer Survey dimensions (DS-D#) and the v2 questions they help validate. Used by survey-devs/scripts/generate_insights.py and the v2 summary report. Cross-reference only: survey results never change v2 scores.",
     "DS-D2": [
       "D4-Q1",
       "D4-Q2",

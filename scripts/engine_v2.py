@@ -1,13 +1,13 @@
 """Scoring engine for framework v2 (9 dimensions, 61 questions).
 
-Implements section 8 of coleta/AI-Maturity-Form-Questions_v2.md:
+Implements section 8 of collection/AI-Maturity-Form-Questions_v2.md:
 pooled question means, dimension and overall scores, half-open level
 bands, coverage status, low-confidence, amplification-risk,
 perception-gap, respondent-divergence and scope flags, evidence
 coverage, persona scores,
 gaps, priorities and strategy recommendations.
 
-Called by scripts/assessment_engine.py when respostas.json declares
+Called by scripts/assessment_engine.py when responses.json declares
 metadata.framework_version 2.x.
 """
 from __future__ import annotations
@@ -591,7 +591,7 @@ def compute_recommendations(fw: dict, gaps: dict, respostas: dict,
     return {
         "metadata": {"computed_at": now_iso(),
                      "framework_version": fw["version"],
-                     "based_on": "saida/gaps.json"},
+                     "based_on": "output/gaps.json"},
         "ranked_strategies": [{"rank": i, **s}
                               for i, s in enumerate(ranked, start=1)],
         "skipped_strategies": skipped,

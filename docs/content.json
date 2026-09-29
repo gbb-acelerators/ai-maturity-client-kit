@@ -106,13 +106,13 @@
           {
             "kind": "in",
             "num": "INPUT",
-            "name": "respostas.json",
+            "name": "responses.json",
             "hint": "ou .xlsx do Forms"
           },
           {
             "kind": "core",
             "num": "1",
-            "name": "/calcular-scores",
+            "name": "/calculate-scores",
             "hint": "engine v2 determinístico"
           },
           {
@@ -124,19 +124,19 @@
           {
             "kind": "core",
             "num": "3",
-            "name": "/recomendar-estrategias",
+            "name": "/recommend-strategies",
             "hint": "S1 - S7 + tecnologias"
           },
           {
             "kind": "core",
             "num": "4",
-            "name": "/wizard-implementacao",
+            "name": "/implementation-wizard",
             "hint": "11 campos, Parte 4"
           },
           {
             "kind": "core",
             "num": "5",
-            "name": "/gerar-relatorio",
+            "name": "/generate-report",
             "hint": "Jinja2 + WeasyPrint"
           },
           {
@@ -246,14 +246,14 @@
           {
             "num": "2",
             "title": "Preencher respostas",
-            "body": "Edite respostas.json manualmente ou importe Excel do Microsoft Forms multi-respondente.",
-            "command": "cp respostas.json.example respostas.json\n# edite levels (0-4) por questão\n# ou: cole respostas-forms.xlsx na raiz"
+            "body": "Edite responses.json manualmente ou importe Excel do Microsoft Forms multi-respondente.",
+            "command": "cp responses.json.example responses.json\n# edite levels (0-4) por questão\n# ou: cole forms-responses.xlsx na raiz"
           },
           {
             "num": "3",
             "title": "Rodar o pipeline",
             "body": "Copilot Chat em modo Agent. Use o concierge ou o orquestrador direto.",
-            "command": "@ai-maturity-assistant\n# ou:\n/pipeline-completo"
+            "command": "@ai-maturity-assistant\n# ou:\n/full-pipeline"
           }
         ]
       },
@@ -267,7 +267,7 @@
             "desc": "Concierge que conduz o cliente"
           },
           {
-            "cmd": "/pipeline-completo",
+            "cmd": "/full-pipeline",
             "desc": "Orquestra do JSON aos 5 PDFs"
           },
           {
@@ -275,15 +275,15 @@
             "desc": "Wrapper de alto nível"
           },
           {
-            "cmd": "/importar-respostas-excel",
+            "cmd": "/import-responses",
             "desc": "Forms / xlsx para JSON"
           },
           {
-            "cmd": "/preencher-planilha",
+            "cmd": "/fill-workbook",
             "desc": "Excel auditável"
           },
           {
-            "cmd": "/calcular-scores",
+            "cmd": "/calculate-scores",
             "desc": "engine v2 determinístico"
           },
           {
@@ -291,19 +291,19 @@
             "desc": "Prioridades P0 a P3"
           },
           {
-            "cmd": "/recomendar-estrategias",
+            "cmd": "/recommend-strategies",
             "desc": "Mapeia para S1-S7"
           },
           {
-            "cmd": "/wizard-implementacao",
+            "cmd": "/implementation-wizard",
             "desc": "11 campos, PDF da Parte 4"
           },
           {
-            "cmd": "/gerar-relatorio",
+            "cmd": "/generate-report",
             "desc": "5 PDFs WeasyPrint"
           },
           {
-            "cmd": "/importar-survey-devs",
+            "cmd": "/import-survey-devs",
             "desc": "Survey anônimo"
           },
           {
@@ -311,11 +311,11 @@
             "desc": "Maturidade L0-L4 devs"
           },
           {
-            "cmd": "/importar-survey-learning",
+            "cmd": "/import-survey-learning",
             "desc": "Survey identificado"
           },
           {
-            "cmd": "/plano-capacitacao",
+            "cmd": "/training-plan",
             "desc": "Roadmap com inscritos"
           }
         ]
@@ -330,7 +330,7 @@
             "answerHtml": "Para consultoria séria, rode os 3 nessa ordem: <strong>Developer Survey</strong> anônimo, <strong>Learning Survey</strong> identificado, <strong>Assessment principal</strong> com liderança informada. Para baseline rápido apenas do board, rode só o Assessment principal. O agente <code>@ai-maturity-assistant</code> te guía na escolha."
           },
           {
-            "summary": "Os comandos /calcular-scores e /gap-analysis não aparecem ao digitar /",
+            "summary": "Os comandos /calculate-scores e /gap-analysis não aparecem ao digitar /",
             "answerHtml": "Copilot Chat precisa estar em <strong>modo Agent</strong>. Clique no dropdown ao lado do ícone do Copilot e escolha <strong>Agent</strong>. Se ainda não aparecer, recarregue a janela do VS Code com <code>Cmd/Ctrl+Shift+P</code> e <code>Developer: Reload Window</code>."
           },
           {
@@ -339,11 +339,11 @@
           },
           {
             "summary": "Tem dados de exemplo para testar sem preencher tudo?",
-            "answerHtml": "Sim. O kit vem com <code>respostas.json.example</code>, Cliente Exemplo S.A. com 46 respostas mockadas, e respondentes mock para os 2 surveys. Rode <code>cp respostas.json.example respostas.json</code> e depois <code>/pipeline-completo</code> para ver o output completo em aproximadamente 3 minutos."
+            "answerHtml": "Sim. O kit vem com <code>responses.json.example</code>, Cliente Exemplo S.A. com 46 respostas mockadas, e respondentes mock para os 2 surveys. Rode <code>cp responses.json.example responses.json</code> e depois <code>/full-pipeline</code> para ver o output completo em aproximadamente 3 minutos."
           },
           {
             "summary": "Como agrego respostas de multiplos respondentes do Forms?",
-            "answerHtml": "A skill <code>/importar-respostas-excel</code> faz <strong>média automática</strong> por questão quando o Excel tem múltiplas linhas. Mesmo comportamento da plataforma web. Mínimo recomendado: 3 respondentes para o assessment principal, 5 para o Developer Survey."
+            "answerHtml": "A skill <code>/import-responses</code> faz <strong>média automática</strong> por questão quando o Excel tem múltiplas linhas. Mesmo comportamento da plataforma web. Mínimo recomendado: 3 respondentes para o assessment principal, 5 para o Developer Survey."
           },
           {
             "summary": "Preciso instalar dependencias Python?",
@@ -351,7 +351,7 @@
           },
           {
             "summary": "Posso customizar o branding dos PDFs?",
-            "answerHtml": "O kit usa a identidade <strong>paulasilva-ms</strong>, com paleta Microsoft 4 cores. Para customizar, edite <code>relatorios/scripts/branding.py</code> com suas constantes e re-renderize. Os 5 templates Jinja2 em <code>relatorios/templates/</code> consomem essas variaveis automaticamente."
+            "answerHtml": "O kit usa a identidade <strong>paulasilva-ms</strong>, com paleta Microsoft 4 cores. Para customizar, edite <code>reports/scripts/branding.py</code> com suas constantes e re-renderize. Os 5 templates Jinja2 em <code>reports/templates/</code> consomem essas variaveis automaticamente."
           },
           {
             "summary": "Como funciona a integração entre os assessment v2 + surveys?",
@@ -498,13 +498,13 @@
           {
             "kind": "in",
             "num": "INPUT",
-            "name": "respostas.json",
+            "name": "responses.json",
             "hint": "or Forms .xlsx"
           },
           {
             "kind": "core",
             "num": "1",
-            "name": "/calcular-scores",
+            "name": "/calculate-scores",
             "hint": "Deterministic v2 engine"
           },
           {
@@ -516,19 +516,19 @@
           {
             "kind": "core",
             "num": "3",
-            "name": "/recomendar-estrategias",
+            "name": "/recommend-strategies",
             "hint": "S1 to S7 + tech"
           },
           {
             "kind": "core",
             "num": "4",
-            "name": "/wizard-implementacao",
+            "name": "/implementation-wizard",
             "hint": "11 fields Part 4"
           },
           {
             "kind": "core",
             "num": "5",
-            "name": "/gerar-relatorio",
+            "name": "/generate-report",
             "hint": "Jinja2 + WeasyPrint"
           },
           {
@@ -638,14 +638,14 @@
           {
             "num": "2",
             "title": "Fill responses",
-            "body": "Edit respostas.json manually or import Microsoft Forms Excel for multiple respondents.",
-            "command": "cp respostas.json.example respostas.json\n# edit levels (0-4) per question\n# or: drop respostas-forms.xlsx at root"
+            "body": "Edit responses.json manually or import Microsoft Forms Excel for multiple respondents.",
+            "command": "cp responses.json.example responses.json\n# edit levels (0-4) per question\n# or: drop forms-responses.xlsx at root"
           },
           {
             "num": "3",
             "title": "Run the pipeline",
             "body": "Copilot Chat in Agent mode. Use the concierge or the direct orchestrator.",
-            "command": "@ai-maturity-assistant\n# or:\n/pipeline-completo"
+            "command": "@ai-maturity-assistant\n# or:\n/full-pipeline"
           }
         ]
       },
@@ -659,7 +659,7 @@
             "desc": "Concierge that guides the client"
           },
           {
-            "cmd": "/pipeline-completo",
+            "cmd": "/full-pipeline",
             "desc": "Orchestrates JSON to 5 PDFs"
           },
           {
@@ -667,15 +667,15 @@
             "desc": "High-level wrapper"
           },
           {
-            "cmd": "/importar-respostas-excel",
+            "cmd": "/import-responses",
             "desc": "Forms / xlsx to JSON"
           },
           {
-            "cmd": "/preencher-planilha",
+            "cmd": "/fill-workbook",
             "desc": "Auditable spreadsheet"
           },
           {
-            "cmd": "/calcular-scores",
+            "cmd": "/calculate-scores",
             "desc": "Deterministic v2 engine"
           },
           {
@@ -683,19 +683,19 @@
             "desc": "P0 to P3 priorities"
           },
           {
-            "cmd": "/recomendar-estrategias",
+            "cmd": "/recommend-strategies",
             "desc": "Maps to S1-S7"
           },
           {
-            "cmd": "/wizard-implementacao",
+            "cmd": "/implementation-wizard",
             "desc": "11 fields Part 4 PDF"
           },
           {
-            "cmd": "/gerar-relatorio",
+            "cmd": "/generate-report",
             "desc": "5 PDFs WeasyPrint"
           },
           {
-            "cmd": "/importar-survey-devs",
+            "cmd": "/import-survey-devs",
             "desc": "Anonymous survey"
           },
           {
@@ -703,11 +703,11 @@
             "desc": "L0-L4 dev maturity"
           },
           {
-            "cmd": "/importar-survey-learning",
+            "cmd": "/import-survey-learning",
             "desc": "Identified survey"
           },
           {
-            "cmd": "/plano-capacitacao",
+            "cmd": "/training-plan",
             "desc": "Roadmap with attendees"
           }
         ]
@@ -722,7 +722,7 @@
             "answerHtml": "For serious consulting, run all 3 in this order: <strong>Developer Survey</strong> anonymous, <strong>Learning Survey</strong> identified, then the <strong>main Assessment</strong> with informed leadership. For a quick board baseline, run only the main Assessment. The <code>@ai-maturity-assistant</code> agent guides the choice."
           },
           {
-            "summary": "The /calcular-scores and /gap-analysis commands do not appear when I type /",
+            "summary": "The /calculate-scores and /gap-analysis commands do not appear when I type /",
             "answerHtml": "Copilot Chat needs to be in <strong>Agent mode</strong>. Click the dropdown next to the Copilot icon and pick <strong>Agent</strong>. If it still does not show, reload the VS Code window with <code>Cmd/Ctrl+Shift+P</code> and <code>Developer: Reload Window</code>."
           },
           {
@@ -731,11 +731,11 @@
           },
           {
             "summary": "Are there sample data to test without filling everything?",
-            "answerHtml": "Yes. The kit ships with <code>respostas.json.example</code>, Cliente Exemplo S.A. with 46 mocked responses, and mock respondents for the 2 surveys. Run <code>cp respostas.json.example respostas.json</code>, then <code>/pipeline-completo</code> to see the complete output in about 3 minutes."
+            "answerHtml": "Yes. The kit ships with <code>responses.json.example</code>, Cliente Exemplo S.A. with 46 mocked responses, and mock respondents for the 2 surveys. Run <code>cp responses.json.example responses.json</code>, then <code>/full-pipeline</code> to see the complete output in about 3 minutes."
           },
           {
             "summary": "How do I aggregate multiple Forms respondents?",
-            "answerHtml": "The <code>/importar-respostas-excel</code> skill does <strong>automatic mean</strong> per question when the Excel has multiple rows. Same behavior as the web platform. Recommended minimum: 3 respondents for the main assessment, 5 for the Developer Survey."
+            "answerHtml": "The <code>/import-responses</code> skill does <strong>automatic mean</strong> per question when the Excel has multiple rows. Same behavior as the web platform. Recommended minimum: 3 respondents for the main assessment, 5 for the Developer Survey."
           },
           {
             "summary": "Do I need to install Python dependencies?",
@@ -743,7 +743,7 @@
           },
           {
             "summary": "Can I customize the PDF branding?",
-            "answerHtml": "The kit uses the <strong>paulasilva-ms</strong> identity with the Microsoft 4-color palette. To customize, edit <code>relatorios/scripts/branding.py</code> with your constants and re-render. The 5 Jinja2 templates in <code>relatorios/templates/</code> consume these variables automatically."
+            "answerHtml": "The kit uses the <strong>paulasilva-ms</strong> identity with the Microsoft 4-color palette. To customize, edit <code>reports/scripts/branding.py</code> with your constants and re-render. The 5 Jinja2 templates in <code>reports/templates/</code> consume these variables automatically."
           },
           {
             "summary": "How do the assessment v2 + surveys integrate?",
@@ -890,13 +890,13 @@
           {
             "kind": "in",
             "num": "INPUT",
-            "name": "respostas.json",
+            "name": "responses.json",
             "hint": "o .xlsx del Forms"
           },
           {
             "kind": "core",
             "num": "1",
-            "name": "/calcular-scores",
+            "name": "/calculate-scores",
             "hint": "Engine v2 determinístico"
           },
           {
@@ -908,19 +908,19 @@
           {
             "kind": "core",
             "num": "3",
-            "name": "/recomendar-estrategias",
+            "name": "/recommend-strategies",
             "hint": "S1 a S7 + tecnologías"
           },
           {
             "kind": "core",
             "num": "4",
-            "name": "/wizard-implementacao",
+            "name": "/implementation-wizard",
             "hint": "11 campos, Parte 4"
           },
           {
             "kind": "core",
             "num": "5",
-            "name": "/gerar-relatorio",
+            "name": "/generate-report",
             "hint": "Jinja2 + WeasyPrint"
           },
           {
@@ -1030,14 +1030,14 @@
           {
             "num": "2",
             "title": "Llenar respuestas",
-            "body": "Edita respostas.json manualmente o importa Excel del Microsoft Forms multi-respondente.",
-            "command": "cp respostas.json.example respostas.json\n# edita levels (0-4) por pregunta\n# o: pega respostas-forms.xlsx en la raiz"
+            "body": "Edita responses.json manualmente o importa Excel del Microsoft Forms multi-respondente.",
+            "command": "cp responses.json.example responses.json\n# edita levels (0-4) por pregunta\n# o: pega forms-responses.xlsx en la raiz"
           },
           {
             "num": "3",
             "title": "Ejecutar el pipeline",
             "body": "Copilot Chat en modo Agent. Usa el concierge o el orquestador directo.",
-            "command": "@ai-maturity-assistant\n# o:\n/pipeline-completo"
+            "command": "@ai-maturity-assistant\n# o:\n/full-pipeline"
           }
         ]
       },
@@ -1051,7 +1051,7 @@
             "desc": "Concierge que guía al cliente"
           },
           {
-            "cmd": "/pipeline-completo",
+            "cmd": "/full-pipeline",
             "desc": "Orquesta JSON a 5 PDFs"
           },
           {
@@ -1059,15 +1059,15 @@
             "desc": "Wrapper de alto nivel"
           },
           {
-            "cmd": "/importar-respostas-excel",
+            "cmd": "/import-responses",
             "desc": "Forms / xlsx a JSON"
           },
           {
-            "cmd": "/preencher-planilha",
+            "cmd": "/fill-workbook",
             "desc": "Hoja auditable"
           },
           {
-            "cmd": "/calcular-scores",
+            "cmd": "/calculate-scores",
             "desc": "Engine v2 determinístico"
           },
           {
@@ -1075,19 +1075,19 @@
             "desc": "Prioridades P0 a P3"
           },
           {
-            "cmd": "/recomendar-estrategias",
+            "cmd": "/recommend-strategies",
             "desc": "Mapea a S1-S7"
           },
           {
-            "cmd": "/wizard-implementacao",
+            "cmd": "/implementation-wizard",
             "desc": "11 campos, PDF de la Parte 4"
           },
           {
-            "cmd": "/gerar-relatorio",
+            "cmd": "/generate-report",
             "desc": "5 PDFs WeasyPrint"
           },
           {
-            "cmd": "/importar-survey-devs",
+            "cmd": "/import-survey-devs",
             "desc": "Encuesta anónima"
           },
           {
@@ -1095,11 +1095,11 @@
             "desc": "Madurez devs L0-L4"
           },
           {
-            "cmd": "/importar-survey-learning",
+            "cmd": "/import-survey-learning",
             "desc": "Encuesta identificada"
           },
           {
-            "cmd": "/plano-capacitacao",
+            "cmd": "/training-plan",
             "desc": "Roadmap con inscritos"
           }
         ]
@@ -1114,7 +1114,7 @@
             "answerHtml": "Para consultoría seria, ejecuta las 3 en este orden: <strong>Developer Survey</strong> anónimo, <strong>Learning Survey</strong> identificado, y <strong>Assessment principal</strong> con liderazgo informado. Para baseline rápido del board, ejecuta solo el Assessment principal. El agente <code>@ai-maturity-assistant</code> te guía en la eleccion."
           },
           {
-            "summary": "Los comandos /calcular-scores y /gap-analysis no aparecen al escribir /",
+            "summary": "Los comandos /calculate-scores y /gap-analysis no aparecen al escribir /",
             "answerHtml": "Copilot Chat necesita estar en <strong>modo Agent</strong>. Haz clic en el dropdown junto al icono de Copilot y elige <strong>Agent</strong>. Si aun no aparece, recarga la ventana de VS Code con <code>Cmd/Ctrl+Shift+P</code> y <code>Developer: Reload Window</code>."
           },
           {
@@ -1123,11 +1123,11 @@
           },
           {
             "summary": "Hay datos de ejemplo para probar sin llenar todo?",
-            "answerHtml": "Si. El kit incluye <code>respostas.json.example</code>, Cliente Exemplo S.A. con 46 respuestas simuladas, y respondentes mock para las 2 encuestas. Ejecuta <code>cp respostas.json.example respostas.json</code> y luego <code>/pipeline-completo</code> para ver el output completo en aproximadamente 3 minutos."
+            "answerHtml": "Si. El kit incluye <code>responses.json.example</code>, Cliente Exemplo S.A. con 46 respuestas simuladas, y respondentes mock para las 2 encuestas. Ejecuta <code>cp responses.json.example responses.json</code> y luego <code>/full-pipeline</code> para ver el output completo en aproximadamente 3 minutos."
           },
           {
             "summary": "Como agrego multiples respondentes del Forms?",
-            "answerHtml": "La skill <code>/importar-respostas-excel</code> hace <strong>promedio automático</strong> por pregunta cuando el Excel tiene multiples filas. Mismo comportamiento que la plataforma web. Mínimo recomendado: 3 respondentes para el assessment principal, 5 para el Developer Survey."
+            "answerHtml": "La skill <code>/import-responses</code> hace <strong>promedio automático</strong> por pregunta cuando el Excel tiene multiples filas. Mismo comportamiento que la plataforma web. Mínimo recomendado: 3 respondentes para el assessment principal, 5 para el Developer Survey."
           },
           {
             "summary": "Necesito instalar dependencias de Python?",
@@ -1135,7 +1135,7 @@
           },
           {
             "summary": "Puedo personalizar el branding de los PDFs?",
-            "answerHtml": "El kit usa la identidad <strong>paulasilva-ms</strong>, con paleta Microsoft 4 colores. Para personalizar, edita <code>relatorios/scripts/branding.py</code> con tus constantes y re-renderiza. Los 5 templates Jinja2 en <code>relatorios/templates/</code> consumen estas variables automáticamente."
+            "answerHtml": "El kit usa la identidad <strong>paulasilva-ms</strong>, con paleta Microsoft 4 colores. Para personalizar, edita <code>reports/scripts/branding.py</code> con tus constantes y re-renderiza. Los 5 templates Jinja2 en <code>reports/templates/</code> consumen estas variables automáticamente."
           },
           {
             "summary": "Como se integran las 3 encuestas?",

@@ -4,6 +4,53 @@
 
 All notable changes to the AI Maturity client kit. Dates are ISO 8601.
 
+## [2.0.2] - 2026-09-29 (English file and folder names)
+
+The framework (questions, scale and scoring) is unchanged: it is still 2.0.1.
+
+### Changed
+
+- Every file and folder name is in English. Language copies only add
+  `.pt-br` or `.es` before the extension. Renames:
+
+| Before | Now |
+| --- | --- |
+| `coleta/` | `collection/` |
+| `formularios/` | `forms/` |
+| `referencia/`, `referencia/dimensoes/`, `referencia/exemplo-saida/` | `reference/`, `reference/dimensions/`, `reference/sample-output/` |
+| `relatorios/` | `reports/` |
+| `saida/` | `output/` |
+| `respostas.json`, `respostas.json.example`, `respostas.v2.json.example` | `responses.json`, `responses.json.example`, `responses.v2.json.example` |
+| `respostas-forms.xlsx`, `respostas-survey-devs.xlsx`, `respostas-survey-learning.xlsx` | `forms-responses.xlsx`, `survey-devs-responses.xlsx`, `survey-learning-responses.xlsx` |
+| `GUIA-PASSO-A-PASSO.md` | `STEP-BY-STEP.md` |
+| `INSTRUCOES-FORMS.md`, `INSTRUCOES-FORMS-DEVS.md`, `INSTRUCOES-FORMS-LEARNING.md` | `FORMS-INSTRUCTIONS.md`, `FORMS-INSTRUCTIONS-DEVS.md`, `FORMS-INSTRUCTIONS-LEARNING.md` |
+| `perguntas-para-forms.md` (PT-BR), `.en.md`, `.es.md` and the `-devs` and `-learning` banks | `question-bank.md` (EN), `.pt-br.md`, `.es.md` and the `-devs` and `-learning` banks |
+| `RUBRICA-MATURIDADE.md` | `MATURITY-RUBRIC.md` |
+| `pontuacao-e-calculo.md` and `.xlsx`, `calculadora-pontuacao.html` | `scoring-and-calculation.md` and `.xlsx`, `scoring-calculator.html` |
+| v1 `P1-produtividade-do-desenvolvedor`, `P2-ciclo-de-vida-devops`, `P3-plataforma-de-aplicações` | `P1-developer-productivity`, `P2-devops-lifecycle`, `P3-application-platform` |
+| `recomendacoes.json`, `telemetria.json`, `comparacao-rodadas.*` | `recommendations.json`, `telemetry.json`, `round-comparison.*` |
+| `pontuacao-v2-<date>.xlsx`, `pontuacao-preenchida-<date>.xlsx` | `scoring-v2-<date>.xlsx`, `scoring-v1-<date>.xlsx` |
+| `maturidade-developer-survey-<date>.json`, `plano-capacitacao-<date>.md`, `*-EXEMPLO.*` | `developer-survey-maturity-<date>.json`, `training-plan-<date>.md`, `*-EXAMPLE.*` |
+| `merge_offline_respostas.py`, `calcular_maturidade.py`, `gerar_insights.py`, `gerar_plano_capacitacao.py`, `auto_fill_from_plano.py` | `merge_offline_responses.py`, `calculate_maturity.py`, `generate_insights.py`, `generate_training_plan.py`, `auto_fill_from_plan.py` |
+| `/calcular-scores`, `/gerar-relatorio`, `/importar-respostas-excel`, `/importar-survey-devs`, `/importar-survey-learning` | `/calculate-scores`, `/generate-report`, `/import-responses`, `/import-survey-devs`, `/import-survey-learning` |
+| `/plano-capacitacao`, `/preencher-planilha`, `/recomendar-estrategias`, `/wizard-implementacao`, `/pipeline-completo` | `/training-plan`, `/fill-workbook`, `/recommend-strategies`, `/implementation-wizard`, `/full-pipeline` |
+| `make clean-saida`, `--respostas`, `--plano` | `make clean-output`, `--responses`, `--plan` (the old flags still work) |
+
+- The question banks follow the doc convention: the base file is
+  English, with `.pt-br.md` and `.es.md` copies and a language line.
+  Every package still ships the three banks.
+- `kit-en/`, `kit-es/` and `scripts/build_kit_docs.py` were removed:
+  every package now has the same file and folder names, with its
+  language under the base names.
+
+### Compatibility
+
+- A `respostas.json` from an older kit is still read when there is no
+  `responses.json` (the scripts print a note asking to rename it).
+- `.gitignore` and the package builder still exclude the old client
+  file names and the old `saida/` folder, so older client data is never
+  committed or packaged.
+
 ## [2.0.1] - 2026-09-28 (framework v2)
 
 ### Added
@@ -21,7 +68,7 @@ All notable changes to the AI Maturity client kit. Dates are ISO 8601.
   of section 8 (weights, targets, priorities, strategies, amplification
   risk) with a parity test against the engine. The template
   `wizard/implementation-guide-inputs.template.json` keeps guidance in
-  `_guide` and empty values. `auto_fill_from_plano.py` supports ES and
+  `_guide` and empty values. `auto_fill_from_plan.py` supports ES and
   converts the calendar and cohorts into tables.
 - Evidence cross-checks: `scripts/scan_repos_ai_config.py`
   (`make scan-repos`) places repositories on the RAMP levels [47] and
@@ -31,11 +78,11 @@ All notable changes to the AI Maturity client kit. Dates are ISO 8601.
   summary PDF shows both and flags answers above the evidence.
 - Respondent divergence flag (standard deviation of respondent dimension
   scores of 1.0 or more, with at least 3 respondents).
-- Round comparison PDF (`make compare` renders `comparacao-rodadas.pdf`).
-- `make demo` renders the five v2 PDFs from the mock into `saida/demo/`;
-  `make merge` combines offline-form exports into `respostas.json`;
+- Round comparison PDF (`make compare` renders `round-comparison.pdf`).
+- `make demo` renders the five v2 PDFs from the mock into `output/demo/`;
+  `make merge` combines offline-form exports into `responses.json`;
   `make examples-v2` regenerates the reference examples.
-- Per-dimension reference pages in `referencia/dimensoes/` (EN, PT-BR,
+- Per-dimension reference pages in `reference/dimensions/` (EN, PT-BR,
   ES) and scope notes in the reference guide and the offline form.
 - `survey_crosswalk` in `framework.v2.json` links each Developer Survey
   dimension to the v2 questions it helps validate; the summary PDF shows
@@ -52,7 +99,7 @@ All notable changes to the AI Maturity client kit. Dates are ISO 8601.
 
 - Framework v2: 9 dimensions, 61 questions and 5 profile questions
   (`R-Q1` to `R-Q5`), generated from
-  [coleta/AI-Maturity-Form-Questions_v2.md](coleta/AI-Maturity-Form-Questions_v2.md)
+  [collection/AI-Maturity-Form-Questions_v2.md](collection/AI-Maturity-Form-Questions_v2.md)
   into `framework.v2.json` by `scripts/spec_to_framework_v2.py`, with the
   kit design choices in `framework/v2/config.json` and translations in
   `framework/v2/i18n.{pt-br,es}.json`. JSON Schema in
@@ -60,7 +107,7 @@ All notable changes to the AI Maturity client kit. Dates are ISO 8601.
   counts, IDs, citations, the v1 traceability partition, language parity
   and staleness.
 - v2 engine (`scripts/engine_v2.py`), selected by
-  `metadata.framework_version` in `respostas.json`: per-respondent
+  `metadata.framework_version` in `responses.json`: per-respondent
   answers, pooled question means, dimension weights (0.5 to 2.0),
   coverage status, low-confidence, amplification-risk, perception-gap and
   scope flags, evidence coverage with unverified L3/L4 questions, a top 5
@@ -68,8 +115,8 @@ All notable changes to the AI Maturity client kit. Dates are ISO 8601.
   spec references.
 - v2 collection assets from `scripts/generate_v2_collection.py`: question
   banks in PT-BR, EN and ES, the offline form
-  `formularios/assessment-v2.html`, and the Forms export template.
-- v2 reports (`relatorios/scripts/build_report_v2.py`): assessment
+  `forms/assessment-v2.html`, and the Forms export template.
+- v2 reports (`reports/scripts/build_report_v2.py`): assessment
   summary with persona heatmap and flags, plus one roadmap per group of
   dimensions (G1 to G3). `make pipeline` picks v1 or v2 automatically.
 - v2 auditable workbook (`scripts/fill_workbook_v2.py`): every score is
@@ -77,8 +124,8 @@ All notable changes to the AI Maturity client kit. Dates are ISO 8601.
 - Round comparison (`scripts/compare_rounds.py`, `make compare`):
   v2 to v2, v1 to v1, and an indicative v1 to v2 baseline through the v1
   lineage.
-- Illustrative v2 mock (`respostas.v2.json.example`,
-  `coleta/v2-mock-forms-export.xlsx`), `CHANGELOG.md` and a dev
+- Illustrative v2 mock (`responses.v2.json.example`,
+  `collection/v2-mock-forms-export.xlsx`), `CHANGELOG.md` and a dev
   container.
 
 - Complete Portuguese (Brazil) and Spanish versions of every doc, with
@@ -86,7 +133,7 @@ All notable changes to the AI Maturity client kit. Dates are ISO 8601.
   `X.es.md` with the same headings and a three-language switcher line.
   New Spanish copies of every folder guide, `CHANGELOG.pt-br.md`,
   `CHANGELOG.es.md`, and PT-BR and ES copies of the v2 spec
-  (`coleta/AI-Maturity-Form-Questions_v2.pt-br.md`, `.es.md`).
+  (`collection/AI-Maturity-Form-Questions_v2.pt-br.md`, `.es.md`).
 - `scripts/sync_spec_translations.py` generates sections 6 and 7 and the
   reference list of the spec copies from `framework.v2.json`, and checks
   that the English sections round-trip; `make generate-v2` and
@@ -97,9 +144,9 @@ All notable changes to the AI Maturity client kit. Dates are ISO 8601.
 - `scripts/test_i18n_docs.py` covers the package language swap, the spec
   copies and the docs coverage.
 - The archived v1 material in the three languages: Spanish pillar
-  references (`referencia/v1/P1` to `P3` `.es.md`) and Forms
-  instructions (`coleta/v1/INSTRUCOES-FORMS.es.md`); English and Spanish
-  copies of the v1 visual forms (`formularios/v1/*.html`, `*.es.html`,
+  references (`reference/v1/P1` to `P3` `.es.md`) and Forms
+  instructions (`collection/v1/FORMS-INSTRUCTIONS.es.md`); English and Spanish
+  copies of the v1 visual forms (`forms/v1/*.html`, `*.es.html`,
   with the Portuguese original in `*.pt-br.html`) and a Spanish v1
   calculator. The PT-BR v1 docs and forms now also translate the context
   and the suggested evidence, which were in English; KPI names stay in
@@ -167,14 +214,14 @@ All notable changes to the AI Maturity client kit. Dates are ISO 8601.
 - EN and ES packages shipped their root guides with broken `../` links.
 - The Developer Survey insights linked to v1 capabilities; they now link
   to v2 questions.
-- `calcular_maturidade.py --lang pt-br` failed on a dimension without data
+- `calculate_maturity.py --lang pt-br` failed on a dimension without data
   (missing text key).
 - Six `SKILL.md` files had invalid YAML front matter.
-- `referencia/pontuacao-e-calculo.xlsx` stored explanatory text as broken
+- `reference/scoring-and-calculation.xlsx` stored explanatory text as broken
   formulas.
 - The v1 EN calculator and EN question bank showed the Portuguese
   question texts; some v1 EN questions listed the audience "Arquiteto".
-- The v1 example READMEs in `referencia/exemplo-saida/v1/en/` and `es/`
+- The v1 example READMEs in `reference/sample-output/v1/en/` and `es/`
   were in the wrong language or pointed to old paths.
 - The v1 calculator never updated the pillar and overall scores after the
   first answer (the pillar cards lost their marker classes), and the v1
@@ -184,9 +231,9 @@ All notable changes to the AI Maturity client kit. Dates are ISO 8601.
 
 ### Archived
 
-- v1 question banks, instructions and template in `coleta/v1/`, the v1
-  HTML forms in `formularios/v1/`, the v1 pillar references and the v1
-  calculator in `referencia/v1/`. v1 files still score and render
+- v1 question banks, instructions and template in `collection/v1/`, the v1
+  HTML forms in `forms/v1/`, the v1 pillar references and the v1
+  calculator in `reference/v1/`. v1 files still score and render
   unchanged.
 
 ## [1.x] - 2026-05 to 2026-09

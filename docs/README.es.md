@@ -71,7 +71,7 @@ https://paulasilvatech.github.io/ai-maturity-client-kit/downloads/ai-maturity-ki
 
 Estos links siguen públicos con el sitio, incluso si el repositorio vuelve a ser privado.
 
-Idiomas de los paquetes: cada ZIP incluye su idioma bajo los nombres de archivo base. El ZIP PT incluye las copias en portugués (`*.pt-br.md`, `*.pt-br.html`), el ZIP ES las copias en español (`*.es.md`, `*.es.html`) y el ZIP EN los docs en inglés; los ZIPs EN y ES agregan los quickstarts `kit-en/` o `kit-es/` en la raíz. Los bancos de preguntas y la especificación v2 se incluyen en los tres idiomas en cada ZIP. Los informes generados usan inglés por defecto en cada paquete (configura `metadata.language` como `"pt-BR"` o `"es"` para cambiarlo).
+Idiomas de los paquetes: cada ZIP incluye su idioma bajo los nombres de archivo base. El ZIP PT incluye las copias en portugués (`*.pt-br.md`, `*.pt-br.html`), el ZIP ES las copias en español (`*.es.md`, `*.es.html`) y el ZIP EN los docs en inglés, así que todos los ZIPs tienen los mismos nombres de archivos y carpetas. Los bancos de preguntas y la especificación v2 se incluyen en los tres idiomas en cada ZIP. Los informes generados usan inglés por defecto en cada paquete (configura `metadata.language` como `"pt-BR"` o `"es"` para cambiarlo).
 
 ## Deploy
 

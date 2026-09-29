@@ -16,7 +16,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 import assessment_engine as eng  # noqa: E402
 
-EXAMPLE = ROOT / "referencia" / "exemplo-saida" / "v1"
+EXAMPLE = ROOT / "reference" / "sample-output" / "v1"
 
 
 def load(path: Path) -> dict:
@@ -29,7 +29,7 @@ class GoldenExampleTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.framework = load(ROOT / "framework.json")
-        cls.respostas = load(ROOT / "respostas.json.example")
+        cls.respostas = load(ROOT / "responses.json.example")
         cls.scores = eng.compute_scores(cls.framework, cls.respostas)
         precise = eng.compute_scores(
             cls.framework, cls.respostas, precise=True)
@@ -61,7 +61,7 @@ class GoldenExampleTest(unittest.TestCase):
             self.assertEqual(got, exp)
 
     def test_recommendation_ranking(self) -> None:
-        expected = load(EXAMPLE / "recomendacoes.json")
+        expected = load(EXAMPLE / "recommendations.json")
         exp_rank = [
             (s["strategy_id"], s["cumulative_priority"])
             for s in expected["ranked_strategies"]
@@ -77,7 +77,7 @@ class EdgeCaseTest(unittest.TestCase):
 
     def setUp(self) -> None:
         self.framework = load(ROOT / "framework.json")
-        self.base = load(ROOT / "respostas.json.example")
+        self.base = load(ROOT / "responses.json.example")
 
     def _with_levels(self, value) -> dict:
         data = copy.deepcopy(self.base)

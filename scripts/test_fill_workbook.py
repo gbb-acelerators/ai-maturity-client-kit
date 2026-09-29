@@ -38,14 +38,14 @@ class FillWorkbookTest(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.tmp = Path(tempfile.mkdtemp())
         cls.respostas = json.loads(
-            (ROOT / "respostas.json.example").read_text("utf-8"))
+            (ROOT / "responses.json.example").read_text("utf-8"))
         cls.framework = json.loads(
             (ROOT / "framework.json").read_text("utf-8"))
         args = argparse.Namespace(
-            respostas=str(ROOT / "respostas.json.example"),
+            respostas=str(ROOT / "responses.json.example"),
             out=str(cls.tmp))
         assert fw.run(args) == 0
-        cls.path = next(cls.tmp.glob("pontuacao-preenchida-*.xlsx"))
+        cls.path = next(cls.tmp.glob("scoring-v1-*.xlsx"))
         cls.wb = openpyxl.load_workbook(cls.path)
         cls.names = fw.HEADERS[fw.locale_of(cls.respostas)]
 

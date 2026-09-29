@@ -12,27 +12,27 @@ Run the official scripts in order. Never compute or render by hand.
 ```bash
 python3 scripts/assessment_engine.py all
 python3 scripts/fill_workbook.py
-python3 relatorios/scripts/build_payload_and_render.py
+python3 reports/scripts/build_payload_and_render.py
 ```
 
 ## Optional inputs
 
-- Offline form exports: merge first with `python3 scripts/merge_offline_respostas.py <dir>`.
+- Offline form exports: merge first with `python3 scripts/merge_offline_responses.py <dir>`.
 - Evidence cross-checks: `make scan-repos REPOS=...` and `make telemetry METRICS=...`.
 - Wizard: place `implementation-guide-inputs.json` at the root before the final render.
 
 ## v2 default outputs
 
-- `saida/scores.json`
-- `saida/gaps.json`
-- `saida/recomendacoes.json`
-- `saida/pontuacao-v2-<date>.xlsx`
-- `saida/payload_v2.json`
-- `saida/v2_assessment_summary.pdf`
-- `saida/v2_roadmap_g1.pdf`
-- `saida/v2_roadmap_g2.pdf`
-- `saida/v2_roadmap_g3.pdf`
-- `saida/v2_implementation_guide.pdf`
+- `output/scores.json`
+- `output/gaps.json`
+- `output/recommendations.json`
+- `output/scoring-v2-<date>.xlsx`
+- `output/payload_v2.json`
+- `output/v2_assessment_summary.pdf`
+- `output/v2_roadmap_g1.pdf`
+- `output/v2_roadmap_g2.pdf`
+- `output/v2_roadmap_g3.pdf`
+- `output/v2_implementation_guide.pdf`
 
 ## v1 archive
 

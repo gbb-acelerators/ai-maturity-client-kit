@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Write the auditable v2 scoring workbook from respostas.json.
+"""Write the auditable v2 scoring workbook from responses.json.
 
 Every score in the workbook is an Excel formula over the raw answers,
 so a reviewer can trace each number. The engine value sits next to each
@@ -15,7 +15,7 @@ Sheets:
     Overall     weighted mean of the dimensions that have a score
 
 Usage:
-    python3 scripts/fill_workbook_v2.py [--respostas X.json] [--out DIR]
+    python3 scripts/fill_workbook_v2.py [--responses X.json] [--out DIR]
 """
 from __future__ import annotations
 
@@ -27,6 +27,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from kit_files import responses_file  # noqa: E402
 
 
 def level_formula(ref: str, bands: list[dict]) -> str:
@@ -83,7 +84,7 @@ def build(fw: dict, respostas: dict, scores: dict | None, loc: str):
             f"{b['level']} [{b['min']}, {b['max']}"
             + ("]" if i == len(bands) - 1 else ")")
             for i, b in enumerate(bands)),
-        "The Engine column holds the value from saida/scores.json; the "
+        "The Engine column holds the value from output/scores.json; the "
         "formula next to it must match.",
     ]
     for i, text in enumerate(lines, start=1):
@@ -218,7 +219,7 @@ def run(args) -> int:
         return 1
     wb = build(fw, respostas, scores, engine.locale_of(respostas))
     out_dir.mkdir(parents=True, exist_ok=True)
-    out = out_dir / f"pontuacao-v2-{datetime.date.today().isoformat()}.xlsx"
+    out = out_dir / f"scoring-v2-{datetime.date.today().isoformat()}.xlsx"
     wb.save(out)
     print(f"✓ Workbook (v2): {out}")
     if scores is None:
@@ -229,9 +230,14 @@ def run(args) -> int:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--respostas", default=str(ROOT / "respostas.json"))
-    ap.add_argument("--out", default=str(ROOT / "saida"))
-    return run(ap.parse_args())
+    ap.add_argument("--responses", "--respostas", dest="respostas",
+                    default=None,
+                    help="input file (default: responses.json)")
+    ap.add_argument("--out", default=str(ROOT / "output"))
+    args = ap.parse_args()
+    if not args.respostas:
+        args.respostas = str(responses_file(ROOT))
+    return run(args)
 
 
 if __name__ == "__main__":
