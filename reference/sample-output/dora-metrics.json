@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "generated_at": "2026-09-29T20:26:56Z",
+    "source_files": [
+      "dora-metrics.mock.csv"
+    ],
+    "rows": 16,
+    "reference": "DORA delivery metrics [2], [3], [5]",
+    "script": "scripts/import_dora_metrics.py"
+  },
+  "services_total": 12,
+  "services_listed": 10,
+  "services_measured": 8,
+  "services_compared": 6,
+  "shares": {
+    "measured": 0.667,
+    "compared": 0.5
+  },
+  "medians": {
+    "baseline": {
+      "deployment_frequency": 2.5,
+      "lead_time_hours": 103.0,
+      "change_failure_rate": 0.19,
+      "time_to_restore_hours": 11.0
+    },
+    "current": {
+      "deployment_frequency": 3.5,
+      "lead_time_hours": 65.0,
+      "change_failure_rate": 0.18,
+      "time_to_restore_hours": 7.0
+    }
+  },
+  "services": [
+    {
+      "service": "catalog-api",
+      "baseline": {
+        "deployment_frequency": 2.0,
+        "lead_time_hours": 120.0,
+        "change_failure_rate": 0.22,
+        "time_to_restore_hours": 12.0
+      },
+      "current": {
+        "deployment_frequency": 4.0,
+        "lead_time_hours": 60.0,
+        "change_failure_rate": 0.17,
+        "time_to_restore_hours": 6.0
+      }
+    },
+    {
+      "service": "checkout-api",
+      "baseline": {
+        "deployment_frequency": 3.0,
+        "lead_time_hours": 96.0,
+        "change_failure_rate": 0.18,
+        "time_to_restore_hours": 10.0
+      },
+      "current": {
+        "deployment_frequency": 6.0,
+        "lead_time_hours": 40.0,
+        "change_failure_rate": 0.14,
+        "time_to_restore_hours": 5.0
+      }
+    },
+    {
+      "service": "identity",
+      "baseline": {
+        "deployment_frequency": 4.0,
+        "lead_time_hours": 72.0,
+        "change_failure_rate": 0.12,
+        "time_to_restore_hours": 6.0
+      },
+      "current": {
+        "deployment_frequency": 7.0,
+        "lead_time_hours": 30.0,
+        "change_failure_rate": 0.1,
+        "time_to_restore_hours": 3.0
+      }
+    },
+    {
+      "service": "inventory",
+      "baseline": null,
+      "current": {
+        "deployment_frequency": 2.0,
+        "lead_time_hours": 100.0,
+        "change_failure_rate": 0.24,
+        "time_to_restore_hours": 12.0
+      }
+    },
+    {
+      "service": "mobile-bff",
+      "baseline": null,
+      "current": {
+        "deployment_frequency": 5.0,
+        "lead_time_hours": 36.0,
+        "change_failure_rate": 0.12,
+        "time_to_restore_hours": null
+      }
+    },
+    {
+      "service": "notifications",
+      "baseline": {
+        "deployment_frequency": 5.0,
+        "lead_time_hours": 48.0,
+        "change_failure_rate": 0.1,
+        "time_to_restore_hours": 4.0
+      },
+      "current": {
+        "deployment_frequency": 8.0,
+        "lead_time_hours": 24.0,
+        "change_failure_rate": 0.09,
+        "time_to_restore_hours": 2.0
+      }
+    },
+    {
+      "service": "orders",
+      "baseline": null,
+      "current": {
+        "deployment_frequency": 3.0,
+        "lead_time_hours": 80.0,
+        "change_failure_rate": 0.2,
+        "time_to_restore_hours": 10.0
+      }
+    },
+    {
+      "service": "payments",
+      "baseline": {
+        "deployment_frequency": 1.0,
+        "lead_time_hours": 168.0,
+        "change_failure_rate": 0.25,
+        "time_to_restore_hours": 20.0
+      },
+      "current": {
+        "deployment_frequency": 2.0,
+        "lead_time_hours": 90.0,
+        "change_failure_rate": 0.2,
+        "time_to_restore_hours": 9.0
+      }
+    },
+    {
+      "service": "reporting",
+      "baseline": null,
+      "current": {
+        "deployment_frequency": 1.0,
+        "lead_time_hours": 150.0,
+        "change_failure_rate": null,
+        "time_to_restore_hours": null
+      }
+    },
+    {
+      "service": "search",
+      "baseline": {
+        "deployment_frequency": 2.0,
+        "lead_time_hours": 110.0,
+        "change_failure_rate": 0.2,
+        "time_to_restore_hours": 14.0
+      },
+      "current": {
+        "deployment_frequency": 3.0,
+        "lead_time_hours": 70.0,
+        "change_failure_rate": 0.19,
+        "time_to_restore_hours": 8.0
+      }
+    }
+  ]
+}

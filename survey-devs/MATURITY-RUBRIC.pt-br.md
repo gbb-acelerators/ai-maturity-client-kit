@@ -2,7 +2,7 @@
 
 🌐 [English](MATURITY-RUBRIC.md) · Português (Brasil) · [Español](MATURITY-RUBRIC.es.md)
 
-> **Modelo determinístico** que mapeia respostas do survey para níveis L0-L4 em **7 dimensões**, espelhando a escala do assessment principal de maturidade. Score por time (sem scores individuais no relatório, preserva anonimato).
+> **Modelo determinístico** que mapeia respostas do survey para níveis L0-L4 em **7 dimensões**, com as faixas L0-L4 do assessment v1 (veja o princípio 5). Score por time (sem scores individuais no relatório, preserva anonimato).
 
 **Versão da rubrica:** 1.0 · **Data:** 2026-05-08
 **Implementação:** [`scripts/rubric.py`](scripts/rubric.py) · **Executor:** [`scripts/calculate_maturity.py`](scripts/calculate_maturity.py)
@@ -259,19 +259,19 @@ python3 survey-devs/scripts/calculate_maturity.py
 
 ## 🔗 Cross-reference com o assessment principal
 
-A maturidade individual (do survey) **alimenta e valida** as capabilities do assessment organizacional:
+A maturidade individual (do survey) **ajuda a validar** as respostas do assessment organizacional v2. As listas de perguntas vêm de `survey_crosswalk` no [framework.v2.json](../framework.v2.json); o survey nunca altera as notas do v2.
 
-| Dimensão do survey | Capability do assessment | O que validar |
+| Dimensão do survey | Perguntas do assessment v2 | O que validar |
 |---|---|---|
-| **DS-D2** Copilot Adoption | `P1-C1` Assistentes de Codificação IA | Score declarado vs. adoção real declarada por devs |
-| **DS-D3** MS/GH Tooling | `P3-C3` Aplicações IA + `P3-C5` Apps Agênticas | Sofisticação técnica em IA |
-| **DS-D4** AI Dev Practices | `P1-C2` DevEx + `P1-C8` Métricas Produtividade | Práticas estruturadas |
-| **DS-D5** Agent Concepts | `P3-C5` Apps Agênticas | Conhecimento avançado |
-| **DS-D6** Instructions | `P1-C7` Documentação automatizada | Manutenção de contexto IA |
-| **DS-D7** Best Practices | `P1-C5` Onboarding + `P1-C8` Métricas | Cultura de adoção |
-| **DS-D8** Security & Governance | `P2-C4` DevSecOps + `P2-C10` Supply Chain | Governance real |
+| **DS-D2** Copilot Adoption | `D4-Q1`, `D4-Q2`, `D9-Q1` | Score declarado vs. adoção real declarada por devs |
+| **DS-D3** MS/GH Tooling | `D4-Q3`, `D4-Q6`, `D3-Q2`, `D6-Q1` | Sofisticação técnica em IA |
+| **DS-D4** AI Dev Practices | `D3-Q2`, `D5-Q5`, `D2-Q6` | Práticas estruturadas |
+| **DS-D5** Agent Concepts | `D2-Q4`, `D4-Q5` | Conhecimento avançado |
+| **DS-D6** Instructions | `D4-Q4`, `D4-Q5` | Manutenção de contexto IA |
+| **DS-D7** Best Practices | `D2-Q2`, `D9-Q4` | Cultura de adoção |
+| **DS-D8** Security & Governance | `D1-Q2`, `D6-Q1`, `D6-Q4`, `D6-Q5`, `D6-Q7` | Governance real |
 
-> 💡 **Padrão clássico:** liderança avalia P1-C1 como L3, mas survey DS-D2 mostra L1 (60% dos devs raramente usa) → **dissonância** entre estratégia e prática. A skill `/insights-developer-survey` destaca isso na seção 12 do relatório.
+> 💡 **Padrão clássico:** liderança avalia D4-Q1 como L3, mas survey DS-D2 mostra L1 (60% dos devs raramente usa) → **dissonância** entre estratégia e prática. A skill `/insights-developer-survey` destaca isso na seção 12 do relatório.
 
 ## 📊 Calibração e revisão da rubrica
 

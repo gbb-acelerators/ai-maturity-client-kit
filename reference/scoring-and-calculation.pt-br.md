@@ -20,7 +20,7 @@
 6. [Multi-respondente: agregação](#6-multi-respondente-agregação)
 7. [Rótulos de maturidade (mapping de score)](#7-rótulos-de-maturidade-mapping-de-score)
 8. [Gap analysis e priorização](#8-gap-analysis-e-priorização)
-9. [PE Score (Production Engineering Readiness)](#9-pe-score-production-engineering-readiness)
+9. [PE Score (Platform Engineering Readiness)](#9-pe-score-platform-engineering-readiness)
 10. [Persistência (tabelas e materialização)](#10-persistência-tabelas-e-materialização)
 11. [**Exemplo end-to-end: Pilar P1**](#11-exemplo-end-to-end-pilar-p1)
 12. [**Exemplo end-to-end: Pilar P2**](#12-exemplo-end-to-end-pilar-p2)
@@ -195,7 +195,7 @@ Se gap_size ≤ 1e-9 (epsilon flutuante) → descarta (já atingiu meta)
 
 ---
 
-## 9. PE Score (Production Engineering Readiness)
+## 9. PE Score (Platform Engineering Readiness)
 
 > Código de referência: [`scoring.rs:266-304`](../scripts/assessment_engine.py)
 
@@ -204,7 +204,7 @@ Sub-score calculado **apenas com questões marcadas `pe = true`** no seed.
 - Filtra → recalcula capability/pillar/overall com o subconjunto.
 - Mesmo SUMPRODUCT.
 - Se nenhuma questão tiver `pe = true` → retorna `None`.
-- É exibido lado a lado com o overall geral, sinalizando prontidão para produção (resiliência, observabilidade, runbooks, SLOs etc.).
+- É exibido lado a lado com o overall geral, sinalizando a prontidão de platform engineering. As perguntas v1 marcadas com `pe = true` cobrem adoção do portal do desenvolvedor, tempo de setup do ambiente, frequência de deploy, infraestrutura como código, MTTR, workloads em contêineres e specs de API.
 
 ---
 
@@ -409,7 +409,7 @@ Se o assessment completo tem 28 capabilities ativas, P3-C5 com `score = 2.0378` 
 | **Score** | Resultado contínuo `f64 ∈ [0,4]` produzido por agregação. |
 | **Weight** | Peso da questão (`[0.5, 2.0]`, default 1.0) ou da capability. |
 | **Threshold** | Cobertura mínima de questões respondidas: 25 (warning), 40 (ok). |
-| **PE flag** | Marca questões críticas para Production Engineering. Geram um sub-score paralelo. |
+| **PE flag** | Marca questões críticas para Platform Engineering. Geram um sub-score paralelo. |
 | **Gap** | `target − current` por capability. |
 | **Priority score** | `weight × gap` que classifica capability em P0/P1/P2/P3. |
 | **Audience** | Públicos-alvo da questão (developer, sre, security…). Filtra visibilidade no formulário. |

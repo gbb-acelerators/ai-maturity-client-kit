@@ -44,6 +44,7 @@ make pipeline
 # Cross-checks opcionales de evidencia:
 make scan-repos REPOS=~/src
 make telemetry METRICS=copilot-usage.json SEATS=200
+make dora DORA=dora-metrics.csv SERVICES=40
 # Llena implementation-guide-inputs.json con el wizard, luego renderiza de nuevo:
 make pipeline
 ```
@@ -89,12 +90,13 @@ Los scripts son la fuente de verdad. No calcules scores a mano.
 
 ## Cross-checks de evidencia
 
-Dos insumos opcionales ayudan a cuestionar respuestas demasiado confiadas. No cambian los scores.
+Tres insumos opcionales ayudan a cuestionar respuestas demasiado confiadas. No cambian los scores.
 
 - `make scan-repos REPOS=~/src` escanea clones locales usando solo archivos con commit. `make scan-repos ORG=<github-org>` escanea branches predeterminadas mediante la API REST de GitHub y requiere `GITHUB_TOKEN` o `GH_TOKEN`. Salida: `output/repo-scan.json`. El scan ubica repositorios en niveles RAMP L1 a L4 como aproximación basada en patrones. La proporción de repositorios en L2+ limita D4-Q4 por bandas de cobertura, y la proporción en L3+ aparece junto a D4-Q5.
 - `make telemetry METRICS=<Copilot usage metrics report JSON/NDJSON> [SEATS=200]` escribe `output/telemetry.json`. Lee exports de métricas de uso de GitHub Copilot y clasifica fases de adopción: No Cohort, Phase 1 Code first, Phase 2 Agent first, Phase 3 Multi-agent. El export en sí es evidencia para D9-Q1.
+- `make dora DORA=<CSV o JSON> [SERVICES=40]` escribe `output/dora-metrics.json`. Lee una fila por servicio y período (`baseline` antes de la adopción de IA, `current`) con frecuencia de deploy, lead time, tasa de fallas de cambios y tiempo de restauración. Con `SERVICES`, la proporción de servicios comparados con un baseline limita D9-Q2 por las bandas de cobertura. Verifica la cobertura de la medición, no el desempeño de entrega.
 
-La sección 2.2 del PDF de resumen muestra ambos cross-checks y marca respuestas por encima de lo que la evidencia soporta. La guía de implementación lista esos desajustes como riesgos. Si faltan los archivos, el reporte explica cómo producirlos.
+La sección 2.2 del PDF de resumen muestra los cross-checks y marca respuestas por encima de lo que la evidencia soporta. La guía de implementación lista esos desajustes como riesgos. Si faltan los archivos, el reporte explica cómo producirlos.
 
 ## Surveys complementarios
 

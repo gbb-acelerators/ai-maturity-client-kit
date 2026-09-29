@@ -13,7 +13,7 @@ Gerado a partir de `framework.v2.json` (framework 2.0.1) por `scripts/generate_v
 - Cobertura: OK a partir de 37 perguntas com score, WARNING a partir de 25, BLOCKED abaixo disso.
 - Gap = alvo (padrão 3,00) menos score. Prioridade = peso × gap: P0 a partir de 2,40, P1 a partir de 1,60, P2 a partir de 0,90, senão P3.
 - Alertas: baixa confiança (mais de 30% NA), risco de amplificação (D5, D6 ou D8 uma faixa abaixo do geral), diferença de percepção (executivos vs hands-on, ao menos 3 de cada), ressalva de escopo, L3/L4 não verificado (menos de 50% das respostas com evidência), divergência entre respondentes (desvio padrão das notas de dimensão por respondente de 1,00 ou mais, com ao menos 3 respondentes).
-- Checagens cruzadas, quando os arquivos existem: o scan de repositórios (níveis RAMP [47]) limita D4-Q4 pela fração de repositórios com configuração de IA versionada, e as métricas de uso do Copilot [6] limitam D4-Q1 pelas fases de adoção. O relatório sinaliza respostas acima do que a evidência sustenta.
+- Checagens cruzadas, quando os arquivos existem: o scan de repositórios (níveis RAMP [47]) limita D4-Q4 pela fração de repositórios com configuração de IA versionada, as métricas de uso do Copilot [6] limitam D4-Q1 pelas fases de adoção, e as métricas DORA limitam D9-Q2 pela fração de serviços comparados com um baseline. O relatório sinaliza respostas acima do que a evidência sustenta.
 
 ### Faixas de nível
 

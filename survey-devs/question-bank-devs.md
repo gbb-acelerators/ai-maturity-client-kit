@@ -971,17 +971,17 @@ Options:
 
 ---
 
-## Resumo final
+## Final summary
 
-- **9 seções** (1 por tema)
+- **9 sections** (1 per theme)
 - **75 questions** (55 choice + 15 multi + 5 long text)
-- **Tempo estimado:** 20-25 min (rascunho rápido em 10 min)
-- **Respostas esperadas:** quanto mais devs, melhor: mínimo 5, ideal 15+
+- **Estimated time:** 20-25 min (a quick pass takes about 10 min)
+- **Expected responses:** the more developers, the better: minimum 5, ideal 15+
 
-## Próximos passos
+## Next steps
 
-1. Após coletar respostas, **Responses → Open in Excel** no Microsoft Forms
-2. Renomeie o Excel para `survey-devs-responses.xlsx`
-3. Mova para a raiz do `kit-cliente/`
-4. No Copilot Chat (modo Agent): `/import-survey-devs`
-5. Depois: `/insights-developer-survey` para gerar relatório consolidado
+1. After collecting responses, go to **Responses → Open in Excel** in Microsoft Forms
+2. Rename the Excel file to `survey-devs-responses.xlsx`
+3. Move it to the kit root
+4. In Copilot Chat (Agent mode): `/import-survey-devs`
+5. Then run `/insights-developer-survey` to generate the consolidated report

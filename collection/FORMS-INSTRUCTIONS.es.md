@@ -101,7 +101,7 @@ Alinea estos puntos con tu equipo de privacidad o legal antes del lanzamiento (L
 
 El engine ([scripts/assessment_engine.py](../scripts/assessment_engine.py)) sigue la sección 8 de [AI-Maturity-Form-Questions_v2.es.md](AI-Maturity-Form-Questions_v2.es.md): media agrupada por pregunta, media por dimensión, media ponderada de dimensiones, bandas de nivel semiabiertas, y flags de baja confianza, riesgo de amplificación, brecha de percepción, divergencia entre personas encuestadas, alcance, L3/L4 sin verificación y cobertura de evidencia.
 
-Los cross-checks opcionales de evidencia vienen de `make scan-repos` y `make telemetry`. Aparecen en el PDF de resumen y se listan como riesgos en la guía de implementación cuando desafían una respuesta.
+Los cross-checks opcionales de evidencia vienen de `make scan-repos`, `make telemetry` y `make dora`. Aparecen en el PDF de resumen y se listan como riesgos en la guía de implementación cuando desafían una respuesta.
 
 ## Solución de problemas
 

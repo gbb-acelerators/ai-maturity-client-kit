@@ -19,7 +19,7 @@ Eres un ingeniero sénior y redactor técnico que actualiza el repositorio **AI 
 | --- | --- |
 | Especificación v2 (fuente de verdad) | `collection/AI-Maturity-Form-Questions_v2.md` (v2.0.1) |
 | Repositorio del framework | este repositorio (rama `develop`) |
-| Remoto | `paulasilvatech/ai-maturity-client-kit` |
+| Remoto | `gbb-acelerators/ai-maturity-client-kit` (transferido desde `paulasilvatech`) |
 
 Lee toda la especificación v2 antes de cambiar cualquier cosa. Trata estas partes como fijas, a menos que señales un problema y yo apruebe un cambio: IDs y redacción de las preguntas, la escala de respuestas y sus prefijos `L0`-`L4`/`NA`, el patrón de etiqueta `Evidence (<ID>)`, los anclajes de calibración, las reglas de puntuación de la sección 8, la trazabilidad v1→v2 de la sección 9 y las referencias.
 

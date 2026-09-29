@@ -146,7 +146,7 @@ Question L1-Q4 ("Team / Squad") has a placeholder (`[Customize with the organiza
 
 1. **Responses → Open in Excel**
 2. Save as **`survey-learning-responses.xlsx`**
-3. Move to the **root of `kit-cliente/`**
+3. Move to the **kit root**
 4. Check: columns D (Email) and E (Name) must be FILLED IN
 
 ### Step 9 · Analyze with the kit
@@ -163,7 +163,7 @@ Generates `survey-learning/responses-learning.json` (structured).
 /training-plan
 ```
 
-Generates `output/training-plan-<DATE>.md` (in **English by default**; the script accepts `--lang pt-br` for Portuguese (Brazil) and `--lang es` for Spanish) with:
+Generates `output/training-plan-<date>.md` (in **English by default**; the script accepts `--lang pt-br` for Portuguese (Brazil) and `--lang es` for Spanish) with:
 
 - Top 10 requested topics (with a list of pre-validated attendees)
 - Suggested cohorts per dimension D2-D8
@@ -198,10 +198,11 @@ You fill in manually: **program office (TPO)**, **RACI**, **dimension owners** a
 
 The skill detects:
 
-- ✅ `implementation-guide-inputs.json` (from wizard Mode D auto-fill) → populates Part 4 with your Champions and workshops
-- ✅ `output/training-plan-*.md` (from this survey) → enriches roadmap_part4.pdf
-- ✅ `output/insights-developer-survey-*.md` (if you ran it) → cross-references in the appendix
-- ✅ `output/developer-survey-maturity-*.json` (if you ran it) → score_justification.pdf includes "maturity vs declared"
+- ✅ `implementation-guide-inputs.json` (from wizard Mode D auto-fill) → fills the governance, communication, training and quick-win sections of `v2_implementation_guide.pdf` with your Champions and workshops
+- ✅ `output/training-plan-*.md` (from this survey) → the implementation guide names it as the source of the training plan
+- ✅ `output/developer-survey-maturity-*.json` (if you ran the Developer Survey) → `v2_assessment_summary.pdf` shows the survey context next to the v2 questions it informs
+
+Archived v1 inputs still render `roadmap_part4.pdf` and `score_justification.pdf`.
 
 **Output:** 5 production-quality PDFs with REAL learning survey data embedded.
 
@@ -249,7 +250,7 @@ This survey processes personal data (name, email, role, squad, self-assessment).
 
 ### Plan transparency
 
-- Present `training-plan-DATE.md` at an all-hands
+- Present `training-plan-<date>.md` at an all-hands
 - People who asked for workshop X receive an invitation: close the loop
 - Identified Champions are recognized publicly (with consent)
 
@@ -259,7 +260,7 @@ This survey processes personal data (name, email, role, squad, self-assessment).
 
 | Problem | Solution |
 |---|---|
-| Skill does not detect the file | Move it to the root of `kit-cliente/` |
+| Skill does not detect the file | Move it to the kit root |
 | Email/Name empty in some rows | Forms config: Anonymous OFF + L1-Q1/Q2 required |
 | Headers not recognized | Make sure each question starts with `L[1-7]-Q\d+:` |
 | Developer refused to identify | Accept the partial answer; redirect to `survey-devs` (anonymous) |

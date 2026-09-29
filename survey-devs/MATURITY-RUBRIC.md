@@ -2,7 +2,7 @@
 
 🌐 English · [Português (Brasil)](MATURITY-RUBRIC.pt-br.md) · [Español](MATURITY-RUBRIC.es.md)
 
-> **Deterministic model** that maps survey answers to L0-L4 levels across **7 dimensions**, mirroring the scale of the main maturity assessment. Scored per team (no individual scores in the report, which preserves anonymity).
+> **Deterministic model** that maps survey answers to L0-L4 levels across **7 dimensions**, using the L0-L4 bands of the v1 assessment (see principle 5). Scored per team (no individual scores in the report, which preserves anonymity).
 
 **Rubric version:** 1.0 · **Date:** 2026-05-08
 **Implementation:** [`scripts/rubric.py`](scripts/rubric.py) · **Runner:** [`scripts/calculate_maturity.py`](scripts/calculate_maturity.py)
@@ -261,19 +261,19 @@ python3 survey-devs/scripts/calculate_maturity.py
 
 ## 🔗 Cross-reference with the main assessment
 
-Individual maturity (from the survey) **feeds and validates** the capabilities of the organizational assessment:
+Individual maturity (from the survey) **helps validate** the answers of the v2 organizational assessment. The question lists come from `survey_crosswalk` in [framework.v2.json](../framework.v2.json); survey results never change v2 scores.
 
-| Survey dimension | Assessment capability | What to validate |
+| Survey dimension | v2 assessment questions | What to validate |
 |---|---|---|
-| **DS-D2** Copilot Adoption | `P1-C1` AI Coding Assistants | Declared score vs. real adoption declared by developers |
-| **DS-D3** MS/GH Tooling | `P3-C3` AI Applications + `P3-C5` Agentic Apps | Technical sophistication in AI |
-| **DS-D4** AI Dev Practices | `P1-C2` DevEx + `P1-C8` Productivity Metrics | Structured practices |
-| **DS-D5** Agent Concepts | `P3-C5` Agentic Apps | Advanced knowledge |
-| **DS-D6** Instructions | `P1-C7` Automated documentation | Maintenance of AI context |
-| **DS-D7** Best Practices | `P1-C5` Onboarding + `P1-C8` Metrics | Adoption culture |
-| **DS-D8** Security & Governance | `P2-C4` DevSecOps + `P2-C10` Supply Chain | Real governance |
+| **DS-D2** Copilot Adoption | `D4-Q1`, `D4-Q2`, `D9-Q1` | Declared score vs. real adoption declared by developers |
+| **DS-D3** MS/GH Tooling | `D4-Q3`, `D4-Q6`, `D3-Q2`, `D6-Q1` | Technical sophistication in AI |
+| **DS-D4** AI Dev Practices | `D3-Q2`, `D5-Q5`, `D2-Q6` | Structured practices |
+| **DS-D5** Agent Concepts | `D2-Q4`, `D4-Q5` | Advanced knowledge |
+| **DS-D6** Instructions | `D4-Q4`, `D4-Q5` | Maintenance of AI context |
+| **DS-D7** Best Practices | `D2-Q2`, `D9-Q4` | Adoption culture |
+| **DS-D8** Security & Governance | `D1-Q2`, `D6-Q1`, `D6-Q4`, `D6-Q5`, `D6-Q7` | Real governance |
 
-> 💡 **Classic pattern:** leadership rates P1-C1 as L3, but survey DS-D2 shows L1 (60% of developers rarely use it) → **dissonance** between strategy and practice. The `/insights-developer-survey` skill highlights this in section 12 of the report.
+> 💡 **Classic pattern:** leadership rates D4-Q1 as L3, but survey DS-D2 shows L1 (60% of developers rarely use it) → **dissonance** between strategy and practice. The `/insights-developer-survey` skill highlights this in section 12 of the report.
 
 ## 📊 Rubric calibration and review
 

@@ -9,8 +9,8 @@ Esta pasta contém os ativos de marca aplicados aos helpers HTML e PDFs voltados
 | Arquivo | Uso |
 | --- | --- |
 | [tokens-paulasilva-ms.css](tokens-paulasilva-ms.css) | Tokens de design com paleta Microsoft, neutros, tipografia e classes utilitárias. |
-| [IDENTITY.md](IDENTITY.md) | Strings canônicas, SVG oficial Microsoft de quatro quadrados, barra de marca e padrões proibidos. |
-| [VOICE.md](VOICE.md) | Pilares de voz, vocabulário proibido, regras de pontuação e tom por público. |
+| [IDENTITY.md](IDENTITY.pt-br.md) | Strings canônicas, SVG oficial Microsoft de quatro quadrados, barra de marca e padrões proibidos. |
+| [VOICE.md](VOICE.pt-br.md) | Pilares de voz, vocabulário proibido, regras de pontuação e tom por público. |
 
 ## Onde a marca é aplicada
 
@@ -48,4 +48,4 @@ Somente email. Não adicione LinkedIn, GitHub ou site.
 </div>
 ```
 
-Carregue [tokens-paulasilva-ms.css](tokens-paulasilva-ms.css), use Inter e JetBrains Mono, e siga [VOICE.md](VOICE.md).
+Carregue [tokens-paulasilva-ms.css](tokens-paulasilva-ms.css), use Inter e JetBrains Mono, e siga [VOICE.md](VOICE.pt-br.md).

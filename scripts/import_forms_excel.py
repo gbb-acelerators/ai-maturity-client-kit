@@ -247,7 +247,7 @@ def write_log(path: Path, t: dict, info: dict) -> None:
         answered = sum(1 for a in r["answers"].values()
                        if a["level"] is not None)
         evid = sum(1 for a in r["answers"].values() if a["evidence"])
-        lines.append(f"| {r['name']} | {r['email'] or '—'} | "
+        lines.append(f"| {r['name']} | {r['email'] or '-'} | "
                      f"{answered} / {info['total']} | {evid} |")
     lines += ["", f"## {t['alerts']}", ""]
     alerts = [f"- {a}" for a in info["alerts"]]
@@ -431,9 +431,9 @@ def run(args) -> int:
            if k not in ("respondent_name", "respondent_email")},
         "respondent_name": (respondents[0]["name"] if len(respondents) == 1
                             else f"Aggregate of {len(respondents)} "
-                                 f"respondents"),
+                            f"respondents"),
         "respondent_email": (respondents[0]["email"]
-                             if len(respondents) == 1 else "—"),
+                             if len(respondents) == 1 else "-"),
         "respondent_role": (meta.get("respondent_role")
                             if len(respondents) == 1
                             else "Multi-respondent"),

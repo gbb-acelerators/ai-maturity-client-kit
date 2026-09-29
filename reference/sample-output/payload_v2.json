@@ -17694,6 +17694,23 @@
         "score": 1.786,
         "level": "L2"
       }
+    },
+    "delivery": {
+      "services_total": 12,
+      "services_listed": 10,
+      "services_measured": 8,
+      "services_compared": 6,
+      "shares": {
+        "measured": 0.667,
+        "compared": 0.5
+      },
+      "d9q2": {
+        "qid": "D9-Q2",
+        "score": 1.615,
+        "level": "L2",
+        "implied_level": "L2",
+        "flag": false
+      }
     }
   }
 }

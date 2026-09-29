@@ -2,7 +2,7 @@
 
 🌐 [English](FORMS-INSTRUCTIONS.md) · Português (Brasil) · [Español](FORMS-INSTRUCTIONS.es.md)
 
-**`ASSESSMENT`** · 📖 [🏠 Índice](../README.pt-br.md) · [« Guia passo a passo](../STEP-BY-STEP.pt-br.md) · Você está aqui · [» Survey-devs](../survey-devs/FORMS-INSTRUCTIONS-DEVS.md)
+**`ASSESSMENT`** · 📖 [🏠 Índice](../README.pt-br.md) · [« Guia passo a passo](../STEP-BY-STEP.pt-br.md) · Você está aqui · [» Survey-devs](../survey-devs/FORMS-INSTRUCTIONS-DEVS.pt-br.md)
 
 > [!TIP]
 > O framework v2 tem **5 perguntas de perfil e 61 perguntas pontuadas em 9 dimensões** (127 elementos no Forms, cerca de 25 a 40 minutos por respondente). As instruções v1 (158 perguntas) estão arquivadas em [v1/FORMS-INSTRUCTIONS.md](v1/FORMS-INSTRUCTIONS.md).
@@ -101,7 +101,7 @@ Combine estes pontos com seu time de privacidade ou jurídico antes do lançamen
 
 O engine ([scripts/assessment_engine.py](../scripts/assessment_engine.py)) segue a seção 8 de [AI-Maturity-Form-Questions_v2.pt-br.md](AI-Maturity-Form-Questions_v2.pt-br.md): média agrupada por pergunta, média por dimensão, média ponderada das dimensões, bandas de nível semiabertas, e as flags de baixa confiança, risco de amplificação, lacuna de percepção, divergência entre respondentes, escopo, L3/L4 sem verificação e cobertura de evidência.
 
-Cross-checks opcionais de evidência vêm de `make scan-repos` e `make telemetry`. Eles aparecem no PDF de sumário e são listados como riscos no guia de implementação quando desafiam uma resposta.
+Cross-checks opcionais de evidência vêm de `make scan-repos`, `make telemetry` e `make dora`. Eles aparecem no PDF de sumário e são listados como riscos no guia de implementação quando desafiam uma resposta.
 
 ## Solução de problemas
 

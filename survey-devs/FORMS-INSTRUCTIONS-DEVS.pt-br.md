@@ -151,7 +151,7 @@ Use o banco no idioma dos respondentes como **fonte de copy/paste**: português 
 
 1. Aba **Responses** → botão **Open in Excel**
 2. Salve o arquivo como **`survey-devs-responses.xlsx`**
-3. Mova para a **raiz do `kit-cliente/`** (não dentro de `survey-devs/`)
+3. Mova para a **raiz do kit** (não dentro de `survey-devs/`)
 4. **Anonimato confirmado:** as colunas D (Email) e E (Name) devem estar vazias
 
 ### Passo 8 · Analisar com o kit
@@ -237,7 +237,7 @@ Devs respondem mais um próximo survey se virem que o anterior gerou ação. Ap�
 
 | Problema | Diagnóstico | Solução |
 |---|---|---|
-| Skill não detecta arquivo | Não está na raiz | Mover `survey-devs-responses.xlsx` para `kit-cliente/` (raiz) |
+| Skill não detecta arquivo | Não está na raiz | Mover `survey-devs-responses.xlsx` para a raiz do kit |
 | Skill diz "0 respondentes" | Email/Name não vazios mas perguntas vazias | Verificar se respondentes preencheram pelo menos 1 pergunta |
 | Headers não reconhecidos | Falta "SX-QY:" no início | Editar headers manualmente para incluir o ID |
 | Aparece email no Excel | Anonymity OFF | Reconfigurar Forms → Settings → Anonymous Responses ON e re-enviar |
@@ -252,7 +252,7 @@ Devs respondem mais um próximo survey se virem que o anterior gerou ação. Ap�
 - **JSON estruturado de exemplo:** [`mock-responses-devs.json`](mock-responses-devs.json)
 - **Skill de import:** [`../.github/skills/import-survey-devs/SKILL.md`](../.github/skills/import-survey-devs/SKILL.md)
 - **Skill de insights:** [`../.github/skills/insights-developer-survey/SKILL.md`](../.github/skills/insights-developer-survey/SKILL.md)
-- **Relação com o assessment principal:** este survey COMPLEMENTA o assessment de maturidade. Os insights aqui informam as questões P1-C1, P1-C5, P1-C8 (Copilot, Onboarding, Métricas) e a governança em P2-C4 / P3-C6.
+- **Relação com o assessment principal:** este survey COMPLEMENTA o assessment de maturidade. Os insights ajudam a validar as perguntas v2 listadas em `survey_crosswalk` no [framework.v2.json](../framework.v2.json) (por exemplo D4-Q1 para adoção do Copilot, D4-Q4 para instruções e D6-Q1 para governança). O survey nunca altera as notas do v2.
 
 ---
 
@@ -270,7 +270,7 @@ Devs respondem mais um próximo survey se virem que o anterior gerou ação. Ap�
 | Excel exportado tem **Email** e **Name** preenchidos | **Anonymous responses** NÃO foi marcado no Forms | Settings do Forms → ✅ **Anonymous responses** → recoletar |
 | Devs reclamam que é longo demais (20-25 min) | Muitas questões marcadas como required | Marque required **apenas em S1** (perfil); demais opcionais |
 | Tenho menos de 5 respondentes | Insights ficam pouco confiáveis | Mínimo absoluto: 3. Ideal: 5+. Ótimo: 15+: estenda a campanha 1 semana |
-| Skill calcula maturidade mas número parece baixo | Rubrica determinística L0-L4: reflete realidade | Veja [`MATURITY-RUBRIC.md`](MATURITY-RUBRIC.md) para entender a escala |
+| Skill calcula maturidade mas número parece baixo | Rubrica determinística L0-L4: reflete realidade | Veja [`MATURITY-RUBRIC.md`](MATURITY-RUBRIC.pt-br.md) para entender a escala |
 | Quero pular este survey | Tudo bem: é opcional | Pule direto para o Learning Survey ou só rode o Assessment principal |
 
 </details>

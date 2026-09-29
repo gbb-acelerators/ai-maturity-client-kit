@@ -1,6 +1,6 @@
 {
-  "repositoryUrl": "https://github.com/paulasilvatech/ai-maturity-client-kit",
-  "siteUrl": "https://paulasilvatech.github.io/ai-maturity-client-kit/",
+  "repositoryUrl": "https://github.com/gbb-acelerators/ai-maturity-client-kit",
+  "siteUrl": "https://gbb-acelerators.github.io/ai-maturity-client-kit/",
   "hubUrl": "https://agenticdevopsplatform.ai/",
   "contactLinkedIn": "mailto:paulasilva@microsoft.com",
   "profileImage": "assets/paula-about.jpg",
@@ -246,8 +246,8 @@
           {
             "num": "2",
             "title": "Preencher respostas",
-            "body": "Edite responses.json manualmente ou importe Excel do Microsoft Forms multi-respondente.",
-            "command": "cp responses.json.example responses.json\n# edite levels (0-4) por questão\n# ou: cole forms-responses.xlsx na raiz"
+            "body": "Importe o Excel do Microsoft Forms, combine as exportações do formulário offline ou comece pelo exemplo ilustrativo v2.",
+            "command": "make import XLSX=forms-responses.xlsx\n# ou: make merge DIR=exports/\n# ou comece pelo exemplo v2: make init"
           },
           {
             "num": "3",
@@ -327,7 +327,7 @@
         "items": [
           {
             "summary": "Qual survey devo rodar primeiro?",
-            "answerHtml": "Para consultoria séria, rode os 3 nessa ordem: <strong>Developer Survey</strong> anônimo, <strong>Learning Survey</strong> identificado, <strong>Assessment principal</strong> com liderança informada. Para baseline rápido apenas do board, rode só o Assessment principal. O agente <code>@ai-maturity-assistant</code> te guía na escolha."
+            "answerHtml": "Para consultoria séria, rode os 3 nessa ordem: <strong>Developer Survey</strong> anônimo, <strong>Learning Survey</strong> identificado, <strong>Assessment principal</strong> com liderança informada. Para baseline rápido apenas do board, rode só o Assessment principal. O agente <code>@ai-maturity-assistant</code> te guia na escolha."
           },
           {
             "summary": "Os comandos /calculate-scores e /gap-analysis não aparecem ao digitar /",
@@ -339,23 +339,23 @@
           },
           {
             "summary": "Tem dados de exemplo para testar sem preencher tudo?",
-            "answerHtml": "Sim. O kit vem com <code>responses.json.example</code>, Cliente Exemplo S.A. com 46 respostas mockadas, e respondentes mock para os 2 surveys. Rode <code>cp responses.json.example responses.json</code> e depois <code>/full-pipeline</code> para ver o output completo em aproximadamente 3 minutos."
+            "answerHtml": "Sim. <code>make demo</code> gera os 5 PDFs v2 a partir do mock ilustrativo (Contoso Engineering, 14 respondentes) em <code>output/demo/</code>, sem mexer no seu <code>responses.json</code>. Para rodar o fluxo completo no mock, rode <code>make init</code> (copia o <code>responses.v2.json.example</code>) e depois <code>/full-pipeline</code>. Os 2 surveys também trazem respondentes mock."
           },
           {
-            "summary": "Como agrego respostas de multiplos respondentes do Forms?",
-            "answerHtml": "A skill <code>/import-responses</code> faz <strong>média automática</strong> por questão quando o Excel tem múltiplas linhas. Mesmo comportamento da plataforma web. Mínimo recomendado: 3 respondentes para o assessment principal, 5 para o Developer Survey."
+            "summary": "Como agrego respostas de múltiplos respondentes do Forms?",
+            "answerHtml": "A skill <code>/import-responses</code> mantém cada respondente do Excel do Microsoft Forms, e as exportações do formulário offline são combinadas com <code>make merge</code>. O engine calcula a média agrupada por pergunta, os scores por persona e a flag de divergência entre respondentes. Mínimo recomendado: 3 respondentes por função no assessment principal, 5 no Developer Survey."
           },
           {
-            "summary": "Preciso instalar dependencias Python?",
-            "answerHtml": "Sim, apenas 3: <code>jinja2</code>, <code>weasyprint</code> e <code>openpyxl</code>. Rode <code>make install-deps</code> ou <code>pip install jinja2 weasyprint openpyxl</code>. No macOS o WeasyPrint precisa de <code>brew install pango</code>; no Linux/WSL, do pacote <code>libpango-1.0-0</code>."
+            "summary": "Preciso instalar dependências Python?",
+            "answerHtml": "Sim: <code>jinja2</code>, <code>weasyprint</code> e <code>openpyxl</code>, mais <code>jsonschema</code> (opcional, para o validador do framework). Rode <code>make install-deps</code> ou abra o repositório no dev container, que instala tudo. No macOS o WeasyPrint precisa de <code>brew install pango</code>; no Linux/WSL, do pacote <code>libpango-1.0-0</code>."
           },
           {
             "summary": "Posso customizar o branding dos PDFs?",
-            "answerHtml": "O kit usa a identidade <strong>paulasilva-ms</strong>, com paleta Microsoft 4 cores. Para customizar, edite <code>reports/scripts/branding.py</code> com suas constantes e re-renderize. Os 5 templates Jinja2 em <code>reports/templates/</code> consomem essas variaveis automaticamente."
+            "answerHtml": "O kit usa a identidade <strong>paulasilva-ms</strong>, com paleta Microsoft 4 cores. Para customizar, edite <code>reports/scripts/branding.py</code> com suas constantes e re-renderize. Os templates Jinja2 em <code>reports/templates/</code> consomem essas variáveis automaticamente."
           },
           {
-            "summary": "Como funciona a integração entre os assessment v2 + surveys?",
-            "answerHtml": "Cada survey output alimenta o próximo: o <strong>Learning Survey</strong> gera um plano que o <strong>wizard auto-fill modo D</strong> usa para preencher 7 dos 11 campos do guia de implementação. O <strong>Developer Survey</strong> calcula maturidade real por dimensão, cruzavel com a maturidade declarada da liderança no PDF de Assessment Summary."
+            "summary": "Como funciona a integração entre o assessment v2 e os surveys?",
+            "answerHtml": "Cada survey output alimenta o próximo: o <strong>Learning Survey</strong> gera um plano que o <strong>wizard auto-fill modo D</strong> usa para preencher 7 dos 11 campos do guia de implementação. O <strong>Developer Survey</strong> calcula maturidade real por dimensão, cruzável com a maturidade declarada da liderança no PDF de Assessment Summary."
           }
         ]
       },
@@ -392,7 +392,7 @@
           },
           {
             "label": "Dados de exemplo",
-            "code": "Cliente Exemplo S.A."
+            "code": "Contoso Engineering (mock)"
           },
           {
             "label": "Docs em PT-BR + bancos e spec nos 3 idiomas",
@@ -411,7 +411,7 @@
         "contactLabel": "Contato",
         "contactText": "linkedin.com/in/paulanunes",
         "repositoryLabel": "Repositório do produto",
-        "repositoryText": "github.com/paulasilvatech/ai-maturity-client-kit",
+        "repositoryText": "github.com/gbb-acelerators/ai-maturity-client-kit",
         "contributorsLabel": "Contribuidores",
         "contributorsText": "Paula Silva + GitHub Copilot",
         "editionsLabel": "Edicoes",
@@ -638,8 +638,8 @@
           {
             "num": "2",
             "title": "Fill responses",
-            "body": "Edit responses.json manually or import Microsoft Forms Excel for multiple respondents.",
-            "command": "cp responses.json.example responses.json\n# edit levels (0-4) per question\n# or: drop forms-responses.xlsx at root"
+            "body": "Import the Microsoft Forms Excel, merge the offline-form exports, or start from the illustrative v2 example.",
+            "command": "make import XLSX=forms-responses.xlsx\n# or: make merge DIR=exports/\n# or start from the v2 example: make init"
           },
           {
             "num": "3",
@@ -731,19 +731,19 @@
           },
           {
             "summary": "Are there sample data to test without filling everything?",
-            "answerHtml": "Yes. The kit ships with <code>responses.json.example</code>, Cliente Exemplo S.A. with 46 mocked responses, and mock respondents for the 2 surveys. Run <code>cp responses.json.example responses.json</code>, then <code>/full-pipeline</code> to see the complete output in about 3 minutes."
+            "answerHtml": "Yes. <code>make demo</code> renders the 5 v2 PDFs from the illustrative mock (Contoso Engineering, 14 respondents) into <code>output/demo/</code> without touching your <code>responses.json</code>. To run the full flow on the mock, run <code>make init</code> (it copies <code>responses.v2.json.example</code>) and then <code>/full-pipeline</code>. Both surveys also ship with mock respondents."
           },
           {
             "summary": "How do I aggregate multiple Forms respondents?",
-            "answerHtml": "The <code>/import-responses</code> skill does <strong>automatic mean</strong> per question when the Excel has multiple rows. Same behavior as the web platform. Recommended minimum: 3 respondents for the main assessment, 5 for the Developer Survey."
+            "answerHtml": "The <code>/import-responses</code> skill keeps each respondent from the Microsoft Forms Excel, and offline-form exports are combined with <code>make merge</code>. The engine then computes the pooled mean per question, the scores per persona and the respondent divergence flag. Recommended minimum: 3 respondents per role for the main assessment, 5 for the Developer Survey."
           },
           {
             "summary": "Do I need to install Python dependencies?",
-            "answerHtml": "Yes, only 3: <code>jinja2</code>, <code>weasyprint</code>, and <code>openpyxl</code>. Run <code>make install-deps</code> or <code>pip install jinja2 weasyprint openpyxl</code>. On macOS WeasyPrint also needs <code>brew install pango</code>; on Linux/WSL, the <code>libpango-1.0-0</code> package."
+            "answerHtml": "Yes: <code>jinja2</code>, <code>weasyprint</code>, and <code>openpyxl</code>, plus <code>jsonschema</code> (optional, for the framework validator). Run <code>make install-deps</code>, or open the repository in the dev container, which installs everything. On macOS WeasyPrint also needs <code>brew install pango</code>; on Linux/WSL, the <code>libpango-1.0-0</code> package."
           },
           {
             "summary": "Can I customize the PDF branding?",
-            "answerHtml": "The kit uses the <strong>paulasilva-ms</strong> identity with the Microsoft 4-color palette. To customize, edit <code>reports/scripts/branding.py</code> with your constants and re-render. The 5 Jinja2 templates in <code>reports/templates/</code> consume these variables automatically."
+            "answerHtml": "The kit uses the <strong>paulasilva-ms</strong> identity with the Microsoft 4-color palette. To customize, edit <code>reports/scripts/branding.py</code> with your constants and re-render. The Jinja2 templates in <code>reports/templates/</code> consume these variables automatically."
           },
           {
             "summary": "How do the assessment v2 + surveys integrate?",
@@ -784,7 +784,7 @@
           },
           {
             "label": "Sample data",
-            "code": "Cliente Exemplo S.A."
+            "code": "Contoso Engineering (mock)"
           },
           {
             "label": "English docs + banks and spec in 3 languages",
@@ -803,7 +803,7 @@
         "contactLabel": "Contact",
         "contactText": "linkedin.com/in/paulanunes",
         "repositoryLabel": "Product repository",
-        "repositoryText": "github.com/paulasilvatech/ai-maturity-client-kit",
+        "repositoryText": "github.com/gbb-acelerators/ai-maturity-client-kit",
         "contributorsLabel": "Contributors",
         "contributorsText": "Paula Silva + GitHub Copilot",
         "editionsLabel": "Editions",
@@ -1030,8 +1030,8 @@
           {
             "num": "2",
             "title": "Llenar respuestas",
-            "body": "Edita responses.json manualmente o importa Excel del Microsoft Forms multi-respondente.",
-            "command": "cp responses.json.example responses.json\n# edita levels (0-4) por pregunta\n# o: pega forms-responses.xlsx en la raiz"
+            "body": "Importa el Excel de Microsoft Forms, combina las exportaciones del formulario offline o empieza con el ejemplo ilustrativo v2.",
+            "command": "make import XLSX=forms-responses.xlsx\n# o: make merge DIR=exports/\n# o empieza con el ejemplo v2: make init"
           },
           {
             "num": "3",
@@ -1110,35 +1110,35 @@
         "lede": "Dudas mas comunes en los primeros 15 minutos con el kit.",
         "items": [
           {
-            "summary": "Cual encuesta debo ejecutar primero?",
-            "answerHtml": "Para consultoría seria, ejecuta las 3 en este orden: <strong>Developer Survey</strong> anónimo, <strong>Learning Survey</strong> identificado, y <strong>Assessment principal</strong> con liderazgo informado. Para baseline rápido del board, ejecuta solo el Assessment principal. El agente <code>@ai-maturity-assistant</code> te guía en la eleccion."
+            "summary": "¿Qué encuesta debo ejecutar primero?",
+            "answerHtml": "Para consultoría seria, ejecuta las 3 en este orden: <strong>Developer Survey</strong> anónimo, <strong>Learning Survey</strong> identificado, y <strong>Assessment principal</strong> con liderazgo informado. Para baseline rápido del board, ejecuta solo el Assessment principal. El agente <code>@ai-maturity-assistant</code> te guía en la elección."
           },
           {
             "summary": "Los comandos /calculate-scores y /gap-analysis no aparecen al escribir /",
-            "answerHtml": "Copilot Chat necesita estar en <strong>modo Agent</strong>. Haz clic en el dropdown junto al icono de Copilot y elige <strong>Agent</strong>. Si aun no aparece, recarga la ventana de VS Code con <code>Cmd/Ctrl+Shift+P</code> y <code>Developer: Reload Window</code>."
+            "answerHtml": "Copilot Chat necesita estar en <strong>modo Agent</strong>. Haz clic en el dropdown junto al icono de Copilot y elige <strong>Agent</strong>. Si aún no aparece, recarga la ventana de VS Code con <code>Cmd/Ctrl+Shift+P</code> y <code>Developer: Reload Window</code>."
           },
           {
-            "summary": "Copilot Free funciona o necesito Pro / Business / Enterprise?",
+            "summary": "¿Copilot Free funciona o necesito Pro / Business / Enterprise?",
             "answerHtml": "Las skills custom funcionan en Free con límites de mensajes. Para el flujo completo, con 61 preguntas, 5 PDFs y cross-survey, recomendamos <strong>Copilot Pro, Business o Enterprise</strong>. Confirma con tu organización si hay restricciones a skills custom en planes enterprise."
           },
           {
-            "summary": "Hay datos de ejemplo para probar sin llenar todo?",
-            "answerHtml": "Si. El kit incluye <code>responses.json.example</code>, Cliente Exemplo S.A. con 46 respuestas simuladas, y respondentes mock para las 2 encuestas. Ejecuta <code>cp responses.json.example responses.json</code> y luego <code>/full-pipeline</code> para ver el output completo en aproximadamente 3 minutos."
+            "summary": "¿Hay datos de ejemplo para probar sin llenar todo?",
+            "answerHtml": "Sí. <code>make demo</code> genera los 5 PDFs v2 a partir del mock ilustrativo (Contoso Engineering, 14 encuestados) en <code>output/demo/</code>, sin tocar tu <code>responses.json</code>. Para ejecutar el flujo completo sobre el mock, ejecuta <code>make init</code> (copia <code>responses.v2.json.example</code>) y luego <code>/full-pipeline</code>. Las 2 encuestas también incluyen respondentes mock."
           },
           {
-            "summary": "Como agrego multiples respondentes del Forms?",
-            "answerHtml": "La skill <code>/import-responses</code> hace <strong>promedio automático</strong> por pregunta cuando el Excel tiene multiples filas. Mismo comportamiento que la plataforma web. Mínimo recomendado: 3 respondentes para el assessment principal, 5 para el Developer Survey."
+            "summary": "¿Cómo agrego múltiples respondentes del Forms?",
+            "answerHtml": "La skill <code>/import-responses</code> conserva cada respondente del Excel de Microsoft Forms, y las exportaciones del formulario offline se combinan con <code>make merge</code>. El engine calcula el promedio agrupado por pregunta, los puntajes por persona y la alerta de divergencia entre respondentes. Mínimo recomendado: 3 respondentes por rol en el assessment principal, 5 en el Developer Survey."
           },
           {
-            "summary": "Necesito instalar dependencias de Python?",
-            "answerHtml": "Si, solo 3: <code>jinja2</code>, <code>weasyprint</code> y <code>openpyxl</code>. Ejecuta <code>make install-deps</code> o <code>pip install jinja2 weasyprint openpyxl</code>. En macOS WeasyPrint además necesita <code>brew install pango</code>; en Linux/WSL, el paquete <code>libpango-1.0-0</code>."
+            "summary": "¿Necesito instalar dependencias de Python?",
+            "answerHtml": "Sí: <code>jinja2</code>, <code>weasyprint</code> y <code>openpyxl</code>, más <code>jsonschema</code> (opcional, para el validador del framework). Ejecuta <code>make install-deps</code> o abre el repositorio en el dev container, que instala todo. En macOS WeasyPrint además necesita <code>brew install pango</code>; en Linux/WSL, el paquete <code>libpango-1.0-0</code>."
           },
           {
-            "summary": "Puedo personalizar el branding de los PDFs?",
-            "answerHtml": "El kit usa la identidad <strong>paulasilva-ms</strong>, con paleta Microsoft 4 colores. Para personalizar, edita <code>reports/scripts/branding.py</code> con tus constantes y re-renderiza. Los 5 templates Jinja2 en <code>reports/templates/</code> consumen estas variables automáticamente."
+            "summary": "¿Puedo personalizar el branding de los PDFs?",
+            "answerHtml": "El kit usa la identidad <strong>paulasilva-ms</strong>, con paleta Microsoft 4 colores. Para personalizar, edita <code>reports/scripts/branding.py</code> con tus constantes y re-renderiza. Los templates Jinja2 en <code>reports/templates/</code> consumen estas variables automáticamente."
           },
           {
-            "summary": "Como se integran las 3 encuestas?",
+            "summary": "¿Cómo se integran la evaluación v2 y las encuestas?",
             "answerHtml": "Cada output alimenta el siguiente: la <strong>Learning Survey</strong> genera un plan que el <strong>wizard auto-fill modo D</strong> usa para llenar 7 de los 11 campos de la guía de implementación. La <strong>Developer Survey</strong> calcula madurez real por dimensión, cruzable contra la madurez declarada por el liderazgo en el PDF de Assessment Summary."
           }
         ]
@@ -1176,7 +1176,7 @@
           },
           {
             "label": "Datos de ejemplo",
-            "code": "Cliente Exemplo S.A."
+            "code": "Contoso Engineering (mock)"
           },
           {
             "label": "Docs en español + bancos y spec en 3 idiomas",
@@ -1195,7 +1195,7 @@
         "contactLabel": "Contacto",
         "contactText": "linkedin.com/in/paulanunes",
         "repositoryLabel": "Repositorio del producto",
-        "repositoryText": "github.com/paulasilvatech/ai-maturity-client-kit",
+        "repositoryText": "github.com/gbb-acelerators/ai-maturity-client-kit",
         "contributorsLabel": "Contribuidores",
         "contributorsText": "Paula Silva + GitHub Copilot",
         "editionsLabel": "Ediciones",

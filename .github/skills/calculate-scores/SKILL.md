@@ -28,7 +28,7 @@ python3 scripts/assessment_engine.py all
 
 ## Evidence cross-checks
 
-If `output/repo-scan.json` or `output/telemetry.json` exists, report any evidence cap or warning surfaced by the engine. These files challenge answers but do not change scores.
+If `output/repo-scan.json`, `output/telemetry.json` or `output/dora-metrics.json` exists, report any evidence cap or warning surfaced by the engine. These files challenge answers but do not change scores.
 
 ## Output
 

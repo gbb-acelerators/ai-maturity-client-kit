@@ -14,7 +14,7 @@
 4. Configuración: habilita **Anonymous responses**, deshabilita **One response per person**, y deja **Accept responses** habilitado.
 5. Agrega 9 secciones: S1 Perfil del respondente, S2 GitHub Copilot Adopción y Modos, S3 Otras herramientas Microsoft / GitHub AI, S4 Prácticas de Desarrollo con IA, S5 Conceptos y Estructura de Agentes, S6 Markdown / Memory / Instructions, S7 Usabilidad y Best Practices, S8 Seguridad y Gobernanza, S9 Pain Points & Wishlist.
 6. Para cada pregunta abajo, agrega el tipo correspondiente en Forms: `choice`, `multi`, o `text`.
-7. El **TÍTULO** de cada pregunta debe comenzar con el ID + dos puntos. Ejemplo: `S2-Q1: Tienes una licencia activa de GitHub Copilot?`
+7. El **TÍTULO** de cada pregunta debe comenzar con el ID + dos puntos. Ejemplo: `S2-Q1: ¿Tienes una licencia activa de GitHub Copilot?`
 8. El ID es usado por `/import-survey-devs` para mapear de vuelta. NO LO REMUEVAS.
 9. Comparte vía **+ Send / Collect responses** -> copiar link -> enviar por Slack/Teams/email.
 10. Cuando tengas respuestas, **Responses -> Open in Excel** -> renombra a `survey-devs-responses.xlsx` -> mueve a la raíz del kit.
@@ -29,7 +29,7 @@ _7 preguntas en esta sección._
 
 ### Pregunta `S1-Q1`: _Choice (single answer)_
 
-> **S1-Q1: Cuál es tu cargo actual?**
+> **S1-Q1: ¿Cuál es tu cargo actual?**
 
 Opciones:
 
@@ -47,7 +47,7 @@ Opciones:
 
 ### Pregunta `S1-Q2`: _Choice (single answer)_
 
-> **S1-Q2: Tiempo total como desarrollador?**
+> **S1-Q2: ¿Tiempo total como desarrollador?**
 
 Opciones:
 
@@ -59,7 +59,7 @@ Opciones:
 
 ### Pregunta `S1-Q3`: _Choice (single answer)_
 
-> **S1-Q3: Hace cuánto usas IA en desarrollo (Copilot, Cursor, Claude Code, etc.)?**
+> **S1-Q3: ¿Hace cuánto usas IA en desarrollo (Copilot, Cursor, Claude Code, etc.)?**
 
 Opciones:
 
@@ -71,7 +71,7 @@ Opciones:
 
 ### Pregunta `S1-Q4`: _Choice (multiple answers)_
 
-> **S1-Q4: Lenguajes principales que usas en el día a día?**
+> **S1-Q4: ¿Lenguajes principales que usas en el día a día?**
 
 Opciones:
 
@@ -90,7 +90,7 @@ Opciones:
 
 ### Pregunta `S1-Q5`: _Choice (single answer)_
 
-> **S1-Q5: Cuántas horas al día pasas codificando en promedio?**
+> **S1-Q5: ¿Cuántas horas al día pasas codificando en promedio?**
 
 Opciones:
 
@@ -102,7 +102,7 @@ Opciones:
 
 ### Pregunta `S1-Q6`: _Choice (single answer)_
 
-> **S1-Q6: Cuál es el tamaño de tu squad/equipo inmediato?**
+> **S1-Q6: ¿Cuál es el tamaño de tu squad/equipo inmediato?**
 
 Opciones:
 
@@ -114,7 +114,7 @@ Opciones:
 
 ### Pregunta `S1-Q7`: _Choice (single answer)_
 
-> **S1-Q7: Modelo de trabajo?**
+> **S1-Q7: ¿Modelo de trabajo?**
 
 Opciones:
 
@@ -133,7 +133,7 @@ _9 preguntas en esta sección._
 
 ### Pregunta `S2-Q1`: _Choice (single answer)_
 
-> **S2-Q1: Tienes una licencia activa de GitHub Copilot?**
+> **S2-Q1: ¿Tienes una licencia activa de GitHub Copilot?**
 
 Opciones:
 
@@ -147,7 +147,7 @@ Opciones:
 
 ### Pregunta `S2-Q2`: _Choice (single answer)_
 
-> **S2-Q2: Frecuencia de uso de Copilot?**
+> **S2-Q2: ¿Frecuencia de uso de Copilot?**
 
 Opciones:
 
@@ -159,7 +159,7 @@ Opciones:
 
 ### Pregunta `S2-Q3`: _Choice (multiple answers)_
 
-> **S2-Q3: Qué MODOS de Copilot Chat usas? (selecciona todos los que apliquen)**
+> **S2-Q3: ¿Qué MODOS de Copilot Chat usas? (selecciona todos los que apliquen)**
 
 Opciones:
 
@@ -173,7 +173,7 @@ Opciones:
 
 ### Pregunta `S2-Q4`: _Choice (single answer)_
 
-> **S2-Q4: Qué MODO usas MÁS en el día a día?**
+> **S2-Q4: ¿Qué MODO usas MÁS en el día a día?**
 
 Opciones:
 
@@ -187,7 +187,7 @@ Opciones:
 
 ### Pregunta `S2-Q5`: _Choice (multiple answers)_
 
-> **S2-Q5: Qué features de Copilot usas?**
+> **S2-Q5: ¿Qué features de Copilot usas?**
 
 Opciones:
 
@@ -205,7 +205,7 @@ Opciones:
 
 ### Pregunta `S2-Q6`: _Choice (multiple answers)_
 
-> **S2-Q6: Dónde usas Copilot?**
+> **S2-Q6: ¿Dónde usas Copilot?**
 
 Opciones:
 
@@ -221,7 +221,7 @@ Opciones:
 
 ### Pregunta `S2-Q7`: _Choice (single answer)_
 
-> **S2-Q7: Ganancia de productividad percibida con Copilot?**
+> **S2-Q7: ¿Ganancia de productividad percibida con Copilot?**
 
 Opciones:
 
@@ -235,7 +235,7 @@ Opciones:
 
 ### Pregunta `S2-Q8`: _Choice (multiple answers)_
 
-> **S2-Q8: Para QUÉ TAREAS te ayuda más Copilot?**
+> **S2-Q8: ¿Para QUÉ TAREAS te ayuda más Copilot?**
 
 Opciones:
 
@@ -253,7 +253,7 @@ Opciones:
 
 ### Pregunta `S2-Q9`: _Long Text (respuesta libre)_
 
-> **S2-Q9: En qué tareas Copilot NO te ayuda, o te estorba?**
+> **S2-Q9: ¿En qué tareas Copilot NO te ayuda, o te estorba?**
 
 ---
 
@@ -265,7 +265,7 @@ _7 preguntas en esta sección._
 
 ### Pregunta `S3-Q1`: _Choice (multiple answers)_
 
-> **S3-Q1: Qué otras herramientas Microsoft / GitHub AI usas hoy?**
+> **S3-Q1: ¿Qué otras herramientas Microsoft / GitHub AI usas hoy?**
 
 Opciones:
 
@@ -284,7 +284,7 @@ Opciones:
 
 ### Pregunta `S3-Q2`: _Choice (multiple answers)_
 
-> **S3-Q2: Para QUÉ usas Microsoft Foundry / Azure OpenAI, si lo usas?**
+> **S3-Q2: ¿Para QUÉ usas Microsoft Foundry / Azure OpenAI, si lo usas?**
 
 Opciones:
 
@@ -299,7 +299,7 @@ Opciones:
 
 ### Pregunta `S3-Q3`: _Choice (single answer)_
 
-> **S3-Q3: Conoces GitHub Copilot Coding Agent, el sucesor autónomo de Workspace que toma issues y abre PRs?**
+> **S3-Q3: ¿Conoces GitHub Copilot Coding Agent, el sucesor autónomo de Workspace que toma issues y abre PRs?**
 
 Opciones:
 
@@ -310,7 +310,7 @@ Opciones:
 
 ### Pregunta `S3-Q4`: _Choice (single answer)_
 
-> **S3-Q4: Conoces Copilot Spaces, la funcionalidad de contexto compartido que reemplazó Knowledge Bases?**
+> **S3-Q4: ¿Conoces Copilot Spaces, la funcionalidad de contexto compartido que reemplazó Knowledge Bases?**
 
 Opciones:
 
@@ -321,7 +321,7 @@ Opciones:
 
 ### Pregunta `S3-Q5`: _Choice (single answer)_
 
-> **S3-Q5: Conoces GitHub Spec Kit (github/spec-kit) para Spec-Driven Development?**
+> **S3-Q5: ¿Conoces GitHub Spec Kit (github/spec-kit) para Spec-Driven Development?**
 
 Opciones:
 
@@ -331,7 +331,7 @@ Opciones:
 
 ### Pregunta `S3-Q6`: _Choice (single answer)_
 
-> **S3-Q6: Conoces MCP (Model Context Protocol), el estándar para que agentes consuman tools/contexto?**
+> **S3-Q6: ¿Conoces MCP (Model Context Protocol), el estándar para que agentes consuman tools/contexto?**
 
 Opciones:
 
@@ -342,7 +342,7 @@ Opciones:
 
 ### Pregunta `S3-Q7`: _Choice (single answer)_
 
-> **S3-Q7: Has usado GitHub Models para probar diferentes LLMs (gpt-4o, claude, llama, etc.)?**
+> **S3-Q7: ¿Has usado GitHub Models para probar diferentes LLMs (gpt-4o, claude, llama, etc.)?**
 
 Opciones:
 
@@ -360,7 +360,7 @@ _9 preguntas en esta sección._
 
 ### Pregunta `S4-Q1`: _Choice (single answer)_
 
-> **S4-Q1: Practicas TDD con IA, escribiendo tests primero con Copilot?**
+> **S4-Q1: ¿Practicas TDD con IA, escribiendo tests primero con Copilot?**
 
 Opciones:
 
@@ -373,7 +373,7 @@ Opciones:
 
 ### Pregunta `S4-Q2`: _Choice (single answer)_
 
-> **S4-Q2: Practicas SDD (Spec-Driven Development), escribiendo una spec para que IA genere código?**
+> **S4-Q2: ¿Practicas SDD (Spec-Driven Development), escribiendo una spec para que IA genere código?**
 
 Opciones:
 
@@ -384,7 +384,7 @@ Opciones:
 
 ### Pregunta `S4-Q3`: _Choice (multiple answers)_
 
-> **S4-Q3: En QUÉ momentos consultas IA durante el coding?**
+> **S4-Q3: ¿En QUÉ momentos consultas IA durante el coding?**
 
 Opciones:
 
@@ -398,7 +398,7 @@ Opciones:
 
 ### Pregunta `S4-Q4`: _Choice (single answer)_
 
-> **S4-Q4: Consideras Copilot / un agente IA como pair programmer?**
+> **S4-Q4: ¿Consideras Copilot / un agente IA como pair programmer?**
 
 Opciones:
 
@@ -409,7 +409,7 @@ Opciones:
 
 ### Pregunta `S4-Q5`: _Choice (single answer)_
 
-> **S4-Q5: Con qué frecuencia refactorizas código con ayuda de IA?**
+> **S4-Q5: ¿Con qué frecuencia refactorizas código con ayuda de IA?**
 
 Opciones:
 
@@ -420,7 +420,7 @@ Opciones:
 
 ### Pregunta `S4-Q6`: _Choice (single answer)_
 
-> **S4-Q6: Quién mantiene la documentación del código en tu equipo?**
+> **S4-Q6: ¿Quién mantiene la documentación del código en tu equipo?**
 
 Opciones:
 
@@ -431,7 +431,7 @@ Opciones:
 
 ### Pregunta `S4-Q7`: _Choice (single answer)_
 
-> **S4-Q7: Cuando tienes un bug difícil, cuál es tu primera acción?**
+> **S4-Q7: Cuando tienes un bug difícil, ¿cuál es tu primera acción?**
 
 Opciones:
 
@@ -443,7 +443,7 @@ Opciones:
 
 ### Pregunta `S4-Q8`: _Choice (single answer)_
 
-> **S4-Q8: Al hacer onboarding en un proyecto nuevo, usas IA (con Copilot Spaces o similar) para entender la base de código?**
+> **S4-Q8: Al hacer onboarding en un proyecto nuevo, ¿usas IA (con Copilot Spaces o similar) para entender la base de código?**
 
 Opciones:
 
@@ -466,7 +466,7 @@ _11 preguntas en esta sección._
 
 ### Pregunta `S5-Q1`: _Choice (single answer)_
 
-> **S5-Q1: Sabes qué es un AI agent, autónomo versus asistente reactivo?**
+> **S5-Q1: ¿Sabes qué es un AI agent, autónomo versus asistente reactivo?**
 
 Opciones:
 
@@ -477,7 +477,7 @@ Opciones:
 
 ### Pregunta `S5-Q2`: _Choice (single answer)_
 
-> **S5-Q2: Sabes la diferencia entre Ask, Edit, Agent y Coding Agent (modos de Copilot)?**
+> **S5-Q2: ¿Sabes la diferencia entre Ask, Edit, Agent y Coding Agent (modos de Copilot)?**
 
 Opciones:
 
@@ -487,7 +487,7 @@ Opciones:
 
 ### Pregunta `S5-Q3`: _Choice (single answer)_
 
-> **S5-Q3: Ya creaste o usaste un custom agent (.github/agents/*.agent.md o equivalente Claude/Cursor)?**
+> **S5-Q3: ¿Ya creaste o usaste un custom agent (.github/agents/*.agent.md o equivalente Claude/Cursor)?**
 
 Opciones:
 
@@ -498,7 +498,7 @@ Opciones:
 
 ### Pregunta `S5-Q4`: _Choice (single answer)_
 
-> **S5-Q4: Conoces el concepto de skill (SKILL.md o equivalente, bloque reutilizable de instrucciones)?**
+> **S5-Q4: ¿Conoces el concepto de skill (SKILL.md o equivalente, bloque reutilizable de instrucciones)?**
 
 Opciones:
 
@@ -508,7 +508,7 @@ Opciones:
 
 ### Pregunta `S5-Q5`: _Choice (single answer)_
 
-> **S5-Q5: Ya creaste prompt files (.prompt.md en .github/prompts/)?**
+> **S5-Q5: ¿Ya creaste prompt files (.prompt.md en .github/prompts/)?**
 
 Opciones:
 
@@ -519,7 +519,7 @@ Opciones:
 
 ### Pregunta `S5-Q6`: _Choice (single answer)_
 
-> **S5-Q6: Conoces A2A (Agent-to-Agent protocol), agentes comunicándose entre sí?**
+> **S5-Q6: ¿Conoces A2A (Agent-to-Agent protocol), agentes comunicándose entre sí?**
 
 Opciones:
 
@@ -529,7 +529,7 @@ Opciones:
 
 ### Pregunta `S5-Q7`: _Choice (single answer)_
 
-> **S5-Q7: Conoces handoffs entre agentes, cuando el agente A pasa contexto al agente B?**
+> **S5-Q7: ¿Conoces handoffs entre agentes, cuando el agente A pasa contexto al agente B?**
 
 Opciones:
 
@@ -539,7 +539,7 @@ Opciones:
 
 ### Pregunta `S5-Q8`: _Choice (single answer)_
 
-> **S5-Q8: Conoces subagentes, cuando un agente principal delega tareas a subagentes especializados?**
+> **S5-Q8: ¿Conoces subagentes, cuando un agente principal delega tareas a subagentes especializados?**
 
 Opciones:
 
@@ -549,7 +549,7 @@ Opciones:
 
 ### Pregunta `S5-Q9`: _Choice (single answer)_
 
-> **S5-Q9: Conoces las personas Microsoft Agentic DevOps: System Designer y Agent Operator?**
+> **S5-Q9: ¿Conoces las personas Microsoft Agentic DevOps: System Designer y Agent Operator?**
 
 Opciones:
 
@@ -559,7 +559,7 @@ Opciones:
 
 ### Pregunta `S5-Q10`: _Choice (single answer)_
 
-> **S5-Q10: TESTEAS tus custom agents/prompts/skills antes de usarlos en código real?**
+> **S5-Q10: ¿TESTEAS tus custom agents/prompts/skills antes de usarlos en código real?**
 
 Opciones:
 
@@ -571,7 +571,7 @@ Opciones:
 
 ### Pregunta `S5-Q11`: _Choice (multiple answers)_
 
-> **S5-Q11: Qué primitivos YA CREASTE para uso personal/equipo?**
+> **S5-Q11: ¿Qué primitivos YA CREASTE para uso personal/equipo?**
 
 Opciones:
 
@@ -593,7 +593,7 @@ _6 preguntas en esta sección._
 
 ### Pregunta `S6-Q1`: _Choice (multiple answers)_
 
-> **S6-Q1: Qué archivos de instrucciones usas hoy?**
+> **S6-Q1: ¿Qué archivos de instrucciones usas hoy?**
 
 Opciones:
 
@@ -607,7 +607,7 @@ Opciones:
 
 ### Pregunta `S6-Q2`: _Choice (single answer)_
 
-> **S6-Q2: Quién mantiene los archivos de instrucciones en tu proyecto?**
+> **S6-Q2: ¿Quién mantiene los archivos de instrucciones en tu proyecto?**
 
 Opciones:
 
@@ -619,7 +619,7 @@ Opciones:
 
 ### Pregunta `S6-Q3`: _Choice (single answer)_
 
-> **S6-Q3: Frecuencia de actualización de esos archivos?**
+> **S6-Q3: ¿Frecuencia de actualización de esos archivos?**
 
 Opciones:
 
@@ -631,7 +631,7 @@ Opciones:
 
 ### Pregunta `S6-Q4`: _Choice (multiple answers)_
 
-> **S6-Q4: QUÉ incluyes en los archivos de instrucciones?**
+> **S6-Q4: ¿QUÉ incluyes en los archivos de instrucciones?**
 
 Opciones:
 
@@ -646,7 +646,7 @@ Opciones:
 
 ### Pregunta `S6-Q5`: _Choice (single answer)_
 
-> **S6-Q5: Tienes una prompt library compartida con tu equipo (repo o Copilot Space dedicado)?**
+> **S6-Q5: ¿Tienes una prompt library compartida con tu equipo (repo o Copilot Space dedicado)?**
 
 Opciones:
 
@@ -658,7 +658,7 @@ Opciones:
 
 ### Pregunta `S6-Q6`: _Choice (single answer)_
 
-> **S6-Q6: Usas memoria persistente del agente (Foundry Memory, Claude memory, Copilot memory)?**
+> **S6-Q6: ¿Usas memoria persistente del agente (Foundry Memory, Claude memory, Copilot memory)?**
 
 Opciones:
 
@@ -676,7 +676,7 @@ _9 preguntas en esta sección._
 
 ### Pregunta `S7-Q1`: _Choice (multiple answers)_
 
-> **S7-Q1: Cómo APRENDISTE a usar Copilot/IA en desarrollo?**
+> **S7-Q1: ¿Cómo APRENDISTE a usar Copilot/IA en desarrollo?**
 
 Opciones:
 
@@ -691,7 +691,7 @@ Opciones:
 
 ### Pregunta `S7-Q2`: _Choice (single answer)_
 
-> **S7-Q2: Existe un AI/Copilot Champion en tu equipo/empresa que ayuda a otros?**
+> **S7-Q2: ¿Existe un AI/Copilot Champion en tu equipo/empresa que ayuda a otros?**
 
 Opciones:
 
@@ -702,7 +702,7 @@ Opciones:
 
 ### Pregunta `S7-Q3`: _Choice (single answer)_
 
-> **S7-Q3: Hay un canal/comunidad interna para discutir uso de IA en ingeniería?**
+> **S7-Q3: ¿Hay un canal/comunidad interna para discutir uso de IA en ingeniería?**
 
 Opciones:
 
@@ -713,7 +713,7 @@ Opciones:
 
 ### Pregunta `S7-Q4`: _Choice (multiple answers)_
 
-> **S7-Q4: Tu organización MIDE productividad del dev de forma estructurada?**
+> **S7-Q4: ¿Tu organización MIDE productividad del dev de forma estructurada?**
 
 Opciones:
 
@@ -726,7 +726,7 @@ Opciones:
 
 ### Pregunta `S7-Q5`: _Choice (single answer)_
 
-> **S7-Q5: Cuántas iteraciones típicas de prompt necesitas antes de tener un buen resultado?**
+> **S7-Q5: ¿Cuántas iteraciones típicas de prompt necesitas antes de tener un buen resultado?**
 
 Opciones:
 
@@ -737,7 +737,7 @@ Opciones:
 
 ### Pregunta `S7-Q6`: _Choice (single answer)_
 
-> **S7-Q6: Confías en el código generado por IA lo suficiente para mergearlo SIN revisar línea por línea?**
+> **S7-Q6: ¿Confías en el código generado por IA lo suficiente para mergearlo SIN revisar línea por línea?**
 
 Opciones:
 
@@ -748,7 +748,7 @@ Opciones:
 
 ### Pregunta `S7-Q7`: _Choice (single answer)_
 
-> **S7-Q7: Con qué frecuencia detectas hallucinations, cuando la IA inventa APIs/métodos inexistentes?**
+> **S7-Q7: ¿Con qué frecuencia detectas hallucinations, cuando la IA inventa APIs/métodos inexistentes?**
 
 Opciones:
 
@@ -759,7 +759,7 @@ Opciones:
 
 ### Pregunta `S7-Q8`: _Choice (single answer)_
 
-> **S7-Q8: Desde que adoptaste IA, sientes que aprendes más o menos sobre ingeniería?**
+> **S7-Q8: Desde que adoptaste IA, ¿sientes que aprendes más o menos sobre ingeniería?**
 
 Opciones:
 
@@ -771,7 +771,7 @@ Opciones:
 
 ### Pregunta `S7-Q9`: _Choice (single answer)_
 
-> **S7-Q9: Compartes buenos prompts/ejemplos de uso con colegas en Spaces, Slack o Confluence?**
+> **S7-Q9: ¿Compartes buenos prompts/ejemplos de uso con colegas en Spaces, Slack o Confluence?**
 
 Opciones:
 
@@ -790,7 +790,7 @@ _13 preguntas en esta sección._
 
 ### Pregunta `S8-Q1`: _Choice (single answer)_
 
-> **S8-Q1: Tu organización tiene una POLÍTICA DOCUMENTADA de uso de IA en ingeniería?**
+> **S8-Q1: ¿Tu organización tiene una POLÍTICA DOCUMENTADA de uso de IA en ingeniería?**
 
 Opciones:
 
@@ -802,7 +802,7 @@ Opciones:
 
 ### Pregunta `S8-Q2`: _Choice (single answer)_
 
-> **S8-Q2: Sabes QUÉ DATOS pueden ir a LLMs externas (Copilot, ChatGPT)?**
+> **S8-Q2: ¿Sabes QUÉ DATOS pueden ir a LLMs externas (Copilot, ChatGPT)?**
 
 Opciones:
 
@@ -813,7 +813,7 @@ Opciones:
 
 ### Pregunta `S8-Q3`: _Choice (multiple answers)_
 
-> **S8-Q3: Qué tipos de datos JAMÁS colocas en prompts de IA externa?**
+> **S8-Q3: ¿Qué tipos de datos JAMÁS colocas en prompts de IA externa?**
 
 Opciones:
 
@@ -826,7 +826,7 @@ Opciones:
 
 ### Pregunta `S8-Q4`: _Choice (multiple answers)_
 
-> **S8-Q4: Qué herramientas de SEGURIDAD están activas en tu repo?**
+> **S8-Q4: ¿Qué herramientas de SEGURIDAD están activas en tu repo?**
 
 Opciones:
 
@@ -842,7 +842,7 @@ Opciones:
 
 ### Pregunta `S8-Q5`: _Choice (single answer)_
 
-> **S8-Q5: Code Scanning corre sobre código GENERADO por IA en el PR o IDE?**
+> **S8-Q5: ¿Code Scanning corre sobre código GENERADO por IA en el PR o IDE?**
 
 Opciones:
 
@@ -853,7 +853,7 @@ Opciones:
 
 ### Pregunta `S8-Q6`: _Choice (single answer)_
 
-> **S8-Q6: Tu organización genera SBOM de servicios críticos?**
+> **S8-Q6: ¿Tu organización genera SBOM de servicios críticos?**
 
 Opciones:
 
@@ -864,7 +864,7 @@ Opciones:
 
 ### Pregunta `S8-Q7`: _Choice (single answer)_
 
-> **S8-Q7: Existe un proceso formal de REVIEW para código generado por IA antes del merge?**
+> **S8-Q7: ¿Existe un proceso formal de REVIEW para código generado por IA antes del merge?**
 
 Opciones:
 
@@ -875,7 +875,7 @@ Opciones:
 
 ### Pregunta `S8-Q8`: _Choice (single answer)_
 
-> **S8-Q8: Cuando creas/usas un custom agent, defines ALCANCE y RED-LINES explícitos?**
+> **S8-Q8: Cuando creas/usas un custom agent, ¿defines ALCANCE y RED-LINES explícitos?**
 
 Opciones:
 
@@ -887,7 +887,7 @@ Opciones:
 
 ### Pregunta `S8-Q9`: _Choice (single answer)_
 
-> **S8-Q9: Tu organización usa permisos JIT (Just-In-Time) para agentes versus permisos persistentes?**
+> **S8-Q9: ¿Tu organización usa permisos JIT (Just-In-Time) para agentes versus permisos persistentes?**
 
 Opciones:
 
@@ -898,7 +898,7 @@ Opciones:
 
 ### Pregunta `S8-Q10`: _Choice (single answer)_
 
-> **S8-Q10: Tu organización tiene DLP configurado para evitar datos sensibles en prompts?**
+> **S8-Q10: ¿Tu organización tiene DLP configurado para evitar datos sensibles en prompts?**
 
 Opciones:
 
@@ -909,7 +909,7 @@ Opciones:
 
 ### Pregunta `S8-Q11`: _Choice (single answer)_
 
-> **S8-Q11: Tu organización tiene AUDIT LOGS de uso de Copilot/agentes IA, incluyendo decisiones autónomas de agents?**
+> **S8-Q11: ¿Tu organización tiene AUDIT LOGS de uso de Copilot/agentes IA, incluyendo decisiones autónomas de agents?**
 
 Opciones:
 
@@ -920,7 +920,7 @@ Opciones:
 
 ### Pregunta `S8-Q12`: _Choice (single answer)_
 
-> **S8-Q12: Ya recibiste entrenamiento formal de seguridad en el uso de IA?**
+> **S8-Q12: ¿Ya recibiste entrenamiento formal de seguridad en el uso de IA?**
 
 Opciones:
 
@@ -931,7 +931,7 @@ Opciones:
 
 ### Pregunta `S8-Q13`: _Choice (single answer)_
 
-> **S8-Q13: Con qué frecuencia viste a Copilot/IA sugerir código con vulnerabilidad obvia?**
+> **S8-Q13: ¿Con qué frecuencia viste a Copilot/IA sugerir código con vulnerabilidad obvia?**
 
 Opciones:
 
@@ -950,19 +950,19 @@ _4 preguntas en esta sección._
 
 ### Pregunta `S9-Q1`: _Long Text (respuesta libre)_
 
-> **S9-Q1: QUÉ MÁS te frustra hoy en el uso de IA en tu día a día de ingeniería?**
+> **S9-Q1: ¿QUÉ MÁS te frustra hoy en el uso de IA en tu día a día de ingeniería?**
 
 ### Pregunta `S9-Q2`: _Long Text (respuesta libre)_
 
-> **S9-Q2: Qué CAMBIO en herramienta/proceso duplicaría tu productividad?**
+> **S9-Q2: ¿Qué CAMBIO en herramienta/proceso duplicaría tu productividad?**
 
 ### Pregunta `S9-Q3`: _Long Text (respuesta libre)_
 
-> **S9-Q3: Qué feature/herramienta Microsoft/GitHub te gustaría que existiera o conocer mejor?**
+> **S9-Q3: ¿Qué feature/herramienta Microsoft/GitHub te gustaría que existiera o conocer mejor?**
 
 ### Pregunta `S9-Q4`: _Choice (single answer)_
 
-> **S9-Q4: Te gustaría recibir la versión consolidada de este survey (insights agregados de todo el equipo)?**
+> **S9-Q4: ¿Te gustaría recibir la versión consolidada de este survey (insights agregados de todo el equipo)?**
 
 Opciones:
 
@@ -971,17 +971,17 @@ Opciones:
 
 ---
 
-## Resumo final
+## Resumen final
 
-- **9 seções** (1 por tema)
+- **9 secciones** (1 por tema)
 - **75 preguntas** (55 choice + 15 multi + 5 long text)
-- **Tempo estimado:** 20-25 min (rascunho rápido em 10 min)
-- **Respostas esperadas:** quanto mais devs, melhor: mínimo 5, ideal 15+
+- **Tiempo estimado:** 20-25 min (una pasada rápida toma unos 10 min)
+- **Respuestas esperadas:** cuantos más desarrolladores, mejor: mínimo 5, ideal 15+
 
-## Próximos passos
+## Próximos pasos
 
-1. Após coletar respostas, **Responses → Open in Excel** no Microsoft Forms
-2. Renomeie o Excel para `survey-devs-responses.xlsx`
-3. Mova para a raiz do `kit-cliente/`
-4. No Copilot Chat (modo Agent): `/import-survey-devs`
-5. Depois: `/insights-developer-survey` para gerar relatório consolidado
+1. Después de recopilar respuestas, ve a **Responses → Open in Excel** en Microsoft Forms
+2. Renombra el Excel a `survey-devs-responses.xlsx`
+3. Muévelo a la raíz del kit
+4. En Copilot Chat (modo Agent): `/import-survey-devs`
+5. Después ejecuta `/insights-developer-survey` para generar el informe consolidado

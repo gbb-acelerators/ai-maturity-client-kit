@@ -20,7 +20,7 @@
 6. [Multi-respondent: aggregation](#6-multi-respondent-aggregation)
 7. [Maturity labels (score mapping)](#7-maturity-labels-score-mapping)
 8. [Gap analysis and prioritization](#8-gap-analysis-and-prioritization)
-9. [PE Score (Production Engineering Readiness)](#9-pe-score-production-engineering-readiness)
+9. [PE Score (Platform Engineering Readiness)](#9-pe-score-platform-engineering-readiness)
 10. [Persistence (tables and materialization)](#10-persistence-tables-and-materialization)
 11. [**End-to-end example: Pillar P1**](#11-end-to-end-example-pillar-p1)
 12. [**End-to-end example: Pillar P2**](#12-end-to-end-example-pillar-p2)
@@ -196,7 +196,7 @@ If gap_size ≤ 1e-9 (floating-point epsilon) → discard (target already reache
 
 ---
 
-## 9. PE Score (Production Engineering Readiness)
+## 9. PE Score (Platform Engineering Readiness)
 
 > Reference code: [`scoring.rs:266-304`](../scripts/assessment_engine.py)
 
@@ -205,7 +205,7 @@ Sub-score calculated **only with questions flagged `pe = true`** in the seed.
 - Filter → recalculate capability/pillar/overall with the subset.
 - Same SUMPRODUCT.
 - If no question has `pe = true` → returns `None`.
-- It is shown side by side with the general overall, signaling production readiness (resilience, observability, runbooks, SLOs, etc.).
+- It is shown side by side with the general overall, signaling platform engineering readiness. The v1 questions flagged `pe = true` cover developer portal adoption, environment setup time, deployment frequency, infrastructure as code, MTTR, containerized workloads and API specs.
 
 ---
 
@@ -410,7 +410,7 @@ If the full assessment has 28 active capabilities, P3-C5 with `score = 2.0378` a
 | **Score** | Continuous result `f64 ∈ [0,4]` produced by aggregation. |
 | **Weight** | Weight of the question (`[0.5, 2.0]`, default 1.0) or of the capability. |
 | **Threshold** | Minimum coverage of answered questions: 25 (warning), 40 (ok). |
-| **PE flag** | Flags questions critical for Production Engineering. They generate a parallel sub-score. |
+| **PE flag** | Flags questions critical for Platform Engineering. They generate a parallel sub-score. |
 | **Gap** | `target − current` per capability. |
 | **Priority score** | `weight × gap`, which classifies the capability into P0/P1/P2/P3. |
 | **Audience** | Target audiences of the question (developer, sre, security…). Filters visibility in the form. |

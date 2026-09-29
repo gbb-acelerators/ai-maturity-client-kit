@@ -121,7 +121,7 @@ Usa el banco en el idioma de las personas encuestadas como **fuente para copiar/
 2. **El TÍTULO de la pregunta DEBE comenzar con el ID + dos puntos**:
 
    ```text
-   S2-Q1: Tienes una licencia activa de GitHub Copilot?
+   S2-Q1: ¿Tienes una licencia activa de GitHub Copilot?
    ```
 
    > ⚠️ **CRÍTICO:** el ID es usado por la skill `/import-survey-devs` para mapear de vuelta al schema. No quites ni cambies el formato `SX-QY:`.
@@ -151,7 +151,7 @@ Usa el banco en el idioma de las personas encuestadas como **fuente para copiar/
 
 1. Pestaña **Responses** → botón **Open in Excel**
 2. Guarda el archivo como **`survey-devs-responses.xlsx`**
-3. Muévelo a la **raíz de `kit-cliente/`** (no dentro de `survey-devs/`)
+3. Muévelo a la **raíz del kit** (no dentro de `survey-devs/`)
 4. **Anonimato confirmado:** las columnas D (Email) y E (Name) deben estar vacías
 
 ### Paso 8 · Analizar con el kit
@@ -237,7 +237,7 @@ Es más probable que los desarrolladores respondan la próxima encuesta si ven q
 
 | Problema | Diagnóstico | Solución |
 |---|---|---|
-| La skill no detecta el archivo | No está en la raíz | Mueve `survey-devs-responses.xlsx` a `kit-cliente/` (raíz) |
+| La skill no detecta el archivo | No está en la raíz | Mueve `survey-devs-responses.xlsx` a la raíz del kit |
 | La skill dice "0 respondents" | Email/Name no están vacíos pero las preguntas están vacías | Revisa que las personas encuestadas hayan respondido al menos 1 pregunta |
 | Headers no reconocidos | Falta "SX-QY:" al inicio | Edita los headers manualmente para incluir el ID |
 | El email aparece en Excel | Anonimato OFF | Reconfigura Forms → Settings → Anonymous Responses ON y vuelve a enviar |
@@ -252,7 +252,7 @@ Es más probable que los desarrolladores respondan la próxima encuesta si ven q
 - **JSON estructurado de ejemplo:** [`mock-responses-devs.json`](mock-responses-devs.json)
 - **Skill de importación:** [`../.github/skills/import-survey-devs/SKILL.md`](../.github/skills/import-survey-devs/SKILL.md)
 - **Skill de insights:** [`../.github/skills/insights-developer-survey/SKILL.md`](../.github/skills/insights-developer-survey/SKILL.md)
-- **Relación con la evaluación principal:** esta encuesta COMPLEMENTA la evaluación de madurez. Los insights aquí informan las capacidades P1-C1, P1-C5, P1-C8 (Copilot, Onboarding, Metrics) y la gobernanza en P2-C4 / P3-C6.
+- **Relación con la evaluación principal:** esta encuesta COMPLEMENTA la evaluación de madurez. Sus insights ayudan a validar las preguntas v2 listadas en `survey_crosswalk` en [framework.v2.json](../framework.v2.json) (por ejemplo D4-Q1 para la adopción de Copilot, D4-Q4 para las instrucciones y D6-Q1 para la gobernanza). Los resultados de la encuesta nunca cambian los puntajes v2.
 
 ---
 

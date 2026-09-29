@@ -101,7 +101,7 @@ Agree on these points with your privacy or legal team before launch (LGPD / GDPR
 
 The engine ([scripts/assessment_engine.py](../scripts/assessment_engine.py)) follows section 8 of [AI-Maturity-Form-Questions_v2.md](AI-Maturity-Form-Questions_v2.md): pooled mean per question, mean per dimension, weighted mean of dimensions, half-open level bands, and the low-confidence, amplification-risk, perception-gap, respondent-divergence, scope, unverified L3/L4, and evidence coverage flags.
 
-Optional evidence cross-checks come from `make scan-repos` and `make telemetry`. They are shown in the summary PDF and listed as risks in the implementation guide when they challenge an answer.
+Optional evidence cross-checks come from `make scan-repos`, `make telemetry` and `make dora`. They are shown in the summary PDF and listed as risks in the implementation guide when they challenge an answer.
 
 ## Troubleshooting
 

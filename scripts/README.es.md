@@ -16,6 +16,7 @@ Estos scripts son la fuente de verdad para importación, puntuación, generació
 | `python3 scripts/run_demo.py` | Renderiza los 5 PDFs v2, workbook y JSONs desde datos mock ilustrativos bajo `output/demo/` sin tocar `responses.json`. |
 | `python3 scripts/scan_repos_ai_config.py` | Escribe `output/repo-scan.json` desde clones locales o una organización de GitHub. Se usa como verificación cruzada de evidencia para D4-Q4 y D4-Q5. |
 | `python3 scripts/import_copilot_metrics.py` | Escribe `output/telemetry.json` desde exportaciones de métricas de uso de GitHub Copilot. Se usa como verificación cruzada de evidencia para D4-Q1 y D9-Q1. |
+| `python3 scripts/import_dora_metrics.py` | Escribe `output/dora-metrics.json` desde métricas DORA por servicio (períodos `baseline` y `current`). Se usa como verificación cruzada de evidencia para D9-Q2. |
 | `python3 scripts/generate_v2_collection.py` | Genera bancos de preguntas v2, formulario offline (más copias `.pt-br` y `.es` que se abren en esos idiomas) y plantilla de importación. |
 | `python3 scripts/generate_v2_tools_html.py` | Genera la calculadora v2 y el wizard de guía de implementación (más copias `.pt-br` y `.es`). `make validate-docs` lo ejecuta con `--check`. |
 | `python3 scripts/generate_v2_reference.py` | Genera [../reference/framework-v2.es.md](../reference/framework-v2.es.md) y [../reference/dimensions/](../reference/dimensions/). |
@@ -30,4 +31,4 @@ Los fixtures para ejemplos y pruebas viven en [fixtures/](fixtures/).
 
 ## Targets de Make
 
-Usa `make install-deps`, `make demo [DEMO_LANG=en|pt-BR|es]`, `make init`, `make init-v1`, `make import XLSX=...`, `make merge DIR=...`, `make scores`, `make workbook`, `make pipeline`, `make compare BEFORE=... AFTER=...`, `make scan-repos REPOS=...`, `make scan-repos ORG=...`, `make telemetry METRICS=...`, `make examples-v2`, `make validate-v2`, `make validate-docs`, `make generate-v2`, `make mock-v2`, `make build-kits` y `make test`.
+Usa `make install-deps`, `make demo [DEMO_LANG=en|pt-BR|es]`, `make init`, `make init-v1`, `make import XLSX=...`, `make merge DIR=...`, `make scores`, `make workbook`, `make pipeline`, `make compare BEFORE=... AFTER=...`, `make scan-repos REPOS=...`, `make scan-repos ORG=...`, `make telemetry METRICS=...`, `make dora DORA=...`, `make examples-v2`, `make validate-v2`, `make validate-docs`, `make generate-v2`, `make mock-v2`, `make build-kits` y `make test`.

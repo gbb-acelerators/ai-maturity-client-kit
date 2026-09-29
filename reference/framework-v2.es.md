@@ -13,7 +13,7 @@ Generado desde `framework.v2.json` (framework 2.0.1) por `scripts/generate_v2_re
 - Cobertura: OK desde 37 preguntas con puntaje, WARNING desde 25, BLOCKED por debajo.
 - Brecha = objetivo (por defecto 3,00) menos puntaje. Prioridad = peso × brecha: P0 desde 2,40, P1 desde 1,60, P2 desde 0,90, si no P3.
 - Alertas: baja confianza (más del 30% NA), riesgo de amplificación (D5, D6 o D8 un rango por debajo del general), brecha de percepción (ejecutivos vs hands-on, al menos 3 de cada uno), salvedad de alcance, L3/L4 no verificado (menos del 50% de respuestas con evidencia), divergencia entre personas encuestadas (desviación estándar de los puntajes de dimensión por persona de 1,00 o más, con al menos 3 personas).
-- Verificaciones cruzadas, cuando existen los archivos: el escaneo de repositorios (niveles RAMP [47]) limita D4-Q4 por la fracción de repositorios con configuración de IA versionada, y las métricas de uso de Copilot [6] limitan D4-Q1 por las fases de adopción. El informe señala respuestas por encima de lo que sostiene la evidencia.
+- Verificaciones cruzadas, cuando existen los archivos: el escaneo de repositorios (niveles RAMP [47]) limita D4-Q4 por la fracción de repositorios con configuración de IA versionada, las métricas de uso de Copilot [6] limitan D4-Q1 por las fases de adopción, y las métricas DORA limitan D9-Q2 por la fracción de servicios comparados con un baseline. El informe señala respuestas por encima de lo que sostiene la evidencia.
 
 ### Rangos de nivel
 

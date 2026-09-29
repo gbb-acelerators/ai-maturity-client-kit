@@ -24,7 +24,7 @@ Para producir valor accionable, esta encuesta **necesita saber quién es quién*
 - Mapear **pares mentor↔mentee** (necesita nombres de ambos lados)
 - Asignar un **owner** a los quick wins identificados
 
-**Trade-off honesto:** algunas preguntas (por ejemplo, "cuál es tu nivel en DS-D8 Security?") pueden responderse con menos honestidad si los desarrolladores se sienten juzgados. Por eso:
+**Trade-off honesto:** algunas preguntas (por ejemplo, "¿cuál es tu nivel en DS-D8 Security?") pueden responderse con menos honestidad si los desarrolladores se sienten juzgados. Por eso:
 
 - El liderazgo debe **comunicar claramente**: "las respuestas se usan para CONSTRUIR HABILIDADES, no para EVALUAR desempeño"
 - No uses respuestas en evaluaciones de desempeño
@@ -54,7 +54,7 @@ Si tu organización prefiere **anonimato puro**: ejecuta el **Developer Survey**
 ### Paso 1 · Crear el formulario
 
 1. Ve a <https://forms.office.com> → **+ New Form**
-2. Título: `Learning & Growth IA: Qué quieres aprender en los próximos 6 meses?`
+2. Título: `Learning & Growth IA: ¿Qué quieres aprender en los próximos 6 meses?`
 3. Subtítulo (pega):
 
 ```text
@@ -108,7 +108,7 @@ Usa el banco en el idioma de las personas encuestadas como fuente para copiar y 
 2. **El TÍTULO SIEMPRE empieza con el ID + dos puntos**:
 
    ```text
-   L4-Q1: Qué temas de GitHub Copilot quieres dominar?
+   L4-Q1: ¿Qué temas de GitHub Copilot quieres dominar?
    ```
 
 3. **Required**: marca **L1-Q1 (nombre) + L1-Q2 (email)** como required. Deja el resto opcional (los desarrolladores pueden omitirlas).
@@ -146,7 +146,7 @@ La pregunta L1-Q4 ("Equipo / Squad") tiene un placeholder (`[Customize with the 
 
 1. **Responses → Open in Excel**
 2. Guarda como **`survey-learning-responses.xlsx`**
-3. Muévelo a la **raíz de `kit-cliente/`**
+3. Muévelo a la **raíz del kit**
 4. Revisa: las columnas D (Email) y E (Name) deben estar COMPLETAS
 
 ### Paso 9 · Analizar con el kit
@@ -163,7 +163,7 @@ Genera `survey-learning/responses-learning.json` (estructurado).
 /training-plan
 ```
 
-Genera `output/training-plan-<DATE>.md` (en **inglés de forma predeterminada**; el script acepta `--lang pt-br` para portugués (Brasil) y `--lang es` para español) con:
+Genera `output/training-plan-<date>.md` (en **inglés de forma predeterminada**; el script acepta `--lang pt-br` para portugués (Brasil) y `--lang es` para español) con:
 
 - Top 10 temas solicitados (con lista de asistentes pre-validados)
 - Cohorts sugeridos por dimensión D2-D8
@@ -198,10 +198,11 @@ Completa manualmente: **program office (TPO)**, **RACI**, **responsables de dime
 
 La skill detecta:
 
-- ✅ `implementation-guide-inputs.json` (del auto-fill de wizard Mode D) → completa la Parte 4 con tus Champions y workshops
-- ✅ `output/training-plan-*.md` (de esta encuesta) → enriquece roadmap_part4.pdf
-- ✅ `output/insights-developer-survey-*.md` (si lo ejecutaste) → cruza referencias en el apéndice
-- ✅ `output/developer-survey-maturity-*.json` (si lo ejecutaste) → score_justification.pdf incluye "maturity vs declared"
+- ✅ `implementation-guide-inputs.json` (del auto-fill de wizard Mode D) → completa las secciones de gobernanza, comunicación, capacitación y quick wins de `v2_implementation_guide.pdf` con tus Champions y workshops
+- ✅ `output/training-plan-*.md` (de esta encuesta) → la guía de implementación lo cita como fuente del plan de capacitación
+- ✅ `output/developer-survey-maturity-*.json` (si ejecutaste la Developer Survey) → `v2_assessment_summary.pdf` muestra el contexto de la encuesta junto a las preguntas v2 que informa
+
+Las entradas v1 archivadas siguen generando `roadmap_part4.pdf` y `score_justification.pdf`.
 
 **Salida:** 5 PDFs de calidad de producción con datos REALES de la Learning Survey integrados.
 
@@ -249,7 +250,7 @@ Esta encuesta procesa datos personales (nombre, email, rol, squad, autoevaluaci�
 
 ### Transparencia del plan
 
-- Presenta `training-plan-DATE.md` en un all-hands
+- Presenta `training-plan-<date>.md` en un all-hands
 - Las personas que pidieron el workshop X reciben una invitación: cierra el loop
 - Los Champions identificados reciben reconocimiento público (con consentimiento)
 
@@ -259,7 +260,7 @@ Esta encuesta procesa datos personales (nombre, email, rol, squad, autoevaluaci�
 
 | Problema | Solución |
 |---|---|
-| La skill no detecta el archivo | Muévelo a la raíz de `kit-cliente/` |
+| La skill no detecta el archivo | Muévelo a la raíz del kit |
 | Email/Name vacío en algunas filas | Configuración de Forms: Anonymous OFF + L1-Q1/Q2 required |
 | Headers no reconocidos | Asegúrate de que cada pregunta empiece con `L[1-7]-Q\d+:` |
 | Un desarrollador rechazó identificarse | Acepta la respuesta parcial; redirígelo a `survey-devs` (anónimo) |

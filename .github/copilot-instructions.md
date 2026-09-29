@@ -29,11 +29,11 @@ python3 scripts/assessment_engine.py all
 python3 scripts/fill_workbook.py
 python3 reports/scripts/build_payload_and_render.py
 python3 scripts/compare_rounds.py BEFORE.json AFTER.json --pdf
-python3 scripts/scan_repos_ai_config.py --repos ~/src
-python3 scripts/import_copilot_metrics.py --metrics copilot-usage.json
+python3 scripts/scan_repos_ai_config.py --path ~/src
+python3 scripts/import_copilot_metrics.py copilot-usage.json --seats 200
 ```
 
-Equivalent Make targets include `make demo`, `make merge`, `make pipeline`, `make compare`, `make scan-repos`, `make telemetry`, `make examples-v2`, `make validate-docs`, and `make test`.
+Equivalent Make targets include `make demo`, `make merge`, `make pipeline`, `make compare`, `make scan-repos`, `make telemetry`, `make dora`, `make examples-v2`, `make validate-docs`, and `make test`.
 
 ## v2 scoring facts
 
@@ -63,6 +63,7 @@ Reports and skills should surface these signals when present in script output: l
 
 - `make scan-repos REPOS=...` or `make scan-repos ORG=...` writes `output/repo-scan.json`. It maps repositories to RAMP L1 to L4 as a pattern-based approximation. L2+ coverage caps D4-Q4; L3+ share is shown next to D4-Q5.
 - `make telemetry METRICS=... [SEATS=...]` writes `output/telemetry.json`. It classifies adoption phases for D4-Q1 and provides evidence for D9-Q1.
+- `make dora DORA=... [SERVICES=...]` writes `output/dora-metrics.json` from per-service DORA metrics (`baseline` and `current` periods). With `SERVICES`, the share of services compared with a baseline caps D9-Q2. It checks measurement coverage, not delivery performance.
 - The summary PDF section 2.2 shows evidence cross-checks. The implementation guide lists mismatches as risks.
 
 ## Companion surveys

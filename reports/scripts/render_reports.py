@@ -32,7 +32,7 @@ from pathlib import Path
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from weasyprint import HTML, CSS
 
-ROOT = Path(__file__).resolve().parent.parent  # kit-cliente/reports/
+ROOT = Path(__file__).resolve().parent.parent  # <kit>/reports/
 TEMPLATES = ROOT / "templates"
 I18N = ROOT / "i18n"
 
@@ -43,6 +43,7 @@ def load_locale(locale: str) -> dict[str, str]:
 
 def make_t(strings: dict[str, str]):
     pat = re.compile(r"\{(\w+)\}")
+
     def t(key: str, **kw) -> str:
         s = strings.get(key, f"⟨{key}⟩")
         return pat.sub(lambda m: str(kw.get(m.group(1), m.group(0))), s) if kw else s
@@ -83,7 +84,8 @@ def render(template_name: str, payload: dict, extra_ctx: dict | None, out_dir: P
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--payload", default=str(ROOT / "sample_payload.json"))
-    ap.add_argument("--out", default=str(ROOT.parent / "reference/sample-output"))
+    ap.add_argument(
+        "--out", default=str(ROOT.parent / "reference/sample-output"))
     ap.add_argument("--locale", default=None, help="override payload.locale")
     args = ap.parse_args()
 
@@ -102,9 +104,12 @@ def main():
 
     targets = [
         ("score_justification.html.j2", {}, "score_justification"),
-        ("roadmap_part_pillar.html.j2", {"pillar_focus": "P1"}, "roadmap_part_pillar_p1"),
-        ("roadmap_part_pillar.html.j2", {"pillar_focus": "P2"}, "roadmap_part_pillar_p2"),
-        ("roadmap_part_pillar.html.j2", {"pillar_focus": "P3"}, "roadmap_part_pillar_p3"),
+        ("roadmap_part_pillar.html.j2", {
+         "pillar_focus": "P1"}, "roadmap_part_pillar_p1"),
+        ("roadmap_part_pillar.html.j2", {
+         "pillar_focus": "P2"}, "roadmap_part_pillar_p2"),
+        ("roadmap_part_pillar.html.j2", {
+         "pillar_focus": "P3"}, "roadmap_part_pillar_p3"),
         ("roadmap_part4.html.j2", {}, "roadmap_part4"),
     ]
 

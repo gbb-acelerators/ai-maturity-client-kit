@@ -50,13 +50,13 @@ A seção 12 do relatório de insights aponta para perguntas v2, não para capac
 
 | Arquivo | O que é |
 | --- | --- |
-| [FORMS-INSTRUCTIONS-DEVS.md](FORMS-INSTRUCTIONS-DEVS.md) | Guia passo a passo para montar o Microsoft Forms. |
+| [FORMS-INSTRUCTIONS-DEVS.md](FORMS-INSTRUCTIONS-DEVS.pt-br.md) | Guia passo a passo para montar o Microsoft Forms. |
 | [question-bank-devs.md](question-bank-devs.md) | Banco de perguntas em inglês. |
 | [question-bank-devs.pt-br.md](question-bank-devs.pt-br.md) | Banco de perguntas em português (Brasil); as opções dele são os valores canônicos de [options.json](options.json). |
 | [question-bank-devs.es.md](question-bank-devs.es.md) | Banco de perguntas em espanhol. |
 | [template-export-forms-devs.xlsx](template-export-forms-devs.xlsx) | Template Excel no formato de export do Forms. |
 | [mock-responses-devs.json](mock-responses-devs.json) | JSON estruturado de exemplo para smoke tests. |
-| [MATURITY-RUBRIC.md](MATURITY-RUBRIC.md) | Rubrica determinística. Ela mantém as bandas v1, então compare por score, não pelo nome do nível. |
+| [MATURITY-RUBRIC.md](MATURITY-RUBRIC.pt-br.md) | Rubrica determinística. Ela mantém as bandas v1, então compare por score, não pelo nome do nível. |
 | [scripts/](scripts/) | Scripts de importação, scoring e insights. |
 
 ## Fluxo de uso

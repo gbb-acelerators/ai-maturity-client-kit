@@ -27,6 +27,7 @@ Las guías de implementación en los tres idiomas usan entradas del wizard llena
 | `payload_v2.json` | Payload del informe (EN) |
 | `repo-scan.json` | `scripts/scan_repos_ai_config.py` en 12 repositorios fixture (niveles RAMP [47]) |
 | `telemetry.json` | `scripts/import_copilot_metrics.py` sobre el mock de métricas de uso de Copilot |
+| `dora-metrics.json` | `scripts/import_dora_metrics.py` sobre `scripts/fixtures/dora-metrics.mock.csv` con 12 servicios en el alcance |
 | `round-comparison.json` | Resultado de `scripts/compare_rounds.py` detrás del PDF de comparación |
 | `scoring-v2-EXAMPLE.xlsx` | Workbook auditable de fórmulas (PT-BR) |
 | `developer-survey-maturity-EXAMPLE.json`, `insights-developer-survey-EXAMPLE.md` | Salidas de Developer Survey (PT-BR), dimensiones `DS-D2` a `DS-D8` |

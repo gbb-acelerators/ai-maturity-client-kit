@@ -55,7 +55,7 @@
 
 8. **Required**: marque L1-Q1 (nome) e L1-Q2 (email) como required. Demais opcionais.
 9. Compartilhe via **Send → Link** com TODOS os devs da empresa
-10. Quando tiver respostas: **Responses → Open in Excel** → renomeie para `survey-learning-responses.xlsx` → mova para raiz do `kit-cliente/`
+10. Quando tiver respostas: **Responses → Open in Excel** → renomeie para `survey-learning-responses.xlsx` → mova para raiz do kit
 
 ---
 
@@ -486,4 +486,4 @@ Opções:
    /training-plan
    ```
 
-4. Receber plano de capacitação priorizado em `output/training-plan-DATA.md`
+4. Receber plano de capacitação priorizado em `output/training-plan-<date>.md`

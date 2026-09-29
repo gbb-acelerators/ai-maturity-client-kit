@@ -6,7 +6,7 @@ Kit autônomo para conduzir uma autoavaliação de maturidade do SDLC assistido 
 
 Papel da autora: Global Developer Solutions Advisor.
 
-Veja [CHANGELOG.md](CHANGELOG.md) para o histórico de versões.
+Veja [CHANGELOG.md](CHANGELOG.pt-br.md) para o histórico de versões.
 
 ## O que há de novo no framework v2
 
@@ -44,6 +44,7 @@ make pipeline
 # Cross-checks opcionais de evidência:
 make scan-repos REPOS=~/src
 make telemetry METRICS=copilot-usage.json SEATS=200
+make dora DORA=dora-metrics.csv SERVICES=40
 # Preencha implementation-guide-inputs.json com o wizard, depois renderize de novo:
 make pipeline
 ```
@@ -89,12 +90,13 @@ Os scripts são a fonte da verdade. Não calcule scores manualmente.
 
 ## Cross-checks de evidência
 
-Dois insumos opcionais ajudam a desafiar respostas superconfiantes. Eles não mudam os scores.
+Três insumos opcionais ajudam a desafiar respostas superconfiantes. Eles não mudam os scores.
 
 - `make scan-repos REPOS=~/src` examina clones locais usando apenas arquivos commitados. `make scan-repos ORG=<github-org>` examina branches padrão pela API REST do GitHub e exige `GITHUB_TOKEN` ou `GH_TOKEN`. Saída: `output/repo-scan.json`. O scan posiciona repositórios nos níveis RAMP L1 a L4 como aproximação baseada em padrões. A fração de repositórios em L2+ limita D4-Q4 pelas bandas de cobertura, e a fração em L3+ aparece ao lado de D4-Q5.
 - `make telemetry METRICS=<Copilot usage metrics report JSON/NDJSON> [SEATS=200]` grava `output/telemetry.json`. Ele lê exports de métricas de uso do GitHub Copilot e classifica fases de adoção: No Cohort, Phase 1 Code first, Phase 2 Agent first, Phase 3 Multi-agent. O próprio export é evidência para D9-Q1.
+- `make dora DORA=<CSV ou JSON> [SERVICES=40]` grava `output/dora-metrics.json`. Ele lê uma linha por serviço e período (`baseline` antes da adoção de IA, `current`) com frequência de deploy, lead time, taxa de falha de mudanças e tempo de restauração. Com `SERVICES`, a parcela de serviços comparados com um baseline limita D9-Q2 pelas faixas de cobertura. Ele checa a cobertura da medição, não o desempenho de entrega.
 
-A seção 2.2 do PDF de sumário mostra os dois cross-checks e sinaliza respostas acima do que a evidência suporta. O guia de implementação lista essas divergências como riscos. Se os arquivos não existirem, o relatório explica como produzi-los.
+A seção 2.2 do PDF de sumário mostra os cross-checks e sinaliza respostas acima do que a evidência suporta. O guia de implementação lista essas divergências como riscos. Se os arquivos não existirem, o relatório explica como produzi-los.
 
 ## Surveys complementares
 
