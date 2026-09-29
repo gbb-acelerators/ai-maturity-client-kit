@@ -31,6 +31,7 @@ python3 reports/scripts/build_payload_and_render.py
 python3 scripts/compare_rounds.py BEFORE.json AFTER.json --pdf
 python3 scripts/scan_repos_ai_config.py --path ~/src
 python3 scripts/import_copilot_metrics.py copilot-usage.json --seats 200
+python3 scripts/import_dora_metrics.py dora-metrics.csv --services 40
 ```
 
 Equivalent Make targets include `make demo`, `make merge`, `make pipeline`, `make compare`, `make scan-repos`, `make telemetry`, `make dora`, `make examples-v2`, `make validate-docs`, and `make test`.
