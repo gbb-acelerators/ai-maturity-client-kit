@@ -122,8 +122,8 @@ def now_iso() -> str:
     return now.strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def locale_of(respostas: dict) -> str:
-    raw = str(respostas.get("metadata", {}).get("language") or "en")
+def locale_of(responses_doc: dict) -> str:
+    raw = str(responses_doc.get("metadata", {}).get("language") or "en")
     raw = raw.lower().replace("_", "-")
     if raw in ("pt", "pt-br"):
         return "pt-br"
@@ -169,10 +169,10 @@ def r3(value: float | None, precise: bool = False) -> float | None:
     return round(value, 3)
 
 
-def read_levels(respostas: dict, known_ids: set[str]) -> dict:
+def read_levels(responses_doc: dict, known_ids: set[str]) -> dict:
     levels: dict[str, float | None] = {}
     errors = []
-    for qid, entry in (respostas.get("responses") or {}).items():
+    for qid, entry in (responses_doc.get("responses") or {}).items():
         if qid not in known_ids:
             continue
         level = entry.get("level") if isinstance(entry, dict) else None
@@ -212,7 +212,7 @@ def capability_score(cap: dict, levels: dict, pe_only: bool) -> tuple:
 
 
 def compute_scores(
-    framework: dict, respostas: dict, precise: bool = False
+    framework: dict, responses_doc: dict, precise: bool = False
 ) -> dict:
     known = {
         q["id"]
@@ -220,7 +220,7 @@ def compute_scores(
         for c in p["capabilities"]
         for q in c["questions"]
     }
-    levels = read_levels(respostas, known)
+    levels = read_levels(responses_doc, known)
     caps_out, pillars_out = [], []
     all_pairs, pe_pairs = [], []
     total_answered = 0
@@ -264,7 +264,7 @@ def compute_scores(
         })
     overall = weighted_mean(all_pairs)
     pe_overall = weighted_mean(pe_pairs)
-    meta = respostas.get("metadata", {})
+    meta = responses_doc.get("metadata", {})
     return {
         "metadata": {
             "computed_at": now_iso(),
@@ -288,10 +288,10 @@ def compute_scores(
     }
 
 
-def compute_gaps(precise_scores: dict, respostas: dict) -> dict:
+def compute_gaps(precise_scores: dict, responses_doc: dict) -> dict:
     """Gap math uses unrounded capability scores (see scoring.rs)."""
-    targets = respostas.get("target_overrides") or {}
-    horizons = HORIZONS[locale_of(respostas)]
+    targets = responses_doc.get("target_overrides") or {}
+    horizons = HORIZONS[locale_of(responses_doc)]
     gaps = []
     for cap in precise_scores["capabilities"]:
         if cap["score"] is None:
@@ -336,9 +336,9 @@ def compute_gaps(precise_scores: dict, respostas: dict) -> dict:
 
 
 def compute_recommendations(
-    gaps: dict, framework: dict, respostas: dict
+    gaps: dict, framework: dict, responses_doc: dict
 ) -> dict:
-    locale = locale_of(respostas)
+    locale = locale_of(responses_doc)
     tloc = text_locale(locale)
     horizons = HORIZONS[locale]
     names = {s["id"]: s["name"] for s in framework.get("strategies", [])}
@@ -407,8 +407,8 @@ def compute_recommendations(
     }
 
 
-def framework_major(respostas: dict) -> int:
-    raw = str(respostas.get("metadata", {}).get("framework_version")
+def framework_major(responses_doc: dict) -> int:
+    raw = str(responses_doc.get("metadata", {}).get("framework_version")
               or "1")
     try:
         return int(raw.split(".")[0])
@@ -416,15 +416,15 @@ def framework_major(respostas: dict) -> int:
         raise InputError(f"framework_version {raw!r} is not a version")
 
 
-def run_v2(step: str, respostas: dict, out_dir: Path) -> int:
+def run_v2(step: str, responses_doc: dict, out_dir: Path) -> int:
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     import engine_v2 as v2
 
     fw = load_json(ROOT / "framework.v2.json")
-    locale = locale_of(respostas)
+    locale = locale_of(responses_doc)
     try:
         if step in ("scores", "all"):
-            scores = v2.compute_scores(fw, respostas, locale)
+            scores = v2.compute_scores(fw, responses_doc, locale)
             write_json(out_dir / "scores.json", scores)
             o, t = scores["overall"], scores["threshold"]
             f = scores["flags"]
@@ -439,14 +439,14 @@ def run_v2(step: str, respostas: dict, out_dir: Path) -> int:
                 print("⚠️ Fewer than 25 questions answered: do not use "
                       "the report for decisions.")
         if step in ("gaps", "all"):
-            gaps = v2.compute_gaps(fw, respostas, locale)
+            gaps = v2.compute_gaps(fw, responses_doc, locale)
             write_json(out_dir / "gaps.json", gaps)
             print(f"✓ gaps.json (v2): "
                   f"{gaps['metadata']['total_dimensions_with_gap']} "
                   f"dimensions with gap {gaps['summary']}")
         if step in ("recommendations", "all"):
             gaps = load_json(out_dir / "gaps.json")
-            recs = v2.compute_recommendations(fw, gaps, respostas, locale)
+            recs = v2.compute_recommendations(fw, gaps, responses_doc, locale)
             write_json(out_dir / "recommendations.json", recs)
             top = [s["strategy_id"] for s in recs["ranked_strategies"][:3]]
             print(f"✓ recommendations.json (v2): top strategies {top}")
@@ -455,17 +455,17 @@ def run_v2(step: str, respostas: dict, out_dir: Path) -> int:
     return 0
 
 
-def run(step: str, respostas_path: Path, out_dir: Path) -> int:
-    respostas = load_json(respostas_path)
-    if framework_major(respostas) >= 2:
-        return run_v2(step, respostas, out_dir)
+def run(step: str, responses_path: Path, out_dir: Path) -> int:
+    responses_doc = load_json(responses_path)
+    if framework_major(responses_doc) >= 2:
+        return run_v2(step, responses_doc, out_dir)
     framework = load_json(ROOT / "framework.json")
-    rf = respostas.get("metadata", {}).get("framework_version")
+    rf = responses_doc.get("metadata", {}).get("framework_version")
     if rf and rf != framework.get("version"):
         print(f"⚠️ responses.json targets framework {rf}, framework.json "
               f"is {framework.get('version')}. Revalidate answers.")
     if step in ("scores", "all"):
-        scores = compute_scores(framework, respostas)
+        scores = compute_scores(framework, responses_doc)
         write_json(out_dir / "scores.json", scores)
         o, t = scores["overall"], scores["threshold"]
         print(f"✓ scores.json: overall {o['score']} ({o['label']}), "
@@ -475,15 +475,15 @@ def run(step: str, respostas_path: Path, out_dir: Path) -> int:
             print("⚠️ Fewer than 25 answers: do not use the report for "
                   "decisions.")
     if step in ("gaps", "all"):
-        precise = compute_scores(framework, respostas, precise=True)
-        gaps = compute_gaps(precise, respostas)
+        precise = compute_scores(framework, responses_doc, precise=True)
+        gaps = compute_gaps(precise, responses_doc)
         write_json(out_dir / "gaps.json", gaps)
         total = gaps["metadata"]["total_capabilities_with_gap"]
         print(f"✓ gaps.json: {total} capabilities with gap "
               f"{gaps['summary']}")
     if step in ("recommendations", "all"):
         gaps = load_json(out_dir / "gaps.json")
-        recs = compute_recommendations(gaps, framework, respostas)
+        recs = compute_recommendations(gaps, framework, responses_doc)
         write_json(out_dir / "recommendations.json", recs)
         top = [s["strategy_id"] for s in recs["ranked_strategies"][:3]]
         print(f"✓ recommendations.json: top strategies {top}")
@@ -494,13 +494,13 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("step", choices=("scores", "gaps", "recommendations",
                                      "all"))
-    ap.add_argument("--responses", "--respostas", dest="respostas",
+    ap.add_argument("--responses", "--respostas", dest="responses",
                     default=None,
                     help="input file (default: responses.json)")
     ap.add_argument("--out", default=str(ROOT / "output"))
     args = ap.parse_args()
     try:
-        src = Path(args.respostas) if args.respostas else \
+        src = Path(args.responses) if args.responses else \
             responses_file(ROOT)
         return run(args.step, src, Path(args.out))
     except (InputError, FileNotFoundError) as exc:

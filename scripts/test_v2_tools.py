@@ -36,7 +36,7 @@ class V2ToolsTest(unittest.TestCase):
         import openpyxl
 
         import fill_workbook_v2
-        args = SimpleNamespace(respostas=str(self.kit / "responses.json"),
+        args = SimpleNamespace(responses=str(self.kit / "responses.json"),
                                out=str(self.out))
         self.assertEqual(fill_workbook_v2.run(args), 0)
         path = next(self.out.glob("scoring-v2-*.xlsx"))

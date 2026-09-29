@@ -29,13 +29,13 @@ class GoldenExampleTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.framework = load(ROOT / "framework.json")
-        cls.respostas = load(ROOT / "responses.json.example")
-        cls.scores = eng.compute_scores(cls.framework, cls.respostas)
+        cls.responses_doc = load(ROOT / "responses.json.example")
+        cls.scores = eng.compute_scores(cls.framework, cls.responses_doc)
         precise = eng.compute_scores(
-            cls.framework, cls.respostas, precise=True)
-        cls.gaps = eng.compute_gaps(precise, cls.respostas)
+            cls.framework, cls.responses_doc, precise=True)
+        cls.gaps = eng.compute_gaps(precise, cls.responses_doc)
         cls.recs = eng.compute_recommendations(
-            cls.gaps, cls.framework, cls.respostas)
+            cls.gaps, cls.framework, cls.responses_doc)
 
     def test_overall_and_threshold(self) -> None:
         expected = load(EXAMPLE / "scores.json")

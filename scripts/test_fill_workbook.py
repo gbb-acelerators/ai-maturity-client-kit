@@ -37,17 +37,17 @@ class FillWorkbookTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.tmp = Path(tempfile.mkdtemp())
-        cls.respostas = json.loads(
+        cls.responses_doc = json.loads(
             (ROOT / "responses.json.example").read_text("utf-8"))
         cls.framework = json.loads(
             (ROOT / "framework.json").read_text("utf-8"))
         args = argparse.Namespace(
-            respostas=str(ROOT / "responses.json.example"),
+            responses=str(ROOT / "responses.json.example"),
             out=str(cls.tmp))
         assert fw.run(args) == 0
         cls.path = next(cls.tmp.glob("scoring-v1-*.xlsx"))
         cls.wb = openpyxl.load_workbook(cls.path)
-        cls.names = fw.HEADERS[fw.locale_of(cls.respostas)]
+        cls.names = fw.HEADERS[fw.locale_of(cls.responses_doc)]
 
     def test_answers_sheet_has_every_question(self) -> None:
         ws = self.wb[self.names["answers"]]
@@ -56,7 +56,8 @@ class FillWorkbookTest(unittest.TestCase):
                     for c in p["capabilities"] for q in c["questions"]]
         self.assertEqual(qids, expected)
         for r in range(2, ws.max_row + 1):
-            level = self.respostas["responses"][ws.cell(r, 1).value]["level"]
+            qid = ws.cell(r, 1).value
+            level = self.responses_doc["responses"][qid]["level"]
             self.assertEqual(ws.cell(r, 5).value, level)
 
     def test_teaching_sheet_uses_framework_weights(self) -> None:
@@ -79,7 +80,7 @@ class FillWorkbookTest(unittest.TestCase):
         sol = formulas.ExcelModel().loads(str(self.path)).finish()
         sol = sol.calculate()
         name = self.path.name
-        scores = eng.compute_scores(self.framework, self.respostas)
+        scores = eng.compute_scores(self.framework, self.responses_doc)
 
         def value(sheet: str, cell: str):
             return sol[f"'[{name}]{sheet.upper()}'!{cell}"].value[0][0]

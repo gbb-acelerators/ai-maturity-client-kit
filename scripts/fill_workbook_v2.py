@@ -45,7 +45,7 @@ def priority_formula(ref: str, cuts: dict) -> str:
             f'"P3"))))')
 
 
-def build(fw: dict, respostas: dict, scores: dict | None, loc: str):
+def build(fw: dict, responses_doc: dict, scores: dict | None, loc: str):
     import engine_v2 as v2
     from openpyxl import Workbook
     from openpyxl.styles import Font, PatternFill
@@ -53,11 +53,11 @@ def build(fw: dict, respostas: dict, scores: dict | None, loc: str):
 
     bold = Font(bold=True)
     head = PatternFill("solid", fgColor="E5F6FD")
-    people = v2.respondents_of(respostas)
+    people = v2.respondents_of(responses_doc)
     sc = fw["scoring"]
     bands = fw["level_bands"]
-    targets = respostas.get("target_overrides") or {}
-    weights = respostas.get("dimension_weights") or {}
+    targets = responses_doc.get("target_overrides") or {}
+    weights = responses_doc.get("dimension_weights") or {}
     engine_q = {q["id"]: q["score"] for q in (scores or {}).get(
         "questions", [])}
     engine_d = {d["id"]: d["score"] for d in (scores or {}).get(
@@ -200,8 +200,8 @@ def run(args) -> int:
     except ImportError:
         print("✗ openpyxl is required: make install-deps", file=sys.stderr)
         return 1
-    src = Path(args.respostas)
-    respostas = json.loads(src.read_text(encoding="utf-8"))
+    src = Path(args.responses)
+    responses_doc = json.loads(src.read_text(encoding="utf-8"))
     fw = json.loads((ROOT / "framework.v2.json").read_text("utf-8"))
     out_dir = Path(args.out)
     scores_path = out_dir / "scores.json"
@@ -213,11 +213,12 @@ def run(args) -> int:
     import assessment_engine as engine
     import engine_v2 as v2
     try:
-        v2.read_answers(v2.respondents_of(respostas), v2.question_index(fw))
+        v2.read_answers(v2.respondents_of(responses_doc),
+                        v2.question_index(fw))
     except v2.InputErrorV2 as exc:
         print(f"✗ {exc}", file=sys.stderr)
         return 1
-    wb = build(fw, respostas, scores, engine.locale_of(respostas))
+    wb = build(fw, responses_doc, scores, engine.locale_of(responses_doc))
     out_dir.mkdir(parents=True, exist_ok=True)
     out = out_dir / f"scoring-v2-{datetime.date.today().isoformat()}.xlsx"
     wb.save(out)
@@ -230,13 +231,13 @@ def run(args) -> int:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--responses", "--respostas", dest="respostas",
+    ap.add_argument("--responses", "--respostas", dest="responses",
                     default=None,
                     help="input file (default: responses.json)")
     ap.add_argument("--out", default=str(ROOT / "output"))
     args = ap.parse_args()
-    if not args.respostas:
-        args.respostas = str(responses_file(ROOT))
+    if not args.responses:
+        args.responses = str(responses_file(ROOT))
     return run(args)
 
 

@@ -269,26 +269,26 @@ STRINGS = {
 }
 
 
-def find_latest_plano(out_dir: Path) -> Path | None:
+def find_latest_plan(out_dir: Path) -> Path | None:
     """Find the most recent training-plan-*.md in output/."""
     candidates = sorted(out_dir.glob("training-plan-*.md"),
                         reverse=True)
     return candidates[0] if candidates else None
 
 
-def extract_section(plano_md: str, section_header_pattern: str) -> str:
+def extract_section(plan_md: str, section_header_pattern: str) -> str:
     """Extract a section body by header regex (until next ## or end)."""
     pat = re.compile(
         rf"## {section_header_pattern}.*?\n(.*?)(?=\n## |\Z)",
         re.DOTALL,
     )
-    m = pat.search(plano_md)
+    m = pat.search(plan_md)
     return m.group(1).strip() if m else ""
 
 
-def extract_active_people(plano_md: str) -> list[tuple[str, str]]:
+def extract_active_people(plan_md: str) -> list[tuple[str, str]]:
     """(name, email) rows from the Active Champions table (section 4)."""
-    section = extract_section(plano_md, H_CHAMPIONS)
+    section = extract_section(plan_md, H_CHAMPIONS)
     active_block = re.search(
         rf"{H_ACTIVE}.*?\n(.*?)(?=\n### |\Z)", section, re.DOTALL
     )
@@ -305,8 +305,8 @@ def extract_active_people(plano_md: str) -> list[tuple[str, str]]:
     ]
 
 
-def extract_champions_active(plano_md: str, t: dict) -> str:
-    people = extract_active_people(plano_md)
+def extract_champions_active(plan_md: str, t: dict) -> str:
+    people = extract_active_people(plan_md)
     if not people:
         return ""
     lines = [t["committee_intro"], ""]
@@ -315,43 +315,43 @@ def extract_champions_active(plano_md: str, t: dict) -> str:
     return "\n".join(lines)
 
 
-def extract_calendar(plano_md: str) -> str:
+def extract_calendar(plan_md: str) -> str:
     """Extract the calendar table from section 5 (next 90 days)."""
-    section = extract_section(plano_md, H_CALENDAR)
+    section = extract_section(plan_md, H_CALENDAR)
     if not section:
         return ""
     table_match = re.search(r"\|.*?\|.*?(?=\n\n|\Z)", section, re.DOTALL)
     return table_match.group(0).strip() if table_match else section[:500]
 
 
-def extract_top_topics(plano_md: str, n=5) -> list[tuple[str, int]]:
+def extract_top_topics(plan_md: str, n=5) -> list[tuple[str, int]]:
     """Top topics from the executive summary numbered list."""
-    section = extract_section(plano_md, H_SUMMARY)
+    section = extract_section(plan_md, H_SUMMARY)
     matches = re.findall(TOPIC_LINE, section, re.MULTILINE)
     return [(m[0], int(m[1])) for m in matches[:n]]
 
 
-def extract_format_prefs(plano_md: str) -> str:
+def extract_format_prefs(plan_md: str) -> str:
     """Extract the format preferences table from section 6."""
-    section = extract_section(plano_md, H_FORMAT)
+    section = extract_section(plan_md, H_FORMAT)
     table_match = re.search(
         rf"{H_FORMATS_SUB}.*?\n(\|.*?\n(?:\|.*?\n)+)", section, re.DOTALL
     )
     return table_match.group(1).strip() if table_match else ""
 
 
-def extract_barriers(plano_md: str) -> str:
+def extract_barriers(plan_md: str) -> str:
     """Extract the top barriers table from section 7."""
-    section = extract_section(plano_md, H_BARRIERS)
+    section = extract_section(plan_md, H_BARRIERS)
     table_match = re.search(r"\|.*?\n(?:\|[-: ]+\|\n)?(\|.*?\n)+", section)
     return table_match.group(0).strip() if table_match else ""
 
 
-def extract_quick_wins_calendar(plano_md: str,
+def extract_quick_wins_calendar(plan_md: str,
                                 weeks_range: tuple[int, int]) -> str:
     """Quick wins for a week range from sections 5 and 11."""
-    section_5 = extract_section(plano_md, H_CALENDAR)
-    section_11 = extract_section(plano_md, H_SCHEDULE)
+    section_5 = extract_section(plan_md, H_CALENDAR)
+    section_11 = extract_section(plan_md, H_SCHEDULE)
 
     items = []
     for src in [section_5, section_11]:
@@ -411,20 +411,20 @@ def cohorts_to_training_table(section: str, t: dict) -> str:
     return "\n".join([t["train_head"], "|---|---|---|"] + lines)
 
 
-def build_payload(plano_md: str, plano_name: str, lang: str) -> dict:
+def build_payload(plan_md: str, plan_name: str, lang: str) -> dict:
     t = STRINGS[lang]
-    champions = extract_champions_active(plano_md, t)
-    calendar = extract_calendar(plano_md)
-    top_topics = extract_top_topics(plano_md)
-    quick_w1_4 = extract_quick_wins_calendar(plano_md, (1, 4))
-    quick_w5_8 = extract_quick_wins_calendar(plano_md, (5, 8))
-    quick_w9_12 = extract_quick_wins_calendar(plano_md, (9, 12))
+    champions = extract_champions_active(plan_md, t)
+    calendar = extract_calendar(plan_md)
+    top_topics = extract_top_topics(plan_md)
+    quick_w1_4 = extract_quick_wins_calendar(plan_md, (1, 4))
+    quick_w5_8 = extract_quick_wins_calendar(plan_md, (5, 8))
+    quick_w9_12 = extract_quick_wins_calendar(plan_md, (9, 12))
 
     comm_table = calendar_to_comm_table(calendar, t)
     comm_plan = (t["comm_intro"] + comm_table if comm_table
                  else t["comm_missing"])
 
-    cohorts_section = extract_section(plano_md, H_COHORTS)
+    cohorts_section = extract_section(plan_md, H_COHORTS)
     train_table = cohorts_to_training_table(cohorts_section, t)
     training = (t["training_intro"] + train_table if train_table
                 else t["training_missing"])
@@ -454,7 +454,7 @@ def build_payload(plano_md: str, plano_name: str, lang: str) -> dict:
             "generated_at": datetime.datetime.now(
                 datetime.UTC).isoformat(),
             "generator": "wizard/scripts/auto_fill_from_plan.py (Mode D)",
-            "source_plano": plano_name,
+            "source_plan": plan_name,
             "completion_pct": round(
                 100 * (len(inputs) - len(manual)) / len(inputs)),
             "manual_required": manual,
@@ -472,7 +472,7 @@ def _display(path: Path) -> Path:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument(
-        "--plan", "--plano", dest="plano", default=None,
+        "--plan", "--plano", dest="plan", default=None,
         help="Path to training-plan-DATE.md (default: latest in "
              "output/)",
     )
@@ -485,20 +485,20 @@ def main():
     t = STRINGS[args.lang]
 
     out_path = Path(args.out)
-    if args.plano:
-        plano_path = Path(args.plano)
+    if args.plan:
+        plan_path = Path(args.plan)
     else:
-        plano_path = find_latest_plano(KIT / "output")
+        plan_path = find_latest_plan(KIT / "output")
 
-    if not plano_path or not plano_path.exists():
+    if not plan_path or not plan_path.exists():
         print(t["c_missing"])
         print(t["c_run"])
         return 1
 
-    plano_md = plano_path.read_text(encoding="utf-8")
-    print(t["c_reading"].format(path=_display(plano_path)))
+    plan_md = plan_path.read_text(encoding="utf-8")
+    print(t["c_reading"].format(path=_display(plan_path)))
 
-    payload = build_payload(plano_md, plano_path.name, args.lang)
+    payload = build_payload(plan_md, plan_path.name, args.lang)
     out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2),
                         encoding="utf-8")
 

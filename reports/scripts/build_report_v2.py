@@ -258,8 +258,8 @@ def build_payload(kit: Path, out: Path) -> dict:
     scores = load(out / "scores.json")
     gaps = load(out / "gaps.json")
     recs = load(out / "recommendations.json")
-    respostas = load(responses_file(kit))
-    meta = respostas.get("metadata", {})
+    responses_doc = load(responses_file(kit))
+    meta = responses_doc.get("metadata", {})
     loc = locale_of(meta)
     qmeta = {q["id"]: q for d in fw["dimensions"] for q in d["questions"]}
     qscore = {q["id"]: q for q in scores["questions"]}

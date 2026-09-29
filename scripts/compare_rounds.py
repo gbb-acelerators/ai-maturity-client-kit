@@ -45,16 +45,16 @@ def mean(values: list[float]) -> float | None:
     return sum(values) / len(values) if values else None
 
 
-def v1_question_levels(respostas: dict) -> dict[str, float | None]:
+def v1_question_levels(responses_doc: dict) -> dict[str, float | None]:
     fw = load(ROOT / "framework.json")
     known = {q["id"] for p in fw["pillars"] for c in p["capabilities"]
              for q in c["questions"]}
-    return v1.read_levels(respostas, known)
+    return v1.read_levels(responses_doc, known)
 
 
-def v2_scores(respostas: dict) -> dict:
+def v2_scores(responses_doc: dict) -> dict:
     fw = load(ROOT / "framework.v2.json")
-    return v2.compute_scores(fw, respostas, v1.locale_of(respostas))
+    return v2.compute_scores(fw, responses_doc, v1.locale_of(responses_doc))
 
 
 def compare_v2_v2(before: dict, after: dict) -> dict:

@@ -187,7 +187,7 @@ class ImporterRoundTripTest(unittest.TestCase):
             out = Path(tmp) / "responses.json"
             args = SimpleNamespace(
                 xlsx=str(ROOT / "collection" / "v2-mock-forms-export.xlsx"),
-                respostas=str(out), log_dir=tmp, organization="X",
+                responses=str(out), log_dir=tmp, organization="X",
                 lang=None, allow_partial=False)
             self.assertEqual(imp.run(args), 0)
             data = json.loads(out.read_text("utf-8"))

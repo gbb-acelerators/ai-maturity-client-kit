@@ -75,14 +75,14 @@ def priority_formula(ref: str) -> str:
             f'IF({ref}>=0.9,"P2 — Médio","P3 — Baixo"))))')
 
 
-def locale_of(respostas: dict) -> str:
-    raw = str(respostas.get("metadata", {}).get("language") or "en")
+def locale_of(responses_doc: dict) -> str:
+    raw = str(responses_doc.get("metadata", {}).get("language") or "en")
     return "pt-br" if raw.lower().startswith("pt") else "en"
 
 
-def validate(respostas: dict) -> list[str]:
+def validate(responses_doc: dict) -> list[str]:
     errors = []
-    for qid, entry in (respostas.get("responses") or {}).items():
+    for qid, entry in (responses_doc.get("responses") or {}).items():
         level = entry.get("level") if isinstance(entry, dict) else None
         if level is None:
             continue
@@ -183,10 +183,10 @@ def fix_summary_sheet(wb, targets: dict) -> None:
                 ws.cell(r, 4).value = f'=IFERROR({formula[1:]},"")'
 
 
-def add_full_sheets(wb, framework, respostas, loc: str) -> None:
+def add_full_sheets(wb, framework, responses_doc, loc: str) -> None:
     h = HEADERS[loc]
-    responses = respostas.get("responses") or {}
-    targets = respostas.get("target_overrides") or {}
+    responses = responses_doc.get("responses") or {}
+    targets = responses_doc.get("target_overrides") or {}
     ans = wb.create_sheet(h["answers"])
     ans.append(h["a_cols"])
     caps = wb.create_sheet(h["caps"])
@@ -258,18 +258,18 @@ def run(args) -> int:
     except ImportError:
         print("✗ openpyxl is required: make install-deps", file=sys.stderr)
         return 1
-    src = Path(args.respostas)
+    src = Path(args.responses)
     if not src.exists():
         print(f"✗ {src} not found. Run `make init` or "
               f"/import-responses first.", file=sys.stderr)
         return 1
-    respostas = json.loads(src.read_text(encoding="utf-8"))
-    version = str(respostas.get("metadata", {}).get("framework_version")
+    responses_doc = json.loads(src.read_text(encoding="utf-8"))
+    version = str(responses_doc.get("metadata", {}).get("framework_version")
                   or "1")
     if version.split(".")[0] not in ("0", "1"):
         import fill_workbook_v2
         return fill_workbook_v2.run(args)
-    errors = validate(respostas)
+    errors = validate(responses_doc)
     if errors:
         print("✗ Invalid levels (must be null or 0-4):\n  "
               + "\n  ".join(errors), file=sys.stderr)
@@ -280,7 +280,7 @@ def run(args) -> int:
                for q in c["questions"]}
     cap_weights = {c["id"]: float(c.get("weight", 1.0))
                    for p in framework["pillars"] for c in p["capabilities"]}
-    responses = respostas.get("responses") or {}
+    responses = responses_doc.get("responses") or {}
     answered = sum(1 for q in weights
                    if (responses.get(q) or {}).get("level") is not None)
     if answered == 0:
@@ -289,9 +289,9 @@ def run(args) -> int:
     wb = openpyxl.load_workbook(TEMPLATE)
     fix_text_formulas(wb)
     fill_teaching_sheets(wb, responses, weights, cap_weights,
-                         respostas.get("target_overrides") or {})
-    fix_summary_sheet(wb, respostas.get("target_overrides") or {})
-    add_full_sheets(wb, framework, respostas, locale_of(respostas))
+                         responses_doc.get("target_overrides") or {})
+    fix_summary_sheet(wb, responses_doc.get("target_overrides") or {})
+    add_full_sheets(wb, framework, responses_doc, locale_of(responses_doc))
     wb.calculation.fullCalcOnLoad = True
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -308,13 +308,13 @@ def run(args) -> int:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--responses", "--respostas", dest="respostas",
+    ap.add_argument("--responses", "--respostas", dest="responses",
                     default=None,
                     help="input file (default: responses.json)")
     ap.add_argument("--out", default=str(ROOT / "output"))
     args = ap.parse_args()
-    if not args.respostas:
-        args.respostas = str(responses_file(ROOT))
+    if not args.responses:
+        args.responses = str(responses_file(ROOT))
     return run(args)
 
 
