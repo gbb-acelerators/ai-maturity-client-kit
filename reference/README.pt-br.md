@@ -10,7 +10,7 @@ O framework v2 é o modelo de referência padrão. O material v1 continua arquiv
 | [dimensions/](dimensions/) | Páginas geradas por dimensão para D1 a D9 em EN, PT-BR e ES. |
 | [scoring-calculator.pt-br.html](scoring-calculator.pt-br.html) | Calculadora v2 trilíngue gerada, abrindo em português. No repositório, `scoring-calculator.html` segue o idioma do navegador e `scoring-calculator.es.html` abre em espanhol; cada pacote de idioma entrega a sua cópia como `scoring-calculator.html`. Carregue `output/scores.json`, ajuste pesos e metas, e veja nível, gap, prioridade, horizonte, risco de amplificação e estratégias. |
 | [v1/scoring-calculator.html](v1/scoring-calculator.pt-br.html) | Calculadora v1 arquivada. |
-| [sample-output/](sample-output/) | Saídas ilustrativas v2, incluindo 5 PDFs, PDF de comparação, planilha, scan de repositórios, telemetria, surveys e entradas do wizard. |
+| [sample-output/](sample-output/) | Saídas ilustrativas v2, incluindo 5 PDFs, PDF de comparação, planilha, scan de repositórios, telemetria, métricas DORA, surveys e entradas do wizard. |
 | [v1/](v1/) | Referências e exemplos v1 arquivados. |
 | [branding/](branding/) | Orientação de marca e voz. |
 

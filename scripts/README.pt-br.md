@@ -23,7 +23,7 @@ Estes scripts são a fonte da verdade para importação, scoring, geração de p
 | `python3 scripts/sync_spec_translations.py` | Gera as seções 6 e 7 e a lista de referências das cópias PT-BR e ES da especificação v2 a partir de `framework.v2.json`. `make validate-docs` roda com `--check`. |
 | `python3 scripts/check_language_coverage.py` | Checa que todo doc tem versões EN, PT-BR e ES com os mesmos títulos e seletor de idioma, e lista o que fica em inglês por design. |
 | `python3 scripts/build_language_kits.py` | Gera os ZIPs PT, EN e ES (`make build-kits`). Cada pacote entrega o seu idioma com os nomes base dos arquivos. |
-| `python3 scripts/build_v2_examples.py` | Regenera exemplos em [../reference/sample-output/](../reference/sample-output/), incluindo 5 PDFs por idioma, PDF de comparação, planilha, scan de repositórios, telemetria, surveys e amostra de entradas do wizard. |
+| `python3 scripts/build_v2_examples.py` | Regenera exemplos em [../reference/sample-output/](../reference/sample-output/), incluindo 5 PDFs por idioma, PDF de comparação, planilha, scan de repositórios, telemetria, métricas DORA, surveys e amostra de entradas do wizard. |
 | `python3 scripts/test_surveys.py` | Testa parsing e convenções de saída do Developer Survey e Learning Survey. |
 | `python3 scripts/validate_framework_v2.py` | Valida `framework.v2.json` contra especificação, schema e traduções. |
 

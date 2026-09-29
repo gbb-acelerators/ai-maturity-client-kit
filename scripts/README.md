@@ -23,7 +23,7 @@ These scripts are the source of truth for import, scoring, workbook generation, 
 | `python3 scripts/sync_spec_translations.py` | Generates sections 6 and 7 and the reference list of the PT-BR and ES copies of the v2 spec from `framework.v2.json`. `make validate-docs` runs it with `--check`. |
 | `python3 scripts/check_language_coverage.py` | Checks that every doc has EN, PT-BR and ES versions with the same headings and language switcher, and lists what stays English by design. |
 | `python3 scripts/build_language_kits.py` | Builds the PT, EN and ES ZIPs (`make build-kits`). Each package ships its language under the base file names. |
-| `python3 scripts/build_v2_examples.py` | Regenerates [../reference/sample-output/](../reference/sample-output/) examples, including 5 PDFs per language, comparison PDF, workbook, repo scan, telemetry, surveys, and wizard input sample. |
+| `python3 scripts/build_v2_examples.py` | Regenerates [../reference/sample-output/](../reference/sample-output/) examples, including 5 PDFs per language, comparison PDF, workbook, repo scan, telemetry, DORA metrics, surveys, and wizard input sample. |
 | `python3 scripts/test_surveys.py` | Tests Developer Survey and Learning Survey parsing and output conventions. |
 | `python3 scripts/validate_framework_v2.py` | Validates `framework.v2.json` against spec, schema, and translations. |
 
