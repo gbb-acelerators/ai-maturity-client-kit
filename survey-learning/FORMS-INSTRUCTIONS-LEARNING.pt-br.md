@@ -2,7 +2,7 @@
 
 🌐 [English](FORMS-INSTRUCTIONS-LEARNING.md) · Português (Brasil) · [Español](FORMS-INSTRUCTIONS-LEARNING.es.md)
 
-**`🅲️ SURVEY-LEARNING`** · _identificado_ · 📖 [🏠 Índice](../README.pt-br.md) · [« Survey-devs](../survey-devs/FORMS-INSTRUCTIONS-DEVS.pt-br.md) · Você está aqui · [» Wizard](../wizard/README.md)
+**`🅲️ SURVEY-LEARNING`** · _identificado_ · 📖 [🏠 Índice](../README.pt-br.md) · [« Survey-devs](../survey-devs/FORMS-INSTRUCTIONS-DEVS.pt-br.md) · Você está aqui · [» Wizard](../wizard/README.pt-br.md)
 
 > [!WARNING]
 > Diferente dos outros 2 surveys, este é **IDENTIFICADO** (nome + email obrigatórios). É 32 perguntas em 7 seções para construir o **roadmap de capacitação personalizado** da equipe: workshops, cohorts, Champions Network, mentoria. Tempo estimado por dev: **5-8 min**.
@@ -146,7 +146,7 @@ A pergunta L1-Q4 ("Time / Squad") tem placeholder `[Lista a customizar pela org]
 
 1. **Responses → Open in Excel**
 2. Salvar como **`survey-learning-responses.xlsx`**
-3. Mover para **raiz do `kit-cliente/`**
+3. Mover para a **raiz do kit**
 4. Verificar: colunas D (Email) e E (Name) devem estar PREENCHIDAS
 
 ### Passo 9 · Analisar com o kit
@@ -163,7 +163,7 @@ Gera `survey-learning/responses-learning.json` (estruturado).
 /training-plan
 ```
 
-Gera `output/training-plan-<DATE>.md` (em **inglês por padrão**; o script aceita `--lang pt-br` para português (Brasil) e `--lang es` para espanhol) com:
+Gera `output/training-plan-<date>.md` (em **inglês por padrão**; o script aceita `--lang pt-br` para português (Brasil) e `--lang es` para espanhol) com:
 
 - Top 10 tópicos demandados (com lista de inscritos pré-validados)
 - Cohorts sugeridos por dimensão D2-D8
@@ -198,10 +198,11 @@ Você preenche manualmente: **escritório do programa (TPO)**, **RACI**, **respo
 
 A skill detecta:
 
-- ✅ `implementation-guide-inputs.json` (do wizard Mode D auto-fill) → popula Parte 4 com seus Champions e workshops
-- ✅ `output/training-plan-*.md` (deste survey) → enriquece roadmap_part4.pdf
-- ✅ `output/insights-developer-survey-*.md` (se você rodou) → cross-references no apêndice
-- ✅ `output/developer-survey-maturity-*.json` (se você rodou) → score_justification.pdf inclui "maturity vs declared"
+- ✅ `implementation-guide-inputs.json` (do wizard Mode D auto-fill) → preenche as seções de governança, comunicação, capacitação e quick wins do `v2_implementation_guide.pdf` com seus Champions e workshops
+- ✅ `output/training-plan-*.md` (deste survey) → o guia de implementação o cita como fonte do plano de capacitação
+- ✅ `output/developer-survey-maturity-*.json` (se você rodou o Developer Survey) → o `v2_assessment_summary.pdf` mostra o contexto do survey ao lado das perguntas v2 que ele informa
+
+Entradas v1 arquivadas continuam gerando `roadmap_part4.pdf` e `score_justification.pdf`.
 
 **Output:** 5 PDFs production-quality com dados REAIS do learning survey embarcados.
 
@@ -249,7 +250,7 @@ Este survey trata dados pessoais (nome, e-mail, cargo, squad, autoavaliação). 
 
 ### Transparência do plano
 
-- Apresentar o `training-plan-DATA.md` em all-hands
+- Apresentar o `training-plan-<date>.md` em all-hands
 - Pessoas que pediram workshop X recebem convite: fechar o loop
 - Champions identificados são reconhecidos publicamente (com consentimento)
 
@@ -259,7 +260,7 @@ Este survey trata dados pessoais (nome, e-mail, cargo, squad, autoavaliação). 
 
 | Problema | Solução |
 |---|---|
-| Skill não detecta arquivo | Mover para raiz do `kit-cliente/` |
+| Skill não detecta arquivo | Mover para a raiz do kit |
 | Email/Name vazios em algumas linhas | Forms config OFF Anonymous + L1-Q1/Q2 required |
 | Headers não reconhecidos | Garantir que cada pergunta começa com `L[1-7]-Q\d+:` |
 | Dev recusou identificar | Aceitar resposta parcial; redirecionar para `survey-devs` (anônimo) |
@@ -303,7 +304,7 @@ Este survey trata dados pessoais (nome, e-mail, cargo, squad, autoavaliação). 
 
 | ← ANTERIOR | PRÓXIMO → |
 |:---|---:|
-| **[Developer Survey (anônimo)](../survey-devs/FORMS-INSTRUCTIONS-DEVS.pt-br.md)** | **[Wizard: Parte 4](../wizard/README.md)** |
+| **[Developer Survey (anônimo)](../survey-devs/FORMS-INSTRUCTIONS-DEVS.pt-br.md)** | **[Wizard: Parte 4](../wizard/README.pt-br.md)** |
 | 75 perguntas anônimas: Copilot, agentes, governança. | Personalizar Steering Committee, RACI, ADKAR, Quick Wins do PDF executivo. |
 
 ↑ [Voltar ao Índice do kit](../README.pt-br.md)

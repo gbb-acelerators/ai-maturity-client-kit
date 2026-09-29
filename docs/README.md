@@ -15,7 +15,7 @@ Static site that presents the kit. Landing content is centralized in [`content.j
 ## Public URL
 
 ```text
-https://paulasilvatech.github.io/ai-maturity-client-kit/
+https://gbb-acelerators.github.io/ai-maturity-client-kit/
 ```
 
 ## Architecture
@@ -64,9 +64,9 @@ Yes, the repository can stay private while the site is public, as long as GitHub
 The important detail: GitHub Releases assets in a private repository require authentication. That is why the Pages workflow builds the ZIPs and publishes them inside the site artifact itself:
 
 ```text
-https://paulasilvatech.github.io/ai-maturity-client-kit/downloads/ai-maturity-kit-pt.zip
-https://paulasilvatech.github.io/ai-maturity-client-kit/downloads/ai-maturity-kit-en.zip
-https://paulasilvatech.github.io/ai-maturity-client-kit/downloads/ai-maturity-kit-es.zip
+https://gbb-acelerators.github.io/ai-maturity-client-kit/downloads/ai-maturity-kit-pt.zip
+https://gbb-acelerators.github.io/ai-maturity-client-kit/downloads/ai-maturity-kit-en.zip
+https://gbb-acelerators.github.io/ai-maturity-client-kit/downloads/ai-maturity-kit-es.zip
 ```
 
 These links stay public with the site, even if the repository goes back to private.

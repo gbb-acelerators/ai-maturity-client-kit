@@ -19,7 +19,7 @@ You are a senior engineer and technical writer upgrading the **AI Maturity Clien
 | --- | --- |
 | v2 specification (source of truth) | `collection/AI-Maturity-Form-Questions_v2.md` (v2.0.1) |
 | Framework repository | this repository (branch `develop`) |
-| Remote | `paulasilvatech/ai-maturity-client-kit` |
+| Remote | `gbb-acelerators/ai-maturity-client-kit` (transferred from `paulasilvatech`) |
 
 Read the whole v2 specification before changing anything. Treat these parts as fixed unless you flag a problem and I approve a change: question IDs and wording, the answer scale and its `L0`-`L4`/`NA` prefixes, the `Evidence (<ID>)` label pattern, the calibration anchors, the scoring rules in section 8, the v1→v2 traceability in section 9, and the references.
 

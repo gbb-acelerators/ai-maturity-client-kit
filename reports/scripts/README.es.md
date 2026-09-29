@@ -28,6 +28,7 @@ flowchart LR
     E[implementation-guide-inputs.json] --> M
     F[output/repo-scan.json optional] --> M
     G[output/telemetry.json optional] --> M
+    I[output/dora-metrics.json optional] --> M
     H[output/developer-survey-maturity-*.json optional] --> M
     M --> P[output/payload_v2.json]
     P --> R[build_report_v2.py]

@@ -4,6 +4,55 @@
 
 All notable changes to the AI Maturity client kit. Dates are ISO 8601.
 
+## [Unreleased]
+
+### Added
+
+- DORA metrics cross-check for D9-Q2: `make dora DORA=<CSV or JSON>
+  [SERVICES=N]` runs `scripts/import_dora_metrics.py` and writes
+  `output/dora-metrics.json` (one row per service and period, `baseline`
+  and `current`). With the number of services in scope, the share of
+  services compared with a baseline caps D9-Q2 by the coverage bands.
+  The summary PDF shows it in section 2.2 and the implementation guide
+  lists a mismatch as a risk. It checks measurement coverage, not
+  delivery performance. The examples use
+  `scripts/fixtures/dora-metrics.mock.csv`.
+
+### Fixed
+
+- PT-BR and ES Developer Survey insights now use a decimal comma.
+- The v1 scoring guide called the PE score "Production Engineering";
+  the code and reports mean Platform Engineering readiness, and the
+  guide now lists the flagged v1 areas.
+- The Learning Survey instructions pointed to v1 report names; they now
+  describe how the plan feeds the v2 implementation guide. Plan file
+  names use `<date>` everywhere.
+- Spanish survey questions now open with "¿".
+- Several PT-BR docs linked the English copy of a page that has a PT-BR
+  twin.
+- The Forms import log used an em dash for empty values.
+- `.github/copilot-instructions.md` showed wrong flags for the evidence
+  scripts (`--repos`, `--metrics`); it now uses `--path` and the
+  positional metrics file, as the Makefile does.
+- The Developer Survey insights said the survey used the same L0-L4 scale
+  as the main assessment. They now say it uses the v1 bands, so compare
+  with v2 by score. The rubric and the Forms instructions now point to
+  the v2 questions in `survey_crosswalk` instead of v1 capabilities.
+- The EN and ES Developer Survey banks ended with a section in
+  Portuguese, and the EN and ES Learning Survey banks had a broken code
+  fence.
+- Survey docs and the report script help no longer mention the old
+  `kit-cliente/` folder.
+- The site quick start and FAQ still described the v1 example
+  (`cp responses.json.example`, Cliente Exemplo S.A.) and the v1 import
+  that averages rows. They now show `make demo`, `make init`,
+  `make import` and `make merge`, and the v2 import that keeps each
+  respondent.
+- The repository moved to `gbb-acelerators/ai-maturity-client-kit`. The
+  site, its SEO tags and the docs now use
+  `https://gbb-acelerators.github.io/ai-maturity-client-kit/`; the old
+  Pages URL returns 404.
+
 ## [2.0.2] - 2026-09-29 (English file and folder names)
 
 The framework (questions, scale and scoring) is unchanged: it is still 2.0.1.

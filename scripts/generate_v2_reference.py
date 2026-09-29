@@ -59,9 +59,11 @@ T = {
             "dimension scores of {sd} or more, at least {n} respondents).",
             "Evidence cross-checks, when the files exist: the repository "
             "scan (RAMP levels [47]) caps D4-Q4 by the share of "
-            "repositories with committed AI configuration, and Copilot "
-            "usage metrics [6] cap D4-Q1 by the adoption phases. The "
-            "report flags answers above what the evidence supports.",
+            "repositories with committed AI configuration, Copilot "
+            "usage metrics [6] cap D4-Q1 by the adoption phases, and DORA "
+            "metrics cap D9-Q2 by the share of services compared with a "
+            "baseline. The report flags answers above what the evidence "
+            "supports.",
         ],
         "bands": "Level bands",
         "example": "Worked example: {d} on the illustrative mock",
@@ -132,8 +134,10 @@ T = {
             "respondente de {sd} ou mais, com ao menos {n} respondentes).",
             "Checagens cruzadas, quando os arquivos existem: o scan de "
             "repositórios (níveis RAMP [47]) limita D4-Q4 pela fração de "
-            "repositórios com configuração de IA versionada, e as métricas "
-            "de uso do Copilot [6] limitam D4-Q1 pelas fases de adoção. O "
+            "repositórios com configuração de IA versionada, as métricas "
+            "de uso do Copilot [6] limitam D4-Q1 pelas fases de adoção, e "
+            "as métricas DORA limitam D9-Q2 pela fração de serviços "
+            "comparados com um baseline. O "
             "relatório sinaliza respostas acima do que a evidência "
             "sustenta.",
         ],
@@ -210,8 +214,10 @@ T = {
             "Verificaciones cruzadas, cuando existen los archivos: el "
             "escaneo de repositorios (niveles RAMP [47]) limita D4-Q4 por "
             "la fracción de repositorios con configuración de IA "
-            "versionada, y las métricas de uso de Copilot [6] limitan "
-            "D4-Q1 por las fases de adopción. El informe señala respuestas "
+            "versionada, las métricas de uso de Copilot [6] limitan "
+            "D4-Q1 por las fases de adopción, y las métricas DORA limitan "
+            "D9-Q2 por la fracción de servicios comparados con un "
+            "baseline. El informe señala respuestas "
             "por encima de lo que sostiene la evidencia.",
         ],
         "bands": "Rangos de nivel",

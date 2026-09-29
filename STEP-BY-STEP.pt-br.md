@@ -25,6 +25,7 @@ make pipeline
 # Cross-checks opcionais de evidência.
 make scan-repos REPOS=~/src
 make telemetry METRICS=copilot-usage.json SEATS=200
+make dora DORA=dora-metrics.csv SERVICES=40
 # Preencha implementation-guide-inputs.json com o wizard, depois renderize de novo.
 make pipeline
 ```
@@ -122,14 +123,15 @@ Entradas v1 ainda produzem o conjunto arquivado de 5 PDFs.
 
 ## 7. Adicione cross-checks de evidência
 
-Rode um ou ambos antes do `make pipeline` final:
+Rode qualquer um deles antes do `make pipeline` final:
 
 ```bash
 make scan-repos REPOS=~/src
 make telemetry METRICS=copilot-usage.json SEATS=200
+make dora DORA=dora-metrics.csv SERVICES=40
 ```
 
-A saída do scan de repositórios é `output/repo-scan.json`. A saída das métricas do Copilot é `output/telemetry.json`. O relatório de sumário mostra uma seção Evidence cross-checks e sinaliza respostas acima do que a evidência suporta. O guia de implementação lista essas flags como riscos. Sem os arquivos, o PDF explica como produzi-los.
+A saída do scan de repositórios é `output/repo-scan.json`. A saída das métricas do Copilot é `output/telemetry.json`. A saída das métricas DORA é `output/dora-metrics.json`: uma linha por serviço e período (`baseline`, `current`), e `SERVICES` é o número de serviços no escopo. O relatório de sumário mostra uma seção Evidence cross-checks e sinaliza respostas acima do que a evidência suporta. O guia de implementação lista essas flags como riscos. Sem os arquivos, o PDF explica como produzi-los.
 
 ## 8. Preencha o wizard do guia de implementação
 
@@ -174,4 +176,4 @@ make validate-docs
 make test
 ```
 
-Veja [CHANGELOG.md](CHANGELOG.md) para o histórico de versões.
+Veja [CHANGELOG.md](CHANGELOG.pt-br.md) para o histórico de versões.

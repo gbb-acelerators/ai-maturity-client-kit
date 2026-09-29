@@ -47,7 +47,7 @@
 
 8. Compartilhe via **+ Send / Collect responses** → copiar link → enviar via Slack/Teams/email
 
-9. Quando tiver respostas, **Responses → Open in Excel** → renomear para `survey-devs-responses.xlsx` → mover para a raiz do `kit-cliente/`
+9. Quando tiver respostas, **Responses → Open in Excel** → renomear para `survey-devs-responses.xlsx` → mover para a raiz do kit
 
 ---
 
@@ -1012,6 +1012,6 @@ Opções:
 
 1. Após coletar respostas, **Responses → Open in Excel** no Microsoft Forms
 2. Renomeie o Excel para `survey-devs-responses.xlsx`
-3. Mova para a raiz do `kit-cliente/`
+3. Mova para a raiz do kit
 4. No Copilot Chat (modo Agent): `/import-survey-devs`
 5. Depois: `/insights-developer-survey` para gerar relatório consolidado

@@ -12,30 +12,30 @@
 
 ### 🎯 Maturidade IA do Time (rubrica determinística)
 
-> **Overall: 2.22 (L2 Definido)**
-> Baseado em 5 respondentes, 7 dimensões, escala L0-L4 (mesma do assessment principal)
+> **Overall: 2,22 (L2 Definido)**
+> Baseado em 5 respondentes, 7 dimensões e nas faixas L0-L4 do assessment v1 (o framework v2 usa outras faixas; compare pelo score)
 
 | Dimensão | Score | Rótulo | % devs em L3+L4 |
 |---|---|---|---|
-| DS-D2 Copilot Adoption | **0.80** | L1 Em Desenvolvimento | 0% |
-| DS-D3 MS/GH Tooling Breadth | **2.40** | L2 Definido | 80% |
-| DS-D4 AI Dev Practices | **2.68** | L3 Gerenciado | 80% |
-| DS-D5 Agent Concepts Mastery | **2.56** | L3 Gerenciado | 80% |
-| DS-D6 Instructions Maturity | **2.31** | L2 Definido | 40% |
-| DS-D7 Best Practices | **2.91** | L3 Gerenciado | 60% |
-| DS-D8 Security & Governance | **1.92** | L2 Definido | 20% |
+| DS-D2 Copilot Adoption | **0,80** | L1 Em Desenvolvimento | 0% |
+| DS-D3 MS/GH Tooling Breadth | **2,40** | L2 Definido | 80% |
+| DS-D4 AI Dev Practices | **2,68** | L3 Gerenciado | 80% |
+| DS-D5 Agent Concepts Mastery | **2,56** | L3 Gerenciado | 80% |
+| DS-D6 Instructions Maturity | **2,31** | L2 Definido | 40% |
+| DS-D7 Best Practices | **2,91** | L3 Gerenciado | 60% |
+| DS-D8 Security & Governance | **1,92** | L2 Definido | 20% |
 
 ### 🏆 3 dimensões mais fortes
 
-- **DS-D7** Best Practices: score **2.91** (L3 Gerenciado)
-- **DS-D4** AI Dev Practices: score **2.68** (L3 Gerenciado)
-- **DS-D5** Agent Concepts Mastery: score **2.56** (L3 Gerenciado)
+- **DS-D7** Best Practices: score **2,91** (L3 Gerenciado)
+- **DS-D4** AI Dev Practices: score **2,68** (L3 Gerenciado)
+- **DS-D5** Agent Concepts Mastery: score **2,56** (L3 Gerenciado)
 
 ### ⚠️ 3 maiores gaps (oportunidades de roadmap)
 
-- 🔴 **DS-D2** Copilot Adoption: score **0.80** (L1 Em Desenvolvimento)
-- 🔴 **DS-D8** Security & Governance: score **1.92** (L2 Definido)
-- 🔴 **DS-D6** Instructions Maturity: score **2.31** (L2 Definido)
+- 🔴 **DS-D2** Copilot Adoption: score **0,80** (L1 Em Desenvolvimento)
+- 🔴 **DS-D8** Security & Governance: score **1,92** (L2 Definido)
+- 🔴 **DS-D6** Instructions Maturity: score **2,31** (L2 Definido)
 
 ### 💡 3 insights principais
 

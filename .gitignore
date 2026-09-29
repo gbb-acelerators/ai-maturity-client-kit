@@ -36,6 +36,9 @@ forms-responses.xlsx
 survey-devs-responses.xlsx
 survey-learning-responses.xlsx
 implementation-guide-inputs.json
+/copilot-usage*.json
+/dora-metrics*.csv
+/dora-metrics*.json
 survey-devs/responses-devs.json
 survey-learning/responses-learning.json
 

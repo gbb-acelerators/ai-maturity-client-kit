@@ -15,7 +15,7 @@
 ## Cómo crear el Forms
 
 1. Ve a <https://forms.office.com> -> **+ New Form**
-2. Título: `Learning & Growth IA: Qué quieres aprender en los próximos 6 meses?`
+2. Título: `Learning & Growth IA: ¿Qué quieres aprender en los próximos 6 meses?`
 3. Subtítulo:
 
    > Encuesta de 5-8 min sobre tu plan de capacitación en IA. IDENTIFICADA (necesitamos nombre + email para invitarte a los workshops correctos). Resultado: plan de capacitación personalizado + cohorts + Champions Network.
@@ -45,7 +45,7 @@
    - **`text`** -> Long Text
    - **`text-short`** -> Short Text (una línea)
 
-7. El **TÍTULO** debe empezar siempre con el ID + dos puntos. Ejemplo: `L4-Q1: Qué temas de GitHub Copilot quieres dominar?`
+7. El **TÍTULO** debe empezar siempre con el ID + dos puntos. Ejemplo: `L4-Q1: ¿Qué temas de GitHub Copilot quieres dominar?`
 
 8. **Required**: marca L1-Q1 (nombre) y L1-Q2 (email) como obligatorias. Las demás son opcionales.
 9. Comparte vía **Send -> Link** con todos los desarrolladores en alcance.
@@ -115,7 +115,7 @@ _7 preguntas en esta sección._
 
 ### Pregunta `L2-Q1`: _Choice (single answer)_
 
-> **L2-Q1: DS-D2 Copilot Adoption (modos Ask/Edit/Agent/Coding Agent, features, ganancias medidas): cuál es tu nivel?**
+> **L2-Q1: DS-D2 Copilot Adoption (modos Ask/Edit/Agent/Coding Agent, features, ganancias medidas): ¿cuál es tu nivel?**
 
 Opciones:
 
@@ -131,7 +131,7 @@ Opciones:
 
 ### Pregunta `L2-Q2`: _Choice (single answer)_
 
-> **L2-Q2: DS-D3 Microsoft/GitHub Tooling (Foundry, Spaces, Coding Agent, MCP, Spec Kit, GHAS): cuál es tu nivel?**
+> **L2-Q2: DS-D3 Microsoft/GitHub Tooling (Foundry, Spaces, Coding Agent, MCP, Spec Kit, GHAS): ¿cuál es tu nivel?**
 
 Opciones:
 
@@ -147,7 +147,7 @@ Opciones:
 
 ### Pregunta `L2-Q3`: _Choice (single answer)_
 
-> **L2-Q3: DS-D4 AI Dev Practices (TDD con IA, SDD, pair programming, debugging con IA): cuál es tu nivel?**
+> **L2-Q3: DS-D4 AI Dev Practices (TDD con IA, SDD, pair programming, debugging con IA): ¿cuál es tu nivel?**
 
 Opciones:
 
@@ -163,7 +163,7 @@ Opciones:
 
 ### Pregunta `L2-Q4`: _Choice (single answer)_
 
-> **L2-Q4: DS-D5 Agent Concepts (custom agents, skills, prompts, MCP, A2A, handoffs, subagentes, personas Agentic DevOps): cuál es tu nivel?**
+> **L2-Q4: DS-D5 Agent Concepts (custom agents, skills, prompts, MCP, A2A, handoffs, subagentes, personas Agentic DevOps): ¿cuál es tu nivel?**
 
 Opciones:
 
@@ -179,7 +179,7 @@ Opciones:
 
 ### Pregunta `L2-Q5`: _Choice (single answer)_
 
-> **L2-Q5: DS-D6 Instructions / Memory (copilot-instructions.md, AGENTS.md, CLAUDE.md, Spaces, biblioteca de prompts): cuál es tu nivel?**
+> **L2-Q5: DS-D6 Instructions / Memory (copilot-instructions.md, AGENTS.md, CLAUDE.md, Spaces, biblioteca de prompts): ¿cuál es tu nivel?**
 
 Opciones:
 
@@ -195,7 +195,7 @@ Opciones:
 
 ### Pregunta `L2-Q6`: _Choice (single answer)_
 
-> **L2-Q6: DS-D7 Best Practices (Champion, métricas DORA/DX, comunidad, compartir prompts): cuál es tu nivel?**
+> **L2-Q6: DS-D7 Best Practices (Champion, métricas DORA/DX, comunidad, compartir prompts): ¿cuál es tu nivel?**
 
 Opciones:
 
@@ -211,7 +211,7 @@ Opciones:
 
 ### Pregunta `L2-Q7`: _Choice (single answer)_
 
-> **L2-Q7: DS-D8 Security & Governance (política IA, GHAS, SBOM, JIT permissions, red-lines de agents, audit): cuál es tu nivel?**
+> **L2-Q7: DS-D8 Security & Governance (política IA, GHAS, SBOM, JIT permissions, red-lines de agents, audit): ¿cuál es tu nivel?**
 
 Opciones:
 
@@ -229,7 +229,7 @@ Opciones:
 
 ## L3: Dónde Quieres Crecer
 
-_Pensando en los próximos 6 meses, en qué dimensiones quieres crecer MÁS?_
+_Pensando en los próximos 6 meses, ¿en qué dimensiones quieres crecer MÁS?_
 
 _2 preguntas en esta sección._
 
@@ -255,7 +255,7 @@ Opciones:
 
 ### Pregunta `L3-Q2`: _Long Text (respuesta libre)_
 
-> **L3-Q2: Por qué elegiste estas 3 dimensiones? (1-2 frases, opcional pero muy útil)**
+> **L3-Q2: ¿Por qué elegiste estas 3 dimensiones? (1-2 frases, opcional pero muy útil)**
 
 ---
 
@@ -267,7 +267,7 @@ _5 preguntas en esta sección._
 
 ### Pregunta `L4-Q1`: _Choice (multiple answers)_
 
-> **L4-Q1: Qué temas de GitHub Copilot quieres dominar?**
+> **L4-Q1: ¿Qué temas de GitHub Copilot quieres dominar?**
 
 Opciones:
 
@@ -293,7 +293,7 @@ Opciones:
 
 ### Pregunta `L4-Q2`: _Choice (multiple answers)_
 
-> **L4-Q2: Qué temas de Microsoft Foundry / Azure AI quieres aprender?**
+> **L4-Q2: ¿Qué temas de Microsoft Foundry / Azure AI quieres aprender?**
 
 Opciones:
 
@@ -319,7 +319,7 @@ Opciones:
 
 ### Pregunta `L4-Q3`: _Choice (multiple answers)_
 
-> **L4-Q3: Qué temas de prácticas con IA quieres aprender?**
+> **L4-Q3: ¿Qué temas de prácticas con IA quieres aprender?**
 
 Opciones:
 
@@ -343,7 +343,7 @@ Opciones:
 
 ### Pregunta `L4-Q4`: _Choice (multiple answers)_
 
-> **L4-Q4: Qué temas de agentes y primitives quieres aprender?**
+> **L4-Q4: ¿Qué temas de agentes y primitives quieres aprender?**
 
 Opciones:
 
@@ -367,7 +367,7 @@ Opciones:
 
 ### Pregunta `L4-Q5`: _Choice (multiple answers)_
 
-> **L4-Q5: Qué temas de seguridad y gobernanza quieres aprender?**
+> **L4-Q5: ¿Qué temas de seguridad y gobernanza quieres aprender?**
 
 Opciones:
 
@@ -393,13 +393,13 @@ Opciones:
 
 ## L5: Formato y Cadencia Preferidos
 
-_Cómo aprendes mejor?_
+_¿Cómo aprendes mejor?_
 
 _4 preguntas en esta sección._
 
 ### Pregunta `L5-Q1`: _Choice (multiple answers)_
 
-> **L5-Q1: Qué formatos de aprendizaje funcionan mejor para ti?**
+> **L5-Q1: ¿Qué formatos de aprendizaje funcionan mejor para ti?**
 
 Opciones:
 
@@ -427,7 +427,7 @@ Opciones:
 
 ### Pregunta `L5-Q2`: _Choice (single answer)_
 
-> **L5-Q2: Cuánto tiempo por SEMANA dedicarías a aprender IA/Copilot?**
+> **L5-Q2: ¿Cuánto tiempo por SEMANA dedicarías a aprender IA/Copilot?**
 
 Opciones:
 
@@ -443,7 +443,7 @@ Opciones:
 
 ### Pregunta `L5-Q3`: _Choice (multiple answers)_
 
-> **L5-Q3: Qué horario/día funciona mejor para workshops síncronos?**
+> **L5-Q3: ¿Qué horario/día funciona mejor para workshops síncronos?**
 
 Opciones:
 
@@ -461,7 +461,7 @@ Opciones:
 
 ### Pregunta `L5-Q4`: _Choice (single answer)_
 
-> **L5-Q4: Prefieres cohorts (grupo fijo aprendiendo junto) o self-paced?**
+> **L5-Q4: ¿Prefieres cohorts (grupo fijo aprendiendo junto) o self-paced?**
 
 Opciones:
 
@@ -483,7 +483,7 @@ _5 preguntas en esta sección._
 
 ### Pregunta `L6-Q1`: _Choice (single answer)_
 
-> **L6-Q1: Te candidatearías como Champion de IA en tu equipo/empresa (ayudar a otros, organizar workshops)?**
+> **L6-Q1: ¿Te candidatearías como Champion de IA en tu equipo/empresa (ayudar a otros, organizar workshops)?**
 
 Opciones:
 
@@ -497,11 +497,11 @@ Opciones:
 
 ### Pregunta `L6-Q2`: _Long Text (respuesta libre)_
 
-> **L6-Q2: A quién en tu equipo/empresa consideras referencia en IA hoy? (nombre opcional, ayuda a mapear champions naturales)**
+> **L6-Q2: ¿A quién en tu equipo/empresa consideras referencia en IA hoy? (nombre opcional, ayuda a mapear champions naturales)**
 
 ### Pregunta `L6-Q3`: _Choice (single answer)_
 
-> **L6-Q3: Te gustaría mentoría 1:1 con alguien más experimentado en IA?**
+> **L6-Q3: ¿Te gustaría mentoría 1:1 con alguien más experimentado en IA?**
 
 Opciones:
 
@@ -515,7 +515,7 @@ Opciones:
 
 ### Pregunta `L6-Q4`: _Choice (single answer)_
 
-> **L6-Q4: Te ofrecerías para mentorear/enseñar a OTRAS personas en algún tema?**
+> **L6-Q4: ¿Te ofrecerías para mentorear/enseñar a OTRAS personas en algún tema?**
 
 Opciones:
 
@@ -529,19 +529,19 @@ Opciones:
 
 ### Pregunta `L6-Q5`: _Long Text (respuesta libre)_
 
-> **L6-Q5: Si respondiste sí a la pregunta anterior, en qué tema(s) te sentirías cómodo mentoreando?**
+> **L6-Q5: Si respondiste sí a la pregunta anterior, ¿en qué tema(s) te sentirías cómodo mentoreando?**
 
 ---
 
 ## L7: Barreras y Wishlist
 
-_Qué te impide aprender más? Qué workshop te gustaría organizar o asistir?_
+_¿Qué te impide aprender más? ¿Qué workshop te gustaría organizar o asistir?_
 
 _5 preguntas en esta sección._
 
 ### Pregunta `L7-Q1`: _Choice (multiple answers)_
 
-> **L7-Q1: Qué BARRERAS te impiden aprender más sobre IA hoy?**
+> **L7-Q1: ¿Qué BARRERAS te impiden aprender más sobre IA hoy?**
 
 Opciones:
 
@@ -569,19 +569,19 @@ Opciones:
 
 ### Pregunta `L7-Q2`: _Long Text (respuesta libre)_
 
-> **L7-Q2: Qué workshop interno te gustaría que existiera (aunque sea ambicioso)?**
+> **L7-Q2: ¿Qué workshop interno te gustaría que existiera (aunque sea ambicioso)?**
 
 ### Pregunta `L7-Q3`: _Long Text (respuesta libre)_
 
-> **L7-Q3: Qué speaker externo (interno/partner/comunidad) te gustaría traer?**
+> **L7-Q3: ¿Qué speaker externo (interno/partner/comunidad) te gustaría traer?**
 
 ### Pregunta `L7-Q4`: _Long Text (respuesta libre)_
 
-> **L7-Q4: Algo más que quieras compartir sobre tus objetivos de aprendizaje en IA?**
+> **L7-Q4: ¿Algo más que quieras compartir sobre tus objetivos de aprendizaje en IA?**
 
 ### Pregunta `L7-Q5`: _Choice (single answer)_
 
-> **L7-Q5: Quieres recibir el plan de capacitación consolidado (resultado de esta encuesta) por email?**
+> **L7-Q5: ¿Quieres recibir el plan de capacitación consolidado (resultado de esta encuesta) por email?**
 
 Opciones:
 
@@ -594,24 +594,19 @@ Opciones:
 ## Resumen
 
 - **7 secciones**
-
 - **32 preguntas** (15 choice + 9 multi + 8 text)
-
 - **Tiempo:** 5-8 min
-
 - **Identificada** (requiere nombre + email)
 
 ## Próximos pasos
 
-1. Colectar respuestas (1-2 semanas, enviar un recordatorio por semana)
+1. Recopilar respuestas (1-2 semanas, enviar un recordatorio por semana)
 2. Exportar Excel -> renombrar `survey-learning-responses.xlsx` -> mover a la raíz del kit
 3. En Copilot Chat (modo Agent):
 
    ```text
-
    /import-survey-learning
    /training-plan
+   ```
 
-   ```text
-
-4. Recibir el plan de capacitación priorizado en `output/training-plan-DATA.md`
+4. Recibir el plan de capacitación priorizado en `output/training-plan-<date>.md`

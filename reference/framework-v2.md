@@ -13,7 +13,7 @@ Generated from `framework.v2.json` (framework 2.0.1) by `scripts/generate_v2_ref
 - Coverage: OK from 37 questions with a score, WARNING from 25, BLOCKED below.
 - Gap = target (default 3.00) minus score. Priority score = weight × gap: P0 from 2.40, P1 from 1.60, P2 from 0.90, else P3.
 - Flags: low confidence (more than 30% NA), amplification risk (D5, D6 or D8 one band below overall), perception gap (executives vs hands-on, at least 3 each), scope caveat, unverified L3/L4 (less than 50% of answers with evidence), respondent divergence (standard deviation of respondent dimension scores of 1.00 or more, at least 3 respondents).
-- Evidence cross-checks, when the files exist: the repository scan (RAMP levels [47]) caps D4-Q4 by the share of repositories with committed AI configuration, and Copilot usage metrics [6] cap D4-Q1 by the adoption phases. The report flags answers above what the evidence supports.
+- Evidence cross-checks, when the files exist: the repository scan (RAMP levels [47]) caps D4-Q4 by the share of repositories with committed AI configuration, Copilot usage metrics [6] cap D4-Q1 by the adoption phases, and DORA metrics cap D9-Q2 by the share of services compared with a baseline. The report flags answers above what the evidence supports.
 
 ### Level bands
 

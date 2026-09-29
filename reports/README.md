@@ -21,7 +21,7 @@ The script reads `responses.json::metadata.framework_version` and dispatches aut
 - `output/v2_roadmap_g3.pdf`, D6, D7, D8.
 - `output/v2_implementation_guide.pdf`.
 
-The summary includes section 2.2 Evidence cross-checks when `output/repo-scan.json` or `output/telemetry.json` exists, and Developer Survey context when `output/developer-survey-maturity-*.json` exists. The implementation guide uses `implementation-guide-inputs.json`; empty wizard fields render as `to fill with the client`.
+The summary includes section 2.2 Evidence cross-checks when `output/repo-scan.json`, `output/telemetry.json` or `output/dora-metrics.json` exists, and Developer Survey context when `output/developer-survey-maturity-*.json` exists. The implementation guide uses `implementation-guide-inputs.json`; empty wizard fields render as `to fill with the client`.
 
 ## Comparison reports
 

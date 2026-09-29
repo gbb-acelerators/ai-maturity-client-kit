@@ -36,6 +36,7 @@ Run the complete assessment pipeline. Framework v2 is the default. v1 remains su
    ```bash
    make scan-repos REPOS=~/src
    make telemetry METRICS=copilot-usage.json SEATS=200
+   make dora DORA=dora-metrics.csv SERVICES=40
    ```
 
 5. Render reports:
@@ -79,6 +80,6 @@ Coverage: <status> (<answered>/<applicable>)
 JSON outputs: scores.json, gaps.json, recommendations.json
 Workbook: <file>
 Reports: <files>
-Evidence: <repo-scan/telemetry status>
+Evidence: <repo-scan/telemetry/dora-metrics status>
 Notes: <flags or blockers from script output>
 ```

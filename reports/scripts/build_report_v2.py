@@ -75,13 +75,13 @@ def heat_class(score: float | None) -> str:
 
 
 def crosschecks(out: Path, fw: dict, qscore: dict) -> dict:
-    """Repository scan and Copilot telemetry next to D4 and D9 answers.
+    """Repository scan, Copilot telemetry and DORA metrics next to answers.
 
     Each check gives the highest level the evidence supports for one
     question; ``flag`` is set when the answers sit in a higher band.
     """
     import engine_v2 as v2  # scripts/, added to sys.path above
-    result: dict = {"repo": None, "telemetry": None}
+    result: dict = {"repo": None, "telemetry": None, "delivery": None}
 
     def compare(qid: str, implied: int | None) -> dict:
         q = qscore[qid]
@@ -114,6 +114,18 @@ def crosschecks(out: Path, fw: dict, qscore: dict) -> dict:
                 tel.get("shares") or {})),
             "d9q1": {"qid": "D9-Q1", **{k: qscore["D9-Q1"][k]
                                         for k in ("score", "level")}},
+        }
+    dora_path = out / "dora-metrics.json"
+    if dora_path.exists():
+        dora = load(dora_path)
+        shares = dora.get("shares") or {}
+        keys = ("services_total", "services_listed",
+                "services_measured", "services_compared")
+        result["delivery"] = {
+            **{k: dora.get(k) for k in keys},
+            "shares": shares,
+            "d9q2": compare("D9-Q2", v2.coverage_level_index(
+                shares.get("compared"))),
         }
     return result
 
@@ -190,6 +202,9 @@ def plan_risks(scores: dict, checks: dict | None = None) -> list[dict]:
         risks.append({"kind": "repo_gap", "items": ["D4-Q4"]})
     if tel and tel["d4q1"]["flag"]:
         risks.append({"kind": "telemetry_gap", "items": ["D4-Q1"]})
+    dora = checks.get("delivery")
+    if dora and dora["d9q2"]["flag"]:
+        risks.append({"kind": "delivery_gap", "items": ["D9-Q2"]})
     keys = ("status", "answered", "applicable", "min_n")
     return [{**{k: None for k in keys}, **r} for r in risks]
 

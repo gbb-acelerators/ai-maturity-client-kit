@@ -44,6 +44,7 @@ make pipeline
 # Optional evidence cross-checks:
 make scan-repos REPOS=~/src
 make telemetry METRICS=copilot-usage.json SEATS=200
+make dora DORA=dora-metrics.csv SERVICES=40
 # Fill implementation-guide-inputs.json with the wizard, then render again:
 make pipeline
 ```
@@ -89,12 +90,13 @@ The scripts are the source of truth. Do not compute scores by hand.
 
 ## Evidence cross-checks
 
-Two optional inputs help challenge overconfident answers. They do not change scores.
+Three optional inputs help challenge overconfident answers. They do not change scores.
 
 - `make scan-repos REPOS=~/src` scans local clones using committed files only. `make scan-repos ORG=<github-org>` scans default branches through the GitHub REST API and requires `GITHUB_TOKEN` or `GH_TOKEN`. Output: `output/repo-scan.json`. The scan places repositories on RAMP levels L1 to L4 as a pattern-based approximation. The share of repositories at L2+ caps D4-Q4 by coverage bands, and the share at L3+ is shown next to D4-Q5.
 - `make telemetry METRICS=<Copilot usage metrics report JSON/NDJSON> [SEATS=200]` writes `output/telemetry.json`. It reads GitHub Copilot usage metrics exports and classifies adoption phases: No Cohort, Phase 1 Code first, Phase 2 Agent first, Phase 3 Multi-agent. The export itself is evidence for D9-Q1.
+- `make dora DORA=<CSV or JSON> [SERVICES=40]` writes `output/dora-metrics.json`. It reads one row per service and period (`baseline` before AI adoption, `current`) with deployment frequency, lead time, change failure rate and time to restore. With `SERVICES`, the share of services compared with a baseline caps D9-Q2 by coverage bands. It checks measurement coverage, not delivery performance.
 
-The summary PDF section 2.2 shows both cross-checks and flags answers above what the evidence supports. The implementation guide lists those mismatches as risks. If the files are missing, the report explains how to produce them.
+The summary PDF section 2.2 shows the cross-checks and flags answers above what the evidence supports. The implementation guide lists those mismatches as risks. If the files are missing, the report explains how to produce them.
 
 ## Companion surveys
 

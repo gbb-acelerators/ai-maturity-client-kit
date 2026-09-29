@@ -21,7 +21,7 @@ Os rótulos do banco de perguntas do Learning Survey usam `L#-Q#`. Quando uma pe
 
 | Arquivo | O que é |
 | --- | --- |
-| [FORMS-INSTRUCTIONS-LEARNING.md](FORMS-INSTRUCTIONS-LEARNING.md) | Como montar o Microsoft Forms identificado. |
+| [FORMS-INSTRUCTIONS-LEARNING.md](FORMS-INSTRUCTIONS-LEARNING.pt-br.md) | Como montar o Microsoft Forms identificado. |
 | [question-bank-learning.md](question-bank-learning.md) | Banco de perguntas em inglês. |
 | [question-bank-learning.pt-br.md](question-bank-learning.pt-br.md) | Banco de perguntas em português (Brasil). |
 | [question-bank-learning.es.md](question-bank-learning.es.md) | Banco de perguntas em espanhol. Os scripts escrevem EN, PT-BR ou ES (`--lang es`). |

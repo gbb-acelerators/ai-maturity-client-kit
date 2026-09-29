@@ -594,11 +594,8 @@ Options:
 ## Summary
 
 - **7 sections**
-
 - **32 questions** (15 choice + 9 multi + 8 text)
-
 - **Time:** 5-8 min
-
 - **Identified** (requires name + email)
 
 ## Next Steps
@@ -608,10 +605,8 @@ Options:
 3. In Copilot Chat (Agent mode):
 
    ```text
-
    /import-survey-learning
    /training-plan
+   ```
 
-   ```text
-
-4. Receive the prioritized capacitation plan in `output/training-plan-DATA.md`
+4. Receive the prioritized capacitation plan in `output/training-plan-<date>.md`

@@ -21,7 +21,7 @@ D9-Q1 when the file is present.
 
 Usage:
     python3 scripts/import_copilot_metrics.py report.json [more.ndjson]
-        [--seats N | --seats-file seats.json] [--out saida]
+        [--seats N | --seats-file seats.json] [--out output]
 """
 from __future__ import annotations
 

@@ -18,7 +18,7 @@ python3 reports/scripts/build_payload_and_render.py
 ## Optional inputs
 
 - Offline form exports: merge first with `python3 scripts/merge_offline_responses.py <dir>`.
-- Evidence cross-checks: `make scan-repos REPOS=...` and `make telemetry METRICS=...`.
+- Evidence cross-checks: `make scan-repos REPOS=...`, `make telemetry METRICS=...` and `make dora DORA=... [SERVICES=...]`.
 - Wizard: place `implementation-guide-inputs.json` at the root before the final render.
 
 ## v2 default outputs

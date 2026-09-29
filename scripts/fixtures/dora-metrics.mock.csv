@@ -1,0 +1,17 @@
+service,period,deployment_frequency,lead_time_hours,change_failure_rate,time_to_restore_hours
+checkout-api,baseline,3,96,0.18,10
+checkout-api,current,6,40,0.14,5
+catalog-api,baseline,2,120,0.22,12
+catalog-api,current,4,60,0.17,6
+payments,baseline,1,168,0.25,20
+payments,current,2,90,0.2,9
+identity,baseline,4,72,0.12,6
+identity,current,7,30,0.1,3
+search,baseline,2,110,0.2,14
+search,current,3,70,0.19,8
+notifications,baseline,5,48,0.1,4
+notifications,current,8,24,0.09,2
+orders,current,3,80,0.2,10
+inventory,current,2,100,0.24,12
+reporting,current,1,150,,
+mobile-bff,current,5,36,0.12,

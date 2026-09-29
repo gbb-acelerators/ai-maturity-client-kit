@@ -21,7 +21,7 @@ El script lee `responses.json::metadata.framework_version` y despacha automátic
 - `output/v2_roadmap_g3.pdf`, D6, D7, D8.
 - `output/v2_implementation_guide.pdf`.
 
-El resumen incluye la sección 2.2 Verificaciones cruzadas de evidencia cuando existe `output/repo-scan.json` o `output/telemetry.json`, y contexto de Developer Survey cuando existe `output/developer-survey-maturity-*.json`. La guía de implementación usa `implementation-guide-inputs.json`; los campos vacíos del wizard se renderizan como `to fill with the client`.
+El resumen incluye la sección 2.2 Verificaciones cruzadas de evidencia cuando existe `output/repo-scan.json`, `output/telemetry.json` o `output/dora-metrics.json`, y contexto de Developer Survey cuando existe `output/developer-survey-maturity-*.json`. La guía de implementación usa `implementation-guide-inputs.json`; los campos vacíos del wizard se renderizan como `to fill with the client`.
 
 ## Informes de comparación
 

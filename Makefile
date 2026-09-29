@@ -6,7 +6,7 @@
 PY ?= python3
 KIT := $(CURDIR)
 
-.PHONY: help demo init init-v1 import merge workbook test scores smoke smoke-cross validate-docs validate-v2 generate-v2 mock-v2 examples-v2 compare scan-repos telemetry build-kits install-deps pipeline clean-output
+.PHONY: help demo init init-v1 import merge workbook test scores smoke smoke-cross validate-docs validate-v2 generate-v2 mock-v2 examples-v2 compare scan-repos telemetry dora build-kits install-deps pipeline clean-output
 
 help:
 	@echo "AI Maturity Assessment kit"
@@ -31,6 +31,7 @@ help:
 	@echo "  make compare       Compare two rounds (JSON, MD and PDF): BEFORE=old.json AFTER=responses.json"
 	@echo "  make scan-repos    D4 cross-check: REPOS=~/src (local clones) or ORG=<github-org> (GITHUB_TOKEN)"
 	@echo "  make telemetry     D4/D9 cross-check: METRICS=copilot-usage.json [SEATS=200]"
+	@echo "  make dora          D9-Q2 cross-check: DORA=dora-metrics.csv [SERVICES=40]"
 	@echo "  make build-kits    Build PT, EN and ES public ZIP packages"
 	@echo "  make pipeline      Run full pipeline (scores + payload + PDFs: 5 for v2, 5 for v1)"
 	@echo "                    Reports default to English; set metadata.language"
@@ -128,6 +129,13 @@ SEATS ?=
 telemetry:
 	@test -n "$(METRICS)" || (echo "Usage: make telemetry METRICS=copilot-usage.json [SEATS=200]" && exit 1)
 	@$(PY) scripts/import_copilot_metrics.py $(METRICS) $(if $(SEATS),--seats $(SEATS))
+
+DORA ?=
+SERVICES ?=
+
+dora:
+	@test -n "$(DORA)" || (echo "Usage: make dora DORA=dora-metrics.csv [SERVICES=40]" && exit 1)
+	@$(PY) scripts/import_dora_metrics.py $(DORA) $(if $(SERVICES),--services $(SERVICES))
 
 build-kits:
 	@$(PY) scripts/build_language_kits.py --out dist --clean

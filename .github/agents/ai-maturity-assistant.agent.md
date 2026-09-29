@@ -43,6 +43,7 @@ make import XLSX=forms-responses.xlsx
 make pipeline
 make scan-repos REPOS=~/src
 make telemetry METRICS=copilot-usage.json SEATS=200
+make dora DORA=dora-metrics.csv SERVICES=40
 make compare BEFORE=old.json AFTER=responses.json
 ```
 

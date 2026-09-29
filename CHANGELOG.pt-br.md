@@ -4,6 +4,57 @@
 
 Todas as alterações relevantes no kit de cliente AI Maturity. As datas estão em ISO 8601.
 
+## [Unreleased]
+
+### Adicionado
+
+- Cross-check de métricas DORA para D9-Q2: `make dora DORA=<CSV ou JSON>
+  [SERVICES=N]` roda `scripts/import_dora_metrics.py` e grava
+  `output/dora-metrics.json` (uma linha por serviço e período, `baseline`
+  e `current`). Com o número de serviços no escopo, a parcela de
+  serviços comparados com um baseline limita D9-Q2 pelas faixas de
+  cobertura. O PDF de sumário mostra isso na seção 2.2 e o guia de
+  implementação lista a divergência como risco. Ele checa a cobertura da
+  medição, não o desempenho de entrega. Os exemplos usam
+  `scripts/fixtures/dora-metrics.mock.csv`.
+
+### Corrigido
+
+- Os insights do Developer Survey em PT-BR e ES agora usam vírgula
+  decimal.
+- O guia de scoring v1 chamava o PE score de "Production Engineering";
+  o código e os relatórios se referem à prontidão de Platform
+  Engineering, e o guia agora lista as áreas v1 marcadas.
+- As instruções do Learning Survey apontavam para nomes de relatórios
+  v1; agora descrevem como o plano alimenta o guia de implementação v2.
+  Os nomes do arquivo do plano usam `<date>` em todo lugar.
+- As perguntas dos surveys em espanhol agora abrem com "¿".
+- Vários docs PT-BR apontavam para a cópia em inglês de uma página que
+  tem versão PT-BR.
+- O log de importação do Forms usava travessão para valores vazios.
+- `.github/copilot-instructions.md` mostrava flags erradas nos scripts
+  de evidência (`--repos`, `--metrics`); agora usa `--path` e o arquivo
+  de métricas como argumento posicional, como o Makefile.
+- Os insights do Developer Survey diziam que o survey usava a mesma
+  escala L0-L4 do assessment principal. Agora dizem que ele usa as faixas
+  do v1, então a comparação com o v2 é pelo score. A rubrica e as
+  instruções do Forms agora apontam para as perguntas v2 do
+  `survey_crosswalk`, e não para capabilities do v1.
+- Os bancos EN e ES do Developer Survey terminavam com uma seção em
+  português, e os bancos EN e ES do Learning Survey tinham um bloco de
+  código quebrado.
+- Os docs dos surveys e a ajuda do script de relatório não citam mais a
+  antiga pasta `kit-cliente/`.
+- O quick start e o FAQ do site ainda descreviam o exemplo v1
+  (`cp responses.json.example`, Cliente Exemplo S.A.) e a importação v1
+  que faz média das linhas. Agora mostram `make demo`, `make init`,
+  `make import` e `make merge`, e a importação v2 que mantém cada
+  respondente.
+- O repositório mudou para `gbb-acelerators/ai-maturity-client-kit`. O
+  site, suas tags de SEO e os docs agora usam
+  `https://gbb-acelerators.github.io/ai-maturity-client-kit/`; a URL
+  antiga do Pages retorna 404.
+
 ## [2.0.2] - 2026-09-29 (nomes de arquivos e pastas em inglês)
 
 O framework (perguntas, escala e pontuação) não muda: continua 2.0.1.

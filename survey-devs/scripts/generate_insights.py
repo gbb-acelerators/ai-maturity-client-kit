@@ -57,16 +57,17 @@ STRINGS = {
         "maturity": "### 🎯 Team AI Maturity (deterministic rubric)",
         "overall": "> **Overall: {score} ({label})**",
         "based_on": "> Based on {n} respondents, 7 dimensions, and the "
-                    "L0-L4 scale (same as the main assessment)",
+                    "L0-L4 bands of the v1 assessment (framework v2 uses "
+                    "other bands, so compare by score)",
         "dim_header": "| Dimension | Score | Label | % devs at L3+L4 |",
         "dim_empty": "| {did} {name} | - | No data | - |",
-        "dim_row": "| {did} {name} | **{score:.2f}** | {label} | "
+        "dim_row": "| {did} {name} | **{score}** | {label} | "
                    "{pct:.0f}% |",
         "strong": "### 🏆 3 strongest dimensions",
-        "strong_row": "- **{did}** {name}: score **{score:.2f}** "
+        "strong_row": "- **{did}** {name}: score **{score}** "
                       "({label})",
         "gaps": "### ⚠️ 3 largest gaps (roadmap opportunities)",
-        "gap_row": "- 🔴 **{did}** {name}: score **{score:.2f}** "
+        "gap_row": "- 🔴 **{did}** {name}: score **{score}** "
                    "({label})",
         "ins_policy": "**Critical governance risk:** {pct:.0f}% of devs "
                       "are not aware of a documented AI policy (S8-Q1). "
@@ -193,17 +194,18 @@ STRINGS = {
         "s1": "## 1 · Sumário Executivo",
         "maturity": "### 🎯 Maturidade IA do Time (rubrica determinística)",
         "overall": "> **Overall: {score} ({label})**",
-        "based_on": "> Baseado em {n} respondentes, 7 dimensões, escala "
-                    "L0-L4 (mesma do assessment principal)",
+        "based_on": "> Baseado em {n} respondentes, 7 dimensões e nas "
+                    "faixas L0-L4 do assessment v1 (o framework v2 usa "
+                    "outras faixas; compare pelo score)",
         "dim_header": "| Dimensão | Score | Rótulo | % devs em L3+L4 |",
         "dim_empty": "| {did} {name} | - | Sem dados | - |",
-        "dim_row": "| {did} {name} | **{score:.2f}** | {label} | "
+        "dim_row": "| {did} {name} | **{score}** | {label} | "
                    "{pct:.0f}% |",
         "strong": "### 🏆 3 dimensões mais fortes",
-        "strong_row": "- **{did}** {name}: score **{score:.2f}** "
+        "strong_row": "- **{did}** {name}: score **{score}** "
                       "({label})",
         "gaps": "### ⚠️ 3 maiores gaps (oportunidades de roadmap)",
-        "gap_row": "- 🔴 **{did}** {name}: score **{score:.2f}** "
+        "gap_row": "- 🔴 **{did}** {name}: score **{score}** "
                    "({label})",
         "ins_policy": "**Risco de governança crítico:** {pct:.0f}% dos "
                       "devs não conhecem política de IA documentada "
@@ -331,15 +333,16 @@ STRINGS = {
         "s1": "## 1 · Resumen ejecutivo",
         "maturity": "### 🎯 Madurez de IA del equipo (rúbrica determinística)",
         "overall": "> **General: {score} ({label})**",
-        "based_on": "> Basado en {n} encuestados, 7 dimensiones y la escala "
-                    "L0-L4 (la misma que la evaluación principal)",
+        "based_on": "> Basado en {n} encuestados, 7 dimensiones y las "
+                    "bandas L0-L4 de la evaluación v1 (el framework v2 usa "
+                    "otras bandas; compara por puntaje)",
         "dim_header": "| Dimensión | Puntaje | Etiqueta | % devs en L3+L4 |",
         "dim_empty": "| {did} {name} | - | Sin datos | - |",
-        "dim_row": "| {did} {name} | **{score:.2f}** | {label} | {pct:.0f}% |",
+        "dim_row": "| {did} {name} | **{score}** | {label} | {pct:.0f}% |",
         "strong": "### 🏆 3 dimensiones más fuertes",
-        "strong_row": "- **{did}** {name}: puntaje **{score:.2f}** ({label})",
+        "strong_row": "- **{did}** {name}: puntaje **{score}** ({label})",
         "gaps": "### ⚠️ 3 brechas más grandes (oportunidades de roadmap)",
-        "gap_row": "- 🔴 **{did}** {name}: puntaje **{score:.2f}** ({label})",
+        "gap_row": "- 🔴 **{did}** {name}: puntaje **{score}** ({label})",
         "ins_policy": "**Riesgo crítico de gobernanza:** {pct:.0f}% de los "
                       "devs no conoce una política de IA documentada (S8-Q1). "
                       "Debe formalizarse",
@@ -465,6 +468,12 @@ STRINGS = {
 
 def safe_pct(num, total):
     return round(100 * num / total, 1) if total > 0 else 0
+
+
+def fmt_score(value, lang):
+    """Two decimals, with a decimal comma in PT-BR and ES reports."""
+    text = f"{value:.2f}"
+    return text.replace(".", ",") if lang in ("pt-br", "es") else text
 
 
 def aggregate_responses(respondents, qid, multi=False):
@@ -681,7 +690,7 @@ def main():
     section(md, t["s1"])
 
     overall = team["team_overall_score"]
-    overall_str = f"{overall:.2f}" if overall is not None else "N/A"
+    overall_str = fmt_score(overall, lang) if overall is not None else "N/A"
     md.append(t["maturity"])
     md.append("")
     md.append(t["overall"].format(score=overall_str,
@@ -698,7 +707,7 @@ def main():
         dist = d["distribution_pct"]
         pct_l3l4 = dist["L3"] + dist["L4"]
         md.append(t["dim_row"].format(
-            did=did, name=name, score=d["team_score"],
+            did=did, name=name, score=fmt_score(d["team_score"], lang),
             label=d["label"], pct=pct_l3l4,
         ))
     md.append("")
@@ -707,13 +716,15 @@ def main():
     md.append(t["strong"])
     for did, name, score in rk["top"]:
         md.append(t["strong_row"].format(
-            did=did, name=name, score=score, label=label_for(score, lang)
+            did=did, name=name, score=fmt_score(score, lang),
+            label=label_for(score, lang)
         ))
     md.append("")
     md.append(t["gaps"])
     for did, name, score in rk["bottom"]:
         md.append(t["gap_row"].format(
-            did=did, name=name, score=score, label=label_for(score, lang)
+            did=did, name=name, score=fmt_score(score, lang),
+            label=label_for(score, lang)
         ))
     md.append("")
 

@@ -32,7 +32,7 @@ Writes output/repo-scan.json. The v2 reports compare it with the D4-Q4
 and D4-Q5 answers when the file is present.
 
 Usage:
-    python3 scripts/scan_repos_ai_config.py --path ~/src [--out saida]
+    python3 scripts/scan_repos_ai_config.py --path ~/src [--out output]
     python3 scripts/scan_repos_ai_config.py --github-org contoso
 """
 from __future__ import annotations

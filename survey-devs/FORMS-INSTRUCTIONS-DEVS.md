@@ -151,7 +151,7 @@ Use the bank in your respondents' language as the **copy/paste source**: English
 
 1. **Responses** tab → **Open in Excel** button
 2. Save the file as **`survey-devs-responses.xlsx`**
-3. Move it to the **root of `kit-cliente/`** (not inside `survey-devs/`)
+3. Move it to the **kit root** (not inside `survey-devs/`)
 4. **Anonymity confirmed:** columns D (Email) and E (Name) must be empty
 
 ### Step 8 · Analyze with the kit
@@ -237,7 +237,7 @@ Developers are more likely to answer the next survey if they see that the previo
 
 | Problem | Diagnosis | Solution |
 |---|---|---|
-| Skill does not detect the file | It is not at the root | Move `survey-devs-responses.xlsx` to `kit-cliente/` (root) |
+| Skill does not detect the file | It is not at the root | Move `survey-devs-responses.xlsx` to the kit root |
 | Skill says "0 respondents" | Email/Name not empty but questions empty | Check that respondents answered at least 1 question |
 | Headers not recognized | Missing "SX-QY:" at the start | Edit the headers manually to include the ID |
 | Email shows up in Excel | Anonymity OFF | Reconfigure Forms → Settings → Anonymous Responses ON and resend |
@@ -252,7 +252,7 @@ Developers are more likely to answer the next survey if they see that the previo
 - **Sample structured JSON:** [`mock-responses-devs.json`](mock-responses-devs.json)
 - **Import skill:** [`../.github/skills/import-survey-devs/SKILL.md`](../.github/skills/import-survey-devs/SKILL.md)
 - **Insights skill:** [`../.github/skills/insights-developer-survey/SKILL.md`](../.github/skills/insights-developer-survey/SKILL.md)
-- **Relationship with the main assessment:** this survey COMPLEMENTS the maturity assessment. The insights here inform capabilities P1-C1, P1-C5, P1-C8 (Copilot, Onboarding, Metrics) and governance in P2-C4 / P3-C6.
+- **Relationship with the main assessment:** this survey COMPLEMENTS the maturity assessment. Its insights help validate the v2 questions listed in `survey_crosswalk` in [framework.v2.json](../framework.v2.json) (for example D4-Q1 for Copilot adoption, D4-Q4 for instructions and D6-Q1 for governance). Survey results never change v2 scores.
 
 ---
 

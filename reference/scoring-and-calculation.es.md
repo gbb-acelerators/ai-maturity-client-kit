@@ -20,7 +20,7 @@
 6. [Multi-respondent: agregación](#6-multi-respondent-agregación)
 7. [Etiquetas de madurez (mapeo de puntaje)](#7-etiquetas-de-madurez-mapeo-de-puntaje)
 8. [Gap analysis y priorización](#8-gap-analysis-y-priorización)
-9. [PE Score (Production Engineering Readiness)](#9-pe-score-production-engineering-readiness)
+9. [PE Score (Platform Engineering Readiness)](#9-pe-score-platform-engineering-readiness)
 10. [Persistencia (tablas y materialización)](#10-persistencia-tablas-y-materialización)
 11. [**Ejemplo end-to-end: Pilar P1**](#11-ejemplo-end-to-end-pilar-p1)
 12. [**Ejemplo end-to-end: Pilar P2**](#12-ejemplo-end-to-end-pilar-p2)
@@ -196,7 +196,7 @@ If gap_size ≤ 1e-9 (floating-point epsilon) → discard (target already reache
 
 ---
 
-## 9. PE Score (Production Engineering Readiness)
+## 9. PE Score (Platform Engineering Readiness)
 
 > Código de referencia: [`scoring.rs:266-304`](../scripts/assessment_engine.py)
 
@@ -205,7 +205,7 @@ Subpuntaje calculado **solo con preguntas marcadas `pe = true`** en el seed.
 - Filtra → recalcula capability/pillar/overall con el subconjunto.
 - Mismo SUMPRODUCT.
 - Si ninguna pregunta tiene `pe = true` → devuelve `None`.
-- Se muestra lado a lado con el overall general, señalando readiness de producción (resiliencia, observabilidad, runbooks, SLOs, etc.).
+- Se muestra lado a lado con el overall general, señalando la preparación de platform engineering. Las preguntas v1 marcadas con `pe = true` cubren la adopción del portal del desarrollador, el tiempo de setup del entorno, la frecuencia de deploy, la infraestructura como código, el MTTR, los workloads en contenedores y las specs de API.
 
 ---
 
@@ -410,7 +410,7 @@ Si la evaluación completa tiene 28 capabilities activas, P3-C5 con `score = 2.0
 | **Score** | Resultado continuo `f64 ∈ [0,4]` producido por agregación. |
 | **Weight** | Peso de la pregunta (`[0.5, 2.0]`, predeterminado 1.0) o de la capability. |
 | **Threshold** | Cobertura mínima de preguntas respondidas: 25 (warning), 40 (ok). |
-| **PE flag** | Marca preguntas críticas para Production Engineering. Generan un subpuntaje paralelo. |
+| **PE flag** | Marca preguntas críticas para Platform Engineering. Generan un subpuntaje paralelo. |
 | **Gap** | `target − current` por capability. |
 | **Priority score** | `weight × gap`, que clasifica la capability en P0/P1/P2/P3. |
 | **Audience** | Audiencias objetivo de la pregunta (developer, sre, security…). Filtra visibilidad en el formulario. |

@@ -22,10 +22,11 @@ can be edited in output/payload.json before re-rendering.
 
 Usage:
     python3 build_payload_and_render.py
-    python3 build_payload_and_render.py --kit /path/to/kit-cliente
+    python3 build_payload_and_render.py --kit /path/to/kit
     python3 build_payload_and_render.py --no-render   # only build payload, skip PDFs
 """
 from __future__ import annotations
+import branding
 
 import argparse
 import copy
@@ -38,7 +39,6 @@ from pathlib import Path
 # Local imports
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
-import branding
 from wizard_inputs import wizard_value as _wizard_value  # noqa: E402
 from kit_files import responses_file  # noqa: E402
 
@@ -119,9 +119,12 @@ def label_from_score(
 
 
 def priority_from_ps(ps: float) -> str:
-    if ps >= 2.4: return "P0 Critical"
-    if ps >= 1.6: return "P1 High"
-    if ps >= 0.9: return "P2 Medium"
+    if ps >= 2.4:
+        return "P0 Critical"
+    if ps >= 1.6:
+        return "P1 High"
+    if ps >= 0.9:
+        return "P2 Medium"
     return "P3 Low"
 
 
@@ -162,6 +165,7 @@ def build_payload(kit: Path) -> dict:
 
     return payload
 
+
 def _merge_branding(payload: dict) -> None:
     """Merge paulasilva-ms branding while preserving sample-only fields."""
     payload.setdefault("branding", {}).update({
@@ -186,7 +190,8 @@ def _load_client_pipeline_data(kit: Path) -> tuple[dict, dict, dict]:
     return (
         load_json(responses_path) if responses_path.exists() else {},
         load_json(scores_path),
-        load_json(gaps_path) if gaps_path.exists() else {"gaps": [], "summary": {}},
+        load_json(gaps_path) if gaps_path.exists() else {
+            "gaps": [], "summary": {}},
     )
 
 
@@ -328,8 +333,10 @@ def _client_capabilities(
 
 def _apply_assessment(payload: dict, scores: dict, meta: dict) -> None:
     assess = payload["assessment"]
-    assess["id"] = scores.get("metadata", {}).get("respondent", assess.get("id", "—"))
-    assess["completed_date"] = meta.get("assessment_date", assess["completed_date"])
+    assess["id"] = scores.get("metadata", {}).get(
+        "respondent", assess.get("id", "—"))
+    assess["completed_date"] = meta.get(
+        "assessment_date", assess["completed_date"])
     assess["generated_date"] = datetime.date.today().isoformat()
     assess["framework_version"] = scores.get("metadata", {}).get(
         "framework_version", assess["framework_version"]
@@ -598,7 +605,8 @@ def _latest_artifact(kit: Path, out_dir: Path, pattern: str) -> dict | None:
 
 
 def _collect_developer_maturity(kit: Path, out_dir: Path) -> dict | None:
-    candidates = sorted(out_dir.glob("developer-survey-maturity-*.json"), reverse=True)
+    candidates = sorted(out_dir.glob(
+        "developer-survey-maturity-*.json"), reverse=True)
     if not candidates:
         return None
     try:
@@ -639,7 +647,8 @@ def _developer_maturity_dimensions(raw_dims: dict) -> list[dict]:
 def render_pdfs(payload_path: Path, out_dir: Path, kit: Path) -> int:
     """Invoke render_reports.py to produce the 5 PDFs."""
     script = kit / "reports/scripts/render_reports.py"
-    cmd = [sys.executable, str(script), "--payload", str(payload_path), "--out", str(out_dir)]
+    cmd = [sys.executable, str(script), "--payload",
+           str(payload_path), "--out", str(out_dir)]
     print(f"\n→ Rendering 5 PDFs with {payload_path.name}...")
     result = subprocess.run(cmd, capture_output=True, text=True)
     print(result.stdout)
@@ -651,9 +660,11 @@ def render_pdfs(payload_path: Path, out_dir: Path, kit: Path) -> int:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--kit", default=str(Path(__file__).resolve().parent.parent.parent),
-                    help="Path to kit-cliente/")
-    ap.add_argument("--out", default=None, help="Output dir (default: <kit>/output/)")
-    ap.add_argument("--no-render", action="store_true", help="Only build payload, skip PDF rendering")
+                    help="Path to the kit root")
+    ap.add_argument("--out", default=None,
+                    help="Output dir (default: <kit>/output/)")
+    ap.add_argument("--no-render", action="store_true",
+                    help="Only build payload, skip PDF rendering")
     args = ap.parse_args()
 
     kit = Path(args.kit).resolve()
@@ -666,7 +677,8 @@ def main():
 
     responses_path = responses_file(kit)
     if responses_path.exists():
-        meta = json.loads(responses_path.read_text(encoding="utf-8")).get("metadata", {})
+        meta = json.loads(responses_path.read_text(
+            encoding="utf-8")).get("metadata", {})
         if str(meta.get("framework_version") or "1").split(".")[0] not in ("0", "1"):
             import build_report_v2
             argv = ["--kit", str(kit), "--out", str(out_dir)]
@@ -678,11 +690,14 @@ def main():
     # Build payload (merge sample + client data)
     payload = build_payload(kit)
     payload_path = out_dir / "payload.json"
-    payload_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"✓ Payload merged: {payload_path} ({payload_path.stat().st_size:,} bytes)")
+    payload_path.write_text(json.dumps(
+        payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(
+        f"✓ Payload merged: {payload_path} ({payload_path.stat().st_size:,} bytes)")
     print(f"  Locale:  {payload.get('locale')}")
     print(f"  Org:     {payload['organization']['name']}")
-    print(f"  Overall: {payload['scores']['overall']['weighted_avg']} ({payload['scores']['overall']['level_label']})")
+    print(
+        f"  Overall: {payload['scores']['overall']['weighted_avg']} ({payload['scores']['overall']['level_label']})")
 
     if args.no_render:
         return 0
