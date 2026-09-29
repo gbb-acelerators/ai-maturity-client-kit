@@ -19,7 +19,7 @@ sys.path.insert(0, str(ROOT / "survey-devs" / "scripts"))
 sys.path.insert(0, str(ROOT / "survey-learning" / "scripts"))
 
 import generate_insights  # noqa: E402
-import generate_training_plan as plano  # noqa: E402
+import generate_training_plan as training_plan  # noqa: E402
 import rubric  # noqa: E402
 
 FW = json.loads((ROOT / "framework.v2.json").read_text("utf-8"))
@@ -30,7 +30,7 @@ class SurveyIdTest(unittest.TestCase):
     def test_developer_survey_ids_do_not_collide(self) -> None:
         ids = [d[0] for d in rubric.DIMENSIONS]
         self.assertEqual(ids, [f"DS-D{n}" for n in range(2, 9)])
-        self.assertEqual(list(plano.DIMENSION_NAMES), ids)
+        self.assertEqual(list(training_plan.DIMENSION_NAMES), ids)
         self.assertFalse(set(ids) & {d["id"] for d in FW["dimensions"]})
 
     def test_crosswalk_points_to_v2_questions(self) -> None:
@@ -52,7 +52,7 @@ class SurveyIdTest(unittest.TestCase):
             {"responses": {"L3-Q1": {"value":
                 "DS-D8 Security & Governance (GHAS)"}}},
         ]
-        counts = plano.collect_priorities(people)
+        counts = training_plan.collect_priorities(people)
         self.assertEqual(counts["DS-D8"], 2)
         self.assertEqual(counts["DS-D2"], 1)
 

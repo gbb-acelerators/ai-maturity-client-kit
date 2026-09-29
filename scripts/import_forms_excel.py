@@ -213,7 +213,7 @@ def aggregate(respondents: list[dict], qids: list[str]) -> dict:
     return result
 
 
-def base_respostas(target: Path) -> dict:
+def base_responses(target: Path) -> dict:
     if target.exists():
         return json.loads(target.read_text(encoding="utf-8"))
     example = json.loads(
@@ -327,7 +327,7 @@ def run_v2(args, ws, xlsx: Path) -> int:
             for pid, col in pcols.items()
         }
 
-    target = Path(args.respostas)
+    target = Path(args.responses)
     old = json.loads(target.read_text("utf-8")) if target.exists() else {}
     backup = None
     if target.exists():
@@ -416,8 +416,8 @@ def run(args) -> int:
         raise FormsImportError("The file has no respondent rows.")
     agg = aggregate(respondents, qids)
 
-    target = Path(args.respostas)
-    data = base_respostas(target)
+    target = Path(args.responses)
+    data = base_responses(target)
     backup = None
     if target.exists():
         ts = datetime.datetime.now(datetime.timezone.utc).strftime(
@@ -487,7 +487,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("xlsx", nargs="?",
                     default=str(ROOT / "forms-responses.xlsx"))
-    ap.add_argument("--responses", "--respostas", dest="respostas",
+    ap.add_argument("--responses", "--respostas", dest="responses",
                     default=str(ROOT / "responses.json"),
                     help="output file (default: responses.json)")
     ap.add_argument("--log-dir", default=str(ROOT / "output"))

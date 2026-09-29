@@ -42,6 +42,9 @@ O framework (perguntas, escala e pontuação) não muda: continua 2.0.1.
 - `kit-en/`, `kit-es/` e `scripts/build_kit_docs.py` foram removidos:
   todos os pacotes agora têm os mesmos nomes de arquivos e pastas, com o
   seu idioma nos nomes base.
+- O código também usa nomes em inglês (por exemplo, o `responses.json`
+  lido é `responses_doc`), e o auto-fill do wizard grava
+  `metadata.source_plan` em vez de `source_plano`.
 
 ### Compatibilidade
 

@@ -179,8 +179,8 @@ def main() -> int:
                 out.mkdir()
                 data = json.loads(json.dumps(mock))
                 data["metadata"]["language"] = lang
-                respostas = kit / "responses.json"
-                respostas.write_text(
+                responses_path = kit / "responses.json"
+                responses_path.write_text(
                     json.dumps(data, ensure_ascii=False, indent=2),
                     encoding="utf-8")
                 shutil.copy(ROOT / "framework.v2.json", kit)
@@ -192,13 +192,13 @@ def main() -> int:
                 if lang in SURVEY_LANG:
                     run_surveys(kit, out, SURVEY_LANG[lang])
                 run("scripts/assessment_engine.py", "all", "--responses",
-                    str(respostas), "--out", str(out))
+                    str(responses_path), "--out", str(out))
                 run("scripts/fill_workbook_v2.py", "--responses",
-                    str(respostas), "--out", str(out))
+                    str(responses_path), "--out", str(out))
                 run("reports/scripts/build_report_v2.py", "--kit",
                     str(kit), "--out", str(out))
                 run("scripts/compare_rounds.py", "responses.json.example",
-                    str(respostas), "--out", str(out), "--pdf")
+                    str(responses_path), "--out", str(out), "--pdf")
                 target.mkdir(parents=True, exist_ok=True)
                 for name in PDFS:
                     shutil.copy(out / f"{name}.pdf", target / f"{name}.pdf")

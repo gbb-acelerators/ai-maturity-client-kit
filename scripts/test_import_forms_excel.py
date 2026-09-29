@@ -24,7 +24,7 @@ except ImportError:  # pragma: no cover
 
 
 def _args(xlsx: Path, out: Path, **extra) -> argparse.Namespace:
-    values = {"xlsx": str(xlsx), "respostas": str(out / "responses.json"),
+    values = {"xlsx": str(xlsx), "responses": str(out / "responses.json"),
               "log_dir": str(out), "organization": "Contoso",
               "lang": None, "allow_partial": False}
     values.update(extra)

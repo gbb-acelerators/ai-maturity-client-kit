@@ -25,18 +25,18 @@ import sys
 from pathlib import Path
 
 KIT = Path(__file__).resolve().parent.parent
-SAIDA = KIT / "output"
-EXEMPLOS = KIT / "reference" / "sample-output"
-EXEMPLOS_V1 = EXEMPLOS / "v1"
+OUTPUT = KIT / "output"
+EXAMPLES = KIT / "reference" / "sample-output"
+EXAMPLES_V1 = EXAMPLES / "v1"
 
 # Files we will mutate; everything is restored on exit.
 SENTINEL_FILES = [
     KIT / "responses.json",
     KIT / "implementation-guide-inputs.json",
-    SAIDA / "scores.json",
-    SAIDA / "gaps.json",
-    SAIDA / "recommendations.json",
-    SAIDA / "payload.json",
+    OUTPUT / "scores.json",
+    OUTPUT / "gaps.json",
+    OUTPUT / "recommendations.json",
+    OUTPUT / "payload.json",
 ]
 
 
@@ -85,7 +85,7 @@ def stage_example_inputs(with_cross: bool) -> dict[str, Path | None]:
     shutil.copy2(KIT / "responses.json.example", KIT / "responses.json")
     _ok("Copied responses.json.example → responses.json")
     shutil.copy2(
-        EXEMPLOS / "implementation-guide-inputs-EXAMPLE.json",
+        EXAMPLES / "implementation-guide-inputs-EXAMPLE.json",
         KIT / "implementation-guide-inputs.json",
     )
     _ok("Copied implementation-guide-inputs-EXAMPLE.json")
@@ -97,10 +97,10 @@ def stage_example_inputs(with_cross: bool) -> dict[str, Path | None]:
             ("insights-developer-survey-EXAMPLE.md", "insights-developer-survey-smoketest.md"),
             ("training-plan-EXAMPLE.md", "training-plan-smoketest.md"),
         ]:
-            src = EXEMPLOS / src_name
+            src = EXAMPLES / src_name
             if not src.exists():
                 continue
-            dest = SAIDA / dest_name
+            dest = OUTPUT / dest_name
             shutil.copy2(src, dest)
             staged.append(dest)
         if staged:
@@ -153,7 +153,7 @@ def run_build() -> None:
 
 
 def assert_payload(with_cross: bool) -> None:
-    payload_path = SAIDA / "payload.json"
+    payload_path = OUTPUT / "payload.json"
     if not payload_path.exists():
         raise SmokeError("payload.json was not generated")
     size = payload_path.stat().st_size
@@ -173,7 +173,7 @@ def assert_payload(with_cross: bool) -> None:
     if not isinstance(overall, (int, float)):
         raise SmokeError(f"scores.overall.weighted_avg is not numeric: {overall!r}")
     expected = json.loads(
-        (EXEMPLOS_V1 / "scores.json").read_text(encoding="utf-8")
+        (EXAMPLES_V1 / "scores.json").read_text(encoding="utf-8")
     )["overall"]["score"]
     if overall != round(expected, 2):
         raise SmokeError(
@@ -241,7 +241,7 @@ def smoke_v2() -> None:
                                  f"{res.stdout}{res.stderr}")
         payload = json.loads((out / "payload_v2.json").read_text("utf-8"))
         expected = json.loads(
-            (EXEMPLOS / "scores.json").read_text(encoding="utf-8"))
+            (EXAMPLES / "scores.json").read_text(encoding="utf-8"))
         if payload["overall"]["score"] != expected["overall"]["score"]:
             raise SmokeError(
                 f"v2 overall {payload['overall']['score']} differs from the "

@@ -152,16 +152,16 @@ def question_index(fw: dict) -> dict[str, dict]:
     return out
 
 
-def respondents_of(respostas: dict) -> list[dict]:
+def respondents_of(responses_doc: dict) -> list[dict]:
     """Normalize to a list of respondents with profile and answers.
 
     A file without ``respondents`` but with ``responses`` is treated as
     one consolidated respondent (for example a workshop answer sheet).
     """
-    people = respostas.get("respondents")
+    people = responses_doc.get("respondents")
     if people is None:
         people = [{"id": "consolidated", "profile": {},
-                   "answers": respostas.get("responses") or {}}]
+                   "answers": responses_doc.get("responses") or {}}]
     if not isinstance(people, list):
         raise InputErrorV2("respondents must be a list")
     return people
@@ -215,9 +215,9 @@ def overall_score(fw: dict, dims: dict, weights: dict) -> float | None:
     return weighted_mean(pairs)
 
 
-def dimension_weights(fw: dict, respostas: dict) -> dict[str, float]:
+def dimension_weights(fw: dict, responses_doc: dict) -> dict[str, float]:
     lo, hi = fw["scoring"]["dimension_weight_range"]
-    overrides = respostas.get("dimension_weights") or {}
+    overrides = responses_doc.get("dimension_weights") or {}
     out = {}
     for d in fw["dimensions"]:
         w = float(overrides.get(d["id"], d.get("weight", 1.0)))
@@ -320,12 +320,12 @@ def coverage_status(fw: dict, answered: int) -> str:
     return "BLOCKED"
 
 
-def compute_scores(fw: dict, respostas: dict, locale: str) -> dict:
+def compute_scores(fw: dict, responses_doc: dict, locale: str) -> dict:
     qindex = question_index(fw)
-    people = respondents_of(respostas)
+    people = respondents_of(responses_doc)
     read_answers(people, qindex)
     stats = aggregate(fw, people, qindex)
-    weights = dimension_weights(fw, respostas)
+    weights = dimension_weights(fw, responses_doc)
     dims = dimension_scores(fw, stats)
     overall = overall_score(fw, dims, weights)
     sc = fw["scoring"]
@@ -417,7 +417,7 @@ def compute_scores(fw: dict, respostas: dict, locale: str) -> dict:
                if qindex[q].get("pe")]
     pe = mean([v for v in pe_vals if v is not None])
     answered_total = len(scored_q)
-    meta = respostas.get("metadata", {})
+    meta = responses_doc.get("metadata", {})
     return {
         "metadata": {
             "computed_at": now_iso(),
@@ -467,14 +467,14 @@ def priority_of(fw: dict, value: float) -> int:
     return 3
 
 
-def compute_gaps(fw: dict, respostas: dict, locale: str) -> dict:
-    scores = compute_scores(fw, respostas, locale)
-    targets = respostas.get("target_overrides") or {}
+def compute_gaps(fw: dict, responses_doc: dict, locale: str) -> dict:
+    scores = compute_scores(fw, responses_doc, locale)
+    targets = responses_doc.get("target_overrides") or {}
     default = fw["scoring"]["default_target"]
     qindex = question_index(fw)
     qscores = {q["id"]: q for q in scores["questions"]}
     raw = dimension_scores(
-        fw, aggregate(fw, respondents_of(respostas), qindex))
+        fw, aggregate(fw, respondents_of(responses_doc), qindex))
     gaps = []
     for d in scores["dimensions"]:
         score = raw[d["id"]]
@@ -532,7 +532,7 @@ def _dim(fw: dict, did: str) -> dict:
     return next(d for d in fw["dimensions"] if d["id"] == did)
 
 
-def compute_recommendations(fw: dict, gaps: dict, respostas: dict,
+def compute_recommendations(fw: dict, gaps: dict, responses_doc: dict,
                             locale: str) -> dict:
     text = TEXT[locale]
     names = {s["id"]: s["name"] for s in fw["strategies"]}

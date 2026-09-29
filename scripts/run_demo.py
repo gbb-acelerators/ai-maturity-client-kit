@@ -38,15 +38,15 @@ def main() -> int:
         data = json.loads((ROOT / "responses.v2.json.example").read_text(
             encoding="utf-8"))
         data["metadata"]["language"] = args.lang
-        respostas = kit / "responses.json"
-        respostas.write_text(json.dumps(data, ensure_ascii=False, indent=2),
-                             encoding="utf-8")
+        responses_path = kit / "responses.json"
+        responses_path.write_text(
+            json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
         shutil.copy(ROOT / "framework.v2.json", kit)
         try:
             run("scripts/assessment_engine.py", "all", "--responses",
-                str(respostas), "--out", str(work))
+                str(responses_path), "--out", str(work))
             run("scripts/fill_workbook_v2.py", "--responses",
-                str(respostas), "--out", str(work))
+                str(responses_path), "--out", str(work))
             run("reports/scripts/build_report_v2.py", "--kit", str(kit),
                 "--out", str(work))
         except subprocess.CalledProcessError as exc:

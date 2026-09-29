@@ -139,18 +139,18 @@ def build_payload(kit: Path) -> dict:
         _attach_cross_survey(payload, kit)
         return payload
 
-    respostas, scores, gaps = _load_client_pipeline_data(kit)
-    meta = respostas.get("metadata", {})
+    responses_doc, scores, gaps = _load_client_pipeline_data(kit)
+    meta = responses_doc.get("metadata", {})
     framework = load_json(kit / "framework.json")
 
     _apply_locale(payload, meta)
     na = _not_specified(kit, _locale(payload))
     _reset_sample_content(payload, meta, na)
     payload["capabilities"] = _client_capabilities(
-        framework, respostas, _locale(payload), na)
+        framework, responses_doc, _locale(payload), na)
     _apply_organization(payload, meta)
     _apply_assessment(payload, scores, meta)
-    _apply_capability_scores(payload, scores, respostas)
+    _apply_capability_scores(payload, scores, responses_doc)
     _apply_overall_scores(payload, scores)
     _apply_pillar_scores(payload, scores, framework)
     _apply_pe_readiness(payload, scores)
@@ -180,11 +180,11 @@ def _merge_branding(payload: dict) -> None:
 
 
 def _load_client_pipeline_data(kit: Path) -> tuple[dict, dict, dict]:
-    respostas_path = responses_file(kit)
+    responses_path = responses_file(kit)
     scores_path = kit / "output/scores.json"
     gaps_path = kit / "output/gaps.json"
     return (
-        load_json(respostas_path) if respostas_path.exists() else {},
+        load_json(responses_path) if responses_path.exists() else {},
         load_json(scores_path),
         load_json(gaps_path) if gaps_path.exists() else {"gaps": [], "summary": {}},
     )
@@ -275,10 +275,10 @@ def _capability_code(cap_id: str) -> str:
 
 
 def _client_capabilities(
-    framework: dict, respostas: dict, locale: str, na: str
+    framework: dict, responses_doc: dict, locale: str, na: str
 ) -> list[dict]:
     """Build capability entries from framework.json (not the sample)."""
-    responses = respostas.get("responses") or {}
+    responses = responses_doc.get("responses") or {}
     tmpl = RATIONALE.get(locale, RATIONALE[DEFAULT_LOCALE])
     caps = []
     for pillar in framework.get("pillars", []):
@@ -415,9 +415,9 @@ def _apply_pe_readiness(payload: dict, scores: dict) -> None:
 
 
 def _apply_capability_scores(
-    payload: dict, scores: dict, respostas: dict
+    payload: dict, scores: dict, responses_doc: dict
 ) -> None:
-    target_overrides = respostas.get("target_overrides", {})
+    target_overrides = responses_doc.get("target_overrides", {})
     by_id = {c["id"]: c for c in payload["capabilities"]}
     for c_client in scores.get("capabilities", []):
         cap = by_id.get(c_client["id"])
@@ -664,9 +664,9 @@ def main():
     print(f"Out:     {out_dir}")
     print()
 
-    respostas_path = responses_file(kit)
-    if respostas_path.exists():
-        meta = json.loads(respostas_path.read_text(encoding="utf-8")).get("metadata", {})
+    responses_path = responses_file(kit)
+    if responses_path.exists():
+        meta = json.loads(responses_path.read_text(encoding="utf-8")).get("metadata", {})
         if str(meta.get("framework_version") or "1").split(".")[0] not in ("0", "1"):
             import build_report_v2
             argv = ["--kit", str(kit), "--out", str(out_dir)]
