@@ -4,7 +4,11 @@
 
 All notable changes to the AI Maturity client kit. Dates are ISO 8601.
 
-## [Unreleased]
+## [2.1.0] - 2026-09-29 (DORA metrics cross-check, framework 2.0.2)
+
+The framework moves to 2.0.2 (see Changed). The scale and the scoring are
+unchanged, and responses collected with 2.0.1 still import, merge and
+score.
 
 ### Added
 
@@ -17,6 +21,13 @@ All notable changes to the AI Maturity client kit. Dates are ISO 8601.
   lists a mismatch as a risk. It checks measurement coverage, not
   delivery performance. The examples use
   `scripts/fixtures/dora-metrics.mock.csv`.
+
+### Changed
+
+- Framework 2.0.2: the D1-Q3 L4 anchor asks for an evaluation per task
+  type, as section 2.1 of the spec states for Pinna et al. [49].
+  `framework.v2.json`, the question banks, the forms, the calculator, the
+  wizard, the reference pages and the examples are regenerated.
 
 ### Fixed
 
@@ -31,6 +42,8 @@ All notable changes to the AI Maturity client kit. Dates are ISO 8601.
 - Several PT-BR docs linked the English copy of a page that has a PT-BR
   twin.
 - The Forms import log used an em dash for empty values.
+- Section 10 of the v2 spec listed pending tooling actions that the kit
+  already implements; it now names the script that supports each item.
 - `.github/copilot-instructions.md` showed wrong flags for the evidence
   scripts (`--repos`, `--metrics`); it now uses `--path` and the
   positional metrics file, as the Makefile does.

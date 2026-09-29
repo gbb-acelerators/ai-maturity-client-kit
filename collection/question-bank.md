@@ -2,7 +2,7 @@
 
 🌐 English · [Português (Brasil)](question-bank.pt-br.md) · [Español](question-bank.es.md)
 
-> Generated from `framework.v2.json` (version 2.0.1) by `scripts/generate_v2_collection.py`. Do not edit by hand. Source of the wording: [AI-Maturity-Form-Questions_v2.md](AI-Maturity-Form-Questions_v2.md). The v1 bank (158 questions) is archived in [v1/](v1/).
+> Generated from `framework.v2.json` (version 2.0.2) by `scripts/generate_v2_collection.py`. Do not edit by hand. Source of the wording: [AI-Maturity-Form-Questions_v2.md](AI-Maturity-Form-Questions_v2.md). The v1 bank (158 questions) is archived in [v1/](v1/).
 
 ## How to build the form
 
@@ -134,7 +134,7 @@ _7 questions. Why it matters: DORA identifies a "clear and communicated AI stanc
 
 - **Coverage unit:** organization-wide practice (use the governance and measurement columns)
 - **L3 looks like:** Enterprise/organization policies enable only approved features and models; the catalog lists owner, data handling and review date for each tool.
-- **L4 looks like:** New models and tools go through a defined evaluation (quality, cost, security) before enablement; retired ones are removed on schedule.
+- **L4 looks like:** New models and tools go through a defined evaluation per task type (quality, cost, security) before enablement; retired ones are removed on schedule.
 - **Evidence examples:** Copilot policy settings, tool catalog, model evaluation records.
 - **Evidence field:** `Evidence (D1-Q3)` · _Tool, % coverage, metric, time window, link_
 

@@ -2,7 +2,7 @@
 
 # Framework AI Maturity v2: guía de referencia
 
-Generado desde `framework.v2.json` (framework 2.0.1) por `scripts/generate_v2_reference.py`. La fuente de verdad es [la especificación v2](../collection/AI-Maturity-Form-Questions_v2.md), en inglés, con traducción en [AI-Maturity-Form-Questions_v2.es.md](../collection/AI-Maturity-Form-Questions_v2.es.md). No edites este archivo a mano.
+Generado desde `framework.v2.json` (framework 2.0.2) por `scripts/generate_v2_reference.py`. La fuente de verdad es [la especificación v2](../collection/AI-Maturity-Form-Questions_v2.md), en inglés, con traducción en [AI-Maturity-Form-Questions_v2.es.md](../collection/AI-Maturity-Form-Questions_v2.es.md). No edites este archivo a mano.
 
 ## Método de puntuación
 
@@ -97,7 +97,7 @@ General = media de los 9 puntajes de dimensión = **2,04** (L2 Adoptando).
 - L3 - Escalando: Estándar de la organización, gobernado y medido (51-90% de los equipos)
 - L4 - Nativo en IA: Universal (>90%), evaluado y mejorado continuamente, vinculado a resultados
 - L3: Las políticas enterprise/de la organización habilitan solo funciones y modelos aprobados; el catálogo lista responsable, manejo de datos y fecha de revisión para cada herramienta.
-- L4: Los nuevos modelos y herramientas pasan por una evaluación definida (calidad, costo, seguridad) antes de habilitarse; los retirados se eliminan según cronograma.
+- L4: Los nuevos modelos y herramientas pasan por una evaluación definida por tipo de tarea (calidad, costo, seguridad) antes de habilitarse; los retirados se eliminan según cronograma.
 
 **Ejemplos de evidencia:** Configuraciones de política de Copilot, catálogo de herramientas, registros de evaluación de modelos.  
 **Base:** [2] [15] [32] [49]  

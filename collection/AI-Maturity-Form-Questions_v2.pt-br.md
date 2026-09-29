@@ -1,4 +1,4 @@
-# Assessment de maturidade do SDLC assistido por IA: banco de perguntas v2.0.1
+# Assessment de maturidade do SDLC assistido por IA: banco de perguntas v2.0.2
 
 🌐 [English](AI-Maturity-Form-Questions_v2.md) · Português (Brasil) · [Español](AI-Maturity-Form-Questions_v2.es.md)
 
@@ -7,8 +7,8 @@
 
 | Campo | Valor |
 | --- | --- |
-| Versão | 2.0.1 |
-| Data | 2026-09-27 |
+| Versão | 2.0.2 |
+| Data | 2026-09-29 |
 | Status | Aprovado para uso no kit |
 | Substitui | banco de perguntas v1 (3 pilares, 28 capacidades, 158 perguntas) |
 | Escopo | engenharia de software assistida por IA e agentic: planejar, codificar, revisar, testar, proteger, entregar, operar, medir |
@@ -279,7 +279,7 @@ _7 perguntas. Por que importa: DORA identifica uma "postura de IA clara e comuni
 > **Existe um catálogo mantido de ferramentas, recursos e modelos de IA aprovados para desenvolvimento de software, gerenciado por políticas enterprise ou da organização?**
 
 - **L3 se parece com:** Políticas enterprise/da organização habilitam apenas recursos e modelos aprovados; o catálogo lista responsável, tratamento de dados e data de revisão para cada ferramenta.
-- **L4 se parece com:** Novos modelos e ferramentas passam por uma avaliação definida (qualidade, custo, segurança) antes da habilitação; os descontinuados são removidos conforme cronograma.
+- **L4 se parece com:** Novos modelos e ferramentas passam por uma avaliação definida por tipo de tarefa (qualidade, custo, segurança) antes da habilitação; os descontinuados são removidos conforme cronograma.
 - **Exemplos de evidência:** Configurações de política do Copilot, catálogo de ferramentas, registros de avaliação de modelos.
 - **Base:** [2], [15], [32], [49]
 - **Linhagem v1:** Nova
@@ -980,14 +980,14 @@ A linhagem por pergunta está na linha **v1 lineage** de cada pergunta v2.
 
 ## 10. Compatibilidade de importação e tooling
 
-| Item | v1 | v2 | Ação necessária |
+| Item | v1 | v2 | Suporte no kit |
 | --- | --- | --- | --- |
-| Prefixos de opções | `L0` a `L4`, `NA` | Inalterado | Nenhuma. |
-| Padrão de ID de pergunta | `P#-C#-Q#` | `D#-Q#` (pontuada), `R-Q#` (perfil) | Se `/import-responses` corresponde ao padrão v1, estenda-o para aceitar `D#-Q#` e `R-Q#`. |
-| Rótulo do campo de evidência | `Evidence (<ID>)` | Padrão inalterado | Nenhuma. |
-| Perguntas de perfil | Nenhuma | `R-Q1` a `R-Q5`, não pontuadas, `R-Q3` é múltipla escolha | O importador deve armazená-las como atributos de segmento e excluí-las da pontuação. |
-| Agrupamento | Pilar > capacidade | Dimensão | Atualize a agregação de `responses.json` e relatórios downstream (`/full-pipeline`) para agrupar por `D1` a `D9`. |
-| Comparação histórica | Nenhuma | Tabela da seção 9 | Use as linhas de linhagem para comparar um resultado v1 com um resultado v2 por capacidade. |
+| Prefixos de opções | `L0` a `L4`, `NA` | Inalterado | Nenhuma mudança necessária. |
+| Padrão de ID de pergunta | `P#-C#-Q#` | `D#-Q#` (pontuada), `R-Q#` (perfil) | `scripts/import_forms_excel.py` lê colunas `D#-Q#` e `R-Q#` como v2 e colunas `P#-C#-Q#` como v1. |
+| Rótulo do campo de evidência | `Evidence (<ID>)` | Padrão inalterado | Nenhuma mudança necessária. |
+| Perguntas de perfil | Nenhuma | `R-Q1` a `R-Q5`, não pontuadas, `R-Q3` é múltipla escolha | O importador as grava no `profile` de cada respondente; o engine as usa para os resultados por persona e para as flags, nunca para as notas. |
+| Agrupamento | Pilar > capacidade | Dimensão | O engine, a planilha e os relatórios agrupam por `D1` a `D9`; os relatórios reúnem as dimensões nos grupos G1 a G3. |
+| Comparação histórica | Nenhuma | Tabela da seção 9 | `scripts/compare_rounds.py` (`make compare`) compara um resultado v1 com um resultado v2 pelas linhas de linhagem, como baseline indicativo. |
 
 ---
 
@@ -1005,6 +1005,11 @@ A linhagem por pergunta está na linha **v1 lineage** de cada pergunta v2.
 ---
 
 ## Changelog
+
+### 2.0.2 (2026-09-29)
+
+- D1-Q3: a âncora L4 pede uma avaliação por tipo de tarefa, como a seção 2.1 afirma para Pinna et al. [49]. Isso eleva um pouco a exigência de L4 no D1-Q3; as demais perguntas, a escala e a pontuação não mudam.
+- A seção 10 mostra como o kit atende cada item, em vez de listar ações pendentes.
 
 ### 2.0.1 (2026-09-27)
 

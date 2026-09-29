@@ -2,7 +2,7 @@
 
 # Framework AI Maturity v2: guia de referência
 
-Gerado a partir de `framework.v2.json` (framework 2.0.1) por `scripts/generate_v2_reference.py`. A fonte da verdade é [a especificação v2](../collection/AI-Maturity-Form-Questions_v2.md), em inglês, com tradução em [AI-Maturity-Form-Questions_v2.pt-br.md](../collection/AI-Maturity-Form-Questions_v2.pt-br.md). Não edite este arquivo à mão.
+Gerado a partir de `framework.v2.json` (framework 2.0.2) por `scripts/generate_v2_reference.py`. A fonte da verdade é [a especificação v2](../collection/AI-Maturity-Form-Questions_v2.md), em inglês, com tradução em [AI-Maturity-Form-Questions_v2.pt-br.md](../collection/AI-Maturity-Form-Questions_v2.pt-br.md). Não edite este arquivo à mão.
 
 ## Método de pontuação
 
@@ -97,7 +97,7 @@ Existe um catálogo mantido de ferramentas, recursos e modelos de IA aprovados p
 - L3 - Escalando: Padrão organizacional, governado e medido (51-90% das equipes)
 - L4 - Nativo em IA: Universal (>90%), continuamente avaliado e melhorado, vinculado a resultados
 - L3: Políticas enterprise/da organização habilitam apenas recursos e modelos aprovados; o catálogo lista responsável, tratamento de dados e data de revisão para cada ferramenta.
-- L4: Novos modelos e ferramentas passam por uma avaliação definida (qualidade, custo, segurança) antes da habilitação; os descontinuados são removidos conforme cronograma.
+- L4: Novos modelos e ferramentas passam por uma avaliação definida por tipo de tarefa (qualidade, custo, segurança) antes da habilitação; os descontinuados são removidos conforme cronograma.
 
 **Exemplos de evidência:** Configurações de política do Copilot, catálogo de ferramentas, registros de avaliação de modelos.  
 **Base:** [2] [15] [32] [49]  

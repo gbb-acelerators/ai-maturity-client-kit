@@ -6,7 +6,7 @@
   "assessment": {
     "date": "2026-09-27",
     "generated": "2026-09-29",
-    "framework_version": "2.0.1",
+    "framework_version": "2.0.2",
     "respondents": 14,
     "source": "illustrative-mock"
   },
@@ -537,7 +537,7 @@
           "evidence_n": 2,
           "unverified": true,
           "l3": "Enterprise/organization policies enable only approved features and models; the catalog lists owner, data handling and review date for each tool.",
-          "l4": "New models and tools go through a defined evaluation (quality, cost, security) before enablement; retired ones are removed on schedule.",
+          "l4": "New models and tools go through a defined evaluation per task type (quality, cost, security) before enablement; retired ones are removed on schedule.",
           "evidence_examples": "Copilot policy settings, tool catalog, model evaluation records.",
           "unit": "organization",
           "basis": [
@@ -691,7 +691,7 @@
           "evidence_n": 2,
           "unverified": true,
           "l3": "Enterprise/organization policies enable only approved features and models; the catalog lists owner, data handling and review date for each tool.",
-          "l4": "New models and tools go through a defined evaluation (quality, cost, security) before enablement; retired ones are removed on schedule.",
+          "l4": "New models and tools go through a defined evaluation per task type (quality, cost, security) before enablement; retired ones are removed on schedule.",
           "evidence_examples": "Copilot policy settings, tool catalog, model evaluation records.",
           "unit": "organization",
           "basis": [
@@ -5169,7 +5169,7 @@
               "evidence_n": 2,
               "unverified": true,
               "l3": "Enterprise/organization policies enable only approved features and models; the catalog lists owner, data handling and review date for each tool.",
-              "l4": "New models and tools go through a defined evaluation (quality, cost, security) before enablement; retired ones are removed on schedule.",
+              "l4": "New models and tools go through a defined evaluation per task type (quality, cost, security) before enablement; retired ones are removed on schedule.",
               "evidence_examples": "Copilot policy settings, tool catalog, model evaluation records.",
               "unit": "organization",
               "basis": [
@@ -5323,7 +5323,7 @@
               "evidence_n": 2,
               "unverified": true,
               "l3": "Enterprise/organization policies enable only approved features and models; the catalog lists owner, data handling and review date for each tool.",
-              "l4": "New models and tools go through a defined evaluation (quality, cost, security) before enablement; retired ones are removed on schedule.",
+              "l4": "New models and tools go through a defined evaluation per task type (quality, cost, security) before enablement; retired ones are removed on schedule.",
               "evidence_examples": "Copilot policy settings, tool catalog, model evaluation records.",
               "unit": "organization",
               "basis": [
@@ -9538,7 +9538,7 @@
             "evidence_n": 2,
             "unverified": true,
             "l3": "Enterprise/organization policies enable only approved features and models; the catalog lists owner, data handling and review date for each tool.",
-            "l4": "New models and tools go through a defined evaluation (quality, cost, security) before enablement; retired ones are removed on schedule.",
+            "l4": "New models and tools go through a defined evaluation per task type (quality, cost, security) before enablement; retired ones are removed on schedule.",
             "evidence_examples": "Copilot policy settings, tool catalog, model evaluation records.",
             "unit": "organization",
             "basis": [
@@ -9692,7 +9692,7 @@
             "evidence_n": 2,
             "unverified": true,
             "l3": "Enterprise/organization policies enable only approved features and models; the catalog lists owner, data handling and review date for each tool.",
-            "l4": "New models and tools go through a defined evaluation (quality, cost, security) before enablement; retired ones are removed on schedule.",
+            "l4": "New models and tools go through a defined evaluation per task type (quality, cost, security) before enablement; retired ones are removed on schedule.",
             "evidence_examples": "Copilot policy settings, tool catalog, model evaluation records.",
             "unit": "organization",
             "basis": [
@@ -15908,7 +15908,7 @@
                 "evidence_n": 2,
                 "unverified": true,
                 "l3": "Enterprise/organization policies enable only approved features and models; the catalog lists owner, data handling and review date for each tool.",
-                "l4": "New models and tools go through a defined evaluation (quality, cost, security) before enablement; retired ones are removed on schedule.",
+                "l4": "New models and tools go through a defined evaluation per task type (quality, cost, security) before enablement; retired ones are removed on schedule.",
                 "evidence_examples": "Copilot policy settings, tool catalog, model evaluation records.",
                 "unit": "organization",
                 "basis": [
@@ -16062,7 +16062,7 @@
                 "evidence_n": 2,
                 "unverified": true,
                 "l3": "Enterprise/organization policies enable only approved features and models; the catalog lists owner, data handling and review date for each tool.",
-                "l4": "New models and tools go through a defined evaluation (quality, cost, security) before enablement; retired ones are removed on schedule.",
+                "l4": "New models and tools go through a defined evaluation per task type (quality, cost, security) before enablement; retired ones are removed on schedule.",
                 "evidence_examples": "Copilot policy settings, tool catalog, model evaluation records.",
                 "unit": "organization",
                 "basis": [

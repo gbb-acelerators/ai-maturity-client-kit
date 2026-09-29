@@ -1,4 +1,4 @@
-# Evaluación de madurez del SDLC asistido por IA: Banco de preguntas v2.0.1
+# Evaluación de madurez del SDLC asistido por IA: Banco de preguntas v2.0.2
 
 🌐 [English](AI-Maturity-Form-Questions_v2.md) · [Português (Brasil)](AI-Maturity-Form-Questions_v2.pt-br.md) · Español
 
@@ -7,8 +7,8 @@
 
 | Campo | Valor |
 | --- | --- |
-| Versión | 2.0.1 |
-| Fecha | 2026-09-27 |
+| Versión | 2.0.2 |
+| Fecha | 2026-09-29 |
 | Estado | Aprobado para uso en el kit |
 | Reemplaza | Banco de preguntas v1 (3 pilares, 28 capacidades, 158 preguntas) |
 | Alcance | Ingeniería de software asistida por IA y agentic: planificar, codificar, revisar, probar, asegurar, entregar, operar, medir |
@@ -279,7 +279,7 @@ _7 preguntas. Por qué importa: DORA identifica una "postura de IA clara y comun
 > **¿Existe un catálogo mantenido de herramientas, funciones y modelos de IA aprobados para desarrollo de software, gestionado mediante políticas enterprise o de la organización?**
 
 - **L3 se ve así:** Las políticas enterprise/de la organización habilitan solo funciones y modelos aprobados; el catálogo lista responsable, manejo de datos y fecha de revisión para cada herramienta.
-- **L4 se ve así:** Los nuevos modelos y herramientas pasan por una evaluación definida (calidad, costo, seguridad) antes de habilitarse; los retirados se eliminan según cronograma.
+- **L4 se ve así:** Los nuevos modelos y herramientas pasan por una evaluación definida por tipo de tarea (calidad, costo, seguridad) antes de habilitarse; los retirados se eliminan según cronograma.
 - **Ejemplos de evidencia:** Configuraciones de política de Copilot, catálogo de herramientas, registros de evaluación de modelos.
 - **Base:** [2], [15], [32], [49]
 - **Linaje v1:** Nueva
@@ -980,14 +980,14 @@ El linaje por pregunta está en la línea **v1 lineage** de cada pregunta de v2.
 
 ## 10. Compatibilidad de importación y herramientas
 
-| Elemento | v1 | v2 | Acción necesaria |
+| Elemento | v1 | v2 | Soporte en el kit |
 | --- | --- | --- | --- |
-| Prefijos de opciones | `L0` a `L4`, `NA` | Sin cambios | Ninguna. |
-| Patrón de ID de pregunta | `P#-C#-Q#` | `D#-Q#` (puntuada), `R-Q#` (perfil) | Si `/import-responses` coincide con el patrón de v1, extiéndelo para aceptar `D#-Q#` y `R-Q#`. |
-| Etiqueta del campo de evidencia | `Evidence (<ID>)` | Patrón sin cambios | Ninguna. |
-| Preguntas de perfil | Ninguna | `R-Q1` a `R-Q5`, no puntuadas, `R-Q3` es de opción múltiple | El importador debe almacenarlas como atributos de segmento y excluirlas de la puntuación. |
-| Agrupación | Pilar → capacidad | Dimensión | Actualiza la agregación de `responses.json` y los informes downstream (`/full-pipeline`) para agrupar por `D1` a `D9`. |
-| Comparación histórica | Ninguna | Tabla de la sección 9 | Usa las líneas de linaje para comparar un resultado v1 con un resultado v2 por capacidad. |
+| Prefijos de opciones | `L0` a `L4`, `NA` | Sin cambios | No requiere cambios. |
+| Patrón de ID de pregunta | `P#-C#-Q#` | `D#-Q#` (puntuada), `R-Q#` (perfil) | `scripts/import_forms_excel.py` lee las columnas `D#-Q#` y `R-Q#` como v2 y las columnas `P#-C#-Q#` como v1. |
+| Etiqueta del campo de evidencia | `Evidence (<ID>)` | Patrón sin cambios | No requiere cambios. |
+| Preguntas de perfil | Ninguna | `R-Q1` a `R-Q5`, no puntuadas, `R-Q3` es de opción múltiple | El importador las guarda en el `profile` de cada persona encuestada; el engine las usa para los resultados por persona y los flags, nunca para los puntajes. |
+| Agrupación | Pilar → capacidad | Dimensión | El engine, el workbook y los informes agrupan por `D1` a `D9`; los informes reúnen las dimensiones en los grupos G1 a G3. |
+| Comparación histórica | Ninguna | Tabla de la sección 9 | `scripts/compare_rounds.py` (`make compare`) compara un resultado v1 con un resultado v2 mediante las líneas de linaje, como baseline indicativo. |
 
 ---
 
@@ -1005,6 +1005,11 @@ El linaje por pregunta está en la línea **v1 lineage** de cada pregunta de v2.
 ---
 
 ## Registro de cambios
+
+### 2.0.2 (2026-09-29)
+
+- D1-Q3: el ancla L4 pide una evaluación por tipo de tarea, como indica la sección 2.1 para Pinna et al. [49]. Esto eleva un poco la exigencia de L4 en D1-Q3; las demás preguntas, la escala y la puntuación no cambian.
+- La sección 10 indica cómo el kit cubre cada elemento, en lugar de listar acciones pendientes.
 
 ### 2.0.1 (2026-09-27)
 
