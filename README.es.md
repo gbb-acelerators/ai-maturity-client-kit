@@ -191,3 +191,9 @@ El CI ejecuta los tests, las verificaciones de documentación y de archivos gene
 ## Licencia
 
 Este kit se distribuye bajo la [licencia MIT](LICENSE).
+
+## Contribución y soporte
+
+- [Guía de contribución](https://github.com/gbb-acelerators/ai-maturity-client-kit/blob/main/.github/CONTRIBUTING.md) (en inglés): ramas, la regla de los tres idiomas y las verificaciones a ejecutar.
+- [Soporte](https://github.com/gbb-acelerators/ai-maturity-client-kit/blob/main/.github/SUPPORT.md) y [política de seguridad](https://github.com/gbb-acelerators/ai-maturity-client-kit/blob/main/.github/SECURITY.md). Nunca adjuntes datos del cliente a un issue.
+- Este proyecto sigue el [Código de Conducta Open Source de Microsoft](https://github.com/gbb-acelerators/ai-maturity-client-kit/blob/main/.github/CODE_OF_CONDUCT.md).

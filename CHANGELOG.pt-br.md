@@ -94,6 +94,10 @@ mescladas e pontuadas.
 - O repositório não tinha licença. Agora traz a licença MIT em
   `LICENSE`, no repositório e nos três ZIPs por idioma. O README e o
   rodapé do site citam a licença.
+- O repositório agora tem código de conduta, guia de contribuição,
+  política de segurança, página de suporte, formulários de issue (bug e
+  sugestão) e template de pull request, todos em `.github/`. O README
+  aponta para eles.
 
 ## [2.0.2] - 2026-09-29 (nomes de arquivos e pastas em inglês)
 

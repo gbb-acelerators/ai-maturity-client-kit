@@ -1,0 +1,74 @@
+name: Bug report
+description: Something in the kit does not work as documented.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Never paste client data (responses, Forms or survey exports, metrics, names, emails). Reproduce with the mock data (`make demo`) or a redacted copy. For security issues, follow SECURITY.md instead of opening an issue.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Import (Forms Excel or offline merge)
+        - Scoring, gaps or recommendations
+        - Workbook
+        - PDF reports
+        - Implementation guide wizard
+        - Evidence cross-checks (repos, Copilot metrics, DORA)
+        - Developer Survey
+        - Learning Survey
+        - Copilot skills or agent
+        - Docs or translations
+        - Site or ZIP downloads
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: framework
+    attributes:
+      label: Framework version
+      options:
+        - v2 (default)
+        - v1 (archived)
+        - Not sure
+    validations:
+      required: true
+  - type: dropdown
+    id: language
+    attributes:
+      label: Kit language
+      options:
+        - English
+        - Português (Brasil)
+        - Español
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. make demo
+        2. ...
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Command output
+      description: Paste the error or log. Remove any client data first.
+      render: shell
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: macOS 15, Python 3.12, kits-21 ZIP (or commit)
