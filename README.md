@@ -187,3 +187,7 @@ make smoke-cross
 ```
 
 CI runs the tests, the documentation and generated-file checks, the v1 and v2 smoke tests and the demo on every push and pull request to `main` and `develop`. Every push to `main` also deploys the site with fresh ZIP downloads, and a push that changes kit files publishes a `kits-<run>` release with the same ZIPs. Run the checks locally before you push.
+
+## License
+
+This kit is released under the [MIT License](LICENSE).

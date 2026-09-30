@@ -49,7 +49,8 @@
         "headlineBefore": "Construindo o futuro do software com",
         "headlineAccent": "IA.",
         "repositoryLabel": "Repositório",
-        "summary": "Tudo aqui vem do trabalho prático de campo com transformação de IA em grandes empresas: kits de assessment, fluxos de survey, modelos de pontuação, relatórios executivos e guias de implementação criados para ajudar times a adotar IA com evidências."
+        "summary": "Tudo aqui vem do trabalho prático de campo com transformação de IA em grandes empresas: kits de assessment, fluxos de survey, modelos de pontuação, relatórios executivos e guias de implementação criados para ajudar times a adotar IA com evidências.",
+        "legal": "© Microsoft Corporation. Distribuído sob a licença MIT."
       },
       "nav": {
         "pipeline": "Pipeline",
@@ -453,7 +454,8 @@
         "headlineBefore": "Building the future of software with",
         "headlineAccent": "AI.",
         "repositoryLabel": "Repository",
-        "summary": "Everything here comes from practical field work with enterprise AI transformation: assessment kits, survey flows, scoring models, executive reports, and implementation guides built to help teams adopt AI with evidence."
+        "summary": "Everything here comes from practical field work with enterprise AI transformation: assessment kits, survey flows, scoring models, executive reports, and implementation guides built to help teams adopt AI with evidence.",
+        "legal": "© Microsoft Corporation. Released under the MIT License."
       },
       "nav": {
         "pipeline": "Pipeline",
@@ -857,7 +859,8 @@
         "headlineBefore": "Construyendo el futuro del software con",
         "headlineAccent": "IA.",
         "repositoryLabel": "Repositorio",
-        "summary": "Todo lo que hay aquí viene del trabajo práctico de campo con la transformación de IA en grandes empresas: kits de assessment, flujos de encuestas, modelos de puntuación, informes ejecutivos y guías de implementación creados para ayudar a los equipos a adoptar IA con evidencia."
+        "summary": "Todo lo que hay aquí viene del trabajo práctico de campo con la transformación de IA en grandes empresas: kits de assessment, flujos de encuestas, modelos de puntuación, informes ejecutivos y guías de implementación creados para ayudar a los equipos a adoptar IA con evidencia.",
+        "legal": "© Microsoft Corporation. Distribuido bajo la licencia MIT."
       },
       "nav": {
         "pipeline": "Pipeline",

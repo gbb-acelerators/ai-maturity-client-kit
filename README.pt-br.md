@@ -187,3 +187,7 @@ make smoke-cross
 ```
 
 O CI roda os testes, as checagens de documentação e de arquivos gerados, os smoke tests v1 e v2 e a demo em todo push e pull request para `main` e `develop`. Todo push em `main` também publica o site com ZIPs novos, e um push que muda arquivos do kit publica uma release `kits-<run>` com os mesmos ZIPs. Rode as checagens localmente antes de fazer push.
+
+## Licença
+
+Este kit é distribuído sob a [licença MIT](LICENSE).

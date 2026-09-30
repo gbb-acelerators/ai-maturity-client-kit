@@ -91,6 +91,9 @@ mescladas e pontuadas.
   Developer Survey de "D2-D8"; agora diz `DS-D2` a `DS-D8`, para não
   parecerem dimensões v2. O banco ES do Developer Survey sugeria um
   subtítulo em espanhol que começava com "Survey".
+- O repositório não tinha licença. Agora traz a licença MIT em
+  `LICENSE`, no repositório e nos três ZIPs por idioma. O README e o
+  rodapé do site citam a licença.
 
 ## [2.0.2] - 2026-09-29 (nomes de arquivos e pastas em inglês)
 
