@@ -87,6 +87,10 @@ mescladas e pontuadas.
   docs.
 - As cópias em espanhol usavam a palavra "respondente"; agora usam
   "encuestado".
+- O relatório de justificativa de score v1 chamava as dimensões do
+  Developer Survey de "D2-D8"; agora diz `DS-D2` a `DS-D8`, para não
+  parecerem dimensões v2. O banco ES do Developer Survey sugeria um
+  subtítulo em espanhol que começava com "Survey".
 
 ## [2.0.2] - 2026-09-29 (nomes de arquivos e pastas em inglês)
 

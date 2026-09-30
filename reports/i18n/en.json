@@ -249,7 +249,7 @@
   "methodology.formula.intro": "Each capability has an assigned weight (2 or 3) based on its strategic importance. The Pillar score is calculated as:",
   "cross_survey.intro": "This section consolidates complementary signals collected through the developer and learning surveys. Use these data to validate leadership-declared maturity against real behavior, training demand, and adoption evidence.",
   "cross_survey.developer_maturity": "Developer behavioral maturity",
-  "cross_survey.developer_maturity.desc": "D2-D8 scores calculated by deterministic rubric from the anonymous Developer Survey.",
+  "cross_survey.developer_maturity.desc": "DS-D2 to DS-D8 scores calculated by deterministic rubric from the anonymous Developer Survey.",
   "cross_survey.developer_insights": "Developer Survey insights",
   "cross_survey.developer_insights.desc": "Aggregated report with Copilot adoption, practices, governance, anonymized pain points, and recommendations.",
   "cross_survey.learning_plan": "Training plan",

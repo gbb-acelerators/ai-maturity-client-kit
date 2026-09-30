@@ -89,6 +89,10 @@ combinando y puntuando.
   de los docs.
 - Las copias en español usaban la palabra portuguesa "respondente";
   ahora dicen "encuestado".
+- El informe de justificación de puntaje v1 llamaba "D2-D8" a las
+  dimensiones del Developer Survey; ahora dice `DS-D2` a `DS-D8`, para
+  que no parezcan dimensiones v2. El banco ES del Developer Survey
+  sugería un subtítulo en español que empezaba con "Survey".
 
 ## [2.0.2] - 2026-09-29 (nombres de archivos y carpetas en inglés)
 

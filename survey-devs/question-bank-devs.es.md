@@ -10,7 +10,7 @@
 
 1. Ve a <https://forms.office.com> -> **+ New Form**.
 2. Título sugerido: `Developer Survey: Cómo mi equipo usa GitHub e IA hoy`.
-3. Subtítulo sugerido: Survey anónimo (20-25 min) sobre tus prácticas con GitHub Copilot, modos de Copilot Chat (Ask/Edit/Agent), agentes IA, instruction files, mejores prácticas de IA + Dev, y seguridad. Tus respuestas alimentarán el roadmap de adopción de IA del equipo.
+3. Subtítulo sugerido: Encuesta anónima (20-25 min) sobre tus prácticas con GitHub Copilot, modos de Copilot Chat (Ask/Edit/Agent), agentes IA, instruction files, mejores prácticas de IA + Dev, y seguridad. Tus respuestas alimentarán el roadmap de adopción de IA del equipo.
 4. Configuración: habilita **Anonymous responses**, deshabilita **One response per person**, y deja **Accept responses** habilitado.
 5. Agrega 9 secciones: S1 Perfil del encuestado, S2 GitHub Copilot Adopción y Modos, S3 Otras herramientas Microsoft / GitHub AI, S4 Prácticas de Desarrollo con IA, S5 Conceptos y Estructura de Agentes, S6 Markdown / Memory / Instructions, S7 Usabilidad y Best Practices, S8 Seguridad y Gobernanza, S9 Pain Points & Wishlist.
 6. Para cada pregunta abajo, agrega el tipo correspondiente en Forms: `choice`, `multi`, o `text`.

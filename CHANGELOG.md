@@ -83,6 +83,10 @@ score.
   15-25 min subtitle; it is now 20-25 min, like the rest of the docs.
 - Spanish copies used the Portuguese word "respondente"; they now say
   "encuestado".
+- The v1 score justification report labelled the Developer Survey
+  dimensions "D2-D8"; it now says `DS-D2` to `DS-D8`, so they do not
+  look like v2 dimensions. The ES Developer Survey bank suggested a
+  Spanish subtitle that started with "Survey".
 
 ## [2.0.2] - 2026-09-29 (English file and folder names)
 
