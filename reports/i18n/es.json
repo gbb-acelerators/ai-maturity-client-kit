@@ -249,7 +249,7 @@
   "methodology.formula.intro": "Cada capability tiene un peso asignado (2 o 3) basado en su importancia estratégica. El score del Pilar se calcula como:",
   "cross_survey.intro": "Esta sección consolida señales complementarias recopiladas en las encuestas de desarrolladores y aprendizaje. Use estos datos para validar la madurez declarada por el liderazgo contra comportamiento real, demanda de capacitación y evidencia de adopción.",
   "cross_survey.developer_maturity": "Madurez comportamental de devs",
-  "cross_survey.developer_maturity.desc": "Scores D2-D8 calculados por rúbrica determinística a partir del Developer Survey anónimo.",
+  "cross_survey.developer_maturity.desc": "Puntajes DS-D2 a DS-D8 calculados por rúbrica determinística a partir del Developer Survey anónimo.",
   "cross_survey.developer_insights": "Insights del Developer Survey",
   "cross_survey.developer_insights.desc": "Reporte agregado con adopción de Copilot, prácticas, gobernanza, pain points anonimizados y recomendaciones.",
   "cross_survey.learning_plan": "Plan de capacitación",

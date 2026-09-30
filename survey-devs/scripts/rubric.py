@@ -159,7 +159,7 @@ def _multi_count(items: list[str], *patterns: str) -> int:
 
 
 # =========================================================
-# D2: Copilot Adoption Maturity
+# DS-D2: Copilot Adoption Maturity
 # =========================================================
 # Signals: license + frequency + mode breadth + features + perceived gain
 
@@ -221,7 +221,7 @@ def score_D2(responses: dict) -> Optional[float]:
 
 
 # =========================================================
-# D3: MS/GH Tooling Breadth
+# DS-D3: MS/GH Tooling Breadth
 # =========================================================
 # Counts advanced tools in USE (Foundry, Spaces, Coding Agent, MCP, etc.)
 
@@ -281,7 +281,7 @@ def score_D3(responses: dict) -> Optional[float]:
 
 
 # =========================================================
-# D4: AI Dev Practices Maturity
+# DS-D4: AI Dev Practices Maturity
 # =========================================================
 # TDD with AI + SDD + pair programming + AI across all dev phases
 
@@ -336,7 +336,7 @@ def score_D4(responses: dict) -> Optional[float]:
 
 
 # =========================================================
-# D5: Agent Concepts Mastery
+# DS-D5: Agent Concepts Mastery
 # =========================================================
 # Knowledge of key concepts + created primitives + tests agents
 
@@ -396,7 +396,7 @@ def score_D5(responses: dict) -> Optional[float]:
 
 
 # =========================================================
-# D6: Instructions Files Maturity
+# DS-D6: Instructions Files Maturity
 # =========================================================
 
 def score_D6(responses: dict) -> Optional[float]:
@@ -451,7 +451,7 @@ def score_D6(responses: dict) -> Optional[float]:
 
 
 # =========================================================
-# D7: Best Practices
+# DS-D7: Best Practices
 # =========================================================
 
 def score_D7(responses: dict) -> Optional[float]:
@@ -504,7 +504,7 @@ def score_D7(responses: dict) -> Optional[float]:
 
 
 # =========================================================
-# D8: Security & Governance Maturity
+# DS-D8: Security & Governance Maturity
 # =========================================================
 # Critical: red flags weigh negatively
 
