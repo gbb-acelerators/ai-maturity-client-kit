@@ -90,6 +90,10 @@ score.
 - The repository had no license. It now ships the MIT License in
   `LICENSE`, in the repository and in the three language ZIPs. The
   README and the site footer name it.
+- The repository now has a code of conduct, a contributing guide, a
+  security policy, a support page, issue forms (bug report, feature
+  request) and a pull request template, all in `.github/`. The README
+  links to them.
 
 ## [2.0.2] - 2026-09-29 (English file and folder names)
 

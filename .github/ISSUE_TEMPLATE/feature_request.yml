@@ -1,0 +1,31 @@
+name: Feature request
+description: Suggest a new feature, question, evidence check or report change.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is hard or missing today, and for whom (consultant, client leadership, developers).
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What you would like the kit to do.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sources or evidence
+      description: For new questions, anchors or scoring rules, link the research or field evidence that supports the change.
+  - type: checkboxes
+    id: impact
+    attributes:
+      label: Impact
+      options:
+        - label: Changes framework v2 questions, anchors or scoring rules
+        - label: Changes report output (PDF, workbook)
+        - label: Needs new text in the three languages
