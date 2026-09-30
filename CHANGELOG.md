@@ -87,6 +87,9 @@ score.
   dimensions "D2-D8"; it now says `DS-D2` to `DS-D8`, so they do not
   look like v2 dimensions. The ES Developer Survey bank suggested a
   Spanish subtitle that started with "Survey".
+- The repository had no license. It now ships the MIT License in
+  `LICENSE`, in the repository and in the three language ZIPs. The
+  README and the site footer name it.
 
 ## [2.0.2] - 2026-09-29 (English file and folder names)
 

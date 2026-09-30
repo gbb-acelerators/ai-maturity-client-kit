@@ -103,6 +103,7 @@ SHARED_RUNTIME_ROOTS = [
     "reference/branding/tokens-paulasilva-ms.css",
     "collection/v2-mock-forms-export.xlsx",
     "CHANGELOG.md",
+    "LICENSE",
 ]
 
 SHARED_CLIENT_ASSETS = [
